@@ -1,0 +1,48 @@
+package main
+
+import (
+    "log"
+    "net/http"
+
+    "github.com/cgascoig/isctl/openapi"
+    "github.com/spf13/cobra"
+)
+
+
+{{ define "cliitem" }}
+func () *cobra.Command {
+    cmd := &cobra.Command{
+        Use: "{{ .Token }}",
+        {{ if .Operation }}
+        Run: func(cmd *cobra.Command, args []string) {
+            {{ if ne .Operation.ReturnType "" }}
+            res, httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationId }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
+            resultHandler(res, httpResponse, err)
+            {{ else }}
+            httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationId }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
+            resultHandler(nil, httpResponse, err)
+            {{ end }}
+        }, 
+        {{ end }}
+        {{ if .Parameter }}
+        Args: cobra.ExactArgs(1),
+        {{ end }}
+    }
+    
+    {{ range $k, $v := .Children }}
+        cmd.AddCommand({{ template "cliitem" $v}}())
+    {{ end }}
+
+    return cmd
+}{{ end }}
+
+func runCmd(cmd *cobra.Command, args []string) {
+    log.Printf("Running command %s with args %v", cmd.Use, args)
+}
+
+type ResultHandler = func(result interface{}, httpResponse *http.Response, err error)
+
+func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.Command {
+    rootCmd := {{ template "cliitem" . }}()
+    return rootCmd
+}

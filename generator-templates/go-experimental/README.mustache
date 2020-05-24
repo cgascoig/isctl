@@ -1,0 +1,18 @@
+operations:
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}
+  - operationId: "{{{operationId}}}"
+    httpMethod: "{{{httpMethod}}}"
+    returnType: "{{{returnType}}}"
+    summary: "{{{summary}}}"
+    baseName: "{{{baseName}}}"
+    params:
+{{#allParams}}
+    - paramName: "{{{paramName}}}"
+      description: "{{{description}}}"
+      dataType: "{{{dataType}}}"
+      required: {{{required}}}
+      isBodyParam: {{{isBodyParam}}}
+      isPathParam: {{{isPathParam}}}
+      isQueryParam: {{{isQueryParam}}}
+{{/allParams}}
+{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
