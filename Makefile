@@ -37,4 +37,4 @@ cmd/cli.go: build/generator-postprocess openapi/operations.yaml generator-postpr
 > go fmt "$@"
 
 build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f)
-> $(GO_BUILD_CMD) -o "$@" $(GO_MODULE)/cmd
+> $(GO_BUILD_CMD) -o "$@" -ldflags "-X main.gitCommit=`git rev-parse HEAD`" $(GO_MODULE)/cmd

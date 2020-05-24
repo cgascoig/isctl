@@ -48,6 +48,7 @@ func main() {
 		Run: configure,
 	}
 	rootCmd.AddCommand(configCmd)
+	rootCmd.AddCommand(newCmdVersion())
 	rootCmd.PersistentPreRunE = validateFlags
 
 	if err := rootCmd.Execute(); err != nil {
