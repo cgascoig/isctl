@@ -1,6 +1,6 @@
 {
     "isGoSubmodule": true,
     "withGoCodegenComment": true,
-    "hideGenerationTimestamp": false,
+    "hideGenerationTimestamp": true,
     "structPrefix": true
 }
