@@ -2,14 +2,39 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"net/http"
 	"reflect"
 	"strings"
 
 	"encoding/json"
 
 	"github.com/PaesslerAG/jsonpath"
+	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 )
+
+func resultHandler(result interface{}, httpResponse *http.Response, err error) {
+	if err != nil {
+		log.Printf("HTTP Response status text: %v", httpResponse.Status)
+		log.Fatalf("ERROR: %v\n", err)
+	}
+
+	result, err = applyJSONPathFilter(result, jsonPathFilter)
+	if err != nil {
+		log.Fatalf("ERROR applying jsonPath filter: %v", err)
+	}
+
+	switch outputFormat := strings.ToLower(viper.GetString(keyOutputConfigKey)); {
+	case outputFormat == "yaml":
+		printResultYAML(result)
+	case outputFormat == "json":
+		printResultJSON(result)
+	default:
+		// printResultHuman(result)
+		printResultYAML(result)
+	}
+}
 
 func stripEnvelope(result interface{}) interface{} {
 	vr := reflect.ValueOf(result)
@@ -90,7 +115,7 @@ func printResultHuman(result interface{}) {
 	}
 }
 
-func getResultObjects(result interface{}, jsonpathQuery *string) (interface{}, error) {
+func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{}, error) {
 	buf, err := json.Marshal(result)
 	if err != nil {
 		return nil, fmt.Errorf("JSON marshalling error: %v", err)
@@ -102,11 +127,11 @@ func getResultObjects(result interface{}, jsonpathQuery *string) (interface{}, e
 		return nil, fmt.Errorf("JSON unmarshalling error: %v", err)
 	}
 
-	if jsonpathQuery == nil {
+	if jsonpathQuery == "" {
 		return js, nil
 	}
 
-	jp, err := jsonpath.Get(*jsonpathQuery, js)
+	jp, err := jsonpath.Get(jsonpathQuery, js)
 	if err != nil {
 		return nil, fmt.Errorf("JSONPath parsing error: %v", err)
 	}
@@ -114,14 +139,8 @@ func getResultObjects(result interface{}, jsonpathQuery *string) (interface{}, e
 
 }
 
-func printResultYAML(result interface{}, jsonpathQuery *string) {
-	res, err := getResultObjects(result, jsonpathQuery)
-	if err != nil {
-		fmt.Printf("ERROR: %v", err)
-		return
-	}
-
-	out, err := yaml.Marshal(res)
+func printResultYAML(result interface{}) {
+	out, err := yaml.Marshal(result)
 	if err != nil {
 		fmt.Printf("ERROR: %v", err)
 		return
@@ -130,55 +149,12 @@ func printResultYAML(result interface{}, jsonpathQuery *string) {
 	fmt.Println(string(out))
 }
 
-// func printResultYAML(result interface{}) {
-
-// 	jp := jsonpath.New("test")
-
-// 	err := jp.Parse("{$..}")
-// 	if err != nil {
-// 		fmt.Printf("JSONPath parsing error: %v", err)
-// 		return
-// 	}
-
-// 	var buf bytes.Buffer
-
-// 	err = jp.Execute(&buf, result)
-// 	if err != nil {
-// 		fmt.Printf("JSONPath execute error: %v", err)
-// 		return
-// 	}
-
-// 	fmt.Println(buf.String())
-// 	return
-
-// 	// buf, err := json.Marshal(result)
-// 	// if err != nil {
-// 	// 	fmt.Printf("ERROR: %v", err)
-// 	// 	return
-// 	// }
-
-// 	var js interface{}
-// 	err = json.Unmarshal(buf.Bytes(), &js)
-// 	if err != nil {
-// 		fmt.Printf("JSON unmarshaling error: %v", err)
-// 		return
-// 	}
-
-// 	y, err := yaml.Marshal(js)
-// 	if err != nil {
-// 		fmt.Printf("YAML marshaling error: %v", err)
-// 		return
-// 	}
-
-// 	fmt.Println(string(y))
-// }
-
 func printResultJSON(result interface{}) {
-	buf, err := json.Marshal(result)
+	out, err := json.Marshal(result)
 	if err != nil {
 		fmt.Printf("ERROR: %v", err)
 		return
 	}
 
-	fmt.Println(string(buf))
+	fmt.Println(string(out))
 }

@@ -5,7 +5,6 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"net/http"
 	"os"
 	"path/filepath"
 
@@ -16,13 +15,16 @@ import (
 )
 
 var (
-	configFile string
-	authCtx    context.Context
+	configFile     string
+	jsonPathFilter string
+
+	authCtx context.Context
 )
 
 const (
-	keyIDConfigKey   = "keyID"
-	keyFileConfigKey = "keyFile"
+	keyIDConfigKey     = "keyID"
+	keyFileConfigKey   = "keyFile"
+	keyOutputConfigKey = "output"
 )
 
 func main() {
@@ -38,10 +40,13 @@ func main() {
 
 	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID")
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
-	rootCmd.PersistentFlags().StringP("output", "o", "default", "Output format. One of: default, yaml, json, jsonpath=...")
+
+	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", "Output format. One of: default, yaml, json")
+	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.NtpPolicyList.Results[*].ClassId\")")
+
 	viper.BindPFlag(keyIDConfigKey, rootCmd.PersistentFlags().Lookup(keyIDConfigKey))
 	viper.BindPFlag(keyFileConfigKey, rootCmd.PersistentFlags().Lookup(keyFileConfigKey))
-	viper.BindPFlag("output", rootCmd.PersistentFlags().Lookup("output"))
+	viper.BindPFlag(keyOutputConfigKey, rootCmd.PersistentFlags().Lookup(keyOutputConfigKey))
 
 	configCmd := &cobra.Command{
 		Use: "configure",
@@ -54,17 +59,6 @@ func main() {
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatalln(err)
 	}
-}
-
-func resultHandler(result interface{}, httpResponse *http.Response, err error) {
-	if err != nil {
-		log.Printf("HTTP Response status text: %v", httpResponse.Status)
-		log.Fatalf("ERROR: %v\n", err)
-	}
-
-	// result = stripEnvelope(result)
-	printResultHuman(result)
-	// printResultYAML(result)
 }
 
 func initConfig() {
