@@ -70,12 +70,12 @@ func getTokenListForOperation(op *Operation) ([]string, []string) {
 	}
 
 	tokenList := []string{
-		op.HttpMethod,
+		op.HTTPMethod,
 		op.BaseName,
-		op.OperationId,
+		op.OperationID,
 	}
 
-	methodVerb := methodVerbs[strings.ToLower(op.HttpMethod)]
+	methodVerb := methodVerbs[strings.ToLower(op.HTTPMethod)]
 
 	helpList := []string{
 		methodVerb + " resouce(s)",

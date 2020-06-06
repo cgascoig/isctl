@@ -16,19 +16,22 @@ var (
 	outputFilename     string
 )
 
+// OperationsFile represents the YAML operations file
 type OperationsFile struct {
 	Operations []Operation `yaml:"operations"`
 }
 
+// Operation represents the YAML of one operation
 type Operation struct {
-	OperationId string  `yaml:"operationId"`
-	HttpMethod  string  `yaml:"httpMethod"`
+	OperationID string  `yaml:"operationId"`
+	HTTPMethod  string  `yaml:"httpMethod"`
 	ReturnType  string  `yaml:"returnType"`
 	Summary     string  `yaml:"summary"`
 	BaseName    string  `yaml:"baseName"`
 	Params      []Param `yaml:"params"`
 }
 
+// Param represents the YAML of one parameter
 type Param struct {
 	ParamName    string `yaml:"paramName"`
 	Description  string `yaml:"description"`

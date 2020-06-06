@@ -16,10 +16,10 @@ func () *cobra.Command {
         {{ if .Operation }}
         Run: func(cmd *cobra.Command, args []string) {
             {{ if ne .Operation.ReturnType "" }}
-            res, httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationId }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
+            res, httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationID }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
             resultHandler(res, httpResponse, err)
             {{ else }}
-            httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationId }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
+            httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationID }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
             resultHandler(nil, httpResponse, err)
             {{ end }}
         }, 
