@@ -28,7 +28,7 @@ openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-
 > mv openapi/README.md openapi/operations.yaml
 > ${GOPATH}/bin/goimports -l -w openapi
 
-build/generator-postprocess: $(shell find generator-postprocess -name \*.go -type f)
+build/generator-postprocess: $(shell find generator-postprocess -name \*.go -type f) go.mod
 > mkdir -p $(@D)
 > go build -v -o "$@" $(GO_MODULE)/generator-postprocess 
 
@@ -36,5 +36,5 @@ cmd/cli.go: build/generator-postprocess openapi/operations.yaml generator-postpr
 > build/generator-postprocess --operations openapi/operations.yaml --template generator-postprocess/cli.gotmpl --output "$@"
 > go fmt "$@"
 
-build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f)
+build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
 > $(GO_BUILD_CMD) -o "$@" -ldflags "-X main.gitCommit=`git rev-parse HEAD`" $(GO_MODULE)/cmd
