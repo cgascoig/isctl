@@ -16,8 +16,9 @@ const (
 
 func newCmdVersion() *cobra.Command {
 	return &cobra.Command{
-		Use: "version",
-		Run: runCmdVersion,
+		Use:   "version",
+		Run:   runCmdVersion,
+		Short: "Print the version information",
 	}
 }
 

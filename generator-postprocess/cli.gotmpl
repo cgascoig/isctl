@@ -27,6 +27,8 @@ func () *cobra.Command {
         {{ if .Parameter }}
         Args: cobra.ExactArgs(1),
         {{ end }}
+        
+        Short: "{{ .Help }}",
     }
     
     {{ range $k, $v := .Children }}

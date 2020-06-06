@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -8,6 +9,7 @@ import (
 // CliItem is a node in the CLI tree
 type CliItem struct {
 	Token     string
+	Help      string
 	Children  map[string]*CliItem
 	Parameter string //the name of the field in the request struct, nil if this isn't a parameter
 	Operation *Operation
@@ -59,14 +61,29 @@ func fixupTokenList(tokenList []string) []string {
 	return tokenList
 }
 
-func getTokenListForOperation(op *Operation) []string {
+func getTokenListForOperation(op *Operation) ([]string, []string) {
+	methodVerbs := map[string]string{
+		"get":    "Get or list",
+		"patch":  "Update",
+		"delete": "Delete",
+		"post":   "Create",
+	}
+
 	tokenList := []string{
 		op.HttpMethod,
 		op.BaseName,
 		op.OperationId,
 	}
 
-	return fixupTokenList(tokenList)
+	methodVerb := methodVerbs[strings.ToLower(op.HttpMethod)]
+
+	helpList := []string{
+		methodVerb + " resouce(s)",
+		fmt.Sprintf("%s %s resource(s)", methodVerb, op.BaseName),
+		op.Summary,
+	}
+
+	return fixupTokenList(tokenList), helpList
 }
 
 func getOrCreateChildCliItem(cliItem *CliItem, token string, parameter bool) *CliItem {
@@ -98,11 +115,12 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 
 	for i := range opData.Operations {
 		var op *Operation = &opData.Operations[i]
-		tokenList := getTokenListForOperation(op)
+		tokenList, tokenHelp := getTokenListForOperation(op)
 		cliItem := &cliTree
 
-		for _, token := range tokenList {
+		for i, token := range tokenList {
 			cliItem = getOrCreateChildCliItem(cliItem, token, false)
+			cliItem.Help = tokenHelp[i]
 		}
 
 		for _, param := range op.Params {

@@ -42,15 +42,16 @@ func main() {
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
 
 	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", "Output format. One of: default, yaml, json")
-	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.NtpPolicyList.Results[*].ClassId\")")
+	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.NtpPolicyList.Results[*].Name\")")
 
 	viper.BindPFlag(keyIDConfigKey, rootCmd.PersistentFlags().Lookup(keyIDConfigKey))
 	viper.BindPFlag(keyFileConfigKey, rootCmd.PersistentFlags().Lookup(keyFileConfigKey))
 	viper.BindPFlag(keyOutputConfigKey, rootCmd.PersistentFlags().Lookup(keyOutputConfigKey))
 
 	configCmd := &cobra.Command{
-		Use: "configure",
-		Run: configure,
+		Use:   "configure",
+		Run:   configure,
+		Short: "Configure the isctl command",
 	}
 	rootCmd.AddCommand(configCmd)
 	rootCmd.AddCommand(newCmdVersion())

@@ -21,18 +21,24 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 		func() *cobra.Command {
 			cmd := &cobra.Command{
 				Use: "",
+
+				Short: "",
 			}
 
 			cmd.AddCommand(
 				func() *cobra.Command {
 					cmd := &cobra.Command{
 						Use: "create",
+
+						Short: "Create resouce(s)",
 					}
 
 					cmd.AddCommand(
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "adapter",
+
+								Short: "Create Adapter resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -46,6 +52,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'adapter.ConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -55,6 +63,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateadapterconfigpolicy",
+
+										Short: "Update a 'adapter.ConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -70,6 +80,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -85,6 +97,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "appliance",
+
+								Short: "Create Appliance resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -98,6 +112,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'appliance.Backup' resource.",
 									}
 
 									return cmd
@@ -114,6 +130,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'appliance.BackupPolicy' resource.",
 									}
 
 									return cmd
@@ -130,6 +148,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'appliance.DataExportPolicy' resource.",
 									}
 
 									return cmd
@@ -146,6 +166,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'appliance.DeviceClaim' resource.",
 									}
 
 									return cmd
@@ -162,6 +184,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'appliance.DiagSetting' resource.",
 									}
 
 									return cmd
@@ -178,6 +202,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'appliance.Restore' resource.",
 									}
 
 									return cmd
@@ -187,6 +213,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateappliancebackuppolicy",
+
+										Short: "Update a 'appliance.BackupPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -202,6 +230,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -214,6 +244,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateappliancecertificatesetting",
+
+										Short: "Update a 'appliance.CertificateSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -229,6 +261,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -241,6 +275,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateappliancedataexportpolicy",
+
+										Short: "Update a 'appliance.DataExportPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -256,6 +292,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -268,6 +306,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateappliancediagsetting",
+
+										Short: "Update a 'appliance.DiagSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -283,6 +323,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -295,6 +337,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateappliancesetupinfo",
+
+										Short: "Update a 'appliance.SetupInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -310,6 +354,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -322,6 +368,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateapplianceupgrade",
+
+										Short: "Update a 'appliance.Upgrade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -337,6 +385,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -349,6 +399,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateapplianceupgradepolicy",
+
+										Short: "Update a 'appliance.UpgradePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -364,6 +416,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -379,6 +433,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "asset",
+
+								Short: "Create Asset resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -392,6 +448,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'asset.DeviceClaim' resource.",
 									}
 
 									return cmd
@@ -408,6 +466,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'asset.ManagedDevice' resource.",
 									}
 
 									return cmd
@@ -417,6 +477,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateassetdeviceconfiguration",
+
+										Short: "Update a 'asset.DeviceConfiguration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -432,6 +494,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -444,6 +508,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateassetdevicecontractinformation",
+
+										Short: "Update a 'asset.DeviceContractInformation' resource.",
 									}
 
 									cmd.AddCommand(
@@ -459,6 +525,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -471,6 +539,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateassetdeviceregistration",
+
+										Short: "Updates the resource representing the device connector. For example, this can be used to annotate the device connector resource with user-specified tags.",
 									}
 
 									cmd.AddCommand(
@@ -486,6 +556,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -498,6 +570,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateassetmanageddevice",
+
+										Short: "Update a 'asset.ManagedDevice' resource.",
 									}
 
 									cmd.AddCommand(
@@ -513,6 +587,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -528,6 +604,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "bios",
+
+								Short: "Create Bios resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -541,6 +619,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'bios.Policy' resource.",
 									}
 
 									return cmd
@@ -550,6 +630,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatebiosbootmode",
+
+										Short: "Update a 'bios.BootMode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -565,6 +647,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -577,6 +661,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatebiospolicy",
+
+										Short: "Update a 'bios.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -592,6 +678,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -604,6 +692,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatebiosunit",
+
+										Short: "Update a 'bios.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -619,6 +709,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -634,6 +726,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "boot",
+
+								Short: "Create Boot resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -647,6 +741,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'boot.PrecisionPolicy' resource.",
 									}
 
 									return cmd
@@ -656,6 +752,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatebootdevicebootmode",
+
+										Short: "Update a 'boot.DeviceBootMode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -671,6 +769,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -683,6 +783,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatebootprecisionpolicy",
+
+										Short: "Update a 'boot.PrecisionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -698,6 +800,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -713,12 +817,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "compute",
+
+								Short: "Create Compute resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatecomputeblade",
+
+										Short: "Update a 'compute.Blade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -734,6 +842,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -746,6 +856,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatecomputeboard",
+
+										Short: "Update a 'compute.Board' resource.",
 									}
 
 									cmd.AddCommand(
@@ -761,6 +873,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -773,6 +887,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatecomputerackunit",
+
+										Short: "Update a 'compute.RackUnit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -788,6 +904,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -800,6 +918,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatecomputeserversetting",
+
+										Short: "Update a 'compute.ServerSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -815,6 +935,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -830,6 +952,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "deviceconnector",
+
+								Short: "Create Deviceconnector resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -843,6 +967,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'deviceconnector.Policy' resource.",
 									}
 
 									return cmd
@@ -852,6 +978,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatedeviceconnectorpolicy",
+
+										Short: "Update a 'deviceconnector.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -867,6 +995,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -882,12 +1012,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "equipment",
+
+								Short: "Create Equipment resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentchassis",
+
+										Short: "Update a 'equipment.Chassis' resource.",
 									}
 
 									cmd.AddCommand(
@@ -903,6 +1037,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -915,6 +1051,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentfan",
+
+										Short: "Update a 'equipment.Fan' resource.",
 									}
 
 									cmd.AddCommand(
@@ -930,6 +1068,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -942,6 +1082,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentfanmodule",
+
+										Short: "Update a 'equipment.FanModule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -957,6 +1099,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -969,6 +1113,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentfex",
+
+										Short: "Update a 'equipment.Fex' resource.",
 									}
 
 									cmd.AddCommand(
@@ -984,6 +1130,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -996,6 +1144,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentiocard",
+
+										Short: "Update a 'equipment.IoCard' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1011,6 +1161,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1023,6 +1175,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentioexpander",
+
+										Short: "Update a 'equipment.IoExpander' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1038,6 +1192,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1050,6 +1206,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentlocatorled",
+
+										Short: "Update a 'equipment.LocatorLed' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1065,6 +1223,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1077,6 +1237,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentpsu",
+
+										Short: "Update a 'equipment.Psu' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1092,6 +1254,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1104,6 +1268,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentrackenclosure",
+
+										Short: "Update a 'equipment.RackEnclosure' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1119,6 +1285,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1131,6 +1299,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentrackenclosureslot",
+
+										Short: "Update a 'equipment.RackEnclosureSlot' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1146,6 +1316,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1158,6 +1330,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentsharediomodule",
+
+										Short: "Update a 'equipment.SharedIoModule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1173,6 +1347,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1185,6 +1361,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentswitchcard",
+
+										Short: "Update a 'equipment.SwitchCard' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1200,6 +1378,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1212,6 +1392,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmentsystemiocontroller",
+
+										Short: "Update a 'equipment.SystemIoController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1227,6 +1409,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1239,6 +1423,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateequipmenttpm",
+
+										Short: "Update a 'equipment.Tpm' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1254,6 +1440,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1269,12 +1457,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ether",
+
+								Short: "Create Ether resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateetherphysicalport",
+
+										Short: "Update a 'ether.PhysicalPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1290,6 +1482,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1305,6 +1499,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "externalsite",
+
+								Short: "Create Externalsite resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -1318,6 +1514,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'externalsite.Authorization' resource.",
 									}
 
 									return cmd
@@ -1327,6 +1525,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateexternalsiteauthorization",
+
+										Short: "Update a 'externalsite.Authorization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1342,6 +1542,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1357,12 +1559,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "fault",
+
+								Short: "Create Fault resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatefaultinstance",
+
+										Short: "Update a 'fault.Instance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1378,6 +1584,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1393,12 +1601,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "fc",
+
+								Short: "Create Fc resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatefcphysicalport",
+
+										Short: "Update a 'fc.PhysicalPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1414,6 +1626,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1429,6 +1643,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "feedback",
+
+								Short: "Create Feedback resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -1442,6 +1658,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'feedback.FeedbackPost' resource.",
 									}
 
 									return cmd
@@ -1454,6 +1672,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "firmware",
+
+								Short: "Create Firmware resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -1467,6 +1687,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'firmware.Distributable' resource.",
 									}
 
 									return cmd
@@ -1483,6 +1705,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'firmware.DriverDistributable' resource.",
 									}
 
 									return cmd
@@ -1499,6 +1723,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'firmware.Eula' resource.",
 									}
 
 									return cmd
@@ -1515,6 +1741,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'firmware.ServerConfigurationUtilityDistributable' resource.",
 									}
 
 									return cmd
@@ -1531,6 +1759,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'firmware.Upgrade' resource.",
 									}
 
 									return cmd
@@ -1540,6 +1770,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatefirmwaredistributable",
+
+										Short: "Update a 'firmware.Distributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1555,6 +1787,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1567,6 +1801,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatefirmwaredriverdistributable",
+
+										Short: "Update a 'firmware.DriverDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1582,6 +1818,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1594,6 +1832,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatefirmwarerunningfirmware",
+
+										Short: "Update a 'firmware.RunningFirmware' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1609,6 +1849,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1621,6 +1863,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatefirmwareserverconfigurationutilitydistributable",
+
+										Short: "Update a 'firmware.ServerConfigurationUtilityDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1636,6 +1880,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1651,12 +1897,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "graphics",
+
+								Short: "Create Graphics resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updategraphicscard",
+
+										Short: "Update a 'graphics.Card' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1672,6 +1922,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1684,6 +1936,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updategraphicscontroller",
+
+										Short: "Update a 'graphics.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1699,6 +1953,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1714,6 +1970,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hcl",
+
+								Short: "Create Hcl resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -1727,6 +1985,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hcl.CompatibilityStatus' resource.",
 									}
 
 									return cmd
@@ -1743,6 +2003,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hcl.HyperflexSoftwareCompatibilityInfo' resource.",
 									}
 
 									return cmd
@@ -1759,6 +2021,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hcl.SupportedDriverName' resource.",
 									}
 
 									return cmd
@@ -1768,6 +2032,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehclhyperflexsoftwarecompatibilityinfo",
+
+										Short: "Update a 'hcl.HyperflexSoftwareCompatibilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -1783,6 +2049,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -1798,6 +2066,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hyperflex",
+
+								Short: "Create Hyperflex resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -1811,6 +2081,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.AppCatalog' resource.",
 									}
 
 									return cmd
@@ -1827,6 +2099,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.AutoSupportPolicy' resource.",
 									}
 
 									return cmd
@@ -1843,6 +2117,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.CapabilityInfo' resource.",
 									}
 
 									return cmd
@@ -1859,6 +2135,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ClusterNetworkPolicy' resource.",
 									}
 
 									return cmd
@@ -1875,6 +2153,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ClusterProfile' resource.",
 									}
 
 									return cmd
@@ -1891,6 +2171,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ClusterStoragePolicy' resource.",
 									}
 
 									return cmd
@@ -1907,6 +2189,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ExtFcStoragePolicy' resource.",
 									}
 
 									return cmd
@@ -1923,6 +2207,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ExtIscsiStoragePolicy' resource.",
 									}
 
 									return cmd
@@ -1939,6 +2225,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.FeatureLimitExternal' resource.",
 									}
 
 									return cmd
@@ -1955,6 +2243,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.FeatureLimitInternal' resource.",
 									}
 
 									return cmd
@@ -1971,6 +2261,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.HxdpVersion' resource.",
 									}
 
 									return cmd
@@ -1987,6 +2279,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.LocalCredentialPolicy' resource.",
 									}
 
 									return cmd
@@ -2003,6 +2297,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.NodeConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -2019,6 +2315,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.NodeProfile' resource.",
 									}
 
 									return cmd
@@ -2035,6 +2333,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ProxySettingPolicy' resource.",
 									}
 
 									return cmd
@@ -2051,6 +2351,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ServerFirmwareVersion' resource.",
 									}
 
 									return cmd
@@ -2067,6 +2369,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.ServerModel' resource.",
 									}
 
 									return cmd
@@ -2083,6 +2387,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.SoftwareVersionPolicy' resource.",
 									}
 
 									return cmd
@@ -2099,6 +2405,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.SysConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -2115,6 +2423,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.UcsmConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -2131,6 +2441,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'hyperflex.VcenterConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -2140,6 +2452,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexappcatalog",
+
+										Short: "Update a 'hyperflex.AppCatalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2155,6 +2469,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2167,6 +2483,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexautosupportpolicy",
+
+										Short: "Update a 'hyperflex.AutoSupportPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2182,6 +2500,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2194,6 +2514,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexcapabilityinfo",
+
+										Short: "Update a 'hyperflex.CapabilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2209,6 +2531,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2221,6 +2545,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexcluster",
+
+										Short: "Update a 'hyperflex.Cluster' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2236,6 +2562,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2248,6 +2576,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexclusternetworkpolicy",
+
+										Short: "Update a 'hyperflex.ClusterNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2263,6 +2593,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2275,6 +2607,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexclusterprofile",
+
+										Short: "Update a 'hyperflex.ClusterProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2290,6 +2624,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2302,6 +2638,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexclusterstoragepolicy",
+
+										Short: "Update a 'hyperflex.ClusterStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2317,6 +2655,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2329,6 +2669,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexextfcstoragepolicy",
+
+										Short: "Update a 'hyperflex.ExtFcStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2344,6 +2686,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2356,6 +2700,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexextiscsistoragepolicy",
+
+										Short: "Update a 'hyperflex.ExtIscsiStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2371,6 +2717,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2383,6 +2731,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexfeaturelimitexternal",
+
+										Short: "Update a 'hyperflex.FeatureLimitExternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2398,6 +2748,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2410,6 +2762,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexfeaturelimitinternal",
+
+										Short: "Update a 'hyperflex.FeatureLimitInternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2425,6 +2779,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2437,6 +2793,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexhxdpversion",
+
+										Short: "Update a 'hyperflex.HxdpVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2452,6 +2810,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2464,6 +2824,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexlocalcredentialpolicy",
+
+										Short: "Update a 'hyperflex.LocalCredentialPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2479,6 +2841,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2491,6 +2855,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexnodeconfigpolicy",
+
+										Short: "Update a 'hyperflex.NodeConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2506,6 +2872,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2518,6 +2886,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexnodeprofile",
+
+										Short: "Update a 'hyperflex.NodeProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2533,6 +2903,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2545,6 +2917,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexproxysettingpolicy",
+
+										Short: "Update a 'hyperflex.ProxySettingPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2560,6 +2934,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2572,6 +2948,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexserverfirmwareversion",
+
+										Short: "Update a 'hyperflex.ServerFirmwareVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2587,6 +2965,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2599,6 +2979,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexservermodel",
+
+										Short: "Update a 'hyperflex.ServerModel' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2614,6 +2996,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2626,6 +3010,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexsoftwareversionpolicy",
+
+										Short: "Update a 'hyperflex.SoftwareVersionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2641,6 +3027,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2653,6 +3041,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexsysconfigpolicy",
+
+										Short: "Update a 'hyperflex.SysConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2668,6 +3058,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2680,6 +3072,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexucsmconfigpolicy",
+
+										Short: "Update a 'hyperflex.UcsmConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2695,6 +3089,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2707,6 +3103,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatehyperflexvcenterconfigpolicy",
+
+										Short: "Update a 'hyperflex.VcenterConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2722,6 +3120,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2737,12 +3137,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iaas",
+
+								Short: "Create Iaas resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiaasucsdinfo",
+
+										Short: "Update a 'iaas.UcsdInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -2758,6 +3162,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -2773,6 +3179,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iam",
+
+								Short: "Create Iam resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -2786,6 +3194,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.Account' resource.",
 									}
 
 									return cmd
@@ -2802,6 +3212,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.ApiKey' resource.",
 									}
 
 									return cmd
@@ -2818,6 +3230,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.AppRegistration' resource.",
 									}
 
 									return cmd
@@ -2834,6 +3248,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.Certificate' resource.",
 									}
 
 									return cmd
@@ -2850,6 +3266,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.CertificateRequest' resource.",
 									}
 
 									return cmd
@@ -2866,6 +3284,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.EndPointUser' resource.",
 									}
 
 									return cmd
@@ -2882,6 +3302,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.EndPointUserPolicy' resource.",
 									}
 
 									return cmd
@@ -2898,6 +3320,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.EndPointUserRole' resource.",
 									}
 
 									return cmd
@@ -2914,6 +3338,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.Idp' resource.",
 									}
 
 									return cmd
@@ -2930,6 +3356,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.LdapGroup' resource.",
 									}
 
 									return cmd
@@ -2946,6 +3374,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.LdapPolicy' resource.",
 									}
 
 									return cmd
@@ -2962,6 +3392,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.LdapProvider' resource.",
 									}
 
 									return cmd
@@ -2978,6 +3410,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.Permission' resource.",
 									}
 
 									return cmd
@@ -2994,6 +3428,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.PrivateKeySpec' resource.",
 									}
 
 									return cmd
@@ -3010,6 +3446,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.Qualifier' resource.",
 									}
 
 									return cmd
@@ -3026,6 +3464,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.ResourceRoles' resource.",
 									}
 
 									return cmd
@@ -3042,6 +3482,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.SessionLimits' resource.",
 									}
 
 									return cmd
@@ -3058,6 +3500,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.TrustPoint' resource.",
 									}
 
 									return cmd
@@ -3074,6 +3518,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.User' resource.",
 									}
 
 									return cmd
@@ -3090,6 +3536,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'iam.UserGroup' resource.",
 									}
 
 									return cmd
@@ -3099,6 +3547,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamaccount",
+
+										Short: "Update a 'iam.Account' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3114,6 +3564,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3126,6 +3578,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamapikey",
+
+										Short: "Update a 'iam.ApiKey' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3141,6 +3595,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3153,6 +3609,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamappregistration",
+
+										Short: "Update a 'iam.AppRegistration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3168,6 +3626,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3180,6 +3640,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamcertificate",
+
+										Short: "Update a 'iam.Certificate' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3195,6 +3657,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3207,6 +3671,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamcertificaterequest",
+
+										Short: "Update a 'iam.CertificateRequest' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3222,6 +3688,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3234,6 +3702,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamendpointuser",
+
+										Short: "Update a 'iam.EndPointUser' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3249,6 +3719,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3261,6 +3733,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamendpointuserpolicy",
+
+										Short: "Update a 'iam.EndPointUserPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3276,6 +3750,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3288,6 +3764,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamendpointuserrole",
+
+										Short: "Update a 'iam.EndPointUserRole' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3303,6 +3781,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3315,6 +3795,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamidp",
+
+										Short: "Update a 'iam.Idp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3330,6 +3812,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3342,6 +3826,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamidpreference",
+
+										Short: "Update a 'iam.IdpReference' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3357,6 +3843,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3369,6 +3857,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamldapgroup",
+
+										Short: "Update a 'iam.LdapGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3384,6 +3874,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3396,6 +3888,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamldappolicy",
+
+										Short: "Update a 'iam.LdapPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3411,6 +3905,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3423,6 +3919,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamldapprovider",
+
+										Short: "Update a 'iam.LdapProvider' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3438,6 +3936,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3450,6 +3950,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamlocaluserpassword",
+
+										Short: "Update a 'iam.LocalUserPassword' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3465,6 +3967,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3477,6 +3981,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiampermission",
+
+										Short: "Update a 'iam.Permission' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3492,6 +3998,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3504,6 +4012,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamprivatekeyspec",
+
+										Short: "Update a 'iam.PrivateKeySpec' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3519,6 +4029,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3531,6 +4043,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamqualifier",
+
+										Short: "Update a 'iam.Qualifier' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3546,6 +4060,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3558,6 +4074,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamresourceroles",
+
+										Short: "Update a 'iam.ResourceRoles' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3573,6 +4091,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3585,6 +4105,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamsessionlimits",
+
+										Short: "Update a 'iam.SessionLimits' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3600,6 +4122,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3612,6 +4136,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamuser",
+
+										Short: "Update a 'iam.User' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3627,6 +4153,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3639,6 +4167,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamusergroup",
+
+										Short: "Update a 'iam.UserGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3654,6 +4184,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3666,6 +4198,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateiamuserpreference",
+
+										Short: "Update a 'iam.UserPreference' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3681,6 +4215,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3696,6 +4232,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "infra",
+
+								Short: "Create Infra resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -3709,6 +4247,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'infra.AccountExperience' resource.",
 									}
 
 									return cmd
@@ -3718,6 +4258,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateinfraaccountexperience",
+
+										Short: "Update a 'infra.AccountExperience' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3733,6 +4275,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3748,6 +4292,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "inventory",
+
+								Short: "Create Inventory resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -3761,6 +4307,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'inventory.Request' resource.",
 									}
 
 									return cmd
@@ -3770,6 +4318,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateinventorygenericinventory",
+
+										Short: "Update a 'inventory.GenericInventory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3785,6 +4335,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3797,6 +4349,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateinventorygenericinventoryholder",
+
+										Short: "Update a 'inventory.GenericInventoryHolder' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3812,6 +4366,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3827,6 +4383,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ipmioverlan",
+
+								Short: "Create Ipmioverlan resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -3840,6 +4398,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'ipmioverlan.Policy' resource.",
 									}
 
 									return cmd
@@ -3849,6 +4409,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateipmioverlanpolicy",
+
+										Short: "Update a 'ipmioverlan.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3864,6 +4426,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3879,6 +4443,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "kvm",
+
+								Short: "Create Kvm resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -3892,6 +4458,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'kvm.Policy' resource.",
 									}
 
 									return cmd
@@ -3901,6 +4469,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatekvmpolicy",
+
+										Short: "Update a 'kvm.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3916,6 +4486,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3931,6 +4503,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "license",
+
+								Short: "Create License resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -3944,6 +4518,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'license.LicenseInfo' resource.",
 									}
 
 									return cmd
@@ -3953,6 +4529,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatelicenseaccountlicensedata",
+
+										Short: "Update a 'license.AccountLicenseData' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3968,6 +4546,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -3980,6 +4560,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatelicensecustomerop",
+
+										Short: "Update a 'license.CustomerOp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -3995,6 +4577,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4007,6 +4591,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatelicenselicenseinfo",
+
+										Short: "Update a 'license.LicenseInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4022,6 +4608,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4034,6 +4622,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatelicensesmartlicensetoken",
+
+										Short: "Update a 'license.SmartlicenseToken' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4049,6 +4639,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4064,12 +4656,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ls",
+
+								Short: "Create Ls resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatelsserviceprofile",
+
+										Short: "Update a 'ls.ServiceProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4085,6 +4681,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4100,12 +4698,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "management",
+
+								Short: "Create Management resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatemanagementcontroller",
+
+										Short: "Update a 'management.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4121,6 +4723,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4133,6 +4737,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatemanagemententity",
+
+										Short: "Update a 'management.Entity' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4148,6 +4754,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4160,6 +4768,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatemanagementinterface",
+
+										Short: "Update a 'management.Interface' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4175,6 +4785,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4190,6 +4802,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "memory",
+
+								Short: "Create Memory resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -4203,6 +4817,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'memory.PersistentMemoryPolicy' resource.",
 									}
 
 									return cmd
@@ -4212,6 +4828,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememoryarray",
+
+										Short: "Update a 'memory.Array' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4227,6 +4845,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4239,6 +4859,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememorypersistentmemoryconfigresult",
+
+										Short: "Update a 'memory.PersistentMemoryConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4254,6 +4876,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4266,6 +4890,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememorypersistentmemoryconfiguration",
+
+										Short: "Update a 'memory.PersistentMemoryConfiguration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4281,6 +4907,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4293,6 +4921,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememorypersistentmemorynamespace",
+
+										Short: "Update a 'memory.PersistentMemoryNamespace' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4308,6 +4938,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4320,6 +4952,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememorypersistentmemorynamespaceconfigresult",
+
+										Short: "Update a 'memory.PersistentMemoryNamespaceConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4335,6 +4969,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4347,6 +4983,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememorypersistentmemorypolicy",
+
+										Short: "Update a 'memory.PersistentMemoryPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4362,6 +5000,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4374,6 +5014,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememorypersistentmemoryregion",
+
+										Short: "Update a 'memory.PersistentMemoryRegion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4389,6 +5031,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4401,6 +5045,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememorypersistentmemoryunit",
+
+										Short: "Update a 'memory.PersistentMemoryUnit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4416,6 +5062,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4428,6 +5076,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatememoryunit",
+
+										Short: "Update a 'memory.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4443,6 +5093,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4458,12 +5110,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "network",
+
+								Short: "Create Network resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatenetworkelement",
+
+										Short: "Update a 'network.Element' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4479,6 +5135,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4494,6 +5152,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "networkconfig",
+
+								Short: "Create Networkconfig resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -4507,6 +5167,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'networkconfig.Policy' resource.",
 									}
 
 									return cmd
@@ -4516,6 +5178,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatenetworkconfigpolicy",
+
+										Short: "Update a 'networkconfig.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4531,6 +5195,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4546,6 +5212,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ntp",
+
+								Short: "Create Ntp resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -4559,6 +5227,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'ntp.Policy' resource.",
 									}
 
 									return cmd
@@ -4568,6 +5238,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatentppolicy",
+
+										Short: "Update a 'ntp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4583,6 +5255,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4598,6 +5272,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "organization",
+
+								Short: "Create Organization resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -4611,6 +5287,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'organization.Organization' resource.",
 									}
 
 									return cmd
@@ -4620,6 +5298,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateorganizationorganization",
+
+										Short: "Update a 'organization.Organization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4635,6 +5315,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4650,6 +5332,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "os",
+
+								Short: "Create Os resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -4663,6 +5347,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'os.ConfigurationFile' resource.",
 									}
 
 									return cmd
@@ -4679,6 +5365,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'os.Install' resource.",
 									}
 
 									return cmd
@@ -4695,6 +5383,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'os.OsSupport' resource.",
 									}
 
 									return cmd
@@ -4711,6 +5401,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'os.TemplateFile' resource.",
 									}
 
 									return cmd
@@ -4723,12 +5415,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "pci",
+
+								Short: "Create Pci resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatepcidevice",
+
+										Short: "Update a 'pci.Device' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4744,6 +5440,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4756,6 +5454,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatepcilink",
+
+										Short: "Update a 'pci.Link' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4771,6 +5471,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4783,6 +5485,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatepciswitch",
+
+										Short: "Update a 'pci.Switch' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4798,6 +5502,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4813,12 +5519,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "port",
+
+								Short: "Create Port resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateportgroup",
+
+										Short: "Update a 'port.Group' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4834,6 +5544,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4846,6 +5558,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateportsubgroup",
+
+										Short: "Update a 'port.SubGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4861,6 +5575,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4876,12 +5592,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "processor",
+
+								Short: "Create Processor resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateprocessorunit",
+
+										Short: "Update a 'processor.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -4897,6 +5617,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -4912,6 +5634,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "recovery",
+
+								Short: "Create Recovery resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -4925,6 +5649,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'recovery.BackupConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -4941,6 +5667,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'recovery.BackupProfile' resource.",
 									}
 
 									return cmd
@@ -4957,6 +5685,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'recovery.OnDemandBackup' resource.",
 									}
 
 									return cmd
@@ -4973,6 +5703,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'recovery.Restore' resource.",
 									}
 
 									return cmd
@@ -4989,6 +5721,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'recovery.ScheduleConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -4998,6 +5732,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updaterecoverybackupconfigpolicy",
+
+										Short: "Update a 'recovery.BackupConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5013,6 +5749,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5025,6 +5763,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updaterecoverybackupprofile",
+
+										Short: "Update a 'recovery.BackupProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5040,6 +5780,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5052,6 +5794,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updaterecoveryondemandbackup",
+
+										Short: "Update a 'recovery.OnDemandBackup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5067,6 +5811,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5079,6 +5825,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updaterecoveryscheduleconfigpolicy",
+
+										Short: "Update a 'recovery.ScheduleConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5094,6 +5842,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5109,6 +5859,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "resource",
+
+								Short: "Create Resource resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5122,6 +5874,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'resource.Group' resource.",
 									}
 
 									return cmd
@@ -5131,6 +5885,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateresourcegroup",
+
+										Short: "Update a 'resource.Group' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5146,6 +5902,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5161,6 +5919,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdcard",
+
+								Short: "Create Sdcard resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5174,6 +5934,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'sdcard.Policy' resource.",
 									}
 
 									return cmd
@@ -5183,6 +5945,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesdcardpolicy",
+
+										Short: "Update a 'sdcard.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5198,6 +5962,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5213,6 +5979,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdwan",
+
+								Short: "Create Sdwan resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5226,6 +5994,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'sdwan.Profile' resource.",
 									}
 
 									return cmd
@@ -5242,6 +6012,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'sdwan.RouterNode' resource.",
 									}
 
 									return cmd
@@ -5258,6 +6030,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'sdwan.RouterPolicy' resource.",
 									}
 
 									return cmd
@@ -5274,6 +6048,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'sdwan.VmanageAccountPolicy' resource.",
 									}
 
 									return cmd
@@ -5283,6 +6059,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesdwanprofile",
+
+										Short: "Update a 'sdwan.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5298,6 +6076,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5310,6 +6090,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesdwanrouternode",
+
+										Short: "Update a 'sdwan.RouterNode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5325,6 +6107,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5337,6 +6121,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesdwanrouterpolicy",
+
+										Short: "Update a 'sdwan.RouterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5352,6 +6138,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5364,6 +6152,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesdwanvmanageaccountpolicy",
+
+										Short: "Update a 'sdwan.VmanageAccountPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5379,6 +6169,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5394,6 +6186,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "search",
+
+								Short: "Create Search resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5407,6 +6201,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'search.SuggestItem' resource.",
 									}
 
 									return cmd
@@ -5419,12 +6215,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "security",
+
+								Short: "Create Security resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesecurityunit",
+
+										Short: "Update a 'security.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5440,6 +6240,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5455,6 +6257,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "server",
+
+								Short: "Create Server resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5468,6 +6272,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'server.ConfigImport' resource.",
 									}
 
 									return cmd
@@ -5484,6 +6290,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'server.Profile' resource.",
 									}
 
 									return cmd
@@ -5493,6 +6301,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateserverprofile",
+
+										Short: "Update a 'server.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5508,6 +6318,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5523,6 +6335,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "smtp",
+
+								Short: "Create Smtp resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5536,6 +6350,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'smtp.Policy' resource.",
 									}
 
 									return cmd
@@ -5545,6 +6361,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesmtppolicy",
+
+										Short: "Update a 'smtp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5560,6 +6378,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5575,6 +6395,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "snmp",
+
+								Short: "Create Snmp resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5588,6 +6410,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'snmp.Policy' resource.",
 									}
 
 									return cmd
@@ -5597,6 +6421,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesnmppolicy",
+
+										Short: "Update a 'snmp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5612,6 +6438,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5627,6 +6455,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "software",
+
+								Short: "Create Software resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5640,6 +6470,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'software.HclMeta' resource.",
 									}
 
 									return cmd
@@ -5656,6 +6488,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'software.HyperflexDistributable' resource.",
 									}
 
 									return cmd
@@ -5672,6 +6506,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'software.SolutionDistributable' resource.",
 									}
 
 									return cmd
@@ -5681,6 +6517,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesoftwarehclmeta",
+
+										Short: "Update a 'software.HclMeta' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5696,6 +6534,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5708,6 +6548,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesoftwarehyperflexdistributable",
+
+										Short: "Update a 'software.HyperflexDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5723,6 +6565,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5735,6 +6579,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesoftwaresolutiondistributable",
+
+										Short: "Update a 'software.SolutionDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5750,6 +6596,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5765,6 +6613,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "softwarerepository",
+
+								Short: "Create Softwarerepository resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5778,6 +6628,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'softwarerepository.Authorization' resource.",
 									}
 
 									return cmd
@@ -5794,6 +6646,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'softwarerepository.OperatingSystemFile' resource.",
 									}
 
 									return cmd
@@ -5803,6 +6657,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesoftwarerepositoryauthorization",
+
+										Short: "Update a 'softwarerepository.Authorization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5818,6 +6674,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5830,6 +6688,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesoftwarerepositoryoperatingsystemfile",
+
+										Short: "Update a 'softwarerepository.OperatingSystemFile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5845,6 +6705,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5860,6 +6722,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sol",
+
+								Short: "Create Sol resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5873,6 +6737,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'sol.Policy' resource.",
 									}
 
 									return cmd
@@ -5882,6 +6748,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesolpolicy",
+
+										Short: "Update a 'sol.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5897,6 +6765,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5912,6 +6782,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ssh",
+
+								Short: "Create Ssh resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5925,6 +6797,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'ssh.Policy' resource.",
 									}
 
 									return cmd
@@ -5934,6 +6808,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesshpolicy",
+
+										Short: "Update a 'ssh.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -5949,6 +6825,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -5964,6 +6842,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "storage",
+
+								Short: "Create Storage resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -5977,6 +6857,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'storage.DiskGroupPolicy' resource.",
 									}
 
 									return cmd
@@ -5993,6 +6875,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'storage.StoragePolicy' resource.",
 									}
 
 									return cmd
@@ -6002,6 +6886,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragecontroller",
+
+										Short: "Update a 'storage.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6017,6 +6903,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6029,6 +6917,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragediskgrouppolicy",
+
+										Short: "Update a 'storage.DiskGroupPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6044,6 +6934,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6056,6 +6948,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageenclosure",
+
+										Short: "Update a 'storage.Enclosure' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6071,6 +6965,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6083,6 +6979,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageenclosuredisk",
+
+										Short: "Update a 'storage.EnclosureDisk' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6098,6 +6996,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6110,6 +7010,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageenclosurediskslotep",
+
+										Short: "Update a 'storage.EnclosureDiskSlotEp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6125,6 +7027,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6137,6 +7041,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageflexflashcontroller",
+
+										Short: "Update a 'storage.FlexFlashController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6152,6 +7058,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6164,6 +7072,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageflexflashcontrollerprops",
+
+										Short: "Update a 'storage.FlexFlashControllerProps' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6179,6 +7089,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6191,6 +7103,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageflexflashphysicaldrive",
+
+										Short: "Update a 'storage.FlexFlashPhysicalDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6206,6 +7120,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6218,6 +7134,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageflexflashvirtualdrive",
+
+										Short: "Update a 'storage.FlexFlashVirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6233,6 +7151,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6245,6 +7165,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageflexutilcontroller",
+
+										Short: "Update a 'storage.FlexUtilController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6260,6 +7182,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6272,6 +7196,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageflexutilphysicaldrive",
+
+										Short: "Update a 'storage.FlexUtilPhysicalDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6287,6 +7213,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6299,6 +7227,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestorageflexutilvirtualdrive",
+
+										Short: "Update a 'storage.FlexUtilVirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6314,6 +7244,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6326,6 +7258,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragephysicaldisk",
+
+										Short: "Update a 'storage.PhysicalDisk' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6341,6 +7275,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6353,6 +7289,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragephysicaldiskextension",
+
+										Short: "Update a 'storage.PhysicalDiskExtension' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6368,6 +7306,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6380,6 +7320,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragephysicaldiskusage",
+
+										Short: "Update a 'storage.PhysicalDiskUsage' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6395,6 +7337,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6407,6 +7351,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragepurearray",
+
+										Short: "Update a 'storage.PureArray' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6422,6 +7368,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6434,6 +7382,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragesasexpander",
+
+										Short: "Update a 'storage.SasExpander' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6449,6 +7399,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6461,6 +7413,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragesasport",
+
+										Short: "Update a 'storage.SasPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6476,6 +7430,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6488,6 +7444,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragestoragepolicy",
+
+										Short: "Update a 'storage.StoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6503,6 +7461,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6515,6 +7475,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragevdmemberep",
+
+										Short: "Update a 'storage.VdMemberEp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6530,6 +7492,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6542,6 +7506,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragevirtualdrive",
+
+										Short: "Update a 'storage.VirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6557,6 +7523,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6569,6 +7537,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatestoragevirtualdriveextension",
+
+										Short: "Update a 'storage.VirtualDriveExtension' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6584,6 +7554,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6599,6 +7571,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "syslog",
+
+								Short: "Create Syslog resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -6612,6 +7586,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'syslog.Policy' resource.",
 									}
 
 									return cmd
@@ -6621,6 +7597,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatesyslogpolicy",
+
+										Short: "Update a 'syslog.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6636,6 +7614,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6651,6 +7631,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "tam",
+
+								Short: "Create Tam resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -6664,6 +7646,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'tam.AdvisoryCount' resource.",
 									}
 
 									return cmd
@@ -6680,6 +7664,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'tam.AdvisoryInfo' resource.",
 									}
 
 									return cmd
@@ -6696,6 +7682,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'tam.AdvisoryInstance' resource.",
 									}
 
 									return cmd
@@ -6712,6 +7700,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'tam.SecurityAdvisory' resource.",
 									}
 
 									return cmd
@@ -6721,6 +7711,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatetamadvisorycount",
+
+										Short: "Update a 'tam.AdvisoryCount' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6736,6 +7728,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6748,6 +7742,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatetamadvisoryinfo",
+
+										Short: "Update a 'tam.AdvisoryInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6763,6 +7759,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6775,6 +7773,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatetamadvisoryinstance",
+
+										Short: "Update a 'tam.AdvisoryInstance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6790,6 +7790,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6802,6 +7804,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatetamsecurityadvisory",
+
+										Short: "Update a 'tam.SecurityAdvisory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6817,6 +7821,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6832,6 +7838,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "task",
+
+								Short: "Create Task resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -6845,6 +7853,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'task.PureScopedInventory' resource.",
 									}
 
 									return cmd
@@ -6857,6 +7867,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "telemetry",
+
+								Short: "Create Telemetry resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -6870,6 +7882,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Perform a Druid time series aggregation request.",
 									}
 
 									return cmd
@@ -6882,12 +7896,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "top",
+
+								Short: "Create Top resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatetopsystem",
+
+										Short: "Update a 'top.System' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6903,6 +7921,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6918,12 +7938,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "virtualization",
+
+								Short: "Create Virtualization resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevirtualizationvmwarecluster",
+
+										Short: "Update a 'virtualization.VmwareCluster' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6939,6 +7963,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6951,6 +7977,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevirtualizationvmwaredatacenter",
+
+										Short: "Update a 'virtualization.VmwareDatacenter' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6966,6 +7994,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -6978,6 +8008,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevirtualizationvmwaredatastore",
+
+										Short: "Update a 'virtualization.VmwareDatastore' resource.",
 									}
 
 									cmd.AddCommand(
@@ -6993,6 +8025,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7005,6 +8039,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevirtualizationvmwarehost",
+
+										Short: "Update a 'virtualization.VmwareHost' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7020,6 +8056,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7032,6 +8070,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevirtualizationvmwarevirtualmachine",
+
+										Short: "Update a 'virtualization.VmwareVirtualMachine' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7047,6 +8087,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7062,6 +8104,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vmedia",
+
+								Short: "Create Vmedia resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -7075,6 +8119,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vmedia.Policy' resource.",
 									}
 
 									return cmd
@@ -7084,6 +8130,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevmediapolicy",
+
+										Short: "Update a 'vmedia.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7099,6 +8147,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7114,6 +8164,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vnic",
+
+								Short: "Create Vnic resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -7127,6 +8179,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.EthAdapterPolicy' resource.",
 									}
 
 									return cmd
@@ -7143,6 +8197,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.EthIf' resource.",
 									}
 
 									return cmd
@@ -7159,6 +8215,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.EthNetworkPolicy' resource.",
 									}
 
 									return cmd
@@ -7175,6 +8233,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.EthQosPolicy' resource.",
 									}
 
 									return cmd
@@ -7191,6 +8251,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.FcAdapterPolicy' resource.",
 									}
 
 									return cmd
@@ -7207,6 +8269,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.FcIf' resource.",
 									}
 
 									return cmd
@@ -7223,6 +8287,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.FcNetworkPolicy' resource.",
 									}
 
 									return cmd
@@ -7239,6 +8305,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.FcQosPolicy' resource.",
 									}
 
 									return cmd
@@ -7255,6 +8323,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.LanConnectivityPolicy' resource.",
 									}
 
 									return cmd
@@ -7271,6 +8341,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'vnic.SanConnectivityPolicy' resource.",
 									}
 
 									return cmd
@@ -7280,6 +8352,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicethadapterpolicy",
+
+										Short: "Update a 'vnic.EthAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7295,6 +8369,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7307,6 +8383,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicethif",
+
+										Short: "Update a 'vnic.EthIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7322,6 +8400,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7334,6 +8414,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicethnetworkpolicy",
+
+										Short: "Update a 'vnic.EthNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7349,6 +8431,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7361,6 +8445,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicethqospolicy",
+
+										Short: "Update a 'vnic.EthQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7376,6 +8462,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7388,6 +8476,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicfcadapterpolicy",
+
+										Short: "Update a 'vnic.FcAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7403,6 +8493,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7415,6 +8507,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicfcif",
+
+										Short: "Update a 'vnic.FcIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7430,6 +8524,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7442,6 +8538,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicfcnetworkpolicy",
+
+										Short: "Update a 'vnic.FcNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7457,6 +8555,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7469,6 +8569,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicfcqospolicy",
+
+										Short: "Update a 'vnic.FcQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7484,6 +8586,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7496,6 +8600,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevniclanconnectivitypolicy",
+
+										Short: "Update a 'vnic.LanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7511,6 +8617,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7523,6 +8631,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updatevnicsanconnectivitypolicy",
+
+										Short: "Update a 'vnic.SanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7538,6 +8648,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7553,6 +8665,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "workflow",
+
+								Short: "Create Workflow resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -7566,6 +8680,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'workflow.BatchApiExecutor' resource.",
 									}
 
 									return cmd
@@ -7582,6 +8698,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'workflow.CustomDataTypeDefinition' resource.",
 									}
 
 									return cmd
@@ -7598,6 +8716,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'workflow.TaskDefinition' resource.",
 									}
 
 									return cmd
@@ -7614,6 +8734,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'workflow.WorkflowDefinition' resource.",
 									}
 
 									return cmd
@@ -7630,6 +8752,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Create a 'workflow.WorkflowInfo' resource.",
 									}
 
 									return cmd
@@ -7639,6 +8763,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateworkflowbatchapiexecutor",
+
+										Short: "Update a 'workflow.BatchApiExecutor' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7654,6 +8780,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7666,6 +8794,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateworkflowcustomdatatypedefinition",
+
+										Short: "Update a 'workflow.CustomDataTypeDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7681,6 +8811,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7693,6 +8825,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateworkflowtaskdefinition",
+
+										Short: "Update a 'workflow.TaskDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7708,6 +8842,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7720,6 +8856,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateworkflowtaskinfo",
+
+										Short: "Update a 'workflow.TaskInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7735,6 +8873,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7747,6 +8887,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateworkflowworkflowdefinition",
+
+										Short: "Update a 'workflow.WorkflowDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7762,6 +8904,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7774,6 +8918,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "updateworkflowworkflowinfo",
+
+										Short: "Update a 'workflow.WorkflowInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7789,6 +8935,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7807,18 +8955,24 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 				func() *cobra.Command {
 					cmd := &cobra.Command{
 						Use: "delete",
+
+						Short: "Delete resouce(s)",
 					}
 
 					cmd.AddCommand(
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "adapter",
+
+								Short: "Delete Adapter resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "configpolicy",
+
+										Short: "Delete a 'adapter.ConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7834,6 +8988,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7849,12 +9005,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "appliance",
+
+								Short: "Delete Appliance resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "backup",
+
+										Short: "Delete a 'appliance.Backup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7870,6 +9030,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7882,6 +9044,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "restore",
+
+										Short: "Delete a 'appliance.Restore' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7897,6 +9061,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7912,12 +9078,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "asset",
+
+								Short: "Delete Asset resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "deviceclaim",
+
+										Short: "Delete a 'asset.DeviceClaim' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7933,6 +9103,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7945,6 +9117,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "deviceregistration",
+
+										Short: "Deletes the resource representing the device connector. All associated REST resources will be deleted. In particular, inventory and operational data associated with this device will be deleted.",
 									}
 
 									cmd.AddCommand(
@@ -7960,6 +9134,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -7972,6 +9148,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "manageddevice",
+
+										Short: "Delete a 'asset.ManagedDevice' resource.",
 									}
 
 									cmd.AddCommand(
@@ -7987,6 +9165,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8002,12 +9182,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "bios",
+
+								Short: "Delete Bios resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'bios.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8023,6 +9207,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8038,12 +9224,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "boot",
+
+								Short: "Delete Boot resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "precisionpolicy",
+
+										Short: "Delete a 'boot.PrecisionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8059,6 +9249,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8074,12 +9266,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "deviceconnector",
+
+								Short: "Delete Deviceconnector resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'deviceconnector.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8095,6 +9291,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8110,12 +9308,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "firmware",
+
+								Short: "Delete Firmware resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "distributable",
+
+										Short: "Delete a 'firmware.Distributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8131,6 +9333,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8143,6 +9347,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "driverdistributable",
+
+										Short: "Delete a 'firmware.DriverDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8158,6 +9364,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8170,6 +9378,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "serverconfigurationutilitydistributable",
+
+										Short: "Delete a 'firmware.ServerConfigurationUtilityDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8185,6 +9395,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8197,6 +9409,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "upgrade",
+
+										Short: "Delete a 'firmware.Upgrade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8212,6 +9426,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8227,12 +9443,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hcl",
+
+								Short: "Delete Hcl resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hyperflexsoftwarecompatibilityinfo",
+
+										Short: "Delete a 'hcl.HyperflexSoftwareCompatibilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8248,6 +9468,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8263,12 +9485,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hyperflex",
+
+								Short: "Delete Hyperflex resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "appcatalog",
+
+										Short: "Delete a 'hyperflex.AppCatalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8284,6 +9510,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8296,6 +9524,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "autosupportpolicy",
+
+										Short: "Delete a 'hyperflex.AutoSupportPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8311,6 +9541,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8323,6 +9555,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "capabilityinfo",
+
+										Short: "Delete a 'hyperflex.CapabilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8338,6 +9572,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8350,6 +9586,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "clusternetworkpolicy",
+
+										Short: "Delete a 'hyperflex.ClusterNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8365,6 +9603,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8377,6 +9617,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "clusterprofile",
+
+										Short: "Delete a 'hyperflex.ClusterProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8392,6 +9634,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8404,6 +9648,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "clusterstoragepolicy",
+
+										Short: "Delete a 'hyperflex.ClusterStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8419,6 +9665,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8431,6 +9679,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "extfcstoragepolicy",
+
+										Short: "Delete a 'hyperflex.ExtFcStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8446,6 +9696,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8458,6 +9710,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "extiscsistoragepolicy",
+
+										Short: "Delete a 'hyperflex.ExtIscsiStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8473,6 +9727,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8485,6 +9741,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "featurelimitexternal",
+
+										Short: "Delete a 'hyperflex.FeatureLimitExternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8500,6 +9758,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8512,6 +9772,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "featurelimitinternal",
+
+										Short: "Delete a 'hyperflex.FeatureLimitInternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8527,6 +9789,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8539,6 +9803,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hxdpversion",
+
+										Short: "Delete a 'hyperflex.HxdpVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8554,6 +9820,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8566,6 +9834,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "localcredentialpolicy",
+
+										Short: "Delete a 'hyperflex.LocalCredentialPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8581,6 +9851,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8593,6 +9865,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "nodeconfigpolicy",
+
+										Short: "Delete a 'hyperflex.NodeConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8608,6 +9882,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8620,6 +9896,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "nodeprofile",
+
+										Short: "Delete a 'hyperflex.NodeProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8635,6 +9913,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8647,6 +9927,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "proxysettingpolicy",
+
+										Short: "Delete a 'hyperflex.ProxySettingPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8662,6 +9944,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8674,6 +9958,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "serverfirmwareversion",
+
+										Short: "Delete a 'hyperflex.ServerFirmwareVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8689,6 +9975,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8701,6 +9989,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "servermodel",
+
+										Short: "Delete a 'hyperflex.ServerModel' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8716,6 +10006,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8728,6 +10020,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "softwareversionpolicy",
+
+										Short: "Delete a 'hyperflex.SoftwareVersionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8743,6 +10037,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8755,6 +10051,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sysconfigpolicy",
+
+										Short: "Delete a 'hyperflex.SysConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8770,6 +10068,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8782,6 +10082,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ucsmconfigpolicy",
+
+										Short: "Delete a 'hyperflex.UcsmConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8797,6 +10099,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8809,6 +10113,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vcenterconfigpolicy",
+
+										Short: "Delete a 'hyperflex.VcenterConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8824,6 +10130,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8839,12 +10147,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iaas",
+
+								Short: "Delete Iaas resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ucsdinfo",
+
+										Short: "Delete a 'iaas.UcsdInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8860,6 +10172,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8875,12 +10189,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iam",
+
+								Short: "Delete Iam resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "account",
+
+										Short: "Delete a 'iam.Account' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8896,6 +10214,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8908,6 +10228,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "apikey",
+
+										Short: "Delete a 'iam.ApiKey' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8923,6 +10245,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8935,6 +10259,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "appregistration",
+
+										Short: "Delete a 'iam.AppRegistration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8950,6 +10276,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8962,6 +10290,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "certificate",
+
+										Short: "Delete a 'iam.Certificate' resource.",
 									}
 
 									cmd.AddCommand(
@@ -8977,6 +10307,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -8989,6 +10321,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "certificaterequest",
+
+										Short: "Delete a 'iam.CertificateRequest' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9004,6 +10338,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9016,6 +10352,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "endpointuser",
+
+										Short: "Delete a 'iam.EndPointUser' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9031,6 +10369,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9043,6 +10383,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "endpointuserpolicy",
+
+										Short: "Delete a 'iam.EndPointUserPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9058,6 +10400,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9070,6 +10414,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "endpointuserrole",
+
+										Short: "Delete a 'iam.EndPointUserRole' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9085,6 +10431,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9097,6 +10445,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "idp",
+
+										Short: "Delete a 'iam.Idp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9112,6 +10462,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9124,6 +10476,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ldapgroup",
+
+										Short: "Delete a 'iam.LdapGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9139,6 +10493,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9151,6 +10507,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ldappolicy",
+
+										Short: "Delete a 'iam.LdapPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9166,6 +10524,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9178,6 +10538,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ldapprovider",
+
+										Short: "Delete a 'iam.LdapProvider' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9193,6 +10555,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9205,6 +10569,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "oauthtoken",
+
+										Short: "Delete a 'iam.OAuthToken' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9220,6 +10586,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9232,6 +10600,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "permission",
+
+										Short: "Delete a 'iam.Permission' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9247,6 +10617,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9259,6 +10631,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "privatekeyspec",
+
+										Short: "Delete a 'iam.PrivateKeySpec' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9274,6 +10648,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9286,6 +10662,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "qualifier",
+
+										Short: "Delete a 'iam.Qualifier' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9301,6 +10679,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9313,6 +10693,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "resourceroles",
+
+										Short: "Delete a 'iam.ResourceRoles' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9328,6 +10710,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9340,6 +10724,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "session",
+
+										Short: "Delete a 'iam.Session' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9355,6 +10741,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9367,6 +10755,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sessionlimits",
+
+										Short: "Delete a 'iam.SessionLimits' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9382,6 +10772,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9394,6 +10786,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "trustpoint",
+
+										Short: "Delete a 'iam.TrustPoint' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9409,6 +10803,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9421,6 +10817,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "user",
+
+										Short: "Delete a 'iam.User' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9436,6 +10834,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9448,6 +10848,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "usergroup",
+
+										Short: "Delete a 'iam.UserGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9463,6 +10865,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9478,12 +10882,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "infra",
+
+								Short: "Delete Infra resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "accountexperience",
+
+										Short: "Delete a 'infra.AccountExperience' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9499,6 +10907,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9514,12 +10924,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ipmioverlan",
+
+								Short: "Delete Ipmioverlan resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'ipmioverlan.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9535,6 +10949,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9550,12 +10966,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "kvm",
+
+								Short: "Delete Kvm resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'kvm.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9571,6 +10991,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9586,12 +11008,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "memory",
+
+								Short: "Delete Memory resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemorypolicy",
+
+										Short: "Delete a 'memory.PersistentMemoryPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9607,6 +11033,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9622,12 +11050,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "meta",
+
+								Short: "Delete Meta resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "definition",
+
+										Short: "Delete a 'meta.Definition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9643,6 +11075,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9658,12 +11092,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "networkconfig",
+
+								Short: "Delete Networkconfig resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'networkconfig.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9679,6 +11117,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9694,12 +11134,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ntp",
+
+								Short: "Delete Ntp resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'ntp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9715,6 +11159,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9730,12 +11176,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "organization",
+
+								Short: "Delete Organization resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "organization",
+
+										Short: "Delete a 'organization.Organization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9751,6 +11201,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9766,12 +11218,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "os",
+
+								Short: "Delete Os resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "configurationfile",
+
+										Short: "Delete a 'os.ConfigurationFile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9787,6 +11243,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9802,12 +11260,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "recovery",
+
+								Short: "Delete Recovery resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "backupconfigpolicy",
+
+										Short: "Delete a 'recovery.BackupConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9823,6 +11285,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9835,6 +11299,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "backupprofile",
+
+										Short: "Delete a 'recovery.BackupProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9850,6 +11316,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9862,6 +11330,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ondemandbackup",
+
+										Short: "Delete a 'recovery.OnDemandBackup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9877,6 +11347,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9889,6 +11361,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "restore",
+
+										Short: "Delete a 'recovery.Restore' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9904,6 +11378,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9916,6 +11392,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "scheduleconfigpolicy",
+
+										Short: "Delete a 'recovery.ScheduleConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9931,6 +11409,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9946,12 +11426,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "resource",
+
+								Short: "Delete Resource resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "group",
+
+										Short: "Delete a 'resource.Group' resource.",
 									}
 
 									cmd.AddCommand(
@@ -9967,6 +11451,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -9982,12 +11468,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdcard",
+
+								Short: "Delete Sdcard resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'sdcard.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10003,6 +11493,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10018,12 +11510,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdwan",
+
+								Short: "Delete Sdwan resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "profile",
+
+										Short: "Delete a 'sdwan.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10039,6 +11535,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10051,6 +11549,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "routernode",
+
+										Short: "Delete a 'sdwan.RouterNode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10066,6 +11566,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10078,6 +11580,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "routerpolicy",
+
+										Short: "Delete a 'sdwan.RouterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10093,6 +11597,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10105,6 +11611,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vmanageaccountpolicy",
+
+										Short: "Delete a 'sdwan.VmanageAccountPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10120,6 +11628,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10135,12 +11645,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "server",
+
+								Short: "Delete Server resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "profile",
+
+										Short: "Delete a 'server.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10156,6 +11670,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10171,12 +11687,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "smtp",
+
+								Short: "Delete Smtp resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'smtp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10192,6 +11712,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10207,12 +11729,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "snmp",
+
+								Short: "Delete Snmp resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'snmp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10228,6 +11754,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10243,12 +11771,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "software",
+
+								Short: "Delete Software resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hclmeta",
+
+										Short: "Delete a 'software.HclMeta' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10264,6 +11796,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10276,6 +11810,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hyperflexdistributable",
+
+										Short: "Delete a 'software.HyperflexDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10291,6 +11827,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10303,6 +11841,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "solutiondistributable",
+
+										Short: "Delete a 'software.SolutionDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10318,6 +11858,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10333,12 +11875,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "softwarerepository",
+
+								Short: "Delete Softwarerepository resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "operatingsystemfile",
+
+										Short: "Delete a 'softwarerepository.OperatingSystemFile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10354,6 +11900,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10369,12 +11917,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sol",
+
+								Short: "Delete Sol resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'sol.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10390,6 +11942,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10405,12 +11959,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ssh",
+
+								Short: "Delete Ssh resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'ssh.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10426,6 +11984,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10441,12 +12001,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "storage",
+
+								Short: "Delete Storage resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "diskgrouppolicy",
+
+										Short: "Delete a 'storage.DiskGroupPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10462,6 +12026,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10474,6 +12040,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "storagepolicy",
+
+										Short: "Delete a 'storage.StoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10489,6 +12057,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10504,12 +12074,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "syslog",
+
+								Short: "Delete Syslog resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'syslog.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10525,6 +12099,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10540,12 +12116,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "tam",
+
+								Short: "Delete Tam resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "advisorycount",
+
+										Short: "Delete a 'tam.AdvisoryCount' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10561,6 +12141,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10573,6 +12155,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "advisoryinfo",
+
+										Short: "Delete a 'tam.AdvisoryInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10588,6 +12172,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10600,6 +12186,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "advisoryinstance",
+
+										Short: "Delete a 'tam.AdvisoryInstance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10615,6 +12203,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10627,6 +12217,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "securityadvisory",
+
+										Short: "Delete a 'tam.SecurityAdvisory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10642,6 +12234,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10657,12 +12251,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ucsd",
+
+								Short: "Delete Ucsd resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "backupinfo",
+
+										Short: "Delete a 'ucsd.BackupInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10678,6 +12276,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10693,12 +12293,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vmedia",
+
+								Short: "Delete Vmedia resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Delete a 'vmedia.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10714,6 +12318,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10729,12 +12335,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vnic",
+
+								Short: "Delete Vnic resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethadapterpolicy",
+
+										Short: "Delete a 'vnic.EthAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10750,6 +12360,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10762,6 +12374,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethif",
+
+										Short: "Delete a 'vnic.EthIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10777,6 +12391,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10789,6 +12405,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethnetworkpolicy",
+
+										Short: "Delete a 'vnic.EthNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10804,6 +12422,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10816,6 +12436,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethqospolicy",
+
+										Short: "Delete a 'vnic.EthQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10831,6 +12453,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10843,6 +12467,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcadapterpolicy",
+
+										Short: "Delete a 'vnic.FcAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10858,6 +12484,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10870,6 +12498,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcif",
+
+										Short: "Delete a 'vnic.FcIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10885,6 +12515,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10897,6 +12529,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcnetworkpolicy",
+
+										Short: "Delete a 'vnic.FcNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10912,6 +12546,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10924,6 +12560,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcqospolicy",
+
+										Short: "Delete a 'vnic.FcQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10939,6 +12577,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10951,6 +12591,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "lanconnectivitypolicy",
+
+										Short: "Delete a 'vnic.LanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10966,6 +12608,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -10978,6 +12622,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sanconnectivitypolicy",
+
+										Short: "Delete a 'vnic.SanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -10993,6 +12639,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11008,12 +12656,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "workflow",
+
+								Short: "Delete Workflow resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "batchapiexecutor",
+
+										Short: "Delete a 'workflow.BatchApiExecutor' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11029,6 +12681,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11041,6 +12695,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "customdatatypedefinition",
+
+										Short: "Delete a 'workflow.CustomDataTypeDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11056,6 +12712,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11068,6 +12726,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "taskdefinition",
+
+										Short: "Delete a 'workflow.TaskDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11083,6 +12743,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11095,6 +12757,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "workflowdefinition",
+
+										Short: "Delete a 'workflow.WorkflowDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11110,6 +12774,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11122,6 +12788,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "workflowinfo",
+
+										Short: "Delete a 'workflow.WorkflowInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11137,6 +12805,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11155,12 +12825,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 				func() *cobra.Command {
 					cmd := &cobra.Command{
 						Use: "get",
+
+						Short: "Get or list resouce(s)",
 					}
 
 					cmd.AddCommand(
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "aaa",
+
+								Short: "Get or list Aaa resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -11174,6 +12848,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'aaa.AuditRecord' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11189,6 +12865,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11204,6 +12882,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "adapter",
+
+								Short: "Get or list Adapter resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -11217,6 +12897,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'adapter.ConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11232,6 +12914,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11251,6 +12935,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'adapter.ExtEthInterface' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11266,6 +12952,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11285,6 +12973,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'adapter.HostEthInterface' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11300,6 +12990,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11319,6 +13011,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'adapter.HostFcInterface' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11334,6 +13028,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11353,6 +13049,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'adapter.HostIscsiInterface' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11368,6 +13066,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11387,6 +13087,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'adapter.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11402,6 +13104,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11417,6 +13121,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "appliance",
+
+								Short: "Get or list Appliance resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -11430,6 +13136,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.Backup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11445,6 +13153,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11464,6 +13174,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.BackupPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11479,6 +13191,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11498,6 +13212,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.CertificateSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11513,6 +13229,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11532,6 +13250,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.DataExportPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11547,6 +13267,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11566,6 +13288,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.DeviceClaim' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11581,6 +13305,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11600,6 +13326,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.DiagSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11615,6 +13343,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11634,6 +13364,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.ImageBundle' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11649,6 +13381,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11668,6 +13402,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.NodeInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11683,6 +13419,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11702,6 +13440,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.ReleaseNote' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11717,6 +13457,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11736,6 +13478,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.Restore' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11751,6 +13495,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11770,6 +13516,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.SetupInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11785,6 +13533,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11804,6 +13554,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.SystemInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11819,6 +13571,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11838,6 +13592,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.Upgrade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11853,6 +13609,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11872,6 +13630,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'appliance.UpgradePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11887,6 +13647,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11902,6 +13664,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "asset",
+
+								Short: "Get or list Asset resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -11915,6 +13679,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'asset.ClusterMember' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11930,6 +13696,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11949,6 +13717,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'asset.DeviceConfiguration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11964,6 +13734,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -11983,6 +13755,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'asset.DeviceConnectorManager' resource.",
 									}
 
 									cmd.AddCommand(
@@ -11998,6 +13772,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12017,6 +13793,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'asset.DeviceContractInformation' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12032,6 +13810,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12051,6 +13831,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'asset.DeviceRegistration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12066,6 +13848,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12085,6 +13869,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'asset.ManagedDevice' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12100,6 +13886,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12115,6 +13903,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "bios",
+
+								Short: "Get or list Bios resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -12128,6 +13918,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'bios.BootMode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12143,6 +13935,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12162,6 +13956,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'bios.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12177,6 +13973,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12196,6 +13994,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'bios.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12211,6 +14011,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12226,6 +14028,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "boot",
+
+								Short: "Get or list Boot resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -12239,6 +14043,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'boot.DeviceBootMode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12254,6 +14060,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12273,6 +14081,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'boot.PrecisionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12288,6 +14098,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12303,6 +14115,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "compute",
+
+								Short: "Get or list Compute resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -12316,6 +14130,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'compute.Blade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12331,6 +14147,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12350,6 +14168,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'compute.Board' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12365,6 +14185,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12384,6 +14206,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'compute.PhysicalSummary' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12399,6 +14223,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12418,6 +14244,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'compute.RackUnit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12433,6 +14261,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12452,6 +14282,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'compute.ServerSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12467,6 +14299,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12482,6 +14316,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "cond",
+
+								Short: "Get or list Cond resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -12495,6 +14331,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'cond.Alarm' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12510,6 +14348,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12529,6 +14369,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'cond.HclStatus' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12544,6 +14386,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12563,6 +14407,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'cond.HclStatusDetail' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12578,6 +14424,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12597,6 +14445,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'cond.HclStatusJob' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12612,6 +14462,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12627,6 +14479,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "deviceconnector",
+
+								Short: "Get or list Deviceconnector resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -12640,6 +14494,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'deviceconnector.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12655,6 +14511,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12670,6 +14528,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "equipment",
+
+								Short: "Get or list Equipment resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -12683,6 +14543,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.Chassis' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12698,6 +14560,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12717,6 +14581,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.DeviceSummary' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12732,6 +14598,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12751,6 +14619,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.Fan' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12766,6 +14636,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12785,6 +14657,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.FanModule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12800,6 +14674,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12819,6 +14695,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.Fex' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12834,6 +14712,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12853,6 +14733,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.IoCard' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12868,6 +14750,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12887,6 +14771,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.IoExpander' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12902,6 +14788,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12921,6 +14809,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.LocatorLed' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12936,6 +14826,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12955,6 +14847,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.Psu' resource.",
 									}
 
 									cmd.AddCommand(
@@ -12970,6 +14864,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -12989,6 +14885,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.RackEnclosure' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13004,6 +14902,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13023,6 +14923,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.RackEnclosureSlot' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13038,6 +14940,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13057,6 +14961,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.SharedIoModule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13072,6 +14978,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13091,6 +14999,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.SwitchCard' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13106,6 +15016,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13125,6 +15037,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.SystemIoController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13140,6 +15054,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13159,6 +15075,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'equipment.Tpm' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13174,6 +15092,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13189,6 +15109,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ether",
+
+								Short: "Get or list Ether resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13202,6 +15124,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'ether.PhysicalPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13217,6 +15141,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13232,6 +15158,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "externalsite",
+
+								Short: "Get or list Externalsite resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13245,6 +15173,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'externalsite.Authorization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13260,6 +15190,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13275,6 +15207,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "fault",
+
+								Short: "Get or list Fault resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13288,6 +15222,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'fault.Instance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13303,6 +15239,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13318,6 +15256,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "fc",
+
+								Short: "Get or list Fc resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13331,6 +15271,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'fc.PhysicalPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13346,6 +15288,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13361,6 +15305,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "firmware",
+
+								Short: "Get or list Firmware resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13374,6 +15320,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'firmware.Distributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13389,6 +15337,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13408,6 +15358,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'firmware.DriverDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13423,6 +15375,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13442,6 +15396,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'firmware.Eula' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13457,6 +15413,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13476,6 +15434,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'firmware.RunningFirmware' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13491,6 +15451,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13510,6 +15472,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'firmware.ServerConfigurationUtilityDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13525,6 +15489,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13544,6 +15510,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'firmware.Upgrade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13559,6 +15527,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13578,6 +15548,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'firmware.UpgradeStatus' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13593,6 +15565,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13608,6 +15582,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "forecast",
+
+								Short: "Get or list Forecast resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13621,6 +15597,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'forecast.Catalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13636,6 +15614,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13655,6 +15635,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'forecast.Definition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13670,6 +15652,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13689,6 +15673,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'forecast.Instance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13704,6 +15690,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13719,6 +15707,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "graphics",
+
+								Short: "Get or list Graphics resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13732,6 +15722,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'graphics.Card' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13747,6 +15739,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13766,6 +15760,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'graphics.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13781,6 +15777,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13796,6 +15794,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hcl",
+
+								Short: "Get or list Hcl resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -13809,6 +15809,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hcl.DriverImage' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13824,6 +15826,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13843,6 +15847,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hcl.ExemptedCatalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13858,6 +15864,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13877,6 +15885,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hcl.HyperflexSoftwareCompatibilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13892,6 +15902,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13911,6 +15923,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hcl.OperatingSystem' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13926,6 +15940,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13945,6 +15961,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hcl.OperatingSystemVendor' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13960,6 +15978,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -13979,6 +15999,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hcl.ServiceStatus' resource.",
 									}
 
 									cmd.AddCommand(
@@ -13994,6 +16016,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14009,6 +16033,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hyperflex",
+
+								Short: "Get or list Hyperflex resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -14022,6 +16048,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.Alarm' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14037,6 +16065,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14056,6 +16086,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.AppCatalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14071,6 +16103,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14090,6 +16124,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.AutoSupportPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14105,6 +16141,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14124,6 +16162,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.CapabilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14139,6 +16179,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14158,6 +16200,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.Cluster' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14173,6 +16217,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14192,6 +16238,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ClusterNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14207,6 +16255,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14226,6 +16276,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ClusterProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14241,6 +16293,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14260,6 +16314,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ClusterStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14275,6 +16331,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14294,6 +16352,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14309,6 +16369,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14328,6 +16390,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ConfigResultEntry' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14343,6 +16407,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14362,6 +16428,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ExtFcStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14377,6 +16445,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14396,6 +16466,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ExtIscsiStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14411,6 +16483,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14430,6 +16504,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.FeatureLimitExternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14445,6 +16521,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14464,6 +16542,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.FeatureLimitInternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14479,6 +16559,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14498,6 +16580,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.Health' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14513,6 +16597,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14532,6 +16618,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.HxdpVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14547,6 +16635,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14566,6 +16656,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.LocalCredentialPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14581,6 +16673,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14600,6 +16694,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.Node' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14615,6 +16711,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14634,6 +16732,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.NodeConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14649,6 +16749,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14668,6 +16770,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.NodeProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14683,6 +16787,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14702,6 +16808,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ProxySettingPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14717,6 +16825,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14736,6 +16846,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ServerFirmwareVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14751,6 +16863,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14770,6 +16884,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.ServerModel' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14785,6 +16901,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14804,6 +16922,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.SoftwareVersionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14819,6 +16939,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14838,6 +16960,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.SysConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14853,6 +16977,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14872,6 +16998,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.UcsmConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14887,6 +17015,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14906,6 +17036,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'hyperflex.VcenterConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14921,6 +17053,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14936,6 +17070,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iaas",
+
+								Short: "Get or list Iaas resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -14949,6 +17085,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iaas.ConnectorPack' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14964,6 +17102,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -14983,6 +17123,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iaas.DeviceStatus' resource.",
 									}
 
 									cmd.AddCommand(
@@ -14998,6 +17140,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15017,6 +17161,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iaas.LicenseInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15032,6 +17178,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15051,6 +17199,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iaas.MostRunTasks' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15066,6 +17216,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15085,6 +17237,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iaas.UcsdInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15100,6 +17254,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15119,6 +17275,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iaas.UcsdManagedInfra' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15134,6 +17292,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15149,6 +17309,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iam",
+
+								Short: "Get or list Iam resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -15162,6 +17324,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Account' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15177,6 +17341,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15196,6 +17362,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.ApiKey' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15211,6 +17379,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15230,6 +17400,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.AppRegistration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15245,6 +17417,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15264,6 +17438,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Certificate' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15279,6 +17455,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15298,6 +17476,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.CertificateRequest' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15313,6 +17493,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15332,6 +17514,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.DomainGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15347,6 +17531,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15366,6 +17552,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.EndPointPrivilege' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15381,6 +17569,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15400,6 +17590,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.EndPointRole' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15415,6 +17607,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15434,6 +17628,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.EndPointUser' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15449,6 +17645,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15468,6 +17666,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.EndPointUserPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15483,6 +17683,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15502,6 +17704,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.EndPointUserRole' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15517,6 +17721,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15536,6 +17742,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Idp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15551,6 +17759,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15570,6 +17780,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.IdpReference' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15585,6 +17797,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15604,6 +17818,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.LdapGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15619,6 +17835,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15638,6 +17856,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.LdapPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15653,6 +17873,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15672,6 +17894,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.LdapProvider' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15687,6 +17911,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15706,6 +17932,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.OAuthToken' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15721,6 +17949,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15740,6 +17970,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Permission' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15755,6 +17987,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15774,6 +18008,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.PrivateKeySpec' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15789,6 +18025,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15808,6 +18046,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Privilege' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15823,6 +18063,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15842,6 +18084,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.PrivilegeSet' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15857,6 +18101,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15876,6 +18122,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Qualifier' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15891,6 +18139,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15910,6 +18160,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.ResourceLimits' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15925,6 +18177,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15944,6 +18198,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.ResourcePermission' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15959,6 +18215,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -15978,6 +18236,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.ResourceRoles' resource.",
 									}
 
 									cmd.AddCommand(
@@ -15993,6 +18253,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16012,6 +18274,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Role' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16027,6 +18291,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16046,6 +18312,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.SecurityHolder' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16061,6 +18329,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16080,6 +18350,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.ServiceProvider' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16095,6 +18367,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16114,6 +18388,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.Session' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16129,6 +18405,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16148,6 +18426,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.SessionLimits' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16163,6 +18443,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16182,6 +18464,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.System' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16197,6 +18481,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16216,6 +18502,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.TrustPoint' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16231,6 +18519,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16250,6 +18540,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.User' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16265,6 +18557,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16284,6 +18578,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.UserGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16299,6 +18595,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16318,6 +18616,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'iam.UserPreference' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16333,6 +18633,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16348,6 +18650,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "infra",
+
+								Short: "Get or list Infra resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16361,6 +18665,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'infra.AccountExperience' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16376,6 +18682,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16391,6 +18699,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "inventory",
+
+								Short: "Get or list Inventory resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16404,6 +18714,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'inventory.DeviceInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16419,6 +18731,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16438,6 +18752,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'inventory.DnMoBinding' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16453,6 +18769,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16472,6 +18790,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'inventory.GenericInventory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16487,6 +18807,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16506,6 +18828,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'inventory.GenericInventoryHolder' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16521,6 +18845,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16536,6 +18862,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ipmioverlan",
+
+								Short: "Get or list Ipmioverlan resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16549,6 +18877,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'ipmioverlan.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16564,6 +18894,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16579,6 +18911,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "kvm",
+
+								Short: "Get or list Kvm resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16592,6 +18926,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'kvm.KvmSession' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16607,6 +18943,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16626,6 +18964,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'kvm.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16641,6 +18981,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16656,6 +18998,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "license",
+
+								Short: "Get or list License resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16669,6 +19013,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'license.AccountLicenseData' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16684,6 +19030,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16703,6 +19051,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'license.CustomerOp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16718,6 +19068,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16737,6 +19089,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'license.LicenseInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16752,6 +19106,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16771,6 +19127,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'license.SmartlicenseToken' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16786,6 +19144,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16801,6 +19161,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ls",
+
+								Short: "Get or list Ls resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16814,6 +19176,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'ls.ServiceProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16829,6 +19193,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16844,6 +19210,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "management",
+
+								Short: "Get or list Management resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16857,6 +19225,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'management.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16872,6 +19242,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16891,6 +19263,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'management.Entity' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16906,6 +19280,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16925,6 +19301,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'management.Interface' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16940,6 +19318,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -16955,6 +19335,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "memory",
+
+								Short: "Get or list Memory resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -16968,6 +19350,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.Array' resource.",
 									}
 
 									cmd.AddCommand(
@@ -16983,6 +19367,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17002,6 +19388,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.PersistentMemoryConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17017,6 +19405,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17036,6 +19426,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.PersistentMemoryConfiguration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17051,6 +19443,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17070,6 +19464,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.PersistentMemoryNamespace' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17085,6 +19481,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17104,6 +19502,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.PersistentMemoryNamespaceConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17119,6 +19519,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17138,6 +19540,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.PersistentMemoryPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17153,6 +19557,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17172,6 +19578,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.PersistentMemoryRegion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17187,6 +19595,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17206,6 +19616,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.PersistentMemoryUnit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17221,6 +19633,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17240,6 +19654,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'memory.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17255,6 +19671,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17270,6 +19688,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "meta",
+
+								Short: "Get or list Meta resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -17283,6 +19703,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'meta.Definition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17298,6 +19720,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17313,6 +19737,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "network",
+
+								Short: "Get or list Network resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -17326,6 +19752,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'network.Element' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17341,6 +19769,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17360,6 +19790,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'network.ElementSummary' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17375,6 +19807,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17390,6 +19824,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "networkconfig",
+
+								Short: "Get or list Networkconfig resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -17403,6 +19839,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'networkconfig.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17418,6 +19856,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17433,6 +19873,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "niaapi",
+
+								Short: "Get or list Niaapi resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -17446,6 +19888,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.ApicCcoPost' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17461,6 +19905,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17480,6 +19926,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.ApicFieldNotice' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17495,6 +19943,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17514,6 +19964,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.ApicHweol' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17529,6 +19981,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17548,6 +20002,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.ApicLatestMaintainedRelease' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17563,6 +20019,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17582,6 +20040,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.ApicReleaseRecommend' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17597,6 +20057,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17616,6 +20078,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.ApicSweol' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17631,6 +20095,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17650,6 +20116,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.DcnmCcoPost' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17665,6 +20133,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17684,6 +20154,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.DcnmFieldNotice' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17699,6 +20171,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17718,6 +20192,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.DcnmHweol' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17733,6 +20209,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17752,6 +20230,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.DcnmLatestMaintainedRelease' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17767,6 +20247,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17786,6 +20268,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.DcnmReleaseRecommend' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17801,6 +20285,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17820,6 +20306,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.DcnmSweol' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17835,6 +20323,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17854,6 +20344,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.FileDownloader' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17869,6 +20361,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17888,6 +20382,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.NiaMetadata' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17903,6 +20399,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17922,6 +20420,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niaapi.VersionRegex' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17937,6 +20437,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17952,6 +20454,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "niatelemetry",
+
+								Short: "Get or list Niatelemetry resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -17965,6 +20469,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niatelemetry.NiaInventory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -17980,6 +20486,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -17999,6 +20507,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'niatelemetry.NiaLicenseState' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18014,6 +20524,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18029,6 +20541,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ntp",
+
+								Short: "Get or list Ntp resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18042,6 +20556,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'ntp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18057,6 +20573,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18072,6 +20590,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "organization",
+
+								Short: "Get or list Organization resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18085,6 +20605,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'organization.Organization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18100,6 +20622,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18115,6 +20639,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "os",
+
+								Short: "Get or list Os resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18128,6 +20654,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'os.Catalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18143,6 +20671,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18162,6 +20692,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'os.ConfigurationFile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18177,6 +20709,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18196,6 +20730,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'os.Install' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18211,6 +20747,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18226,6 +20764,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "pci",
+
+								Short: "Get or list Pci resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18239,6 +20779,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'pci.CoprocessorCard' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18254,6 +20796,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18273,6 +20817,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'pci.Device' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18288,6 +20834,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18307,6 +20855,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'pci.Link' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18322,6 +20872,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18341,6 +20893,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'pci.Switch' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18356,6 +20910,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18371,6 +20927,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "port",
+
+								Short: "Get or list Port resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18384,6 +20942,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'port.Group' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18399,6 +20959,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18418,6 +20980,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'port.SubGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18433,6 +20997,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18448,6 +21014,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "processor",
+
+								Short: "Get or list Processor resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18461,6 +21029,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'processor.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18476,6 +21046,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18491,6 +21063,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "recovery",
+
+								Short: "Get or list Recovery resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18504,6 +21078,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'recovery.BackupConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18519,6 +21095,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18538,6 +21116,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'recovery.BackupProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18553,6 +21133,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18572,6 +21154,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'recovery.ConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18587,6 +21171,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18606,6 +21192,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'recovery.ConfigResultEntry' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18621,6 +21209,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18640,6 +21230,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'recovery.OnDemandBackup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18655,6 +21247,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18674,6 +21268,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'recovery.Restore' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18689,6 +21285,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18708,6 +21306,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'recovery.ScheduleConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18723,6 +21323,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18738,6 +21340,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "resource",
+
+								Short: "Get or list Resource resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18751,6 +21355,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'resource.Group' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18766,6 +21372,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18785,6 +21393,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'resource.GroupMember' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18800,6 +21410,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18819,6 +21431,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'resource.LicenseResourceCount' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18834,6 +21448,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18853,6 +21469,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'resource.Membership' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18868,6 +21486,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18887,6 +21507,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'resource.MembershipHolder' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18902,6 +21524,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18917,6 +21541,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdcard",
+
+								Short: "Get or list Sdcard resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18930,6 +21556,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'sdcard.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18945,6 +21573,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -18960,6 +21590,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdwan",
+
+								Short: "Get or list Sdwan resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -18973,6 +21605,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'sdwan.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -18988,6 +21622,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19007,6 +21643,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'sdwan.RouterNode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19022,6 +21660,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19041,6 +21681,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'sdwan.RouterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19056,6 +21698,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19075,6 +21719,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'sdwan.VmanageAccountPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19090,6 +21736,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19105,6 +21753,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "search",
+
+								Short: "Get or list Search resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19118,6 +21768,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'search.SearchItem' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19133,6 +21785,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19152,6 +21806,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'search.TagItem' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19167,6 +21823,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19182,6 +21840,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "security",
+
+								Short: "Get or list Security resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19195,6 +21855,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'security.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19210,6 +21872,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19225,6 +21889,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "server",
+
+								Short: "Get or list Server resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19238,6 +21904,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'server.ConfigChangeDetail' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19253,6 +21921,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19272,6 +21942,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'server.ConfigImport' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19287,6 +21959,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19306,6 +21980,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'server.ConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19321,6 +21997,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19340,6 +22018,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'server.ConfigResultEntry' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19355,6 +22035,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19374,6 +22056,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'server.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19389,6 +22073,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19404,6 +22090,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "smtp",
+
+								Short: "Get or list Smtp resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19417,6 +22105,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'smtp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19432,6 +22122,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19447,6 +22139,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "snmp",
+
+								Short: "Get or list Snmp resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19460,6 +22154,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'snmp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19475,6 +22171,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19490,6 +22188,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "software",
+
+								Short: "Get or list Software resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19503,6 +22203,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'software.HclMeta' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19518,6 +22220,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19537,6 +22241,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'software.HyperflexDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19552,6 +22258,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19571,6 +22279,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'software.SolutionDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19586,6 +22296,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19601,6 +22313,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "softwarerepository",
+
+								Short: "Get or list Softwarerepository resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19614,6 +22328,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'softwarerepository.Authorization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19629,6 +22345,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19648,6 +22366,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'softwarerepository.Catalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19663,6 +22383,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19682,6 +22404,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'softwarerepository.OperatingSystemFile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19697,6 +22421,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19712,6 +22438,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sol",
+
+								Short: "Get or list Sol resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19725,6 +22453,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'sol.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19740,6 +22470,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19755,6 +22487,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ssh",
+
+								Short: "Get or list Ssh resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19768,6 +22502,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'ssh.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19783,6 +22519,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19798,6 +22536,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "storage",
+
+								Short: "Get or list Storage resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -19811,6 +22551,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19826,6 +22568,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19845,6 +22589,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.DiskGroupPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19860,6 +22606,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19879,6 +22627,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.Enclosure' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19894,6 +22644,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19913,6 +22665,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.EnclosureDisk' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19928,6 +22682,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19947,6 +22703,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.EnclosureDiskSlotEp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19962,6 +22720,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -19981,6 +22741,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.FlexFlashController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -19996,6 +22758,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20015,6 +22779,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.FlexFlashControllerProps' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20030,6 +22796,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20049,6 +22817,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.FlexFlashPhysicalDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20064,6 +22834,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20083,6 +22855,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.FlexFlashVirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20098,6 +22872,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20117,6 +22893,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.FlexUtilController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20132,6 +22910,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20151,6 +22931,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.FlexUtilPhysicalDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20166,6 +22948,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20185,6 +22969,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.FlexUtilVirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20200,6 +22986,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20219,6 +23007,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PhysicalDisk' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20234,6 +23024,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20253,6 +23045,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PhysicalDiskExtension' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20268,6 +23062,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20287,6 +23083,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PhysicalDiskUsage' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20302,6 +23100,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20321,6 +23121,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureArray' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20336,6 +23138,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20355,6 +23159,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20370,6 +23176,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20389,6 +23197,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureDisk' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20404,6 +23214,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20423,6 +23235,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureHost' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20438,6 +23252,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20457,6 +23273,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureHostGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20472,6 +23290,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20491,6 +23311,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureHostLun' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20506,6 +23328,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20525,6 +23349,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PurePort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20540,6 +23366,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20559,6 +23387,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureProtectionGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20574,6 +23404,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20593,6 +23425,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureProtectionGroupSnapshot' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20608,6 +23442,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20627,6 +23463,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureReplicationSchedule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20642,6 +23480,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20661,6 +23501,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureSnapshotSchedule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20676,6 +23518,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20695,6 +23539,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureVolume' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20710,6 +23556,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20729,6 +23577,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.PureVolumeSnapshot' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20744,6 +23594,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20763,6 +23615,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.SasExpander' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20778,6 +23632,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20797,6 +23653,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.SasPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20812,6 +23670,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20831,6 +23691,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.StoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20846,6 +23708,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20865,6 +23729,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.VdMemberEp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20880,6 +23746,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20899,6 +23767,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.VirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20914,6 +23784,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20933,6 +23805,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'storage.VirtualDriveExtension' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20948,6 +23822,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -20963,6 +23839,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "syslog",
+
+								Short: "Get or list Syslog resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -20976,6 +23854,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'syslog.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -20991,6 +23871,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21006,6 +23888,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "tam",
+
+								Short: "Get or list Tam resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21019,6 +23903,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'tam.AdvisoryCount' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21034,6 +23920,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21053,6 +23941,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'tam.AdvisoryInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21068,6 +23958,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21087,6 +23979,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'tam.AdvisoryInstance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21102,6 +23996,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21121,6 +24017,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'tam.SecurityAdvisory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21136,6 +24034,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21151,6 +24051,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "terminal",
+
+								Short: "Get or list Terminal resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21164,6 +24066,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'terminal.AuditLog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21179,6 +24083,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21194,6 +24100,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "top",
+
+								Short: "Get or list Top resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21207,6 +24115,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'top.System' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21222,6 +24132,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21237,6 +24149,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ucsd",
+
+								Short: "Get or list Ucsd resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21250,6 +24164,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'ucsd.BackupInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21265,6 +24181,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21280,6 +24198,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "virtualization",
+
+								Short: "Get or list Virtualization resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21293,6 +24213,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'virtualization.VmwareCluster' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21308,6 +24230,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21327,6 +24251,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'virtualization.VmwareDatacenter' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21342,6 +24268,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21361,6 +24289,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'virtualization.VmwareDatastore' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21376,6 +24306,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21395,6 +24327,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'virtualization.VmwareHost' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21410,6 +24344,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21429,6 +24365,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'virtualization.VmwareVcenter' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21444,6 +24382,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21463,6 +24403,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'virtualization.VmwareVirtualMachine' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21478,6 +24420,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21493,6 +24437,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vmedia",
+
+								Short: "Get or list Vmedia resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21506,6 +24452,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vmedia.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21521,6 +24469,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21536,6 +24486,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vnic",
+
+								Short: "Get or list Vnic resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21549,6 +24501,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.EthAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21564,6 +24518,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21583,6 +24539,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.EthIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21598,6 +24556,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21617,6 +24577,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.EthNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21632,6 +24594,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21651,6 +24615,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.EthQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21666,6 +24632,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21685,6 +24653,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.FcAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21700,6 +24670,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21719,6 +24691,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.FcIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21734,6 +24708,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21753,6 +24729,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.FcNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21768,6 +24746,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21787,6 +24767,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.FcQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21802,6 +24784,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21821,6 +24805,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.LanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21836,6 +24822,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21855,6 +24843,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'vnic.SanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21870,6 +24860,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21885,6 +24877,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "workflow",
+
+								Short: "Get or list Workflow resource(s)",
 							}
 
 							cmd.AddCommand(
@@ -21898,6 +24892,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.BatchApiExecutor' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21913,6 +24909,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21932,6 +24930,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.BuildTaskMeta' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21947,6 +24947,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -21966,6 +24968,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.BuildTaskMetaOwner' resource.",
 									}
 
 									cmd.AddCommand(
@@ -21981,6 +24985,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22000,6 +25006,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.Catalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22015,6 +25023,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22034,6 +25044,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.CustomDataTypeDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22049,6 +25061,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22068,6 +25082,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.PendingDynamicWorkflowInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22083,6 +25099,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22102,6 +25120,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.TaskDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22117,6 +25137,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22136,6 +25158,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.TaskInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22151,6 +25175,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22170,6 +25196,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.TaskMeta' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22185,6 +25213,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22204,6 +25234,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.WorkflowDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22219,6 +25251,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22238,6 +25272,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.WorkflowInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22253,6 +25289,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22272,6 +25310,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 											resultHandler(res, httpResponse, err)
 
 										},
+
+										Short: "Read a 'workflow.WorkflowMeta' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22287,6 +25327,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22305,18 +25347,24 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 				func() *cobra.Command {
 					cmd := &cobra.Command{
 						Use: "update",
+
+						Short: "Update resouce(s)",
 					}
 
 					cmd.AddCommand(
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "adapter",
+
+								Short: "Update Adapter resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "configpolicy",
+
+										Short: "Update a 'adapter.ConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22332,6 +25380,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22347,12 +25397,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "appliance",
+
+								Short: "Update Appliance resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "backuppolicy",
+
+										Short: "Update a 'appliance.BackupPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22368,6 +25422,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22380,6 +25436,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "certificatesetting",
+
+										Short: "Update a 'appliance.CertificateSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22395,6 +25453,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22407,6 +25467,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "dataexportpolicy",
+
+										Short: "Update a 'appliance.DataExportPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22422,6 +25484,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22434,6 +25498,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "diagsetting",
+
+										Short: "Update a 'appliance.DiagSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22449,6 +25515,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22461,6 +25529,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "setupinfo",
+
+										Short: "Update a 'appliance.SetupInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22476,6 +25546,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22488,6 +25560,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "upgrade",
+
+										Short: "Update a 'appliance.Upgrade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22503,6 +25577,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22515,6 +25591,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "upgradepolicy",
+
+										Short: "Update a 'appliance.UpgradePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22530,6 +25608,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22545,12 +25625,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "asset",
+
+								Short: "Update Asset resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "deviceconfiguration",
+
+										Short: "Update a 'asset.DeviceConfiguration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22566,6 +25650,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22578,6 +25664,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "devicecontractinformation",
+
+										Short: "Update a 'asset.DeviceContractInformation' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22593,6 +25681,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22605,6 +25695,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "deviceregistration",
+
+										Short: "Updates the resource representing the device connector. For example, this can be used to annotate the device connector resource with user-specified tags.",
 									}
 
 									cmd.AddCommand(
@@ -22620,6 +25712,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22632,6 +25726,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "manageddevice",
+
+										Short: "Update a 'asset.ManagedDevice' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22647,6 +25743,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22662,12 +25760,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "bios",
+
+								Short: "Update Bios resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "bootmode",
+
+										Short: "Update a 'bios.BootMode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22683,6 +25785,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22695,6 +25799,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'bios.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22710,6 +25816,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22722,6 +25830,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "unit",
+
+										Short: "Update a 'bios.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22737,6 +25847,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22752,12 +25864,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "boot",
+
+								Short: "Update Boot resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "devicebootmode",
+
+										Short: "Update a 'boot.DeviceBootMode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22773,6 +25889,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22785,6 +25903,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "precisionpolicy",
+
+										Short: "Update a 'boot.PrecisionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22800,6 +25920,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22815,12 +25937,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "compute",
+
+								Short: "Update Compute resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "blade",
+
+										Short: "Update a 'compute.Blade' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22836,6 +25962,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22848,6 +25976,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "board",
+
+										Short: "Update a 'compute.Board' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22863,6 +25993,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22875,6 +26007,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "rackunit",
+
+										Short: "Update a 'compute.RackUnit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22890,6 +26024,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22902,6 +26038,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "serversetting",
+
+										Short: "Update a 'compute.ServerSetting' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22917,6 +26055,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22932,12 +26072,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "deviceconnector",
+
+								Short: "Update Deviceconnector resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'deviceconnector.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22953,6 +26097,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -22968,12 +26114,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "equipment",
+
+								Short: "Update Equipment resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "chassis",
+
+										Short: "Update a 'equipment.Chassis' resource.",
 									}
 
 									cmd.AddCommand(
@@ -22989,6 +26139,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23001,6 +26153,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fan",
+
+										Short: "Update a 'equipment.Fan' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23016,6 +26170,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23028,6 +26184,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fanmodule",
+
+										Short: "Update a 'equipment.FanModule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23043,6 +26201,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23055,6 +26215,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fex",
+
+										Short: "Update a 'equipment.Fex' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23070,6 +26232,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23082,6 +26246,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "iocard",
+
+										Short: "Update a 'equipment.IoCard' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23097,6 +26263,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23109,6 +26277,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ioexpander",
+
+										Short: "Update a 'equipment.IoExpander' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23124,6 +26294,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23136,6 +26308,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "locatorled",
+
+										Short: "Update a 'equipment.LocatorLed' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23151,6 +26325,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23163,6 +26339,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "psu",
+
+										Short: "Update a 'equipment.Psu' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23178,6 +26356,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23190,6 +26370,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "rackenclosure",
+
+										Short: "Update a 'equipment.RackEnclosure' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23205,6 +26387,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23217,6 +26401,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "rackenclosureslot",
+
+										Short: "Update a 'equipment.RackEnclosureSlot' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23232,6 +26418,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23244,6 +26432,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sharediomodule",
+
+										Short: "Update a 'equipment.SharedIoModule' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23259,6 +26449,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23271,6 +26463,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "switchcard",
+
+										Short: "Update a 'equipment.SwitchCard' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23286,6 +26480,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23298,6 +26494,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "systemiocontroller",
+
+										Short: "Update a 'equipment.SystemIoController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23313,6 +26511,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23325,6 +26525,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "tpm",
+
+										Short: "Update a 'equipment.Tpm' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23340,6 +26542,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23355,12 +26559,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ether",
+
+								Short: "Update Ether resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "physicalport",
+
+										Short: "Update a 'ether.PhysicalPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23376,6 +26584,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23391,12 +26601,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "externalsite",
+
+								Short: "Update Externalsite resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "authorization",
+
+										Short: "Update a 'externalsite.Authorization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23412,6 +26626,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23427,12 +26643,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "fault",
+
+								Short: "Update Fault resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "instance",
+
+										Short: "Update a 'fault.Instance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23448,6 +26668,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23463,12 +26685,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "fc",
+
+								Short: "Update Fc resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "physicalport",
+
+										Short: "Update a 'fc.PhysicalPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23484,6 +26710,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23499,12 +26727,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "firmware",
+
+								Short: "Update Firmware resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "distributable",
+
+										Short: "Update a 'firmware.Distributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23520,6 +26752,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23532,6 +26766,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "driverdistributable",
+
+										Short: "Update a 'firmware.DriverDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23547,6 +26783,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23559,6 +26797,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "runningfirmware",
+
+										Short: "Update a 'firmware.RunningFirmware' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23574,6 +26814,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23586,6 +26828,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "serverconfigurationutilitydistributable",
+
+										Short: "Update a 'firmware.ServerConfigurationUtilityDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23601,6 +26845,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23616,12 +26862,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "graphics",
+
+								Short: "Update Graphics resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "card",
+
+										Short: "Update a 'graphics.Card' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23637,6 +26887,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23649,6 +26901,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "controller",
+
+										Short: "Update a 'graphics.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23664,6 +26918,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23679,12 +26935,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hcl",
+
+								Short: "Update Hcl resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hyperflexsoftwarecompatibilityinfo",
+
+										Short: "Update a 'hcl.HyperflexSoftwareCompatibilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23700,6 +26960,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23715,12 +26977,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "hyperflex",
+
+								Short: "Update Hyperflex resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "appcatalog",
+
+										Short: "Update a 'hyperflex.AppCatalog' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23736,6 +27002,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23748,6 +27016,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "autosupportpolicy",
+
+										Short: "Update a 'hyperflex.AutoSupportPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23763,6 +27033,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23775,6 +27047,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "capabilityinfo",
+
+										Short: "Update a 'hyperflex.CapabilityInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23790,6 +27064,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23802,6 +27078,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "cluster",
+
+										Short: "Update a 'hyperflex.Cluster' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23817,6 +27095,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23829,6 +27109,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "clusternetworkpolicy",
+
+										Short: "Update a 'hyperflex.ClusterNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23844,6 +27126,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23856,6 +27140,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "clusterprofile",
+
+										Short: "Update a 'hyperflex.ClusterProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23871,6 +27157,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23883,6 +27171,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "clusterstoragepolicy",
+
+										Short: "Update a 'hyperflex.ClusterStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23898,6 +27188,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23910,6 +27202,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "extfcstoragepolicy",
+
+										Short: "Update a 'hyperflex.ExtFcStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23925,6 +27219,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23937,6 +27233,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "extiscsistoragepolicy",
+
+										Short: "Update a 'hyperflex.ExtIscsiStoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23952,6 +27250,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23964,6 +27264,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "featurelimitexternal",
+
+										Short: "Update a 'hyperflex.FeatureLimitExternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -23979,6 +27281,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -23991,6 +27295,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "featurelimitinternal",
+
+										Short: "Update a 'hyperflex.FeatureLimitInternal' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24006,6 +27312,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24018,6 +27326,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hxdpversion",
+
+										Short: "Update a 'hyperflex.HxdpVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24033,6 +27343,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24045,6 +27357,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "localcredentialpolicy",
+
+										Short: "Update a 'hyperflex.LocalCredentialPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24060,6 +27374,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24072,6 +27388,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "nodeconfigpolicy",
+
+										Short: "Update a 'hyperflex.NodeConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24087,6 +27405,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24099,6 +27419,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "nodeprofile",
+
+										Short: "Update a 'hyperflex.NodeProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24114,6 +27436,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24126,6 +27450,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "proxysettingpolicy",
+
+										Short: "Update a 'hyperflex.ProxySettingPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24141,6 +27467,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24153,6 +27481,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "serverfirmwareversion",
+
+										Short: "Update a 'hyperflex.ServerFirmwareVersion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24168,6 +27498,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24180,6 +27512,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "servermodel",
+
+										Short: "Update a 'hyperflex.ServerModel' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24195,6 +27529,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24207,6 +27543,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "softwareversionpolicy",
+
+										Short: "Update a 'hyperflex.SoftwareVersionPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24222,6 +27560,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24234,6 +27574,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sysconfigpolicy",
+
+										Short: "Update a 'hyperflex.SysConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24249,6 +27591,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24261,6 +27605,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ucsmconfigpolicy",
+
+										Short: "Update a 'hyperflex.UcsmConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24276,6 +27622,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24288,6 +27636,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vcenterconfigpolicy",
+
+										Short: "Update a 'hyperflex.VcenterConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24303,6 +27653,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24318,12 +27670,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iaas",
+
+								Short: "Update Iaas resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ucsdinfo",
+
+										Short: "Update a 'iaas.UcsdInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24339,6 +27695,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24354,12 +27712,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "iam",
+
+								Short: "Update Iam resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "account",
+
+										Short: "Update a 'iam.Account' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24375,6 +27737,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24387,6 +27751,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "apikey",
+
+										Short: "Update a 'iam.ApiKey' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24402,6 +27768,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24414,6 +27782,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "appregistration",
+
+										Short: "Update a 'iam.AppRegistration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24429,6 +27799,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24441,6 +27813,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "certificate",
+
+										Short: "Update a 'iam.Certificate' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24456,6 +27830,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24468,6 +27844,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "certificaterequest",
+
+										Short: "Update a 'iam.CertificateRequest' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24483,6 +27861,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24495,6 +27875,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "endpointuser",
+
+										Short: "Update a 'iam.EndPointUser' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24510,6 +27892,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24522,6 +27906,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "endpointuserpolicy",
+
+										Short: "Update a 'iam.EndPointUserPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24537,6 +27923,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24549,6 +27937,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "endpointuserrole",
+
+										Short: "Update a 'iam.EndPointUserRole' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24564,6 +27954,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24576,6 +27968,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "idp",
+
+										Short: "Update a 'iam.Idp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24591,6 +27985,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24603,6 +27999,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "idpreference",
+
+										Short: "Update a 'iam.IdpReference' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24618,6 +28016,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24630,6 +28030,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ldapgroup",
+
+										Short: "Update a 'iam.LdapGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24645,6 +28047,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24657,6 +28061,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ldappolicy",
+
+										Short: "Update a 'iam.LdapPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24672,6 +28078,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24684,6 +28092,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ldapprovider",
+
+										Short: "Update a 'iam.LdapProvider' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24699,6 +28109,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24711,6 +28123,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "localuserpassword",
+
+										Short: "Update a 'iam.LocalUserPassword' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24726,6 +28140,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24738,6 +28154,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "permission",
+
+										Short: "Update a 'iam.Permission' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24753,6 +28171,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24765,6 +28185,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "privatekeyspec",
+
+										Short: "Update a 'iam.PrivateKeySpec' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24780,6 +28202,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24792,6 +28216,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "qualifier",
+
+										Short: "Update a 'iam.Qualifier' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24807,6 +28233,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24819,6 +28247,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "resourceroles",
+
+										Short: "Update a 'iam.ResourceRoles' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24834,6 +28264,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24846,6 +28278,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sessionlimits",
+
+										Short: "Update a 'iam.SessionLimits' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24861,6 +28295,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24873,6 +28309,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "user",
+
+										Short: "Update a 'iam.User' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24888,6 +28326,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24900,6 +28340,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "usergroup",
+
+										Short: "Update a 'iam.UserGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24915,6 +28357,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24927,6 +28371,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "userpreference",
+
+										Short: "Update a 'iam.UserPreference' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24942,6 +28388,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24957,12 +28405,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "infra",
+
+								Short: "Update Infra resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "accountexperience",
+
+										Short: "Update a 'infra.AccountExperience' resource.",
 									}
 
 									cmd.AddCommand(
@@ -24978,6 +28430,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -24993,12 +28447,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "inventory",
+
+								Short: "Update Inventory resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "genericinventory",
+
+										Short: "Update a 'inventory.GenericInventory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25014,6 +28472,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25026,6 +28486,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "genericinventoryholder",
+
+										Short: "Update a 'inventory.GenericInventoryHolder' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25041,6 +28503,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25056,12 +28520,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ipmioverlan",
+
+								Short: "Update Ipmioverlan resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'ipmioverlan.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25077,6 +28545,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25092,12 +28562,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "kvm",
+
+								Short: "Update Kvm resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'kvm.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25113,6 +28587,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25128,12 +28604,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "license",
+
+								Short: "Update License resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "accountlicensedata",
+
+										Short: "Update a 'license.AccountLicenseData' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25149,6 +28629,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25161,6 +28643,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "customerop",
+
+										Short: "Update a 'license.CustomerOp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25176,6 +28660,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25188,6 +28674,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "licenseinfo",
+
+										Short: "Update a 'license.LicenseInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25203,6 +28691,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25215,6 +28705,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "smartlicensetoken",
+
+										Short: "Update a 'license.SmartlicenseToken' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25230,6 +28722,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25245,12 +28739,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ls",
+
+								Short: "Update Ls resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "serviceprofile",
+
+										Short: "Update a 'ls.ServiceProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25266,6 +28764,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25281,12 +28781,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "management",
+
+								Short: "Update Management resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "controller",
+
+										Short: "Update a 'management.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25302,6 +28806,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25314,6 +28820,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "entity",
+
+										Short: "Update a 'management.Entity' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25329,6 +28837,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25341,6 +28851,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "interface",
+
+										Short: "Update a 'management.Interface' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25356,6 +28868,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25371,12 +28885,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "memory",
+
+								Short: "Update Memory resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "array",
+
+										Short: "Update a 'memory.Array' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25392,6 +28910,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25404,6 +28924,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemoryconfigresult",
+
+										Short: "Update a 'memory.PersistentMemoryConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25419,6 +28941,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25431,6 +28955,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemoryconfiguration",
+
+										Short: "Update a 'memory.PersistentMemoryConfiguration' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25446,6 +28972,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25458,6 +28986,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemorynamespace",
+
+										Short: "Update a 'memory.PersistentMemoryNamespace' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25473,6 +29003,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25485,6 +29017,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemorynamespaceconfigresult",
+
+										Short: "Update a 'memory.PersistentMemoryNamespaceConfigResult' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25500,6 +29034,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25512,6 +29048,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemorypolicy",
+
+										Short: "Update a 'memory.PersistentMemoryPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25527,6 +29065,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25539,6 +29079,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemoryregion",
+
+										Short: "Update a 'memory.PersistentMemoryRegion' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25554,6 +29096,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25566,6 +29110,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "persistentmemoryunit",
+
+										Short: "Update a 'memory.PersistentMemoryUnit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25581,6 +29127,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25593,6 +29141,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "unit",
+
+										Short: "Update a 'memory.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25608,6 +29158,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25623,12 +29175,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "network",
+
+								Short: "Update Network resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "element",
+
+										Short: "Update a 'network.Element' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25644,6 +29200,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25659,12 +29217,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "networkconfig",
+
+								Short: "Update Networkconfig resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'networkconfig.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25680,6 +29242,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25695,12 +29259,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ntp",
+
+								Short: "Update Ntp resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'ntp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25716,6 +29284,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25731,12 +29301,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "organization",
+
+								Short: "Update Organization resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "organization",
+
+										Short: "Update a 'organization.Organization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25752,6 +29326,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25767,12 +29343,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "pci",
+
+								Short: "Update Pci resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "device",
+
+										Short: "Update a 'pci.Device' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25788,6 +29368,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25800,6 +29382,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "link",
+
+										Short: "Update a 'pci.Link' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25815,6 +29399,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25827,6 +29413,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "switch",
+
+										Short: "Update a 'pci.Switch' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25842,6 +29430,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25857,12 +29447,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "port",
+
+								Short: "Update Port resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "group",
+
+										Short: "Update a 'port.Group' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25878,6 +29472,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25890,6 +29486,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "subgroup",
+
+										Short: "Update a 'port.SubGroup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25905,6 +29503,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25920,12 +29520,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "processor",
+
+								Short: "Update Processor resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "unit",
+
+										Short: "Update a 'processor.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25941,6 +29545,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25956,12 +29562,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "recovery",
+
+								Short: "Update Recovery resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "backupconfigpolicy",
+
+										Short: "Update a 'recovery.BackupConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -25977,6 +29587,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -25989,6 +29601,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "backupprofile",
+
+										Short: "Update a 'recovery.BackupProfile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26004,6 +29618,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26016,6 +29632,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ondemandbackup",
+
+										Short: "Update a 'recovery.OnDemandBackup' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26031,6 +29649,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26043,6 +29663,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "scheduleconfigpolicy",
+
+										Short: "Update a 'recovery.ScheduleConfigPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26058,6 +29680,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26073,12 +29697,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "resource",
+
+								Short: "Update Resource resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "group",
+
+										Short: "Update a 'resource.Group' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26094,6 +29722,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26109,12 +29739,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdcard",
+
+								Short: "Update Sdcard resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'sdcard.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26130,6 +29764,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26145,12 +29781,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sdwan",
+
+								Short: "Update Sdwan resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "profile",
+
+										Short: "Update a 'sdwan.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26166,6 +29806,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26178,6 +29820,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "routernode",
+
+										Short: "Update a 'sdwan.RouterNode' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26193,6 +29837,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26205,6 +29851,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "routerpolicy",
+
+										Short: "Update a 'sdwan.RouterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26220,6 +29868,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26232,6 +29882,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vmanageaccountpolicy",
+
+										Short: "Update a 'sdwan.VmanageAccountPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26247,6 +29899,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26262,12 +29916,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "security",
+
+								Short: "Update Security resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "unit",
+
+										Short: "Update a 'security.Unit' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26283,6 +29941,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26298,12 +29958,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "server",
+
+								Short: "Update Server resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "profile",
+
+										Short: "Update a 'server.Profile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26319,6 +29983,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26334,12 +30000,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "smtp",
+
+								Short: "Update Smtp resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'smtp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26355,6 +30025,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26370,12 +30042,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "snmp",
+
+								Short: "Update Snmp resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'snmp.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26391,6 +30067,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26406,12 +30084,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "software",
+
+								Short: "Update Software resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hclmeta",
+
+										Short: "Update a 'software.HclMeta' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26427,6 +30109,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26439,6 +30123,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "hyperflexdistributable",
+
+										Short: "Update a 'software.HyperflexDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26454,6 +30140,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26466,6 +30154,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "solutiondistributable",
+
+										Short: "Update a 'software.SolutionDistributable' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26481,6 +30171,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26496,12 +30188,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "softwarerepository",
+
+								Short: "Update Softwarerepository resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "authorization",
+
+										Short: "Update a 'softwarerepository.Authorization' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26517,6 +30213,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26529,6 +30227,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "operatingsystemfile",
+
+										Short: "Update a 'softwarerepository.OperatingSystemFile' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26544,6 +30244,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26559,12 +30261,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "sol",
+
+								Short: "Update Sol resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'sol.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26580,6 +30286,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26595,12 +30303,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "ssh",
+
+								Short: "Update Ssh resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'ssh.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26616,6 +30328,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26631,12 +30345,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "storage",
+
+								Short: "Update Storage resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "controller",
+
+										Short: "Update a 'storage.Controller' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26652,6 +30370,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26664,6 +30384,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "diskgrouppolicy",
+
+										Short: "Update a 'storage.DiskGroupPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26679,6 +30401,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26691,6 +30415,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "enclosure",
+
+										Short: "Update a 'storage.Enclosure' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26706,6 +30432,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26718,6 +30446,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "enclosuredisk",
+
+										Short: "Update a 'storage.EnclosureDisk' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26733,6 +30463,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26745,6 +30477,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "enclosurediskslotep",
+
+										Short: "Update a 'storage.EnclosureDiskSlotEp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26760,6 +30494,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26772,6 +30508,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "flexflashcontroller",
+
+										Short: "Update a 'storage.FlexFlashController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26787,6 +30525,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26799,6 +30539,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "flexflashcontrollerprops",
+
+										Short: "Update a 'storage.FlexFlashControllerProps' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26814,6 +30556,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26826,6 +30570,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "flexflashphysicaldrive",
+
+										Short: "Update a 'storage.FlexFlashPhysicalDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26841,6 +30587,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26853,6 +30601,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "flexflashvirtualdrive",
+
+										Short: "Update a 'storage.FlexFlashVirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26868,6 +30618,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26880,6 +30632,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "flexutilcontroller",
+
+										Short: "Update a 'storage.FlexUtilController' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26895,6 +30649,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26907,6 +30663,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "flexutilphysicaldrive",
+
+										Short: "Update a 'storage.FlexUtilPhysicalDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26922,6 +30680,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26934,6 +30694,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "flexutilvirtualdrive",
+
+										Short: "Update a 'storage.FlexUtilVirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26949,6 +30711,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26961,6 +30725,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "physicaldisk",
+
+										Short: "Update a 'storage.PhysicalDisk' resource.",
 									}
 
 									cmd.AddCommand(
@@ -26976,6 +30742,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -26988,6 +30756,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "physicaldiskextension",
+
+										Short: "Update a 'storage.PhysicalDiskExtension' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27003,6 +30773,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27015,6 +30787,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "physicaldiskusage",
+
+										Short: "Update a 'storage.PhysicalDiskUsage' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27030,6 +30804,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27042,6 +30818,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "purearray",
+
+										Short: "Update a 'storage.PureArray' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27057,6 +30835,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27069,6 +30849,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sasexpander",
+
+										Short: "Update a 'storage.SasExpander' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27084,6 +30866,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27096,6 +30880,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sasport",
+
+										Short: "Update a 'storage.SasPort' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27111,6 +30897,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27123,6 +30911,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "storagepolicy",
+
+										Short: "Update a 'storage.StoragePolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27138,6 +30928,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27150,6 +30942,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vdmemberep",
+
+										Short: "Update a 'storage.VdMemberEp' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27165,6 +30959,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27177,6 +30973,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "virtualdrive",
+
+										Short: "Update a 'storage.VirtualDrive' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27192,6 +30990,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27204,6 +31004,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "virtualdriveextension",
+
+										Short: "Update a 'storage.VirtualDriveExtension' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27219,6 +31021,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27234,12 +31038,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "syslog",
+
+								Short: "Update Syslog resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'syslog.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27255,6 +31063,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27270,12 +31080,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "tam",
+
+								Short: "Update Tam resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "advisorycount",
+
+										Short: "Update a 'tam.AdvisoryCount' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27291,6 +31105,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27303,6 +31119,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "advisoryinfo",
+
+										Short: "Update a 'tam.AdvisoryInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27318,6 +31136,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27330,6 +31150,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "advisoryinstance",
+
+										Short: "Update a 'tam.AdvisoryInstance' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27345,6 +31167,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27357,6 +31181,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "securityadvisory",
+
+										Short: "Update a 'tam.SecurityAdvisory' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27372,6 +31198,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27387,12 +31215,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "top",
+
+								Short: "Update Top resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "system",
+
+										Short: "Update a 'top.System' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27408,6 +31240,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27423,12 +31257,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "virtualization",
+
+								Short: "Update Virtualization resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vmwarecluster",
+
+										Short: "Update a 'virtualization.VmwareCluster' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27444,6 +31282,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27456,6 +31296,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vmwaredatacenter",
+
+										Short: "Update a 'virtualization.VmwareDatacenter' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27471,6 +31313,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27483,6 +31327,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vmwaredatastore",
+
+										Short: "Update a 'virtualization.VmwareDatastore' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27498,6 +31344,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27510,6 +31358,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vmwarehost",
+
+										Short: "Update a 'virtualization.VmwareHost' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27525,6 +31375,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27537,6 +31389,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "vmwarevirtualmachine",
+
+										Short: "Update a 'virtualization.VmwareVirtualMachine' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27552,6 +31406,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27567,12 +31423,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vmedia",
+
+								Short: "Update Vmedia resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "policy",
+
+										Short: "Update a 'vmedia.Policy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27588,6 +31448,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27603,12 +31465,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "vnic",
+
+								Short: "Update Vnic resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethadapterpolicy",
+
+										Short: "Update a 'vnic.EthAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27624,6 +31490,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27636,6 +31504,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethif",
+
+										Short: "Update a 'vnic.EthIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27651,6 +31521,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27663,6 +31535,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethnetworkpolicy",
+
+										Short: "Update a 'vnic.EthNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27678,6 +31552,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27690,6 +31566,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "ethqospolicy",
+
+										Short: "Update a 'vnic.EthQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27705,6 +31583,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27717,6 +31597,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcadapterpolicy",
+
+										Short: "Update a 'vnic.FcAdapterPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27732,6 +31614,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27744,6 +31628,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcif",
+
+										Short: "Update a 'vnic.FcIf' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27759,6 +31645,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27771,6 +31659,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcnetworkpolicy",
+
+										Short: "Update a 'vnic.FcNetworkPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27786,6 +31676,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27798,6 +31690,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "fcqospolicy",
+
+										Short: "Update a 'vnic.FcQosPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27813,6 +31707,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27825,6 +31721,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "lanconnectivitypolicy",
+
+										Short: "Update a 'vnic.LanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27840,6 +31738,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27852,6 +31752,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "sanconnectivitypolicy",
+
+										Short: "Update a 'vnic.SanConnectivityPolicy' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27867,6 +31769,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27882,12 +31786,16 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 						func() *cobra.Command {
 							cmd := &cobra.Command{
 								Use: "workflow",
+
+								Short: "Update Workflow resource(s)",
 							}
 
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "batchapiexecutor",
+
+										Short: "Update a 'workflow.BatchApiExecutor' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27903,6 +31811,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27915,6 +31825,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "customdatatypedefinition",
+
+										Short: "Update a 'workflow.CustomDataTypeDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27930,6 +31842,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27942,6 +31856,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "taskdefinition",
+
+										Short: "Update a 'workflow.TaskDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27957,6 +31873,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27969,6 +31887,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "taskinfo",
+
+										Short: "Update a 'workflow.TaskInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -27984,6 +31904,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -27996,6 +31918,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "workflowdefinition",
+
+										Short: "Update a 'workflow.WorkflowDefinition' resource.",
 									}
 
 									cmd.AddCommand(
@@ -28011,6 +31935,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
@@ -28023,6 +31949,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 								func() *cobra.Command {
 									cmd := &cobra.Command{
 										Use: "workflowinfo",
+
+										Short: "Update a 'workflow.WorkflowInfo' resource.",
 									}
 
 									cmd.AddCommand(
@@ -28038,6 +31966,8 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 												},
 
 												Args: cobra.ExactArgs(1),
+
+												Short: "",
 											}
 
 											return cmd
