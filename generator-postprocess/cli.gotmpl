@@ -40,8 +40,10 @@ func runCmd(cmd *cobra.Command, args []string) {
     log.Printf("Running command %s with args %v", cmd.Use, args)
 }
 
+// ResultHandler is the function signature to handle API results
 type ResultHandler = func(result interface{}, httpResponse *http.Response, err error)
 
+// GetCommands returns the cobra command tree for the API
 func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.Command {
     rootCmd := {{ template "cliitem" . }}()
     return rootCmd

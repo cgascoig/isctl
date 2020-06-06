@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"regexp"
+	"strings"
+)
 
 // CliItem is a node in the CLI tree
 type CliItem struct {
@@ -10,12 +13,60 @@ type CliItem struct {
 	Operation *Operation
 }
 
+type fixupFunc func(tokenlist []string) []string
+
+func simpleRegexpFixup(r *regexp.Regexp, sub string) fixupFunc {
+	return func(tokens []string) []string {
+		for i := range tokens {
+			tokens[i] = r.ReplaceAllString(tokens[i], sub)
+		}
+
+		return tokens
+	}
+}
+
+func removeRedundantPrefixes() fixupFunc {
+	return func(tokens []string) []string {
+		prefix := ""
+		for i := range tokens {
+			t := tokens[i]
+			tokens[i] = regexp.MustCompile(`(?i)^`+prefix).ReplaceAllString(t, "")
+			prefix += t
+		}
+
+		return tokens
+	}
+}
+
+var fixups = []fixupFunc{
+	//remove redundant prefixes (e.g. with get ntp getntppolicylist remove 'getntp')
+	removeRedundantPrefixes(),
+
+	simpleRegexpFixup(regexp.MustCompile(`By[A-Z]\w*$`), ""),
+
+	simpleRegexpFixup(regexp.MustCompile(`List$`), ""),
+
+	//replace post with create
+	simpleRegexpFixup(regexp.MustCompile(`(?i)^post$`), "create"),
+	//replace patch with update
+	simpleRegexpFixup(regexp.MustCompile(`(?i)^patch$`), "update"),
+}
+
+func fixupTokenList(tokenList []string) []string {
+	for _, fixup := range fixups {
+		tokenList = fixup(tokenList)
+	}
+	return tokenList
+}
+
 func getTokenListForOperation(op *Operation) []string {
-	return []string{
+	tokenList := []string{
 		op.HttpMethod,
 		op.BaseName,
 		op.OperationId,
 	}
+
+	return fixupTokenList(tokenList)
 }
 
 func getOrCreateChildCliItem(cliItem *CliItem, token string, parameter bool) *CliItem {
