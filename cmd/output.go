@@ -14,9 +14,20 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
+func logHTTPResponse(httpResponse *http.Response) {
+	if httpResponse == nil {
+		return
+	}
+
+	log.Printf("HTTP Response: %d %v", httpResponse.StatusCode, httpResponse.Status)
+}
+
 func resultHandler(result interface{}, httpResponse *http.Response, err error) {
+	if err != nil || verbose {
+		logHTTPResponse(httpResponse)
+	}
+
 	if err != nil {
-		log.Printf("HTTP Response status text: %v", httpResponse.Status)
 		log.Fatalf("ERROR: %v\n", err)
 	}
 

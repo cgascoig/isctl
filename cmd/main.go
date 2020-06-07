@@ -17,6 +17,7 @@ import (
 var (
 	configFile     string
 	jsonPathFilter string
+	verbose        bool
 
 	authCtx context.Context
 )
@@ -37,6 +38,8 @@ func main() {
 	rootCmd := GetCommands(client, resultHandler)
 
 	rootCmd.PersistentFlags().StringVar(&configFile, "config", "", "config file (default is $HOME/.isctl.yaml)")
+
+	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose logging")
 
 	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID")
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
