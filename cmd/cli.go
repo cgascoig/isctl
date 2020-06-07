@@ -44,7 +44,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createadapterconfigpolicy",
+										Use: "configpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -104,7 +104,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createappliancebackup",
+										Use: "backup",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -122,7 +122,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createappliancebackuppolicy",
+										Use: "backuppolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -140,7 +140,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createappliancedataexportpolicy",
+										Use: "dataexportpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -158,7 +158,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createappliancedeviceclaim",
+										Use: "deviceclaim",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -176,7 +176,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createappliancediagsetting",
+										Use: "diagsetting",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -194,7 +194,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createappliancerestore",
+										Use: "restore",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -440,7 +440,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createassetdeviceclaim",
+										Use: "deviceclaim",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -458,7 +458,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createassetmanageddevice",
+										Use: "manageddevice",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -611,7 +611,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createbiospolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -733,7 +733,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createbootprecisionpolicy",
+										Use: "precisionpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -959,7 +959,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createdeviceconnectorpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1506,7 +1506,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createexternalsiteauthorization",
+										Use: "authorization",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1650,7 +1650,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createfeedbackfeedbackpost",
+										Use: "feedbackpost",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1679,7 +1679,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createfirmwaredistributable",
+										Use: "distributable",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1697,7 +1697,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createfirmwaredriverdistributable",
+										Use: "driverdistributable",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1715,7 +1715,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createfirmwareeula",
+										Use: "eula",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1733,7 +1733,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createfirmwareserverconfigurationutilitydistributable",
+										Use: "serverconfigurationutilitydistributable",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1743,24 +1743,6 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 										},
 
 										Short: "Create a 'firmware.ServerConfigurationUtilityDistributable' resource.",
-									}
-
-									return cmd
-								}())
-
-							cmd.AddCommand(
-								func() *cobra.Command {
-									cmd := &cobra.Command{
-										Use: "createfirmwareupgrade",
-
-										Run: func(cmd *cobra.Command, args []string) {
-
-											res, httpResponse, err := client.FirmwareApi.CreateFirmwareUpgrade(authCtx).Execute()
-											resultHandler(res, httpResponse, err)
-
-										},
-
-										Short: "Create a 'firmware.Upgrade' resource.",
 									}
 
 									return cmd
@@ -1890,6 +1872,24 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 									return cmd
 								}())
 
+							cmd.AddCommand(
+								func() *cobra.Command {
+									cmd := &cobra.Command{
+										Use: "upgrade",
+
+										Run: func(cmd *cobra.Command, args []string) {
+
+											res, httpResponse, err := client.FirmwareApi.CreateFirmwareUpgrade(authCtx).Execute()
+											resultHandler(res, httpResponse, err)
+
+										},
+
+										Short: "Create a 'firmware.Upgrade' resource.",
+									}
+
+									return cmd
+								}())
+
 							return cmd
 						}())
 
@@ -1977,7 +1977,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhclcompatibilitystatus",
+										Use: "compatibilitystatus",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -1995,7 +1995,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhclhyperflexsoftwarecompatibilityinfo",
+										Use: "hyperflexsoftwarecompatibilityinfo",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2013,7 +2013,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhclsupporteddrivername",
+										Use: "supporteddrivername",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2073,7 +2073,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexappcatalog",
+										Use: "appcatalog",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2091,7 +2091,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexautosupportpolicy",
+										Use: "autosupportpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2109,7 +2109,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexcapabilityinfo",
+										Use: "capabilityinfo",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2127,7 +2127,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexclusternetworkpolicy",
+										Use: "clusternetworkpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2145,7 +2145,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexclusterprofile",
+										Use: "clusterprofile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2163,7 +2163,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexclusterstoragepolicy",
+										Use: "clusterstoragepolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2181,7 +2181,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexextfcstoragepolicy",
+										Use: "extfcstoragepolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2199,7 +2199,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexextiscsistoragepolicy",
+										Use: "extiscsistoragepolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2217,7 +2217,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexfeaturelimitexternal",
+										Use: "featurelimitexternal",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2235,7 +2235,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexfeaturelimitinternal",
+										Use: "featurelimitinternal",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2253,7 +2253,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexhxdpversion",
+										Use: "hxdpversion",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2271,7 +2271,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexlocalcredentialpolicy",
+										Use: "localcredentialpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2289,7 +2289,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexnodeconfigpolicy",
+										Use: "nodeconfigpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2307,7 +2307,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexnodeprofile",
+										Use: "nodeprofile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2325,7 +2325,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexproxysettingpolicy",
+										Use: "proxysettingpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2343,7 +2343,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexserverfirmwareversion",
+										Use: "serverfirmwareversion",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2361,7 +2361,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexservermodel",
+										Use: "servermodel",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2379,7 +2379,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexsoftwareversionpolicy",
+										Use: "softwareversionpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2397,7 +2397,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexsysconfigpolicy",
+										Use: "sysconfigpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2415,7 +2415,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createhyperflexucsmconfigpolicy",
+										Use: "ucsmconfigpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -2425,24 +2425,6 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 										},
 
 										Short: "Create a 'hyperflex.UcsmConfigPolicy' resource.",
-									}
-
-									return cmd
-								}())
-
-							cmd.AddCommand(
-								func() *cobra.Command {
-									cmd := &cobra.Command{
-										Use: "createhyperflexvcenterconfigpolicy",
-
-										Run: func(cmd *cobra.Command, args []string) {
-
-											res, httpResponse, err := client.HyperflexApi.CreateHyperflexVcenterConfigPolicy(authCtx).Execute()
-											resultHandler(res, httpResponse, err)
-
-										},
-
-										Short: "Create a 'hyperflex.VcenterConfigPolicy' resource.",
 									}
 
 									return cmd
@@ -3130,6 +3112,24 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 									return cmd
 								}())
 
+							cmd.AddCommand(
+								func() *cobra.Command {
+									cmd := &cobra.Command{
+										Use: "vcenterconfigpolicy",
+
+										Run: func(cmd *cobra.Command, args []string) {
+
+											res, httpResponse, err := client.HyperflexApi.CreateHyperflexVcenterConfigPolicy(authCtx).Execute()
+											resultHandler(res, httpResponse, err)
+
+										},
+
+										Short: "Create a 'hyperflex.VcenterConfigPolicy' resource.",
+									}
+
+									return cmd
+								}())
+
 							return cmd
 						}())
 
@@ -3186,7 +3186,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamaccount",
+										Use: "account",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3204,7 +3204,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamapikey",
+										Use: "apikey",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3222,7 +3222,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamappregistration",
+										Use: "appregistration",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3240,7 +3240,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamcertificate",
+										Use: "certificate",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3258,7 +3258,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamcertificaterequest",
+										Use: "certificaterequest",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3276,7 +3276,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamendpointuser",
+										Use: "endpointuser",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3294,7 +3294,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamendpointuserpolicy",
+										Use: "endpointuserpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3312,7 +3312,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamendpointuserrole",
+										Use: "endpointuserrole",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3330,7 +3330,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamidp",
+										Use: "idp",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3348,7 +3348,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamldapgroup",
+										Use: "ldapgroup",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3366,7 +3366,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamldappolicy",
+										Use: "ldappolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3384,7 +3384,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamldapprovider",
+										Use: "ldapprovider",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3402,7 +3402,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiampermission",
+										Use: "permission",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3420,7 +3420,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamprivatekeyspec",
+										Use: "privatekeyspec",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3438,7 +3438,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamqualifier",
+										Use: "qualifier",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3456,7 +3456,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamresourceroles",
+										Use: "resourceroles",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3474,7 +3474,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamsessionlimits",
+										Use: "sessionlimits",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3492,7 +3492,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createiamtrustpoint",
+										Use: "trustpoint",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -3502,42 +3502,6 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 										},
 
 										Short: "Create a 'iam.TrustPoint' resource.",
-									}
-
-									return cmd
-								}())
-
-							cmd.AddCommand(
-								func() *cobra.Command {
-									cmd := &cobra.Command{
-										Use: "createiamuser",
-
-										Run: func(cmd *cobra.Command, args []string) {
-
-											res, httpResponse, err := client.IamApi.CreateIamUser(authCtx).Execute()
-											resultHandler(res, httpResponse, err)
-
-										},
-
-										Short: "Create a 'iam.User' resource.",
-									}
-
-									return cmd
-								}())
-
-							cmd.AddCommand(
-								func() *cobra.Command {
-									cmd := &cobra.Command{
-										Use: "createiamusergroup",
-
-										Run: func(cmd *cobra.Command, args []string) {
-
-											res, httpResponse, err := client.IamApi.CreateIamUserGroup(authCtx).Execute()
-											resultHandler(res, httpResponse, err)
-
-										},
-
-										Short: "Create a 'iam.UserGroup' resource.",
 									}
 
 									return cmd
@@ -4225,6 +4189,42 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 									return cmd
 								}())
 
+							cmd.AddCommand(
+								func() *cobra.Command {
+									cmd := &cobra.Command{
+										Use: "user",
+
+										Run: func(cmd *cobra.Command, args []string) {
+
+											res, httpResponse, err := client.IamApi.CreateIamUser(authCtx).Execute()
+											resultHandler(res, httpResponse, err)
+
+										},
+
+										Short: "Create a 'iam.User' resource.",
+									}
+
+									return cmd
+								}())
+
+							cmd.AddCommand(
+								func() *cobra.Command {
+									cmd := &cobra.Command{
+										Use: "usergroup",
+
+										Run: func(cmd *cobra.Command, args []string) {
+
+											res, httpResponse, err := client.IamApi.CreateIamUserGroup(authCtx).Execute()
+											resultHandler(res, httpResponse, err)
+
+										},
+
+										Short: "Create a 'iam.UserGroup' resource.",
+									}
+
+									return cmd
+								}())
+
 							return cmd
 						}())
 
@@ -4239,7 +4239,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createinfraaccountexperience",
+										Use: "accountexperience",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -4299,7 +4299,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createinventoryrequest",
+										Use: "request",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -4390,7 +4390,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createipmioverlanpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -4450,7 +4450,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createkvmpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -4510,7 +4510,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createlicenselicenseinfo",
+										Use: "licenseinfo",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -4809,7 +4809,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "creatememorypersistentmemorypolicy",
+										Use: "persistentmemorypolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5159,7 +5159,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createnetworkconfigpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5219,7 +5219,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createntppolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5279,7 +5279,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createorganizationorganization",
+										Use: "organization",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5339,7 +5339,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createosconfigurationfile",
+										Use: "configurationfile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5357,7 +5357,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createosinstall",
+										Use: "install",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5375,7 +5375,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createosossupport",
+										Use: "ossupport",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5393,7 +5393,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createostemplatefile",
+										Use: "templatefile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5641,7 +5641,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createrecoverybackupconfigpolicy",
+										Use: "backupconfigpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5659,7 +5659,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createrecoverybackupprofile",
+										Use: "backupprofile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5677,7 +5677,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createrecoveryondemandbackup",
+										Use: "ondemandbackup",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5695,7 +5695,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createrecoveryrestore",
+										Use: "restore",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5713,7 +5713,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createrecoveryscheduleconfigpolicy",
+										Use: "scheduleconfigpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5866,7 +5866,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createresourcegroup",
+										Use: "group",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5926,7 +5926,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsdcardpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -5986,7 +5986,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsdwanprofile",
+										Use: "profile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6004,7 +6004,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsdwanrouternode",
+										Use: "routernode",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6022,7 +6022,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsdwanrouterpolicy",
+										Use: "routerpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6032,24 +6032,6 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 										},
 
 										Short: "Create a 'sdwan.RouterPolicy' resource.",
-									}
-
-									return cmd
-								}())
-
-							cmd.AddCommand(
-								func() *cobra.Command {
-									cmd := &cobra.Command{
-										Use: "createsdwanvmanageaccountpolicy",
-
-										Run: func(cmd *cobra.Command, args []string) {
-
-											res, httpResponse, err := client.SdwanApi.CreateSdwanVmanageAccountPolicy(authCtx).Execute()
-											resultHandler(res, httpResponse, err)
-
-										},
-
-										Short: "Create a 'sdwan.VmanageAccountPolicy' resource.",
 									}
 
 									return cmd
@@ -6179,6 +6161,24 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 									return cmd
 								}())
 
+							cmd.AddCommand(
+								func() *cobra.Command {
+									cmd := &cobra.Command{
+										Use: "vmanageaccountpolicy",
+
+										Run: func(cmd *cobra.Command, args []string) {
+
+											res, httpResponse, err := client.SdwanApi.CreateSdwanVmanageAccountPolicy(authCtx).Execute()
+											resultHandler(res, httpResponse, err)
+
+										},
+
+										Short: "Create a 'sdwan.VmanageAccountPolicy' resource.",
+									}
+
+									return cmd
+								}())
+
 							return cmd
 						}())
 
@@ -6193,7 +6193,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsearchsuggestitem",
+										Use: "suggestitem",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6264,7 +6264,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createserverconfigimport",
+										Use: "configimport",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6282,7 +6282,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createserverprofile",
+										Use: "profile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6342,7 +6342,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsmtppolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6402,7 +6402,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsnmppolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6462,7 +6462,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsoftwarehclmeta",
+										Use: "hclmeta",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6480,7 +6480,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsoftwarehyperflexdistributable",
+										Use: "hyperflexdistributable",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6498,7 +6498,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsoftwaresolutiondistributable",
+										Use: "solutiondistributable",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6620,7 +6620,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsoftwarerepositoryauthorization",
+										Use: "authorization",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6638,7 +6638,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsoftwarerepositoryoperatingsystemfile",
+										Use: "operatingsystemfile",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6729,7 +6729,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsolpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6789,7 +6789,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsshpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6849,7 +6849,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createstoragediskgrouppolicy",
+										Use: "diskgrouppolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -6867,7 +6867,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createstoragestoragepolicy",
+										Use: "storagepolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -7578,7 +7578,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createsyslogpolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -7638,7 +7638,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createtamadvisorycount",
+										Use: "advisorycount",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -7656,7 +7656,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createtamadvisoryinfo",
+										Use: "advisoryinfo",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -7674,7 +7674,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createtamadvisoryinstance",
+										Use: "advisoryinstance",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -7692,7 +7692,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createtamsecurityadvisory",
+										Use: "securityadvisory",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -7845,7 +7845,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createtaskpurescopedinventory",
+										Use: "purescopedinventory",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8111,7 +8111,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvmediapolicy",
+										Use: "policy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8171,7 +8171,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicethadapterpolicy",
+										Use: "ethadapterpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8189,7 +8189,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicethif",
+										Use: "ethif",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8207,7 +8207,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicethnetworkpolicy",
+										Use: "ethnetworkpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8225,7 +8225,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicethqospolicy",
+										Use: "ethqospolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8243,7 +8243,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicfcadapterpolicy",
+										Use: "fcadapterpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8261,7 +8261,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicfcif",
+										Use: "fcif",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8279,7 +8279,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicfcnetworkpolicy",
+										Use: "fcnetworkpolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8297,7 +8297,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicfcqospolicy",
+										Use: "fcqospolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8315,7 +8315,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvniclanconnectivitypolicy",
+										Use: "lanconnectivitypolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8333,7 +8333,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createvnicsanconnectivitypolicy",
+										Use: "sanconnectivitypolicy",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8672,7 +8672,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createworkflowbatchapiexecutor",
+										Use: "batchapiexecutor",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8690,7 +8690,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createworkflowcustomdatatypedefinition",
+										Use: "customdatatypedefinition",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8708,7 +8708,7 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 							cmd.AddCommand(
 								func() *cobra.Command {
 									cmd := &cobra.Command{
-										Use: "createworkflowtaskdefinition",
+										Use: "taskdefinition",
 
 										Run: func(cmd *cobra.Command, args []string) {
 
@@ -8718,42 +8718,6 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 										},
 
 										Short: "Create a 'workflow.TaskDefinition' resource.",
-									}
-
-									return cmd
-								}())
-
-							cmd.AddCommand(
-								func() *cobra.Command {
-									cmd := &cobra.Command{
-										Use: "createworkflowworkflowdefinition",
-
-										Run: func(cmd *cobra.Command, args []string) {
-
-											res, httpResponse, err := client.WorkflowApi.CreateWorkflowWorkflowDefinition(authCtx).Execute()
-											resultHandler(res, httpResponse, err)
-
-										},
-
-										Short: "Create a 'workflow.WorkflowDefinition' resource.",
-									}
-
-									return cmd
-								}())
-
-							cmd.AddCommand(
-								func() *cobra.Command {
-									cmd := &cobra.Command{
-										Use: "createworkflowworkflowinfo",
-
-										Run: func(cmd *cobra.Command, args []string) {
-
-											res, httpResponse, err := client.WorkflowApi.CreateWorkflowWorkflowInfo(authCtx).Execute()
-											resultHandler(res, httpResponse, err)
-
-										},
-
-										Short: "Create a 'workflow.WorkflowInfo' resource.",
 									}
 
 									return cmd
@@ -8941,6 +8905,42 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 
 											return cmd
 										}())
+
+									return cmd
+								}())
+
+							cmd.AddCommand(
+								func() *cobra.Command {
+									cmd := &cobra.Command{
+										Use: "workflowdefinition",
+
+										Run: func(cmd *cobra.Command, args []string) {
+
+											res, httpResponse, err := client.WorkflowApi.CreateWorkflowWorkflowDefinition(authCtx).Execute()
+											resultHandler(res, httpResponse, err)
+
+										},
+
+										Short: "Create a 'workflow.WorkflowDefinition' resource.",
+									}
+
+									return cmd
+								}())
+
+							cmd.AddCommand(
+								func() *cobra.Command {
+									cmd := &cobra.Command{
+										Use: "workflowinfo",
+
+										Run: func(cmd *cobra.Command, args []string) {
+
+											res, httpResponse, err := client.WorkflowApi.CreateWorkflowWorkflowInfo(authCtx).Execute()
+											resultHandler(res, httpResponse, err)
+
+										},
+
+										Short: "Create a 'workflow.WorkflowInfo' resource.",
+									}
 
 									return cmd
 								}())

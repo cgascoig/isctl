@@ -42,16 +42,21 @@ func removeRedundantPrefixes() fixupFunc {
 
 var fixups = []fixupFunc{
 	//remove redundant prefixes (e.g. with get ntp getntppolicylist remove 'getntp')
+	// this is done both before and after the post->create prefix substitutions to catch all permutations
 	removeRedundantPrefixes(),
-
-	simpleRegexpFixup(regexp.MustCompile(`By[A-Z]\w*$`), ""),
-
-	simpleRegexpFixup(regexp.MustCompile(`List$`), ""),
 
 	//replace post with create
 	simpleRegexpFixup(regexp.MustCompile(`(?i)^post$`), "create"),
 	//replace patch with update
 	simpleRegexpFixup(regexp.MustCompile(`(?i)^patch$`), "update"),
+
+	//remove redundant prefixes (e.g. with get ntp getntppolicylist remove 'getntp')
+	// this is done both before and after the post->create prefix substitutions to catch all permutations
+	removeRedundantPrefixes(),
+
+	simpleRegexpFixup(regexp.MustCompile(`By[A-Z]\w*$`), ""),
+
+	simpleRegexpFixup(regexp.MustCompile(`List$`), ""),
 }
 
 func fixupTokenList(tokenList []string) []string {
