@@ -3,6 +3,9 @@ package main
 import (
     "log"
     "net/http"
+    "os"
+    "fmt"
+    "encoding/json"
 
     "github.com/cgascoig/isctl/openapi"
     "github.com/spf13/cobra"
@@ -15,11 +18,29 @@ func () *cobra.Command {
         Use: "{{ .Token }}",
         {{ if .Operation }}
         Run: func(cmd *cobra.Command, args []string) {
+            client.GetConfig().Debug = verbose
+
+            req := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationID }}(authCtx{{ if .Parameter }}, args[0]{{ end }})
+
+            {{ if ne .BodyParamType "" }}
+            body := openapi.New{{ .BodyParamType }}()
+
+            // Gather body from JSON on stdin. 
+            err := json.NewDecoder(os.Stdin).Decode(&body)
+            if err != nil {
+                resultHandler(nil, nil, fmt.Errorf("Decoding JSON: %v", err))
+                return
+            }
+
+            req = req.{{ .BodyParamType }}(*body)
+            
+            {{ end }}
+
             {{ if ne .Operation.ReturnType "" }}
-            res, httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationID }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
+            res, httpResponse, err := req.Execute()
             resultHandler(res, httpResponse, err)
             {{ else }}
-            httpResponse, err := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationID }}(authCtx{{ if .Parameter }}, args[0]{{ end }}).Execute()
+            httpResponse, err := req.Execute()
             resultHandler(nil, httpResponse, err)
             {{ end }}
         }, 
@@ -29,6 +50,9 @@ func () *cobra.Command {
         {{ end }}
         
         Short: "{{ .Help }}",
+        Long: `{{ .Help }}
+{{ if ne .BodyParamType "" }}
+Provide resource body as JSON on standard input{{ end }}`,
     }
     
     {{ range $k, $v := .Children }}

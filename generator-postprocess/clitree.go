@@ -8,11 +8,12 @@ import (
 
 // CliItem is a node in the CLI tree
 type CliItem struct {
-	Token     string
-	Help      string
-	Children  map[string]*CliItem
-	Parameter string //the name of the field in the request struct, nil if this isn't a parameter
-	Operation *Operation
+	Token         string
+	Help          string
+	Children      map[string]*CliItem
+	Parameter     string //the name of the field in the request struct, nil if this isn't a parameter
+	Operation     *Operation
+	BodyParamType string
 }
 
 type fixupFunc func(tokenlist []string) []string
@@ -113,6 +114,10 @@ func getOrCreateChildCliItem(cliItem *CliItem, token string, parameter bool) *Cl
 	return cliItem.Children[token]
 }
 
+var blacklistedOperations map[string]bool = map[string]bool{
+	"QueryTelemetryTimeSeries": true,
+}
+
 func generateCliTree(opData *OperationsFile) *CliItem {
 	cliTree := CliItem{
 		Children: map[string]*CliItem{},
@@ -120,12 +125,24 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 
 	for i := range opData.Operations {
 		var op *Operation = &opData.Operations[i]
+
+		if _, ok := blacklistedOperations[op.OperationID]; ok {
+			continue
+		}
+
 		tokenList, tokenHelp := getTokenListForOperation(op)
 		cliItem := &cliTree
 
 		for i, token := range tokenList {
 			cliItem = getOrCreateChildCliItem(cliItem, token, false)
 			cliItem.Help = tokenHelp[i]
+		}
+
+		// Check if there is a body param
+		for _, param := range op.Params {
+			if param.IsBodyParam {
+				cliItem.BodyParamType = param.DataType
+			}
 		}
 
 		for _, param := range op.Params {
