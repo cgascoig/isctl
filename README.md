@@ -1,0 +1,1 @@
+![Build](https://github.com/cgascoig/isctl/workflows/Build/badge.svg)

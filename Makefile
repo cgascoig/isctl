@@ -48,6 +48,6 @@ build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
 
 crossarch: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
 > GOOS=linux GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-linux_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
-> GOOS=windows GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-windows_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
+> GOOS=windows GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-windows_amd64.exe" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 > GOOS=darwin GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-darwin_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 .PHONY: crossarch
