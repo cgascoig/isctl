@@ -13,6 +13,7 @@ endif
 GO_MODULE := github.com/cgascoig/isctl
 GO_CMD ?= go
 GO_BUILD_CMD := $(GO_CMD) build -v 
+GO_BUILD_FLAGS := -ldflags "-X main.gitCommit=`git rev-parse HEAD`"
 
 OPENAPI_GENERATOR_CLI_IMAGE_TAG := @sha256:bcc4e88bd375b749b6b2555048f9853e8005829c0baa9394f9028e9bc5c224fe
 
@@ -43,4 +44,10 @@ cmd/cli.go: build/generator-postprocess openapi/operations.yaml generator-postpr
 > go fmt "$@"
 
 build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
-> $(GO_BUILD_CMD) -o "$@" -ldflags "-X main.gitCommit=`git rev-parse HEAD`" $(GO_MODULE)/cmd
+> $(GO_BUILD_CMD) -o "$@" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
+
+crossarch: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
+> GOOS=linux GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-linux_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
+> GOOS=windows GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-windows_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
+> GOOS=darwin GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-darwin_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
+.PHONY: crossarch
