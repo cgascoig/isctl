@@ -15,9 +15,9 @@ jobs:
         go-version: '^1.14.4'
 
     - name: Go tests
-      run: gmake test
+      run: make test
     - name: Go build
-      run: gmake
+      run: make
 
     - name: Archive builds
       uses: actions/upload-artifact@v1
