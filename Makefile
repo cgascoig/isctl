@@ -23,6 +23,10 @@ clean:
 > rm -Rf openapi build
 .PHONY: clean
 
+test:
+> $(GO_CMD) test -v $(GO_MODULE)/cmd
+.PHONY: test
+
 openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
 > mkdir -p $(@D)
 > docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate -g go-experimental -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go-experimental

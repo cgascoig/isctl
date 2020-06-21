@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"reflect"
 	"strings"
 
 	"encoding/json"
 
 	"github.com/PaesslerAG/jsonpath"
+	"github.com/bndr/gotabulate"
 	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 )
@@ -42,88 +42,153 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error) {
 	case outputFormat == "json":
 		printResultJSON(result)
 	default:
-		// printResultHuman(result)
-		printResultYAML(result)
+		printResultDefault(result)
 	}
 }
 
-func stripEnvelope(result interface{}) interface{} {
-	vr := reflect.ValueOf(result)
-	if vr.Kind() == reflect.Ptr {
-		vr = vr.Elem()
-	}
+var uninterestingAttributes = []string{
+	//From MoBaseMo
+	"AccountMoid",
+	"ClassId",
+	"CreateTime",
+	"DomainGroupMoid",
+	"ModTime",
+	"ObjectType",
+	"Owners",
+	"SharedScope",
+	"Tags",
+	"VersionContext",
+	"Ancestors",
+	"Parent",
+	"PermissionResources",
+	"DisplayNames",
 
-	if vr.Kind() == reflect.Struct {
-		payloadValue := vr.FieldByName("Payload")
-		if payloadValue.IsValid() {
-			resultsValue := reflect.Indirect(payloadValue).FieldByName("Results")
-			if resultsValue.IsValid() {
-				return resultsValue.Interface()
+	//From PolicyAbstractPolicy
+	"Description", // include/exclude this? TBD?
+
+	//Others, to be validated
+	"ApplianceAccount",
+	"Organization",
+	"Profiles",
+}
+
+func removeUninterestingAttributes(mo *map[string]interface{}) {
+	for _, attr := range uninterestingAttributes {
+		delete(*mo, attr)
+	}
+}
+
+func collapseReferences(mo *map[string]interface{}) {
+	for k, v := range *mo {
+		if in, ok := v.(map[string]interface{}); ok {
+			if classID, ok := in["ClassId"]; ok && classID == "mo.MoRef" {
+				(*mo)[k] = fmt.Sprintf("MoRef[%v/%v]", in["ObjectType"], in["Moid"])
 			}
-			return payloadValue.Interface()
 		}
 	}
-
-	return result
 }
 
-func indent(lines []string, slice bool) []string {
-	ret := []string{}
+// simplifyResult prepares alters the structure of returned data to be appropriate for default(human) output
+//  Specifically, this means unwrapping returned lists (if of form result[XX]["Results"] -> []interface{},
+//  just keep the []interface) and removing boilerplate attributes from the MOs
+func simplifyResult(result interface{}) interface{} {
+	var ret interface{}
 
-	first := true
-	for _, line := range lines {
-		if slice && first {
-			first = false
-			ret = append(ret, fmt.Sprintf("- %s", line))
-		} else {
-			ret = append(ret, fmt.Sprintf("  %s	", line))
-		}
-	}
+	ret = result
 
-	return ret
-}
-
-func printResultHumanValue(r reflect.Value) []string {
-	vr := reflect.Indirect(r)
-	ret := []string{}
-
-	switch vr.Kind() {
-	case reflect.Struct:
-		for i := 0; i < vr.NumField(); i++ {
-			f := vr.Field(i)
-			t := vr.Type().Field(i)
-			if t.PkgPath == "" { // empty PkgPath indicates exported field
-				newLines := printResultHumanValue(f)
-				if !t.Anonymous {
-					if len(newLines) <= 1 {
-						ret = append(ret, fmt.Sprintf("%s: %s", t.Name, strings.Join(newLines, "")))
-					} else {
-						ret = append(ret, fmt.Sprintf("%s: ", t.Name))
-						ret = append(ret, indent(newLines, false)...)
+	// see if input is of form result[XX]["Results"] -> []interface{},
+	//  if so, just keep the []interface{}
+	if m, ok := result.(map[string]interface{}); ok {
+		// if the input is a map of strings, go through each item to see if it is also a map:
+		for _, v := range m {
+			if m2, ok := v.(map[string]interface{}); ok {
+				if r, ok := m2["Results"]; ok {
+					if res, ok := r.([]interface{}); ok {
+						ret = res
 					}
-				} else {
-					ret = append(ret, newLines...)
 				}
 			}
 		}
-	case reflect.Slice:
-		for i := 0; i < vr.Len(); i++ {
-			newLines := printResultHumanValue(vr.Index(i))
+	}
 
-			ret = append(ret, indent(newLines, true)...)
+	// remove uninteresting attributes from individual mo
+	if m, ok := ret.(map[string]interface{}); ok {
+		removeUninterestingAttributes(&m)
+		collapseReferences(&m)
+	}
+
+	// remove uninteresting attributes from list of mos
+	if li, ok := ret.([]interface{}); ok {
+		for _, i := range li {
+			if m, ok := i.(map[string]interface{}); ok {
+				removeUninterestingAttributes(&m)
+				collapseReferences(&m)
+			}
 		}
-	default:
-		ret = []string{fmt.Sprintf("%s", vr.String())}
+
 	}
 
 	return ret
 }
 
-func printResultHuman(result interface{}) {
+func stringify(in interface{}) string {
+	if in, ok := in.(bool); ok {
+		if in {
+			return "True"
+		}
 
-	for _, line := range printResultHumanValue(reflect.ValueOf(result)) {
-		fmt.Println(line)
+		return "False"
 	}
+
+	if in, ok := in.([]interface{}); ok {
+		l := []string{}
+		for _, v := range in {
+			l = append(l, stringify(v))
+		}
+		return strings.Join(l, ", ")
+	}
+
+	return fmt.Sprintf("%v", in)
+}
+
+func prepareResultTable(in interface{}) ([][]string, []string) {
+	outHeaders := []string{}
+	outData := [][]string{}
+
+	// If in is a map, make it a 1 length slice
+	if _, ok := in.(map[string]interface{}); ok {
+		in = []interface{}{
+			in,
+		}
+	}
+
+	if inList, ok := in.([]interface{}); ok {
+		if len(inList) < 1 {
+			// Empty list, return empty
+			return outData, outHeaders
+		}
+
+		// Get the headers from the first element
+		firstRow := inList[0]
+		if rowMap, ok := firstRow.(map[string]interface{}); ok {
+			for k := range rowMap {
+				outHeaders = append(outHeaders, k)
+			}
+		}
+
+		for _, row := range inList {
+			if rowMap, ok := row.(map[string]interface{}); ok {
+				newRow := []string{}
+				for _, k := range outHeaders {
+					newRow = append(newRow, stringify(rowMap[k]))
+				}
+				outData = append(outData, newRow)
+			}
+		}
+
+	}
+
+	return outData, outHeaders
 }
 
 func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{}, error) {
@@ -150,6 +215,33 @@ func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{},
 
 }
 
+const defaultOutputMaxColumns int = 8
+
+func printResultDefault(result interface{}) {
+	result = simplifyResult(result)
+
+	tableData, tableHeaders := prepareResultTable(result)
+
+	// Pretty rough but if the output will be very wide fall back to YAML formatting the output
+	if len(tableHeaders) > defaultOutputMaxColumns {
+		log.Println("Too many columns for table format, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.")
+		printResultYAML(result)
+		return
+	}
+
+	// If the result is just 1 item also fall back to YAML but we
+	if len(tableData) == 1 {
+		log.Println("Single result, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.")
+		printResultYAML(result)
+		return
+	}
+
+	t := gotabulate.Create(tableData)
+	t.SetHeaders(tableHeaders)
+
+	fmt.Println(t.Render("simple"))
+}
+
 func printResultYAML(result interface{}) {
 	out, err := yaml.Marshal(result)
 	if err != nil {
@@ -161,7 +253,7 @@ func printResultYAML(result interface{}) {
 }
 
 func printResultJSON(result interface{}) {
-	out, err := json.Marshal(result)
+	out, err := json.MarshalIndent(result, "", "  ")
 	if err != nil {
 		fmt.Printf("ERROR: %v", err)
 		return
