@@ -42,12 +42,36 @@ release:
   prerelease: auto
 
 archives:
-- replacements:
+- id: isctl
+  format: zip
+  builds:
+    - isctl
+  format_overrides: 
+  - goos: linux
+    format: tar.gz
+  replacements:
     darwin: Darwin
     linux: Linux
     windows: Windows
     386: i386
     amd64: x86_64
+- id: isctl-macos
+  format: zip
+  builds:
+    - isctl-macos
+  replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+    386: i386
+    amd64: x86_64
+
+brews:
+- ids:
+  - isctl-macos
+  github:
+    owner: cgascoig
+    name: homebrew-isctl
 
 checksum:
   name_template: 'checksums.txt'
