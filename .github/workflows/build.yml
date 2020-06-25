@@ -1,8 +1,6 @@
 name: Build
 
-on:
-  push:
-    branches: [ master ]
+on: [push]
 
 jobs:
   build:
@@ -21,9 +19,3 @@ jobs:
       run: make test
     - name: Go build
       run: make crossarch
-
-    - name: Archive builds
-      uses: actions/upload-artifact@v1
-      with:
-        name: isctl
-        path: build
