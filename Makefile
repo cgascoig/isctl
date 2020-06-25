@@ -13,7 +13,7 @@ endif
 GO_MODULE := github.com/cgascoig/isctl
 GO_CMD ?= go
 GO_BUILD_CMD := $(GO_CMD) build -v 
-GO_BUILD_FLAGS := -ldflags "-X main.gitCommit=`git rev-parse HEAD`"
+GO_BUILD_FLAGS := -ldflags "-X main.commit=`git rev-parse HEAD`"
 
 OPENAPI_GENERATOR_CLI_IMAGE_TAG := @sha256:bcc4e88bd375b749b6b2555048f9853e8005829c0baa9394f9028e9bc5c224fe
 

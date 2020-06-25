@@ -7,8 +7,8 @@ import (
 )
 
 var (
-	gitCommit     = "unknown"
-	versionString = "unknown"
+	commit  = "unknown"
+	version = "unknown"
 )
 
 const ()
@@ -22,5 +22,5 @@ func newCmdVersion() *cobra.Command {
 }
 
 func runCmdVersion(cmd *cobra.Command, args []string) {
-	fmt.Printf("isctl version %s (Git commit %s)\n", versionString, gitCommit)
+	fmt.Printf("isctl version %s (Git commit %s)\n", version, commit)
 }
