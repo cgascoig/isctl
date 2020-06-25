@@ -37,7 +37,7 @@ builds:
 release:
   github:
     owner: cgascoig
-    name: repo
+    name: isctl
   draft: true
   prerelease: auto
 
