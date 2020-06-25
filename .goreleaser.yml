@@ -38,7 +38,7 @@ release:
   github:
     owner: cgascoig
     name: isctl
-  draft: true
+  draft: false
   prerelease: auto
 
 archives:

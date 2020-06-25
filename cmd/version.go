@@ -7,12 +7,11 @@ import (
 )
 
 var (
-	gitCommit string
+	gitCommit     = "unknown"
+	versionString = "unknown"
 )
 
-const (
-	versionString = "0.1.0"
-)
+const ()
 
 func newCmdVersion() *cobra.Command {
 	return &cobra.Command{
