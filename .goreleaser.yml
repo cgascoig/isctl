@@ -1,0 +1,63 @@
+# This is an example goreleaser.yaml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+
+env:
+  # due to a bug need to use a specific go version built from source and a dedicated GOPATH
+  # should be able to get rid of this once go 1.15 is released
+  - "GOPATH=/Users/cgascoig/dev/go"
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod download
+    # you may remove this if you don't need go generate
+    - gmake generate
+builds:
+- id: isctl
+  binary: isctl
+  main: ./cmd
+  env:
+  - CGO_ENABLED=0
+  goos:
+    - windows
+    - linux
+  goarch:
+    - amd64
+- id: isctl-macos
+  binary: isctl
+  main: ./cmd
+  env:
+  - CGO_ENABLED=0
+  goos:
+    - darwin
+  goarch:
+    - amd64
+  hooks:
+    post: gon gon.hcl
+
+release:
+  github:
+    owner: cgascoig
+    name: repo
+  draft: true
+  prerelease: auto
+
+archives:
+- replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+    386: i386
+    amd64: x86_64
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: "{{ .Tag }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'

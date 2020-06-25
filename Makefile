@@ -20,6 +20,9 @@ OPENAPI_GENERATOR_CLI_IMAGE_TAG := @sha256:bcc4e88bd375b749b6b2555048f9853e80058
 all: build/isctl build/generator-postprocess openapi/operations.yaml cmd/cli.go
 .PHONY: all
 
+generate: cmd/cli.go
+.PHONY: generate
+
 clean:
 > rm -Rf openapi build
 .PHONY: clean
