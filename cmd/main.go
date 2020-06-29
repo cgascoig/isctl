@@ -125,7 +125,7 @@ func configure(cmd *cobra.Command, args []string) {
 
 func validateFlags(cmd *cobra.Command, args []string) error {
 	// Skip validation for config command
-	if cmd.Use == "configure" {
+	if cmd.Use == "configure" || cmd.Use == "version" {
 		return nil
 	}
 
