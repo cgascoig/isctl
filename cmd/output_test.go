@@ -108,7 +108,10 @@ func TestSimplifyResult(t *testing.T) {
 
 func TestPrepareResultTable(t *testing.T) {
 	var in interface{}
+	var expectedData, outData [][]string
+	var expectedHeaders, outHeaders []string
 
+	// Test normal scenario - result is a slice of maps
 	in = []interface{}{
 		map[string]interface{}{
 			"Moid":       "1234567",
@@ -118,12 +121,42 @@ func TestPrepareResultTable(t *testing.T) {
 		},
 	}
 
-	expectedData := [][]string{
+	expectedData = [][]string{
 		{"1234567", "NtpTest", "True", "1.1.1.1, 1.1.1.2"},
 	}
-	expectedHeaders := []string{"Moid", "Name", "Enabled", "NtpServers"}
+	expectedHeaders = []string{"Moid", "Name", "Enabled", "NtpServers"}
 
-	outData, outHeaders := prepareResultTable(in)
+	outData, outHeaders = prepareResultTable(in)
+
+	assert.ElementsMatch(t, expectedHeaders, outHeaders)
+	for i := range expectedData {
+		assert.ElementsMatch(t, expectedData[i], outData[i])
+	}
+
+	// Test JSON path result scenario - result is a slice of strings
+	in = []interface{}{
+		"123",
+		"456",
+	}
+	expectedData = [][]string{
+		{"123"},
+		{"456"},
+	}
+	expectedHeaders = []string{}
+	outData, outHeaders = prepareResultTable(in)
+
+	assert.ElementsMatch(t, expectedHeaders, outHeaders)
+	for i := range expectedData {
+		assert.ElementsMatch(t, expectedData[i], outData[i])
+	}
+
+	// Test JSON path result scenario - result is a string
+	in = "123"
+	expectedData = [][]string{
+		{"123"},
+	}
+	expectedHeaders = []string{}
+	outData, outHeaders = prepareResultTable(in)
 
 	assert.ElementsMatch(t, expectedHeaders, outHeaders)
 	for i := range expectedData {
