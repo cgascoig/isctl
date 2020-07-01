@@ -155,8 +155,8 @@ func prepareResultTable(in interface{}) ([][]string, []string) {
 	outHeaders := []string{}
 	outData := [][]string{}
 
-	// If in is a map, make it a 1 length slice
-	if _, ok := in.(map[string]interface{}); ok {
+	// If in is not a slice, make it a 1 length slice
+	if _, ok := in.([]interface{}); !ok {
 		in = []interface{}{
 			in,
 		}
@@ -183,6 +183,8 @@ func prepareResultTable(in interface{}) ([][]string, []string) {
 					newRow = append(newRow, stringify(rowMap[k]))
 				}
 				outData = append(outData, newRow)
+			} else {
+				outData = append(outData, []string{stringify(row)})
 			}
 		}
 
@@ -221,6 +223,16 @@ func printResultDefault(result interface{}) {
 	result = simplifyResult(result)
 
 	tableData, tableHeaders := prepareResultTable(result)
+
+	if len(tableHeaders) == 0 {
+		for _, row := range tableData {
+			for _, v := range row {
+				fmt.Printf("%v", v)
+			}
+			fmt.Printf("\n")
+		}
+		return
+	}
 
 	// Pretty rough but if the output will be very wide fall back to YAML formatting the output
 	if len(tableHeaders) > defaultOutputMaxColumns {
