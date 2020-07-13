@@ -3,6 +3,7 @@ operations:
   - operationId: "{{{operationId}}}"
     httpMethod: "{{{httpMethod}}}"
     returnType: "{{{returnType}}}"
+    returnBaseType: "{{{returnBaseType}}}"
     summary: "{{{summary}}}"
     baseName: "{{{baseName}}}"
     params:
@@ -16,3 +17,20 @@ operations:
       isQueryParam: {{{isQueryParam}}}
 {{/allParams}}
 {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+
+models:
+{{#models}}{{#model}} 
+  {{{classname}}}: 
+    parents: 
+{{#parent}}{{^isMapModel}}
+      - {{{parent}}}
+{{/isMapModel}}
+{{/parent}}
+    vars:
+{{#vars}}
+      - name: "{{{name}}}"
+        dataType: "{{{dataType}}}"
+        required: {{{required}}}
+        readOnly: {{{isReadOnly}}}
+{{/vars}}
+{{/model}}{{/models}}

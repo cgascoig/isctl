@@ -1,7 +1,7 @@
 SHELL := bash
 .ONESHELL:
 .SHELLFLAGS := -eu -o pipefail -c
-.DELETE_ON_ERROR:
+# .DELETE_ON_ERROR:
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
@@ -27,13 +27,13 @@ clean:
 > rm -Rf openapi build
 .PHONY: clean
 
-test:
+test: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
 > $(GO_CMD) test -v $(GO_MODULE)/cmd
 .PHONY: test
 
 openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
 > mkdir -p $(@D)
-> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate -g go-experimental -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go-experimental
+> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go-experimental -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go-experimental
 > rm openapi/go.mod openapi/go.sum
 > mv openapi/README.md openapi/operations.yaml
 > ${GOPATH}/bin/goimports -l -w openapi
