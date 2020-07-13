@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"sort"
 	"strings"
 
 	"encoding/json"
@@ -175,6 +176,19 @@ func prepareResultTable(in interface{}) ([][]string, []string) {
 				outHeaders = append(outHeaders, k)
 			}
 		}
+
+		sort.Slice(outHeaders, func(i, j int) bool {
+			if outHeaders[i] == "Name" {
+				return true
+			}
+			if outHeaders[j] == "Name" {
+				return false
+			}
+			if outHeaders[i] == "Moid" && outHeaders[j] != "Name" {
+				return true
+			}
+			return outHeaders[i] < outHeaders[j]
+		})
 
 		for _, row := range inList {
 			if rowMap, ok := row.(map[string]interface{}); ok {
