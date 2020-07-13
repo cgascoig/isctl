@@ -18,7 +18,8 @@ var (
 
 // OperationsFile represents the YAML operations file
 type OperationsFile struct {
-	Operations []Operation `yaml:"operations"`
+	Operations []Operation      `yaml:"operations"`
+	Models     map[string]Model `yaml:"models"`
 }
 
 // Operation represents the YAML of one operation
@@ -40,6 +41,21 @@ type Param struct {
 	IsBodyParam  bool   `yaml:"isBodyParam"`
 	IsPathParam  bool   `yaml:"isPathParam"`
 	IsQueryParam bool   `yaml:"isQueryParam"`
+}
+
+// Model represents the YAML of one model from the OpenAPI spec
+type Model struct {
+	Parents []string `yaml:"parents"`
+	Vars    []Var    `yaml:"vars"`
+}
+
+// Var represents the YAML of one member var of the OpenAPI model
+type Var struct {
+	Name     string `yaml:"name"`
+	DataType string `yaml:"dataType"`
+	Required bool   `yaml:"required"`
+	ReadOnly bool   `yaml:"readOnly"`
+	Ignore   bool   // Used in cli.gotmpl to skip vars
 }
 
 func main() {

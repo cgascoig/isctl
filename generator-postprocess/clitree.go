@@ -14,6 +14,7 @@ type CliItem struct {
 	Parameter     string //the name of the field in the request struct, nil if this isn't a parameter
 	Operation     *Operation
 	BodyParamType string
+	BodyParamVars []*Var
 }
 
 type fixupFunc func(tokenlist []string) []string
@@ -114,7 +115,28 @@ func getOrCreateChildCliItem(cliItem *CliItem, token string, parameter bool) *Cl
 	return cliItem.Children[token]
 }
 
-var blacklistedOperations map[string]bool = map[string]bool{
+func getBodyParamVars(opData *OperationsFile, dataType string) []*Var {
+	ret := []*Var{}
+	validTypeRegExp := regexp.MustCompile(`^[a-zA-Z0-9]+$`)
+
+	if model, ok := opData.Models[dataType]; ok {
+		for _, p := range model.Parents {
+			ret = append(ret, getBodyParamVars(opData, p)...)
+		}
+		for i := range model.Vars {
+			dt := model.Vars[i].DataType
+			if !validTypeRegExp.MatchString(dt) || dt == "int64" || dt == "float32" || dt == "int32" {
+				model.Vars[i].Ignore = true
+			}
+
+			ret = append(ret, &model.Vars[i])
+		}
+	}
+
+	return ret
+}
+
+var ignoredOperations map[string]bool = map[string]bool{
 	"QueryTelemetryTimeSeries": true,
 }
 
@@ -126,7 +148,7 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 	for i := range opData.Operations {
 		var op *Operation = &opData.Operations[i]
 
-		if _, ok := blacklistedOperations[op.OperationID]; ok {
+		if _, ok := ignoredOperations[op.OperationID]; ok {
 			continue
 		}
 
@@ -142,6 +164,7 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 		for _, param := range op.Params {
 			if param.IsBodyParam {
 				cliItem.BodyParamType = param.DataType
+				cliItem.BodyParamVars = getBodyParamVars(opData, param.DataType)
 			}
 		}
 
