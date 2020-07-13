@@ -145,8 +145,11 @@ func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.
 
 											body := openapi.NewAdapterConfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "adapter.ConfigPolicy"
+											body.ObjectType = "adapter.ConfigPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -487,8 +490,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewApplianceBackup()
 
+											//Set class id and object type by default
+											body.ClassId = "appliance.Backup"
+											body.ObjectType = "appliance.Backup"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -737,8 +743,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewApplianceBackupPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "appliance.BackupPolicy"
+											body.ObjectType = "appliance.BackupPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -986,8 +995,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewApplianceDataExportPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "appliance.DataExportPolicy"
+											body.ObjectType = "appliance.DataExportPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -1211,8 +1223,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewApplianceDeviceClaim()
 
+											//Set class id and object type by default
+											body.ClassId = "appliance.DeviceClaim"
+											body.ObjectType = "appliance.DeviceClaim"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -1451,8 +1466,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewApplianceDiagSetting()
 
+											//Set class id and object type by default
+											body.ClassId = "appliance.DiagSetting"
+											body.ObjectType = "appliance.DiagSetting"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -1669,8 +1687,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewApplianceRestore()
 
+											//Set class id and object type by default
+											body.ClassId = "appliance.Restore"
+											body.ObjectType = "appliance.Restore"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -2823,8 +2844,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewAssetDeviceClaim()
 
+											//Set class id and object type by default
+											body.ClassId = "asset.DeviceClaim"
+											body.ObjectType = "asset.DeviceClaim"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -3050,8 +3074,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewAssetManagedDevice()
 
+											//Set class id and object type by default
+											body.ClassId = "asset.ManagedDevice"
+											body.ObjectType = "asset.ManagedDevice"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -4601,8 +4628,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewBiosPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "bios.Policy"
+											body.ObjectType = "bios.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -7830,8 +7860,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewBootPrecisionPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "boot.PrecisionPolicy"
+											body.ObjectType = "boot.PrecisionPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -9190,8 +9223,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewDeviceconnectorPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "deviceconnector.Policy"
+											body.ObjectType = "deviceconnector.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -12013,8 +12049,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewExternalsiteAuthorization()
 
+											//Set class id and object type by default
+											body.ClassId = "externalsite.Authorization"
+											body.ObjectType = "externalsite.Authorization"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -12702,8 +12741,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewFeedbackFeedbackPost()
 
+											//Set class id and object type by default
+											body.ClassId = "feedback.FeedbackPost"
+											body.ObjectType = "feedback.FeedbackPost"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -12957,8 +12999,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewFirmwareDistributable()
 
+											//Set class id and object type by default
+											body.ClassId = "firmware.Distributable"
+											body.ObjectType = "firmware.Distributable"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -13306,8 +13351,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewFirmwareDriverDistributable()
 
+											//Set class id and object type by default
+											body.ClassId = "firmware.DriverDistributable"
+											body.ObjectType = "firmware.DriverDistributable"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -13611,8 +13659,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewFirmwareEula()
 
+											//Set class id and object type by default
+											body.ClassId = "firmware.Eula"
+											body.ObjectType = "firmware.Eula"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -13845,8 +13896,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewFirmwareServerConfigurationUtilityDistributable()
 
+											//Set class id and object type by default
+											body.ClassId = "firmware.ServerConfigurationUtilityDistributable"
+											body.ObjectType = "firmware.ServerConfigurationUtilityDistributable"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -14899,8 +14953,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewFirmwareUpgrade()
 
+											//Set class id and object type by default
+											body.ClassId = "firmware.Upgrade"
+											body.ObjectType = "firmware.Upgrade"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -15530,8 +15587,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHclCompatibilityStatus()
 
+											//Set class id and object type by default
+											body.ClassId = "hcl.CompatibilityStatus"
+											body.ObjectType = "hcl.CompatibilityStatus"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -15701,8 +15761,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHclHyperflexSoftwareCompatibilityInfo()
 
+											//Set class id and object type by default
+											body.ClassId = "hcl.HyperflexSoftwareCompatibilityInfo"
+											body.ObjectType = "hcl.HyperflexSoftwareCompatibilityInfo"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -15903,8 +15966,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHclSupportedDriverName()
 
+											//Set class id and object type by default
+											body.ClassId = "hcl.SupportedDriverName"
+											body.ObjectType = "hcl.SupportedDriverName"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -16220,8 +16286,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexAppCatalog()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.AppCatalog"
+											body.ObjectType = "hyperflex.AppCatalog"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -16467,8 +16536,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexAutoSupportPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.AutoSupportPolicy"
+											body.ObjectType = "hyperflex.AutoSupportPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -16671,8 +16743,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexCapabilityInfo()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.CapabilityInfo"
+											body.ObjectType = "hyperflex.CapabilityInfo"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -16877,8 +16952,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexClusterNetworkPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ClusterNetworkPolicy"
+											body.ObjectType = "hyperflex.ClusterNetworkPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -17211,8 +17289,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexClusterProfile()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ClusterProfile"
+											body.ObjectType = "hyperflex.ClusterProfile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -17780,8 +17861,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexClusterStoragePolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ClusterStoragePolicy"
+											body.ObjectType = "hyperflex.ClusterStoragePolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -18011,8 +18095,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexExtFcStoragePolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ExtFcStoragePolicy"
+											body.ObjectType = "hyperflex.ExtFcStoragePolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -18272,8 +18359,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexExtIscsiStoragePolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ExtIscsiStoragePolicy"
+											body.ObjectType = "hyperflex.ExtIscsiStoragePolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -18504,8 +18594,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexFeatureLimitExternal()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.FeatureLimitExternal"
+											body.ObjectType = "hyperflex.FeatureLimitExternal"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -18680,8 +18773,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexFeatureLimitInternal()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.FeatureLimitInternal"
+											body.ObjectType = "hyperflex.FeatureLimitInternal"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -18856,8 +18952,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexHxdpVersion()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.HxdpVersion"
+											body.ObjectType = "hyperflex.HxdpVersion"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -19054,8 +19153,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexLocalCredentialPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.LocalCredentialPolicy"
+											body.ObjectType = "hyperflex.LocalCredentialPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -19290,8 +19392,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexNodeConfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.NodeConfigPolicy"
+											body.ObjectType = "hyperflex.NodeConfigPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -19557,8 +19662,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexNodeProfile()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.NodeProfile"
+											body.ObjectType = "hyperflex.NodeProfile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -19827,8 +19935,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexProxySettingPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ProxySettingPolicy"
+											body.ObjectType = "hyperflex.ProxySettingPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -20039,8 +20150,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexServerFirmwareVersion()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ServerFirmwareVersion"
+											body.ObjectType = "hyperflex.ServerFirmwareVersion"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -20215,8 +20329,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexServerModel()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.ServerModel"
+											body.ObjectType = "hyperflex.ServerModel"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -20409,8 +20526,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexSoftwareVersionPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.SoftwareVersionPolicy"
+											body.ObjectType = "hyperflex.SoftwareVersionPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -20690,8 +20810,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexSysConfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.SysConfigPolicy"
+											body.ObjectType = "hyperflex.SysConfigPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -20912,8 +21035,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexUcsmConfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.UcsmConfigPolicy"
+											body.ObjectType = "hyperflex.UcsmConfigPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -24160,8 +24286,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewHyperflexVcenterConfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "hyperflex.VcenterConfigPolicy"
+											body.ObjectType = "hyperflex.VcenterConfigPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -24598,8 +24727,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamAccount()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.Account"
+											body.ObjectType = "iam.Account"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -24834,8 +24966,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamApiKey()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.ApiKey"
+											body.ObjectType = "iam.ApiKey"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -25100,8 +25235,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamAppRegistration()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.AppRegistration"
+											body.ObjectType = "iam.AppRegistration"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -25376,8 +25514,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamCertificate()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.Certificate"
+											body.ObjectType = "iam.Certificate"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -25591,8 +25732,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamCertificateRequest()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.CertificateRequest"
+											body.ObjectType = "iam.CertificateRequest"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -25869,8 +26013,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamEndPointUser()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.EndPointUser"
+											body.ObjectType = "iam.EndPointUser"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -26059,8 +26206,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamEndPointUserPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.EndPointUserPolicy"
+											body.ObjectType = "iam.EndPointUserPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -26276,8 +26426,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamEndPointUserRole()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.EndPointUserRole"
+											body.ObjectType = "iam.EndPointUserRole"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -26513,8 +26666,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamIdp()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.Idp"
+											body.ObjectType = "iam.Idp"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -26761,8 +26917,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamLdapGroup()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.LdapGroup"
+											body.ObjectType = "iam.LdapGroup"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -26971,8 +27130,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamLdapPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.LdapPolicy"
+											body.ObjectType = "iam.LdapPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -27255,8 +27417,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamLdapProvider()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.LdapProvider"
+											body.ObjectType = "iam.LdapProvider"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -27451,8 +27616,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamPermission()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.Permission"
+											body.ObjectType = "iam.Permission"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -27658,8 +27826,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamPrivateKeySpec()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.PrivateKeySpec"
+											body.ObjectType = "iam.PrivateKeySpec"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -27855,8 +28026,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamQualifier()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.Qualifier"
+											body.ObjectType = "iam.Qualifier"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -28047,8 +28221,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamResourceRoles()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.ResourceRoles"
+											body.ObjectType = "iam.ResourceRoles"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -28250,8 +28427,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamSessionLimits()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.SessionLimits"
+											body.ObjectType = "iam.SessionLimits"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -28447,8 +28627,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamTrustPoint()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.TrustPoint"
+											body.ObjectType = "iam.TrustPoint"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -31482,8 +31665,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamUser()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.User"
+											body.ObjectType = "iam.User"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -31746,8 +31932,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIamUserGroup()
 
+											//Set class id and object type by default
+											body.ClassId = "iam.UserGroup"
+											body.ObjectType = "iam.UserGroup"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -31980,8 +32169,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewInfraAccountExperience()
 
+											//Set class id and object type by default
+											body.ClassId = "infra.AccountExperience"
+											body.ObjectType = "infra.AccountExperience"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -32276,8 +32468,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewInventoryRequest()
 
+											//Set class id and object type by default
+											body.ClassId = "inventory.Request"
+											body.ObjectType = "inventory.Request"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -32749,8 +32944,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewIpmioverlanPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "ipmioverlan.Policy"
+											body.ObjectType = "ipmioverlan.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -33119,8 +33317,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewKvmPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "kvm.Policy"
+											body.ObjectType = "kvm.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -33491,8 +33692,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewLicenseLicenseInfo()
 
+											//Set class id and object type by default
+											body.ClassId = "license.LicenseInfo"
+											body.ObjectType = "license.LicenseInfo"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -34957,8 +35161,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewMemoryPersistentMemoryPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "memory.PersistentMemoryPolicy"
+											body.ObjectType = "memory.PersistentMemoryPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -36978,8 +37185,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewNetworkconfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "networkconfig.Policy"
+											body.ObjectType = "networkconfig.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -37420,8 +37630,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewNtpPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "ntp.Policy"
+											body.ObjectType = "ntp.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -37786,8 +37999,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewOrganizationOrganization()
 
+											//Set class id and object type by default
+											body.ClassId = "organization.Organization"
+											body.ObjectType = "organization.Organization"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -38110,8 +38326,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewOsConfigurationFile()
 
+											//Set class id and object type by default
+											body.ClassId = "os.ConfigurationFile"
+											body.ObjectType = "os.ConfigurationFile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -38324,8 +38543,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewOsInstall()
 
+											//Set class id and object type by default
+											body.ClassId = "os.Install"
+											body.ObjectType = "os.Install"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -38649,8 +38871,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewOsOsSupport()
 
+											//Set class id and object type by default
+											body.ClassId = "os.OsSupport"
+											body.ObjectType = "os.OsSupport"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -38814,8 +39039,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewOsTemplateFile()
 
+											//Set class id and object type by default
+											body.ClassId = "os.TemplateFile"
+											body.ObjectType = "os.TemplateFile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -40029,8 +40257,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewRecoveryBackupConfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "recovery.BackupConfigPolicy"
+											body.ObjectType = "recovery.BackupConfigPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -40279,8 +40510,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewRecoveryBackupProfile()
 
+											//Set class id and object type by default
+											body.ClassId = "recovery.BackupProfile"
+											body.ObjectType = "recovery.BackupProfile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -40621,8 +40855,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewRecoveryOnDemandBackup()
 
+											//Set class id and object type by default
+											body.ClassId = "recovery.OnDemandBackup"
+											body.ObjectType = "recovery.OnDemandBackup"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -40895,8 +41132,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewRecoveryRestore()
 
+											//Set class id and object type by default
+											body.ClassId = "recovery.Restore"
+											body.ObjectType = "recovery.Restore"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -41153,8 +41393,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewRecoveryScheduleConfigPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "recovery.ScheduleConfigPolicy"
+											body.ObjectType = "recovery.ScheduleConfigPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -41969,8 +42212,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewResourceGroup()
 
+											//Set class id and object type by default
+											body.ClassId = "resource.Group"
+											body.ObjectType = "resource.Group"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -42295,8 +42541,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSdcardPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "sdcard.Policy"
+											body.ObjectType = "sdcard.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -42629,8 +42878,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSdwanProfile()
 
+											//Set class id and object type by default
+											body.ClassId = "sdwan.Profile"
+											body.ObjectType = "sdwan.Profile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -42917,8 +43169,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSdwanRouterNode()
 
+											//Set class id and object type by default
+											body.ClassId = "sdwan.RouterNode"
+											body.ObjectType = "sdwan.RouterNode"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -43161,8 +43416,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSdwanRouterPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "sdwan.RouterPolicy"
+											body.ObjectType = "sdwan.RouterPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -43941,8 +44199,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSdwanVmanageAccountPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "sdwan.VmanageAccountPolicy"
+											body.ObjectType = "sdwan.VmanageAccountPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -44175,8 +44436,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSearchSuggestItem()
 
+											//Set class id and object type by default
+											body.ClassId = "search.SuggestItem"
+											body.ObjectType = "search.SuggestItem"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -44571,8 +44835,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewServerConfigImport()
 
+											//Set class id and object type by default
+											body.ClassId = "server.ConfigImport"
+											body.ObjectType = "server.ConfigImport"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -44835,8 +45102,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewServerProfile()
 
+											//Set class id and object type by default
+											body.ClassId = "server.Profile"
+											body.ObjectType = "server.Profile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -45365,8 +45635,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSmtpPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "smtp.Policy"
+											body.ObjectType = "smtp.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -45757,8 +46030,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSnmpPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "snmp.Policy"
+											body.ObjectType = "snmp.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -46197,8 +46473,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSoftwareHclMeta()
 
+											//Set class id and object type by default
+											body.ClassId = "software.HclMeta"
+											body.ObjectType = "software.HclMeta"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -46552,8 +46831,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSoftwareHyperflexDistributable()
 
+											//Set class id and object type by default
+											body.ClassId = "software.HyperflexDistributable"
+											body.ObjectType = "software.HyperflexDistributable"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -46907,8 +47189,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSoftwareSolutionDistributable()
 
+											//Set class id and object type by default
+											body.ClassId = "software.SolutionDistributable"
+											body.ObjectType = "software.SolutionDistributable"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -47845,8 +48130,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSoftwarerepositoryAuthorization()
 
+											//Set class id and object type by default
+											body.ClassId = "softwarerepository.Authorization"
+											body.ObjectType = "softwarerepository.Authorization"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -48079,8 +48367,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSoftwarerepositoryOperatingSystemFile()
 
+											//Set class id and object type by default
+											body.ClassId = "softwarerepository.OperatingSystemFile"
+											body.ObjectType = "softwarerepository.OperatingSystemFile"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -48635,8 +48926,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSolPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "sol.Policy"
+											body.ObjectType = "sol.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -48985,8 +49279,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSshPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "ssh.Policy"
+											body.ObjectType = "ssh.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -49327,8 +49624,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewStorageDiskGroupPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "storage.DiskGroupPolicy"
+											body.ObjectType = "storage.DiskGroupPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -49541,8 +49841,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewStorageStoragePolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "storage.StoragePolicy"
+											body.ObjectType = "storage.StoragePolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -53465,8 +53768,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewSyslogPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "syslog.Policy"
+											body.ObjectType = "syslog.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -53785,8 +54091,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewTamAdvisoryCount()
 
+											//Set class id and object type by default
+											body.ClassId = "tam.AdvisoryCount"
+											body.ObjectType = "tam.AdvisoryCount"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -53963,8 +54272,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewTamAdvisoryInfo()
 
+											//Set class id and object type by default
+											body.ClassId = "tam.AdvisoryInfo"
+											body.ObjectType = "tam.AdvisoryInfo"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -54176,8 +54488,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewTamAdvisoryInstance()
 
+											//Set class id and object type by default
+											body.ClassId = "tam.AdvisoryInstance"
+											body.ObjectType = "tam.AdvisoryInstance"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -54440,8 +54755,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewTamSecurityAdvisory()
 
+											//Set class id and object type by default
+											body.ClassId = "tam.SecurityAdvisory"
+											body.ObjectType = "tam.SecurityAdvisory"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -55223,8 +55541,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewTaskPureScopedInventory()
 
+											//Set class id and object type by default
+											body.ClassId = "task.PureScopedInventory"
+											body.ObjectType = "task.PureScopedInventory"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -56615,8 +56936,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVmediaPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vmedia.Policy"
+											body.ObjectType = "vmedia.Policy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -56987,8 +57311,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicEthAdapterPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.EthAdapterPolicy"
+											body.ObjectType = "vnic.EthAdapterPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -57376,8 +57703,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicEthIf()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.EthIf"
+											body.ObjectType = "vnic.EthIf"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -57714,8 +58044,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicEthNetworkPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.EthNetworkPolicy"
+											body.ObjectType = "vnic.EthNetworkPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -57931,8 +58264,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicEthQosPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.EthQosPolicy"
+											body.ObjectType = "vnic.EthQosPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -58151,8 +58487,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicFcAdapterPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.FcAdapterPolicy"
+											body.ObjectType = "vnic.FcAdapterPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -58488,8 +58827,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicFcIf()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.FcIf"
+											body.ObjectType = "vnic.FcIf"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -58781,8 +59123,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicFcNetworkPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.FcNetworkPolicy"
+											body.ObjectType = "vnic.FcNetworkPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -58996,8 +59341,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicFcQosPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.FcQosPolicy"
+											body.ObjectType = "vnic.FcQosPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -59190,8 +59538,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicLanConnectivityPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.LanConnectivityPolicy"
+											body.ObjectType = "vnic.LanConnectivityPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -59384,8 +59735,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewVnicSanConnectivityPolicy()
 
+											//Set class id and object type by default
+											body.ClassId = "vnic.SanConnectivityPolicy"
+											body.ObjectType = "vnic.SanConnectivityPolicy"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -60981,8 +61335,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewWorkflowBatchApiExecutor()
 
+											//Set class id and object type by default
+											body.ClassId = "workflow.BatchApiExecutor"
+											body.ObjectType = "workflow.BatchApiExecutor"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -61202,8 +61559,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewWorkflowCustomDataTypeDefinition()
 
+											//Set class id and object type by default
+											body.ClassId = "workflow.CustomDataTypeDefinition"
+											body.ObjectType = "workflow.CustomDataTypeDefinition"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -61422,8 +61782,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewWorkflowTaskDefinition()
 
+											//Set class id and object type by default
+											body.ClassId = "workflow.TaskDefinition"
+											body.ObjectType = "workflow.TaskDefinition"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -62675,8 +63038,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewWorkflowWorkflowDefinition()
 
+											//Set class id and object type by default
+											body.ClassId = "workflow.WorkflowDefinition"
+											body.ObjectType = "workflow.WorkflowDefinition"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")
@@ -62985,8 +63351,11 @@ Provide resource body as JSON on standard input`,
 
 											body := openapi.NewWorkflowWorkflowInfo()
 
+											//Set class id and object type by default
+											body.ClassId = "workflow.WorkflowInfo"
+											body.ObjectType = "workflow.WorkflowInfo"
+
 											bodyFormat, err := cmd.Flags().GetString("bodyformat")
-											fmt.Println(bodyFormat)
 											if err == nil && bodyFormat == "json" {
 												// Gather body from JSON on stdin.
 												fmt.Println("Waiting for JSON body: ")

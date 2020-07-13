@@ -34,6 +34,10 @@ func () *cobra.Command {
             {{ if ne .BodyParamType "" }}
             body := openapi.New{{ .BodyParamType }}()
 
+            //Set class id and object type by default
+            body.ClassId = "{{ .Operation.ReturnBaseType }}"
+            body.ObjectType = "{{ .Operation.ReturnBaseType }}"
+
             bodyFormat, err := cmd.Flags().GetString("bodyformat")
             if err == nil && bodyFormat == "json" {
                 // Gather body from JSON on stdin. 

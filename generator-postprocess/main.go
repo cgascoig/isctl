@@ -24,12 +24,13 @@ type OperationsFile struct {
 
 // Operation represents the YAML of one operation
 type Operation struct {
-	OperationID string  `yaml:"operationId"`
-	HTTPMethod  string  `yaml:"httpMethod"`
-	ReturnType  string  `yaml:"returnType"`
-	Summary     string  `yaml:"summary"`
-	BaseName    string  `yaml:"baseName"`
-	Params      []Param `yaml:"params"`
+	OperationID    string  `yaml:"operationId"`
+	HTTPMethod     string  `yaml:"httpMethod"`
+	ReturnType     string  `yaml:"returnType"`
+	ReturnBaseType string  `yaml:"returnBaseType"`
+	Summary        string  `yaml:"summary"`
+	BaseName       string  `yaml:"baseName"`
+	Params         []Param `yaml:"params"`
 }
 
 // Param represents the YAML of one parameter
