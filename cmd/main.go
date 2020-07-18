@@ -23,9 +23,12 @@ var (
 )
 
 const (
-	keyIDConfigKey     = "keyID"
-	keyFileConfigKey   = "keyFile"
+	keyIDConfigKey   = "keyID"
+	keyFileConfigKey = "keyFile"
+
 	keyOutputConfigKey = "output"
+
+	serverConfigKey = "server"
 )
 
 func main() {
@@ -44,12 +47,15 @@ func main() {
 	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID")
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
 
+	rootCmd.PersistentFlags().String(serverConfigKey, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\")")
+
 	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", "Output format. One of: default, yaml, json")
 	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.NtpPolicyList.Results[*].Name\")")
 
 	viper.BindPFlag(keyIDConfigKey, rootCmd.PersistentFlags().Lookup(keyIDConfigKey))
 	viper.BindPFlag(keyFileConfigKey, rootCmd.PersistentFlags().Lookup(keyFileConfigKey))
 	viper.BindPFlag(keyOutputConfigKey, rootCmd.PersistentFlags().Lookup(keyOutputConfigKey))
+	viper.BindPFlag(serverConfigKey, rootCmd.PersistentFlags().Lookup(serverConfigKey))
 
 	configCmd := &cobra.Command{
 		Use:   "configure",
@@ -117,6 +123,14 @@ func configure(cmd *cobra.Command, args []string) {
 		viper.Set(keyFileConfigKey, input)
 	}
 
+	// configure server
+	fmt.Printf("Intersight API server is currently '%s'\n", viper.GetString(serverConfigKey))
+	fmt.Printf("Enter new Intersight API server or press Enter to keep existing: ")
+	scanner.Scan()
+	if input := scanner.Text(); input != "" {
+		viper.Set(serverConfigKey, input)
+	}
+
 	log.Println("Writing config file")
 	if err := viper.WriteConfig(); err != nil {
 		log.Fatalf("Error occurred writing config file: %v", err)
@@ -160,6 +174,10 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return fmt.Errorf("Unable to create request context with authentication: %v", err)
 	}
+
+	authCtx = context.WithValue(authCtx, openapi.ContextServerVariables, map[string]string{
+		"server": viper.GetString(serverConfigKey),
+	})
 
 	return nil
 }
