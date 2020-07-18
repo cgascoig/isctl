@@ -68742,6 +68742,10 @@ Provide resource body as JSON on standard input`,
 												req = req.Filter(filter)
 											}
 
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
+											}
+
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
 
@@ -68779,6 +68783,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -68810,6 +68815,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -68849,6 +68858,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -68866,6 +68876,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -68905,6 +68919,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -68922,6 +68937,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -68961,6 +68980,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -68978,6 +68998,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69017,6 +69041,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69034,6 +69059,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69073,6 +69102,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69090,6 +69120,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69129,6 +69163,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69160,6 +69195,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69199,6 +69238,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69216,6 +69256,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69255,6 +69299,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69272,6 +69317,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69311,6 +69360,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69328,6 +69378,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69367,6 +69421,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69384,6 +69439,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69423,6 +69482,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69440,6 +69500,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69479,6 +69543,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69496,6 +69561,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69535,6 +69604,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69552,6 +69622,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69591,6 +69665,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69608,6 +69683,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69647,6 +69726,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69664,6 +69744,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69703,6 +69787,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69720,6 +69805,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69759,6 +69848,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69776,6 +69866,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69815,6 +69909,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69832,6 +69927,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69871,6 +69970,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69888,6 +69988,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69927,6 +70031,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -69958,6 +70063,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -69997,6 +70106,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70014,6 +70124,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70053,6 +70167,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70070,6 +70185,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70109,6 +70228,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70126,6 +70246,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70165,6 +70289,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70182,6 +70307,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70221,6 +70350,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70238,6 +70368,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70277,6 +70411,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70308,6 +70443,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70347,6 +70486,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70364,6 +70504,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70403,6 +70547,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70420,6 +70565,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70459,6 +70608,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70490,6 +70640,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70529,6 +70683,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70546,6 +70701,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70585,6 +70744,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70616,6 +70776,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70655,6 +70819,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70672,6 +70837,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70711,6 +70880,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70728,6 +70898,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70767,6 +70941,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70784,6 +70959,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70823,6 +71002,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70840,6 +71020,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70879,6 +71063,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70910,6 +71095,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -70949,6 +71138,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -70966,6 +71156,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71005,6 +71199,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71022,6 +71217,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71061,6 +71260,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71078,6 +71278,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71117,6 +71321,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71148,6 +71353,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71187,6 +71396,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71218,6 +71428,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71257,6 +71471,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71274,6 +71489,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71313,6 +71532,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71330,6 +71550,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71369,6 +71593,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71386,6 +71611,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71425,6 +71654,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71442,6 +71672,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71481,6 +71715,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71498,6 +71733,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71537,6 +71776,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71554,6 +71794,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71593,6 +71837,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71610,6 +71855,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71649,6 +71898,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71666,6 +71916,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71705,6 +71959,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71722,6 +71977,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71761,6 +72020,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71778,6 +72038,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71817,6 +72081,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71834,6 +72099,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71873,6 +72142,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71890,6 +72160,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71929,6 +72203,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -71946,6 +72221,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -71985,6 +72264,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72002,6 +72282,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72041,6 +72325,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72072,6 +72357,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72111,6 +72400,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72142,6 +72432,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72181,6 +72475,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72212,6 +72507,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72251,6 +72550,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72282,6 +72582,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72321,6 +72625,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72352,6 +72657,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72391,6 +72700,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72408,6 +72718,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72447,6 +72761,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72464,6 +72779,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72503,6 +72822,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72520,6 +72840,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72559,6 +72883,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72576,6 +72901,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72615,6 +72944,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72632,6 +72962,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72671,6 +73005,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72688,6 +73023,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72727,6 +73066,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72758,6 +73098,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72797,6 +73141,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72814,6 +73159,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72853,6 +73202,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72870,6 +73220,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72909,6 +73263,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72940,6 +73295,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -72979,6 +73338,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -72996,6 +73356,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73035,6 +73399,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73066,6 +73431,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73105,6 +73474,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73122,6 +73492,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73161,6 +73535,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73178,6 +73553,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73217,6 +73596,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73234,6 +73614,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73273,6 +73657,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73290,6 +73675,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73329,6 +73718,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73346,6 +73736,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73385,6 +73779,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73416,6 +73811,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73455,6 +73854,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73472,6 +73872,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73511,6 +73915,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73528,6 +73933,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73567,6 +73976,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73584,6 +73994,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73623,6 +74037,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73640,6 +74055,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73679,6 +74098,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73696,6 +74116,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73735,6 +74159,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73752,6 +74177,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73791,6 +74220,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73808,6 +74238,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73847,6 +74281,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73864,6 +74299,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73903,6 +74342,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73920,6 +74360,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -73959,6 +74403,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -73976,6 +74421,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74015,6 +74464,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74032,6 +74482,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74071,6 +74525,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74088,6 +74543,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74127,6 +74586,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74144,6 +74604,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74183,6 +74647,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74200,6 +74665,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74239,6 +74708,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74256,6 +74726,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74295,6 +74769,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74312,6 +74787,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74351,6 +74830,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74368,6 +74848,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74407,6 +74891,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74424,6 +74909,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74463,6 +74952,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74480,6 +74970,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74519,6 +75013,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74536,6 +75031,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74575,6 +75074,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74592,6 +75092,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74631,6 +75135,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74648,6 +75153,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74687,6 +75196,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74704,6 +75214,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74743,6 +75257,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74760,6 +75275,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74799,6 +75318,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74816,6 +75336,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74855,6 +75379,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74872,6 +75397,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74911,6 +75440,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74942,6 +75472,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -74981,6 +75515,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -74998,6 +75533,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75037,6 +75576,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75054,6 +75594,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75093,6 +75637,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75110,6 +75655,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75149,6 +75698,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75166,6 +75716,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75205,6 +75759,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75222,6 +75777,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75261,6 +75820,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75292,6 +75852,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75331,6 +75895,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75348,6 +75913,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75387,6 +75956,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75404,6 +75974,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75443,6 +76017,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75460,6 +76035,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75499,6 +76078,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75516,6 +76096,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75555,6 +76139,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75572,6 +76157,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75611,6 +76200,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75628,6 +76218,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75667,6 +76261,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75684,6 +76279,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75723,6 +76322,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75740,6 +76340,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75779,6 +76383,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75796,6 +76401,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75835,6 +76444,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75852,6 +76462,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75891,6 +76505,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75908,6 +76523,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -75947,6 +76566,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -75964,6 +76584,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76003,6 +76627,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76020,6 +76645,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76059,6 +76688,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76076,6 +76706,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76115,6 +76749,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76132,6 +76767,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76171,6 +76810,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76188,6 +76828,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76227,6 +76871,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76244,6 +76889,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76283,6 +76932,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76300,6 +76950,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76339,6 +76993,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76356,6 +77011,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76395,6 +77054,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76412,6 +77072,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76451,6 +77115,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76468,6 +77133,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76507,6 +77176,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76524,6 +77194,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76563,6 +77237,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76580,6 +77255,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76619,6 +77298,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76636,6 +77316,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76675,6 +77359,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76692,6 +77377,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76731,6 +77420,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76748,6 +77438,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76787,6 +77481,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76804,6 +77499,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76843,6 +77542,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76860,6 +77560,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76899,6 +77603,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76916,6 +77621,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -76955,6 +77664,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -76972,6 +77682,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77011,6 +77725,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77028,6 +77743,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77067,6 +77786,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77084,6 +77804,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77123,6 +77847,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77140,6 +77865,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77179,6 +77908,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77196,6 +77926,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77235,6 +77969,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77266,6 +78001,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77305,6 +78044,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77336,6 +78076,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77375,6 +78119,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77392,6 +78137,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77431,6 +78180,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77448,6 +78198,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77487,6 +78241,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77504,6 +78259,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77543,6 +78302,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77574,6 +78334,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77613,6 +78377,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77644,6 +78409,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77683,6 +78452,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77700,6 +78470,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77739,6 +78513,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77770,6 +78545,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77809,6 +78588,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77826,6 +78606,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77865,6 +78649,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77882,6 +78667,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77921,6 +78710,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -77938,6 +78728,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -77977,6 +78771,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78008,6 +78803,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78047,6 +78846,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78078,6 +78878,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78117,6 +78921,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78134,6 +78939,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78173,6 +78982,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78190,6 +79000,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78229,6 +79043,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78260,6 +79075,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78299,6 +79118,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78316,6 +79136,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78355,6 +79179,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78372,6 +79197,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78411,6 +79240,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78428,6 +79258,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78467,6 +79301,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78484,6 +79319,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78523,6 +79362,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78540,6 +79380,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78579,6 +79423,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78596,6 +79441,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78635,6 +79484,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78652,6 +79502,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78691,6 +79545,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78708,6 +79563,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78747,6 +79606,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78778,6 +79638,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78817,6 +79681,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78848,6 +79713,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78887,6 +79756,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78904,6 +79774,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -78943,6 +79817,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -78974,6 +79849,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79013,6 +79892,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79044,6 +79924,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79083,6 +79967,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79100,6 +79985,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79139,6 +80028,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79156,6 +80046,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79195,6 +80089,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79212,6 +80107,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79251,6 +80150,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79268,6 +80168,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79307,6 +80211,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79324,6 +80229,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79363,6 +80272,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79380,6 +80290,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79419,6 +80333,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79436,6 +80351,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79475,6 +80394,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79492,6 +80412,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79531,6 +80455,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79548,6 +80473,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79587,6 +80516,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79604,6 +80534,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79643,6 +80577,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79660,6 +80595,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79699,6 +80638,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79716,6 +80656,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79755,6 +80699,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79772,6 +80717,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79811,6 +80760,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79828,6 +80778,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79867,6 +80821,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79898,6 +80853,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79937,6 +80896,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -79954,6 +80914,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -79993,6 +80957,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80024,6 +80989,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80063,6 +81032,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80094,6 +81064,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80133,6 +81107,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80164,6 +81139,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80203,6 +81182,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80220,6 +81200,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80259,6 +81243,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80276,6 +81261,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80315,6 +81304,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80346,6 +81336,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80385,6 +81379,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80402,6 +81397,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80441,6 +81440,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80458,6 +81458,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80497,6 +81501,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80514,6 +81519,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80553,6 +81562,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80584,6 +81594,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80623,6 +81637,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80640,6 +81655,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80679,6 +81698,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80710,6 +81730,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80749,6 +81773,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80780,6 +81805,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80819,6 +81848,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80836,6 +81866,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80875,6 +81909,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80892,6 +81927,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80931,6 +81970,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -80948,6 +81988,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -80987,6 +82031,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81004,6 +82049,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81043,6 +82092,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81060,6 +82110,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81099,6 +82153,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81116,6 +82171,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81155,6 +82214,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81186,6 +82246,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81225,6 +82289,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81242,6 +82307,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81281,6 +82350,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81298,6 +82368,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81337,6 +82411,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81354,6 +82429,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81393,6 +82472,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81410,6 +82490,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81449,6 +82533,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81480,6 +82565,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81519,6 +82608,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81550,6 +82640,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81589,6 +82683,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81606,6 +82701,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81645,6 +82744,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81662,6 +82762,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81701,6 +82805,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81718,6 +82823,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81757,6 +82866,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81788,6 +82898,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81827,6 +82941,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81844,6 +82959,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81883,6 +83002,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81914,6 +83034,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -81953,6 +83077,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -81984,6 +83109,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82023,6 +83152,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82040,6 +83170,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82079,6 +83213,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82096,6 +83231,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82135,6 +83274,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82152,6 +83292,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82191,6 +83335,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82208,6 +83353,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82247,6 +83396,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82278,6 +83428,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82317,6 +83471,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82348,6 +83503,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82387,6 +83546,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82418,6 +83578,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82457,6 +83621,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82474,6 +83639,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82513,6 +83682,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82530,6 +83700,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82569,6 +83743,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82600,6 +83775,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82639,6 +83818,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82656,6 +83836,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82695,6 +83879,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82712,6 +83897,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82751,6 +83940,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82782,6 +83972,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82821,6 +84015,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82852,6 +84047,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82891,6 +84090,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82922,6 +84122,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -82961,6 +84165,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -82978,6 +84183,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83017,6 +84226,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83034,6 +84244,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83073,6 +84287,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83090,6 +84305,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83129,6 +84348,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83146,6 +84366,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83185,6 +84409,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83202,6 +84427,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83241,6 +84470,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83258,6 +84488,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83297,6 +84531,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83314,6 +84549,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83353,6 +84592,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83370,6 +84610,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83409,6 +84653,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83426,6 +84671,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83465,6 +84714,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83482,6 +84732,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83521,6 +84775,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83538,6 +84793,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83577,6 +84836,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83594,6 +84854,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83633,6 +84897,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83650,6 +84915,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83689,6 +84958,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83706,6 +84976,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83745,6 +85019,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83762,6 +85037,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83801,6 +85080,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83818,6 +85098,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83857,6 +85141,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83874,6 +85159,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83913,6 +85202,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83930,6 +85220,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -83969,6 +85263,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -83986,6 +85281,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84025,6 +85324,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84042,6 +85342,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84081,6 +85385,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84098,6 +85403,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84137,6 +85446,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84154,6 +85464,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84193,6 +85507,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84210,6 +85525,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84249,6 +85568,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84266,6 +85586,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84305,6 +85629,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84322,6 +85647,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84361,6 +85690,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84378,6 +85708,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84417,6 +85751,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84434,6 +85769,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84473,6 +85812,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84490,6 +85830,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84529,6 +85873,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84546,6 +85891,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84585,6 +85934,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84602,6 +85952,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84641,6 +85995,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84658,6 +86013,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84697,6 +86056,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84714,6 +86074,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84753,6 +86117,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84770,6 +86135,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84809,6 +86178,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84840,6 +86210,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84879,6 +86253,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84910,6 +86285,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -84949,6 +86328,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -84966,6 +86346,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85005,6 +86389,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85022,6 +86407,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85061,6 +86450,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85078,6 +86468,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85117,6 +86511,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85148,6 +86543,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85187,6 +86586,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85218,6 +86618,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85257,6 +86661,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85288,6 +86693,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85327,6 +86736,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85358,6 +86768,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85397,6 +86811,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85414,6 +86829,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85453,6 +86872,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85470,6 +86890,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85509,6 +86933,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85526,6 +86951,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85565,6 +86994,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85582,6 +87012,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85621,6 +87055,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85638,6 +87073,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85677,6 +87116,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85708,6 +87148,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85747,6 +87191,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85778,6 +87223,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85817,6 +87266,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85834,6 +87284,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85873,6 +87327,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85890,6 +87345,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85929,6 +87388,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -85946,6 +87406,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -85985,6 +87449,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86002,6 +87467,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86041,6 +87510,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86058,6 +87528,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86097,6 +87571,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86114,6 +87589,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86153,6 +87632,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86170,6 +87650,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86209,6 +87693,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86226,6 +87711,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86265,6 +87754,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86282,6 +87772,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86321,6 +87815,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86352,6 +87847,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86391,6 +87890,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86408,6 +87908,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86447,6 +87951,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86464,6 +87969,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86503,6 +88012,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86520,6 +88030,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86559,6 +88073,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86576,6 +88091,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86615,6 +88134,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86632,6 +88152,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86671,6 +88195,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86688,6 +88213,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86727,6 +88256,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86744,6 +88274,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86783,6 +88317,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86800,6 +88335,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86839,6 +88378,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86856,6 +88396,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86895,6 +88439,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86912,6 +88457,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -86951,6 +88500,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
@@ -86968,6 +88518,10 @@ Provide resource body as JSON on standard input`,
 
 											if filter, err := cmd.Flags().GetString("filter"); err == nil {
 												req = req.Filter(filter)
+											}
+
+											if name, err := cmd.Flags().GetString("name"); err == nil {
+												req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
 											}
 
 											res, httpResponse, err := req.Execute()
@@ -87007,6 +88561,7 @@ Provide resource body as JSON on standard input`,
 										}())
 
 									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+									cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
 
 									return cmd
 								}())
