@@ -68738,6 +68738,10 @@ Provide resource body as JSON on standard input`,
 
 											req := client.AaaApi.GetAaaAuditRecordList(authCtx)
 
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
+
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
 
@@ -68774,6 +68778,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -68801,6 +68807,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AdapterApi.GetAdapterConfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -68838,6 +68848,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -68851,6 +68863,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AdapterApi.GetAdapterExtEthInterfaceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -68888,6 +68904,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -68901,6 +68919,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AdapterApi.GetAdapterHostEthInterfaceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -68938,6 +68960,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -68951,6 +68975,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AdapterApi.GetAdapterHostFcInterfaceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -68988,6 +69016,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69001,6 +69031,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AdapterApi.GetAdapterHostIscsiInterfaceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69038,6 +69072,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69051,6 +69087,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AdapterApi.GetAdapterUnitList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69088,6 +69128,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69115,6 +69157,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceBackupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69152,6 +69198,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69165,6 +69213,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceBackupPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69202,6 +69254,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69215,6 +69269,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceCertificateSettingList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69252,6 +69310,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69265,6 +69325,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceDataExportPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69302,6 +69366,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69315,6 +69381,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceDeviceClaimList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69352,6 +69422,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69365,6 +69437,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceDiagSettingList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69402,6 +69478,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69415,6 +69493,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceImageBundleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69452,6 +69534,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69465,6 +69549,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceNodeInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69502,6 +69590,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69515,6 +69605,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceReleaseNoteList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69552,6 +69646,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69565,6 +69661,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceRestoreList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69602,6 +69702,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69615,6 +69717,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceSetupInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69652,6 +69758,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69665,6 +69773,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceSystemInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69702,6 +69814,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69715,6 +69829,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceUpgradeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69752,6 +69870,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69765,6 +69885,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ApplianceApi.GetApplianceUpgradePolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69802,6 +69926,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69829,6 +69955,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AssetApi.GetAssetClusterMemberList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69866,6 +69996,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69879,6 +70011,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AssetApi.GetAssetDeviceConfigurationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69916,6 +70052,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69929,6 +70067,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AssetApi.GetAssetDeviceConnectorManagerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -69966,6 +70108,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -69979,6 +70123,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AssetApi.GetAssetDeviceContractInformationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70016,6 +70164,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70029,6 +70179,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AssetApi.GetAssetDeviceRegistrationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70066,6 +70220,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70079,6 +70235,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.AssetApi.GetAssetManagedDeviceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70116,6 +70276,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70143,6 +70305,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.BiosApi.GetBiosBootModeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70180,6 +70346,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70193,6 +70361,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.BiosApi.GetBiosPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70230,6 +70402,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70243,6 +70417,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.BiosApi.GetBiosUnitList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70280,6 +70458,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70307,6 +70487,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.BootApi.GetBootDeviceBootModeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70344,6 +70528,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70357,6 +70543,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.BootApi.GetBootPrecisionPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70394,6 +70584,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70421,6 +70613,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ComputeApi.GetComputeBladeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70458,6 +70654,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70471,6 +70669,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ComputeApi.GetComputeBoardList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70508,6 +70710,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70521,6 +70725,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ComputeApi.GetComputePhysicalSummaryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70558,6 +70766,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70571,6 +70781,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ComputeApi.GetComputeRackUnitList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70608,6 +70822,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70621,6 +70837,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ComputeApi.GetComputeServerSettingList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70658,6 +70878,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70685,6 +70907,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.CondApi.GetCondAlarmList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70722,6 +70948,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70735,6 +70963,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.CondApi.GetCondHclStatusList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70772,6 +71004,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70785,6 +71019,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.CondApi.GetCondHclStatusDetailList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70822,6 +71060,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70835,6 +71075,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.CondApi.GetCondHclStatusJobList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70872,6 +71116,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70899,6 +71145,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.DeviceconnectorApi.GetDeviceconnectorPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -70936,6 +71186,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -70963,6 +71215,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentChassisList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71000,6 +71256,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71013,6 +71271,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentDeviceSummaryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71050,6 +71312,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71063,6 +71327,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentFanList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71100,6 +71368,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71113,6 +71383,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentFanModuleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71150,6 +71424,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71163,6 +71439,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentFexList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71200,6 +71480,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71213,6 +71495,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentIoCardList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71250,6 +71536,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71263,6 +71551,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentIoExpanderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71300,6 +71592,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71313,6 +71607,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentLocatorLedList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71350,6 +71648,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71363,6 +71663,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentPsuList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71400,6 +71704,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71413,6 +71719,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentRackEnclosureList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71450,6 +71760,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71463,6 +71775,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentRackEnclosureSlotList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71500,6 +71816,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71513,6 +71831,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentSharedIoModuleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71550,6 +71872,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71563,6 +71887,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentSwitchCardList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71600,6 +71928,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71613,6 +71943,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentSystemIoControllerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71650,6 +71984,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71663,6 +71999,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EquipmentApi.GetEquipmentTpmList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71700,6 +72040,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71727,6 +72069,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.EtherApi.GetEtherPhysicalPortList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71764,6 +72110,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71791,6 +72139,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ExternalsiteApi.GetExternalsiteAuthorizationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71828,6 +72180,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71855,6 +72209,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FaultApi.GetFaultInstanceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71892,6 +72250,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71919,6 +72279,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FcApi.GetFcPhysicalPortList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -71956,6 +72320,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -71983,6 +72349,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FirmwareApi.GetFirmwareDistributableList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72020,6 +72390,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72033,6 +72405,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FirmwareApi.GetFirmwareDriverDistributableList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72070,6 +72446,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72083,6 +72461,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FirmwareApi.GetFirmwareEulaList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72120,6 +72502,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72133,6 +72517,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FirmwareApi.GetFirmwareRunningFirmwareList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72170,6 +72558,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72183,6 +72573,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FirmwareApi.GetFirmwareServerConfigurationUtilityDistributableList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72220,6 +72614,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72233,6 +72629,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FirmwareApi.GetFirmwareUpgradeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72270,6 +72670,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72283,6 +72685,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.FirmwareApi.GetFirmwareUpgradeStatusList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72320,6 +72726,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72347,6 +72755,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ForecastApi.GetForecastCatalogList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72384,6 +72796,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72397,6 +72811,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ForecastApi.GetForecastDefinitionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72434,6 +72852,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72447,6 +72867,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ForecastApi.GetForecastInstanceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72484,6 +72908,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72511,6 +72937,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.GraphicsApi.GetGraphicsCardList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72548,6 +72978,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72561,6 +72993,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.GraphicsApi.GetGraphicsControllerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72598,6 +73034,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72625,6 +73063,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HclApi.GetHclDriverImageList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72662,6 +73104,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72675,6 +73119,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HclApi.GetHclExemptedCatalogList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72712,6 +73160,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72725,6 +73175,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HclApi.GetHclHyperflexSoftwareCompatibilityInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72762,6 +73216,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72775,6 +73231,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HclApi.GetHclOperatingSystemList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72812,6 +73272,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72825,6 +73287,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HclApi.GetHclOperatingSystemVendorList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72862,6 +73328,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72875,6 +73343,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HclApi.GetHclServiceStatusList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72912,6 +73384,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72939,6 +73413,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexAlarmList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -72976,6 +73454,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -72989,6 +73469,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexAppCatalogList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73026,6 +73510,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73039,6 +73525,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexAutoSupportPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73076,6 +73566,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73089,6 +73581,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexCapabilityInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73126,6 +73622,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73139,6 +73637,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexClusterList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73176,6 +73678,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73189,6 +73693,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexClusterNetworkPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73226,6 +73734,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73239,6 +73749,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexClusterProfileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73276,6 +73790,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73289,6 +73805,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexClusterStoragePolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73326,6 +73846,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73339,6 +73861,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexConfigResultList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73376,6 +73902,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73389,6 +73917,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexConfigResultEntryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73426,6 +73958,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73439,6 +73973,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexExtFcStoragePolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73476,6 +74014,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73489,6 +74029,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexExtIscsiStoragePolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73526,6 +74070,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73539,6 +74085,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexFeatureLimitExternalList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73576,6 +74126,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73589,6 +74141,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexFeatureLimitInternalList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73626,6 +74182,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73639,6 +74197,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexHealthList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73676,6 +74238,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73689,6 +74253,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexHxdpVersionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73726,6 +74294,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73739,6 +74309,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexLocalCredentialPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73776,6 +74350,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73789,6 +74365,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexNodeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73826,6 +74406,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73839,6 +74421,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexNodeConfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73876,6 +74462,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73889,6 +74477,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexNodeProfileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73926,6 +74518,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73939,6 +74533,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexProxySettingPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -73976,6 +74574,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -73989,6 +74589,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexServerFirmwareVersionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74026,6 +74630,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74039,6 +74645,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexServerModelList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74076,6 +74686,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74089,6 +74701,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexSoftwareVersionPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74126,6 +74742,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74139,6 +74757,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexSysConfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74176,6 +74798,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74189,6 +74813,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexUcsmConfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74226,6 +74854,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74239,6 +74869,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.HyperflexApi.GetHyperflexVcenterConfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74276,6 +74910,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74303,6 +74939,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IaasApi.GetIaasConnectorPackList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74340,6 +74980,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74353,6 +74995,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IaasApi.GetIaasDeviceStatusList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74390,6 +75036,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74403,6 +75051,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IaasApi.GetIaasLicenseInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74440,6 +75092,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74453,6 +75107,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IaasApi.GetIaasMostRunTasksList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74490,6 +75148,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74503,6 +75163,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IaasApi.GetIaasUcsdInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74540,6 +75204,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74553,6 +75219,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IaasApi.GetIaasUcsdManagedInfraList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74590,6 +75260,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74617,6 +75289,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamAccountList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74654,6 +75330,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74667,6 +75345,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamApiKeyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74704,6 +75386,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74717,6 +75401,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamAppRegistrationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74754,6 +75442,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74767,6 +75457,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamCertificateList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74804,6 +75498,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74817,6 +75513,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamCertificateRequestList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74854,6 +75554,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74867,6 +75569,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamDomainGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74904,6 +75610,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74917,6 +75625,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamEndPointPrivilegeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -74954,6 +75666,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -74967,6 +75681,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamEndPointRoleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75004,6 +75722,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75017,6 +75737,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamEndPointUserList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75054,6 +75778,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75067,6 +75793,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamEndPointUserPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75104,6 +75834,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75117,6 +75849,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamEndPointUserRoleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75154,6 +75890,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75167,6 +75905,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamIdpList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75204,6 +75946,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75217,6 +75961,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamIdpReferenceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75254,6 +76002,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75267,6 +76017,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamLdapGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75304,6 +76058,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75317,6 +76073,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamLdapPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75354,6 +76114,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75367,6 +76129,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamLdapProviderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75404,6 +76170,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75417,6 +76185,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamOAuthTokenList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75454,6 +76226,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75467,6 +76241,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamPermissionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75504,6 +76282,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75517,6 +76297,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamPrivateKeySpecList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75554,6 +76338,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75567,6 +76353,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamPrivilegeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75604,6 +76394,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75617,6 +76409,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamPrivilegeSetList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75654,6 +76450,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75667,6 +76465,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamQualifierList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75704,6 +76506,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75717,6 +76521,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamResourceLimitsList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75754,6 +76562,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75767,6 +76577,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamResourcePermissionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75804,6 +76618,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75817,6 +76633,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamResourceRolesList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75854,6 +76674,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75867,6 +76689,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamRoleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75904,6 +76730,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75917,6 +76745,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamSecurityHolderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -75954,6 +76786,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -75967,6 +76801,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamServiceProviderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76004,6 +76842,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76017,6 +76857,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamSessionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76054,6 +76898,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76067,6 +76913,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamSessionLimitsList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76104,6 +76954,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76117,6 +76969,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamSystemList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76154,6 +77010,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76167,6 +77025,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamTrustPointList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76204,6 +77066,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76217,6 +77081,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamUserList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76254,6 +77122,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76267,6 +77137,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamUserGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76304,6 +77178,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76317,6 +77193,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IamApi.GetIamUserPreferenceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76354,6 +77234,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76381,6 +77263,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.InfraApi.GetInfraAccountExperienceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76418,6 +77304,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76445,6 +77333,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.InventoryApi.GetInventoryDeviceInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76482,6 +77374,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76495,6 +77389,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.InventoryApi.GetInventoryDnMoBindingList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76532,6 +77430,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76545,6 +77445,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.InventoryApi.GetInventoryGenericInventoryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76582,6 +77486,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76595,6 +77501,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.InventoryApi.GetInventoryGenericInventoryHolderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76632,6 +77542,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76659,6 +77571,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.IpmioverlanApi.GetIpmioverlanPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76696,6 +77612,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76723,6 +77641,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.KvmApi.GetKvmKvmSessionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76760,6 +77682,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76773,6 +77697,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.KvmApi.GetKvmPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76810,6 +77738,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76837,6 +77767,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.LicenseApi.GetLicenseAccountLicenseDataList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76874,6 +77808,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76887,6 +77823,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.LicenseApi.GetLicenseCustomerOpList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76924,6 +77864,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76937,6 +77879,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.LicenseApi.GetLicenseLicenseInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -76974,6 +77920,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -76987,6 +77935,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.LicenseApi.GetLicenseSmartlicenseTokenList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77024,6 +77976,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77051,6 +78005,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.LsApi.GetLsServiceProfileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77088,6 +78046,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77115,6 +78075,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ManagementApi.GetManagementControllerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77152,6 +78116,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77165,6 +78131,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ManagementApi.GetManagementEntityList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77202,6 +78172,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77215,6 +78187,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ManagementApi.GetManagementInterfaceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77252,6 +78228,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77279,6 +78257,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryArrayList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77316,6 +78298,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77329,6 +78313,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryPersistentMemoryConfigResultList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77366,6 +78354,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77379,6 +78369,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryPersistentMemoryConfigurationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77416,6 +78410,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77429,6 +78425,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryPersistentMemoryNamespaceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77466,6 +78466,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77479,6 +78481,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryPersistentMemoryNamespaceConfigResultList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77516,6 +78522,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77529,6 +78537,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryPersistentMemoryPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77566,6 +78578,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77579,6 +78593,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryPersistentMemoryRegionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77616,6 +78634,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77629,6 +78649,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryPersistentMemoryUnitList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77666,6 +78690,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77679,6 +78705,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MemoryApi.GetMemoryUnitList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77716,6 +78746,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77743,6 +78775,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.MetaApi.GetMetaDefinitionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77780,6 +78816,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77807,6 +78845,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NetworkApi.GetNetworkElementList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77844,6 +78886,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77857,6 +78901,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NetworkApi.GetNetworkElementSummaryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77894,6 +78942,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77921,6 +78971,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NetworkconfigApi.GetNetworkconfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -77958,6 +79012,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -77985,6 +79041,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiApicCcoPostList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78022,6 +79082,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78035,6 +79097,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiApicFieldNoticeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78072,6 +79138,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78085,6 +79153,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiApicHweolList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78122,6 +79194,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78135,6 +79209,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiApicLatestMaintainedReleaseList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78172,6 +79250,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78185,6 +79265,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiApicReleaseRecommendList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78222,6 +79306,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78235,6 +79321,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiApicSweolList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78272,6 +79362,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78285,6 +79377,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiDcnmCcoPostList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78322,6 +79418,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78335,6 +79433,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiDcnmFieldNoticeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78372,6 +79474,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78385,6 +79489,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiDcnmHweolList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78422,6 +79530,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78435,6 +79545,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiDcnmLatestMaintainedReleaseList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78472,6 +79586,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78485,6 +79601,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiDcnmReleaseRecommendList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78522,6 +79642,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78535,6 +79657,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiDcnmSweolList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78572,6 +79698,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78585,6 +79713,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiFileDownloaderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78622,6 +79754,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78635,6 +79769,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiNiaMetadataList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78672,6 +79810,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78685,6 +79825,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiaapiApi.GetNiaapiVersionRegexList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78722,6 +79866,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78749,6 +79895,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiatelemetryApi.GetNiatelemetryNiaInventoryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78786,6 +79936,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78799,6 +79951,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NiatelemetryApi.GetNiatelemetryNiaLicenseStateList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78836,6 +79992,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78863,6 +80021,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.NtpApi.GetNtpPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78900,6 +80062,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78927,6 +80091,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.OrganizationApi.GetOrganizationOrganizationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -78964,6 +80132,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -78991,6 +80161,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.OsApi.GetOsCatalogList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79028,6 +80202,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79041,6 +80217,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.OsApi.GetOsConfigurationFileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79078,6 +80258,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79091,6 +80273,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.OsApi.GetOsInstallList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79128,6 +80314,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79155,6 +80343,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.PciApi.GetPciCoprocessorCardList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79192,6 +80384,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79205,6 +80399,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.PciApi.GetPciDeviceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79242,6 +80440,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79255,6 +80455,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.PciApi.GetPciLinkList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79292,6 +80496,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79305,6 +80511,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.PciApi.GetPciSwitchList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79342,6 +80552,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79369,6 +80581,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.PortApi.GetPortGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79406,6 +80622,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79419,6 +80637,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.PortApi.GetPortSubGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79456,6 +80678,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79483,6 +80707,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ProcessorApi.GetProcessorUnitList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79520,6 +80748,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79547,6 +80777,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.RecoveryApi.GetRecoveryBackupConfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79584,6 +80818,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79597,6 +80833,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.RecoveryApi.GetRecoveryBackupProfileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79634,6 +80874,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79647,6 +80889,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.RecoveryApi.GetRecoveryConfigResultList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79684,6 +80930,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79697,6 +80945,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.RecoveryApi.GetRecoveryConfigResultEntryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79734,6 +80986,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79747,6 +81001,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.RecoveryApi.GetRecoveryOnDemandBackupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79784,6 +81042,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79797,6 +81057,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.RecoveryApi.GetRecoveryRestoreList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79834,6 +81098,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79847,6 +81113,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.RecoveryApi.GetRecoveryScheduleConfigPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79884,6 +81154,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79911,6 +81183,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ResourceApi.GetResourceGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79948,6 +81224,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -79961,6 +81239,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ResourceApi.GetResourceGroupMemberList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -79998,6 +81280,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80011,6 +81295,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ResourceApi.GetResourceLicenseResourceCountList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80048,6 +81336,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80061,6 +81351,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ResourceApi.GetResourceMembershipList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80098,6 +81392,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80111,6 +81407,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ResourceApi.GetResourceMembershipHolderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80148,6 +81448,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80175,6 +81477,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SdcardApi.GetSdcardPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80212,6 +81518,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80239,6 +81547,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SdwanApi.GetSdwanProfileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80276,6 +81588,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80289,6 +81603,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SdwanApi.GetSdwanRouterNodeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80326,6 +81644,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80339,6 +81659,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SdwanApi.GetSdwanRouterPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80376,6 +81700,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80389,6 +81715,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SdwanApi.GetSdwanVmanageAccountPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80426,6 +81756,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80453,6 +81785,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SearchApi.GetSearchSearchItemList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80490,6 +81826,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80503,6 +81841,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SearchApi.GetSearchTagItemList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80540,6 +81882,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80567,6 +81911,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SecurityApi.GetSecurityUnitList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80604,6 +81952,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80631,6 +81981,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ServerApi.GetServerConfigChangeDetailList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80668,6 +82022,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80681,6 +82037,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ServerApi.GetServerConfigImportList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80718,6 +82078,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80731,6 +82093,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ServerApi.GetServerConfigResultList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80768,6 +82134,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80781,6 +82149,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ServerApi.GetServerConfigResultEntryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80818,6 +82190,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80831,6 +82205,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.ServerApi.GetServerProfileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80868,6 +82246,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80895,6 +82275,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SmtpApi.GetSmtpPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80932,6 +82316,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -80959,6 +82345,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SnmpApi.GetSnmpPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -80996,6 +82386,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81023,6 +82415,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SoftwareApi.GetSoftwareHclMetaList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81060,6 +82456,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81073,6 +82471,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SoftwareApi.GetSoftwareHyperflexDistributableList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81110,6 +82512,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81123,6 +82527,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SoftwareApi.GetSoftwareSolutionDistributableList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81160,6 +82568,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81187,6 +82597,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SoftwarerepositoryApi.GetSoftwarerepositoryAuthorizationList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81224,6 +82638,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81237,6 +82653,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SoftwarerepositoryApi.GetSoftwarerepositoryCatalogList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81274,6 +82694,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81287,6 +82709,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SoftwarerepositoryApi.GetSoftwarerepositoryOperatingSystemFileList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81324,6 +82750,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81351,6 +82779,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SolApi.GetSolPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81388,6 +82820,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81415,6 +82849,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SshApi.GetSshPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81452,6 +82890,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81479,6 +82919,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageControllerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81516,6 +82960,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81529,6 +82975,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageDiskGroupPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81566,6 +83016,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81579,6 +83031,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageEnclosureList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81616,6 +83072,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81629,6 +83087,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageEnclosureDiskList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81666,6 +83128,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81679,6 +83143,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageEnclosureDiskSlotEpList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81716,6 +83184,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81729,6 +83199,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageFlexFlashControllerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81766,6 +83240,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81779,6 +83255,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageFlexFlashControllerPropsList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81816,6 +83296,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81829,6 +83311,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageFlexFlashPhysicalDriveList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81866,6 +83352,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81879,6 +83367,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageFlexFlashVirtualDriveList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81916,6 +83408,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81929,6 +83423,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageFlexUtilControllerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -81966,6 +83464,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -81979,6 +83479,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageFlexUtilPhysicalDriveList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82016,6 +83520,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82029,6 +83535,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageFlexUtilVirtualDriveList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82066,6 +83576,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82079,6 +83591,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePhysicalDiskList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82116,6 +83632,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82129,6 +83647,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePhysicalDiskExtensionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82166,6 +83688,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82179,6 +83703,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePhysicalDiskUsageList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82216,6 +83744,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82229,6 +83759,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureArrayList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82266,6 +83800,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82279,6 +83815,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureControllerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82316,6 +83856,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82329,6 +83871,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureDiskList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82366,6 +83912,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82379,6 +83927,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureHostList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82416,6 +83968,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82429,6 +83983,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureHostGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82466,6 +84024,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82479,6 +84039,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureHostLunList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82516,6 +84080,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82529,6 +84095,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePurePortList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82566,6 +84136,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82579,6 +84151,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureProtectionGroupList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82616,6 +84192,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82629,6 +84207,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureProtectionGroupSnapshotList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82666,6 +84248,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82679,6 +84263,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureReplicationScheduleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82716,6 +84304,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82729,6 +84319,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureSnapshotScheduleList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82766,6 +84360,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82779,6 +84375,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureVolumeList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82816,6 +84416,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82829,6 +84431,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStoragePureVolumeSnapshotList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82866,6 +84472,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82879,6 +84487,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageSasExpanderList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82916,6 +84528,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82929,6 +84543,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageSasPortList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -82966,6 +84584,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -82979,6 +84599,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageStoragePolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83016,6 +84640,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83029,6 +84655,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageVdMemberEpList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83066,6 +84696,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83079,6 +84711,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageVirtualDriveList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83116,6 +84752,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83129,6 +84767,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.StorageApi.GetStorageVirtualDriveExtensionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83166,6 +84808,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83193,6 +84837,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.SyslogApi.GetSyslogPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83230,6 +84878,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83257,6 +84907,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.TamApi.GetTamAdvisoryCountList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83294,6 +84948,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83307,6 +84963,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.TamApi.GetTamAdvisoryInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83344,6 +85004,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83357,6 +85019,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.TamApi.GetTamAdvisoryInstanceList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83394,6 +85060,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83407,6 +85075,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.TamApi.GetTamSecurityAdvisoryList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83444,6 +85116,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83471,6 +85145,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.TerminalApi.GetTerminalAuditLogList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83508,6 +85186,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83535,6 +85215,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.TopApi.GetTopSystemList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83572,6 +85256,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83599,6 +85285,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.UcsdApi.GetUcsdBackupInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83636,6 +85326,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83663,6 +85355,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VirtualizationApi.GetVirtualizationVmwareClusterList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83700,6 +85396,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83713,6 +85411,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VirtualizationApi.GetVirtualizationVmwareDatacenterList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83750,6 +85452,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83763,6 +85467,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VirtualizationApi.GetVirtualizationVmwareDatastoreList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83800,6 +85508,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83813,6 +85523,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VirtualizationApi.GetVirtualizationVmwareHostList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83850,6 +85564,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83863,6 +85579,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VirtualizationApi.GetVirtualizationVmwareVcenterList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83900,6 +85620,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83913,6 +85635,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VirtualizationApi.GetVirtualizationVmwareVirtualMachineList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -83950,6 +85676,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -83977,6 +85705,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VmediaApi.GetVmediaPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84014,6 +85746,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84041,6 +85775,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicEthAdapterPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84078,6 +85816,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84091,6 +85831,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicEthIfList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84128,6 +85872,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84141,6 +85887,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicEthNetworkPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84178,6 +85928,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84191,6 +85943,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicEthQosPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84228,6 +85984,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84241,6 +85999,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicFcAdapterPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84278,6 +86040,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84291,6 +86055,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicFcIfList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84328,6 +86096,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84341,6 +86111,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicFcNetworkPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84378,6 +86152,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84391,6 +86167,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicFcQosPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84428,6 +86208,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84441,6 +86223,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicLanConnectivityPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84478,6 +86264,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84491,6 +86279,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.VnicApi.GetVnicSanConnectivityPolicyList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84528,6 +86320,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84555,6 +86349,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowBatchApiExecutorList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84592,6 +86390,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84605,6 +86405,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowBuildTaskMetaList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84642,6 +86446,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84655,6 +86461,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowBuildTaskMetaOwnerList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84692,6 +86502,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84705,6 +86517,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowCatalogList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84742,6 +86558,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84755,6 +86573,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowCustomDataTypeDefinitionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84792,6 +86614,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84805,6 +86629,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowPendingDynamicWorkflowInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84842,6 +86670,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84855,6 +86685,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowTaskDefinitionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84892,6 +86726,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84905,6 +86741,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowTaskInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84942,6 +86782,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -84955,6 +86797,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowTaskMetaList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -84992,6 +86838,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -85005,6 +86853,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowWorkflowDefinitionList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -85042,6 +86894,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -85055,6 +86909,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowWorkflowInfoList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -85092,6 +86950,8 @@ Provide resource body as JSON on standard input`,
 											return cmd
 										}())
 
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+
 									return cmd
 								}())
 
@@ -85105,6 +86965,10 @@ Provide resource body as JSON on standard input`,
 											client.GetConfig().Debug = verbose
 
 											req := client.WorkflowApi.GetWorkflowWorkflowMetaList(authCtx)
+
+											if filter, err := cmd.Flags().GetString("filter"); err == nil {
+												req = req.Filter(filter)
+											}
 
 											res, httpResponse, err := req.Execute()
 											resultHandler(res, httpResponse, err)
@@ -85141,6 +87005,8 @@ Provide resource body as JSON on standard input`,
 
 											return cmd
 										}())
+
+									cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
 
 									return cmd
 								}())

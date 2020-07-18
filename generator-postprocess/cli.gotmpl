@@ -75,6 +75,14 @@ func () *cobra.Command {
             
             {{ end }}
 
+            {{ if eq .Operation.HTTPMethod "Get" }}
+                {{ if not .Parameter }}
+                    if filter, err := cmd.Flags().GetString("filter"); err == nil {
+                        req = req.Filter(filter)
+                    }
+                {{ end }}
+            {{ end }}
+
             {{ if ne .Operation.ReturnType "" }}
             res, httpResponse, err := req.Execute()
             resultHandler(res, httpResponse, err)
@@ -114,6 +122,14 @@ Provide resource body as JSON on standard input{{ end }}`,
             if isMoRef(openapi.{{ .DataType }}{}) {
                 cmd.Flags().String("{{ .Name }}", "", "{{ .Name }}")
             }
+        {{ end }}
+    {{ end }}
+
+    {{ if .Operation }}
+        {{ if eq .Operation.HTTPMethod "Get" }}
+            {{ if not .Parameter }}
+                cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+            {{ end }}
         {{ end }}
     {{ end }}
 
