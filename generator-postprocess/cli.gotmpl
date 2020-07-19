@@ -77,11 +77,11 @@ func () *cobra.Command {
 
             {{ if eq .Operation.HTTPMethod "Get" }}
                 {{ if not .Parameter }}
-                    if filter, err := cmd.Flags().GetString("filter"); err == nil {
+                    if filter, err := cmd.Flags().GetString("filter"); err == nil && filter != "" {
                         req = req.Filter(filter)
                     }
 
-                    if name, err := cmd.Flags().GetString("name"); err == nil {
+                    if name, err := cmd.Flags().GetString("name"); err == nil && name != "" {
                         req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
                     }
                 {{ end }}
