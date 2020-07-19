@@ -83,11 +83,17 @@ Output:
 ```
 Notice that all objects are returned in a human-readable table. 
 
-To query a single object based on its MoId:
+You can query a single object based on its MoId:
 
 ```
 isctl get ntp policy moid 5ee1aa076275722d3122a944
 ```
+
+Or its name:
+```
+isctl get ntp policy --name cg-tf-ntp-test-1
+```
+
 Output:
 ```
 2020/06/25 17:40:04 Single result, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.
@@ -149,7 +155,7 @@ Output:
 You can use JSONPath to filter/transform the returned data - to output just the name attribute of all the returned objects:
 
 ```
-isctl get ntp policy -o yaml --jsonpath '$.NtpPolicyList.Results[*].Name'
+isctl get ntp policy -o yaml --jsonpath '$[*].Name'
 ```
 Output:
 ```
@@ -166,6 +172,67 @@ Output:
 ```
 cg-tf-ntp-test-1
 True
+```
+
+## Creating Intersight resources
+
+To create resources in Intersight, use the `isctl create ...` commands. 
+
+The attributes for the new object can be passed in as command line flags:
+
+```
+isctl create ntp policy --Name isctl-test-1 --NtpServers 1.1.1.1,2.2.2.2 --Organization default
+```
+
+Output:
+```
+2020/07/19 13:02:13 Single result, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.
+Enabled: true
+Moid: 5f13b7b56275722d31133e63
+Name: isctl-test-1
+NtpServers:
+- 1.1.1.1
+- 2.2.2.2
+```
+
+The output of the `create` commands is the resource after it was created in Intersight, so the Moid, etc. are included.
+
+You can also define the attributes of the new object via standard input:
+
+```
+isctl create ntp policy --bodyformat json
+Waiting for JSON body:
+{
+    "Name": "isctl-ntp-test",
+    "Enabled": true,
+    "NtpServers": [
+        "1.1.1.1"
+    ],
+    "Organization": {
+        "Moid": "123456789012345678901234",
+        "ClassId": "mo.MoRef"
+    }
+}
+```
+
+This is useful when you have your object defined as JSON in a file, for example:
+
+```
+cat ntp_policy.json | isctl create ntp policy --bodyformat json
+```
+
+## Deleting resources
+
+Deleting resources is quite simple if you know the Moid:
+
+```
+isctl delete ntp policy moid 123456789012345678901234
+```
+
+If you don't know the Moid, you can combine two commands together, for example this command uses a `get` to find the object by name, then uses the JSONPath query to extract the Moid and finally calls the `delete` command:
+
+```
+isctl delete ntp policy moid $(./build/isctl get ntp policy --name isctl-test-1 --jsonpath '$.Moid')
 ```
 
 # Development
