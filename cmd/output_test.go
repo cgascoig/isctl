@@ -30,24 +30,16 @@ func TestApplyJSONPathFilter(t *testing.T) {
 		},
 	}
 
-	//Test with empty filter
-
 	var expected interface{}
+
+	//Test with empty filter
 	expected = map[string]interface{}{
-		"MoDocumentCount": nil,
-		"NtpPolicyList": map[string]interface{}{
-			"ObjectType": "ntp.Policy.List",
-			"Results": []interface{}{
-				map[string]interface{}{
-					"ClassId":    "ntp.Policy",
-					"ObjectType": "ntp.Policy",
-					"Moid":       "1234567",
-					"Name":       "NtpTest",
-					"Enabled":    true,
-					"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
-				},
-			},
-		},
+		"ClassId":    "ntp.Policy",
+		"ObjectType": "ntp.Policy",
+		"Moid":       "1234567",
+		"Name":       "NtpTest",
+		"Enabled":    true,
+		"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
 	}
 
 	out, err := applyJSONPathFilter(in, "")
@@ -57,23 +49,71 @@ func TestApplyJSONPathFilter(t *testing.T) {
 
 	//Test with common filter
 
-	expected = []interface{}{
-		"NtpTest",
-	}
+	expected = "NtpTest"
 
-	out, err = applyJSONPathFilter(in, "$.NtpPolicyList.Results[*].Name")
+	out, err = applyJSONPathFilter(in, "$.Name")
 	assert.NoError(t, err)
 	assert.Equal(t, expected, out)
 }
 
-func TestSimplifyResult(t *testing.T) {
-	var in interface{}
+type simplifyResultTestCase struct {
+	In  interface{}
+	Out interface{}
+}
 
-	in = map[string]interface{}{
-		"MoDocumentCount": nil,
-		"NtpPolicyList": map[string]interface{}{
-			"ObjectType": "ntp.Policy.List",
-			"Results": []interface{}{
+func TestRemoveWrapper(t *testing.T) {
+	testCases := []simplifyResultTestCase{
+
+		// Multiple results should return a slice of map[string]
+		{
+			In: map[string]interface{}{
+				"MoDocumentCount": nil,
+				"NtpPolicyList": map[string]interface{}{
+					"ObjectType": "ntp.Policy.List",
+					"Results": []interface{}{
+						map[string]interface{}{
+							"ClassId":    "ntp.Policy",
+							"ObjectType": "ntp.Policy",
+							"Moid":       "1234567",
+							"Name":       "NtpTest",
+							"Enabled":    true,
+							"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+							"TestRef": map[string]interface{}{
+								"ClassId":    "mo.MoRef",
+								"ObjectType": "TestRefType",
+								"Moid":       "7654321",
+							},
+						},
+						map[string]interface{}{
+							"ClassId":    "ntp.Policy",
+							"ObjectType": "ntp.Policy",
+							"Moid":       "1234567",
+							"Name":       "NtpTest",
+							"Enabled":    true,
+							"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+							"TestRef": map[string]interface{}{
+								"ClassId":    "mo.MoRef",
+								"ObjectType": "TestRefType",
+								"Moid":       "7654321",
+							},
+						},
+					},
+				},
+			},
+			Out: []interface{}{
+				map[string]interface{}{
+					"ClassId":    "ntp.Policy",
+					"ObjectType": "ntp.Policy",
+					"Moid":       "1234567",
+					"Name":       "NtpTest",
+					"Enabled":    true,
+					"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+					"TestRef": map[string]interface{}{
+						"ClassId":    "mo.MoRef",
+						"ObjectType": "TestRefType",
+						"Moid":       "7654321",
+					},
+				},
 				map[string]interface{}{
 					"ClassId":    "ntp.Policy",
 					"ObjectType": "ntp.Policy",
@@ -89,21 +129,88 @@ func TestSimplifyResult(t *testing.T) {
 				},
 			},
 		},
-	}
 
-	expected := []interface{}{
-		map[string]interface{}{
-			"Moid":       "1234567",
-			"Name":       "NtpTest",
-			"Enabled":    true,
-			"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
-			"TestRef":    "MoRef[TestRefType/7654321]",
+		// Single result should return just a map[string]
+		{
+			In: map[string]interface{}{
+				"MoDocumentCount": nil,
+				"NtpPolicyList": map[string]interface{}{
+					"ObjectType": "ntp.Policy.List",
+					"Results": []interface{}{
+						map[string]interface{}{
+							"ClassId":    "ntp.Policy",
+							"ObjectType": "ntp.Policy",
+							"Moid":       "1234567",
+							"Name":       "NtpTest",
+							"Enabled":    true,
+							"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+							"TestRef": map[string]interface{}{
+								"ClassId":    "mo.MoRef",
+								"ObjectType": "TestRefType",
+								"Moid":       "7654321",
+							},
+						},
+					},
+				},
+			},
+			Out: map[string]interface{}{
+				"ClassId":    "ntp.Policy",
+				"ObjectType": "ntp.Policy",
+				"Moid":       "1234567",
+				"Name":       "NtpTest",
+				"Enabled":    true,
+				"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+				"TestRef": map[string]interface{}{
+					"ClassId":    "mo.MoRef",
+					"ObjectType": "TestRefType",
+					"Moid":       "7654321",
+				},
+			},
 		},
 	}
 
-	out := simplifyResult(in)
+	for _, testCase := range testCases {
+		out := removeWrappers(testCase.In)
 
-	assert.Equal(t, expected, out)
+		assert.Equal(t, testCase.Out, out)
+	}
+}
+
+func TestFilterAttributes(t *testing.T) {
+	testCases := []simplifyResultTestCase{
+		{
+			In: []interface{}{
+				map[string]interface{}{
+					"ClassId":    "ntp.Policy",
+					"ObjectType": "ntp.Policy",
+					"Moid":       "1234567",
+					"Name":       "NtpTest",
+					"Enabled":    true,
+					"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+					"TestRef": map[string]interface{}{
+						"ClassId":    "mo.MoRef",
+						"ObjectType": "TestRefType",
+						"Moid":       "7654321",
+					},
+				},
+			},
+			Out: []interface{}{
+				map[string]interface{}{
+					"Moid":       "1234567",
+					"Name":       "NtpTest",
+					"Enabled":    true,
+					"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+					"TestRef":    "MoRef[TestRefType/7654321]",
+				},
+			},
+		},
+	}
+
+	for _, testCase := range testCases {
+		out := filterAttributes(testCase.In)
+
+		assert.Equal(t, testCase.Out, out)
+	}
 }
 
 func TestPrepareResultTable(t *testing.T) {

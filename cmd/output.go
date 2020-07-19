@@ -89,10 +89,7 @@ func collapseReferences(mo *map[string]interface{}) {
 	}
 }
 
-// simplifyResult prepares alters the structure of returned data to be appropriate for default(human) output
-//  Specifically, this means unwrapping returned lists (if of form result[XX]["Results"] -> []interface{},
-//  just keep the []interface) and removing boilerplate attributes from the MOs
-func simplifyResult(result interface{}) interface{} {
+func removeWrappers(result interface{}) interface{} {
 	var ret interface{}
 
 	ret = result
@@ -105,12 +102,24 @@ func simplifyResult(result interface{}) interface{} {
 			if m2, ok := v.(map[string]interface{}); ok {
 				if r, ok := m2["Results"]; ok {
 					if res, ok := r.([]interface{}); ok {
-						ret = res
+						if len(res) == 1 {
+							ret = res[0]
+						} else {
+							ret = res
+						}
 					}
 				}
 			}
 		}
 	}
+
+	return ret
+}
+
+func filterAttributes(result interface{}) interface{} {
+	var ret interface{}
+
+	ret = result
 
 	// remove uninteresting attributes from individual mo
 	if m, ok := ret.(map[string]interface{}); ok {
@@ -219,6 +228,8 @@ func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{},
 		return nil, fmt.Errorf("JSON unmarshalling error: %v", err)
 	}
 
+	js = removeWrappers(js)
+
 	if jsonpathQuery == "" {
 		return js, nil
 	}
@@ -234,7 +245,7 @@ func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{},
 const defaultOutputMaxColumns int = 8
 
 func printResultDefault(result interface{}) {
-	result = simplifyResult(result)
+	result = filterAttributes(result)
 
 	tableData, tableHeaders := prepareResultTable(result)
 
