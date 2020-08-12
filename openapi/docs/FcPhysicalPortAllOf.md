@@ -4,10 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdminSpeed** | Pointer to **string** | Administrator configured Speed applied on the port. | [optional] [readonly] 
+**AdminState** | Pointer to **string** | Administratively configured state (enabled/disabled) for this port. | [optional] [readonly] 
+**B2bCredit** | Pointer to **int64** | Buffer to Buffer credits of FC port. | [optional] [readonly] 
+**MaxSpeed** | Pointer to **string** | Maximum Speed with which the port operates. | [optional] [readonly] 
+**Mode** | Pointer to **string** | Mode information N_proxy, F or E associated to the Fibre Channel port. | [optional] [readonly] 
+**OperSpeed** | Pointer to **string** | Operational Speed with which the port operates. | [optional] [readonly] 
 **PeerDn** | Pointer to **string** | PeerDn for fibre channel physical port. | [optional] [readonly] 
-**TransceiverType** | Pointer to **string** |  | [optional] [readonly] 
-**Wwn** | Pointer to **string** |  | [optional] [readonly] 
+**PortChannelId** | Pointer to **int64** | Port channel id of FC port channel created on FI switch. | [optional] [readonly] 
+**TransceiverType** | Pointer to **string** | Transceiver type of a Fibre Channel port. | [optional] [readonly] 
+**Vsan** | Pointer to **int64** | Virtual San that is associated to the port. | [optional] [readonly] 
+**Wwn** | Pointer to **string** | World Wide Name of a Fibre Channel port. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PortGroup** | Pointer to [**PortGroupRelationship**](port.Group.Relationship.md) |  | [optional] 
+**PortSubGroup** | Pointer to [**PortSubGroupRelationship**](port.SubGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -28,6 +38,156 @@ will change when the set of required properties is changed
 NewFcPhysicalPortAllOfWithDefaults instantiates a new FcPhysicalPortAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdminSpeed
+
+`func (o *FcPhysicalPortAllOf) GetAdminSpeed() string`
+
+GetAdminSpeed returns the AdminSpeed field if non-nil, zero value otherwise.
+
+### GetAdminSpeedOk
+
+`func (o *FcPhysicalPortAllOf) GetAdminSpeedOk() (*string, bool)`
+
+GetAdminSpeedOk returns a tuple with the AdminSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminSpeed
+
+`func (o *FcPhysicalPortAllOf) SetAdminSpeed(v string)`
+
+SetAdminSpeed sets AdminSpeed field to given value.
+
+### HasAdminSpeed
+
+`func (o *FcPhysicalPortAllOf) HasAdminSpeed() bool`
+
+HasAdminSpeed returns a boolean if a field has been set.
+
+### GetAdminState
+
+`func (o *FcPhysicalPortAllOf) GetAdminState() string`
+
+GetAdminState returns the AdminState field if non-nil, zero value otherwise.
+
+### GetAdminStateOk
+
+`func (o *FcPhysicalPortAllOf) GetAdminStateOk() (*string, bool)`
+
+GetAdminStateOk returns a tuple with the AdminState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminState
+
+`func (o *FcPhysicalPortAllOf) SetAdminState(v string)`
+
+SetAdminState sets AdminState field to given value.
+
+### HasAdminState
+
+`func (o *FcPhysicalPortAllOf) HasAdminState() bool`
+
+HasAdminState returns a boolean if a field has been set.
+
+### GetB2bCredit
+
+`func (o *FcPhysicalPortAllOf) GetB2bCredit() int64`
+
+GetB2bCredit returns the B2bCredit field if non-nil, zero value otherwise.
+
+### GetB2bCreditOk
+
+`func (o *FcPhysicalPortAllOf) GetB2bCreditOk() (*int64, bool)`
+
+GetB2bCreditOk returns a tuple with the B2bCredit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetB2bCredit
+
+`func (o *FcPhysicalPortAllOf) SetB2bCredit(v int64)`
+
+SetB2bCredit sets B2bCredit field to given value.
+
+### HasB2bCredit
+
+`func (o *FcPhysicalPortAllOf) HasB2bCredit() bool`
+
+HasB2bCredit returns a boolean if a field has been set.
+
+### GetMaxSpeed
+
+`func (o *FcPhysicalPortAllOf) GetMaxSpeed() string`
+
+GetMaxSpeed returns the MaxSpeed field if non-nil, zero value otherwise.
+
+### GetMaxSpeedOk
+
+`func (o *FcPhysicalPortAllOf) GetMaxSpeedOk() (*string, bool)`
+
+GetMaxSpeedOk returns a tuple with the MaxSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxSpeed
+
+`func (o *FcPhysicalPortAllOf) SetMaxSpeed(v string)`
+
+SetMaxSpeed sets MaxSpeed field to given value.
+
+### HasMaxSpeed
+
+`func (o *FcPhysicalPortAllOf) HasMaxSpeed() bool`
+
+HasMaxSpeed returns a boolean if a field has been set.
+
+### GetMode
+
+`func (o *FcPhysicalPortAllOf) GetMode() string`
+
+GetMode returns the Mode field if non-nil, zero value otherwise.
+
+### GetModeOk
+
+`func (o *FcPhysicalPortAllOf) GetModeOk() (*string, bool)`
+
+GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMode
+
+`func (o *FcPhysicalPortAllOf) SetMode(v string)`
+
+SetMode sets Mode field to given value.
+
+### HasMode
+
+`func (o *FcPhysicalPortAllOf) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### GetOperSpeed
+
+`func (o *FcPhysicalPortAllOf) GetOperSpeed() string`
+
+GetOperSpeed returns the OperSpeed field if non-nil, zero value otherwise.
+
+### GetOperSpeedOk
+
+`func (o *FcPhysicalPortAllOf) GetOperSpeedOk() (*string, bool)`
+
+GetOperSpeedOk returns a tuple with the OperSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperSpeed
+
+`func (o *FcPhysicalPortAllOf) SetOperSpeed(v string)`
+
+SetOperSpeed sets OperSpeed field to given value.
+
+### HasOperSpeed
+
+`func (o *FcPhysicalPortAllOf) HasOperSpeed() bool`
+
+HasOperSpeed returns a boolean if a field has been set.
 
 ### GetPeerDn
 
@@ -54,6 +214,31 @@ SetPeerDn sets PeerDn field to given value.
 
 HasPeerDn returns a boolean if a field has been set.
 
+### GetPortChannelId
+
+`func (o *FcPhysicalPortAllOf) GetPortChannelId() int64`
+
+GetPortChannelId returns the PortChannelId field if non-nil, zero value otherwise.
+
+### GetPortChannelIdOk
+
+`func (o *FcPhysicalPortAllOf) GetPortChannelIdOk() (*int64, bool)`
+
+GetPortChannelIdOk returns a tuple with the PortChannelId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortChannelId
+
+`func (o *FcPhysicalPortAllOf) SetPortChannelId(v int64)`
+
+SetPortChannelId sets PortChannelId field to given value.
+
+### HasPortChannelId
+
+`func (o *FcPhysicalPortAllOf) HasPortChannelId() bool`
+
+HasPortChannelId returns a boolean if a field has been set.
+
 ### GetTransceiverType
 
 `func (o *FcPhysicalPortAllOf) GetTransceiverType() string`
@@ -78,6 +263,31 @@ SetTransceiverType sets TransceiverType field to given value.
 `func (o *FcPhysicalPortAllOf) HasTransceiverType() bool`
 
 HasTransceiverType returns a boolean if a field has been set.
+
+### GetVsan
+
+`func (o *FcPhysicalPortAllOf) GetVsan() int64`
+
+GetVsan returns the Vsan field if non-nil, zero value otherwise.
+
+### GetVsanOk
+
+`func (o *FcPhysicalPortAllOf) GetVsanOk() (*int64, bool)`
+
+GetVsanOk returns a tuple with the Vsan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVsan
+
+`func (o *FcPhysicalPortAllOf) SetVsan(v int64)`
+
+SetVsan sets Vsan field to given value.
+
+### HasVsan
+
+`func (o *FcPhysicalPortAllOf) HasVsan() bool`
+
+HasVsan returns a boolean if a field has been set.
 
 ### GetWwn
 
@@ -104,6 +314,31 @@ SetWwn sets Wwn field to given value.
 
 HasWwn returns a boolean if a field has been set.
 
+### GetInventoryDeviceInfo
+
+`func (o *FcPhysicalPortAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *FcPhysicalPortAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *FcPhysicalPortAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *FcPhysicalPortAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetPortGroup
 
 `func (o *FcPhysicalPortAllOf) GetPortGroup() PortGroupRelationship`
@@ -128,6 +363,31 @@ SetPortGroup sets PortGroup field to given value.
 `func (o *FcPhysicalPortAllOf) HasPortGroup() bool`
 
 HasPortGroup returns a boolean if a field has been set.
+
+### GetPortSubGroup
+
+`func (o *FcPhysicalPortAllOf) GetPortSubGroup() PortSubGroupRelationship`
+
+GetPortSubGroup returns the PortSubGroup field if non-nil, zero value otherwise.
+
+### GetPortSubGroupOk
+
+`func (o *FcPhysicalPortAllOf) GetPortSubGroupOk() (*PortSubGroupRelationship, bool)`
+
+GetPortSubGroupOk returns a tuple with the PortSubGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortSubGroup
+
+`func (o *FcPhysicalPortAllOf) SetPortSubGroup(v PortSubGroupRelationship)`
+
+SetPortSubGroup sets PortSubGroup field to given value.
+
+### HasPortSubGroup
+
+`func (o *FcPhysicalPortAllOf) HasPortSubGroup() bool`
+
+HasPortSubGroup returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

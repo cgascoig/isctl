@@ -4,9 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**PeerDn** | Pointer to **string** | PeerDn for ethernet physical port. | [optional] [readonly] 
-**TransceiverType** | Pointer to **string** |  | [optional] [readonly] 
+**AdminSpeed** | Pointer to **string** | Administratively configured speed for this port. | [optional] [readonly] 
+**AdminState** | Pointer to **string** | Administratively configured state (enabled/disabled) for this port. | [optional] [readonly] 
+**AggregatePortId** | Pointer to **int64** | Breakout port member in the Fabric Interconnect. | [optional] [readonly] 
+**LicenseGrace** | Pointer to **string** | The number of days this port&#39;s license has been in Grace Period for. | [optional] [readonly] 
+**LicenseState** | Pointer to **string** | The state of the port&#39;s licensing. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PortGroup** | Pointer to [**PortGroupRelationship**](port.Group.Relationship.md) |  | [optional] 
 **PortSubGroup** | Pointer to [**PortSubGroupRelationship**](port.SubGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -30,80 +33,155 @@ NewEtherPhysicalPortAllOfWithDefaults instantiates a new EtherPhysicalPortAllOf 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetMacAddress
+### GetAdminSpeed
 
-`func (o *EtherPhysicalPortAllOf) GetMacAddress() string`
+`func (o *EtherPhysicalPortAllOf) GetAdminSpeed() string`
 
-GetMacAddress returns the MacAddress field if non-nil, zero value otherwise.
+GetAdminSpeed returns the AdminSpeed field if non-nil, zero value otherwise.
 
-### GetMacAddressOk
+### GetAdminSpeedOk
 
-`func (o *EtherPhysicalPortAllOf) GetMacAddressOk() (*string, bool)`
+`func (o *EtherPhysicalPortAllOf) GetAdminSpeedOk() (*string, bool)`
 
-GetMacAddressOk returns a tuple with the MacAddress field if it's non-nil, zero value otherwise
+GetAdminSpeedOk returns a tuple with the AdminSpeed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMacAddress
+### SetAdminSpeed
 
-`func (o *EtherPhysicalPortAllOf) SetMacAddress(v string)`
+`func (o *EtherPhysicalPortAllOf) SetAdminSpeed(v string)`
 
-SetMacAddress sets MacAddress field to given value.
+SetAdminSpeed sets AdminSpeed field to given value.
 
-### HasMacAddress
+### HasAdminSpeed
 
-`func (o *EtherPhysicalPortAllOf) HasMacAddress() bool`
+`func (o *EtherPhysicalPortAllOf) HasAdminSpeed() bool`
 
-HasMacAddress returns a boolean if a field has been set.
+HasAdminSpeed returns a boolean if a field has been set.
 
-### GetPeerDn
+### GetAdminState
 
-`func (o *EtherPhysicalPortAllOf) GetPeerDn() string`
+`func (o *EtherPhysicalPortAllOf) GetAdminState() string`
 
-GetPeerDn returns the PeerDn field if non-nil, zero value otherwise.
+GetAdminState returns the AdminState field if non-nil, zero value otherwise.
 
-### GetPeerDnOk
+### GetAdminStateOk
 
-`func (o *EtherPhysicalPortAllOf) GetPeerDnOk() (*string, bool)`
+`func (o *EtherPhysicalPortAllOf) GetAdminStateOk() (*string, bool)`
 
-GetPeerDnOk returns a tuple with the PeerDn field if it's non-nil, zero value otherwise
+GetAdminStateOk returns a tuple with the AdminState field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPeerDn
+### SetAdminState
 
-`func (o *EtherPhysicalPortAllOf) SetPeerDn(v string)`
+`func (o *EtherPhysicalPortAllOf) SetAdminState(v string)`
 
-SetPeerDn sets PeerDn field to given value.
+SetAdminState sets AdminState field to given value.
 
-### HasPeerDn
+### HasAdminState
 
-`func (o *EtherPhysicalPortAllOf) HasPeerDn() bool`
+`func (o *EtherPhysicalPortAllOf) HasAdminState() bool`
 
-HasPeerDn returns a boolean if a field has been set.
+HasAdminState returns a boolean if a field has been set.
 
-### GetTransceiverType
+### GetAggregatePortId
 
-`func (o *EtherPhysicalPortAllOf) GetTransceiverType() string`
+`func (o *EtherPhysicalPortAllOf) GetAggregatePortId() int64`
 
-GetTransceiverType returns the TransceiverType field if non-nil, zero value otherwise.
+GetAggregatePortId returns the AggregatePortId field if non-nil, zero value otherwise.
 
-### GetTransceiverTypeOk
+### GetAggregatePortIdOk
 
-`func (o *EtherPhysicalPortAllOf) GetTransceiverTypeOk() (*string, bool)`
+`func (o *EtherPhysicalPortAllOf) GetAggregatePortIdOk() (*int64, bool)`
 
-GetTransceiverTypeOk returns a tuple with the TransceiverType field if it's non-nil, zero value otherwise
+GetAggregatePortIdOk returns a tuple with the AggregatePortId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTransceiverType
+### SetAggregatePortId
 
-`func (o *EtherPhysicalPortAllOf) SetTransceiverType(v string)`
+`func (o *EtherPhysicalPortAllOf) SetAggregatePortId(v int64)`
 
-SetTransceiverType sets TransceiverType field to given value.
+SetAggregatePortId sets AggregatePortId field to given value.
 
-### HasTransceiverType
+### HasAggregatePortId
 
-`func (o *EtherPhysicalPortAllOf) HasTransceiverType() bool`
+`func (o *EtherPhysicalPortAllOf) HasAggregatePortId() bool`
 
-HasTransceiverType returns a boolean if a field has been set.
+HasAggregatePortId returns a boolean if a field has been set.
+
+### GetLicenseGrace
+
+`func (o *EtherPhysicalPortAllOf) GetLicenseGrace() string`
+
+GetLicenseGrace returns the LicenseGrace field if non-nil, zero value otherwise.
+
+### GetLicenseGraceOk
+
+`func (o *EtherPhysicalPortAllOf) GetLicenseGraceOk() (*string, bool)`
+
+GetLicenseGraceOk returns a tuple with the LicenseGrace field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseGrace
+
+`func (o *EtherPhysicalPortAllOf) SetLicenseGrace(v string)`
+
+SetLicenseGrace sets LicenseGrace field to given value.
+
+### HasLicenseGrace
+
+`func (o *EtherPhysicalPortAllOf) HasLicenseGrace() bool`
+
+HasLicenseGrace returns a boolean if a field has been set.
+
+### GetLicenseState
+
+`func (o *EtherPhysicalPortAllOf) GetLicenseState() string`
+
+GetLicenseState returns the LicenseState field if non-nil, zero value otherwise.
+
+### GetLicenseStateOk
+
+`func (o *EtherPhysicalPortAllOf) GetLicenseStateOk() (*string, bool)`
+
+GetLicenseStateOk returns a tuple with the LicenseState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseState
+
+`func (o *EtherPhysicalPortAllOf) SetLicenseState(v string)`
+
+SetLicenseState sets LicenseState field to given value.
+
+### HasLicenseState
+
+`func (o *EtherPhysicalPortAllOf) HasLicenseState() bool`
+
+HasLicenseState returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EtherPhysicalPortAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EtherPhysicalPortAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EtherPhysicalPortAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EtherPhysicalPortAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPortGroup
 

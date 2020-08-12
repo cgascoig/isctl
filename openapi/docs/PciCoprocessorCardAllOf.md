@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardId** | Pointer to **int64** | It shows the id for the coprocessor card. | [optional] [readonly] 
-**PciSlot** | Pointer to **string** | It shows the PCI slot name for the coprocessor card. | [optional] [readonly] 
+**CardId** | Pointer to **int64** | The id of the coprocessor card. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | The PCI slot name for the coprocessor card. | [optional] [readonly] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -102,6 +103,31 @@ SetComputeBoard sets ComputeBoard field to given value.
 `func (o *PciCoprocessorCardAllOf) HasComputeBoard() bool`
 
 HasComputeBoard returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *PciCoprocessorCardAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *PciCoprocessorCardAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *PciCoprocessorCardAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *PciCoprocessorCardAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

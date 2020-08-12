@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bootable** | Pointer to **string** | It shows whether disk is bootable or not. | [optional] [readonly] 
-**DiskDn** | Pointer to **string** | It shows the Physical drive Dn. | [optional] [readonly] 
-**DiskId** | Pointer to **int64** | It shows storage Enclosure slotId. | [optional] [readonly] 
-**DiskState** | Pointer to **string** | It shows the current drive state of disk. | [optional] [readonly] 
-**Health** | Pointer to **string** | It shows the current drive state of disk. | [optional] 
+**Bootable** | Pointer to **string** | The whether disk is bootable or not. | [optional] [readonly] 
+**DiskDn** | Pointer to **string** | The distinguished name of the Physical drive. | [optional] [readonly] 
+**DiskId** | Pointer to **int64** | The storage Enclosure slotId. | [optional] [readonly] 
+**DiskState** | Pointer to **string** | The current drive state of disk. | [optional] [readonly] 
+**Health** | Pointer to **string** | The current drive state of disk. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PhysicalDisk** | Pointer to [**StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageController** | Pointer to [**StorageControllerRelationship**](storage.Controller.Relationship.md) |  | [optional] 
@@ -156,6 +157,31 @@ SetHealth sets Health field to given value.
 `func (o *StoragePhysicalDiskExtensionAllOf) HasHealth() bool`
 
 HasHealth returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskExtensionAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StoragePhysicalDiskExtensionAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskExtensionAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskExtensionAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPhysicalDisk
 

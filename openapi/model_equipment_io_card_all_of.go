@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,9 +18,16 @@ import (
 
 // EquipmentIoCardAllOf Definition of the list of properties defined in 'equipment.IoCard', excluding properties defined in parent classes.
 type EquipmentIoCardAllOf struct {
-	OperState        *string                              `json:"OperState,omitempty" yaml:"OperState,omitempty"`
-	EquipmentChassis *EquipmentChassisRelationship        `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// Switch Id to which the IOM is connected to. The value can be A or B.
+	ConnectionPath *string `json:"ConnectionPath,omitempty" yaml:"ConnectionPath,omitempty"`
+	// IOM device connector support.
+	DcSupported *bool `json:"DcSupported,omitempty" yaml:"DcSupported,omitempty"`
+	// Location of IOM within a chassis. The value can be left or right.
+	Side                       *string                              `json:"Side,omitempty" yaml:"Side,omitempty"`
+	EquipmentChassis           *EquipmentChassisRelationship        `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
+	InventoryDeviceInfo        *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	PhysicalDeviceRegistration *AssetDeviceRegistrationRelationship `json:"PhysicalDeviceRegistration,omitempty" yaml:"PhysicalDeviceRegistration,omitempty"`
+	RegisteredDevice           *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewEquipmentIoCardAllOf instantiates a new EquipmentIoCardAllOf object
@@ -40,36 +47,100 @@ func NewEquipmentIoCardAllOfWithDefaults() *EquipmentIoCardAllOf {
 	return &this
 }
 
-// GetOperState returns the OperState field value if set, zero value otherwise.
-func (o *EquipmentIoCardAllOf) GetOperState() string {
-	if o == nil || o.OperState == nil {
+// GetConnectionPath returns the ConnectionPath field value if set, zero value otherwise.
+func (o *EquipmentIoCardAllOf) GetConnectionPath() string {
+	if o == nil || o.ConnectionPath == nil {
 		var ret string
 		return ret
 	}
-	return *o.OperState
+	return *o.ConnectionPath
 }
 
-// GetOperStateOk returns a tuple with the OperState field value if set, nil otherwise
+// GetConnectionPathOk returns a tuple with the ConnectionPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EquipmentIoCardAllOf) GetOperStateOk() (*string, bool) {
-	if o == nil || o.OperState == nil {
+func (o *EquipmentIoCardAllOf) GetConnectionPathOk() (*string, bool) {
+	if o == nil || o.ConnectionPath == nil {
 		return nil, false
 	}
-	return o.OperState, true
+	return o.ConnectionPath, true
 }
 
-// HasOperState returns a boolean if a field has been set.
-func (o *EquipmentIoCardAllOf) HasOperState() bool {
-	if o != nil && o.OperState != nil {
+// HasConnectionPath returns a boolean if a field has been set.
+func (o *EquipmentIoCardAllOf) HasConnectionPath() bool {
+	if o != nil && o.ConnectionPath != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetOperState gets a reference to the given string and assigns it to the OperState field.
-func (o *EquipmentIoCardAllOf) SetOperState(v string) {
-	o.OperState = &v
+// SetConnectionPath gets a reference to the given string and assigns it to the ConnectionPath field.
+func (o *EquipmentIoCardAllOf) SetConnectionPath(v string) {
+	o.ConnectionPath = &v
+}
+
+// GetDcSupported returns the DcSupported field value if set, zero value otherwise.
+func (o *EquipmentIoCardAllOf) GetDcSupported() bool {
+	if o == nil || o.DcSupported == nil {
+		var ret bool
+		return ret
+	}
+	return *o.DcSupported
+}
+
+// GetDcSupportedOk returns a tuple with the DcSupported field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentIoCardAllOf) GetDcSupportedOk() (*bool, bool) {
+	if o == nil || o.DcSupported == nil {
+		return nil, false
+	}
+	return o.DcSupported, true
+}
+
+// HasDcSupported returns a boolean if a field has been set.
+func (o *EquipmentIoCardAllOf) HasDcSupported() bool {
+	if o != nil && o.DcSupported != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDcSupported gets a reference to the given bool and assigns it to the DcSupported field.
+func (o *EquipmentIoCardAllOf) SetDcSupported(v bool) {
+	o.DcSupported = &v
+}
+
+// GetSide returns the Side field value if set, zero value otherwise.
+func (o *EquipmentIoCardAllOf) GetSide() string {
+	if o == nil || o.Side == nil {
+		var ret string
+		return ret
+	}
+	return *o.Side
+}
+
+// GetSideOk returns a tuple with the Side field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentIoCardAllOf) GetSideOk() (*string, bool) {
+	if o == nil || o.Side == nil {
+		return nil, false
+	}
+	return o.Side, true
+}
+
+// HasSide returns a boolean if a field has been set.
+func (o *EquipmentIoCardAllOf) HasSide() bool {
+	if o != nil && o.Side != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSide gets a reference to the given string and assigns it to the Side field.
+func (o *EquipmentIoCardAllOf) SetSide(v string) {
+	o.Side = &v
 }
 
 // GetEquipmentChassis returns the EquipmentChassis field value if set, zero value otherwise.
@@ -102,6 +173,70 @@ func (o *EquipmentIoCardAllOf) HasEquipmentChassis() bool {
 // SetEquipmentChassis gets a reference to the given EquipmentChassisRelationship and assigns it to the EquipmentChassis field.
 func (o *EquipmentIoCardAllOf) SetEquipmentChassis(v EquipmentChassisRelationship) {
 	o.EquipmentChassis = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *EquipmentIoCardAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentIoCardAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *EquipmentIoCardAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *EquipmentIoCardAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetPhysicalDeviceRegistration returns the PhysicalDeviceRegistration field value if set, zero value otherwise.
+func (o *EquipmentIoCardAllOf) GetPhysicalDeviceRegistration() AssetDeviceRegistrationRelationship {
+	if o == nil || o.PhysicalDeviceRegistration == nil {
+		var ret AssetDeviceRegistrationRelationship
+		return ret
+	}
+	return *o.PhysicalDeviceRegistration
+}
+
+// GetPhysicalDeviceRegistrationOk returns a tuple with the PhysicalDeviceRegistration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentIoCardAllOf) GetPhysicalDeviceRegistrationOk() (*AssetDeviceRegistrationRelationship, bool) {
+	if o == nil || o.PhysicalDeviceRegistration == nil {
+		return nil, false
+	}
+	return o.PhysicalDeviceRegistration, true
+}
+
+// HasPhysicalDeviceRegistration returns a boolean if a field has been set.
+func (o *EquipmentIoCardAllOf) HasPhysicalDeviceRegistration() bool {
+	if o != nil && o.PhysicalDeviceRegistration != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPhysicalDeviceRegistration gets a reference to the given AssetDeviceRegistrationRelationship and assigns it to the PhysicalDeviceRegistration field.
+func (o *EquipmentIoCardAllOf) SetPhysicalDeviceRegistration(v AssetDeviceRegistrationRelationship) {
+	o.PhysicalDeviceRegistration = &v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -138,11 +273,23 @@ func (o *EquipmentIoCardAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRela
 
 func (o EquipmentIoCardAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.OperState != nil {
-		toSerialize["OperState"] = o.OperState
+	if o.ConnectionPath != nil {
+		toSerialize["ConnectionPath"] = o.ConnectionPath
+	}
+	if o.DcSupported != nil {
+		toSerialize["DcSupported"] = o.DcSupported
+	}
+	if o.Side != nil {
+		toSerialize["Side"] = o.Side
 	}
 	if o.EquipmentChassis != nil {
 		toSerialize["EquipmentChassis"] = o.EquipmentChassis
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
+	}
+	if o.PhysicalDeviceRegistration != nil {
+		toSerialize["PhysicalDeviceRegistration"] = o.PhysicalDeviceRegistration
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice

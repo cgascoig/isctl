@@ -11,8 +11,13 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | Description of the software upgrade. | [optional] [readonly] 
 **ElapsedTime** | Pointer to **int64** | Elapsed time in seconds during the software upgrade. | [optional] [readonly] 
 **EndTime** | Pointer to [**time.Time**](time.Time.md) | End date of the software upgrade. | [optional] [readonly] 
+**ErrorCode** | Pointer to **int64** | Error code for Intersight Appliance&#39;s software upgrade. In case of failure - this code will help decide if software upgrade can be retried. | [optional] [readonly] 
 **Fingerprint** | Pointer to **string** | Software upgrade manifest&#39;s fingerprint. | [optional] [readonly] 
+**IsRollingBack** | Pointer to **bool** | Track if software upgrade is upgrading or rolling back. | [optional] [readonly] 
 **Messages** | Pointer to **[]string** |  | [optional] 
+**RollbackNeeded** | Pointer to **bool** | Track if rollback is needed. | [optional] 
+**RollbackPhases** | Pointer to [**[]OnpremUpgradePhase**](onprem.UpgradePhase.md) |  | [optional] 
+**RollbackStatus** | Pointer to **string** | Status of the Intersight Appliance&#39;s software rollback status. | [optional] [readonly] 
 **Services** | Pointer to **[]string** |  | [optional] 
 **StartTime** | Pointer to [**time.Time**](time.Time.md) | Start date of the software upgrade. UI can modify startTime to re-schedule an upgrade. | [optional] 
 **Status** | Pointer to **string** | Status of the Intersight Appliance&#39;s software upgrade. | [optional] [readonly] 
@@ -216,6 +221,31 @@ SetEndTime sets EndTime field to given value.
 
 HasEndTime returns a boolean if a field has been set.
 
+### GetErrorCode
+
+`func (o *ApplianceUpgradeAllOf) GetErrorCode() int64`
+
+GetErrorCode returns the ErrorCode field if non-nil, zero value otherwise.
+
+### GetErrorCodeOk
+
+`func (o *ApplianceUpgradeAllOf) GetErrorCodeOk() (*int64, bool)`
+
+GetErrorCodeOk returns a tuple with the ErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorCode
+
+`func (o *ApplianceUpgradeAllOf) SetErrorCode(v int64)`
+
+SetErrorCode sets ErrorCode field to given value.
+
+### HasErrorCode
+
+`func (o *ApplianceUpgradeAllOf) HasErrorCode() bool`
+
+HasErrorCode returns a boolean if a field has been set.
+
 ### GetFingerprint
 
 `func (o *ApplianceUpgradeAllOf) GetFingerprint() string`
@@ -241,6 +271,31 @@ SetFingerprint sets Fingerprint field to given value.
 
 HasFingerprint returns a boolean if a field has been set.
 
+### GetIsRollingBack
+
+`func (o *ApplianceUpgradeAllOf) GetIsRollingBack() bool`
+
+GetIsRollingBack returns the IsRollingBack field if non-nil, zero value otherwise.
+
+### GetIsRollingBackOk
+
+`func (o *ApplianceUpgradeAllOf) GetIsRollingBackOk() (*bool, bool)`
+
+GetIsRollingBackOk returns a tuple with the IsRollingBack field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsRollingBack
+
+`func (o *ApplianceUpgradeAllOf) SetIsRollingBack(v bool)`
+
+SetIsRollingBack sets IsRollingBack field to given value.
+
+### HasIsRollingBack
+
+`func (o *ApplianceUpgradeAllOf) HasIsRollingBack() bool`
+
+HasIsRollingBack returns a boolean if a field has been set.
+
 ### GetMessages
 
 `func (o *ApplianceUpgradeAllOf) GetMessages() []string`
@@ -265,6 +320,81 @@ SetMessages sets Messages field to given value.
 `func (o *ApplianceUpgradeAllOf) HasMessages() bool`
 
 HasMessages returns a boolean if a field has been set.
+
+### GetRollbackNeeded
+
+`func (o *ApplianceUpgradeAllOf) GetRollbackNeeded() bool`
+
+GetRollbackNeeded returns the RollbackNeeded field if non-nil, zero value otherwise.
+
+### GetRollbackNeededOk
+
+`func (o *ApplianceUpgradeAllOf) GetRollbackNeededOk() (*bool, bool)`
+
+GetRollbackNeededOk returns a tuple with the RollbackNeeded field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRollbackNeeded
+
+`func (o *ApplianceUpgradeAllOf) SetRollbackNeeded(v bool)`
+
+SetRollbackNeeded sets RollbackNeeded field to given value.
+
+### HasRollbackNeeded
+
+`func (o *ApplianceUpgradeAllOf) HasRollbackNeeded() bool`
+
+HasRollbackNeeded returns a boolean if a field has been set.
+
+### GetRollbackPhases
+
+`func (o *ApplianceUpgradeAllOf) GetRollbackPhases() []OnpremUpgradePhase`
+
+GetRollbackPhases returns the RollbackPhases field if non-nil, zero value otherwise.
+
+### GetRollbackPhasesOk
+
+`func (o *ApplianceUpgradeAllOf) GetRollbackPhasesOk() (*[]OnpremUpgradePhase, bool)`
+
+GetRollbackPhasesOk returns a tuple with the RollbackPhases field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRollbackPhases
+
+`func (o *ApplianceUpgradeAllOf) SetRollbackPhases(v []OnpremUpgradePhase)`
+
+SetRollbackPhases sets RollbackPhases field to given value.
+
+### HasRollbackPhases
+
+`func (o *ApplianceUpgradeAllOf) HasRollbackPhases() bool`
+
+HasRollbackPhases returns a boolean if a field has been set.
+
+### GetRollbackStatus
+
+`func (o *ApplianceUpgradeAllOf) GetRollbackStatus() string`
+
+GetRollbackStatus returns the RollbackStatus field if non-nil, zero value otherwise.
+
+### GetRollbackStatusOk
+
+`func (o *ApplianceUpgradeAllOf) GetRollbackStatusOk() (*string, bool)`
+
+GetRollbackStatusOk returns a tuple with the RollbackStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRollbackStatus
+
+`func (o *ApplianceUpgradeAllOf) SetRollbackStatus(v string)`
+
+SetRollbackStatus sets RollbackStatus field to given value.
+
+### HasRollbackStatus
+
+`func (o *ApplianceUpgradeAllOf) HasRollbackStatus() bool`
+
+HasRollbackStatus returns a boolean if a field has been set.
 
 ### GetServices
 

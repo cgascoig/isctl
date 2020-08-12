@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Modulus** | Pointer to **int32** | The length of the RSA key, expressed in bits, for both public and private keys. | [optional] [default to 2048]
+**Modulus** | Pointer to **int32** | The length of the RSA key, expressed in bits, for both public and private keys. * &#x60;2048&#x60; - A key length of 2048 bits. * &#x60;2560&#x60; - A key length of 2560 bits. * &#x60;3072&#x60; - A key length of 3072 bits. * &#x60;3584&#x60; - A key length of 3584 bits. * &#x60;4096&#x60; - A key length of 4096 bits. | [optional] [default to 2048]
 
 ## Methods
 

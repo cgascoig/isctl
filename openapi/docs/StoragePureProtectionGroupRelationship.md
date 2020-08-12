@@ -18,15 +18,15 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the protection Group. | [optional] 
 **Prefix** | Pointer to **string** | Prefix used for all generated snapshots from the protection group. | [optional] 
 **ReplicationEnabled** | Pointer to **bool** | Flag to determine if replication is enabled. Snapshots are replicated to the target array if this flag is set. | [optional] 
 **SnapshotEnabled** | Pointer to **bool** | Flag to determine if snapshot creation is enabled. Snapshots are created on local array if this flag is set. | [optional] 
-**StorageArray** | Pointer to [**StorageGenericArrayRelationship**](storage.GenericArray.Relationship.md) |  | [optional] 
 **Size** | Pointer to **int64** | Overall size of all snapshots in the protection group, represented in bytes. | [optional] 
 **Source** | Pointer to **string** | Name of PureStorage array name on which the protection group is created. | [optional] [readonly] 
 **Targets** | Pointer to **[]string** |  | [optional] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
 **HostGroups** | Pointer to [**[]StoragePureHostGroupRelationship**](storage.PureHostGroup.Relationship.md) | An array of relationships to storagePureHostGroup resources. | [optional] [readonly] 
 **Hosts** | Pointer to [**[]StoragePureHostRelationship**](storage.PureHost.Relationship.md) | An array of relationships to storagePureHost resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -341,6 +341,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StoragePureProtectionGroupRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StoragePureProtectionGroupRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StoragePureProtectionGroupRelationship) GetParent() MoBaseMoRelationship`
@@ -391,6 +401,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StoragePureProtectionGroupRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StoragePureProtectionGroupRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StoragePureProtectionGroupRelationship) GetDisplayNames() map[string][]string`
@@ -526,31 +546,6 @@ SetSnapshotEnabled sets SnapshotEnabled field to given value.
 
 HasSnapshotEnabled returns a boolean if a field has been set.
 
-### GetStorageArray
-
-`func (o *StoragePureProtectionGroupRelationship) GetStorageArray() StorageGenericArrayRelationship`
-
-GetStorageArray returns the StorageArray field if non-nil, zero value otherwise.
-
-### GetStorageArrayOk
-
-`func (o *StoragePureProtectionGroupRelationship) GetStorageArrayOk() (*StorageGenericArrayRelationship, bool)`
-
-GetStorageArrayOk returns a tuple with the StorageArray field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStorageArray
-
-`func (o *StoragePureProtectionGroupRelationship) SetStorageArray(v StorageGenericArrayRelationship)`
-
-SetStorageArray sets StorageArray field to given value.
-
-### HasStorageArray
-
-`func (o *StoragePureProtectionGroupRelationship) HasStorageArray() bool`
-
-HasStorageArray returns a boolean if a field has been set.
-
 ### GetSize
 
 `func (o *StoragePureProtectionGroupRelationship) GetSize() int64`
@@ -626,6 +621,31 @@ SetTargets sets Targets field to given value.
 
 HasTargets returns a boolean if a field has been set.
 
+### GetArray
+
+`func (o *StoragePureProtectionGroupRelationship) GetArray() StoragePureArrayRelationship`
+
+GetArray returns the Array field if non-nil, zero value otherwise.
+
+### GetArrayOk
+
+`func (o *StoragePureProtectionGroupRelationship) GetArrayOk() (*StoragePureArrayRelationship, bool)`
+
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArray
+
+`func (o *StoragePureProtectionGroupRelationship) SetArray(v StoragePureArrayRelationship)`
+
+SetArray sets Array field to given value.
+
+### HasArray
+
+`func (o *StoragePureProtectionGroupRelationship) HasArray() bool`
+
+HasArray returns a boolean if a field has been set.
+
 ### GetHostGroups
 
 `func (o *StoragePureProtectionGroupRelationship) GetHostGroups() []StoragePureHostGroupRelationship`
@@ -651,6 +671,16 @@ SetHostGroups sets HostGroups field to given value.
 
 HasHostGroups returns a boolean if a field has been set.
 
+### SetHostGroupsNil
+
+`func (o *StoragePureProtectionGroupRelationship) SetHostGroupsNil(b bool)`
+
+ SetHostGroupsNil sets the value for HostGroups to be an explicit nil
+
+### UnsetHostGroups
+`func (o *StoragePureProtectionGroupRelationship) UnsetHostGroups()`
+
+UnsetHostGroups ensures that no value is present for HostGroups, not even an explicit nil
 ### GetHosts
 
 `func (o *StoragePureProtectionGroupRelationship) GetHosts() []StoragePureHostRelationship`
@@ -676,6 +706,16 @@ SetHosts sets Hosts field to given value.
 
 HasHosts returns a boolean if a field has been set.
 
+### SetHostsNil
+
+`func (o *StoragePureProtectionGroupRelationship) SetHostsNil(b bool)`
+
+ SetHostsNil sets the value for Hosts to be an explicit nil
+
+### UnsetHosts
+`func (o *StoragePureProtectionGroupRelationship) UnsetHosts()`
+
+UnsetHosts ensures that no value is present for Hosts, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *StoragePureProtectionGroupRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -726,6 +766,16 @@ SetVolumes sets Volumes field to given value.
 
 HasVolumes returns a boolean if a field has been set.
 
+### SetVolumesNil
+
+`func (o *StoragePureProtectionGroupRelationship) SetVolumesNil(b bool)`
+
+ SetVolumesNil sets the value for Volumes to be an explicit nil
+
+### UnsetVolumes
+`func (o *StoragePureProtectionGroupRelationship) UnsetVolumes()`
+
+UnsetVolumes ensures that no value is present for Volumes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

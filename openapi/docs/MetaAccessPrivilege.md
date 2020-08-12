@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Method** | Pointer to **string** | The type of CRUD operation (create, read, update, delete) for which an access privilege is required. | [optional] [readonly] [default to "Update"]
+**Method** | Pointer to **string** | The type of CRUD operation (create, read, update, delete) for which an access privilege is required. * &#x60;Update&#x60; - The &#39;update&#39; operation/state. * &#x60;Create&#x60; - The &#39;create&#39; operation/state. * &#x60;Read&#x60; - The &#39;read&#39; operation/state. * &#x60;Delete&#x60; - The &#39;delete&#39; operation/state. | [optional] [readonly] [default to "Update"]
 **Privilege** | Pointer to **string** | The name of the privilege which is required to invoke the specified CRUD method. | [optional] [readonly] 
 
 ## Methods

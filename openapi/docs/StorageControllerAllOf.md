@@ -4,21 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ControllerFlags** | Pointer to **string** |  | [optional] [readonly] 
-**ControllerId** | Pointer to **string** | It shows the Id of controller. | [optional] [readonly] 
-**ControllerStatus** | Pointer to **string** | It shows the current status of controller. | [optional] [readonly] 
-**HwRevision** | Pointer to **string** | It shows the hardware revision of controller. | [optional] [readonly] 
-**OobInterfaceSupported** | Pointer to **string** | It shows CIMC support for out-of-band configuration of controller. | [optional] [readonly] 
-**OperState** | Pointer to **string** | It shows the current operational state of controller. | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**PciAddr** | Pointer to **string** | It shows the current pci address of controller. | [optional] [readonly] 
-**PciSlot** | Pointer to **string** | It shows the pci slot name for the controller. | [optional] [readonly] 
-**Presence** | Pointer to **string** | It shows physical presence or absence of the controller on server. | [optional] [readonly] 
-**RaidSupport** | Pointer to **string** | It shows the RAID levels supported by controller. | [optional] [readonly] 
-**RebuildRate** | Pointer to **string** |  | [optional] [readonly] 
-**SelfEncryptEnabled** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** | Controller types are SAS, SATA, PCH, NVME. | [optional] [readonly] 
+**ControllerFlags** | Pointer to **string** | The flags for the storage controller. | [optional] [readonly] 
+**ControllerId** | Pointer to **string** | The Id of the storage controller. | [optional] [readonly] 
+**ControllerStatus** | Pointer to **string** | The current status of controller. | [optional] [readonly] 
+**ForeignConfigPresent** | Pointer to **bool** | Storage controller has detected disks in foreign config. | [optional] 
+**HwRevision** | Pointer to **string** | The hardware revision of controller. | [optional] [readonly] 
+**InterfaceType** | Pointer to **string** | Interface types are Sas, Sata, PCH. | [optional] 
+**MaxVolumesSupported** | Pointer to **int64** | Maximum virtual drives that can be created on this Storage Controller. | [optional] 
+**OobInterfaceSupported** | Pointer to **string** | The CIMC support for out-of-band configuration of controller. | [optional] [readonly] 
+**OperState** | Pointer to **string** | The current operational state of controller. | [optional] [readonly] 
+**Operability** | Pointer to **string** | Operability state of the storage controller. | [optional] [readonly] 
+**PciAddr** | Pointer to **string** | The current pci address of controller. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | The pci slot name for the controller. | [optional] [readonly] 
+**Presence** | Pointer to **string** | Physical Presence State for the Storage Controller. | [optional] [readonly] 
+**RaidSupport** | Pointer to **string** | The RAID levels supported by controller. | [optional] [readonly] 
+**RebuildRate** | Pointer to **string** | Logical volume or RAID rebuild rate of Storage Controller. | [optional] [readonly] 
+**SelfEncryptEnabled** | Pointer to **string** | Storage controller disk self encryption state. | [optional] 
+**Type** | Pointer to **string** | Controller types are Raid, FlexFlash. | [optional] [readonly] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**DiskGroup** | Pointer to [**[]StorageDiskGroupRelationship**](storage.DiskGroup.Relationship.md) | An array of relationships to storageDiskGroup resources. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PhysicalDiskExtensions** | Pointer to [**[]StoragePhysicalDiskExtensionRelationship**](storage.PhysicalDiskExtension.Relationship.md) | An array of relationships to storagePhysicalDiskExtension resources. | [optional] [readonly] 
 **PhysicalDisks** | Pointer to [**[]StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) | An array of relationships to storagePhysicalDisk resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -120,6 +127,31 @@ SetControllerStatus sets ControllerStatus field to given value.
 
 HasControllerStatus returns a boolean if a field has been set.
 
+### GetForeignConfigPresent
+
+`func (o *StorageControllerAllOf) GetForeignConfigPresent() bool`
+
+GetForeignConfigPresent returns the ForeignConfigPresent field if non-nil, zero value otherwise.
+
+### GetForeignConfigPresentOk
+
+`func (o *StorageControllerAllOf) GetForeignConfigPresentOk() (*bool, bool)`
+
+GetForeignConfigPresentOk returns a tuple with the ForeignConfigPresent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForeignConfigPresent
+
+`func (o *StorageControllerAllOf) SetForeignConfigPresent(v bool)`
+
+SetForeignConfigPresent sets ForeignConfigPresent field to given value.
+
+### HasForeignConfigPresent
+
+`func (o *StorageControllerAllOf) HasForeignConfigPresent() bool`
+
+HasForeignConfigPresent returns a boolean if a field has been set.
+
 ### GetHwRevision
 
 `func (o *StorageControllerAllOf) GetHwRevision() string`
@@ -144,6 +176,56 @@ SetHwRevision sets HwRevision field to given value.
 `func (o *StorageControllerAllOf) HasHwRevision() bool`
 
 HasHwRevision returns a boolean if a field has been set.
+
+### GetInterfaceType
+
+`func (o *StorageControllerAllOf) GetInterfaceType() string`
+
+GetInterfaceType returns the InterfaceType field if non-nil, zero value otherwise.
+
+### GetInterfaceTypeOk
+
+`func (o *StorageControllerAllOf) GetInterfaceTypeOk() (*string, bool)`
+
+GetInterfaceTypeOk returns a tuple with the InterfaceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterfaceType
+
+`func (o *StorageControllerAllOf) SetInterfaceType(v string)`
+
+SetInterfaceType sets InterfaceType field to given value.
+
+### HasInterfaceType
+
+`func (o *StorageControllerAllOf) HasInterfaceType() bool`
+
+HasInterfaceType returns a boolean if a field has been set.
+
+### GetMaxVolumesSupported
+
+`func (o *StorageControllerAllOf) GetMaxVolumesSupported() int64`
+
+GetMaxVolumesSupported returns the MaxVolumesSupported field if non-nil, zero value otherwise.
+
+### GetMaxVolumesSupportedOk
+
+`func (o *StorageControllerAllOf) GetMaxVolumesSupportedOk() (*int64, bool)`
+
+GetMaxVolumesSupportedOk returns a tuple with the MaxVolumesSupported field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxVolumesSupported
+
+`func (o *StorageControllerAllOf) SetMaxVolumesSupported(v int64)`
+
+SetMaxVolumesSupported sets MaxVolumesSupported field to given value.
+
+### HasMaxVolumesSupported
+
+`func (o *StorageControllerAllOf) HasMaxVolumesSupported() bool`
+
+HasMaxVolumesSupported returns a boolean if a field has been set.
 
 ### GetOobInterfaceSupported
 
@@ -395,6 +477,31 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetComputeBlade
+
+`func (o *StorageControllerAllOf) GetComputeBlade() ComputeBladeRelationship`
+
+GetComputeBlade returns the ComputeBlade field if non-nil, zero value otherwise.
+
+### GetComputeBladeOk
+
+`func (o *StorageControllerAllOf) GetComputeBladeOk() (*ComputeBladeRelationship, bool)`
+
+GetComputeBladeOk returns a tuple with the ComputeBlade field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeBlade
+
+`func (o *StorageControllerAllOf) SetComputeBlade(v ComputeBladeRelationship)`
+
+SetComputeBlade sets ComputeBlade field to given value.
+
+### HasComputeBlade
+
+`func (o *StorageControllerAllOf) HasComputeBlade() bool`
+
+HasComputeBlade returns a boolean if a field has been set.
+
 ### GetComputeBoard
 
 `func (o *StorageControllerAllOf) GetComputeBoard() ComputeBoardRelationship`
@@ -419,6 +526,91 @@ SetComputeBoard sets ComputeBoard field to given value.
 `func (o *StorageControllerAllOf) HasComputeBoard() bool`
 
 HasComputeBoard returns a boolean if a field has been set.
+
+### GetComputeRackUnit
+
+`func (o *StorageControllerAllOf) GetComputeRackUnit() ComputeRackUnitRelationship`
+
+GetComputeRackUnit returns the ComputeRackUnit field if non-nil, zero value otherwise.
+
+### GetComputeRackUnitOk
+
+`func (o *StorageControllerAllOf) GetComputeRackUnitOk() (*ComputeRackUnitRelationship, bool)`
+
+GetComputeRackUnitOk returns a tuple with the ComputeRackUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeRackUnit
+
+`func (o *StorageControllerAllOf) SetComputeRackUnit(v ComputeRackUnitRelationship)`
+
+SetComputeRackUnit sets ComputeRackUnit field to given value.
+
+### HasComputeRackUnit
+
+`func (o *StorageControllerAllOf) HasComputeRackUnit() bool`
+
+HasComputeRackUnit returns a boolean if a field has been set.
+
+### GetDiskGroup
+
+`func (o *StorageControllerAllOf) GetDiskGroup() []StorageDiskGroupRelationship`
+
+GetDiskGroup returns the DiskGroup field if non-nil, zero value otherwise.
+
+### GetDiskGroupOk
+
+`func (o *StorageControllerAllOf) GetDiskGroupOk() (*[]StorageDiskGroupRelationship, bool)`
+
+GetDiskGroupOk returns a tuple with the DiskGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiskGroup
+
+`func (o *StorageControllerAllOf) SetDiskGroup(v []StorageDiskGroupRelationship)`
+
+SetDiskGroup sets DiskGroup field to given value.
+
+### HasDiskGroup
+
+`func (o *StorageControllerAllOf) HasDiskGroup() bool`
+
+HasDiskGroup returns a boolean if a field has been set.
+
+### SetDiskGroupNil
+
+`func (o *StorageControllerAllOf) SetDiskGroupNil(b bool)`
+
+ SetDiskGroupNil sets the value for DiskGroup to be an explicit nil
+
+### UnsetDiskGroup
+`func (o *StorageControllerAllOf) UnsetDiskGroup()`
+
+UnsetDiskGroup ensures that no value is present for DiskGroup, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *StorageControllerAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageControllerAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageControllerAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageControllerAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPhysicalDiskExtensions
 
@@ -445,6 +637,16 @@ SetPhysicalDiskExtensions sets PhysicalDiskExtensions field to given value.
 
 HasPhysicalDiskExtensions returns a boolean if a field has been set.
 
+### SetPhysicalDiskExtensionsNil
+
+`func (o *StorageControllerAllOf) SetPhysicalDiskExtensionsNil(b bool)`
+
+ SetPhysicalDiskExtensionsNil sets the value for PhysicalDiskExtensions to be an explicit nil
+
+### UnsetPhysicalDiskExtensions
+`func (o *StorageControllerAllOf) UnsetPhysicalDiskExtensions()`
+
+UnsetPhysicalDiskExtensions ensures that no value is present for PhysicalDiskExtensions, not even an explicit nil
 ### GetPhysicalDisks
 
 `func (o *StorageControllerAllOf) GetPhysicalDisks() []StoragePhysicalDiskRelationship`
@@ -470,6 +672,16 @@ SetPhysicalDisks sets PhysicalDisks field to given value.
 
 HasPhysicalDisks returns a boolean if a field has been set.
 
+### SetPhysicalDisksNil
+
+`func (o *StorageControllerAllOf) SetPhysicalDisksNil(b bool)`
+
+ SetPhysicalDisksNil sets the value for PhysicalDisks to be an explicit nil
+
+### UnsetPhysicalDisks
+`func (o *StorageControllerAllOf) UnsetPhysicalDisks()`
+
+UnsetPhysicalDisks ensures that no value is present for PhysicalDisks, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *StorageControllerAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -520,6 +732,16 @@ SetRunningFirmware sets RunningFirmware field to given value.
 
 HasRunningFirmware returns a boolean if a field has been set.
 
+### SetRunningFirmwareNil
+
+`func (o *StorageControllerAllOf) SetRunningFirmwareNil(b bool)`
+
+ SetRunningFirmwareNil sets the value for RunningFirmware to be an explicit nil
+
+### UnsetRunningFirmware
+`func (o *StorageControllerAllOf) UnsetRunningFirmware()`
+
+UnsetRunningFirmware ensures that no value is present for RunningFirmware, not even an explicit nil
 ### GetVirtualDriveExtensions
 
 `func (o *StorageControllerAllOf) GetVirtualDriveExtensions() []StorageVirtualDriveExtensionRelationship`
@@ -545,6 +767,16 @@ SetVirtualDriveExtensions sets VirtualDriveExtensions field to given value.
 
 HasVirtualDriveExtensions returns a boolean if a field has been set.
 
+### SetVirtualDriveExtensionsNil
+
+`func (o *StorageControllerAllOf) SetVirtualDriveExtensionsNil(b bool)`
+
+ SetVirtualDriveExtensionsNil sets the value for VirtualDriveExtensions to be an explicit nil
+
+### UnsetVirtualDriveExtensions
+`func (o *StorageControllerAllOf) UnsetVirtualDriveExtensions()`
+
+UnsetVirtualDriveExtensions ensures that no value is present for VirtualDriveExtensions, not even an explicit nil
 ### GetVirtualDrives
 
 `func (o *StorageControllerAllOf) GetVirtualDrives() []StorageVirtualDriveRelationship`
@@ -570,6 +802,16 @@ SetVirtualDrives sets VirtualDrives field to given value.
 
 HasVirtualDrives returns a boolean if a field has been set.
 
+### SetVirtualDrivesNil
+
+`func (o *StorageControllerAllOf) SetVirtualDrivesNil(b bool)`
+
+ SetVirtualDrivesNil sets the value for VirtualDrives to be an explicit nil
+
+### UnsetVirtualDrives
+`func (o *StorageControllerAllOf) UnsetVirtualDrives()`
+
+UnsetVirtualDrives ensures that no value is present for VirtualDrives, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,13 +18,13 @@ import (
 
 // SoftwarerepositoryLocalMachineAllOf Definition of the list of properties defined in 'softwarerepository.LocalMachine', excluding properties defined in parent classes.
 type SoftwarerepositoryLocalMachineAllOf struct {
-	// When import action in file MO is updated with 'GeneratePreSignedDownloadUrl', Intersight shall return a presigned URL in this property as part of the PATCH response. The user is expected to subsequently download the file using this URL.
+	// When the import action in the file MO is updated with 'GeneratePreSignedDownloadUrl', Intersight returns a pre-signed URL in this property as part of the patch response. The user is expected to subsequently download the file using this URL.
 	DownloadUrl *string `json:"DownloadUrl,omitempty" yaml:"DownloadUrl,omitempty"`
-	// Chunk size (in bytes) of the each part of file to be uploaded.
+	// The chunk size (in bytes) for each part of the file to be uploaded.
 	PartSize *int64 `json:"PartSize,omitempty" yaml:"PartSize,omitempty"`
 	// When the import action in file MO is updated with 'GeneratePreSignedUploadUrl', Intersight shall return a upload Id in this property as part of the PATCH response.
 	UploadId *string `json:"UploadId,omitempty" yaml:"UploadId,omitempty"`
-	// When a file MO is created with 'LocalMachine' as the source, Intersight shall return a presigned URL in this property as part of the POST response. The user is expected to subsequently upload the file content using this URL. Once this upload has been completed, the user is expected to PATCH the Uploader object's transfer state to success.
+	// When a file MO is created with 'LocalMachine' as the source, Intersight returns a pre-signed URL in this property as part of the POST response. The user is expected to subsequently upload the file content using this URL. Once the upload is completed, the user is expected to patch the uploader object's transfer state to success.
 	UploadUrl  *string   `json:"UploadUrl,omitempty" yaml:"UploadUrl,omitempty"`
 	UploadUrls *[]string `json:"UploadUrls,omitempty" yaml:"UploadUrls,omitempty"`
 }

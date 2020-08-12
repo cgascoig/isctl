@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DriveStatus** | Pointer to **string** |  | [optional] 
-**DriveType** | Pointer to **string** |  | [optional] 
-**PartitionId** | Pointer to **string** |  | [optional] 
-**PartitionName** | Pointer to **string** |  | [optional] 
-**ResidentImage** | Pointer to **string** |  | [optional] 
-**Size** | Pointer to **string** |  | [optional] 
-**VirtualDrive** | Pointer to **string** |  | [optional] 
+**DriveStatus** | Pointer to **string** | Status of the Flex Util virtual drive. | [optional] 
+**DriveType** | Pointer to **string** | Type of virtual drive managed by flex util controller. | [optional] 
+**PartitionId** | Pointer to **string** | Disk Partition Id of virtual drive managed by flex util controller. | [optional] 
+**PartitionName** | Pointer to **string** | Partition name of the Flex Util virtual drive. | [optional] 
+**ResidentImage** | Pointer to **string** | The resident image on the flex util virtual Drive. | [optional] 
+**Size** | Pointer to **string** | Size of the Flex Util virtual drive. | [optional] 
+**VirtualDrive** | Pointer to **string** | Virtual drive on the Flex Util controller. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageFlexUtilController** | Pointer to [**StorageFlexUtilControllerRelationship**](storage.FlexUtilController.Relationship.md) |  | [optional] 
 
@@ -207,6 +208,31 @@ SetVirtualDrive sets VirtualDrive field to given value.
 `func (o *StorageFlexUtilVirtualDrive) HasVirtualDrive() bool`
 
 HasVirtualDrive returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilVirtualDrive) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageFlexUtilVirtualDrive) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilVirtualDrive) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageFlexUtilVirtualDrive) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

@@ -18,37 +18,41 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**AdminPowerState** | Pointer to **string** | Desired power state of the server. | [optional] [readonly] 
-**AssetTag** | Pointer to **string** |  | [optional] [readonly] 
-**AvailableMemory** | Pointer to **int64** | The actual amount of memory currently available to the server. | [optional] [readonly] 
-**FaultSummary** | Pointer to **int64** |  | [optional] 
+**AdminPowerState** | Pointer to **string** | The desired power state of the server. | [optional] [readonly] 
+**AlarmSummary** | Pointer to [**ComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
+**AssetTag** | Pointer to **string** | The user defined asset tag assigned to the server. | [optional] [readonly] 
+**AvailableMemory** | Pointer to **int64** | The amount of memory available on the server. | [optional] [readonly] 
+**BiosPostComplete** | Pointer to **bool** | The BIOS POST completion status of the server. | [optional] 
+**FaultSummary** | Pointer to **int64** | The fault summary for the server. | [optional] 
 **KvmIpAddresses** | Pointer to [**[]ComputeIpAddress**](compute.IpAddress.md) |  | [optional] 
-**MemorySpeed** | Pointer to **string** | The memory speed, in megahertz. | [optional] [readonly] 
+**ManagementMode** | Pointer to **string** | The management mode of the server. * &#x60;IntersightStandalone&#x60; - Intersight Standalone mode of operation. * &#x60;UCSM&#x60; - Unified Computing System Manager mode of operation. * &#x60;Intersight&#x60; - Intersight managed mode of operation. | [optional] [default to "IntersightStandalone"]
+**MemorySpeed** | Pointer to **string** | The maximum memory speed in MHz available on the server. | [optional] [readonly] 
 **MgmtIpAddress** | Pointer to **string** | Management address of the server. | [optional] 
-**NumAdaptors** | Pointer to **int64** | Total number of Adaptors available. | [optional] [readonly] 
-**NumCpuCores** | Pointer to **int64** | Total number of CPU cores available. | [optional] [readonly] 
-**NumCpuCoresEnabled** | Pointer to **int64** | Number of CPU cores enabled. | [optional] [readonly] 
-**NumCpus** | Pointer to **int64** | Total number of CPU&#39;s available. | [optional] [readonly] 
-**NumEthHostInterfaces** | Pointer to **int64** | Number of Ethernet Host Interfaces. | [optional] [readonly] 
-**NumFcHostInterfaces** | Pointer to **int64** | Number of Fibre channel Host Interfaces. | [optional] [readonly] 
-**NumThreads** | Pointer to **int64** | Number of threads enabled. | [optional] [readonly] 
-**OperPowerState** | Pointer to **string** | Current power state of the server. | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**PlatformType** | Pointer to **string** | Platform type of the device. | [optional] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**ServiceProfile** | Pointer to **string** | The service profile assigned. | [optional] [readonly] 
-**TotalMemory** | Pointer to **int64** |  | [optional] [readonly] 
-**UserLabel** | Pointer to **string** |  | [optional] [readonly] 
-**Uuid** | Pointer to **string** |  | [optional] [readonly] 
+**NumAdaptors** | Pointer to **int64** | The total number of network adapters present on the server. | [optional] [readonly] 
+**NumCpuCores** | Pointer to **int64** | The total number of CPU cores present on the server. | [optional] [readonly] 
+**NumCpuCoresEnabled** | Pointer to **int64** | The total number of CPU cores enabled on the server. | [optional] [readonly] 
+**NumCpus** | Pointer to **int64** | The total number of CPUs present on the server. | [optional] [readonly] 
+**NumEthHostInterfaces** | Pointer to **int64** | The total number of vNICs which are visible to a host on the server. | [optional] [readonly] 
+**NumFcHostInterfaces** | Pointer to **int64** | The total number of vHBAs which are visible to a host on the server. | [optional] [readonly] 
+**NumThreads** | Pointer to **int64** | The total number of threads the server is capable of handling. | [optional] [readonly] 
+**OperPowerState** | Pointer to **string** | The actual power state of the server. | [optional] [readonly] 
+**OperState** | Pointer to **string** | The operational state of the server. | [optional] [readonly] 
+**Operability** | Pointer to **string** | The operability of the server. | [optional] [readonly] 
+**PlatformType** | Pointer to **string** | The platform type of the registered device - whether managed by UCSM or operating in standalone mode. | [optional] 
+**Presence** | Pointer to **string** | Indicates if a server is present in a slot and is applicable for blade servers. | [optional] [readonly] 
+**ServiceProfile** | Pointer to **string** | The distinguished name of the service profile to which the server is associated to. It is applicable only for servers which are managed via UCSM. | [optional] [readonly] 
+**TotalMemory** | Pointer to **int64** | The total memory available on the server. | [optional] [readonly] 
+**UserLabel** | Pointer to **string** | The user defined label assigned to the server. | [optional] [readonly] 
+**Uuid** | Pointer to **string** | The universally unique identity of the server. | [optional] [readonly] 
+**MgmtIdentity** | Pointer to [**EquipmentPhysicalIdentityRelationship**](equipment.PhysicalIdentity.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -359,6 +363,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *ComputePhysicalRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *ComputePhysicalRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *ComputePhysicalRelationship) GetParent() MoBaseMoRelationship`
@@ -409,6 +423,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *ComputePhysicalRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *ComputePhysicalRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *ComputePhysicalRelationship) GetDisplayNames() map[string][]string`
@@ -644,6 +668,31 @@ SetAdminPowerState sets AdminPowerState field to given value.
 
 HasAdminPowerState returns a boolean if a field has been set.
 
+### GetAlarmSummary
+
+`func (o *ComputePhysicalRelationship) GetAlarmSummary() ComputeAlarmSummary`
+
+GetAlarmSummary returns the AlarmSummary field if non-nil, zero value otherwise.
+
+### GetAlarmSummaryOk
+
+`func (o *ComputePhysicalRelationship) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool)`
+
+GetAlarmSummaryOk returns a tuple with the AlarmSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlarmSummary
+
+`func (o *ComputePhysicalRelationship) SetAlarmSummary(v ComputeAlarmSummary)`
+
+SetAlarmSummary sets AlarmSummary field to given value.
+
+### HasAlarmSummary
+
+`func (o *ComputePhysicalRelationship) HasAlarmSummary() bool`
+
+HasAlarmSummary returns a boolean if a field has been set.
+
 ### GetAssetTag
 
 `func (o *ComputePhysicalRelationship) GetAssetTag() string`
@@ -694,6 +743,31 @@ SetAvailableMemory sets AvailableMemory field to given value.
 
 HasAvailableMemory returns a boolean if a field has been set.
 
+### GetBiosPostComplete
+
+`func (o *ComputePhysicalRelationship) GetBiosPostComplete() bool`
+
+GetBiosPostComplete returns the BiosPostComplete field if non-nil, zero value otherwise.
+
+### GetBiosPostCompleteOk
+
+`func (o *ComputePhysicalRelationship) GetBiosPostCompleteOk() (*bool, bool)`
+
+GetBiosPostCompleteOk returns a tuple with the BiosPostComplete field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBiosPostComplete
+
+`func (o *ComputePhysicalRelationship) SetBiosPostComplete(v bool)`
+
+SetBiosPostComplete sets BiosPostComplete field to given value.
+
+### HasBiosPostComplete
+
+`func (o *ComputePhysicalRelationship) HasBiosPostComplete() bool`
+
+HasBiosPostComplete returns a boolean if a field has been set.
+
 ### GetFaultSummary
 
 `func (o *ComputePhysicalRelationship) GetFaultSummary() int64`
@@ -743,6 +817,31 @@ SetKvmIpAddresses sets KvmIpAddresses field to given value.
 `func (o *ComputePhysicalRelationship) HasKvmIpAddresses() bool`
 
 HasKvmIpAddresses returns a boolean if a field has been set.
+
+### GetManagementMode
+
+`func (o *ComputePhysicalRelationship) GetManagementMode() string`
+
+GetManagementMode returns the ManagementMode field if non-nil, zero value otherwise.
+
+### GetManagementModeOk
+
+`func (o *ComputePhysicalRelationship) GetManagementModeOk() (*string, bool)`
+
+GetManagementModeOk returns a tuple with the ManagementMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagementMode
+
+`func (o *ComputePhysicalRelationship) SetManagementMode(v string)`
+
+SetManagementMode sets ManagementMode field to given value.
+
+### HasManagementMode
+
+`func (o *ComputePhysicalRelationship) HasManagementMode() bool`
+
+HasManagementMode returns a boolean if a field has been set.
 
 ### GetMemorySpeed
 
@@ -1193,6 +1292,31 @@ SetUuid sets Uuid field to given value.
 `func (o *ComputePhysicalRelationship) HasUuid() bool`
 
 HasUuid returns a boolean if a field has been set.
+
+### GetMgmtIdentity
+
+`func (o *ComputePhysicalRelationship) GetMgmtIdentity() EquipmentPhysicalIdentityRelationship`
+
+GetMgmtIdentity returns the MgmtIdentity field if non-nil, zero value otherwise.
+
+### GetMgmtIdentityOk
+
+`func (o *ComputePhysicalRelationship) GetMgmtIdentityOk() (*EquipmentPhysicalIdentityRelationship, bool)`
+
+GetMgmtIdentityOk returns a tuple with the MgmtIdentity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMgmtIdentity
+
+`func (o *ComputePhysicalRelationship) SetMgmtIdentity(v EquipmentPhysicalIdentityRelationship)`
+
+SetMgmtIdentity sets MgmtIdentity field to given value.
+
+### HasMgmtIdentity
+
+`func (o *ComputePhysicalRelationship) HasMgmtIdentity() bool`
+
+HasMgmtIdentity returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

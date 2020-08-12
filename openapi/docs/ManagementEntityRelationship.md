@@ -18,12 +18,16 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
+**ClusterLinkState** | Pointer to **string** | Cluster link state between the Fabric Interconnects. | [optional] [readonly] 
+**ClusterReadiness** | Pointer to **string** | Cluster readiness of the Fabric Interconnect. | [optional] [readonly] 
+**ClusterState** | Pointer to **string** | Cluster state of the Fabric Interconnect. | [optional] [readonly] 
 **EntityId** | Pointer to **string** | Identity of the Fabric Interconnect - A/B. | [optional] [readonly] 
 **Leadership** | Pointer to **string** | Role (Primary / Subordinate) of the Fabric Interconnect. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **NetworkElement** | Pointer to [**NetworkElementRelationship**](network.Element.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -336,6 +340,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *ManagementEntityRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *ManagementEntityRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *ManagementEntityRelationship) GetParent() MoBaseMoRelationship`
@@ -386,6 +400,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *ManagementEntityRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *ManagementEntityRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *ManagementEntityRelationship) GetDisplayNames() map[string][]string`
@@ -496,6 +520,81 @@ SetRn sets Rn field to given value.
 
 HasRn returns a boolean if a field has been set.
 
+### GetClusterLinkState
+
+`func (o *ManagementEntityRelationship) GetClusterLinkState() string`
+
+GetClusterLinkState returns the ClusterLinkState field if non-nil, zero value otherwise.
+
+### GetClusterLinkStateOk
+
+`func (o *ManagementEntityRelationship) GetClusterLinkStateOk() (*string, bool)`
+
+GetClusterLinkStateOk returns a tuple with the ClusterLinkState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterLinkState
+
+`func (o *ManagementEntityRelationship) SetClusterLinkState(v string)`
+
+SetClusterLinkState sets ClusterLinkState field to given value.
+
+### HasClusterLinkState
+
+`func (o *ManagementEntityRelationship) HasClusterLinkState() bool`
+
+HasClusterLinkState returns a boolean if a field has been set.
+
+### GetClusterReadiness
+
+`func (o *ManagementEntityRelationship) GetClusterReadiness() string`
+
+GetClusterReadiness returns the ClusterReadiness field if non-nil, zero value otherwise.
+
+### GetClusterReadinessOk
+
+`func (o *ManagementEntityRelationship) GetClusterReadinessOk() (*string, bool)`
+
+GetClusterReadinessOk returns a tuple with the ClusterReadiness field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterReadiness
+
+`func (o *ManagementEntityRelationship) SetClusterReadiness(v string)`
+
+SetClusterReadiness sets ClusterReadiness field to given value.
+
+### HasClusterReadiness
+
+`func (o *ManagementEntityRelationship) HasClusterReadiness() bool`
+
+HasClusterReadiness returns a boolean if a field has been set.
+
+### GetClusterState
+
+`func (o *ManagementEntityRelationship) GetClusterState() string`
+
+GetClusterState returns the ClusterState field if non-nil, zero value otherwise.
+
+### GetClusterStateOk
+
+`func (o *ManagementEntityRelationship) GetClusterStateOk() (*string, bool)`
+
+GetClusterStateOk returns a tuple with the ClusterState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterState
+
+`func (o *ManagementEntityRelationship) SetClusterState(v string)`
+
+SetClusterState sets ClusterState field to given value.
+
+### HasClusterState
+
+`func (o *ManagementEntityRelationship) HasClusterState() bool`
+
+HasClusterState returns a boolean if a field has been set.
+
 ### GetEntityId
 
 `func (o *ManagementEntityRelationship) GetEntityId() string`
@@ -545,6 +644,31 @@ SetLeadership sets Leadership field to given value.
 `func (o *ManagementEntityRelationship) HasLeadership() bool`
 
 HasLeadership returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *ManagementEntityRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ManagementEntityRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ManagementEntityRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ManagementEntityRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetNetworkElement
 

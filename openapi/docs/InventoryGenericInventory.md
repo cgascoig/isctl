@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | Pointer to **string** |  | [optional] [readonly] 
-**Type** | Pointer to **string** |  | [optional] [readonly] 
-**Value** | Pointer to **string** |  | [optional] [readonly] 
+**Key** | Pointer to **string** | Key of inventory data for Generic Inventory data set. | [optional] [readonly] 
+**Type** | Pointer to **string** | Type of inventory data for Generic Inventory data set. | [optional] [readonly] 
+**Value** | Pointer to **string** | Value of inventory data for Generic Inventory data set. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **InventoryGenericInventoryHolder** | Pointer to [**InventoryGenericInventoryHolderRelationship**](inventory.GenericInventoryHolder.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -103,6 +104,31 @@ SetValue sets Value field to given value.
 `func (o *InventoryGenericInventory) HasValue() bool`
 
 HasValue returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *InventoryGenericInventory) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *InventoryGenericInventory) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *InventoryGenericInventory) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *InventoryGenericInventory) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetInventoryGenericInventoryHolder
 

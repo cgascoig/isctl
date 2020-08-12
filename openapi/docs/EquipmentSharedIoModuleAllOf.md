@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **Reachability** | Pointer to **string** | This field identifies the reachability to FI-A and B side. | [optional] [readonly] 
 **UsrLbl** | Pointer to **string** | User label configured for the SIOM. | [optional] [readonly] 
 **Vid** | Pointer to **string** | This field identifies the vendor id for this SIOM Unit. | [optional] [readonly] 
+**Controller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **EquipmentSystemIoController** | Pointer to [**EquipmentSystemIoControllerRelationship**](equipment.SystemIoController.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PortGroups** | Pointer to [**[]PortGroupRelationship**](port.Group.Relationship.md) | An array of relationships to portGroup resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -261,6 +263,31 @@ SetVid sets Vid field to given value.
 
 HasVid returns a boolean if a field has been set.
 
+### GetController
+
+`func (o *EquipmentSharedIoModuleAllOf) GetController() ManagementControllerRelationship`
+
+GetController returns the Controller field if non-nil, zero value otherwise.
+
+### GetControllerOk
+
+`func (o *EquipmentSharedIoModuleAllOf) GetControllerOk() (*ManagementControllerRelationship, bool)`
+
+GetControllerOk returns a tuple with the Controller field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetController
+
+`func (o *EquipmentSharedIoModuleAllOf) SetController(v ManagementControllerRelationship)`
+
+SetController sets Controller field to given value.
+
+### HasController
+
+`func (o *EquipmentSharedIoModuleAllOf) HasController() bool`
+
+HasController returns a boolean if a field has been set.
+
 ### GetEquipmentSystemIoController
 
 `func (o *EquipmentSharedIoModuleAllOf) GetEquipmentSystemIoController() EquipmentSystemIoControllerRelationship`
@@ -285,6 +312,31 @@ SetEquipmentSystemIoController sets EquipmentSystemIoController field to given v
 `func (o *EquipmentSharedIoModuleAllOf) HasEquipmentSystemIoController() bool`
 
 HasEquipmentSystemIoController returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentSharedIoModuleAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentSharedIoModuleAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentSharedIoModuleAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentSharedIoModuleAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPortGroups
 
@@ -311,6 +363,16 @@ SetPortGroups sets PortGroups field to given value.
 
 HasPortGroups returns a boolean if a field has been set.
 
+### SetPortGroupsNil
+
+`func (o *EquipmentSharedIoModuleAllOf) SetPortGroupsNil(b bool)`
+
+ SetPortGroupsNil sets the value for PortGroups to be an explicit nil
+
+### UnsetPortGroups
+`func (o *EquipmentSharedIoModuleAllOf) UnsetPortGroups()`
+
+UnsetPortGroups ensures that no value is present for PortGroups, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *EquipmentSharedIoModuleAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | Pointer to **string** | The having filter type. | 
 **Aggregation** | Pointer to **string** | aggregate metric | 
 **Value** | Pointer to **float64** | null | 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidHavingNumericFilter
 
-`func NewTelemetryDruidHavingNumericFilter(aggregation string, value float64, ) *TelemetryDruidHavingNumericFilter`
+`func NewTelemetryDruidHavingNumericFilter(type_ string, aggregation string, value float64, ) *TelemetryDruidHavingNumericFilter`
 
 NewTelemetryDruidHavingNumericFilter instantiates a new TelemetryDruidHavingNumericFilter object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidHavingNumericFilterWithDefaults instantiates a new TelemetryDruidHavingNumericFilter object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *TelemetryDruidHavingNumericFilter) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TelemetryDruidHavingNumericFilter) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TelemetryDruidHavingNumericFilter) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetAggregation
 

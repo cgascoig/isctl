@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AuthPassword** | Pointer to **string** | Authorization password for the user. | [optional] 
-**AuthType** | Pointer to **string** | Authorization protocol for authenticating the user. | [optional] [default to "NA"]
+**AuthType** | Pointer to **string** | Authorization protocol for authenticating the user. * &#x60;NA&#x60; - Authentication protocol is not applicable. * &#x60;MD5&#x60; - MD5 protocol is used to authenticate SNMP user. * &#x60;SHA&#x60; - SHA protocol is used to authenticate SNMP user. | [optional] [default to "NA"]
 **IsAuthPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;authPassword&#39; property has been set. | [optional] [readonly] 
 **IsPrivacyPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;privacyPassword&#39; property has been set. | [optional] [readonly] 
 **Name** | Pointer to **string** | SNMP username. Must have a minimum of 1 and and a maximum of 31 characters. | [optional] 
 **PrivacyPassword** | Pointer to **string** | Privacy password for the user. | [optional] 
-**PrivacyType** | Pointer to **string** | Privacy protocol for the user. | [optional] [default to "NA"]
-**SecurityLevel** | Pointer to **string** | Security mechanism used for communication between agent and manager. | [optional] [default to "AuthPriv"]
+**PrivacyType** | Pointer to **string** | Privacy protocol for the user. * &#x60;NA&#x60; - Privacy protocol is not applicable. * &#x60;DES&#x60; - DES privacy protocol is used for SNMP user. * &#x60;AES&#x60; - AES privacy protocol is used for SNMP user. | [optional] [default to "NA"]
+**SecurityLevel** | Pointer to **string** | Security mechanism used for communication between agent and manager. * &#x60;AuthPriv&#x60; - The user requires both an authorization password and a privacy password. * &#x60;NoAuthNoPriv&#x60; - The user does not require an authorization or privacy password. * &#x60;AuthNoPriv&#x60; - The user requires an authorization password but not a privacy password. | [optional] [default to "AuthPriv"]
 
 ## Methods
 

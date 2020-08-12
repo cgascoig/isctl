@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
 **Granularity** | Pointer to [**TelemetryDruidGranularity**](telemetry.DruidGranularity.md) |  | 
 **Filter** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | [optional] 
-**Aggregations** | Pointer to [**TelemetryDruidAggregator**](telemetry.DruidAggregator.md) |  | [optional] 
-**PostAggregations** | Pointer to [**TelemetryDruidPostAggregator**](telemetry.DruidPostAggregator.md) |  | [optional] 
+**Aggregations** | Pointer to [**[]TelemetryDruidAggregator**](telemetry.DruidAggregator.md) | Aggregation functions are used to summarize data in buckets. Summarization functions include counting rows, calculating the min/max/sum of metrics and retrieving the first/last value of metrics for each bucket. Additional summarization functions are available with extensions. If no aggregator is provided, the results will be empty for each bucket. | [optional] 
+**PostAggregations** | Pointer to [**[]TelemetryDruidPostAggregator**](telemetry.DruidPostAggregator.md) | Post-aggregations are specifications of processing that should happen on aggregated values as they come out of Apache Druid. If you include a post aggregation as part of a query, make sure to include all aggregators the post-aggregator requires. | [optional] 
 **Limit** | Pointer to **int32** | An integer that limits the number of results. The default is unlimited. | [optional] 
 **Context** | Pointer to [**TelemetryDruidQueryContext**](telemetry.DruidQueryContext.md) |  | [optional] 
 
@@ -145,20 +145,20 @@ HasFilter returns a boolean if a field has been set.
 
 ### GetAggregations
 
-`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregations() TelemetryDruidAggregator`
+`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregations() []TelemetryDruidAggregator`
 
 GetAggregations returns the Aggregations field if non-nil, zero value otherwise.
 
 ### GetAggregationsOk
 
-`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregationsOk() (*TelemetryDruidAggregator, bool)`
+`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregationsOk() (*[]TelemetryDruidAggregator, bool)`
 
 GetAggregationsOk returns a tuple with the Aggregations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAggregations
 
-`func (o *TelemetryDruidTimeSeriesRequestAllOf) SetAggregations(v TelemetryDruidAggregator)`
+`func (o *TelemetryDruidTimeSeriesRequestAllOf) SetAggregations(v []TelemetryDruidAggregator)`
 
 SetAggregations sets Aggregations field to given value.
 
@@ -170,20 +170,20 @@ HasAggregations returns a boolean if a field has been set.
 
 ### GetPostAggregations
 
-`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregations() TelemetryDruidPostAggregator`
+`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregations() []TelemetryDruidPostAggregator`
 
 GetPostAggregations returns the PostAggregations field if non-nil, zero value otherwise.
 
 ### GetPostAggregationsOk
 
-`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregationsOk() (*TelemetryDruidPostAggregator, bool)`
+`func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregationsOk() (*[]TelemetryDruidPostAggregator, bool)`
 
 GetPostAggregationsOk returns a tuple with the PostAggregations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPostAggregations
 
-`func (o *TelemetryDruidTimeSeriesRequestAllOf) SetPostAggregations(v TelemetryDruidPostAggregator)`
+`func (o *TelemetryDruidTimeSeriesRequestAllOf) SetPostAggregations(v []TelemetryDruidPostAggregator)`
 
 SetPostAggregations sets PostAggregations field to given value.
 

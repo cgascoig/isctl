@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,10 +19,14 @@ import (
 // MetaRelationshipDefinition Definitions for the relationship in a meta.
 type MetaRelationshipDefinition struct {
 	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
-	// API access definition for this relationship.
+	// API access definition for this relationship. * `NoAccess` - The property is not accessible from the API. * `ReadOnly` - The value of the property is read-only.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa ReadOnly property. * `CreateOnly` - The value of the property can be set when the REST resource is created. It cannot be changed after object creation.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa CreateOnly property.CreateOnly properties are returned in the response body of HTTP GET requests. * `ReadWrite` - The property has read/write access. * `WriteOnly` - The value of the property can be set but it is never returned in the response body of supported HTTP methods.This settings is used for sensitive properties such as passwords. * `ReadOnCreate` - The value of the property is returned in the HTTP POST response body when the REST resource is created.The property is not writeable and cannot be queried through a GET request after the resource has been created.
 	ApiAccess *string `json:"ApiAccess,omitempty" yaml:"ApiAccess,omitempty"`
 	// Specifies whether the relationship is a collection.
 	Collection *bool `json:"Collection,omitempty" yaml:"Collection,omitempty"`
+	// When turned off, the peer MO is not exported when the local MO is exported.
+	Export *bool `json:"Export,omitempty" yaml:"Export,omitempty"`
+	// When turned on, the local MO is exported when the peer is exported.
+	ExportWithPeer *bool `json:"ExportWithPeer,omitempty" yaml:"ExportWithPeer,omitempty"`
 	// The name of the relationship.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
 	// Fully qualified type of the foreign managed object.
@@ -114,6 +118,70 @@ func (o *MetaRelationshipDefinition) SetCollection(v bool) {
 	o.Collection = &v
 }
 
+// GetExport returns the Export field value if set, zero value otherwise.
+func (o *MetaRelationshipDefinition) GetExport() bool {
+	if o == nil || o.Export == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Export
+}
+
+// GetExportOk returns a tuple with the Export field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MetaRelationshipDefinition) GetExportOk() (*bool, bool) {
+	if o == nil || o.Export == nil {
+		return nil, false
+	}
+	return o.Export, true
+}
+
+// HasExport returns a boolean if a field has been set.
+func (o *MetaRelationshipDefinition) HasExport() bool {
+	if o != nil && o.Export != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetExport gets a reference to the given bool and assigns it to the Export field.
+func (o *MetaRelationshipDefinition) SetExport(v bool) {
+	o.Export = &v
+}
+
+// GetExportWithPeer returns the ExportWithPeer field value if set, zero value otherwise.
+func (o *MetaRelationshipDefinition) GetExportWithPeer() bool {
+	if o == nil || o.ExportWithPeer == nil {
+		var ret bool
+		return ret
+	}
+	return *o.ExportWithPeer
+}
+
+// GetExportWithPeerOk returns a tuple with the ExportWithPeer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MetaRelationshipDefinition) GetExportWithPeerOk() (*bool, bool) {
+	if o == nil || o.ExportWithPeer == nil {
+		return nil, false
+	}
+	return o.ExportWithPeer, true
+}
+
+// HasExportWithPeer returns a boolean if a field has been set.
+func (o *MetaRelationshipDefinition) HasExportWithPeer() bool {
+	if o != nil && o.ExportWithPeer != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetExportWithPeer gets a reference to the given bool and assigns it to the ExportWithPeer field.
+func (o *MetaRelationshipDefinition) SetExportWithPeer(v bool) {
+	o.ExportWithPeer = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *MetaRelationshipDefinition) GetName() string {
 	if o == nil || o.Name == nil {
@@ -193,6 +261,12 @@ func (o MetaRelationshipDefinition) MarshalJSON() ([]byte, error) {
 	}
 	if o.Collection != nil {
 		toSerialize["Collection"] = o.Collection
+	}
+	if o.Export != nil {
+		toSerialize["Export"] = o.Export
+	}
+	if o.ExportWithPeer != nil {
+		toSerialize["ExportWithPeer"] = o.ExportWithPeer
 	}
 	if o.Name != nil {
 		toSerialize["Name"] = o.Name

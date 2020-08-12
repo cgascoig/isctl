@@ -4,19 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardId** | Pointer to **int64** | It shows the id of graphics card. | [optional] [readonly] 
-**DeviceId** | Pointer to **int64** | It shows the device id of grphics card. | [optional] [readonly] 
-**ExpanderSlot** | Pointer to **string** | It shows the expander slot inforamtion for the card. | [optional] [readonly] 
-**FirmwareVersion** | Pointer to **string** | It shows current firmware version of graphics card. | [optional] [readonly] 
-**Mode** | Pointer to **string** | It shows the current mode of graphics card. | [optional] [readonly] 
-**NumGpus** | Pointer to **string** | It shows number of controllers under each card. | [optional] 
-**OperState** | Pointer to **string** | It shows the current operational state of graphics card. | [optional] [readonly] 
-**PciAddress** | Pointer to **string** | It shows the pci address of graphics card. | [optional] [readonly] 
-**PciAddressList** | Pointer to **string** | This list contains the pci address of all controllers for corresponding card. | [optional] [readonly] 
-**PciSlot** | Pointer to **string** | It shows the pci slot name for grapchics card. | [optional] [readonly] 
+**CardId** | Pointer to **int64** | The id of the graphics card. | [optional] [readonly] 
+**DeviceId** | Pointer to **int64** | The device id of the graphics card. | [optional] [readonly] 
+**ExpanderSlot** | Pointer to **string** | The expander slot information of the card. | [optional] [readonly] 
+**FirmwareVersion** | Pointer to **string** | The firmware version of the graphics card. | [optional] [readonly] 
+**Mode** | Pointer to **string** | The current mode of the graphics card. | [optional] [readonly] 
+**NumGpus** | Pointer to **string** | The number of controllers under each card. | [optional] 
+**OperState** | Pointer to **string** | The current operational state of the graphics card. | [optional] [readonly] 
+**PciAddress** | Pointer to **string** | The PCI address of the graphics card. | [optional] [readonly] 
+**PciAddressList** | Pointer to **string** | This list contains the PCI address of all controllers for corresponding card. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | The PCI slot name of the graphics card. | [optional] [readonly] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **GraphicsControllers** | Pointer to [**[]GraphicsControllerRelationship**](graphics.Controller.Relationship.md) | An array of relationships to graphicsController resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**RunningFirmware** | Pointer to [**[]FirmwareRunningFirmwareRelationship**](firmware.RunningFirmware.Relationship.md) | An array of relationships to firmwareRunningFirmware resources. | [optional] [readonly] 
 
 ## Methods
 
@@ -287,6 +291,31 @@ SetPciSlot sets PciSlot field to given value.
 
 HasPciSlot returns a boolean if a field has been set.
 
+### GetComputeBlade
+
+`func (o *GraphicsCard) GetComputeBlade() ComputeBladeRelationship`
+
+GetComputeBlade returns the ComputeBlade field if non-nil, zero value otherwise.
+
+### GetComputeBladeOk
+
+`func (o *GraphicsCard) GetComputeBladeOk() (*ComputeBladeRelationship, bool)`
+
+GetComputeBladeOk returns a tuple with the ComputeBlade field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeBlade
+
+`func (o *GraphicsCard) SetComputeBlade(v ComputeBladeRelationship)`
+
+SetComputeBlade sets ComputeBlade field to given value.
+
+### HasComputeBlade
+
+`func (o *GraphicsCard) HasComputeBlade() bool`
+
+HasComputeBlade returns a boolean if a field has been set.
+
 ### GetComputeBoard
 
 `func (o *GraphicsCard) GetComputeBoard() ComputeBoardRelationship`
@@ -311,6 +340,31 @@ SetComputeBoard sets ComputeBoard field to given value.
 `func (o *GraphicsCard) HasComputeBoard() bool`
 
 HasComputeBoard returns a boolean if a field has been set.
+
+### GetComputeRackUnit
+
+`func (o *GraphicsCard) GetComputeRackUnit() ComputeRackUnitRelationship`
+
+GetComputeRackUnit returns the ComputeRackUnit field if non-nil, zero value otherwise.
+
+### GetComputeRackUnitOk
+
+`func (o *GraphicsCard) GetComputeRackUnitOk() (*ComputeRackUnitRelationship, bool)`
+
+GetComputeRackUnitOk returns a tuple with the ComputeRackUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeRackUnit
+
+`func (o *GraphicsCard) SetComputeRackUnit(v ComputeRackUnitRelationship)`
+
+SetComputeRackUnit sets ComputeRackUnit field to given value.
+
+### HasComputeRackUnit
+
+`func (o *GraphicsCard) HasComputeRackUnit() bool`
+
+HasComputeRackUnit returns a boolean if a field has been set.
 
 ### GetGraphicsControllers
 
@@ -337,6 +391,41 @@ SetGraphicsControllers sets GraphicsControllers field to given value.
 
 HasGraphicsControllers returns a boolean if a field has been set.
 
+### SetGraphicsControllersNil
+
+`func (o *GraphicsCard) SetGraphicsControllersNil(b bool)`
+
+ SetGraphicsControllersNil sets the value for GraphicsControllers to be an explicit nil
+
+### UnsetGraphicsControllers
+`func (o *GraphicsCard) UnsetGraphicsControllers()`
+
+UnsetGraphicsControllers ensures that no value is present for GraphicsControllers, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *GraphicsCard) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *GraphicsCard) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *GraphicsCard) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *GraphicsCard) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetRegisteredDevice
 
 `func (o *GraphicsCard) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -362,6 +451,41 @@ SetRegisteredDevice sets RegisteredDevice field to given value.
 
 HasRegisteredDevice returns a boolean if a field has been set.
 
+### GetRunningFirmware
+
+`func (o *GraphicsCard) GetRunningFirmware() []FirmwareRunningFirmwareRelationship`
+
+GetRunningFirmware returns the RunningFirmware field if non-nil, zero value otherwise.
+
+### GetRunningFirmwareOk
+
+`func (o *GraphicsCard) GetRunningFirmwareOk() (*[]FirmwareRunningFirmwareRelationship, bool)`
+
+GetRunningFirmwareOk returns a tuple with the RunningFirmware field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRunningFirmware
+
+`func (o *GraphicsCard) SetRunningFirmware(v []FirmwareRunningFirmwareRelationship)`
+
+SetRunningFirmware sets RunningFirmware field to given value.
+
+### HasRunningFirmware
+
+`func (o *GraphicsCard) HasRunningFirmware() bool`
+
+HasRunningFirmware returns a boolean if a field has been set.
+
+### SetRunningFirmwareNil
+
+`func (o *GraphicsCard) SetRunningFirmwareNil(b bool)`
+
+ SetRunningFirmwareNil sets the value for RunningFirmware to be an explicit nil
+
+### UnsetRunningFirmware
+`func (o *GraphicsCard) UnsetRunningFirmware()`
+
+UnsetRunningFirmware ensures that no value is present for RunningFirmware, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

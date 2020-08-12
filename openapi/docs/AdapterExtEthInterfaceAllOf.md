@@ -4,14 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdminState** | Pointer to **string** | The administrative state of the physical port. | [optional] [readonly] 
-**EpDn** | Pointer to **string** |  | [optional] [readonly] 
-**ExtEthInterfaceId** | Pointer to **string** |  | [optional] [readonly] 
-**InterfaceType** | Pointer to **string** |  | [optional] [readonly] 
-**MacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** | The operational state of the physical port. | [optional] [readonly] 
-**PeerDn** | Pointer to **string** |  | [optional] [readonly] 
+**AdminState** | Pointer to **string** | Admin configured state of an External Ethernet Interface. | [optional] [readonly] 
+**EpDn** | Pointer to **string** | Endpoint Config DN of an External Ethernet Interface. | [optional] [readonly] 
+**ExtEthInterfaceId** | Pointer to **string** | Unique Identifier for an External Ethernet Interface within the adapter object. | [optional] [readonly] 
+**InterfaceType** | Pointer to **string** | Type of an External Ethernet Interface. | [optional] [readonly] 
+**MacAddress** | Pointer to **string** | MAC address of an External Ethernet Interface. | [optional] [readonly] 
+**PeerAggrPortId** | Pointer to **int64** | Peer Aggregate Port Id attached to an External Ethernet Interface. | [optional] [readonly] 
+**PeerDn** | Pointer to **string** | DN of peer end-point attached to an External Ethernet Interface. | [optional] [readonly] 
+**PeerPortId** | Pointer to **int64** | Peer Port Id attached to an External Ethernet Interface. | [optional] [readonly] 
+**PeerSlotId** | Pointer to **int64** | Peer Slot Id attached to an External Ethernet Interface. | [optional] [readonly] 
+**SwitchId** | Pointer to **string** | SwitchId attached to an External Ethernet Interface. | [optional] [readonly] 
 **AdapterUnit** | Pointer to [**AdapterUnitRelationship**](adapter.Unit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -158,30 +162,30 @@ SetMacAddress sets MacAddress field to given value.
 
 HasMacAddress returns a boolean if a field has been set.
 
-### GetOperState
+### GetPeerAggrPortId
 
-`func (o *AdapterExtEthInterfaceAllOf) GetOperState() string`
+`func (o *AdapterExtEthInterfaceAllOf) GetPeerAggrPortId() int64`
 
-GetOperState returns the OperState field if non-nil, zero value otherwise.
+GetPeerAggrPortId returns the PeerAggrPortId field if non-nil, zero value otherwise.
 
-### GetOperStateOk
+### GetPeerAggrPortIdOk
 
-`func (o *AdapterExtEthInterfaceAllOf) GetOperStateOk() (*string, bool)`
+`func (o *AdapterExtEthInterfaceAllOf) GetPeerAggrPortIdOk() (*int64, bool)`
 
-GetOperStateOk returns a tuple with the OperState field if it's non-nil, zero value otherwise
+GetPeerAggrPortIdOk returns a tuple with the PeerAggrPortId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOperState
+### SetPeerAggrPortId
 
-`func (o *AdapterExtEthInterfaceAllOf) SetOperState(v string)`
+`func (o *AdapterExtEthInterfaceAllOf) SetPeerAggrPortId(v int64)`
 
-SetOperState sets OperState field to given value.
+SetPeerAggrPortId sets PeerAggrPortId field to given value.
 
-### HasOperState
+### HasPeerAggrPortId
 
-`func (o *AdapterExtEthInterfaceAllOf) HasOperState() bool`
+`func (o *AdapterExtEthInterfaceAllOf) HasPeerAggrPortId() bool`
 
-HasOperState returns a boolean if a field has been set.
+HasPeerAggrPortId returns a boolean if a field has been set.
 
 ### GetPeerDn
 
@@ -208,6 +212,81 @@ SetPeerDn sets PeerDn field to given value.
 
 HasPeerDn returns a boolean if a field has been set.
 
+### GetPeerPortId
+
+`func (o *AdapterExtEthInterfaceAllOf) GetPeerPortId() int64`
+
+GetPeerPortId returns the PeerPortId field if non-nil, zero value otherwise.
+
+### GetPeerPortIdOk
+
+`func (o *AdapterExtEthInterfaceAllOf) GetPeerPortIdOk() (*int64, bool)`
+
+GetPeerPortIdOk returns a tuple with the PeerPortId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeerPortId
+
+`func (o *AdapterExtEthInterfaceAllOf) SetPeerPortId(v int64)`
+
+SetPeerPortId sets PeerPortId field to given value.
+
+### HasPeerPortId
+
+`func (o *AdapterExtEthInterfaceAllOf) HasPeerPortId() bool`
+
+HasPeerPortId returns a boolean if a field has been set.
+
+### GetPeerSlotId
+
+`func (o *AdapterExtEthInterfaceAllOf) GetPeerSlotId() int64`
+
+GetPeerSlotId returns the PeerSlotId field if non-nil, zero value otherwise.
+
+### GetPeerSlotIdOk
+
+`func (o *AdapterExtEthInterfaceAllOf) GetPeerSlotIdOk() (*int64, bool)`
+
+GetPeerSlotIdOk returns a tuple with the PeerSlotId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeerSlotId
+
+`func (o *AdapterExtEthInterfaceAllOf) SetPeerSlotId(v int64)`
+
+SetPeerSlotId sets PeerSlotId field to given value.
+
+### HasPeerSlotId
+
+`func (o *AdapterExtEthInterfaceAllOf) HasPeerSlotId() bool`
+
+HasPeerSlotId returns a boolean if a field has been set.
+
+### GetSwitchId
+
+`func (o *AdapterExtEthInterfaceAllOf) GetSwitchId() string`
+
+GetSwitchId returns the SwitchId field if non-nil, zero value otherwise.
+
+### GetSwitchIdOk
+
+`func (o *AdapterExtEthInterfaceAllOf) GetSwitchIdOk() (*string, bool)`
+
+GetSwitchIdOk returns a tuple with the SwitchId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSwitchId
+
+`func (o *AdapterExtEthInterfaceAllOf) SetSwitchId(v string)`
+
+SetSwitchId sets SwitchId field to given value.
+
+### HasSwitchId
+
+`func (o *AdapterExtEthInterfaceAllOf) HasSwitchId() bool`
+
+HasSwitchId returns a boolean if a field has been set.
+
 ### GetAdapterUnit
 
 `func (o *AdapterExtEthInterfaceAllOf) GetAdapterUnit() AdapterUnitRelationship`
@@ -232,6 +311,31 @@ SetAdapterUnit sets AdapterUnit field to given value.
 `func (o *AdapterExtEthInterfaceAllOf) HasAdapterUnit() bool`
 
 HasAdapterUnit returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *AdapterExtEthInterfaceAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *AdapterExtEthInterfaceAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *AdapterExtEthInterfaceAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *AdapterExtEthInterfaceAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

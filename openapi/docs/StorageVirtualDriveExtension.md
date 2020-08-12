@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bootable** | Pointer to **string** | It shows virtual drive is bootable. | [optional] [readonly] 
-**ContainerId** | Pointer to **int64** |  | [optional] [readonly] 
-**DriveState** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
-**OperDeviceId** | Pointer to **string** |  | [optional] [readonly] 
-**Uuid** | Pointer to **string** |  | [optional] [readonly] 
-**VendorUuid** | Pointer to **string** |  | [optional] [readonly] 
-**VirtualDriveDn** | Pointer to **string** |  | [optional] [readonly] 
-**VirtualDriveId** | Pointer to **string** | It shows virtual drive Id. | [optional] [readonly] 
+**Bootable** | Pointer to **string** | The ability to boot from the virtual drive. | [optional] [readonly] 
+**ContainerId** | Pointer to **int64** | The container id of the virtual drive. | [optional] [readonly] 
+**DriveState** | Pointer to **string** | The state of the virtual drive. | [optional] [readonly] 
+**Name** | Pointer to **string** | The name of the Virtual drive. | [optional] [readonly] 
+**OperDeviceId** | Pointer to **string** | The operational device id of the virtual drive. | [optional] [readonly] 
+**Uuid** | Pointer to **string** | The UUID assigned to the virtual drive. | [optional] [readonly] 
+**VendorUuid** | Pointer to **string** | The UUID value of the vendor assigned to the virtual drive. | [optional] [readonly] 
+**VirtualDriveDn** | Pointer to **string** | The distinguished name of the virtual drive for which the extended data is provided. | [optional] [readonly] 
+**VirtualDriveId** | Pointer to **string** | The Id of the virtual drive. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageController** | Pointer to [**StorageControllerRelationship**](storage.Controller.Relationship.md) |  | [optional] 
 **VirtualDrive** | Pointer to [**StorageVirtualDriveRelationship**](storage.VirtualDrive.Relationship.md) |  | [optional] 
@@ -260,6 +261,31 @@ SetVirtualDriveId sets VirtualDriveId field to given value.
 `func (o *StorageVirtualDriveExtension) HasVirtualDriveId() bool`
 
 HasVirtualDriveId returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageVirtualDriveExtension) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageVirtualDriveExtension) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageVirtualDriveExtension) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageVirtualDriveExtension) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

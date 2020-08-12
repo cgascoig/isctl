@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,25 +18,35 @@ import (
 
 // ComputePhysicalSummaryAllOf Definition of the list of properties defined in 'compute.PhysicalSummary', excluding properties defined in parent classes.
 type ComputePhysicalSummaryAllOf struct {
-	// Desired power state of the server.
-	AdminPowerState *string `json:"AdminPowerState,omitempty" yaml:"AdminPowerState,omitempty"`
-	AssetTag        *string `json:"AssetTag,omitempty" yaml:"AssetTag,omitempty"`
-	// The actual amount of memory currently available to the server.
+	// The desired power state of the server.
+	AdminPowerState *string              `json:"AdminPowerState,omitempty" yaml:"AdminPowerState,omitempty"`
+	AlarmSummary    *ComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
+	// The user defined asset tag assigned to the server.
+	AssetTag *string `json:"AssetTag,omitempty" yaml:"AssetTag,omitempty"`
+	// The amount of memory available on the server.
 	AvailableMemory *int64 `json:"AvailableMemory,omitempty" yaml:"AvailableMemory,omitempty"`
+	// The BIOS POST completion status of the server.
+	BiosPostComplete *bool `json:"BiosPostComplete,omitempty" yaml:"BiosPostComplete,omitempty"`
 	// The id of the chassis that the blade is located in.
 	ChassisId *string `json:"ChassisId,omitempty" yaml:"ChassisId,omitempty"`
+	// Connectivity Status of RackUnit to Switch - A or B or AB.
+	ConnectionStatus *string `json:"ConnectionStatus,omitempty" yaml:"ConnectionStatus,omitempty"`
 	// CPU Capacity = Number of CPU Sockets x Enabled Cores x Speed (GHz).
 	CpuCapacity *float32 `json:"CpuCapacity,omitempty" yaml:"CpuCapacity,omitempty"`
-	DeviceMoId  *string  `json:"DeviceMoId,omitempty" yaml:"DeviceMoId,omitempty"`
+	// The database identifier of the registered device of an object.
+	DeviceMoId *string `json:"DeviceMoId,omitempty" yaml:"DeviceMoId,omitempty"`
 	// The Distinguished Name unambiguously identifies an object in the system.
-	Dn           *string `json:"Dn,omitempty" yaml:"Dn,omitempty"`
-	FaultSummary *int64  `json:"FaultSummary,omitempty" yaml:"FaultSummary,omitempty"`
+	Dn *string `json:"Dn,omitempty" yaml:"Dn,omitempty"`
+	// The fault summary for the server.
+	FaultSummary *int64 `json:"FaultSummary,omitempty" yaml:"FaultSummary,omitempty"`
 	// The firmware version of the Cisco Integrated Management Controller (CIMC) for this server.
 	Firmware *string `json:"Firmware,omitempty" yaml:"Firmware,omitempty"`
 	// The IPv4 address configured on the management interface of the Integrated Management Controller.
 	Ipv4Address    *string             `json:"Ipv4Address,omitempty" yaml:"Ipv4Address,omitempty"`
 	KvmIpAddresses *[]ComputeIpAddress `json:"KvmIpAddresses,omitempty" yaml:"KvmIpAddresses,omitempty"`
-	// The memory speed, in megahertz.
+	// The management mode of the server. * `IntersightStandalone` - Intersight Standalone mode of operation. * `UCSM` - Unified Computing System Manager mode of operation. * `Intersight` - Intersight managed mode of operation.
+	ManagementMode *string `json:"ManagementMode,omitempty" yaml:"ManagementMode,omitempty"`
+	// The maximum memory speed in MHz available on the server.
 	MemorySpeed *string `json:"MemorySpeed,omitempty" yaml:"MemorySpeed,omitempty"`
 	// Management address of the server.
 	MgmtIpAddress *string `json:"MgmtIpAddress,omitempty" yaml:"MgmtIpAddress,omitempty"`
@@ -44,46 +54,59 @@ type ComputePhysicalSummaryAllOf struct {
 	Model *string `json:"Model,omitempty" yaml:"Model,omitempty"`
 	// The name of the UCS Fabric Interconnect cluster or Cisco Integrated Management Controller (CIMC). When this server is attached to a UCS Fabric Interconnect, the value of this property is the name of the UCS Fabric Interconnect. When this server configured in standalone mode, the value of this property is the name of the Cisco Integrated Management Controller.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
-	// Total number of Adaptors available.
+	// The total number of network adapters present on the server.
 	NumAdaptors *int64 `json:"NumAdaptors,omitempty" yaml:"NumAdaptors,omitempty"`
-	// Total number of CPU cores available.
+	// The total number of CPU cores present on the server.
 	NumCpuCores *int64 `json:"NumCpuCores,omitempty" yaml:"NumCpuCores,omitempty"`
-	// Number of CPU cores enabled.
+	// The total number of CPU cores enabled on the server.
 	NumCpuCoresEnabled *int64 `json:"NumCpuCoresEnabled,omitempty" yaml:"NumCpuCoresEnabled,omitempty"`
-	// Total number of CPU's available.
+	// The total number of CPUs present on the server.
 	NumCpus *int64 `json:"NumCpus,omitempty" yaml:"NumCpus,omitempty"`
-	// Number of Ethernet Host Interfaces.
+	// The total number of vNICs which are visible to a host on the server.
 	NumEthHostInterfaces *int64 `json:"NumEthHostInterfaces,omitempty" yaml:"NumEthHostInterfaces,omitempty"`
-	// Number of Fibre channel Host Interfaces.
+	// The total number of vHBAs which are visible to a host on the server.
 	NumFcHostInterfaces *int64 `json:"NumFcHostInterfaces,omitempty" yaml:"NumFcHostInterfaces,omitempty"`
-	// Number of threads enabled.
+	// The total number of threads the server is capable of handling.
 	NumThreads *int64 `json:"NumThreads,omitempty" yaml:"NumThreads,omitempty"`
-	// Current power state of the server.
+	// The actual power state of the server.
 	OperPowerState *string `json:"OperPowerState,omitempty" yaml:"OperPowerState,omitempty"`
-	OperState      *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
-	Operability    *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
-	// Platform type of the device.
+	// The operational state of the server.
+	OperState *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
+	// The operability of the server.
+	Operability *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
+	// The platform type of the registered device - whether managed by UCSM or operating in standalone mode.
 	PlatformType *string `json:"PlatformType,omitempty" yaml:"PlatformType,omitempty"`
-	Presence     *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
-	Revision     *string `json:"Revision,omitempty" yaml:"Revision,omitempty"`
+	// Indicates if a server is present in a slot and is applicable for blade servers.
+	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
+	// This field identifies the revision of the given component.
+	Revision *string `json:"Revision,omitempty" yaml:"Revision,omitempty"`
 	// The Relative Name uniquely identifies an object within a given context.
-	Rn         *string `json:"Rn,omitempty" yaml:"Rn,omitempty"`
+	Rn *string `json:"Rn,omitempty" yaml:"Rn,omitempty"`
+	// The mode of the server that determines it is scaled.
 	ScaledMode *string `json:"ScaledMode,omitempty" yaml:"ScaledMode,omitempty"`
 	// This field identifies the serial of the given component.
 	Serial *string `json:"Serial,omitempty" yaml:"Serial,omitempty"`
-	// The server id of the Rack server.
+	// RackUnit ID that uniquely identifies the server.
 	ServerId *int64 `json:"ServerId,omitempty" yaml:"ServerId,omitempty"`
-	// The service profile assigned.
+	// The distinguished name of the service profile to which the server is associated to. It is applicable only for servers which are managed via UCSM.
 	ServiceProfile *string `json:"ServiceProfile,omitempty" yaml:"ServiceProfile,omitempty"`
-	SlotId         *int64  `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
+	// The slot number in the chassis that the blade is located in.
+	SlotId *int64 `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
 	// The source object type of this view MO.
 	SourceObjectType *string `json:"SourceObjectType,omitempty" yaml:"SourceObjectType,omitempty"`
-	TotalMemory      *int64  `json:"TotalMemory,omitempty" yaml:"TotalMemory,omitempty"`
-	UserLabel        *string `json:"UserLabel,omitempty" yaml:"UserLabel,omitempty"`
-	Uuid             *string `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
+	// To maintain the Topology workflow run status.
+	TopologyScanStatus *string `json:"TopologyScanStatus,omitempty" yaml:"TopologyScanStatus,omitempty"`
+	// The total memory available on the server.
+	TotalMemory *int64 `json:"TotalMemory,omitempty" yaml:"TotalMemory,omitempty"`
+	// The user defined label assigned to the server.
+	UserLabel *string `json:"UserLabel,omitempty" yaml:"UserLabel,omitempty"`
+	// The universally unique identity of the server.
+	Uuid *string `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
 	// This field identifies the vendor of the given component.
-	Vendor           *string                              `json:"Vendor,omitempty" yaml:"Vendor,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	Vendor              *string                              `json:"Vendor,omitempty" yaml:"Vendor,omitempty"`
+	EquipmentChassis    *EquipmentChassisRelationship        `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewComputePhysicalSummaryAllOf instantiates a new ComputePhysicalSummaryAllOf object
@@ -92,6 +115,8 @@ type ComputePhysicalSummaryAllOf struct {
 // will change when the set of required properties is changed
 func NewComputePhysicalSummaryAllOf() *ComputePhysicalSummaryAllOf {
 	this := ComputePhysicalSummaryAllOf{}
+	var managementMode string = "IntersightStandalone"
+	this.ManagementMode = &managementMode
 	return &this
 }
 
@@ -100,6 +125,8 @@ func NewComputePhysicalSummaryAllOf() *ComputePhysicalSummaryAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewComputePhysicalSummaryAllOfWithDefaults() *ComputePhysicalSummaryAllOf {
 	this := ComputePhysicalSummaryAllOf{}
+	var managementMode string = "IntersightStandalone"
+	this.ManagementMode = &managementMode
 	return &this
 }
 
@@ -133,6 +160,38 @@ func (o *ComputePhysicalSummaryAllOf) HasAdminPowerState() bool {
 // SetAdminPowerState gets a reference to the given string and assigns it to the AdminPowerState field.
 func (o *ComputePhysicalSummaryAllOf) SetAdminPowerState(v string) {
 	o.AdminPowerState = &v
+}
+
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+func (o *ComputePhysicalSummaryAllOf) GetAlarmSummary() ComputeAlarmSummary {
+	if o == nil || o.AlarmSummary == nil {
+		var ret ComputeAlarmSummary
+		return ret
+	}
+	return *o.AlarmSummary
+}
+
+// GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool) {
+	if o == nil || o.AlarmSummary == nil {
+		return nil, false
+	}
+	return o.AlarmSummary, true
+}
+
+// HasAlarmSummary returns a boolean if a field has been set.
+func (o *ComputePhysicalSummaryAllOf) HasAlarmSummary() bool {
+	if o != nil && o.AlarmSummary != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAlarmSummary gets a reference to the given ComputeAlarmSummary and assigns it to the AlarmSummary field.
+func (o *ComputePhysicalSummaryAllOf) SetAlarmSummary(v ComputeAlarmSummary) {
+	o.AlarmSummary = &v
 }
 
 // GetAssetTag returns the AssetTag field value if set, zero value otherwise.
@@ -199,6 +258,38 @@ func (o *ComputePhysicalSummaryAllOf) SetAvailableMemory(v int64) {
 	o.AvailableMemory = &v
 }
 
+// GetBiosPostComplete returns the BiosPostComplete field value if set, zero value otherwise.
+func (o *ComputePhysicalSummaryAllOf) GetBiosPostComplete() bool {
+	if o == nil || o.BiosPostComplete == nil {
+		var ret bool
+		return ret
+	}
+	return *o.BiosPostComplete
+}
+
+// GetBiosPostCompleteOk returns a tuple with the BiosPostComplete field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetBiosPostCompleteOk() (*bool, bool) {
+	if o == nil || o.BiosPostComplete == nil {
+		return nil, false
+	}
+	return o.BiosPostComplete, true
+}
+
+// HasBiosPostComplete returns a boolean if a field has been set.
+func (o *ComputePhysicalSummaryAllOf) HasBiosPostComplete() bool {
+	if o != nil && o.BiosPostComplete != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBiosPostComplete gets a reference to the given bool and assigns it to the BiosPostComplete field.
+func (o *ComputePhysicalSummaryAllOf) SetBiosPostComplete(v bool) {
+	o.BiosPostComplete = &v
+}
+
 // GetChassisId returns the ChassisId field value if set, zero value otherwise.
 func (o *ComputePhysicalSummaryAllOf) GetChassisId() string {
 	if o == nil || o.ChassisId == nil {
@@ -229,6 +320,38 @@ func (o *ComputePhysicalSummaryAllOf) HasChassisId() bool {
 // SetChassisId gets a reference to the given string and assigns it to the ChassisId field.
 func (o *ComputePhysicalSummaryAllOf) SetChassisId(v string) {
 	o.ChassisId = &v
+}
+
+// GetConnectionStatus returns the ConnectionStatus field value if set, zero value otherwise.
+func (o *ComputePhysicalSummaryAllOf) GetConnectionStatus() string {
+	if o == nil || o.ConnectionStatus == nil {
+		var ret string
+		return ret
+	}
+	return *o.ConnectionStatus
+}
+
+// GetConnectionStatusOk returns a tuple with the ConnectionStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetConnectionStatusOk() (*string, bool) {
+	if o == nil || o.ConnectionStatus == nil {
+		return nil, false
+	}
+	return o.ConnectionStatus, true
+}
+
+// HasConnectionStatus returns a boolean if a field has been set.
+func (o *ComputePhysicalSummaryAllOf) HasConnectionStatus() bool {
+	if o != nil && o.ConnectionStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConnectionStatus gets a reference to the given string and assigns it to the ConnectionStatus field.
+func (o *ComputePhysicalSummaryAllOf) SetConnectionStatus(v string) {
+	o.ConnectionStatus = &v
 }
 
 // GetCpuCapacity returns the CpuCapacity field value if set, zero value otherwise.
@@ -453,6 +576,38 @@ func (o *ComputePhysicalSummaryAllOf) HasKvmIpAddresses() bool {
 // SetKvmIpAddresses gets a reference to the given []ComputeIpAddress and assigns it to the KvmIpAddresses field.
 func (o *ComputePhysicalSummaryAllOf) SetKvmIpAddresses(v []ComputeIpAddress) {
 	o.KvmIpAddresses = &v
+}
+
+// GetManagementMode returns the ManagementMode field value if set, zero value otherwise.
+func (o *ComputePhysicalSummaryAllOf) GetManagementMode() string {
+	if o == nil || o.ManagementMode == nil {
+		var ret string
+		return ret
+	}
+	return *o.ManagementMode
+}
+
+// GetManagementModeOk returns a tuple with the ManagementMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetManagementModeOk() (*string, bool) {
+	if o == nil || o.ManagementMode == nil {
+		return nil, false
+	}
+	return o.ManagementMode, true
+}
+
+// HasManagementMode returns a boolean if a field has been set.
+func (o *ComputePhysicalSummaryAllOf) HasManagementMode() bool {
+	if o != nil && o.ManagementMode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetManagementMode gets a reference to the given string and assigns it to the ManagementMode field.
+func (o *ComputePhysicalSummaryAllOf) SetManagementMode(v string) {
+	o.ManagementMode = &v
 }
 
 // GetMemorySpeed returns the MemorySpeed field value if set, zero value otherwise.
@@ -1223,6 +1378,38 @@ func (o *ComputePhysicalSummaryAllOf) SetSourceObjectType(v string) {
 	o.SourceObjectType = &v
 }
 
+// GetTopologyScanStatus returns the TopologyScanStatus field value if set, zero value otherwise.
+func (o *ComputePhysicalSummaryAllOf) GetTopologyScanStatus() string {
+	if o == nil || o.TopologyScanStatus == nil {
+		var ret string
+		return ret
+	}
+	return *o.TopologyScanStatus
+}
+
+// GetTopologyScanStatusOk returns a tuple with the TopologyScanStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetTopologyScanStatusOk() (*string, bool) {
+	if o == nil || o.TopologyScanStatus == nil {
+		return nil, false
+	}
+	return o.TopologyScanStatus, true
+}
+
+// HasTopologyScanStatus returns a boolean if a field has been set.
+func (o *ComputePhysicalSummaryAllOf) HasTopologyScanStatus() bool {
+	if o != nil && o.TopologyScanStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTopologyScanStatus gets a reference to the given string and assigns it to the TopologyScanStatus field.
+func (o *ComputePhysicalSummaryAllOf) SetTopologyScanStatus(v string) {
+	o.TopologyScanStatus = &v
+}
+
 // GetTotalMemory returns the TotalMemory field value if set, zero value otherwise.
 func (o *ComputePhysicalSummaryAllOf) GetTotalMemory() int64 {
 	if o == nil || o.TotalMemory == nil {
@@ -1351,6 +1538,70 @@ func (o *ComputePhysicalSummaryAllOf) SetVendor(v string) {
 	o.Vendor = &v
 }
 
+// GetEquipmentChassis returns the EquipmentChassis field value if set, zero value otherwise.
+func (o *ComputePhysicalSummaryAllOf) GetEquipmentChassis() EquipmentChassisRelationship {
+	if o == nil || o.EquipmentChassis == nil {
+		var ret EquipmentChassisRelationship
+		return ret
+	}
+	return *o.EquipmentChassis
+}
+
+// GetEquipmentChassisOk returns a tuple with the EquipmentChassis field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetEquipmentChassisOk() (*EquipmentChassisRelationship, bool) {
+	if o == nil || o.EquipmentChassis == nil {
+		return nil, false
+	}
+	return o.EquipmentChassis, true
+}
+
+// HasEquipmentChassis returns a boolean if a field has been set.
+func (o *ComputePhysicalSummaryAllOf) HasEquipmentChassis() bool {
+	if o != nil && o.EquipmentChassis != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEquipmentChassis gets a reference to the given EquipmentChassisRelationship and assigns it to the EquipmentChassis field.
+func (o *ComputePhysicalSummaryAllOf) SetEquipmentChassis(v EquipmentChassisRelationship) {
+	o.EquipmentChassis = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *ComputePhysicalSummaryAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *ComputePhysicalSummaryAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *ComputePhysicalSummaryAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
 func (o *ComputePhysicalSummaryAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship {
 	if o == nil || o.RegisteredDevice == nil {
@@ -1388,14 +1639,23 @@ func (o ComputePhysicalSummaryAllOf) MarshalJSON() ([]byte, error) {
 	if o.AdminPowerState != nil {
 		toSerialize["AdminPowerState"] = o.AdminPowerState
 	}
+	if o.AlarmSummary != nil {
+		toSerialize["AlarmSummary"] = o.AlarmSummary
+	}
 	if o.AssetTag != nil {
 		toSerialize["AssetTag"] = o.AssetTag
 	}
 	if o.AvailableMemory != nil {
 		toSerialize["AvailableMemory"] = o.AvailableMemory
 	}
+	if o.BiosPostComplete != nil {
+		toSerialize["BiosPostComplete"] = o.BiosPostComplete
+	}
 	if o.ChassisId != nil {
 		toSerialize["ChassisId"] = o.ChassisId
+	}
+	if o.ConnectionStatus != nil {
+		toSerialize["ConnectionStatus"] = o.ConnectionStatus
 	}
 	if o.CpuCapacity != nil {
 		toSerialize["CpuCapacity"] = o.CpuCapacity
@@ -1417,6 +1677,9 @@ func (o ComputePhysicalSummaryAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.KvmIpAddresses != nil {
 		toSerialize["KvmIpAddresses"] = o.KvmIpAddresses
+	}
+	if o.ManagementMode != nil {
+		toSerialize["ManagementMode"] = o.ManagementMode
 	}
 	if o.MemorySpeed != nil {
 		toSerialize["MemorySpeed"] = o.MemorySpeed
@@ -1490,6 +1753,9 @@ func (o ComputePhysicalSummaryAllOf) MarshalJSON() ([]byte, error) {
 	if o.SourceObjectType != nil {
 		toSerialize["SourceObjectType"] = o.SourceObjectType
 	}
+	if o.TopologyScanStatus != nil {
+		toSerialize["TopologyScanStatus"] = o.TopologyScanStatus
+	}
 	if o.TotalMemory != nil {
 		toSerialize["TotalMemory"] = o.TotalMemory
 	}
@@ -1501,6 +1767,12 @@ func (o ComputePhysicalSummaryAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Vendor != nil {
 		toSerialize["Vendor"] = o.Vendor
+	}
+	if o.EquipmentChassis != nil {
+		toSerialize["EquipmentChassis"] = o.EquipmentChassis
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice

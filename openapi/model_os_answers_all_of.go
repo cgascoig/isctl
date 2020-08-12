@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -22,9 +22,9 @@ type OsAnswersAllOf struct {
 	AnswerFile *string `json:"AnswerFile,omitempty" yaml:"AnswerFile,omitempty"`
 	// Hostname to be configured for the server in the OS.
 	Hostname *string `json:"Hostname,omitempty" yaml:"Hostname,omitempty"`
-	// IP configuration type. Values are Static or Dynamic configuration of IP. In case of static IP configuration, IP address, gateway and other details need to be populated. In case of dynamic the IP configuration is obtained dynamically from DHCP.
-	IpConfigType *string            `json:"IpConfigType,omitempty" yaml:"IpConfigType,omitempty"`
-	IpV4Config   *CommIpV4Interface `json:"IpV4Config,omitempty" yaml:"IpV4Config,omitempty"`
+	// IP configuration type. Values are Static or Dynamic configuration of IP. In case of static IP configuration, IP address, gateway and other details need to be populated. In case of dynamic the IP configuration is obtained dynamically from DHCP. * `static` - In case of static IP configuraton, provide the details such as IP address, netmask, and gateway. * `DHCP` - In case of dynamic IP configuration, the IP address, netmask and gateway detailsare obtained from DHCP.
+	IpConfigType    *string            `json:"IpConfigType,omitempty" yaml:"IpConfigType,omitempty"`
+	IpConfiguration *OsIpConfiguration `json:"IpConfiguration,omitempty" yaml:"IpConfiguration,omitempty"`
 	// Indicates whether the value of the 'answerFile' property has been set.
 	IsAnswerFileSet *bool `json:"IsAnswerFileSet,omitempty" yaml:"IsAnswerFileSet,omitempty"`
 	// Enable to indicate Root Password provided is encrypted.
@@ -37,7 +37,7 @@ type OsAnswersAllOf struct {
 	ProductKey *string `json:"ProductKey,omitempty" yaml:"ProductKey,omitempty"`
 	// Password configured for the root / administrator user in the OS. You can enter a plain text or an encrypted password. Intersight encrypts the plaintext password. Enable the Encrypted Password option to provide an encrypted password. For more details on encrypting passwords, see Help Center.
 	RootPassword *string `json:"RootPassword,omitempty" yaml:"RootPassword,omitempty"`
-	// Answer values can be provided from three sources - Embedded in OS image, static file, or as placeholder values for an answer file template. Source of the answers is given as value, Embedded/File/Template. 'Embedded' option indicates that the answer file is embedded within the OS Image. 'File' option indicates that the answers are provided as a file. 'Template' indicates that the placeholders in the selected os.ConfigurationFile MO are replaced with values provided as os.Answers MO.
+	// Answer values can be provided from three sources - Embedded in OS image, static file, or as placeholder values for an answer file template. Source of the answers is given as value, Embedded/File/Template. 'Embedded' option indicates that the answer file is embedded within the OS Image. 'File' option indicates that the answers are provided as a file. 'Template' indicates that the placeholders in the selected os.ConfigurationFile MO are replaced with values provided as os.Answers MO. * `None` - Indicates that answers is not sent and values must be populated from Install Template.   * `Embedded` - Indicates that the answer file is embedded within OS image. * `File` - Indicates that the answer file is a static content that has all thevalues populated. * `Template` - Indicates that the given answers are used to populate the answer filetemplate. The template allows the users to refer some server specificanswers as fields/placeholders and replace these placeholders with theactual values for each Server during OS installation using 'Answers' and'AdditionalParameters' properties in os.Install MO.The answer file templates can be created by users as os.ConfigurationFile objects.
 	Source *string `json:"Source,omitempty" yaml:"Source,omitempty"`
 }
 
@@ -162,36 +162,36 @@ func (o *OsAnswersAllOf) SetIpConfigType(v string) {
 	o.IpConfigType = &v
 }
 
-// GetIpV4Config returns the IpV4Config field value if set, zero value otherwise.
-func (o *OsAnswersAllOf) GetIpV4Config() CommIpV4Interface {
-	if o == nil || o.IpV4Config == nil {
-		var ret CommIpV4Interface
+// GetIpConfiguration returns the IpConfiguration field value if set, zero value otherwise.
+func (o *OsAnswersAllOf) GetIpConfiguration() OsIpConfiguration {
+	if o == nil || o.IpConfiguration == nil {
+		var ret OsIpConfiguration
 		return ret
 	}
-	return *o.IpV4Config
+	return *o.IpConfiguration
 }
 
-// GetIpV4ConfigOk returns a tuple with the IpV4Config field value if set, nil otherwise
+// GetIpConfigurationOk returns a tuple with the IpConfiguration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OsAnswersAllOf) GetIpV4ConfigOk() (*CommIpV4Interface, bool) {
-	if o == nil || o.IpV4Config == nil {
+func (o *OsAnswersAllOf) GetIpConfigurationOk() (*OsIpConfiguration, bool) {
+	if o == nil || o.IpConfiguration == nil {
 		return nil, false
 	}
-	return o.IpV4Config, true
+	return o.IpConfiguration, true
 }
 
-// HasIpV4Config returns a boolean if a field has been set.
-func (o *OsAnswersAllOf) HasIpV4Config() bool {
-	if o != nil && o.IpV4Config != nil {
+// HasIpConfiguration returns a boolean if a field has been set.
+func (o *OsAnswersAllOf) HasIpConfiguration() bool {
+	if o != nil && o.IpConfiguration != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetIpV4Config gets a reference to the given CommIpV4Interface and assigns it to the IpV4Config field.
-func (o *OsAnswersAllOf) SetIpV4Config(v CommIpV4Interface) {
-	o.IpV4Config = &v
+// SetIpConfiguration gets a reference to the given OsIpConfiguration and assigns it to the IpConfiguration field.
+func (o *OsAnswersAllOf) SetIpConfiguration(v OsIpConfiguration) {
+	o.IpConfiguration = &v
 }
 
 // GetIsAnswerFileSet returns the IsAnswerFileSet field value if set, zero value otherwise.
@@ -429,8 +429,8 @@ func (o OsAnswersAllOf) MarshalJSON() ([]byte, error) {
 	if o.IpConfigType != nil {
 		toSerialize["IpConfigType"] = o.IpConfigType
 	}
-	if o.IpV4Config != nil {
-		toSerialize["IpV4Config"] = o.IpV4Config
+	if o.IpConfiguration != nil {
+		toSerialize["IpConfiguration"] = o.IpConfiguration
 	}
 	if o.IsAnswerFileSet != nil {
 		toSerialize["IsAnswerFileSet"] = o.IsAnswerFileSet

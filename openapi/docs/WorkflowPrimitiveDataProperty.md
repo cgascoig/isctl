@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Constraints** | Pointer to [**WorkflowConstraints**](workflow.Constraints.md) |  | [optional] 
 **InventorySelector** | Pointer to [**[]WorkflowMoReferenceProperty**](workflow.MoReferenceProperty.md) |  | [optional] 
 **Secure** | Pointer to **bool** | Intersight supports secure properties as task input/output. The values of these properties are encrypted and stored in Intersight. This flag marks the property to be secure when it is set to true. | [optional] 
-**Type** | Pointer to **string** | Specify the enum type for primitive data type. | [optional] [default to "string"]
+**Type** | Pointer to **string** | Specify the enum type for primitive data type. * &#x60;string&#x60; - Enum to specify a string data type. * &#x60;integer&#x60; - Enum to specify an integer32 data type. * &#x60;float&#x60; - Enum to specify a float64 data type. * &#x60;boolean&#x60; - Enum to specify a boolean data type. * &#x60;json&#x60; - Enum to specify a json data type. * &#x60;enum&#x60; - Enum to specify a enum data type which is a list of pre-defined strings. | [optional] [default to "string"]
 
 ## Methods
 

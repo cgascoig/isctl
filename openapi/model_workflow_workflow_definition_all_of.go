@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -23,9 +23,9 @@ type WorkflowWorkflowDefinitionAllOf struct {
 	// The description for this workflow.
 	Description     *string                 `json:"Description,omitempty" yaml:"Description,omitempty"`
 	InputDefinition *[]WorkflowBaseDataType `json:"InputDefinition,omitempty" yaml:"InputDefinition,omitempty"`
-	// A user friendly short name to identify the workflow. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_).
+	// A user friendly short name to identify the workflow. Label can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_).
 	Label *string `json:"Label,omitempty" yaml:"Label,omitempty"`
-	// License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks.
+	// License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks. * `Base` - Base as a License type. It is default license type. * `Essential` - Essential as a License type. * `Standard` - Standard as a License type. * `Advantage` - Advantage as a License type. * `Premier` - Premier as a License type.
 	LicenseEntitlement *string `json:"LicenseEntitlement,omitempty" yaml:"LicenseEntitlement,omitempty"`
 	// The maximum number of tasks that can be executed on this workflow.
 	MaxTaskCount *int64 `json:"MaxTaskCount,omitempty" yaml:"MaxTaskCount,omitempty"`
@@ -33,11 +33,11 @@ type WorkflowWorkflowDefinitionAllOf struct {
 	Name             *string                 `json:"Name,omitempty" yaml:"Name,omitempty"`
 	OutputDefinition *[]WorkflowBaseDataType `json:"OutputDefinition,omitempty" yaml:"OutputDefinition,omitempty"`
 	// The output mappings for the workflow. The outputs for worflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is '${Source.output.JsonPath}'. 'Source' is the name of the task within the workflow. You can map any task output to a workflow output as long as the types are compatible. Following this is JSON path expression to extract JSON fragment from source's output.
-	OutputParameters *map[string]interface{}     `json:"OutputParameters,omitempty" yaml:"OutputParameters,omitempty"`
+	OutputParameters interface{}                 `json:"OutputParameters,omitempty" yaml:"OutputParameters,omitempty"`
 	Properties       *WorkflowWorkflowProperties `json:"Properties,omitempty" yaml:"Properties,omitempty"`
 	Tasks            *[]WorkflowWorkflowTask     `json:"Tasks,omitempty" yaml:"Tasks,omitempty"`
 	// This will hold the data needed for workflow to be rendered in the user interface.
-	UiRenderingData       *map[string]interface{}        `json:"UiRenderingData,omitempty" yaml:"UiRenderingData,omitempty"`
+	UiRenderingData       interface{}                    `json:"UiRenderingData,omitempty" yaml:"UiRenderingData,omitempty"`
 	ValidationInformation *WorkflowValidationInformation `json:"ValidationInformation,omitempty" yaml:"ValidationInformation,omitempty"`
 	// The version of the workflow to support multiple versions.
 	Version *int64                       `json:"Version,omitempty" yaml:"Version,omitempty"`
@@ -321,22 +321,23 @@ func (o *WorkflowWorkflowDefinitionAllOf) SetOutputDefinition(v []WorkflowBaseDa
 	o.OutputDefinition = &v
 }
 
-// GetOutputParameters returns the OutputParameters field value if set, zero value otherwise.
-func (o *WorkflowWorkflowDefinitionAllOf) GetOutputParameters() map[string]interface{} {
-	if o == nil || o.OutputParameters == nil {
-		var ret map[string]interface{}
+// GetOutputParameters returns the OutputParameters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowWorkflowDefinitionAllOf) GetOutputParameters() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.OutputParameters
+	return o.OutputParameters
 }
 
 // GetOutputParametersOk returns a tuple with the OutputParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowWorkflowDefinitionAllOf) GetOutputParametersOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowWorkflowDefinitionAllOf) GetOutputParametersOk() (*interface{}, bool) {
 	if o == nil || o.OutputParameters == nil {
 		return nil, false
 	}
-	return o.OutputParameters, true
+	return &o.OutputParameters, true
 }
 
 // HasOutputParameters returns a boolean if a field has been set.
@@ -348,9 +349,9 @@ func (o *WorkflowWorkflowDefinitionAllOf) HasOutputParameters() bool {
 	return false
 }
 
-// SetOutputParameters gets a reference to the given map[string]interface{} and assigns it to the OutputParameters field.
-func (o *WorkflowWorkflowDefinitionAllOf) SetOutputParameters(v map[string]interface{}) {
-	o.OutputParameters = &v
+// SetOutputParameters gets a reference to the given interface{} and assigns it to the OutputParameters field.
+func (o *WorkflowWorkflowDefinitionAllOf) SetOutputParameters(v interface{}) {
+	o.OutputParameters = v
 }
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
@@ -417,22 +418,23 @@ func (o *WorkflowWorkflowDefinitionAllOf) SetTasks(v []WorkflowWorkflowTask) {
 	o.Tasks = &v
 }
 
-// GetUiRenderingData returns the UiRenderingData field value if set, zero value otherwise.
-func (o *WorkflowWorkflowDefinitionAllOf) GetUiRenderingData() map[string]interface{} {
-	if o == nil || o.UiRenderingData == nil {
-		var ret map[string]interface{}
+// GetUiRenderingData returns the UiRenderingData field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowWorkflowDefinitionAllOf) GetUiRenderingData() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.UiRenderingData
+	return o.UiRenderingData
 }
 
 // GetUiRenderingDataOk returns a tuple with the UiRenderingData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowWorkflowDefinitionAllOf) GetUiRenderingDataOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowWorkflowDefinitionAllOf) GetUiRenderingDataOk() (*interface{}, bool) {
 	if o == nil || o.UiRenderingData == nil {
 		return nil, false
 	}
-	return o.UiRenderingData, true
+	return &o.UiRenderingData, true
 }
 
 // HasUiRenderingData returns a boolean if a field has been set.
@@ -444,9 +446,9 @@ func (o *WorkflowWorkflowDefinitionAllOf) HasUiRenderingData() bool {
 	return false
 }
 
-// SetUiRenderingData gets a reference to the given map[string]interface{} and assigns it to the UiRenderingData field.
-func (o *WorkflowWorkflowDefinitionAllOf) SetUiRenderingData(v map[string]interface{}) {
-	o.UiRenderingData = &v
+// SetUiRenderingData gets a reference to the given interface{} and assigns it to the UiRenderingData field.
+func (o *WorkflowWorkflowDefinitionAllOf) SetUiRenderingData(v interface{}) {
+	o.UiRenderingData = v
 }
 
 // GetValidationInformation returns the ValidationInformation field value if set, zero value otherwise.

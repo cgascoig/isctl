@@ -18,19 +18,19 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **DefaultVersion** | Pointer to **bool** | When true this will be the workflow version that is used when a specific workflow definition version is not specified. The default version is used when user executes a workflow without specifying a version or when workflow is included in another workflow without a specific version. The very first workflow definition created with a name will be set as the default version, after that user can explicitly set any version of the workflow definition as the default version. | [optional] 
 **Description** | Pointer to **string** | The description for this workflow. | [optional] 
 **InputDefinition** | Pointer to [**[]WorkflowBaseDataType**](workflow.BaseDataType.md) |  | [optional] 
-**Label** | Pointer to **string** | A user friendly short name to identify the workflow. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_). | [optional] 
-**LicenseEntitlement** | Pointer to **string** | License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks. | [optional] [readonly] [default to "Base"]
+**Label** | Pointer to **string** | A user friendly short name to identify the workflow. Label can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_). | [optional] 
+**LicenseEntitlement** | Pointer to **string** | License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks. * &#x60;Base&#x60; - Base as a License type. It is default license type. * &#x60;Essential&#x60; - Essential as a License type. * &#x60;Standard&#x60; - Standard as a License type. * &#x60;Advantage&#x60; - Advantage as a License type. * &#x60;Premier&#x60; - Premier as a License type. | [optional] [readonly] [default to "Base"]
 **MaxTaskCount** | Pointer to **int64** | The maximum number of tasks that can be executed on this workflow. | [optional] [readonly] 
 **Name** | Pointer to **string** | The name for this workflow. You can have multiple versions of the workflow with the same name. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.) or an underscore (_). | [optional] 
 **OutputDefinition** | Pointer to [**[]WorkflowBaseDataType**](workflow.BaseDataType.md) |  | [optional] 
-**OutputParameters** | Pointer to **map[string]interface{}** | The output mappings for the workflow. The outputs for worflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is &#39;${Source.output.JsonPath}&#39;. &#39;Source&#39; is the name of the task within the workflow. You can map any task output to a workflow output as long as the types are compatible. Following this is JSON path expression to extract JSON fragment from source&#39;s output. | [optional] 
+**OutputParameters** | Pointer to **interface{}** | The output mappings for the workflow. The outputs for worflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is &#39;${Source.output.JsonPath}&#39;. &#39;Source&#39; is the name of the task within the workflow. You can map any task output to a workflow output as long as the types are compatible. Following this is JSON path expression to extract JSON fragment from source&#39;s output. | [optional] 
 **Properties** | Pointer to [**WorkflowWorkflowProperties**](workflow.WorkflowProperties.md) |  | [optional] 
 **Tasks** | Pointer to [**[]WorkflowWorkflowTask**](workflow.WorkflowTask.md) |  | [optional] 
-**UiRenderingData** | Pointer to **map[string]interface{}** | This will hold the data needed for workflow to be rendered in the user interface. | [optional] 
+**UiRenderingData** | Pointer to **interface{}** | This will hold the data needed for workflow to be rendered in the user interface. | [optional] 
 **ValidationInformation** | Pointer to [**WorkflowValidationInformation**](workflow.ValidationInformation.md) |  | [optional] 
 **Version** | Pointer to **int64** | The version of the workflow to support multiple versions. | [optional] 
 **Catalog** | Pointer to [**WorkflowCatalogRelationship**](workflow.Catalog.Relationship.md) |  | [optional] 
@@ -344,6 +344,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *WorkflowWorkflowDefinitionRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *WorkflowWorkflowDefinitionRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *WorkflowWorkflowDefinitionRelationship) GetParent() MoBaseMoRelationship`
@@ -394,6 +404,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *WorkflowWorkflowDefinitionRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *WorkflowWorkflowDefinitionRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *WorkflowWorkflowDefinitionRelationship) GetDisplayNames() map[string][]string`
@@ -631,20 +651,20 @@ HasOutputDefinition returns a boolean if a field has been set.
 
 ### GetOutputParameters
 
-`func (o *WorkflowWorkflowDefinitionRelationship) GetOutputParameters() map[string]interface{}`
+`func (o *WorkflowWorkflowDefinitionRelationship) GetOutputParameters() interface{}`
 
 GetOutputParameters returns the OutputParameters field if non-nil, zero value otherwise.
 
 ### GetOutputParametersOk
 
-`func (o *WorkflowWorkflowDefinitionRelationship) GetOutputParametersOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowWorkflowDefinitionRelationship) GetOutputParametersOk() (*interface{}, bool)`
 
 GetOutputParametersOk returns a tuple with the OutputParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutputParameters
 
-`func (o *WorkflowWorkflowDefinitionRelationship) SetOutputParameters(v map[string]interface{})`
+`func (o *WorkflowWorkflowDefinitionRelationship) SetOutputParameters(v interface{})`
 
 SetOutputParameters sets OutputParameters field to given value.
 
@@ -654,6 +674,16 @@ SetOutputParameters sets OutputParameters field to given value.
 
 HasOutputParameters returns a boolean if a field has been set.
 
+### SetOutputParametersNil
+
+`func (o *WorkflowWorkflowDefinitionRelationship) SetOutputParametersNil(b bool)`
+
+ SetOutputParametersNil sets the value for OutputParameters to be an explicit nil
+
+### UnsetOutputParameters
+`func (o *WorkflowWorkflowDefinitionRelationship) UnsetOutputParameters()`
+
+UnsetOutputParameters ensures that no value is present for OutputParameters, not even an explicit nil
 ### GetProperties
 
 `func (o *WorkflowWorkflowDefinitionRelationship) GetProperties() WorkflowWorkflowProperties`
@@ -706,20 +736,20 @@ HasTasks returns a boolean if a field has been set.
 
 ### GetUiRenderingData
 
-`func (o *WorkflowWorkflowDefinitionRelationship) GetUiRenderingData() map[string]interface{}`
+`func (o *WorkflowWorkflowDefinitionRelationship) GetUiRenderingData() interface{}`
 
 GetUiRenderingData returns the UiRenderingData field if non-nil, zero value otherwise.
 
 ### GetUiRenderingDataOk
 
-`func (o *WorkflowWorkflowDefinitionRelationship) GetUiRenderingDataOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowWorkflowDefinitionRelationship) GetUiRenderingDataOk() (*interface{}, bool)`
 
 GetUiRenderingDataOk returns a tuple with the UiRenderingData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUiRenderingData
 
-`func (o *WorkflowWorkflowDefinitionRelationship) SetUiRenderingData(v map[string]interface{})`
+`func (o *WorkflowWorkflowDefinitionRelationship) SetUiRenderingData(v interface{})`
 
 SetUiRenderingData sets UiRenderingData field to given value.
 
@@ -729,6 +759,16 @@ SetUiRenderingData sets UiRenderingData field to given value.
 
 HasUiRenderingData returns a boolean if a field has been set.
 
+### SetUiRenderingDataNil
+
+`func (o *WorkflowWorkflowDefinitionRelationship) SetUiRenderingDataNil(b bool)`
+
+ SetUiRenderingDataNil sets the value for UiRenderingData to be an explicit nil
+
+### UnsetUiRenderingData
+`func (o *WorkflowWorkflowDefinitionRelationship) UnsetUiRenderingData()`
+
+UnsetUiRenderingData ensures that no value is present for UiRenderingData, not even an explicit nil
 ### GetValidationInformation
 
 `func (o *WorkflowWorkflowDefinitionRelationship) GetValidationInformation() WorkflowValidationInformation`

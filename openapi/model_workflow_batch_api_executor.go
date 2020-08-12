@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -26,12 +26,15 @@ type WorkflowBatchApiExecutor struct {
 	// Name for the batch API task.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
 	// All the possible outcomes of this task are captured here. Outcomes property is a collection property of type workflow.Outcome objects. The outcomes can be mapped to the message to be shown. The outcomes are evaluated in the order they are given. At the end of the outcomes list, an catchall success/fail outcome can be added with condition as 'true'. This is an optional property and if not specified the task will be marked as success.
-	Outcomes *map[string]interface{} `json:"Outcomes,omitempty" yaml:"Outcomes,omitempty"`
+	Outcomes interface{} `json:"Outcomes,omitempty" yaml:"Outcomes,omitempty"`
 	// Intersight Orchestrator allows the extraction of required values from API responses using the API response grammar. These extracted values can be mapped to task output parameters defined in task definition. The mapping of API output parameters to the task output parameters is provided as JSON in this property.
-	Output *map[string]interface{} `json:"Output,omitempty" yaml:"Output,omitempty"`
+	Output interface{} `json:"Output,omitempty" yaml:"Output,omitempty"`
+	// When an execution of a nth API in the Batch fails, Retry from falied API flag indicates if the execution should start from the nth API or the first API during task retry. By default the value is set to false.
+	RetryFromFailedApi *bool `json:"RetryFromFailedApi,omitempty" yaml:"RetryFromFailedApi,omitempty"`
 	// The skip expression, if provided, allows the batch API executor to skip the task execution when the given expression evaluates to true. The expression is given as such a golang template that has to be evaluated to a final content true/false. The expression is an optional and in case not provided, the API will always be executed.
-	SkipOnCondition *string                             `json:"SkipOnCondition,omitempty" yaml:"SkipOnCondition,omitempty"`
-	TaskDefinition  *WorkflowTaskDefinitionRelationship `json:"TaskDefinition,omitempty" yaml:"TaskDefinition,omitempty"`
+	SkipOnCondition      *string                                   `json:"SkipOnCondition,omitempty" yaml:"SkipOnCondition,omitempty"`
+	ErrorResponseHandler *WorkflowErrorResponseHandlerRelationship `json:"ErrorResponseHandler,omitempty" yaml:"ErrorResponseHandler,omitempty"`
+	TaskDefinition       *WorkflowTaskDefinitionRelationship       `json:"TaskDefinition,omitempty" yaml:"TaskDefinition,omitempty"`
 }
 
 // NewWorkflowBatchApiExecutor instantiates a new WorkflowBatchApiExecutor object
@@ -179,22 +182,23 @@ func (o *WorkflowBatchApiExecutor) SetName(v string) {
 	o.Name = &v
 }
 
-// GetOutcomes returns the Outcomes field value if set, zero value otherwise.
-func (o *WorkflowBatchApiExecutor) GetOutcomes() map[string]interface{} {
-	if o == nil || o.Outcomes == nil {
-		var ret map[string]interface{}
+// GetOutcomes returns the Outcomes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowBatchApiExecutor) GetOutcomes() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Outcomes
+	return o.Outcomes
 }
 
 // GetOutcomesOk returns a tuple with the Outcomes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowBatchApiExecutor) GetOutcomesOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowBatchApiExecutor) GetOutcomesOk() (*interface{}, bool) {
 	if o == nil || o.Outcomes == nil {
 		return nil, false
 	}
-	return o.Outcomes, true
+	return &o.Outcomes, true
 }
 
 // HasOutcomes returns a boolean if a field has been set.
@@ -206,27 +210,28 @@ func (o *WorkflowBatchApiExecutor) HasOutcomes() bool {
 	return false
 }
 
-// SetOutcomes gets a reference to the given map[string]interface{} and assigns it to the Outcomes field.
-func (o *WorkflowBatchApiExecutor) SetOutcomes(v map[string]interface{}) {
-	o.Outcomes = &v
+// SetOutcomes gets a reference to the given interface{} and assigns it to the Outcomes field.
+func (o *WorkflowBatchApiExecutor) SetOutcomes(v interface{}) {
+	o.Outcomes = v
 }
 
-// GetOutput returns the Output field value if set, zero value otherwise.
-func (o *WorkflowBatchApiExecutor) GetOutput() map[string]interface{} {
-	if o == nil || o.Output == nil {
-		var ret map[string]interface{}
+// GetOutput returns the Output field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowBatchApiExecutor) GetOutput() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Output
+	return o.Output
 }
 
 // GetOutputOk returns a tuple with the Output field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowBatchApiExecutor) GetOutputOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowBatchApiExecutor) GetOutputOk() (*interface{}, bool) {
 	if o == nil || o.Output == nil {
 		return nil, false
 	}
-	return o.Output, true
+	return &o.Output, true
 }
 
 // HasOutput returns a boolean if a field has been set.
@@ -238,9 +243,41 @@ func (o *WorkflowBatchApiExecutor) HasOutput() bool {
 	return false
 }
 
-// SetOutput gets a reference to the given map[string]interface{} and assigns it to the Output field.
-func (o *WorkflowBatchApiExecutor) SetOutput(v map[string]interface{}) {
-	o.Output = &v
+// SetOutput gets a reference to the given interface{} and assigns it to the Output field.
+func (o *WorkflowBatchApiExecutor) SetOutput(v interface{}) {
+	o.Output = v
+}
+
+// GetRetryFromFailedApi returns the RetryFromFailedApi field value if set, zero value otherwise.
+func (o *WorkflowBatchApiExecutor) GetRetryFromFailedApi() bool {
+	if o == nil || o.RetryFromFailedApi == nil {
+		var ret bool
+		return ret
+	}
+	return *o.RetryFromFailedApi
+}
+
+// GetRetryFromFailedApiOk returns a tuple with the RetryFromFailedApi field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowBatchApiExecutor) GetRetryFromFailedApiOk() (*bool, bool) {
+	if o == nil || o.RetryFromFailedApi == nil {
+		return nil, false
+	}
+	return o.RetryFromFailedApi, true
+}
+
+// HasRetryFromFailedApi returns a boolean if a field has been set.
+func (o *WorkflowBatchApiExecutor) HasRetryFromFailedApi() bool {
+	if o != nil && o.RetryFromFailedApi != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRetryFromFailedApi gets a reference to the given bool and assigns it to the RetryFromFailedApi field.
+func (o *WorkflowBatchApiExecutor) SetRetryFromFailedApi(v bool) {
+	o.RetryFromFailedApi = &v
 }
 
 // GetSkipOnCondition returns the SkipOnCondition field value if set, zero value otherwise.
@@ -273,6 +310,38 @@ func (o *WorkflowBatchApiExecutor) HasSkipOnCondition() bool {
 // SetSkipOnCondition gets a reference to the given string and assigns it to the SkipOnCondition field.
 func (o *WorkflowBatchApiExecutor) SetSkipOnCondition(v string) {
 	o.SkipOnCondition = &v
+}
+
+// GetErrorResponseHandler returns the ErrorResponseHandler field value if set, zero value otherwise.
+func (o *WorkflowBatchApiExecutor) GetErrorResponseHandler() WorkflowErrorResponseHandlerRelationship {
+	if o == nil || o.ErrorResponseHandler == nil {
+		var ret WorkflowErrorResponseHandlerRelationship
+		return ret
+	}
+	return *o.ErrorResponseHandler
+}
+
+// GetErrorResponseHandlerOk returns a tuple with the ErrorResponseHandler field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowBatchApiExecutor) GetErrorResponseHandlerOk() (*WorkflowErrorResponseHandlerRelationship, bool) {
+	if o == nil || o.ErrorResponseHandler == nil {
+		return nil, false
+	}
+	return o.ErrorResponseHandler, true
+}
+
+// HasErrorResponseHandler returns a boolean if a field has been set.
+func (o *WorkflowBatchApiExecutor) HasErrorResponseHandler() bool {
+	if o != nil && o.ErrorResponseHandler != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorResponseHandler gets a reference to the given WorkflowErrorResponseHandlerRelationship and assigns it to the ErrorResponseHandler field.
+func (o *WorkflowBatchApiExecutor) SetErrorResponseHandler(v WorkflowErrorResponseHandlerRelationship) {
+	o.ErrorResponseHandler = &v
 }
 
 // GetTaskDefinition returns the TaskDefinition field value if set, zero value otherwise.
@@ -335,8 +404,14 @@ func (o WorkflowBatchApiExecutor) MarshalJSON() ([]byte, error) {
 	if o.Output != nil {
 		toSerialize["Output"] = o.Output
 	}
+	if o.RetryFromFailedApi != nil {
+		toSerialize["RetryFromFailedApi"] = o.RetryFromFailedApi
+	}
 	if o.SkipOnCondition != nil {
 		toSerialize["SkipOnCondition"] = o.SkipOnCondition
+	}
+	if o.ErrorResponseHandler != nil {
+		toSerialize["ErrorResponseHandler"] = o.ErrorResponseHandler
 	}
 	if o.TaskDefinition != nil {
 		toSerialize["TaskDefinition"] = o.TaskDefinition

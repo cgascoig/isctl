@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Hostname** | Pointer to **string** | Cluster node&#39;s FQDN or IP address. | [optional] [readonly] 
 **NodeId** | Pointer to **int64** | System assigned unique ID of the Intersight Appliance node. The system incrementally assigns identifiers to each node in the Intersight Appliance cluster starting with a value of 1. | [optional] [readonly] 
 **NodeIpV4Config** | Pointer to [**CommIpV4Interface**](comm.IpV4Interface.md) |  | [optional] 
-**OperationalStatus** | Pointer to **string** | Operational status of the Intersight Appliance node. | [optional] [readonly] [default to "Unknown"]
+**OperationalStatus** | Pointer to **string** | Operational status of the Intersight Appliance node. * &#x60;Unknown&#x60; - Operational status of the Intersight Appliance entity is Unknown. * &#x60;Operational&#x60; - Operational status of the Intersight Appliance entity is Operational. * &#x60;Impaired&#x60; - Operational status of the Intersight Appliance entity is Impaired. * &#x60;AttentionNeeded&#x60; - Operational status of the Intersight Appliance entity is AttentionNeeded. | [optional] [readonly] [default to "Unknown"]
 
 ## Methods
 

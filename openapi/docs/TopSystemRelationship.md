@@ -18,17 +18,18 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Ipv4Address** | Pointer to **string** | The IPv4 address of system. | [optional] [readonly] 
 **Ipv6Address** | Pointer to **string** | The IPv6 address of system. | [optional] [readonly] 
-**Mode** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
+**Mode** | Pointer to **string** | The current mode of the system. | [optional] [readonly] 
+**Name** | Pointer to **string** | The admin configured name of the system. | [optional] [readonly] 
 **TimeZone** | Pointer to **string** | The operational timezone of the system, empty indicates no timezone has been set specifically. | [optional] 
 **ComputeBlades** | Pointer to [**[]ComputeBladeRelationship**](compute.Blade.Relationship.md) | An array of relationships to computeBlade resources. | [optional] 
 **ComputeRackUnits** | Pointer to [**[]ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) | An array of relationships to computeRackUnit resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **NetworkElements** | Pointer to [**[]NetworkElementRelationship**](network.Element.Relationship.md) | An array of relationships to networkElement resources. | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -342,6 +343,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *TopSystemRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *TopSystemRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *TopSystemRelationship) GetParent() MoBaseMoRelationship`
@@ -392,6 +403,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *TopSystemRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *TopSystemRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *TopSystemRelationship) GetDisplayNames() map[string][]string`
@@ -652,6 +673,16 @@ SetComputeBlades sets ComputeBlades field to given value.
 
 HasComputeBlades returns a boolean if a field has been set.
 
+### SetComputeBladesNil
+
+`func (o *TopSystemRelationship) SetComputeBladesNil(b bool)`
+
+ SetComputeBladesNil sets the value for ComputeBlades to be an explicit nil
+
+### UnsetComputeBlades
+`func (o *TopSystemRelationship) UnsetComputeBlades()`
+
+UnsetComputeBlades ensures that no value is present for ComputeBlades, not even an explicit nil
 ### GetComputeRackUnits
 
 `func (o *TopSystemRelationship) GetComputeRackUnits() []ComputeRackUnitRelationship`
@@ -676,6 +707,41 @@ SetComputeRackUnits sets ComputeRackUnits field to given value.
 `func (o *TopSystemRelationship) HasComputeRackUnits() bool`
 
 HasComputeRackUnits returns a boolean if a field has been set.
+
+### SetComputeRackUnitsNil
+
+`func (o *TopSystemRelationship) SetComputeRackUnitsNil(b bool)`
+
+ SetComputeRackUnitsNil sets the value for ComputeRackUnits to be an explicit nil
+
+### UnsetComputeRackUnits
+`func (o *TopSystemRelationship) UnsetComputeRackUnits()`
+
+UnsetComputeRackUnits ensures that no value is present for ComputeRackUnits, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *TopSystemRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *TopSystemRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *TopSystemRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *TopSystemRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetManagementController
 
@@ -727,6 +793,16 @@ SetNetworkElements sets NetworkElements field to given value.
 
 HasNetworkElements returns a boolean if a field has been set.
 
+### SetNetworkElementsNil
+
+`func (o *TopSystemRelationship) SetNetworkElementsNil(b bool)`
+
+ SetNetworkElementsNil sets the value for NetworkElements to be an explicit nil
+
+### UnsetNetworkElements
+`func (o *TopSystemRelationship) UnsetNetworkElements()`
+
+UnsetNetworkElements ensures that no value is present for NetworkElements, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *TopSystemRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

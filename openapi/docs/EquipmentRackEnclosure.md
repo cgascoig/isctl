@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnclosureId** | Pointer to **int64** |  | [optional] [readonly] 
+**EnclosureId** | Pointer to **int64** | This represents the Enclosure Identifier for Rack servers. | [optional] [readonly] 
 **Fanmodules** | Pointer to [**[]EquipmentFanModuleRelationship**](equipment.FanModule.Relationship.md) | An array of relationships to equipmentFanModule resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **Psus** | Pointer to [**[]EquipmentPsuRelationship**](equipment.Psu.Relationship.md) | An array of relationships to equipmentPsu resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **Slots** | Pointer to [**[]EquipmentRackEnclosureSlotRelationship**](equipment.RackEnclosureSlot.Relationship.md) | An array of relationships to equipmentRackEnclosureSlot resources. | [optional] [readonly] 
@@ -79,6 +80,41 @@ SetFanmodules sets Fanmodules field to given value.
 
 HasFanmodules returns a boolean if a field has been set.
 
+### SetFanmodulesNil
+
+`func (o *EquipmentRackEnclosure) SetFanmodulesNil(b bool)`
+
+ SetFanmodulesNil sets the value for Fanmodules to be an explicit nil
+
+### UnsetFanmodules
+`func (o *EquipmentRackEnclosure) UnsetFanmodules()`
+
+UnsetFanmodules ensures that no value is present for Fanmodules, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentRackEnclosure) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentRackEnclosure) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentRackEnclosure) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentRackEnclosure) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetPsus
 
 `func (o *EquipmentRackEnclosure) GetPsus() []EquipmentPsuRelationship`
@@ -104,6 +140,16 @@ SetPsus sets Psus field to given value.
 
 HasPsus returns a boolean if a field has been set.
 
+### SetPsusNil
+
+`func (o *EquipmentRackEnclosure) SetPsusNil(b bool)`
+
+ SetPsusNil sets the value for Psus to be an explicit nil
+
+### UnsetPsus
+`func (o *EquipmentRackEnclosure) UnsetPsus()`
+
+UnsetPsus ensures that no value is present for Psus, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *EquipmentRackEnclosure) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -154,6 +200,16 @@ SetSlots sets Slots field to given value.
 
 HasSlots returns a boolean if a field has been set.
 
+### SetSlotsNil
+
+`func (o *EquipmentRackEnclosure) SetSlotsNil(b bool)`
+
+ SetSlotsNil sets the value for Slots to be an explicit nil
+
+### UnsetSlots
+`func (o *EquipmentRackEnclosure) UnsetSlots()`
+
+UnsetSlots ensures that no value is present for Slots, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

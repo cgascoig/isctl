@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AnswerFile** | Pointer to **string** | If the source of the answers is a static file, the content of the file is stored as value in this property. The value is mandatory only when the &#39;Source&#39; property has been set to &#39;File&#39;. | [optional] 
 **Hostname** | Pointer to **string** | Hostname to be configured for the server in the OS. | [optional] 
-**IpConfigType** | Pointer to **string** | IP configuration type. Values are Static or Dynamic configuration of IP. In case of static IP configuration, IP address, gateway and other details need to be populated. In case of dynamic the IP configuration is obtained dynamically from DHCP. | [optional] [default to "static"]
-**IpV4Config** | Pointer to [**CommIpV4Interface**](comm.IpV4Interface.md) |  | [optional] 
+**IpConfigType** | Pointer to **string** | IP configuration type. Values are Static or Dynamic configuration of IP. In case of static IP configuration, IP address, gateway and other details need to be populated. In case of dynamic the IP configuration is obtained dynamically from DHCP. * &#x60;static&#x60; - In case of static IP configuraton, provide the details such as IP address, netmask, and gateway. * &#x60;DHCP&#x60; - In case of dynamic IP configuration, the IP address, netmask and gateway detailsare obtained from DHCP. | [optional] [default to "static"]
+**IpConfiguration** | Pointer to [**OsIpConfiguration**](os.IpConfiguration.md) |  | [optional] 
 **IsAnswerFileSet** | Pointer to **bool** | Indicates whether the value of the &#39;answerFile&#39; property has been set. | [optional] [readonly] 
 **IsRootPasswordCrypted** | Pointer to **bool** | Enable to indicate Root Password provided is encrypted. | [optional] 
 **IsRootPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;rootPassword&#39; property has been set. | [optional] [readonly] 
 **Nameserver** | Pointer to **string** | IP address of the name server to be configured in the OS. | [optional] 
 **ProductKey** | Pointer to **string** | The product key to be used for a specific version of Windows installation. | [optional] 
 **RootPassword** | Pointer to **string** | Password configured for the root / administrator user in the OS. You can enter a plain text or an encrypted password. Intersight encrypts the plaintext password. Enable the Encrypted Password option to provide an encrypted password. For more details on encrypting passwords, see Help Center. | [optional] 
-**Source** | Pointer to **string** | Answer values can be provided from three sources - Embedded in OS image, static file, or as placeholder values for an answer file template. Source of the answers is given as value, Embedded/File/Template. &#39;Embedded&#39; option indicates that the answer file is embedded within the OS Image. &#39;File&#39; option indicates that the answers are provided as a file. &#39;Template&#39; indicates that the placeholders in the selected os.ConfigurationFile MO are replaced with values provided as os.Answers MO. | [optional] [default to "None"]
+**Source** | Pointer to **string** | Answer values can be provided from three sources - Embedded in OS image, static file, or as placeholder values for an answer file template. Source of the answers is given as value, Embedded/File/Template. &#39;Embedded&#39; option indicates that the answer file is embedded within the OS Image. &#39;File&#39; option indicates that the answers are provided as a file. &#39;Template&#39; indicates that the placeholders in the selected os.ConfigurationFile MO are replaced with values provided as os.Answers MO. * &#x60;None&#x60; - Indicates that answers is not sent and values must be populated from Install Template.   * &#x60;Embedded&#x60; - Indicates that the answer file is embedded within OS image. * &#x60;File&#x60; - Indicates that the answer file is a static content that has all thevalues populated. * &#x60;Template&#x60; - Indicates that the given answers are used to populate the answer filetemplate. The template allows the users to refer some server specificanswers as fields/placeholders and replace these placeholders with theactual values for each Server during OS installation using &#39;Answers&#39; and&#39;AdditionalParameters&#39; properties in os.Install MO.The answer file templates can be created by users as os.ConfigurationFile objects. | [optional] [default to "None"]
 
 ## Methods
 
@@ -110,30 +110,30 @@ SetIpConfigType sets IpConfigType field to given value.
 
 HasIpConfigType returns a boolean if a field has been set.
 
-### GetIpV4Config
+### GetIpConfiguration
 
-`func (o *OsAnswersAllOf) GetIpV4Config() CommIpV4Interface`
+`func (o *OsAnswersAllOf) GetIpConfiguration() OsIpConfiguration`
 
-GetIpV4Config returns the IpV4Config field if non-nil, zero value otherwise.
+GetIpConfiguration returns the IpConfiguration field if non-nil, zero value otherwise.
 
-### GetIpV4ConfigOk
+### GetIpConfigurationOk
 
-`func (o *OsAnswersAllOf) GetIpV4ConfigOk() (*CommIpV4Interface, bool)`
+`func (o *OsAnswersAllOf) GetIpConfigurationOk() (*OsIpConfiguration, bool)`
 
-GetIpV4ConfigOk returns a tuple with the IpV4Config field if it's non-nil, zero value otherwise
+GetIpConfigurationOk returns a tuple with the IpConfiguration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIpV4Config
+### SetIpConfiguration
 
-`func (o *OsAnswersAllOf) SetIpV4Config(v CommIpV4Interface)`
+`func (o *OsAnswersAllOf) SetIpConfiguration(v OsIpConfiguration)`
 
-SetIpV4Config sets IpV4Config field to given value.
+SetIpConfiguration sets IpConfiguration field to given value.
 
-### HasIpV4Config
+### HasIpConfiguration
 
-`func (o *OsAnswersAllOf) HasIpV4Config() bool`
+`func (o *OsAnswersAllOf) HasIpConfiguration() bool`
 
-HasIpV4Config returns a boolean if a field has been set.
+HasIpConfiguration returns a boolean if a field has been set.
 
 ### GetIsAnswerFileSet
 

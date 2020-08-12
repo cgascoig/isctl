@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Event** | Pointer to **string** | The operation that was performed on this Managed Object. The event is a compound string that includes the CRUD operation such as Create, Modify, Delete, and a string representing the Managed Object type. | [optional] 
-**MoDisplayNames** | Pointer to **map[string]interface{}** | The user-friendly names of the changed MO. | [optional] 
+**MoDisplayNames** | Pointer to **interface{}** | The user-friendly names of the changed MO. | [optional] 
 **MoType** | Pointer to **string** | The object type of the REST resource that was created, modified or deleted. | [optional] 
 **ObjectMoid** | Pointer to **string** | The Moid of the REST resource that was created, modified or deleted. | [optional] 
-**Request** | Pointer to **map[string]interface{}** | The body of the REST request that was received from a client to create or modify a REST resource, represented as a JSON document. | [optional] 
+**Request** | Pointer to **interface{}** | The body of the REST request that was received from a client to create or modify a REST resource, represented as a JSON document. | [optional] 
 **TraceId** | Pointer to **string** | The trace id of the request that was used to create, modify or delete a REST resource. A trace id is a unique identifier for one particular REST request. It may be used for troubleshooting purpose by the Intersight technical support team. | [optional] 
 
 ## Methods
@@ -57,20 +57,20 @@ HasEvent returns a boolean if a field has been set.
 
 ### GetMoDisplayNames
 
-`func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNames() map[string]interface{}`
+`func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNames() interface{}`
 
 GetMoDisplayNames returns the MoDisplayNames field if non-nil, zero value otherwise.
 
 ### GetMoDisplayNamesOk
 
-`func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNamesOk() (*map[string]interface{}, bool)`
+`func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNamesOk() (*interface{}, bool)`
 
 GetMoDisplayNamesOk returns a tuple with the MoDisplayNames field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMoDisplayNames
 
-`func (o *AaaAbstractAuditRecordAllOf) SetMoDisplayNames(v map[string]interface{})`
+`func (o *AaaAbstractAuditRecordAllOf) SetMoDisplayNames(v interface{})`
 
 SetMoDisplayNames sets MoDisplayNames field to given value.
 
@@ -80,6 +80,16 @@ SetMoDisplayNames sets MoDisplayNames field to given value.
 
 HasMoDisplayNames returns a boolean if a field has been set.
 
+### SetMoDisplayNamesNil
+
+`func (o *AaaAbstractAuditRecordAllOf) SetMoDisplayNamesNil(b bool)`
+
+ SetMoDisplayNamesNil sets the value for MoDisplayNames to be an explicit nil
+
+### UnsetMoDisplayNames
+`func (o *AaaAbstractAuditRecordAllOf) UnsetMoDisplayNames()`
+
+UnsetMoDisplayNames ensures that no value is present for MoDisplayNames, not even an explicit nil
 ### GetMoType
 
 `func (o *AaaAbstractAuditRecordAllOf) GetMoType() string`
@@ -132,20 +142,20 @@ HasObjectMoid returns a boolean if a field has been set.
 
 ### GetRequest
 
-`func (o *AaaAbstractAuditRecordAllOf) GetRequest() map[string]interface{}`
+`func (o *AaaAbstractAuditRecordAllOf) GetRequest() interface{}`
 
 GetRequest returns the Request field if non-nil, zero value otherwise.
 
 ### GetRequestOk
 
-`func (o *AaaAbstractAuditRecordAllOf) GetRequestOk() (*map[string]interface{}, bool)`
+`func (o *AaaAbstractAuditRecordAllOf) GetRequestOk() (*interface{}, bool)`
 
 GetRequestOk returns a tuple with the Request field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRequest
 
-`func (o *AaaAbstractAuditRecordAllOf) SetRequest(v map[string]interface{})`
+`func (o *AaaAbstractAuditRecordAllOf) SetRequest(v interface{})`
 
 SetRequest sets Request field to given value.
 
@@ -155,6 +165,16 @@ SetRequest sets Request field to given value.
 
 HasRequest returns a boolean if a field has been set.
 
+### SetRequestNil
+
+`func (o *AaaAbstractAuditRecordAllOf) SetRequestNil(b bool)`
+
+ SetRequestNil sets the value for Request to be an explicit nil
+
+### UnsetRequest
+`func (o *AaaAbstractAuditRecordAllOf) UnsetRequest()`
+
+UnsetRequest ensures that no value is present for Request, not even an explicit nil
 ### GetTraceId
 
 `func (o *AaaAbstractAuditRecordAllOf) GetTraceId() string`

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -36,19 +36,21 @@ type IamUser struct {
 	UserIdOrEmail *string `json:"UserIdOrEmail,omitempty" yaml:"UserIdOrEmail,omitempty"`
 	// Type of the User. If a user is added manually by specifying the email address, or has logged in using groups, based on the IdP attributes received during authentication. If added manually, the user type will be static, otherwise dynamic.
 	UserType *string `json:"UserType,omitempty" yaml:"UserType,omitempty"`
+	// Unique id of the user used by the identity provider to store the user.
+	UserUniqueIdentifier *string `json:"UserUniqueIdentifier,omitempty" yaml:"UserUniqueIdentifier,omitempty"`
 	// An array of relationships to iamApiKey resources.
-	ApiKeys *[]IamApiKeyRelationship `json:"ApiKeys,omitempty" yaml:"ApiKeys,omitempty"`
+	ApiKeys []IamApiKeyRelationship `json:"ApiKeys,omitempty" yaml:"ApiKeys,omitempty"`
 	// An array of relationships to iamAppRegistration resources.
-	AppRegistrations  *[]IamAppRegistrationRelationship `json:"AppRegistrations,omitempty" yaml:"AppRegistrations,omitempty"`
+	AppRegistrations  []IamAppRegistrationRelationship  `json:"AppRegistrations,omitempty" yaml:"AppRegistrations,omitempty"`
 	Idp               *IamIdpRelationship               `json:"Idp,omitempty" yaml:"Idp,omitempty"`
 	Idpreference      *IamIdpReferenceRelationship      `json:"Idpreference,omitempty" yaml:"Idpreference,omitempty"`
 	LocalUserPassword *IamLocalUserPasswordRelationship `json:"LocalUserPassword,omitempty" yaml:"LocalUserPassword,omitempty"`
 	// An array of relationships to iamOAuthToken resources.
-	OauthTokens *[]IamOAuthTokenRelationship `json:"OauthTokens,omitempty" yaml:"OauthTokens,omitempty"`
+	OauthTokens []IamOAuthTokenRelationship `json:"OauthTokens,omitempty" yaml:"OauthTokens,omitempty"`
 	// An array of relationships to iamPermission resources.
-	Permissions *[]IamPermissionRelationship `json:"Permissions,omitempty" yaml:"Permissions,omitempty"`
+	Permissions []IamPermissionRelationship `json:"Permissions,omitempty" yaml:"Permissions,omitempty"`
 	// An array of relationships to iamSession resources.
-	Sessions *[]IamSessionRelationship `json:"Sessions,omitempty" yaml:"Sessions,omitempty"`
+	Sessions []IamSessionRelationship `json:"Sessions,omitempty" yaml:"Sessions,omitempty"`
 }
 
 // NewIamUser instantiates a new IamUser object
@@ -324,22 +326,55 @@ func (o *IamUser) SetUserType(v string) {
 	o.UserType = &v
 }
 
-// GetApiKeys returns the ApiKeys field value if set, zero value otherwise.
+// GetUserUniqueIdentifier returns the UserUniqueIdentifier field value if set, zero value otherwise.
+func (o *IamUser) GetUserUniqueIdentifier() string {
+	if o == nil || o.UserUniqueIdentifier == nil {
+		var ret string
+		return ret
+	}
+	return *o.UserUniqueIdentifier
+}
+
+// GetUserUniqueIdentifierOk returns a tuple with the UserUniqueIdentifier field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IamUser) GetUserUniqueIdentifierOk() (*string, bool) {
+	if o == nil || o.UserUniqueIdentifier == nil {
+		return nil, false
+	}
+	return o.UserUniqueIdentifier, true
+}
+
+// HasUserUniqueIdentifier returns a boolean if a field has been set.
+func (o *IamUser) HasUserUniqueIdentifier() bool {
+	if o != nil && o.UserUniqueIdentifier != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUserUniqueIdentifier gets a reference to the given string and assigns it to the UserUniqueIdentifier field.
+func (o *IamUser) SetUserUniqueIdentifier(v string) {
+	o.UserUniqueIdentifier = &v
+}
+
+// GetApiKeys returns the ApiKeys field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamUser) GetApiKeys() []IamApiKeyRelationship {
-	if o == nil || o.ApiKeys == nil {
+	if o == nil {
 		var ret []IamApiKeyRelationship
 		return ret
 	}
-	return *o.ApiKeys
+	return o.ApiKeys
 }
 
 // GetApiKeysOk returns a tuple with the ApiKeys field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamUser) GetApiKeysOk() (*[]IamApiKeyRelationship, bool) {
 	if o == nil || o.ApiKeys == nil {
 		return nil, false
 	}
-	return o.ApiKeys, true
+	return &o.ApiKeys, true
 }
 
 // HasApiKeys returns a boolean if a field has been set.
@@ -353,25 +388,26 @@ func (o *IamUser) HasApiKeys() bool {
 
 // SetApiKeys gets a reference to the given []IamApiKeyRelationship and assigns it to the ApiKeys field.
 func (o *IamUser) SetApiKeys(v []IamApiKeyRelationship) {
-	o.ApiKeys = &v
+	o.ApiKeys = v
 }
 
-// GetAppRegistrations returns the AppRegistrations field value if set, zero value otherwise.
+// GetAppRegistrations returns the AppRegistrations field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamUser) GetAppRegistrations() []IamAppRegistrationRelationship {
-	if o == nil || o.AppRegistrations == nil {
+	if o == nil {
 		var ret []IamAppRegistrationRelationship
 		return ret
 	}
-	return *o.AppRegistrations
+	return o.AppRegistrations
 }
 
 // GetAppRegistrationsOk returns a tuple with the AppRegistrations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamUser) GetAppRegistrationsOk() (*[]IamAppRegistrationRelationship, bool) {
 	if o == nil || o.AppRegistrations == nil {
 		return nil, false
 	}
-	return o.AppRegistrations, true
+	return &o.AppRegistrations, true
 }
 
 // HasAppRegistrations returns a boolean if a field has been set.
@@ -385,7 +421,7 @@ func (o *IamUser) HasAppRegistrations() bool {
 
 // SetAppRegistrations gets a reference to the given []IamAppRegistrationRelationship and assigns it to the AppRegistrations field.
 func (o *IamUser) SetAppRegistrations(v []IamAppRegistrationRelationship) {
-	o.AppRegistrations = &v
+	o.AppRegistrations = v
 }
 
 // GetIdp returns the Idp field value if set, zero value otherwise.
@@ -484,22 +520,23 @@ func (o *IamUser) SetLocalUserPassword(v IamLocalUserPasswordRelationship) {
 	o.LocalUserPassword = &v
 }
 
-// GetOauthTokens returns the OauthTokens field value if set, zero value otherwise.
+// GetOauthTokens returns the OauthTokens field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamUser) GetOauthTokens() []IamOAuthTokenRelationship {
-	if o == nil || o.OauthTokens == nil {
+	if o == nil {
 		var ret []IamOAuthTokenRelationship
 		return ret
 	}
-	return *o.OauthTokens
+	return o.OauthTokens
 }
 
 // GetOauthTokensOk returns a tuple with the OauthTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamUser) GetOauthTokensOk() (*[]IamOAuthTokenRelationship, bool) {
 	if o == nil || o.OauthTokens == nil {
 		return nil, false
 	}
-	return o.OauthTokens, true
+	return &o.OauthTokens, true
 }
 
 // HasOauthTokens returns a boolean if a field has been set.
@@ -513,25 +550,26 @@ func (o *IamUser) HasOauthTokens() bool {
 
 // SetOauthTokens gets a reference to the given []IamOAuthTokenRelationship and assigns it to the OauthTokens field.
 func (o *IamUser) SetOauthTokens(v []IamOAuthTokenRelationship) {
-	o.OauthTokens = &v
+	o.OauthTokens = v
 }
 
-// GetPermissions returns the Permissions field value if set, zero value otherwise.
+// GetPermissions returns the Permissions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamUser) GetPermissions() []IamPermissionRelationship {
-	if o == nil || o.Permissions == nil {
+	if o == nil {
 		var ret []IamPermissionRelationship
 		return ret
 	}
-	return *o.Permissions
+	return o.Permissions
 }
 
 // GetPermissionsOk returns a tuple with the Permissions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamUser) GetPermissionsOk() (*[]IamPermissionRelationship, bool) {
 	if o == nil || o.Permissions == nil {
 		return nil, false
 	}
-	return o.Permissions, true
+	return &o.Permissions, true
 }
 
 // HasPermissions returns a boolean if a field has been set.
@@ -545,25 +583,26 @@ func (o *IamUser) HasPermissions() bool {
 
 // SetPermissions gets a reference to the given []IamPermissionRelationship and assigns it to the Permissions field.
 func (o *IamUser) SetPermissions(v []IamPermissionRelationship) {
-	o.Permissions = &v
+	o.Permissions = v
 }
 
-// GetSessions returns the Sessions field value if set, zero value otherwise.
+// GetSessions returns the Sessions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamUser) GetSessions() []IamSessionRelationship {
-	if o == nil || o.Sessions == nil {
+	if o == nil {
 		var ret []IamSessionRelationship
 		return ret
 	}
-	return *o.Sessions
+	return o.Sessions
 }
 
 // GetSessionsOk returns a tuple with the Sessions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamUser) GetSessionsOk() (*[]IamSessionRelationship, bool) {
 	if o == nil || o.Sessions == nil {
 		return nil, false
 	}
-	return o.Sessions, true
+	return &o.Sessions, true
 }
 
 // HasSessions returns a boolean if a field has been set.
@@ -577,7 +616,7 @@ func (o *IamUser) HasSessions() bool {
 
 // SetSessions gets a reference to the given []IamSessionRelationship and assigns it to the Sessions field.
 func (o *IamUser) SetSessions(v []IamSessionRelationship) {
-	o.Sessions = &v
+	o.Sessions = v
 }
 
 func (o IamUser) MarshalJSON() ([]byte, error) {
@@ -613,6 +652,9 @@ func (o IamUser) MarshalJSON() ([]byte, error) {
 	}
 	if o.UserType != nil {
 		toSerialize["UserType"] = o.UserType
+	}
+	if o.UserUniqueIdentifier != nil {
+		toSerialize["UserUniqueIdentifier"] = o.UserUniqueIdentifier
 	}
 	if o.ApiKeys != nil {
 		toSerialize["ApiKeys"] = o.ApiKeys

@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **CifsServer** | Pointer to [**FirmwareCifsServer**](firmware.CifsServer.md) |  | [optional] 
 **HttpServer** | Pointer to [**FirmwareHttpServer**](firmware.HttpServer.md) |  | [optional] 
 **IsPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;password&#39; property has been set. | [optional] [readonly] 
-**MapType** | Pointer to **string** | File server protocols like CIFS, NFS, WWW for HTTP (S) that hosts the image. | [optional] [default to "nfs"]
+**MapType** | Pointer to **string** | File server protocols such as CIFS, NFS, WWW for HTTP (S) that hosts the image. * &#x60;nfs&#x60; - File server protocol used is NFS. * &#x60;cifs&#x60; - File server protocol used is CIFS. * &#x60;www&#x60; - File server protocol used is WWW. | [optional] [default to "nfs"]
 **NfsServer** | Pointer to [**FirmwareNfsServer**](firmware.NfsServer.md) |  | [optional] 
 **Password** | Pointer to **string** | Password as configured on the file server. | [optional] 
-**Upgradeoption** | Pointer to **string** | Option to control the upgrade, e.g., 1) nw_upgrade_mount_only - mount the image from a file server and run upgrade on-next server boot 2) nw_upgrade_full - mount the image and run upgrade immediately. | [optional] [default to "nw_upgrade_full"]
+**Upgradeoption** | Pointer to **string** | Option to control the upgrade operation. Some examples, 1) nw_upgrade_mount_only - mount the image from a file server and run the upgrade on the next server boot and 2) nw_upgrade_full - mount the image and immediately run the upgrade. * &#x60;nw_upgrade_full&#x60; - Network upgrade option for full upgrade. * &#x60;nw_upgrade_mount_only&#x60; - Network upgrade mount only. | [optional] [default to "nw_upgrade_full"]
 **Username** | Pointer to **string** | Username as configured on the file server. | [optional] 
 
 ## Methods

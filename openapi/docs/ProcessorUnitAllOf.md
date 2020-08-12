@@ -4,20 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Architecture** | Pointer to **string** |  | [optional] [readonly] 
-**NumCores** | Pointer to **int64** |  | [optional] [readonly] 
-**NumCoresEnabled** | Pointer to **string** |  | [optional] [readonly] 
-**NumThreads** | Pointer to **string** |  | [optional] [readonly] 
-**OperPowerState** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**ProcessorId** | Pointer to **int64** |  | [optional] [readonly] 
-**SocketDesignation** | Pointer to **string** |  | [optional] [readonly] 
-**Speed** | Pointer to **float32** |  | [optional] [readonly] 
-**Stepping** | Pointer to **string** |  | [optional] [readonly] 
-**Thermal** | Pointer to **string** |  | [optional] [readonly] 
+**Architecture** | Pointer to **string** | The architecture of the installed processor. | [optional] [readonly] 
+**NumCores** | Pointer to **int64** | The number of cores present in a given processor. | [optional] [readonly] 
+**NumCoresEnabled** | Pointer to **string** | The number of enabled cores in the installed processor. | [optional] [readonly] 
+**NumThreads** | Pointer to **string** | The maximum number of threads available in the installed processor. | [optional] [readonly] 
+**OperPowerState** | Pointer to **string** | The power state of the processor. | [optional] [readonly] 
+**OperState** | Pointer to **string** | The health indicator of the processor, &#39;OK&#39; indicates the processor is operatinal. | [optional] [readonly] 
+**Operability** | Pointer to **string** | Operability state of the central processing unit. | [optional] [readonly] 
+**Presence** | Pointer to **string** | The valid values are &#39;equipped&#39; and &#39;absent&#39;. | [optional] [readonly] 
+**ProcessorId** | Pointer to **int64** | The ID number of a given processor. | [optional] [readonly] 
+**SocketDesignation** | Pointer to **string** | The socket ID of the installed processor. | [optional] [readonly] 
+**Speed** | Pointer to **float32** | The maximum speed of the installed processor in GHz. | [optional] [readonly] 
+**Stepping** | Pointer to **string** | The CPU stepping of the installed processor. | [optional] [readonly] 
+**Thermal** | Pointer to **string** | The temperature of the processor in centigrade. | [optional] [readonly] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -364,6 +367,31 @@ SetThermal sets Thermal field to given value.
 
 HasThermal returns a boolean if a field has been set.
 
+### GetComputeBlade
+
+`func (o *ProcessorUnitAllOf) GetComputeBlade() ComputeBladeRelationship`
+
+GetComputeBlade returns the ComputeBlade field if non-nil, zero value otherwise.
+
+### GetComputeBladeOk
+
+`func (o *ProcessorUnitAllOf) GetComputeBladeOk() (*ComputeBladeRelationship, bool)`
+
+GetComputeBladeOk returns a tuple with the ComputeBlade field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeBlade
+
+`func (o *ProcessorUnitAllOf) SetComputeBlade(v ComputeBladeRelationship)`
+
+SetComputeBlade sets ComputeBlade field to given value.
+
+### HasComputeBlade
+
+`func (o *ProcessorUnitAllOf) HasComputeBlade() bool`
+
+HasComputeBlade returns a boolean if a field has been set.
+
 ### GetComputeBoard
 
 `func (o *ProcessorUnitAllOf) GetComputeBoard() ComputeBoardRelationship`
@@ -388,6 +416,56 @@ SetComputeBoard sets ComputeBoard field to given value.
 `func (o *ProcessorUnitAllOf) HasComputeBoard() bool`
 
 HasComputeBoard returns a boolean if a field has been set.
+
+### GetComputeRackUnit
+
+`func (o *ProcessorUnitAllOf) GetComputeRackUnit() ComputeRackUnitRelationship`
+
+GetComputeRackUnit returns the ComputeRackUnit field if non-nil, zero value otherwise.
+
+### GetComputeRackUnitOk
+
+`func (o *ProcessorUnitAllOf) GetComputeRackUnitOk() (*ComputeRackUnitRelationship, bool)`
+
+GetComputeRackUnitOk returns a tuple with the ComputeRackUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeRackUnit
+
+`func (o *ProcessorUnitAllOf) SetComputeRackUnit(v ComputeRackUnitRelationship)`
+
+SetComputeRackUnit sets ComputeRackUnit field to given value.
+
+### HasComputeRackUnit
+
+`func (o *ProcessorUnitAllOf) HasComputeRackUnit() bool`
+
+HasComputeRackUnit returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *ProcessorUnitAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ProcessorUnitAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ProcessorUnitAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ProcessorUnitAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

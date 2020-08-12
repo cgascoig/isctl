@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,11 +18,11 @@ import (
 
 // ComputeServerSettingAllOf Definition of the list of properties defined in 'compute.ServerSetting', excluding properties defined in parent classes.
 type ComputeServerSettingAllOf struct {
-	// User configured state of the locator LED for the server.
+	// User configured state of the locator LED for the server. * `None` - No operation property for locator led. * `On` - The Locator Led is turned on. * `Off` - The Locator Led is turned off.
 	AdminLocatorLedState *string `json:"AdminLocatorLedState,omitempty" yaml:"AdminLocatorLedState,omitempty"`
-	// User configured power state of the server.
+	// User configured power state of the server. * `Policy` - Power state is set to the default value in the policy. * `PowerOn` - Power state of the server is set to On. * `PowerOff` - Power state is the server set to Off. * `PowerCycle` - Power state the server is reset. * `HardReset` - Power state the server is hard reset. * `Shutdown` - Operating system on the server is shut down. * `Reboot` - Power state of IMC is rebooted.
 	AdminPowerState *string `json:"AdminPowerState,omitempty" yaml:"AdminPowerState,omitempty"`
-	// The configured state of these settings in the target server. The value is any one of Applied, Applying, Failed. Applied - This state denotes that the settings are applied successfully in the target server. Applying - This state denotes that the settings are being applied in the target server. Failed - This state denotes that the settings could not be applied in the target server.
+	// The configured state of these settings in the target server. The value is any one of Applied, Applying, Failed. Applied - This state denotes that the settings are applied successfully in the target server. Applying - This state denotes that the settings are being applied in the target server. Failed - This state denotes that the settings could not be applied in the target server. * `Applied` - User configured settings are in applied state. * `Applying` - User settings are being applied on the target server. * `Failed` - User configured settings could not be applied.
 	ConfigState *string `json:"ConfigState,omitempty" yaml:"ConfigState,omitempty"`
 	// The name of the device chosen by user for configuring One-Time Boot device.
 	OneTimeBootDevice         *string                              `json:"OneTimeBootDevice,omitempty" yaml:"OneTimeBootDevice,omitempty"`
@@ -30,7 +30,8 @@ type ComputeServerSettingAllOf struct {
 	ServerConfig              *ComputeServerConfig                 `json:"ServerConfig,omitempty" yaml:"ServerConfig,omitempty"`
 	LocatorLed                *EquipmentLocatorLedRelationship     `json:"LocatorLed,omitempty" yaml:"LocatorLed,omitempty"`
 	RegisteredDevice          *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
-	Server                    *ComputeRackUnitRelationship         `json:"Server,omitempty" yaml:"Server,omitempty"`
+	RunningWorkflow           *WorkflowWorkflowInfoRelationship    `json:"RunningWorkflow,omitempty" yaml:"RunningWorkflow,omitempty"`
+	Server                    *ComputePhysicalRelationship         `json:"Server,omitempty" yaml:"Server,omitempty"`
 }
 
 // NewComputeServerSettingAllOf instantiates a new ComputeServerSettingAllOf object
@@ -318,10 +319,42 @@ func (o *ComputeServerSettingAllOf) SetRegisteredDevice(v AssetDeviceRegistratio
 	o.RegisteredDevice = &v
 }
 
+// GetRunningWorkflow returns the RunningWorkflow field value if set, zero value otherwise.
+func (o *ComputeServerSettingAllOf) GetRunningWorkflow() WorkflowWorkflowInfoRelationship {
+	if o == nil || o.RunningWorkflow == nil {
+		var ret WorkflowWorkflowInfoRelationship
+		return ret
+	}
+	return *o.RunningWorkflow
+}
+
+// GetRunningWorkflowOk returns a tuple with the RunningWorkflow field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeServerSettingAllOf) GetRunningWorkflowOk() (*WorkflowWorkflowInfoRelationship, bool) {
+	if o == nil || o.RunningWorkflow == nil {
+		return nil, false
+	}
+	return o.RunningWorkflow, true
+}
+
+// HasRunningWorkflow returns a boolean if a field has been set.
+func (o *ComputeServerSettingAllOf) HasRunningWorkflow() bool {
+	if o != nil && o.RunningWorkflow != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRunningWorkflow gets a reference to the given WorkflowWorkflowInfoRelationship and assigns it to the RunningWorkflow field.
+func (o *ComputeServerSettingAllOf) SetRunningWorkflow(v WorkflowWorkflowInfoRelationship) {
+	o.RunningWorkflow = &v
+}
+
 // GetServer returns the Server field value if set, zero value otherwise.
-func (o *ComputeServerSettingAllOf) GetServer() ComputeRackUnitRelationship {
+func (o *ComputeServerSettingAllOf) GetServer() ComputePhysicalRelationship {
 	if o == nil || o.Server == nil {
-		var ret ComputeRackUnitRelationship
+		var ret ComputePhysicalRelationship
 		return ret
 	}
 	return *o.Server
@@ -329,7 +362,7 @@ func (o *ComputeServerSettingAllOf) GetServer() ComputeRackUnitRelationship {
 
 // GetServerOk returns a tuple with the Server field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ComputeServerSettingAllOf) GetServerOk() (*ComputeRackUnitRelationship, bool) {
+func (o *ComputeServerSettingAllOf) GetServerOk() (*ComputePhysicalRelationship, bool) {
 	if o == nil || o.Server == nil {
 		return nil, false
 	}
@@ -345,8 +378,8 @@ func (o *ComputeServerSettingAllOf) HasServer() bool {
 	return false
 }
 
-// SetServer gets a reference to the given ComputeRackUnitRelationship and assigns it to the Server field.
-func (o *ComputeServerSettingAllOf) SetServer(v ComputeRackUnitRelationship) {
+// SetServer gets a reference to the given ComputePhysicalRelationship and assigns it to the Server field.
+func (o *ComputeServerSettingAllOf) SetServer(v ComputePhysicalRelationship) {
 	o.Server = &v
 }
 
@@ -375,6 +408,9 @@ func (o ComputeServerSettingAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice
+	}
+	if o.RunningWorkflow != nil {
+		toSerialize["RunningWorkflow"] = o.RunningWorkflow
 	}
 	if o.Server != nil {
 		toSerialize["Server"] = o.Server

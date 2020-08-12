@@ -18,12 +18,12 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **DomainName** | Pointer to **string** | Email domain name of the user for this IdP. When a user enters an email during login in the Intersight home page, the IdP is picked by matching this domain name with the email domain name for authentication. | [optional] 
 **IdpEntityId** | Pointer to **string** | The Entity ID of the IdP. In SAML, the entity ID uniquely identifies the IdP or Service Provider. | [optional] [readonly] 
 **Metadata** | Pointer to **string** | SAML metadata of the IdP. | [optional] 
 **Name** | Pointer to **string** | The name of the Identity Provider, for example Cisco, Okta, or OneID. | [optional] 
-**Type** | Pointer to **string** | Authentication protocol used by the IdP. | [optional] [default to "saml"]
+**Type** | Pointer to **string** | Authentication protocol used by the IdP. * &#x60;saml&#x60; - Use SAML as the authentication protocol for sign-on. * &#x60;oidc&#x60; - Open ID connect to be used as an authentication protocol for sign-on. * &#x60;local&#x60; - The local authentication method to be used for sign-on. Local type is set to default for the Intersight Appliance IdP. | [optional] [default to "saml"]
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
 **LdapPolicy** | Pointer to [**IamLdapPolicyRelationship**](iam.LdapPolicy.Relationship.md) |  | [optional] 
 **System** | Pointer to [**IamSystemRelationship**](iam.System.Relationship.md) |  | [optional] 
@@ -340,6 +340,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *IamIdpRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *IamIdpRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *IamIdpRelationship) GetParent() MoBaseMoRelationship`
@@ -390,6 +400,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *IamIdpRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *IamIdpRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *IamIdpRelationship) GetDisplayNames() map[string][]string`
@@ -650,6 +670,16 @@ SetUserPreferences sets UserPreferences field to given value.
 
 HasUserPreferences returns a boolean if a field has been set.
 
+### SetUserPreferencesNil
+
+`func (o *IamIdpRelationship) SetUserPreferencesNil(b bool)`
+
+ SetUserPreferencesNil sets the value for UserPreferences to be an explicit nil
+
+### UnsetUserPreferences
+`func (o *IamIdpRelationship) UnsetUserPreferences()`
+
+UnsetUserPreferences ensures that no value is present for UserPreferences, not even an explicit nil
 ### GetUsergroups
 
 `func (o *IamIdpRelationship) GetUsergroups() []IamUserGroupRelationship`
@@ -675,6 +705,16 @@ SetUsergroups sets Usergroups field to given value.
 
 HasUsergroups returns a boolean if a field has been set.
 
+### SetUsergroupsNil
+
+`func (o *IamIdpRelationship) SetUsergroupsNil(b bool)`
+
+ SetUsergroupsNil sets the value for Usergroups to be an explicit nil
+
+### UnsetUsergroups
+`func (o *IamIdpRelationship) UnsetUsergroups()`
+
+UnsetUsergroups ensures that no value is present for Usergroups, not even an explicit nil
 ### GetUsers
 
 `func (o *IamIdpRelationship) GetUsers() []IamUserRelationship`
@@ -700,6 +740,16 @@ SetUsers sets Users field to given value.
 
 HasUsers returns a boolean if a field has been set.
 
+### SetUsersNil
+
+`func (o *IamIdpRelationship) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *IamIdpRelationship) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

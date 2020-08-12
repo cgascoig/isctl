@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Name for the BuildTaskMeta instance used to created a dynamic workflow. | [optional] [readonly] 
 **Src** | Pointer to **string** | Microservice owner for the task in this workflow. | [optional] [readonly] 
-**TaskList** | Pointer to **map[string]interface{}** | Task list used to build the dynamic workflow. | [optional] [readonly] 
+**TaskList** | Pointer to **interface{}** | Task list used to build the dynamic workflow. | [optional] [readonly] 
 **TaskType** | Pointer to **string** | The type of the task within this workflow. | [optional] [readonly] 
 **WorkflowType** | Pointer to **string** | The type for the dynamic workflow. | [optional] [readonly] 
 
@@ -81,20 +81,20 @@ HasSrc returns a boolean if a field has been set.
 
 ### GetTaskList
 
-`func (o *WorkflowBuildTaskMeta) GetTaskList() map[string]interface{}`
+`func (o *WorkflowBuildTaskMeta) GetTaskList() interface{}`
 
 GetTaskList returns the TaskList field if non-nil, zero value otherwise.
 
 ### GetTaskListOk
 
-`func (o *WorkflowBuildTaskMeta) GetTaskListOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowBuildTaskMeta) GetTaskListOk() (*interface{}, bool)`
 
 GetTaskListOk returns a tuple with the TaskList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTaskList
 
-`func (o *WorkflowBuildTaskMeta) SetTaskList(v map[string]interface{})`
+`func (o *WorkflowBuildTaskMeta) SetTaskList(v interface{})`
 
 SetTaskList sets TaskList field to given value.
 
@@ -104,6 +104,16 @@ SetTaskList sets TaskList field to given value.
 
 HasTaskList returns a boolean if a field has been set.
 
+### SetTaskListNil
+
+`func (o *WorkflowBuildTaskMeta) SetTaskListNil(b bool)`
+
+ SetTaskListNil sets the value for TaskList to be an explicit nil
+
+### UnsetTaskList
+`func (o *WorkflowBuildTaskMeta) UnsetTaskList()`
+
+UnsetTaskList ensures that no value is present for TaskList, not even an explicit nil
 ### GetTaskType
 
 `func (o *WorkflowBuildTaskMeta) GetTaskType() string`

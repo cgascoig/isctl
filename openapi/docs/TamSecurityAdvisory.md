@@ -14,9 +14,10 @@ Name | Type | Description | Notes
 **EnvironmentalScore** | Pointer to **float32** | CVSS version 3 environmental score for the security Advisory. | [optional] 
 **ExternalUrl** | Pointer to **string** | A link to an external URL describing security Advisory in more details. | [optional] 
 **Recommendation** | Pointer to **string** | Recommended action to resolve the security advisory. | [optional] 
-**Status** | Pointer to **string** | Cisco assigned status of the published advisory based on whether the investigation is complete or on-going. | [optional] [default to "interim"]
+**Status** | Pointer to **string** | Cisco assigned status of the published advisory based on whether the investigation is complete or on-going. * &#x60;interim&#x60; - The Cisco investigation for the advisory is ongoing. Cisco will issue revisions to the advisory when additional information, including fixed software release data, becomes available. * &#x60;final&#x60; - Cisco has completed its evaluation of the vulnerability described in the advisory. There will be no further updates unless there is a material change in the nature of the vulnerability. | [optional] [default to "interim"]
 **TemporalScore** | Pointer to **float32** | CVSS version 3 temporal score for the security Advisory. | [optional] 
 **Version** | Pointer to **string** | Cisco assigned advisory version after latest revision. | [optional] 
+**Workaround** | Pointer to **string** | Workarounds available for the advisory. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -362,6 +363,31 @@ SetVersion sets Version field to given value.
 `func (o *TamSecurityAdvisory) HasVersion() bool`
 
 HasVersion returns a boolean if a field has been set.
+
+### GetWorkaround
+
+`func (o *TamSecurityAdvisory) GetWorkaround() string`
+
+GetWorkaround returns the Workaround field if non-nil, zero value otherwise.
+
+### GetWorkaroundOk
+
+`func (o *TamSecurityAdvisory) GetWorkaroundOk() (*string, bool)`
+
+GetWorkaroundOk returns a tuple with the Workaround field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkaround
+
+`func (o *TamSecurityAdvisory) SetWorkaround(v string)`
+
+SetWorkaround sets Workaround field to given value.
+
+### HasWorkaround
+
+`func (o *TamSecurityAdvisory) HasWorkaround() bool`
+
+HasWorkaround returns a boolean if a field has been set.
 
 ### GetOrganization
 

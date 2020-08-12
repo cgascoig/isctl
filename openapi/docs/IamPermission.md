@@ -133,6 +133,16 @@ SetEndPointRoles sets EndPointRoles field to given value.
 
 HasEndPointRoles returns a boolean if a field has been set.
 
+### SetEndPointRolesNil
+
+`func (o *IamPermission) SetEndPointRolesNil(b bool)`
+
+ SetEndPointRolesNil sets the value for EndPointRoles to be an explicit nil
+
+### UnsetEndPointRoles
+`func (o *IamPermission) UnsetEndPointRoles()`
+
+UnsetEndPointRoles ensures that no value is present for EndPointRoles, not even an explicit nil
 ### GetResourceRoles
 
 `func (o *IamPermission) GetResourceRoles() []IamResourceRolesRelationship`
@@ -158,6 +168,16 @@ SetResourceRoles sets ResourceRoles field to given value.
 
 HasResourceRoles returns a boolean if a field has been set.
 
+### SetResourceRolesNil
+
+`func (o *IamPermission) SetResourceRolesNil(b bool)`
+
+ SetResourceRolesNil sets the value for ResourceRoles to be an explicit nil
+
+### UnsetResourceRoles
+`func (o *IamPermission) UnsetResourceRoles()`
+
+UnsetResourceRoles ensures that no value is present for ResourceRoles, not even an explicit nil
 ### GetRoles
 
 `func (o *IamPermission) GetRoles() []IamRoleRelationship`
@@ -183,6 +203,16 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
+### SetRolesNil
+
+`func (o *IamPermission) SetRolesNil(b bool)`
+
+ SetRolesNil sets the value for Roles to be an explicit nil
+
+### UnsetRoles
+`func (o *IamPermission) UnsetRoles()`
+
+UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 ### GetSessionLimits
 
 `func (o *IamPermission) GetSessionLimits() IamSessionLimitsRelationship`
@@ -233,6 +263,16 @@ SetUserGroups sets UserGroups field to given value.
 
 HasUserGroups returns a boolean if a field has been set.
 
+### SetUserGroupsNil
+
+`func (o *IamPermission) SetUserGroupsNil(b bool)`
+
+ SetUserGroupsNil sets the value for UserGroups to be an explicit nil
+
+### UnsetUserGroups
+`func (o *IamPermission) UnsetUserGroups()`
+
+UnsetUserGroups ensures that no value is present for UserGroups, not even an explicit nil
 ### GetUsers
 
 `func (o *IamPermission) GetUsers() []IamUserRelationship`
@@ -258,6 +298,16 @@ SetUsers sets Users field to given value.
 
 HasUsers returns a boolean if a field has been set.
 
+### SetUsersNil
+
+`func (o *IamPermission) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *IamPermission) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

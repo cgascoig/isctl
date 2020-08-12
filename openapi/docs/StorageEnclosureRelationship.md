@@ -18,26 +18,27 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**ChassisId** | Pointer to **int64** |  | [optional] [readonly] 
-**Description** | Pointer to **string** |  | [optional] [readonly] 
-**EnclosureId** | Pointer to **int64** |  | [optional] [readonly] 
-**NumSlots** | Pointer to **int64** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**ServerId** | Pointer to **int64** |  | [optional] [readonly] 
-**Type** | Pointer to **string** |  | [optional] [readonly] 
+**ChassisId** | Pointer to **int64** | This represent the chassis-ID that houses the storage enclosure. | [optional] [readonly] 
+**Description** | Pointer to **string** | This represnets the description for the storage enclosure. | [optional] [readonly] 
+**EnclosureId** | Pointer to **int64** | This represnets the Identifier for the storage enclosure. | [optional] [readonly] 
+**NumSlots** | Pointer to **int64** | This represent the number of slots present in storage enclosure. | [optional] [readonly] 
+**Presence** | Pointer to **string** | This represent the availability of storage enclosure. | [optional] [readonly] 
+**ServerId** | Pointer to **int64** | This represent the server-ID that houses the storage enclosure. | [optional] [readonly] 
+**Type** | Pointer to **string** | This represent the type of storage enclosure. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **EnclosureDiskSlots** | Pointer to [**[]StorageEnclosureDiskSlotEpRelationship**](storage.EnclosureDiskSlotEp.Relationship.md) | An array of relationships to storageEnclosureDiskSlotEp resources. | [optional] [readonly] 
 **EnclosureDisks** | Pointer to [**[]StorageEnclosureDiskRelationship**](storage.EnclosureDisk.Relationship.md) | An array of relationships to storageEnclosureDisk resources. | [optional] [readonly] 
 **EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PhysicalDisks** | Pointer to [**[]StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) | An array of relationships to storagePhysicalDisk resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -350,6 +351,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StorageEnclosureRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StorageEnclosureRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StorageEnclosureRelationship) GetParent() MoBaseMoRelationship`
@@ -400,6 +411,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StorageEnclosureRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StorageEnclosureRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StorageEnclosureRelationship) GetDisplayNames() map[string][]string`
@@ -860,6 +881,16 @@ SetEnclosureDiskSlots sets EnclosureDiskSlots field to given value.
 
 HasEnclosureDiskSlots returns a boolean if a field has been set.
 
+### SetEnclosureDiskSlotsNil
+
+`func (o *StorageEnclosureRelationship) SetEnclosureDiskSlotsNil(b bool)`
+
+ SetEnclosureDiskSlotsNil sets the value for EnclosureDiskSlots to be an explicit nil
+
+### UnsetEnclosureDiskSlots
+`func (o *StorageEnclosureRelationship) UnsetEnclosureDiskSlots()`
+
+UnsetEnclosureDiskSlots ensures that no value is present for EnclosureDiskSlots, not even an explicit nil
 ### GetEnclosureDisks
 
 `func (o *StorageEnclosureRelationship) GetEnclosureDisks() []StorageEnclosureDiskRelationship`
@@ -885,6 +916,16 @@ SetEnclosureDisks sets EnclosureDisks field to given value.
 
 HasEnclosureDisks returns a boolean if a field has been set.
 
+### SetEnclosureDisksNil
+
+`func (o *StorageEnclosureRelationship) SetEnclosureDisksNil(b bool)`
+
+ SetEnclosureDisksNil sets the value for EnclosureDisks to be an explicit nil
+
+### UnsetEnclosureDisks
+`func (o *StorageEnclosureRelationship) UnsetEnclosureDisks()`
+
+UnsetEnclosureDisks ensures that no value is present for EnclosureDisks, not even an explicit nil
 ### GetEquipmentChassis
 
 `func (o *StorageEnclosureRelationship) GetEquipmentChassis() EquipmentChassisRelationship`
@@ -909,6 +950,31 @@ SetEquipmentChassis sets EquipmentChassis field to given value.
 `func (o *StorageEnclosureRelationship) HasEquipmentChassis() bool`
 
 HasEquipmentChassis returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageEnclosureRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageEnclosureRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageEnclosureRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageEnclosureRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPhysicalDisks
 
@@ -935,6 +1001,16 @@ SetPhysicalDisks sets PhysicalDisks field to given value.
 
 HasPhysicalDisks returns a boolean if a field has been set.
 
+### SetPhysicalDisksNil
+
+`func (o *StorageEnclosureRelationship) SetPhysicalDisksNil(b bool)`
+
+ SetPhysicalDisksNil sets the value for PhysicalDisks to be an explicit nil
+
+### UnsetPhysicalDisks
+`func (o *StorageEnclosureRelationship) UnsetPhysicalDisks()`
+
+UnsetPhysicalDisks ensures that no value is present for PhysicalDisks, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *StorageEnclosureRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

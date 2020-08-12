@@ -18,17 +18,17 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **AccountId** | Pointer to **string** | Root user&#39;s ID of the account. | [optional] [readonly] 
 **AgentData** | Pointer to **string** | Agent trusted store data. | [optional] [readonly] 
 **AuthExpireTime** | Pointer to **string** | Authorization expiration time. | [optional] [readonly] 
 **AuthInitialTime** | Pointer to **string** | Intial authorization time. | [optional] [readonly] 
 **AuthNextTime** | Pointer to **string** | Next time for the authorization. | [optional] [readonly] 
 **Category** | Pointer to **string** | Account license data category name. | [optional] [readonly] 
-**DefaultLicenseType** | Pointer to **string** | Default license tier set by user. | [optional] [default to "Base"]
+**DefaultLicenseType** | Pointer to **string** | Default license tier set by user. * &#x60;Base&#x60; - Base as a License type. It is default license type. * &#x60;Essential&#x60; - Essential as a License type. * &#x60;Standard&#x60; - Standard as a License type. * &#x60;Advantage&#x60; - Advantage as a License type. * &#x60;Premier&#x60; - Premier as a License type. | [optional] [default to "Base"]
 **ErrorDesc** | Pointer to **string** | The detailed error message when there is any error related to license sync of this account. | [optional] [readonly] 
 **Group** | Pointer to **string** | Account license data group name. | [optional] [readonly] 
-**HighestCompliantLicenseTier** | Pointer to **string** | The highest license tier which is in compliant of this account. | [optional] [readonly] [default to "Base"]
+**HighestCompliantLicenseTier** | Pointer to **string** | The highest license tier which is in compliant of this account. * &#x60;Base&#x60; - Base as a License type. It is default license type. * &#x60;Essential&#x60; - Essential as a License type. * &#x60;Standard&#x60; - Standard as a License type. * &#x60;Advantage&#x60; - Advantage as a License type. * &#x60;Premier&#x60; - Premier as a License type. | [optional] [readonly] [default to "Base"]
 **LastSync** | Pointer to [**time.Time**](time.Time.md) | Specifies last sync time with SA. | [optional] [readonly] 
 **LastUpdatedTime** | Pointer to [**time.Time**](time.Time.md) | Record&#39;s last update datetime. | [optional] [readonly] 
 **LicenseState** | Pointer to **string** | Aggregrated mode for the agent. | [optional] [readonly] 
@@ -355,6 +355,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *LicenseAccountLicenseDataRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *LicenseAccountLicenseDataRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *LicenseAccountLicenseDataRelationship) GetParent() MoBaseMoRelationship`
@@ -405,6 +415,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *LicenseAccountLicenseDataRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *LicenseAccountLicenseDataRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *LicenseAccountLicenseDataRelationship) GetDisplayNames() map[string][]string`
@@ -1065,6 +1085,16 @@ SetLicenseinfos sets Licenseinfos field to given value.
 
 HasLicenseinfos returns a boolean if a field has been set.
 
+### SetLicenseinfosNil
+
+`func (o *LicenseAccountLicenseDataRelationship) SetLicenseinfosNil(b bool)`
+
+ SetLicenseinfosNil sets the value for Licenseinfos to be an explicit nil
+
+### UnsetLicenseinfos
+`func (o *LicenseAccountLicenseDataRelationship) UnsetLicenseinfos()`
+
+UnsetLicenseinfos ensures that no value is present for Licenseinfos, not even an explicit nil
 ### GetSmartlicenseToken
 
 `func (o *LicenseAccountLicenseDataRelationship) GetSmartlicenseToken() LicenseSmartlicenseTokenRelationship`

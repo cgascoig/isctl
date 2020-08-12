@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | The having filter type. | 
+**Filter** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | 
 **Aggregation** | Pointer to **string** | aggregate metric | 
 **Value** | Pointer to **float64** | null | 
 **Dimension** | Pointer to **string** | dimension | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidHavingFilter
 
-`func NewTelemetryDruidHavingFilter(type_ string, aggregation string, value float64, dimension string, ) *TelemetryDruidHavingFilter`
+`func NewTelemetryDruidHavingFilter(type_ string, filter TelemetryDruidFilter, aggregation string, value float64, dimension string, ) *TelemetryDruidHavingFilter`
 
 NewTelemetryDruidHavingFilter instantiates a new TelemetryDruidHavingFilter object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +47,26 @@ and a boolean to check if the value has been set.
 `func (o *TelemetryDruidHavingFilter) SetType(v string)`
 
 SetType sets Type field to given value.
+
+
+### GetFilter
+
+`func (o *TelemetryDruidHavingFilter) GetFilter() TelemetryDruidFilter`
+
+GetFilter returns the Filter field if non-nil, zero value otherwise.
+
+### GetFilterOk
+
+`func (o *TelemetryDruidHavingFilter) GetFilterOk() (*TelemetryDruidFilter, bool)`
+
+GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilter
+
+`func (o *TelemetryDruidHavingFilter) SetFilter(v TelemetryDruidFilter)`
+
+SetFilter sets Filter field to given value.
 
 
 ### GetAggregation

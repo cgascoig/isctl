@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DownloadUrl** | Pointer to **string** | When import action in file MO is updated with &#39;GeneratePreSignedDownloadUrl&#39;, Intersight shall return a presigned URL in this property as part of the PATCH response. The user is expected to subsequently download the file using this URL. | [optional] [readonly] 
-**PartSize** | Pointer to **int64** | Chunk size (in bytes) of the each part of file to be uploaded. | [optional] 
+**DownloadUrl** | Pointer to **string** | When the import action in the file MO is updated with &#39;GeneratePreSignedDownloadUrl&#39;, Intersight returns a pre-signed URL in this property as part of the patch response. The user is expected to subsequently download the file using this URL. | [optional] [readonly] 
+**PartSize** | Pointer to **int64** | The chunk size (in bytes) for each part of the file to be uploaded. | [optional] 
 **UploadId** | Pointer to **string** | When the import action in file MO is updated with &#39;GeneratePreSignedUploadUrl&#39;, Intersight shall return a upload Id in this property as part of the PATCH response. | [optional] 
-**UploadUrl** | Pointer to **string** | When a file MO is created with &#39;LocalMachine&#39; as the source, Intersight shall return a presigned URL in this property as part of the POST response. The user is expected to subsequently upload the file content using this URL. Once this upload has been completed, the user is expected to PATCH the Uploader object&#39;s transfer state to success. | [optional] [readonly] 
+**UploadUrl** | Pointer to **string** | When a file MO is created with &#39;LocalMachine&#39; as the source, Intersight returns a pre-signed URL in this property as part of the POST response. The user is expected to subsequently upload the file content using this URL. Once the upload is completed, the user is expected to patch the uploader object&#39;s transfer state to success. | [optional] [readonly] 
 **UploadUrls** | Pointer to **[]string** |  | [optional] 
 
 ## Methods

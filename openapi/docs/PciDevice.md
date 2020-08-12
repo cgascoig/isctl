@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FirmwareVersion** | Pointer to **string** | It shows the running firmware version. | [optional] 
-**Pid** | Pointer to **string** | It shows the product identifier. | [optional] 
-**SlotId** | Pointer to **string** | It show PCI slot id of the device. | [optional] [readonly] 
+**FirmwareVersion** | Pointer to **string** | The running firmware version of the PCI device. | [optional] 
+**Pid** | Pointer to **string** | The product identifier of the PCI device. | [optional] 
+**SlotId** | Pointer to **string** | The PCI slot id of the PCI device. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -154,6 +155,31 @@ SetComputeRackUnit sets ComputeRackUnit field to given value.
 `func (o *PciDevice) HasComputeRackUnit() bool`
 
 HasComputeRackUnit returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *PciDevice) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *PciDevice) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *PciDevice) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *PciDevice) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

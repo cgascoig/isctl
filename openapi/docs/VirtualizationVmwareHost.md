@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BootTime** | Pointer to [**time.Time**](time.Time.md) | The time when this host booted up. | [optional] 
 **ConnectionState** | Pointer to **string** | Indicates if the host is connected to the vCenter. Values are connected, not connected. | [optional] 
-**HwPowerState** | Pointer to **string** | Is the host Powered-up or Powered-down. | [optional] [default to "Unknown"]
+**HwPowerState** | Pointer to **string** | Is the host Powered-up or Powered-down. * &#x60;Unknown&#x60; - The entity&#39;s power state is unknown. * &#x60;PoweredOn&#x60; - The entity is powered on. * &#x60;PoweredOff&#x60; - The entity is powered down. * &#x60;StandBy&#x60; - The entity is in standby mode. * &#x60;Paused&#x60; - The entity is in pause state. | [optional] [default to "Unknown"]
 **NetworkAdapterCount** | Pointer to **int64** | The count of all network adapters attached to this host. | [optional] 
-**ResourceConsumed** | Pointer to [**VirtualizationResourceConsumption**](virtualization.ResourceConsumption.md) |  | [optional] 
+**ResourceConsumed** | Pointer to [**VirtualizationVmwareResourceConsumption**](virtualization.VmwareResourceConsumption.md) |  | [optional] 
 **StorageAdapterCount** | Pointer to **int64** | The count of all storage adapters attached to this host. | [optional] 
 **VcenterHostId** | Pointer to **string** | The identity of this host within vCenter (optional). | [optional] 
 **Cluster** | Pointer to [**VirtualizationVmwareClusterRelationship**](virtualization.VmwareCluster.Relationship.md) |  | [optional] 
@@ -136,20 +136,20 @@ HasNetworkAdapterCount returns a boolean if a field has been set.
 
 ### GetResourceConsumed
 
-`func (o *VirtualizationVmwareHost) GetResourceConsumed() VirtualizationResourceConsumption`
+`func (o *VirtualizationVmwareHost) GetResourceConsumed() VirtualizationVmwareResourceConsumption`
 
 GetResourceConsumed returns the ResourceConsumed field if non-nil, zero value otherwise.
 
 ### GetResourceConsumedOk
 
-`func (o *VirtualizationVmwareHost) GetResourceConsumedOk() (*VirtualizationResourceConsumption, bool)`
+`func (o *VirtualizationVmwareHost) GetResourceConsumedOk() (*VirtualizationVmwareResourceConsumption, bool)`
 
 GetResourceConsumedOk returns a tuple with the ResourceConsumed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceConsumed
 
-`func (o *VirtualizationVmwareHost) SetResourceConsumed(v VirtualizationResourceConsumption)`
+`func (o *VirtualizationVmwareHost) SetResourceConsumed(v VirtualizationVmwareResourceConsumption)`
 
 SetResourceConsumed sets ResourceConsumed field to given value.
 
@@ -284,6 +284,16 @@ SetDatastores sets Datastores field to given value.
 
 HasDatastores returns a boolean if a field has been set.
 
+### SetDatastoresNil
+
+`func (o *VirtualizationVmwareHost) SetDatastoresNil(b bool)`
+
+ SetDatastoresNil sets the value for Datastores to be an explicit nil
+
+### UnsetDatastores
+`func (o *VirtualizationVmwareHost) UnsetDatastores()`
+
+UnsetDatastores ensures that no value is present for Datastores, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

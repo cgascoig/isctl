@@ -77,6 +77,16 @@ SetBackupProfiles sets BackupProfiles field to given value.
 
 HasBackupProfiles returns a boolean if a field has been set.
 
+### SetBackupProfilesNil
+
+`func (o *RecoveryScheduleConfigPolicy) SetBackupProfilesNil(b bool)`
+
+ SetBackupProfilesNil sets the value for BackupProfiles to be an explicit nil
+
+### UnsetBackupProfiles
+`func (o *RecoveryScheduleConfigPolicy) UnsetBackupProfiles()`
+
+UnsetBackupProfiles ensures that no value is present for BackupProfiles, not even an explicit nil
 ### GetOrganization
 
 `func (o *RecoveryScheduleConfigPolicy) GetOrganization() OrganizationOrganizationRelationship`

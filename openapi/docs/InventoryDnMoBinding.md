@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Dn** | Pointer to **string** | Distinguished Name of the UCSM object. | [optional] [readonly] 
-**TargetMoId** | Pointer to **string** | The property targetMoId represents the Binding target&#39;s MoId. | [optional] [readonly] 
-**TargetMoType** | Pointer to **string** | The property targetMoType represents the Binding target&#39;s Mo type. | [optional] [readonly] 
+**Dn** | Pointer to **string** | The Distinguished Name for this object, used to uniquely identify this object. | [optional] [readonly] 
+**TargetMoId** | Pointer to **string** | The MO ID of the target MO for this particular Distinguished Name (dn). | [optional] [readonly] 
+**TargetMoType** | Pointer to **string** | The type of the target MO for this particular Distinguished Name (dn). | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods

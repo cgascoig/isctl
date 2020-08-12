@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -26,7 +26,7 @@ type IamAppRegistration struct {
 	ClientName *string `json:"ClientName,omitempty" yaml:"ClientName,omitempty"`
 	// The OAuth2 client secret. The value of this property is generated when grantType includes 'client-credentials'. Otherwise, no client-secret is generated.
 	ClientSecret *string `json:"ClientSecret,omitempty" yaml:"ClientSecret,omitempty"`
-	// The type of the OAuth2 client (public or confidential), as specified in https://tools.ietf.org/html/rfc6749#section-2.1.
+	// The type of the OAuth2 client (public or confidential), as specified in https://tools.ietf.org/html/rfc6749#section-2.1. * `public` - Clients incapable of maintaining the confidentiality of their credentials.This includes clients executing on the device used by the resource owner,such as mobile applications, installed native application or a webbrowser-based application. * `confidential` - Clients capable of maintaining the confidentiality of their credentials.For example, this could be a client implemented on a secure server withrestricted access to the client credentials.To maintain the confidentiality of the OAuth2 credentials, two use cases areconsidered.1) The application is running as a service within Intersight. The application automatically   obtains the OAuth2 credentials when the application starts and the credentials are not   exposed to the end-user.   Because end-users (even account administrators) do not have access the OAuth2 credentials,   they cannot take the credentials with them when they leave their organization.2) The application is under the control of a \"trusted\" end-user. For example,   the end-user may create a native application running outside Intersight. The application   uses OAuth2 credentials to interact with the Intersight API. In that case, the Intersight   account administrator may generate OAuth2 credentials with a registered application   using \"client_credentials\" grant type.   In that case, the end-user is responsible for maintaining the confidentiality of the   OAuth2 credentials. If the end-user leaves the organization, you should revoke the   credentials and issue new Oauth2 credentials.Here is a possible workflow for handling OAuth2 tokens.1) User Alice (Intersight Account Administrator) logins to Intersight and deploys an Intersight   application that requires an OAuth2 token.2) Intersight automatically deploys the application. The application is assigned a OAuth2 token,   possibly linked to Alice. The application must NOT expose the OAuth2 secret to Alice, otherwise   Alice would be able to use the token after she leaves the company.3) The application can make API calls to Intersight using its assigned OAuth2 token. For example,   the application could make weekly scheduled API calls to Intersight.4) Separately, Alice may also get OAuth2 tokens that she can use to make API calls from the   Intersight SDK through the northbound API. In that case, Alice will get the associated OAuth2   secrets, but not the one assigned in step #2.5) Alice leaves the organization. The OAuth2 tokens assigned in step #2 must retain their validity   even after Alice has left the organization. Because the OAuth2 secrets were never shared with   Alice, there is no risk Alice can reuse the OAuth2 secrets.   On the other hand, the OAuth2 tokens assigned in step #4 must be invalidated because Alice had   the OAuth2 tokens in her possession.
 	ClientType *string `json:"ClientType,omitempty" yaml:"ClientType,omitempty"`
 	// Description of the application.
 	Description  *string   `json:"Description,omitempty" yaml:"Description,omitempty"`
@@ -41,11 +41,11 @@ type IamAppRegistration struct {
 	Revoke  *bool                   `json:"Revoke,omitempty" yaml:"Revoke,omitempty"`
 	Account *IamAccountRelationship `json:"Account,omitempty" yaml:"Account,omitempty"`
 	// An array of relationships to iamOAuthToken resources.
-	OauthTokens *[]IamOAuthTokenRelationship `json:"OauthTokens,omitempty" yaml:"OauthTokens,omitempty"`
-	Permission  *IamPermissionRelationship   `json:"Permission,omitempty" yaml:"Permission,omitempty"`
+	OauthTokens []IamOAuthTokenRelationship `json:"OauthTokens,omitempty" yaml:"OauthTokens,omitempty"`
+	Permission  *IamPermissionRelationship  `json:"Permission,omitempty" yaml:"Permission,omitempty"`
 	// An array of relationships to iamRole resources.
-	Roles *[]IamRoleRelationship `json:"Roles,omitempty" yaml:"Roles,omitempty"`
-	User  *IamUserRelationship   `json:"User,omitempty" yaml:"User,omitempty"`
+	Roles []IamRoleRelationship `json:"Roles,omitempty" yaml:"Roles,omitempty"`
+	User  *IamUserRelationship  `json:"User,omitempty" yaml:"User,omitempty"`
 }
 
 // NewIamAppRegistration instantiates a new IamAppRegistration object
@@ -453,22 +453,23 @@ func (o *IamAppRegistration) SetAccount(v IamAccountRelationship) {
 	o.Account = &v
 }
 
-// GetOauthTokens returns the OauthTokens field value if set, zero value otherwise.
+// GetOauthTokens returns the OauthTokens field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamAppRegistration) GetOauthTokens() []IamOAuthTokenRelationship {
-	if o == nil || o.OauthTokens == nil {
+	if o == nil {
 		var ret []IamOAuthTokenRelationship
 		return ret
 	}
-	return *o.OauthTokens
+	return o.OauthTokens
 }
 
 // GetOauthTokensOk returns a tuple with the OauthTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamAppRegistration) GetOauthTokensOk() (*[]IamOAuthTokenRelationship, bool) {
 	if o == nil || o.OauthTokens == nil {
 		return nil, false
 	}
-	return o.OauthTokens, true
+	return &o.OauthTokens, true
 }
 
 // HasOauthTokens returns a boolean if a field has been set.
@@ -482,7 +483,7 @@ func (o *IamAppRegistration) HasOauthTokens() bool {
 
 // SetOauthTokens gets a reference to the given []IamOAuthTokenRelationship and assigns it to the OauthTokens field.
 func (o *IamAppRegistration) SetOauthTokens(v []IamOAuthTokenRelationship) {
-	o.OauthTokens = &v
+	o.OauthTokens = v
 }
 
 // GetPermission returns the Permission field value if set, zero value otherwise.
@@ -517,22 +518,23 @@ func (o *IamAppRegistration) SetPermission(v IamPermissionRelationship) {
 	o.Permission = &v
 }
 
-// GetRoles returns the Roles field value if set, zero value otherwise.
+// GetRoles returns the Roles field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamAppRegistration) GetRoles() []IamRoleRelationship {
-	if o == nil || o.Roles == nil {
+	if o == nil {
 		var ret []IamRoleRelationship
 		return ret
 	}
-	return *o.Roles
+	return o.Roles
 }
 
 // GetRolesOk returns a tuple with the Roles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamAppRegistration) GetRolesOk() (*[]IamRoleRelationship, bool) {
 	if o == nil || o.Roles == nil {
 		return nil, false
 	}
-	return o.Roles, true
+	return &o.Roles, true
 }
 
 // HasRoles returns a boolean if a field has been set.
@@ -546,7 +548,7 @@ func (o *IamAppRegistration) HasRoles() bool {
 
 // SetRoles gets a reference to the given []IamRoleRelationship and assigns it to the Roles field.
 func (o *IamAppRegistration) SetRoles(v []IamRoleRelationship) {
-	o.Roles = &v
+	o.Roles = v
 }
 
 // GetUser returns the User field value if set, zero value otherwise.

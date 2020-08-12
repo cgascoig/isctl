@@ -18,18 +18,19 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Description of the profile. | [optional] 
 **Name** | Pointer to **string** | Name of the concrete profile. | [optional] 
-**Type** | Pointer to **string** | Defines the type of the profile. Accepted value is instance. | [optional] [default to "instance"]
+**Type** | Pointer to **string** | Defines the type of the profile. Accepted value is instance. * &#x60;instance&#x60; - The profile defines the configuration for a specific instance of a target. | [optional] [default to "instance"]
 **SrcTemplate** | Pointer to [**PolicyAbstractProfileRelationship**](policy.AbstractProfile.Relationship.md) |  | [optional] 
 **Action** | Pointer to **string** | User initiated action. Each profile type has its own supported actions. For HyperFlex cluster profile, the supported actions are -- Validate, Deploy, Continue, Retry, Abort, Unassign For server profile, the support actions are -- Deploy, Unassign. | [optional] 
 **ConfigContext** | Pointer to [**PolicyConfigContext**](policy.ConfigContext.md) |  | [optional] 
 **ConfigChanges** | Pointer to [**PolicyConfigChange**](policy.ConfigChange.md) |  | [optional] 
 **IsPmcDeployedSecurePassphraseSet** | Pointer to **bool** | Indicates whether the value of the &#39;pmcDeployedSecurePassphrase&#39; property has been set. | [optional] [readonly] 
 **PmcDeployedSecurePassphrase** | Pointer to **string** | Secure passphrase that is already deployed on all the Persistent Memory Modules on the server. This deployed passphrase is required during deploy of server profile if secure passphrase is changed or security is disabled in the attached persistent memory policy. | [optional] 
-**AssignedServer** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
-**AssociatedServer** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**TargetPlatform** | Pointer to **string** | The platform for which the server profile is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight. * &#x60;Standalone&#x60; - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected. * &#x60;FIAttached&#x60; - Servers which are connected to a Fabric Interconnect that is managed by Intersight. | [optional] [default to "Standalone"]
+**AssignedServer** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
+**AssociatedServer** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
 **ConfigChangeDetails** | Pointer to [**[]ServerConfigChangeDetailRelationship**](server.ConfigChangeDetail.Relationship.md) | An array of relationships to serverConfigChangeDetail resources. | [optional] [readonly] 
 **ConfigResult** | Pointer to [**ServerConfigResultRelationship**](server.ConfigResult.Relationship.md) |  | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
@@ -344,6 +345,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *ServerProfileRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *ServerProfileRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *ServerProfileRelationship) GetParent() MoBaseMoRelationship`
@@ -394,6 +405,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *ServerProfileRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *ServerProfileRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *ServerProfileRelationship) GetDisplayNames() map[string][]string`
@@ -654,22 +675,47 @@ SetPmcDeployedSecurePassphrase sets PmcDeployedSecurePassphrase field to given v
 
 HasPmcDeployedSecurePassphrase returns a boolean if a field has been set.
 
+### GetTargetPlatform
+
+`func (o *ServerProfileRelationship) GetTargetPlatform() string`
+
+GetTargetPlatform returns the TargetPlatform field if non-nil, zero value otherwise.
+
+### GetTargetPlatformOk
+
+`func (o *ServerProfileRelationship) GetTargetPlatformOk() (*string, bool)`
+
+GetTargetPlatformOk returns a tuple with the TargetPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetPlatform
+
+`func (o *ServerProfileRelationship) SetTargetPlatform(v string)`
+
+SetTargetPlatform sets TargetPlatform field to given value.
+
+### HasTargetPlatform
+
+`func (o *ServerProfileRelationship) HasTargetPlatform() bool`
+
+HasTargetPlatform returns a boolean if a field has been set.
+
 ### GetAssignedServer
 
-`func (o *ServerProfileRelationship) GetAssignedServer() ComputeRackUnitRelationship`
+`func (o *ServerProfileRelationship) GetAssignedServer() ComputePhysicalRelationship`
 
 GetAssignedServer returns the AssignedServer field if non-nil, zero value otherwise.
 
 ### GetAssignedServerOk
 
-`func (o *ServerProfileRelationship) GetAssignedServerOk() (*ComputeRackUnitRelationship, bool)`
+`func (o *ServerProfileRelationship) GetAssignedServerOk() (*ComputePhysicalRelationship, bool)`
 
 GetAssignedServerOk returns a tuple with the AssignedServer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssignedServer
 
-`func (o *ServerProfileRelationship) SetAssignedServer(v ComputeRackUnitRelationship)`
+`func (o *ServerProfileRelationship) SetAssignedServer(v ComputePhysicalRelationship)`
 
 SetAssignedServer sets AssignedServer field to given value.
 
@@ -681,20 +727,20 @@ HasAssignedServer returns a boolean if a field has been set.
 
 ### GetAssociatedServer
 
-`func (o *ServerProfileRelationship) GetAssociatedServer() ComputeRackUnitRelationship`
+`func (o *ServerProfileRelationship) GetAssociatedServer() ComputePhysicalRelationship`
 
 GetAssociatedServer returns the AssociatedServer field if non-nil, zero value otherwise.
 
 ### GetAssociatedServerOk
 
-`func (o *ServerProfileRelationship) GetAssociatedServerOk() (*ComputeRackUnitRelationship, bool)`
+`func (o *ServerProfileRelationship) GetAssociatedServerOk() (*ComputePhysicalRelationship, bool)`
 
 GetAssociatedServerOk returns a tuple with the AssociatedServer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssociatedServer
 
-`func (o *ServerProfileRelationship) SetAssociatedServer(v ComputeRackUnitRelationship)`
+`func (o *ServerProfileRelationship) SetAssociatedServer(v ComputePhysicalRelationship)`
 
 SetAssociatedServer sets AssociatedServer field to given value.
 
@@ -729,6 +775,16 @@ SetConfigChangeDetails sets ConfigChangeDetails field to given value.
 
 HasConfigChangeDetails returns a boolean if a field has been set.
 
+### SetConfigChangeDetailsNil
+
+`func (o *ServerProfileRelationship) SetConfigChangeDetailsNil(b bool)`
+
+ SetConfigChangeDetailsNil sets the value for ConfigChangeDetails to be an explicit nil
+
+### UnsetConfigChangeDetails
+`func (o *ServerProfileRelationship) UnsetConfigChangeDetails()`
+
+UnsetConfigChangeDetails ensures that no value is present for ConfigChangeDetails, not even an explicit nil
 ### GetConfigResult
 
 `func (o *ServerProfileRelationship) GetConfigResult() ServerConfigResultRelationship`
@@ -804,6 +860,16 @@ SetRunningWorkflows sets RunningWorkflows field to given value.
 
 HasRunningWorkflows returns a boolean if a field has been set.
 
+### SetRunningWorkflowsNil
+
+`func (o *ServerProfileRelationship) SetRunningWorkflowsNil(b bool)`
+
+ SetRunningWorkflowsNil sets the value for RunningWorkflows to be an explicit nil
+
+### UnsetRunningWorkflows
+`func (o *ServerProfileRelationship) UnsetRunningWorkflows()`
+
+UnsetRunningWorkflows ensures that no value is present for RunningWorkflows, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

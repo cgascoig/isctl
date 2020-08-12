@@ -156,6 +156,16 @@ SetAssociatedPrivilegeSets sets AssociatedPrivilegeSets field to given value.
 
 HasAssociatedPrivilegeSets returns a boolean if a field has been set.
 
+### SetAssociatedPrivilegeSetsNil
+
+`func (o *IamPrivilegeSetAllOf) SetAssociatedPrivilegeSetsNil(b bool)`
+
+ SetAssociatedPrivilegeSetsNil sets the value for AssociatedPrivilegeSets to be an explicit nil
+
+### UnsetAssociatedPrivilegeSets
+`func (o *IamPrivilegeSetAllOf) UnsetAssociatedPrivilegeSets()`
+
+UnsetAssociatedPrivilegeSets ensures that no value is present for AssociatedPrivilegeSets, not even an explicit nil
 ### GetPrivileges
 
 `func (o *IamPrivilegeSetAllOf) GetPrivileges() []IamPrivilegeRelationship`
@@ -181,6 +191,16 @@ SetPrivileges sets Privileges field to given value.
 
 HasPrivileges returns a boolean if a field has been set.
 
+### SetPrivilegesNil
+
+`func (o *IamPrivilegeSetAllOf) SetPrivilegesNil(b bool)`
+
+ SetPrivilegesNil sets the value for Privileges to be an explicit nil
+
+### UnsetPrivileges
+`func (o *IamPrivilegeSetAllOf) UnsetPrivileges()`
+
+UnsetPrivileges ensures that no value is present for Privileges, not even an explicit nil
 ### GetSystem
 
 `func (o *IamPrivilegeSetAllOf) GetSystem() IamSystemRelationship`

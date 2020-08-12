@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
+**IpRulesConfiguration** | Pointer to [**IamIpAccessManagementRelationship**](iam.IpAccessManagement.Relationship.md) |  | [optional] 
 **ResourcePermissions** | Pointer to [**[]IamResourcePermissionRelationship**](iam.ResourcePermission.Relationship.md) | An array of relationships to iamResourcePermission resources. | [optional] [readonly] 
 
 ## Methods
@@ -51,6 +52,31 @@ SetAccount sets Account field to given value.
 
 HasAccount returns a boolean if a field has been set.
 
+### GetIpRulesConfiguration
+
+`func (o *IamSecurityHolder) GetIpRulesConfiguration() IamIpAccessManagementRelationship`
+
+GetIpRulesConfiguration returns the IpRulesConfiguration field if non-nil, zero value otherwise.
+
+### GetIpRulesConfigurationOk
+
+`func (o *IamSecurityHolder) GetIpRulesConfigurationOk() (*IamIpAccessManagementRelationship, bool)`
+
+GetIpRulesConfigurationOk returns a tuple with the IpRulesConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIpRulesConfiguration
+
+`func (o *IamSecurityHolder) SetIpRulesConfiguration(v IamIpAccessManagementRelationship)`
+
+SetIpRulesConfiguration sets IpRulesConfiguration field to given value.
+
+### HasIpRulesConfiguration
+
+`func (o *IamSecurityHolder) HasIpRulesConfiguration() bool`
+
+HasIpRulesConfiguration returns a boolean if a field has been set.
+
 ### GetResourcePermissions
 
 `func (o *IamSecurityHolder) GetResourcePermissions() []IamResourcePermissionRelationship`
@@ -76,6 +102,16 @@ SetResourcePermissions sets ResourcePermissions field to given value.
 
 HasResourcePermissions returns a boolean if a field has been set.
 
+### SetResourcePermissionsNil
+
+`func (o *IamSecurityHolder) SetResourcePermissionsNil(b bool)`
+
+ SetResourcePermissionsNil sets the value for ResourcePermissions to be an explicit nil
+
+### UnsetResourcePermissions
+`func (o *IamSecurityHolder) UnsetResourcePermissions()`
+
+UnsetResourcePermissions ensures that no value is present for ResourcePermissions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

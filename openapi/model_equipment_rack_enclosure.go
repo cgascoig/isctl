@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,14 +19,16 @@ import (
 // EquipmentRackEnclosure A physical holder housing rack servers.
 type EquipmentRackEnclosure struct {
 	EquipmentBase `yaml:"EquipmentBase,inline"`
-	EnclosureId   *int64 `json:"EnclosureId,omitempty" yaml:"EnclosureId,omitempty"`
+	// This represents the Enclosure Identifier for Rack servers.
+	EnclosureId *int64 `json:"EnclosureId,omitempty" yaml:"EnclosureId,omitempty"`
 	// An array of relationships to equipmentFanModule resources.
-	Fanmodules *[]EquipmentFanModuleRelationship `json:"Fanmodules,omitempty" yaml:"Fanmodules,omitempty"`
+	Fanmodules          []EquipmentFanModuleRelationship `json:"Fanmodules,omitempty" yaml:"Fanmodules,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to equipmentPsu resources.
-	Psus             *[]EquipmentPsuRelationship          `json:"Psus,omitempty" yaml:"Psus,omitempty"`
+	Psus             []EquipmentPsuRelationship           `json:"Psus,omitempty" yaml:"Psus,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 	// An array of relationships to equipmentRackEnclosureSlot resources.
-	Slots *[]EquipmentRackEnclosureSlotRelationship `json:"Slots,omitempty" yaml:"Slots,omitempty"`
+	Slots []EquipmentRackEnclosureSlotRelationship `json:"Slots,omitempty" yaml:"Slots,omitempty"`
 }
 
 // NewEquipmentRackEnclosure instantiates a new EquipmentRackEnclosure object
@@ -78,22 +80,23 @@ func (o *EquipmentRackEnclosure) SetEnclosureId(v int64) {
 	o.EnclosureId = &v
 }
 
-// GetFanmodules returns the Fanmodules field value if set, zero value otherwise.
+// GetFanmodules returns the Fanmodules field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EquipmentRackEnclosure) GetFanmodules() []EquipmentFanModuleRelationship {
-	if o == nil || o.Fanmodules == nil {
+	if o == nil {
 		var ret []EquipmentFanModuleRelationship
 		return ret
 	}
-	return *o.Fanmodules
+	return o.Fanmodules
 }
 
 // GetFanmodulesOk returns a tuple with the Fanmodules field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EquipmentRackEnclosure) GetFanmodulesOk() (*[]EquipmentFanModuleRelationship, bool) {
 	if o == nil || o.Fanmodules == nil {
 		return nil, false
 	}
-	return o.Fanmodules, true
+	return &o.Fanmodules, true
 }
 
 // HasFanmodules returns a boolean if a field has been set.
@@ -107,25 +110,58 @@ func (o *EquipmentRackEnclosure) HasFanmodules() bool {
 
 // SetFanmodules gets a reference to the given []EquipmentFanModuleRelationship and assigns it to the Fanmodules field.
 func (o *EquipmentRackEnclosure) SetFanmodules(v []EquipmentFanModuleRelationship) {
-	o.Fanmodules = &v
+	o.Fanmodules = v
 }
 
-// GetPsus returns the Psus field value if set, zero value otherwise.
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *EquipmentRackEnclosure) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentRackEnclosure) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *EquipmentRackEnclosure) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *EquipmentRackEnclosure) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetPsus returns the Psus field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EquipmentRackEnclosure) GetPsus() []EquipmentPsuRelationship {
-	if o == nil || o.Psus == nil {
+	if o == nil {
 		var ret []EquipmentPsuRelationship
 		return ret
 	}
-	return *o.Psus
+	return o.Psus
 }
 
 // GetPsusOk returns a tuple with the Psus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EquipmentRackEnclosure) GetPsusOk() (*[]EquipmentPsuRelationship, bool) {
 	if o == nil || o.Psus == nil {
 		return nil, false
 	}
-	return o.Psus, true
+	return &o.Psus, true
 }
 
 // HasPsus returns a boolean if a field has been set.
@@ -139,7 +175,7 @@ func (o *EquipmentRackEnclosure) HasPsus() bool {
 
 // SetPsus gets a reference to the given []EquipmentPsuRelationship and assigns it to the Psus field.
 func (o *EquipmentRackEnclosure) SetPsus(v []EquipmentPsuRelationship) {
-	o.Psus = &v
+	o.Psus = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -174,22 +210,23 @@ func (o *EquipmentRackEnclosure) SetRegisteredDevice(v AssetDeviceRegistrationRe
 	o.RegisteredDevice = &v
 }
 
-// GetSlots returns the Slots field value if set, zero value otherwise.
+// GetSlots returns the Slots field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EquipmentRackEnclosure) GetSlots() []EquipmentRackEnclosureSlotRelationship {
-	if o == nil || o.Slots == nil {
+	if o == nil {
 		var ret []EquipmentRackEnclosureSlotRelationship
 		return ret
 	}
-	return *o.Slots
+	return o.Slots
 }
 
 // GetSlotsOk returns a tuple with the Slots field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EquipmentRackEnclosure) GetSlotsOk() (*[]EquipmentRackEnclosureSlotRelationship, bool) {
 	if o == nil || o.Slots == nil {
 		return nil, false
 	}
-	return o.Slots, true
+	return &o.Slots, true
 }
 
 // HasSlots returns a boolean if a field has been set.
@@ -203,7 +240,7 @@ func (o *EquipmentRackEnclosure) HasSlots() bool {
 
 // SetSlots gets a reference to the given []EquipmentRackEnclosureSlotRelationship and assigns it to the Slots field.
 func (o *EquipmentRackEnclosure) SetSlots(v []EquipmentRackEnclosureSlotRelationship) {
-	o.Slots = &v
+	o.Slots = v
 }
 
 func (o EquipmentRackEnclosure) MarshalJSON() ([]byte, error) {
@@ -221,6 +258,9 @@ func (o EquipmentRackEnclosure) MarshalJSON() ([]byte, error) {
 	}
 	if o.Fanmodules != nil {
 		toSerialize["Fanmodules"] = o.Fanmodules
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.Psus != nil {
 		toSerialize["Psus"] = o.Psus

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Name as configured in the IdP. | [optional] [readonly] 
 **UserIdOrEmail** | Pointer to **string** | UserID or email as configured in the IdP. | [optional] 
 **UserType** | Pointer to **string** | Type of the User. If a user is added manually by specifying the email address, or has logged in using groups, based on the IdP attributes received during authentication. If added manually, the user type will be static, otherwise dynamic. | [optional] [readonly] 
+**UserUniqueIdentifier** | Pointer to **string** | Unique id of the user used by the identity provider to store the user. | [optional] [readonly] 
 **ApiKeys** | Pointer to [**[]IamApiKeyRelationship**](iam.ApiKey.Relationship.md) | An array of relationships to iamApiKey resources. | [optional] [readonly] 
 **AppRegistrations** | Pointer to [**[]IamAppRegistrationRelationship**](iam.AppRegistration.Relationship.md) | An array of relationships to iamAppRegistration resources. | [optional] [readonly] 
 **Idp** | Pointer to [**IamIdpRelationship**](iam.Idp.Relationship.md) |  | [optional] 
@@ -240,6 +241,31 @@ SetUserType sets UserType field to given value.
 
 HasUserType returns a boolean if a field has been set.
 
+### GetUserUniqueIdentifier
+
+`func (o *IamUser) GetUserUniqueIdentifier() string`
+
+GetUserUniqueIdentifier returns the UserUniqueIdentifier field if non-nil, zero value otherwise.
+
+### GetUserUniqueIdentifierOk
+
+`func (o *IamUser) GetUserUniqueIdentifierOk() (*string, bool)`
+
+GetUserUniqueIdentifierOk returns a tuple with the UserUniqueIdentifier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserUniqueIdentifier
+
+`func (o *IamUser) SetUserUniqueIdentifier(v string)`
+
+SetUserUniqueIdentifier sets UserUniqueIdentifier field to given value.
+
+### HasUserUniqueIdentifier
+
+`func (o *IamUser) HasUserUniqueIdentifier() bool`
+
+HasUserUniqueIdentifier returns a boolean if a field has been set.
+
 ### GetApiKeys
 
 `func (o *IamUser) GetApiKeys() []IamApiKeyRelationship`
@@ -265,6 +291,16 @@ SetApiKeys sets ApiKeys field to given value.
 
 HasApiKeys returns a boolean if a field has been set.
 
+### SetApiKeysNil
+
+`func (o *IamUser) SetApiKeysNil(b bool)`
+
+ SetApiKeysNil sets the value for ApiKeys to be an explicit nil
+
+### UnsetApiKeys
+`func (o *IamUser) UnsetApiKeys()`
+
+UnsetApiKeys ensures that no value is present for ApiKeys, not even an explicit nil
 ### GetAppRegistrations
 
 `func (o *IamUser) GetAppRegistrations() []IamAppRegistrationRelationship`
@@ -290,6 +326,16 @@ SetAppRegistrations sets AppRegistrations field to given value.
 
 HasAppRegistrations returns a boolean if a field has been set.
 
+### SetAppRegistrationsNil
+
+`func (o *IamUser) SetAppRegistrationsNil(b bool)`
+
+ SetAppRegistrationsNil sets the value for AppRegistrations to be an explicit nil
+
+### UnsetAppRegistrations
+`func (o *IamUser) UnsetAppRegistrations()`
+
+UnsetAppRegistrations ensures that no value is present for AppRegistrations, not even an explicit nil
 ### GetIdp
 
 `func (o *IamUser) GetIdp() IamIdpRelationship`
@@ -390,6 +436,16 @@ SetOauthTokens sets OauthTokens field to given value.
 
 HasOauthTokens returns a boolean if a field has been set.
 
+### SetOauthTokensNil
+
+`func (o *IamUser) SetOauthTokensNil(b bool)`
+
+ SetOauthTokensNil sets the value for OauthTokens to be an explicit nil
+
+### UnsetOauthTokens
+`func (o *IamUser) UnsetOauthTokens()`
+
+UnsetOauthTokens ensures that no value is present for OauthTokens, not even an explicit nil
 ### GetPermissions
 
 `func (o *IamUser) GetPermissions() []IamPermissionRelationship`
@@ -415,6 +471,16 @@ SetPermissions sets Permissions field to given value.
 
 HasPermissions returns a boolean if a field has been set.
 
+### SetPermissionsNil
+
+`func (o *IamUser) SetPermissionsNil(b bool)`
+
+ SetPermissionsNil sets the value for Permissions to be an explicit nil
+
+### UnsetPermissions
+`func (o *IamUser) UnsetPermissions()`
+
+UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
 ### GetSessions
 
 `func (o *IamUser) GetSessions() []IamSessionRelationship`
@@ -440,6 +506,16 @@ SetSessions sets Sessions field to given value.
 
 HasSessions returns a boolean if a field has been set.
 
+### SetSessionsNil
+
+`func (o *IamUser) SetSessionsNil(b bool)`
+
+ SetSessionsNil sets the value for Sessions to be an explicit nil
+
+### UnsetSessions
+`func (o *IamUser) UnsetSessions()`
+
+UnsetSessions ensures that no value is present for Sessions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

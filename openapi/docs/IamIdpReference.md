@@ -208,6 +208,16 @@ SetUserPreferences sets UserPreferences field to given value.
 
 HasUserPreferences returns a boolean if a field has been set.
 
+### SetUserPreferencesNil
+
+`func (o *IamIdpReference) SetUserPreferencesNil(b bool)`
+
+ SetUserPreferencesNil sets the value for UserPreferences to be an explicit nil
+
+### UnsetUserPreferences
+`func (o *IamIdpReference) UnsetUserPreferences()`
+
+UnsetUserPreferences ensures that no value is present for UserPreferences, not even an explicit nil
 ### GetUsergroups
 
 `func (o *IamIdpReference) GetUsergroups() []IamUserGroupRelationship`
@@ -233,6 +243,16 @@ SetUsergroups sets Usergroups field to given value.
 
 HasUsergroups returns a boolean if a field has been set.
 
+### SetUsergroupsNil
+
+`func (o *IamIdpReference) SetUsergroupsNil(b bool)`
+
+ SetUsergroupsNil sets the value for Usergroups to be an explicit nil
+
+### UnsetUsergroups
+`func (o *IamIdpReference) UnsetUsergroups()`
+
+UnsetUsergroups ensures that no value is present for Usergroups, not even an explicit nil
 ### GetUsers
 
 `func (o *IamIdpReference) GetUsers() []IamUserRelationship`
@@ -258,6 +278,16 @@ SetUsers sets Users field to given value.
 
 HasUsers returns a boolean if a field has been set.
 
+### SetUsersNil
+
+`func (o *IamIdpReference) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *IamIdpReference) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

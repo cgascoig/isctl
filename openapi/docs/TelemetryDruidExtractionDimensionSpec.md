@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | Pointer to **string** | the dimension spec type. | 
 **Dimension** | Pointer to **string** | null | 
 **OutputName** | Pointer to **string** | null | 
 **OutputType** | Pointer to **string** | null | [default to "STRING"]
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidExtractionDimensionSpec
 
-`func NewTelemetryDruidExtractionDimensionSpec(dimension string, outputName string, outputType string, extractionFn map[string]interface{}, ) *TelemetryDruidExtractionDimensionSpec`
+`func NewTelemetryDruidExtractionDimensionSpec(type_ string, dimension string, outputName string, outputType string, extractionFn map[string]interface{}, ) *TelemetryDruidExtractionDimensionSpec`
 
 NewTelemetryDruidExtractionDimensionSpec instantiates a new TelemetryDruidExtractionDimensionSpec object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidExtractionDimensionSpecWithDefaults instantiates a new TelemetryDruidExtractionDimensionSpec object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *TelemetryDruidExtractionDimensionSpec) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TelemetryDruidExtractionDimensionSpec) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TelemetryDruidExtractionDimensionSpec) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetDimension
 

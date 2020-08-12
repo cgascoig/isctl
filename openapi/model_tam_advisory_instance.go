@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -28,9 +28,9 @@ type TamAdvisoryInstance struct {
 	LastStateChangeTime *time.Time `json:"LastStateChangeTime,omitempty" yaml:"LastStateChangeTime,omitempty"`
 	// Timestamp when this advisory was last evaluated.
 	LastVerifiedTime *time.Time `json:"LastVerifiedTime,omitempty" yaml:"LastVerifiedTime,omitempty"`
-	// Current state of the advisory instance (Active/Cleared/Unknown etc.).
+	// Current state of the advisory instance (Active/Cleared/Unknown etc.). * `unknown` - Intersight is unable to determine if the Advisory instance is applicable for the affected managed object. * `active` - Advisory instance is currently active and applicable for the affected managed object. * `cleared` - Advisory instance is no longer applicable for the affected managed object.
 	State              *string                              `json:"State,omitempty" yaml:"State,omitempty"`
-	Advisory           *TamAdvisoryRelationship             `json:"Advisory,omitempty" yaml:"Advisory,omitempty"`
+	Advisory           *TamBaseAdvisoryRelationship         `json:"Advisory,omitempty" yaml:"Advisory,omitempty"`
 	AffectedObject     *MoBaseMoRelationship                `json:"AffectedObject,omitempty" yaml:"AffectedObject,omitempty"`
 	DeviceRegistration *AssetDeviceRegistrationRelationship `json:"DeviceRegistration,omitempty" yaml:"DeviceRegistration,omitempty"`
 }
@@ -217,9 +217,9 @@ func (o *TamAdvisoryInstance) SetState(v string) {
 }
 
 // GetAdvisory returns the Advisory field value if set, zero value otherwise.
-func (o *TamAdvisoryInstance) GetAdvisory() TamAdvisoryRelationship {
+func (o *TamAdvisoryInstance) GetAdvisory() TamBaseAdvisoryRelationship {
 	if o == nil || o.Advisory == nil {
-		var ret TamAdvisoryRelationship
+		var ret TamBaseAdvisoryRelationship
 		return ret
 	}
 	return *o.Advisory
@@ -227,7 +227,7 @@ func (o *TamAdvisoryInstance) GetAdvisory() TamAdvisoryRelationship {
 
 // GetAdvisoryOk returns a tuple with the Advisory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TamAdvisoryInstance) GetAdvisoryOk() (*TamAdvisoryRelationship, bool) {
+func (o *TamAdvisoryInstance) GetAdvisoryOk() (*TamBaseAdvisoryRelationship, bool) {
 	if o == nil || o.Advisory == nil {
 		return nil, false
 	}
@@ -243,8 +243,8 @@ func (o *TamAdvisoryInstance) HasAdvisory() bool {
 	return false
 }
 
-// SetAdvisory gets a reference to the given TamAdvisoryRelationship and assigns it to the Advisory field.
-func (o *TamAdvisoryInstance) SetAdvisory(v TamAdvisoryRelationship) {
+// SetAdvisory gets a reference to the given TamBaseAdvisoryRelationship and assigns it to the Advisory field.
+func (o *TamAdvisoryInstance) SetAdvisory(v TamBaseAdvisoryRelationship) {
 	o.Advisory = &v
 }
 

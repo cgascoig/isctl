@@ -4,19 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AffectedMoId** | Pointer to **string** | MoId of the affected object from the managed system&#39;s point of view. | [optional] 
-**AffectedMoType** | Pointer to **string** | Managed system affected object type. For example Adaptor, FI, CIMC. | [optional] 
-**AffectedObject** | Pointer to **string** | A unique key for an alarm instance, consists of a combination of a unique system name and msAffectedObject. | [optional] 
-**AncestorMoId** | Pointer to **string** | Parent MoId of the fault from managed system. For example, Blade moid for adaptor fault. | [optional] 
-**AncestorMoType** | Pointer to **string** | Parent MO type of the fault from managed system. For example, Blade for adaptor fault. | [optional] 
-**Code** | Pointer to **string** | A unique alarm code. For alarms mapped from UCS faults, this will be the same as the UCS fault code. | [optional] 
-**CreationTime** | Pointer to [**time.Time**](time.Time.md) | The time the alarm was created. | [optional] 
-**Description** | Pointer to **string** | A longer description of the alarm than the name. The description contains details of the component reporting the issue. | [optional] 
-**LastTransitionTime** | Pointer to [**time.Time**](time.Time.md) | The time the alarm last had a change in severity. | [optional] 
-**MsAffectedObject** | Pointer to **string** | A unique key for the alarm from the managed system&#39;s point of view. For example, in the case of UCS, this is the fault&#39;s dn. | [optional] 
-**Name** | Pointer to **string** | Uniquely identifies the type of alarm. For alarms originating from Intersight, this will be a descriptive name. For alarms that are mapped from faults, the name will be derived from fault properties. For example, alarms mapped from UCS faults will use a prefix of UCS and appended with the fault code. | [optional] 
-**OrigSeverity** | Pointer to **string** | The original severity when the alarm was first created. | [optional] [default to "None"]
-**Severity** | Pointer to **string** | The severity of the alarm. Valid values are Critical, Warning, Info, and Cleared. | [optional] [default to "None"]
+**Acknowledge** | Pointer to **string** | Alarm acknowledgment state. Default value is None. * &#x60;None&#x60; - The Enum value None represents that the alarm is not acknowledged and is included as part of health status and overall alarm count. * &#x60;Acknowledge&#x60; - The Enum value Acknowledge represents that the alarm is acknowledged by user. The alarm will be ignored from the health status and overall alarm count. | [optional] [default to "None"]
+**AcknowledgeBy** | Pointer to **string** | User who acknowledged the alarm. | [optional] [readonly] 
+**AcknowledgeTime** | Pointer to [**time.Time**](time.Time.md) | Time at which the alarm was acknowledged by the user. | [optional] [readonly] 
+**AffectedMoId** | Pointer to **string** | MoId of the affected object from the managed system&#39;s point of view. | [optional] [readonly] 
+**AffectedMoType** | Pointer to **string** | Managed system affected object type. For example Adaptor, FI, CIMC. | [optional] [readonly] 
+**AffectedObject** | Pointer to **string** | A unique key for an alarm instance, consists of a combination of a unique system name and msAffectedObject. | [optional] [readonly] 
+**AncestorMoId** | Pointer to **string** | Parent MoId of the fault from managed system. For example, Blade moid for adaptor fault. | [optional] [readonly] 
+**AncestorMoType** | Pointer to **string** | Parent MO type of the fault from managed system. For example, Blade for adaptor fault. | [optional] [readonly] 
+**Code** | Pointer to **string** | A unique alarm code. For alarms mapped from UCS faults, this will be the same as the UCS fault code. | [optional] [readonly] 
+**CreationTime** | Pointer to [**time.Time**](time.Time.md) | The time the alarm was created. | [optional] [readonly] 
+**Description** | Pointer to **string** | A longer description of the alarm than the name. The description contains details of the component reporting the issue. | [optional] [readonly] 
+**LastTransitionTime** | Pointer to [**time.Time**](time.Time.md) | The time the alarm last had a change in severity. | [optional] [readonly] 
+**MsAffectedObject** | Pointer to **string** | A unique key for the alarm from the managed system&#39;s point of view. For example, in the case of UCS, this is the fault&#39;s dn. | [optional] [readonly] 
+**Name** | Pointer to **string** | Uniquely identifies the type of alarm. For alarms originating from Intersight, this will be a descriptive name. For alarms that are mapped from faults, the name will be derived from fault properties. For example, alarms mapped from UCS faults will use a prefix of UCS and appended with the fault code. | [optional] [readonly] 
+**OrigSeverity** | Pointer to **string** | The original severity when the alarm was first created. * &#x60;None&#x60; - The Enum value None represents that there is no severity. * &#x60;Info&#x60; - The Enum value Info represents the Informational level of severity. * &#x60;Critical&#x60; - The Enum value Critical represents the Critical level of severity. * &#x60;Warning&#x60; - The Enum value Warning represents the Warning level of severity. * &#x60;Cleared&#x60; - The Enum value Cleared represents that the alarm severity has been cleared. | [optional] [readonly] [default to "None"]
+**Severity** | Pointer to **string** | The severity of the alarm. Valid values are Critical, Warning, Info, and Cleared. * &#x60;None&#x60; - The Enum value None represents that there is no severity. * &#x60;Info&#x60; - The Enum value Info represents the Informational level of severity. * &#x60;Critical&#x60; - The Enum value Critical represents the Critical level of severity. * &#x60;Warning&#x60; - The Enum value Warning represents the Warning level of severity. * &#x60;Cleared&#x60; - The Enum value Cleared represents that the alarm severity has been cleared. | [optional] [readonly] [default to "None"]
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -37,6 +40,81 @@ will change when the set of required properties is changed
 NewCondAlarmWithDefaults instantiates a new CondAlarm object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAcknowledge
+
+`func (o *CondAlarm) GetAcknowledge() string`
+
+GetAcknowledge returns the Acknowledge field if non-nil, zero value otherwise.
+
+### GetAcknowledgeOk
+
+`func (o *CondAlarm) GetAcknowledgeOk() (*string, bool)`
+
+GetAcknowledgeOk returns a tuple with the Acknowledge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAcknowledge
+
+`func (o *CondAlarm) SetAcknowledge(v string)`
+
+SetAcknowledge sets Acknowledge field to given value.
+
+### HasAcknowledge
+
+`func (o *CondAlarm) HasAcknowledge() bool`
+
+HasAcknowledge returns a boolean if a field has been set.
+
+### GetAcknowledgeBy
+
+`func (o *CondAlarm) GetAcknowledgeBy() string`
+
+GetAcknowledgeBy returns the AcknowledgeBy field if non-nil, zero value otherwise.
+
+### GetAcknowledgeByOk
+
+`func (o *CondAlarm) GetAcknowledgeByOk() (*string, bool)`
+
+GetAcknowledgeByOk returns a tuple with the AcknowledgeBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAcknowledgeBy
+
+`func (o *CondAlarm) SetAcknowledgeBy(v string)`
+
+SetAcknowledgeBy sets AcknowledgeBy field to given value.
+
+### HasAcknowledgeBy
+
+`func (o *CondAlarm) HasAcknowledgeBy() bool`
+
+HasAcknowledgeBy returns a boolean if a field has been set.
+
+### GetAcknowledgeTime
+
+`func (o *CondAlarm) GetAcknowledgeTime() time.Time`
+
+GetAcknowledgeTime returns the AcknowledgeTime field if non-nil, zero value otherwise.
+
+### GetAcknowledgeTimeOk
+
+`func (o *CondAlarm) GetAcknowledgeTimeOk() (*time.Time, bool)`
+
+GetAcknowledgeTimeOk returns a tuple with the AcknowledgeTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAcknowledgeTime
+
+`func (o *CondAlarm) SetAcknowledgeTime(v time.Time)`
+
+SetAcknowledgeTime sets AcknowledgeTime field to given value.
+
+### HasAcknowledgeTime
+
+`func (o *CondAlarm) HasAcknowledgeTime() bool`
+
+HasAcknowledgeTime returns a boolean if a field has been set.
 
 ### GetAffectedMoId
 

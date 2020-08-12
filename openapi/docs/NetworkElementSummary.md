@@ -4,16 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AdminEvacState** | Pointer to **string** | Administratively configured state of Fabric Evacuation feature, for this switch. | [optional] [readonly] 
 **AdminInbandInterfaceState** | Pointer to **string** | The administrative state of the network Element inband management interface. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**AlarmSummary** | Pointer to [**ComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
+**AvailableMemory** | Pointer to **string** | Available memory (un-used) on this switch platform. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
-**FaultSummary** | Pointer to **int64** |  | [optional] [readonly] 
+**EthernetMode** | Pointer to **string** | The user configured Ethernet operational mode for this switch (End-Host or Switching). | [optional] [readonly] 
+**FaultSummary** | Pointer to **int64** | The fault summary of the network Element out-of-band management interface. | [optional] [readonly] 
+**FcMode** | Pointer to **string** | The user configured FC operational mode for this switch (End-Host or Switching). | [optional] [readonly] 
 **Firmware** | Pointer to **string** | Running firmware information. | [optional] [readonly] 
 **InbandIpAddress** | Pointer to **string** | The IP address of the network Element inband management interface. | [optional] [readonly] 
 **InbandIpGateway** | Pointer to **string** | The default gateway of the network Element inband management interface. | [optional] [readonly] 
 **InbandIpMask** | Pointer to **string** | The network mask of the network Element inband management interface. | [optional] [readonly] 
 **InbandVlan** | Pointer to **int64** | The VLAN ID of the network Element inband management interface. | [optional] [readonly] 
 **Ipv4Address** | Pointer to **string** | IP version 4 address is saved in this property. | [optional] [readonly] 
+**ManagementMode** | Pointer to **string** | The management mode of the fabric interconnect. * &#x60;IntersightStandalone&#x60; - Intersight Standalone mode of operation. * &#x60;UCSM&#x60; - Unified Computing System Manager mode of operation. * &#x60;Intersight&#x60; - Intersight managed mode of operation. | [optional] [readonly] [default to "IntersightStandalone"]
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the ElementSummary object is saved in this property. | [optional] [readonly] 
 **NumEtherPorts** | Pointer to **int64** | Total number of Ethernet ports. | [optional] [readonly] 
@@ -23,6 +29,8 @@ Name | Type | Description | Notes
 **NumFcPorts** | Pointer to **int64** | Total number of FC ports. | [optional] [readonly] 
 **NumFcPortsConfigured** | Pointer to **int64** | Total number of configured FC ports. | [optional] [readonly] 
 **NumFcPortsLinkUp** | Pointer to **int64** | Total number of FC ports which are UP. | [optional] [readonly] 
+**OperEvacState** | Pointer to **string** | Operational state of the Fabric Evacuation feature, for this switch. | [optional] [readonly] 
+**Operability** | Pointer to **string** | The switch&#39;s current overall operational/health state. | [optional] [readonly] 
 **OutOfBandIpAddress** | Pointer to **string** | The IP address of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandIpGateway** | Pointer to **string** | The default gateway of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandIpMask** | Pointer to **string** | The network mask of the network Element out-of-band management interface. | [optional] [readonly] 
@@ -33,11 +41,12 @@ Name | Type | Description | Notes
 **OutOfBandIpv6Gateway** | Pointer to **string** | The default IPv6 gateway of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandIpv6Prefix** | Pointer to **string** | The network mask of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandMac** | Pointer to **string** | The MAC address of the network Element out-of-band management interface. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **SourceObjectType** | Pointer to **string** | The source object type of this view MO. | [optional] [readonly] 
 **SwitchId** | Pointer to **string** | The Switch Id of the network Element. | [optional] [readonly] 
+**TotalMemory** | Pointer to **int64** | Total available memory on this switch platform. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
 **Version** | Pointer to **string** | Version holds the firmware version related information. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -60,6 +69,31 @@ will change when the set of required properties is changed
 NewNetworkElementSummaryWithDefaults instantiates a new NetworkElementSummary object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAdminEvacState
+
+`func (o *NetworkElementSummary) GetAdminEvacState() string`
+
+GetAdminEvacState returns the AdminEvacState field if non-nil, zero value otherwise.
+
+### GetAdminEvacStateOk
+
+`func (o *NetworkElementSummary) GetAdminEvacStateOk() (*string, bool)`
+
+GetAdminEvacStateOk returns a tuple with the AdminEvacState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminEvacState
+
+`func (o *NetworkElementSummary) SetAdminEvacState(v string)`
+
+SetAdminEvacState sets AdminEvacState field to given value.
+
+### HasAdminEvacState
+
+`func (o *NetworkElementSummary) HasAdminEvacState() bool`
+
+HasAdminEvacState returns a boolean if a field has been set.
 
 ### GetAdminInbandInterfaceState
 
@@ -85,6 +119,56 @@ SetAdminInbandInterfaceState sets AdminInbandInterfaceState field to given value
 `func (o *NetworkElementSummary) HasAdminInbandInterfaceState() bool`
 
 HasAdminInbandInterfaceState returns a boolean if a field has been set.
+
+### GetAlarmSummary
+
+`func (o *NetworkElementSummary) GetAlarmSummary() ComputeAlarmSummary`
+
+GetAlarmSummary returns the AlarmSummary field if non-nil, zero value otherwise.
+
+### GetAlarmSummaryOk
+
+`func (o *NetworkElementSummary) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool)`
+
+GetAlarmSummaryOk returns a tuple with the AlarmSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlarmSummary
+
+`func (o *NetworkElementSummary) SetAlarmSummary(v ComputeAlarmSummary)`
+
+SetAlarmSummary sets AlarmSummary field to given value.
+
+### HasAlarmSummary
+
+`func (o *NetworkElementSummary) HasAlarmSummary() bool`
+
+HasAlarmSummary returns a boolean if a field has been set.
+
+### GetAvailableMemory
+
+`func (o *NetworkElementSummary) GetAvailableMemory() string`
+
+GetAvailableMemory returns the AvailableMemory field if non-nil, zero value otherwise.
+
+### GetAvailableMemoryOk
+
+`func (o *NetworkElementSummary) GetAvailableMemoryOk() (*string, bool)`
+
+GetAvailableMemoryOk returns a tuple with the AvailableMemory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableMemory
+
+`func (o *NetworkElementSummary) SetAvailableMemory(v string)`
+
+SetAvailableMemory sets AvailableMemory field to given value.
+
+### HasAvailableMemory
+
+`func (o *NetworkElementSummary) HasAvailableMemory() bool`
+
+HasAvailableMemory returns a boolean if a field has been set.
 
 ### GetDeviceMoId
 
@@ -136,6 +220,31 @@ SetDn sets Dn field to given value.
 
 HasDn returns a boolean if a field has been set.
 
+### GetEthernetMode
+
+`func (o *NetworkElementSummary) GetEthernetMode() string`
+
+GetEthernetMode returns the EthernetMode field if non-nil, zero value otherwise.
+
+### GetEthernetModeOk
+
+`func (o *NetworkElementSummary) GetEthernetModeOk() (*string, bool)`
+
+GetEthernetModeOk returns a tuple with the EthernetMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEthernetMode
+
+`func (o *NetworkElementSummary) SetEthernetMode(v string)`
+
+SetEthernetMode sets EthernetMode field to given value.
+
+### HasEthernetMode
+
+`func (o *NetworkElementSummary) HasEthernetMode() bool`
+
+HasEthernetMode returns a boolean if a field has been set.
+
 ### GetFaultSummary
 
 `func (o *NetworkElementSummary) GetFaultSummary() int64`
@@ -160,6 +269,31 @@ SetFaultSummary sets FaultSummary field to given value.
 `func (o *NetworkElementSummary) HasFaultSummary() bool`
 
 HasFaultSummary returns a boolean if a field has been set.
+
+### GetFcMode
+
+`func (o *NetworkElementSummary) GetFcMode() string`
+
+GetFcMode returns the FcMode field if non-nil, zero value otherwise.
+
+### GetFcModeOk
+
+`func (o *NetworkElementSummary) GetFcModeOk() (*string, bool)`
+
+GetFcModeOk returns a tuple with the FcMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFcMode
+
+`func (o *NetworkElementSummary) SetFcMode(v string)`
+
+SetFcMode sets FcMode field to given value.
+
+### HasFcMode
+
+`func (o *NetworkElementSummary) HasFcMode() bool`
+
+HasFcMode returns a boolean if a field has been set.
 
 ### GetFirmware
 
@@ -310,6 +444,31 @@ SetIpv4Address sets Ipv4Address field to given value.
 `func (o *NetworkElementSummary) HasIpv4Address() bool`
 
 HasIpv4Address returns a boolean if a field has been set.
+
+### GetManagementMode
+
+`func (o *NetworkElementSummary) GetManagementMode() string`
+
+GetManagementMode returns the ManagementMode field if non-nil, zero value otherwise.
+
+### GetManagementModeOk
+
+`func (o *NetworkElementSummary) GetManagementModeOk() (*string, bool)`
+
+GetManagementModeOk returns a tuple with the ManagementMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagementMode
+
+`func (o *NetworkElementSummary) SetManagementMode(v string)`
+
+SetManagementMode sets ManagementMode field to given value.
+
+### HasManagementMode
+
+`func (o *NetworkElementSummary) HasManagementMode() bool`
+
+HasManagementMode returns a boolean if a field has been set.
 
 ### GetModel
 
@@ -535,6 +694,56 @@ SetNumFcPortsLinkUp sets NumFcPortsLinkUp field to given value.
 `func (o *NetworkElementSummary) HasNumFcPortsLinkUp() bool`
 
 HasNumFcPortsLinkUp returns a boolean if a field has been set.
+
+### GetOperEvacState
+
+`func (o *NetworkElementSummary) GetOperEvacState() string`
+
+GetOperEvacState returns the OperEvacState field if non-nil, zero value otherwise.
+
+### GetOperEvacStateOk
+
+`func (o *NetworkElementSummary) GetOperEvacStateOk() (*string, bool)`
+
+GetOperEvacStateOk returns a tuple with the OperEvacState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperEvacState
+
+`func (o *NetworkElementSummary) SetOperEvacState(v string)`
+
+SetOperEvacState sets OperEvacState field to given value.
+
+### HasOperEvacState
+
+`func (o *NetworkElementSummary) HasOperEvacState() bool`
+
+HasOperEvacState returns a boolean if a field has been set.
+
+### GetOperability
+
+`func (o *NetworkElementSummary) GetOperability() string`
+
+GetOperability returns the Operability field if non-nil, zero value otherwise.
+
+### GetOperabilityOk
+
+`func (o *NetworkElementSummary) GetOperabilityOk() (*string, bool)`
+
+GetOperabilityOk returns a tuple with the Operability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperability
+
+`func (o *NetworkElementSummary) SetOperability(v string)`
+
+SetOperability sets Operability field to given value.
+
+### HasOperability
+
+`func (o *NetworkElementSummary) HasOperability() bool`
+
+HasOperability returns a boolean if a field has been set.
 
 ### GetOutOfBandIpAddress
 
@@ -910,6 +1119,31 @@ SetSwitchId sets SwitchId field to given value.
 `func (o *NetworkElementSummary) HasSwitchId() bool`
 
 HasSwitchId returns a boolean if a field has been set.
+
+### GetTotalMemory
+
+`func (o *NetworkElementSummary) GetTotalMemory() int64`
+
+GetTotalMemory returns the TotalMemory field if non-nil, zero value otherwise.
+
+### GetTotalMemoryOk
+
+`func (o *NetworkElementSummary) GetTotalMemoryOk() (*int64, bool)`
+
+GetTotalMemoryOk returns a tuple with the TotalMemory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalMemory
+
+`func (o *NetworkElementSummary) SetTotalMemory(v int64)`
+
+SetTotalMemory sets TotalMemory field to given value.
+
+### HasTotalMemory
+
+`func (o *NetworkElementSummary) HasTotalMemory() bool`
+
+HasTotalMemory returns a boolean if a field has been set.
 
 ### GetVendor
 

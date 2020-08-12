@@ -1,15 +1,15 @@
 # \ForecastApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetForecastCatalogByMoid**](ForecastApi.md#GetForecastCatalogByMoid) | **Get** /forecast/Catalogs/{Moid} | Read a &#39;forecast.Catalog&#39; resource.
-[**GetForecastCatalogList**](ForecastApi.md#GetForecastCatalogList) | **Get** /forecast/Catalogs | Read a &#39;forecast.Catalog&#39; resource.
-[**GetForecastDefinitionByMoid**](ForecastApi.md#GetForecastDefinitionByMoid) | **Get** /forecast/Definitions/{Moid} | Read a &#39;forecast.Definition&#39; resource.
-[**GetForecastDefinitionList**](ForecastApi.md#GetForecastDefinitionList) | **Get** /forecast/Definitions | Read a &#39;forecast.Definition&#39; resource.
-[**GetForecastInstanceByMoid**](ForecastApi.md#GetForecastInstanceByMoid) | **Get** /forecast/Instances/{Moid} | Read a &#39;forecast.Instance&#39; resource.
-[**GetForecastInstanceList**](ForecastApi.md#GetForecastInstanceList) | **Get** /forecast/Instances | Read a &#39;forecast.Instance&#39; resource.
+[**GetForecastCatalogByMoid**](ForecastApi.md#GetForecastCatalogByMoid) | **Get** /api/v1/forecast/Catalogs/{Moid} | Read a &#39;forecast.Catalog&#39; resource.
+[**GetForecastCatalogList**](ForecastApi.md#GetForecastCatalogList) | **Get** /api/v1/forecast/Catalogs | Read a &#39;forecast.Catalog&#39; resource.
+[**GetForecastDefinitionByMoid**](ForecastApi.md#GetForecastDefinitionByMoid) | **Get** /api/v1/forecast/Definitions/{Moid} | Read a &#39;forecast.Definition&#39; resource.
+[**GetForecastDefinitionList**](ForecastApi.md#GetForecastDefinitionList) | **Get** /api/v1/forecast/Definitions | Read a &#39;forecast.Definition&#39; resource.
+[**GetForecastInstanceByMoid**](ForecastApi.md#GetForecastInstanceByMoid) | **Get** /api/v1/forecast/Instances/{Moid} | Read a &#39;forecast.Instance&#39; resource.
+[**GetForecastInstanceList**](ForecastApi.md#GetForecastInstanceList) | **Get** /api/v1/forecast/Instances | Read a &#39;forecast.Instance&#39; resource.
 
 
 

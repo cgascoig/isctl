@@ -56,6 +56,16 @@ SetEndPointPrivileges sets EndPointPrivileges field to given value.
 
 HasEndPointPrivileges returns a boolean if a field has been set.
 
+### SetEndPointPrivilegesNil
+
+`func (o *IamSystem) SetEndPointPrivilegesNil(b bool)`
+
+ SetEndPointPrivilegesNil sets the value for EndPointPrivileges to be an explicit nil
+
+### UnsetEndPointPrivileges
+`func (o *IamSystem) UnsetEndPointPrivileges()`
+
+UnsetEndPointPrivileges ensures that no value is present for EndPointPrivileges, not even an explicit nil
 ### GetEndPointRoles
 
 `func (o *IamSystem) GetEndPointRoles() []IamEndPointRoleRelationship`
@@ -81,6 +91,16 @@ SetEndPointRoles sets EndPointRoles field to given value.
 
 HasEndPointRoles returns a boolean if a field has been set.
 
+### SetEndPointRolesNil
+
+`func (o *IamSystem) SetEndPointRolesNil(b bool)`
+
+ SetEndPointRolesNil sets the value for EndPointRoles to be an explicit nil
+
+### UnsetEndPointRoles
+`func (o *IamSystem) UnsetEndPointRoles()`
+
+UnsetEndPointRoles ensures that no value is present for EndPointRoles, not even an explicit nil
 ### GetIdp
 
 `func (o *IamSystem) GetIdp() IamIdpRelationship`
@@ -131,6 +151,16 @@ SetPrivilegeSets sets PrivilegeSets field to given value.
 
 HasPrivilegeSets returns a boolean if a field has been set.
 
+### SetPrivilegeSetsNil
+
+`func (o *IamSystem) SetPrivilegeSetsNil(b bool)`
+
+ SetPrivilegeSetsNil sets the value for PrivilegeSets to be an explicit nil
+
+### UnsetPrivilegeSets
+`func (o *IamSystem) UnsetPrivilegeSets()`
+
+UnsetPrivilegeSets ensures that no value is present for PrivilegeSets, not even an explicit nil
 ### GetPrivileges
 
 `func (o *IamSystem) GetPrivileges() []IamPrivilegeRelationship`
@@ -156,6 +186,16 @@ SetPrivileges sets Privileges field to given value.
 
 HasPrivileges returns a boolean if a field has been set.
 
+### SetPrivilegesNil
+
+`func (o *IamSystem) SetPrivilegesNil(b bool)`
+
+ SetPrivilegesNil sets the value for Privileges to be an explicit nil
+
+### UnsetPrivileges
+`func (o *IamSystem) UnsetPrivileges()`
+
+UnsetPrivileges ensures that no value is present for Privileges, not even an explicit nil
 ### GetRoles
 
 `func (o *IamSystem) GetRoles() []IamRoleRelationship`
@@ -181,6 +221,16 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
+### SetRolesNil
+
+`func (o *IamSystem) SetRolesNil(b bool)`
+
+ SetRolesNil sets the value for Roles to be an explicit nil
+
+### UnsetRoles
+`func (o *IamSystem) UnsetRoles()`
+
+UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 ### GetServiceProvider
 
 `func (o *IamSystem) GetServiceProvider() IamServiceProviderRelationship`

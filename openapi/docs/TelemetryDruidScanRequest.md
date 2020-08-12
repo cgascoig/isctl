@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**QueryType** | Pointer to **string** | null | 
 **DataSource** | Pointer to [**TelemetryDruidDataSource**](telemetry.DruidDataSource.md) |  | 
 **Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
 **ResultFormat** | Pointer to **string** | How the results are represented, list, compactedList or valueVector. Currently only list and compactedList are supported. | [optional] [default to "list"]
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidScanRequest
 
-`func NewTelemetryDruidScanRequest(dataSource TelemetryDruidDataSource, intervals []string, ) *TelemetryDruidScanRequest`
+`func NewTelemetryDruidScanRequest(queryType string, dataSource TelemetryDruidDataSource, intervals []string, ) *TelemetryDruidScanRequest`
 
 NewTelemetryDruidScanRequest instantiates a new TelemetryDruidScanRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,6 +34,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidScanRequestWithDefaults instantiates a new TelemetryDruidScanRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetQueryType
+
+`func (o *TelemetryDruidScanRequest) GetQueryType() string`
+
+GetQueryType returns the QueryType field if non-nil, zero value otherwise.
+
+### GetQueryTypeOk
+
+`func (o *TelemetryDruidScanRequest) GetQueryTypeOk() (*string, bool)`
+
+GetQueryTypeOk returns a tuple with the QueryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueryType
+
+`func (o *TelemetryDruidScanRequest) SetQueryType(v string)`
+
+SetQueryType sets QueryType field to given value.
+
 
 ### GetDataSource
 

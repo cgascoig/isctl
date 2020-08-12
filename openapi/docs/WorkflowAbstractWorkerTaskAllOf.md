@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InputParameters** | Pointer to **map[string]interface{}** | JSON formatted map that defines the input given to the task. JSONPath is used for chaining output from previous tasks as inputs into the current task. The format to specify the mapping is &#39;${Source.input/output.JsonPath}&#39;. &#39;Source&#39; can be either workflow or the name of the task within the workflow. You can map the task input to either a workflow input or a task output. Following this is JSON path expression to extract JSON fragment from source&#39;s input/output. | [optional] 
+**InputParameters** | Pointer to **interface{}** | JSON formatted map that defines the input given to the task. JSONPath is used for chaining output from previous tasks as inputs into the current task. The format to specify the mapping is &#39;${Source.input/output.JsonPath}&#39;. &#39;Source&#39; can be either workflow or the name of the task within the workflow. You can map the task input to either a workflow input or a task output. Following this is JSON path expression to extract JSON fragment from source&#39;s input/output. | [optional] 
 **OnFailure** | Pointer to **string** | This specifies the name of the next task to run if Task fails.  This is the unique name given to the task instance within the workflow. In a graph model, denotes an edge to another Task Node. | [optional] 
 **OnSuccess** | Pointer to **string** | This specifies the name of the next task to run if Task succeeds.  This is the unique name given to the task instance within the workflow. In a graph model, denotes an edge to another Task Node. | [optional] 
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetInputParameters
 
-`func (o *WorkflowAbstractWorkerTaskAllOf) GetInputParameters() map[string]interface{}`
+`func (o *WorkflowAbstractWorkerTaskAllOf) GetInputParameters() interface{}`
 
 GetInputParameters returns the InputParameters field if non-nil, zero value otherwise.
 
 ### GetInputParametersOk
 
-`func (o *WorkflowAbstractWorkerTaskAllOf) GetInputParametersOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowAbstractWorkerTaskAllOf) GetInputParametersOk() (*interface{}, bool)`
 
 GetInputParametersOk returns a tuple with the InputParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInputParameters
 
-`func (o *WorkflowAbstractWorkerTaskAllOf) SetInputParameters(v map[string]interface{})`
+`func (o *WorkflowAbstractWorkerTaskAllOf) SetInputParameters(v interface{})`
 
 SetInputParameters sets InputParameters field to given value.
 
@@ -52,6 +52,16 @@ SetInputParameters sets InputParameters field to given value.
 
 HasInputParameters returns a boolean if a field has been set.
 
+### SetInputParametersNil
+
+`func (o *WorkflowAbstractWorkerTaskAllOf) SetInputParametersNil(b bool)`
+
+ SetInputParametersNil sets the value for InputParameters to be an explicit nil
+
+### UnsetInputParameters
+`func (o *WorkflowAbstractWorkerTaskAllOf) UnsetInputParameters()`
+
+UnsetInputParameters ensures that no value is present for InputParameters, not even an explicit nil
 ### GetOnFailure
 
 `func (o *WorkflowAbstractWorkerTaskAllOf) GetOnFailure() string`

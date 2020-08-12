@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Algorithm** | Pointer to **string** | The EdDSA algorithm, as defined in RFC 8032. | [optional] [default to "Ed25519"]
+**Algorithm** | Pointer to **string** | The EdDSA algorithm, as defined in RFC 8032. * &#x60;Ed25519&#x60; - The edwards25519 curve, as defined in RFC 8032 section 5.1. * &#x60;Ed25519ph&#x60; - The edwards25519 curve for the PureEdDSA variant. * &#x60;Ed25519ctx&#x60; - The edwards25519 curve for the HashEdDSA variant. | [optional] [default to "Ed25519"]
 
 ## Methods
 

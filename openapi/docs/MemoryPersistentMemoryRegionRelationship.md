@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **FreeCapacity** | Pointer to **string** | Free capacity in GiB of the Persistent Memory Region. | [optional] [readonly] 
@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **SocketId** | Pointer to **string** | Socket ID of the Persistent Memory Region. | [optional] [readonly] 
 **SocketMemoryId** | Pointer to **string** | Socket Memory ID of the Persistent Memory Region. | [optional] [readonly] 
 **TotalCapacity** | Pointer to **string** | Total capacity in GiB of the Persistent Memory Region. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **MemoryPersistentMemoryConfiguration** | Pointer to [**MemoryPersistentMemoryConfigurationRelationship**](memory.PersistentMemoryConfiguration.Relationship.md) |  | [optional] 
 **PersistentMemoryNamespaces** | Pointer to [**[]MemoryPersistentMemoryNamespaceRelationship**](memory.PersistentMemoryNamespace.Relationship.md) | An array of relationships to memoryPersistentMemoryNamespace resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -344,6 +345,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *MemoryPersistentMemoryRegionRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *MemoryPersistentMemoryRegionRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *MemoryPersistentMemoryRegionRelationship) GetParent() MoBaseMoRelationship`
@@ -394,6 +405,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *MemoryPersistentMemoryRegionRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *MemoryPersistentMemoryRegionRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *MemoryPersistentMemoryRegionRelationship) GetDisplayNames() map[string][]string`
@@ -729,6 +750,31 @@ SetTotalCapacity sets TotalCapacity field to given value.
 
 HasTotalCapacity returns a boolean if a field has been set.
 
+### GetInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryRegionRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *MemoryPersistentMemoryRegionRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryRegionRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryRegionRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetMemoryPersistentMemoryConfiguration
 
 `func (o *MemoryPersistentMemoryRegionRelationship) GetMemoryPersistentMemoryConfiguration() MemoryPersistentMemoryConfigurationRelationship`
@@ -779,6 +825,16 @@ SetPersistentMemoryNamespaces sets PersistentMemoryNamespaces field to given val
 
 HasPersistentMemoryNamespaces returns a boolean if a field has been set.
 
+### SetPersistentMemoryNamespacesNil
+
+`func (o *MemoryPersistentMemoryRegionRelationship) SetPersistentMemoryNamespacesNil(b bool)`
+
+ SetPersistentMemoryNamespacesNil sets the value for PersistentMemoryNamespaces to be an explicit nil
+
+### UnsetPersistentMemoryNamespaces
+`func (o *MemoryPersistentMemoryRegionRelationship) UnsetPersistentMemoryNamespaces()`
+
+UnsetPersistentMemoryNamespaces ensures that no value is present for PersistentMemoryNamespaces, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *MemoryPersistentMemoryRegionRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,9 +18,11 @@ import (
 
 // VnicVlanSettingsAllOf Definition of the list of properties defined in 'vnic.VlanSettings', excluding properties defined in parent classes.
 type VnicVlanSettingsAllOf struct {
-	// Default VLAN ID of the virtual interface. Setting the ID to 0 will not associate any default VLAN to the traffic on the virtual interface.
+	// Allowed VLAN IDs of the virtual interface.
+	AllowedVlans *string `json:"AllowedVlans,omitempty" yaml:"AllowedVlans,omitempty"`
+	// Native VLAN ID of the virtual interface or the corresponding vethernet on the peer Fabric Interconnect to which the virtual interface is connected. Setting the ID to 0 will not associate any native VLAN to the traffic on the virtual interface.
 	DefaultVlan *int64 `json:"DefaultVlan,omitempty" yaml:"DefaultVlan,omitempty"`
-	// Option to determine if the port can carry single VLAN (Access) or multiple VLANs (Trunk) traffic.
+	// Option to determine if the port can carry single VLAN (Access) or multiple VLANs (Trunk) traffic. * `ACCESS` - An access port carries traffic only for a single VLAN on the interface. * `TRUNK` - A trunk port can have two or more VLANs configured on the interface. It can carry traffic for several VLANs simultaneously.
 	Mode *string `json:"Mode,omitempty" yaml:"Mode,omitempty"`
 }
 
@@ -43,6 +45,38 @@ func NewVnicVlanSettingsAllOfWithDefaults() *VnicVlanSettingsAllOf {
 	var mode string = "ACCESS"
 	this.Mode = &mode
 	return &this
+}
+
+// GetAllowedVlans returns the AllowedVlans field value if set, zero value otherwise.
+func (o *VnicVlanSettingsAllOf) GetAllowedVlans() string {
+	if o == nil || o.AllowedVlans == nil {
+		var ret string
+		return ret
+	}
+	return *o.AllowedVlans
+}
+
+// GetAllowedVlansOk returns a tuple with the AllowedVlans field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicVlanSettingsAllOf) GetAllowedVlansOk() (*string, bool) {
+	if o == nil || o.AllowedVlans == nil {
+		return nil, false
+	}
+	return o.AllowedVlans, true
+}
+
+// HasAllowedVlans returns a boolean if a field has been set.
+func (o *VnicVlanSettingsAllOf) HasAllowedVlans() bool {
+	if o != nil && o.AllowedVlans != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowedVlans gets a reference to the given string and assigns it to the AllowedVlans field.
+func (o *VnicVlanSettingsAllOf) SetAllowedVlans(v string) {
+	o.AllowedVlans = &v
 }
 
 // GetDefaultVlan returns the DefaultVlan field value if set, zero value otherwise.
@@ -111,6 +145,9 @@ func (o *VnicVlanSettingsAllOf) SetMode(v string) {
 
 func (o VnicVlanSettingsAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.AllowedVlans != nil {
+		toSerialize["AllowedVlans"] = o.AllowedVlans
+	}
 	if o.DefaultVlan != nil {
 		toSerialize["DefaultVlan"] = o.DefaultVlan
 	}

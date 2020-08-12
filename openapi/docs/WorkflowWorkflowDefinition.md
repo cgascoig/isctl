@@ -7,15 +7,15 @@ Name | Type | Description | Notes
 **DefaultVersion** | Pointer to **bool** | When true this will be the workflow version that is used when a specific workflow definition version is not specified. The default version is used when user executes a workflow without specifying a version or when workflow is included in another workflow without a specific version. The very first workflow definition created with a name will be set as the default version, after that user can explicitly set any version of the workflow definition as the default version. | [optional] 
 **Description** | Pointer to **string** | The description for this workflow. | [optional] 
 **InputDefinition** | Pointer to [**[]WorkflowBaseDataType**](workflow.BaseDataType.md) |  | [optional] 
-**Label** | Pointer to **string** | A user friendly short name to identify the workflow. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_). | [optional] 
-**LicenseEntitlement** | Pointer to **string** | License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks. | [optional] [readonly] [default to "Base"]
+**Label** | Pointer to **string** | A user friendly short name to identify the workflow. Label can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_). | [optional] 
+**LicenseEntitlement** | Pointer to **string** | License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks. * &#x60;Base&#x60; - Base as a License type. It is default license type. * &#x60;Essential&#x60; - Essential as a License type. * &#x60;Standard&#x60; - Standard as a License type. * &#x60;Advantage&#x60; - Advantage as a License type. * &#x60;Premier&#x60; - Premier as a License type. | [optional] [readonly] [default to "Base"]
 **MaxTaskCount** | Pointer to **int64** | The maximum number of tasks that can be executed on this workflow. | [optional] [readonly] 
 **Name** | Pointer to **string** | The name for this workflow. You can have multiple versions of the workflow with the same name. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.) or an underscore (_). | [optional] 
 **OutputDefinition** | Pointer to [**[]WorkflowBaseDataType**](workflow.BaseDataType.md) |  | [optional] 
-**OutputParameters** | Pointer to **map[string]interface{}** | The output mappings for the workflow. The outputs for worflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is &#39;${Source.output.JsonPath}&#39;. &#39;Source&#39; is the name of the task within the workflow. You can map any task output to a workflow output as long as the types are compatible. Following this is JSON path expression to extract JSON fragment from source&#39;s output. | [optional] 
+**OutputParameters** | Pointer to **interface{}** | The output mappings for the workflow. The outputs for worflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is &#39;${Source.output.JsonPath}&#39;. &#39;Source&#39; is the name of the task within the workflow. You can map any task output to a workflow output as long as the types are compatible. Following this is JSON path expression to extract JSON fragment from source&#39;s output. | [optional] 
 **Properties** | Pointer to [**WorkflowWorkflowProperties**](workflow.WorkflowProperties.md) |  | [optional] 
 **Tasks** | Pointer to [**[]WorkflowWorkflowTask**](workflow.WorkflowTask.md) |  | [optional] 
-**UiRenderingData** | Pointer to **map[string]interface{}** | This will hold the data needed for workflow to be rendered in the user interface. | [optional] 
+**UiRenderingData** | Pointer to **interface{}** | This will hold the data needed for workflow to be rendered in the user interface. | [optional] 
 **ValidationInformation** | Pointer to [**WorkflowValidationInformation**](workflow.ValidationInformation.md) |  | [optional] 
 **Version** | Pointer to **int64** | The version of the workflow to support multiple versions. | [optional] 
 **Catalog** | Pointer to [**WorkflowCatalogRelationship**](workflow.Catalog.Relationship.md) |  | [optional] 
@@ -241,20 +241,20 @@ HasOutputDefinition returns a boolean if a field has been set.
 
 ### GetOutputParameters
 
-`func (o *WorkflowWorkflowDefinition) GetOutputParameters() map[string]interface{}`
+`func (o *WorkflowWorkflowDefinition) GetOutputParameters() interface{}`
 
 GetOutputParameters returns the OutputParameters field if non-nil, zero value otherwise.
 
 ### GetOutputParametersOk
 
-`func (o *WorkflowWorkflowDefinition) GetOutputParametersOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowWorkflowDefinition) GetOutputParametersOk() (*interface{}, bool)`
 
 GetOutputParametersOk returns a tuple with the OutputParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutputParameters
 
-`func (o *WorkflowWorkflowDefinition) SetOutputParameters(v map[string]interface{})`
+`func (o *WorkflowWorkflowDefinition) SetOutputParameters(v interface{})`
 
 SetOutputParameters sets OutputParameters field to given value.
 
@@ -264,6 +264,16 @@ SetOutputParameters sets OutputParameters field to given value.
 
 HasOutputParameters returns a boolean if a field has been set.
 
+### SetOutputParametersNil
+
+`func (o *WorkflowWorkflowDefinition) SetOutputParametersNil(b bool)`
+
+ SetOutputParametersNil sets the value for OutputParameters to be an explicit nil
+
+### UnsetOutputParameters
+`func (o *WorkflowWorkflowDefinition) UnsetOutputParameters()`
+
+UnsetOutputParameters ensures that no value is present for OutputParameters, not even an explicit nil
 ### GetProperties
 
 `func (o *WorkflowWorkflowDefinition) GetProperties() WorkflowWorkflowProperties`
@@ -316,20 +326,20 @@ HasTasks returns a boolean if a field has been set.
 
 ### GetUiRenderingData
 
-`func (o *WorkflowWorkflowDefinition) GetUiRenderingData() map[string]interface{}`
+`func (o *WorkflowWorkflowDefinition) GetUiRenderingData() interface{}`
 
 GetUiRenderingData returns the UiRenderingData field if non-nil, zero value otherwise.
 
 ### GetUiRenderingDataOk
 
-`func (o *WorkflowWorkflowDefinition) GetUiRenderingDataOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowWorkflowDefinition) GetUiRenderingDataOk() (*interface{}, bool)`
 
 GetUiRenderingDataOk returns a tuple with the UiRenderingData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUiRenderingData
 
-`func (o *WorkflowWorkflowDefinition) SetUiRenderingData(v map[string]interface{})`
+`func (o *WorkflowWorkflowDefinition) SetUiRenderingData(v interface{})`
 
 SetUiRenderingData sets UiRenderingData field to given value.
 
@@ -339,6 +349,16 @@ SetUiRenderingData sets UiRenderingData field to given value.
 
 HasUiRenderingData returns a boolean if a field has been set.
 
+### SetUiRenderingDataNil
+
+`func (o *WorkflowWorkflowDefinition) SetUiRenderingDataNil(b bool)`
+
+ SetUiRenderingDataNil sets the value for UiRenderingData to be an explicit nil
+
+### UnsetUiRenderingData
+`func (o *WorkflowWorkflowDefinition) UnsetUiRenderingData()`
+
+UnsetUiRenderingData ensures that no value is present for UiRenderingData, not even an explicit nil
 ### GetValidationInformation
 
 `func (o *WorkflowWorkflowDefinition) GetValidationInformation() WorkflowValidationInformation`

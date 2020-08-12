@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,41 +18,66 @@ import (
 
 // StorageVirtualDriveAllOf Definition of the list of properties defined in 'storage.VirtualDrive', excluding properties defined in parent classes.
 type StorageVirtualDriveAllOf struct {
-	AccessPolicy               *string `json:"AccessPolicy,omitempty" yaml:"AccessPolicy,omitempty"`
-	ActualWriteCachePolicy     *string `json:"ActualWriteCachePolicy,omitempty" yaml:"ActualWriteCachePolicy,omitempty"`
-	AvailableSize              *string `json:"AvailableSize,omitempty" yaml:"AvailableSize,omitempty"`
-	BlockSize                  *string `json:"BlockSize,omitempty" yaml:"BlockSize,omitempty"`
-	Bootable                   *string `json:"Bootable,omitempty" yaml:"Bootable,omitempty"`
-	ConfigState                *string `json:"ConfigState,omitempty" yaml:"ConfigState,omitempty"`
+	// The access policy of the virtual drive.
+	AccessPolicy *string `json:"AccessPolicy,omitempty" yaml:"AccessPolicy,omitempty"`
+	// The current write cache policy of the virtual drive.
+	ActualWriteCachePolicy *string `json:"ActualWriteCachePolicy,omitempty" yaml:"ActualWriteCachePolicy,omitempty"`
+	// Available storage capacity of the virtual drive.
+	AvailableSize *string `json:"AvailableSize,omitempty" yaml:"AvailableSize,omitempty"`
+	// Block size of the virtual drive.
+	BlockSize *string `json:"BlockSize,omitempty" yaml:"BlockSize,omitempty"`
+	// The virtual drive bootable state.
+	Bootable *string `json:"Bootable,omitempty" yaml:"Bootable,omitempty"`
+	// The configuration state of the virtual drive.
+	ConfigState *string `json:"ConfigState,omitempty" yaml:"ConfigState,omitempty"`
+	// The requested write cache policy of the virtual drive.
 	ConfiguredWriteCachePolicy *string `json:"ConfiguredWriteCachePolicy,omitempty" yaml:"ConfiguredWriteCachePolicy,omitempty"`
-	ConnectionProtocol         *string `json:"ConnectionProtocol,omitempty" yaml:"ConnectionProtocol,omitempty"`
-	DriveCache                 *string `json:"DriveCache,omitempty" yaml:"DriveCache,omitempty"`
-	DriveSecurity              *string `json:"DriveSecurity,omitempty" yaml:"DriveSecurity,omitempty"`
-	// It shows the Virtual drive state.
+	// The connection protocol of the virtual drive.
+	ConnectionProtocol *string `json:"ConnectionProtocol,omitempty" yaml:"ConnectionProtocol,omitempty"`
+	// The state of the drive cache of the virtual drive.
+	DriveCache *string `json:"DriveCache,omitempty" yaml:"DriveCache,omitempty"`
+	// The driveSecurity state of the Virtual drive.
+	DriveSecurity *string `json:"DriveSecurity,omitempty" yaml:"DriveSecurity,omitempty"`
+	// The state of the Virtual drive.
 	DriveState *string `json:"DriveState,omitempty" yaml:"DriveState,omitempty"`
-	IoPolicy   *string `json:"IoPolicy,omitempty" yaml:"IoPolicy,omitempty"`
-	Name       *string `json:"Name,omitempty" yaml:"Name,omitempty"`
-	NumBlocks  *string `json:"NumBlocks,omitempty" yaml:"NumBlocks,omitempty"`
-	// It shows the current operational state of Virtual drive.
-	OperState         *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
-	Operability       *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
+	// The Input/Output Policy defined on the Virtual drive.
+	IoPolicy *string `json:"IoPolicy,omitempty" yaml:"IoPolicy,omitempty"`
+	// The name of the Virtual drive.
+	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
+	// Number of Blocks on the Physical Disk.
+	NumBlocks *string `json:"NumBlocks,omitempty" yaml:"NumBlocks,omitempty"`
+	// The current operational state of Virtual drive.
+	OperState *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
+	// The current operability state of Virtual drive.
+	Operability *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
+	// The block size of the the virtual drive.
 	PhysicalBlockSize *string `json:"PhysicalBlockSize,omitempty" yaml:"PhysicalBlockSize,omitempty"`
-	Presence          *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
-	ReadPolicy        *string `json:"ReadPolicy,omitempty" yaml:"ReadPolicy,omitempty"`
-	SecurityFlags     *string `json:"SecurityFlags,omitempty" yaml:"SecurityFlags,omitempty"`
-	Size              *string `json:"Size,omitempty" yaml:"Size,omitempty"`
+	// The presence status of the virtual drive.
+	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
+	// The read-ahead cache mode of the virtual drive.
+	ReadPolicy *string `json:"ReadPolicy,omitempty" yaml:"ReadPolicy,omitempty"`
+	// The security flags set for this virtual drive.
+	SecurityFlags *string `json:"SecurityFlags,omitempty" yaml:"SecurityFlags,omitempty"`
+	// The size of the virtual drive in MB.
+	Size *string `json:"Size,omitempty" yaml:"Size,omitempty"`
 	// The strip size is the portion of a stripe that resides on a single drive in the drive group, this is measured in KB.
-	StripSize      *string `json:"StripSize,omitempty" yaml:"StripSize,omitempty"`
-	Type           *string `json:"Type,omitempty" yaml:"Type,omitempty"`
-	Uuid           *string `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
-	VendorUuid     *string `json:"VendorUuid,omitempty" yaml:"VendorUuid,omitempty"`
-	VirtualDriveId *string `json:"VirtualDriveId,omitempty" yaml:"VirtualDriveId,omitempty"`
+	StripSize *string `json:"StripSize,omitempty" yaml:"StripSize,omitempty"`
+	// The raid type of the virtual drive.
+	Type *string `json:"Type,omitempty" yaml:"Type,omitempty"`
+	// The uuid of the virtual drive.
+	Uuid *string `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
+	// The UUID value of the vendor.
+	VendorUuid *string `json:"VendorUuid,omitempty" yaml:"VendorUuid,omitempty"`
+	// The identifier for this Virtual drive.
+	VirtualDriveId      *string                          `json:"VirtualDriveId,omitempty" yaml:"VirtualDriveId,omitempty"`
+	DiskGroup           *StorageDiskGroupRelationship    `json:"DiskGroup,omitempty" yaml:"DiskGroup,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to storagePhysicalDiskUsage resources.
-	PhysicalDiskUsages *[]StoragePhysicalDiskUsageRelationship `json:"PhysicalDiskUsages,omitempty" yaml:"PhysicalDiskUsages,omitempty"`
-	RegisteredDevice   *AssetDeviceRegistrationRelationship    `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
-	StorageController  *StorageControllerRelationship          `json:"StorageController,omitempty" yaml:"StorageController,omitempty"`
+	PhysicalDiskUsages []StoragePhysicalDiskUsageRelationship `json:"PhysicalDiskUsages,omitempty" yaml:"PhysicalDiskUsages,omitempty"`
+	RegisteredDevice   *AssetDeviceRegistrationRelationship   `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	StorageController  *StorageControllerRelationship         `json:"StorageController,omitempty" yaml:"StorageController,omitempty"`
 	// An array of relationships to storageVdMemberEp resources.
-	VdMemberEps           *[]StorageVdMemberEpRelationship          `json:"VdMemberEps,omitempty" yaml:"VdMemberEps,omitempty"`
+	VdMemberEps           []StorageVdMemberEpRelationship           `json:"VdMemberEps,omitempty" yaml:"VdMemberEps,omitempty"`
 	VirtualDriveExtension *StorageVirtualDriveExtensionRelationship `json:"VirtualDriveExtension,omitempty" yaml:"VirtualDriveExtension,omitempty"`
 }
 
@@ -905,22 +930,87 @@ func (o *StorageVirtualDriveAllOf) SetVirtualDriveId(v string) {
 	o.VirtualDriveId = &v
 }
 
-// GetPhysicalDiskUsages returns the PhysicalDiskUsages field value if set, zero value otherwise.
+// GetDiskGroup returns the DiskGroup field value if set, zero value otherwise.
+func (o *StorageVirtualDriveAllOf) GetDiskGroup() StorageDiskGroupRelationship {
+	if o == nil || o.DiskGroup == nil {
+		var ret StorageDiskGroupRelationship
+		return ret
+	}
+	return *o.DiskGroup
+}
+
+// GetDiskGroupOk returns a tuple with the DiskGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDriveAllOf) GetDiskGroupOk() (*StorageDiskGroupRelationship, bool) {
+	if o == nil || o.DiskGroup == nil {
+		return nil, false
+	}
+	return o.DiskGroup, true
+}
+
+// HasDiskGroup returns a boolean if a field has been set.
+func (o *StorageVirtualDriveAllOf) HasDiskGroup() bool {
+	if o != nil && o.DiskGroup != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDiskGroup gets a reference to the given StorageDiskGroupRelationship and assigns it to the DiskGroup field.
+func (o *StorageVirtualDriveAllOf) SetDiskGroup(v StorageDiskGroupRelationship) {
+	o.DiskGroup = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *StorageVirtualDriveAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDriveAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *StorageVirtualDriveAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *StorageVirtualDriveAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetPhysicalDiskUsages returns the PhysicalDiskUsages field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageVirtualDriveAllOf) GetPhysicalDiskUsages() []StoragePhysicalDiskUsageRelationship {
-	if o == nil || o.PhysicalDiskUsages == nil {
+	if o == nil {
 		var ret []StoragePhysicalDiskUsageRelationship
 		return ret
 	}
-	return *o.PhysicalDiskUsages
+	return o.PhysicalDiskUsages
 }
 
 // GetPhysicalDiskUsagesOk returns a tuple with the PhysicalDiskUsages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageVirtualDriveAllOf) GetPhysicalDiskUsagesOk() (*[]StoragePhysicalDiskUsageRelationship, bool) {
 	if o == nil || o.PhysicalDiskUsages == nil {
 		return nil, false
 	}
-	return o.PhysicalDiskUsages, true
+	return &o.PhysicalDiskUsages, true
 }
 
 // HasPhysicalDiskUsages returns a boolean if a field has been set.
@@ -934,7 +1024,7 @@ func (o *StorageVirtualDriveAllOf) HasPhysicalDiskUsages() bool {
 
 // SetPhysicalDiskUsages gets a reference to the given []StoragePhysicalDiskUsageRelationship and assigns it to the PhysicalDiskUsages field.
 func (o *StorageVirtualDriveAllOf) SetPhysicalDiskUsages(v []StoragePhysicalDiskUsageRelationship) {
-	o.PhysicalDiskUsages = &v
+	o.PhysicalDiskUsages = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -1001,22 +1091,23 @@ func (o *StorageVirtualDriveAllOf) SetStorageController(v StorageControllerRelat
 	o.StorageController = &v
 }
 
-// GetVdMemberEps returns the VdMemberEps field value if set, zero value otherwise.
+// GetVdMemberEps returns the VdMemberEps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageVirtualDriveAllOf) GetVdMemberEps() []StorageVdMemberEpRelationship {
-	if o == nil || o.VdMemberEps == nil {
+	if o == nil {
 		var ret []StorageVdMemberEpRelationship
 		return ret
 	}
-	return *o.VdMemberEps
+	return o.VdMemberEps
 }
 
 // GetVdMemberEpsOk returns a tuple with the VdMemberEps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageVirtualDriveAllOf) GetVdMemberEpsOk() (*[]StorageVdMemberEpRelationship, bool) {
 	if o == nil || o.VdMemberEps == nil {
 		return nil, false
 	}
-	return o.VdMemberEps, true
+	return &o.VdMemberEps, true
 }
 
 // HasVdMemberEps returns a boolean if a field has been set.
@@ -1030,7 +1121,7 @@ func (o *StorageVirtualDriveAllOf) HasVdMemberEps() bool {
 
 // SetVdMemberEps gets a reference to the given []StorageVdMemberEpRelationship and assigns it to the VdMemberEps field.
 func (o *StorageVirtualDriveAllOf) SetVdMemberEps(v []StorageVdMemberEpRelationship) {
-	o.VdMemberEps = &v
+	o.VdMemberEps = v
 }
 
 // GetVirtualDriveExtension returns the VirtualDriveExtension field value if set, zero value otherwise.
@@ -1144,6 +1235,12 @@ func (o StorageVirtualDriveAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.VirtualDriveId != nil {
 		toSerialize["VirtualDriveId"] = o.VirtualDriveId
+	}
+	if o.DiskGroup != nil {
+		toSerialize["DiskGroup"] = o.DiskGroup
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.PhysicalDiskUsages != nil {
 		toSerialize["PhysicalDiskUsages"] = o.PhysicalDiskUsages

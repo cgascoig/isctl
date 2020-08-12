@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OperQualifierReason** | Pointer to **string** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
+**OperQualifierReason** | Pointer to **string** | For certain states, indicates the reason why the operState is in that state. | [optional] [readonly] 
+**Presence** | Pointer to **string** | The presence state of the local disk. | [optional] [readonly] 
 **Role** | Pointer to **string** | Role of the disk normal or hot-spare, used by virtual-drive. | [optional] [readonly] 
-**SpanId** | Pointer to **string** |  | [optional] [readonly] 
-**VdMemberEpId** | Pointer to **int64** | It shows local disk slot number as id. | [optional] [readonly] 
+**SpanId** | Pointer to **string** | The span id number of the virtual drive. | [optional] [readonly] 
+**VdMemberEpId** | Pointer to **int64** | The local disk slot number as id. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageVirtualDrive** | Pointer to [**StorageVirtualDriveRelationship**](storage.VirtualDrive.Relationship.md) |  | [optional] 
 
@@ -155,6 +156,31 @@ SetVdMemberEpId sets VdMemberEpId field to given value.
 `func (o *StorageVdMemberEpAllOf) HasVdMemberEpId() bool`
 
 HasVdMemberEpId returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageVdMemberEpAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageVdMemberEpAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageVdMemberEpAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageVdMemberEpAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | Pointer to **string** | The aggregator type. | 
 **Name** | Pointer to **string** | Output name for the summed value. | 
 **FieldName** | Pointer to **string** | Name of the metric column to sum over. | 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidSumAggregator
 
-`func NewTelemetryDruidSumAggregator(name string, fieldName string, ) *TelemetryDruidSumAggregator`
+`func NewTelemetryDruidSumAggregator(type_ string, name string, fieldName string, ) *TelemetryDruidSumAggregator`
 
 NewTelemetryDruidSumAggregator instantiates a new TelemetryDruidSumAggregator object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidSumAggregatorWithDefaults instantiates a new TelemetryDruidSumAggregator object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *TelemetryDruidSumAggregator) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TelemetryDruidSumAggregator) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TelemetryDruidSumAggregator) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetName
 

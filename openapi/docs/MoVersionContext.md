@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **RefMo** | Pointer to [**MoMoRef**](mo.MoRef.md) |  | [optional] 
 **Timestamp** | Pointer to [**time.Time**](time.Time.md) | The time this versioned Managed Object was created. | [optional] [readonly] 
 **Version** | Pointer to **string** | The version of the Managed Object, e.g. an incrementing number or a hash id. | [optional] [readonly] 
-**VersionType** | Pointer to **string** | Specifies type of version. Currently the only supported value is \&quot;Configured\&quot; that is used to keep track of snapshots of policies and profiles that are intended to be configured to target endpoints. | [optional] [readonly] [default to "Modified"]
+**VersionType** | Pointer to **string** | Specifies type of version. Currently the only supported value is \&quot;Configured\&quot; that is used to keep track of snapshots of policies and profiles that are intended to be configured to target endpoints. * &#x60;Modified&#x60; - Version created every time an object is modified. * &#x60;Configured&#x60; - Version created every time an object is configured to the service profile. * &#x60;Deployed&#x60; - Version created for objects related to a service profile when it is deployed. | [optional] [readonly] [default to "Modified"]
 
 ## Methods
 

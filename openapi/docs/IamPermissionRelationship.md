@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | The informative description about each permission. | [optional] 
 **Name** | Pointer to **string** | The name of the permission which has to be granted to user. | [optional] 
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
@@ -338,6 +338,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *IamPermissionRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *IamPermissionRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *IamPermissionRelationship) GetParent() MoBaseMoRelationship`
@@ -388,6 +398,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *IamPermissionRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *IamPermissionRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *IamPermissionRelationship) GetDisplayNames() map[string][]string`
@@ -523,6 +543,16 @@ SetEndPointRoles sets EndPointRoles field to given value.
 
 HasEndPointRoles returns a boolean if a field has been set.
 
+### SetEndPointRolesNil
+
+`func (o *IamPermissionRelationship) SetEndPointRolesNil(b bool)`
+
+ SetEndPointRolesNil sets the value for EndPointRoles to be an explicit nil
+
+### UnsetEndPointRoles
+`func (o *IamPermissionRelationship) UnsetEndPointRoles()`
+
+UnsetEndPointRoles ensures that no value is present for EndPointRoles, not even an explicit nil
 ### GetResourceRoles
 
 `func (o *IamPermissionRelationship) GetResourceRoles() []IamResourceRolesRelationship`
@@ -548,6 +578,16 @@ SetResourceRoles sets ResourceRoles field to given value.
 
 HasResourceRoles returns a boolean if a field has been set.
 
+### SetResourceRolesNil
+
+`func (o *IamPermissionRelationship) SetResourceRolesNil(b bool)`
+
+ SetResourceRolesNil sets the value for ResourceRoles to be an explicit nil
+
+### UnsetResourceRoles
+`func (o *IamPermissionRelationship) UnsetResourceRoles()`
+
+UnsetResourceRoles ensures that no value is present for ResourceRoles, not even an explicit nil
 ### GetRoles
 
 `func (o *IamPermissionRelationship) GetRoles() []IamRoleRelationship`
@@ -573,6 +613,16 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
+### SetRolesNil
+
+`func (o *IamPermissionRelationship) SetRolesNil(b bool)`
+
+ SetRolesNil sets the value for Roles to be an explicit nil
+
+### UnsetRoles
+`func (o *IamPermissionRelationship) UnsetRoles()`
+
+UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 ### GetSessionLimits
 
 `func (o *IamPermissionRelationship) GetSessionLimits() IamSessionLimitsRelationship`
@@ -623,6 +673,16 @@ SetUserGroups sets UserGroups field to given value.
 
 HasUserGroups returns a boolean if a field has been set.
 
+### SetUserGroupsNil
+
+`func (o *IamPermissionRelationship) SetUserGroupsNil(b bool)`
+
+ SetUserGroupsNil sets the value for UserGroups to be an explicit nil
+
+### UnsetUserGroups
+`func (o *IamPermissionRelationship) UnsetUserGroups()`
+
+UnsetUserGroups ensures that no value is present for UserGroups, not even an explicit nil
 ### GetUsers
 
 `func (o *IamPermissionRelationship) GetUsers() []IamUserRelationship`
@@ -648,6 +708,16 @@ SetUsers sets Users field to given value.
 
 HasUsers returns a boolean if a field has been set.
 
+### SetUsersNil
+
+`func (o *IamPermissionRelationship) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *IamPermissionRelationship) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

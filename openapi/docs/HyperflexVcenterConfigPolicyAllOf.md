@@ -207,6 +207,16 @@ SetClusterProfiles sets ClusterProfiles field to given value.
 
 HasClusterProfiles returns a boolean if a field has been set.
 
+### SetClusterProfilesNil
+
+`func (o *HyperflexVcenterConfigPolicyAllOf) SetClusterProfilesNil(b bool)`
+
+ SetClusterProfilesNil sets the value for ClusterProfiles to be an explicit nil
+
+### UnsetClusterProfiles
+`func (o *HyperflexVcenterConfigPolicyAllOf) UnsetClusterProfiles()`
+
+UnsetClusterProfiles ensures that no value is present for ClusterProfiles, not even an explicit nil
 ### GetOrganization
 
 `func (o *HyperflexVcenterConfigPolicyAllOf) GetOrganization() OrganizationOrganizationRelationship`

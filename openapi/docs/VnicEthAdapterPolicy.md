@@ -7,13 +7,16 @@ Name | Type | Description | Notes
 **AdvancedFilter** | Pointer to **bool** | Enables advanced filtering on the interface. | [optional] 
 **ArfsSettings** | Pointer to [**VnicArfsSettings**](vnic.ArfsSettings.md) |  | [optional] 
 **CompletionQueueSettings** | Pointer to [**VnicCompletionQueueSettings**](vnic.CompletionQueueSettings.md) |  | [optional] 
+**InterruptScaling** | Pointer to **bool** | Enables Interrupt Scaling on the interface. | [optional] 
 **InterruptSettings** | Pointer to [**VnicEthInterruptSettings**](vnic.EthInterruptSettings.md) |  | [optional] 
 **NvgreSettings** | Pointer to [**VnicNvgreSettings**](vnic.NvgreSettings.md) |  | [optional] 
 **RoceSettings** | Pointer to [**VnicRoceSettings**](vnic.RoceSettings.md) |  | [optional] 
+**RssHashSettings** | Pointer to [**VnicRssHashSettings**](vnic.RssHashSettings.md) |  | [optional] 
 **RssSettings** | Pointer to **bool** | Receive Side Scaling allows the incoming traffic to be spread across multiple CPU cores. | [optional] 
 **RxQueueSettings** | Pointer to [**VnicEthRxQueueSettings**](vnic.EthRxQueueSettings.md) |  | [optional] 
 **TcpOffloadSettings** | Pointer to [**VnicTcpOffloadSettings**](vnic.TcpOffloadSettings.md) |  | [optional] 
 **TxQueueSettings** | Pointer to [**VnicEthTxQueueSettings**](vnic.EthTxQueueSettings.md) |  | [optional] 
+**UplinkFailbackTimeout** | Pointer to **int64** | Uplink Failback Timeout in seconds when uplink failover is enabled for a vNIC. After a vNIC has started using its secondary interface, this setting controls how long the primary interface must be available before the system resumes using the primary interface for the vNIC. | [optional] 
 **VxlanSettings** | Pointer to [**VnicVxlanSettings**](vnic.VxlanSettings.md) |  | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 
@@ -111,6 +114,31 @@ SetCompletionQueueSettings sets CompletionQueueSettings field to given value.
 
 HasCompletionQueueSettings returns a boolean if a field has been set.
 
+### GetInterruptScaling
+
+`func (o *VnicEthAdapterPolicy) GetInterruptScaling() bool`
+
+GetInterruptScaling returns the InterruptScaling field if non-nil, zero value otherwise.
+
+### GetInterruptScalingOk
+
+`func (o *VnicEthAdapterPolicy) GetInterruptScalingOk() (*bool, bool)`
+
+GetInterruptScalingOk returns a tuple with the InterruptScaling field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterruptScaling
+
+`func (o *VnicEthAdapterPolicy) SetInterruptScaling(v bool)`
+
+SetInterruptScaling sets InterruptScaling field to given value.
+
+### HasInterruptScaling
+
+`func (o *VnicEthAdapterPolicy) HasInterruptScaling() bool`
+
+HasInterruptScaling returns a boolean if a field has been set.
+
 ### GetInterruptSettings
 
 `func (o *VnicEthAdapterPolicy) GetInterruptSettings() VnicEthInterruptSettings`
@@ -185,6 +213,31 @@ SetRoceSettings sets RoceSettings field to given value.
 `func (o *VnicEthAdapterPolicy) HasRoceSettings() bool`
 
 HasRoceSettings returns a boolean if a field has been set.
+
+### GetRssHashSettings
+
+`func (o *VnicEthAdapterPolicy) GetRssHashSettings() VnicRssHashSettings`
+
+GetRssHashSettings returns the RssHashSettings field if non-nil, zero value otherwise.
+
+### GetRssHashSettingsOk
+
+`func (o *VnicEthAdapterPolicy) GetRssHashSettingsOk() (*VnicRssHashSettings, bool)`
+
+GetRssHashSettingsOk returns a tuple with the RssHashSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRssHashSettings
+
+`func (o *VnicEthAdapterPolicy) SetRssHashSettings(v VnicRssHashSettings)`
+
+SetRssHashSettings sets RssHashSettings field to given value.
+
+### HasRssHashSettings
+
+`func (o *VnicEthAdapterPolicy) HasRssHashSettings() bool`
+
+HasRssHashSettings returns a boolean if a field has been set.
 
 ### GetRssSettings
 
@@ -285,6 +338,31 @@ SetTxQueueSettings sets TxQueueSettings field to given value.
 `func (o *VnicEthAdapterPolicy) HasTxQueueSettings() bool`
 
 HasTxQueueSettings returns a boolean if a field has been set.
+
+### GetUplinkFailbackTimeout
+
+`func (o *VnicEthAdapterPolicy) GetUplinkFailbackTimeout() int64`
+
+GetUplinkFailbackTimeout returns the UplinkFailbackTimeout field if non-nil, zero value otherwise.
+
+### GetUplinkFailbackTimeoutOk
+
+`func (o *VnicEthAdapterPolicy) GetUplinkFailbackTimeoutOk() (*int64, bool)`
+
+GetUplinkFailbackTimeoutOk returns a tuple with the UplinkFailbackTimeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUplinkFailbackTimeout
+
+`func (o *VnicEthAdapterPolicy) SetUplinkFailbackTimeout(v int64)`
+
+SetUplinkFailbackTimeout sets UplinkFailbackTimeout field to given value.
+
+### HasUplinkFailbackTimeout
+
+`func (o *VnicEthAdapterPolicy) HasUplinkFailbackTimeout() bool`
+
+HasUplinkFailbackTimeout returns a boolean if a field has been set.
 
 ### GetVxlanSettings
 

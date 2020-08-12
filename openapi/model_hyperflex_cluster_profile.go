@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -21,13 +21,13 @@ type HyperflexClusterProfile struct {
 	PolicyAbstractConfigProfile `yaml:"PolicyAbstractConfigProfile,inline"`
 	// The storage data IP address for the HyperFlex cluster.
 	DataIpAddress *string `json:"DataIpAddress,omitempty" yaml:"DataIpAddress,omitempty"`
-	// The hypervisor type for the HyperFlex cluster.
+	// The hypervisor type for the HyperFlex cluster. * `ESXi` - ESXi hypervisor as specified by the user. * `HYPERV` - Hyperv hypervisor as specified by the user. * `KVM` - KVM hypervisor as specified by the user.
 	HypervisorType *string `json:"HypervisorType,omitempty" yaml:"HypervisorType,omitempty"`
 	// The MAC address prefix in the form of 00:25:B5:XX.
 	MacAddressPrefix *string `json:"MacAddressPrefix,omitempty" yaml:"MacAddressPrefix,omitempty"`
 	// The management IP address for the HyperFlex cluster.
 	MgmtIpAddress *string `json:"MgmtIpAddress,omitempty" yaml:"MgmtIpAddress,omitempty"`
-	// The management platform for the HyperFlex cluster.
+	// The management platform for the HyperFlex cluster. * `FI` - The host servers used in the cluster deployment are managed by a UCS Fabric Interconnect. * `EDGE` - The host servers used in the cluster deployment are standalone severs.
 	MgmtPlatform *string `json:"MgmtPlatform,omitempty" yaml:"MgmtPlatform,omitempty"`
 	// The number of copies of each data block written.
 	Replication     *int64              `json:"Replication,omitempty" yaml:"Replication,omitempty"`
@@ -44,11 +44,11 @@ type HyperflexClusterProfile struct {
 	LocalCredential   *HyperflexLocalCredentialPolicyRelationship `json:"LocalCredential,omitempty" yaml:"LocalCredential,omitempty"`
 	NodeConfig        *HyperflexNodeConfigPolicyRelationship      `json:"NodeConfig,omitempty" yaml:"NodeConfig,omitempty"`
 	// An array of relationships to hyperflexNodeProfile resources.
-	NodeProfileConfig *[]HyperflexNodeProfileRelationship      `json:"NodeProfileConfig,omitempty" yaml:"NodeProfileConfig,omitempty"`
+	NodeProfileConfig []HyperflexNodeProfileRelationship       `json:"NodeProfileConfig,omitempty" yaml:"NodeProfileConfig,omitempty"`
 	Organization      *OrganizationOrganizationRelationship    `json:"Organization,omitempty" yaml:"Organization,omitempty"`
 	ProxySetting      *HyperflexProxySettingPolicyRelationship `json:"ProxySetting,omitempty" yaml:"ProxySetting,omitempty"`
 	// An array of relationships to workflowWorkflowInfo resources.
-	RunningWorkflows *[]WorkflowWorkflowInfoRelationship         `json:"RunningWorkflows,omitempty" yaml:"RunningWorkflows,omitempty"`
+	RunningWorkflows []WorkflowWorkflowInfoRelationship          `json:"RunningWorkflows,omitempty" yaml:"RunningWorkflows,omitempty"`
 	SoftwareVersion  *HyperflexSoftwareVersionPolicyRelationship `json:"SoftwareVersion,omitempty" yaml:"SoftwareVersion,omitempty"`
 	SysConfig        *HyperflexSysConfigPolicyRelationship       `json:"SysConfig,omitempty" yaml:"SysConfig,omitempty"`
 	UcsmConfig       *HyperflexUcsmConfigPolicyRelationship      `json:"UcsmConfig,omitempty" yaml:"UcsmConfig,omitempty"`
@@ -624,22 +624,23 @@ func (o *HyperflexClusterProfile) SetNodeConfig(v HyperflexNodeConfigPolicyRelat
 	o.NodeConfig = &v
 }
 
-// GetNodeProfileConfig returns the NodeProfileConfig field value if set, zero value otherwise.
+// GetNodeProfileConfig returns the NodeProfileConfig field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexClusterProfile) GetNodeProfileConfig() []HyperflexNodeProfileRelationship {
-	if o == nil || o.NodeProfileConfig == nil {
+	if o == nil {
 		var ret []HyperflexNodeProfileRelationship
 		return ret
 	}
-	return *o.NodeProfileConfig
+	return o.NodeProfileConfig
 }
 
 // GetNodeProfileConfigOk returns a tuple with the NodeProfileConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexClusterProfile) GetNodeProfileConfigOk() (*[]HyperflexNodeProfileRelationship, bool) {
 	if o == nil || o.NodeProfileConfig == nil {
 		return nil, false
 	}
-	return o.NodeProfileConfig, true
+	return &o.NodeProfileConfig, true
 }
 
 // HasNodeProfileConfig returns a boolean if a field has been set.
@@ -653,7 +654,7 @@ func (o *HyperflexClusterProfile) HasNodeProfileConfig() bool {
 
 // SetNodeProfileConfig gets a reference to the given []HyperflexNodeProfileRelationship and assigns it to the NodeProfileConfig field.
 func (o *HyperflexClusterProfile) SetNodeProfileConfig(v []HyperflexNodeProfileRelationship) {
-	o.NodeProfileConfig = &v
+	o.NodeProfileConfig = v
 }
 
 // GetOrganization returns the Organization field value if set, zero value otherwise.
@@ -720,22 +721,23 @@ func (o *HyperflexClusterProfile) SetProxySetting(v HyperflexProxySettingPolicyR
 	o.ProxySetting = &v
 }
 
-// GetRunningWorkflows returns the RunningWorkflows field value if set, zero value otherwise.
+// GetRunningWorkflows returns the RunningWorkflows field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexClusterProfile) GetRunningWorkflows() []WorkflowWorkflowInfoRelationship {
-	if o == nil || o.RunningWorkflows == nil {
+	if o == nil {
 		var ret []WorkflowWorkflowInfoRelationship
 		return ret
 	}
-	return *o.RunningWorkflows
+	return o.RunningWorkflows
 }
 
 // GetRunningWorkflowsOk returns a tuple with the RunningWorkflows field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexClusterProfile) GetRunningWorkflowsOk() (*[]WorkflowWorkflowInfoRelationship, bool) {
 	if o == nil || o.RunningWorkflows == nil {
 		return nil, false
 	}
-	return o.RunningWorkflows, true
+	return &o.RunningWorkflows, true
 }
 
 // HasRunningWorkflows returns a boolean if a field has been set.
@@ -749,7 +751,7 @@ func (o *HyperflexClusterProfile) HasRunningWorkflows() bool {
 
 // SetRunningWorkflows gets a reference to the given []WorkflowWorkflowInfoRelationship and assigns it to the RunningWorkflows field.
 func (o *HyperflexClusterProfile) SetRunningWorkflows(v []WorkflowWorkflowInfoRelationship) {
-	o.RunningWorkflows = &v
+	o.RunningWorkflows = v
 }
 
 // GetSoftwareVersion returns the SoftwareVersion field value if set, zero value otherwise.

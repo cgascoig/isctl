@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -20,29 +20,42 @@ import (
 type AdapterUnit struct {
 	EquipmentBase `yaml:"EquipmentBase,inline"`
 	// Unique Identifier of an adapter Unit within a Rack Interface.
-	AdapterId       *string                           `json:"AdapterId,omitempty" yaml:"AdapterId,omitempty"`
-	BaseMacAddress  *string                           `json:"BaseMacAddress,omitempty" yaml:"BaseMacAddress,omitempty"`
-	Integrated      *string                           `json:"Integrated,omitempty" yaml:"Integrated,omitempty"`
-	OperState       *string                           `json:"OperState,omitempty" yaml:"OperState,omitempty"`
-	Operability     *string                           `json:"Operability,omitempty" yaml:"Operability,omitempty"`
-	PartNumber      *string                           `json:"PartNumber,omitempty" yaml:"PartNumber,omitempty"`
-	PciSlot         *string                           `json:"PciSlot,omitempty" yaml:"PciSlot,omitempty"`
-	Power           *string                           `json:"Power,omitempty" yaml:"Power,omitempty"`
-	Presence        *string                           `json:"Presence,omitempty" yaml:"Presence,omitempty"`
-	Thermal         *string                           `json:"Thermal,omitempty" yaml:"Thermal,omitempty"`
+	AdapterId *string `json:"AdapterId,omitempty" yaml:"AdapterId,omitempty"`
+	// Original Base Mac address of an adapter unit.
+	BaseMacAddress *string `json:"BaseMacAddress,omitempty" yaml:"BaseMacAddress,omitempty"`
+	// Connectivity Status of adapter - A or B or AB.
+	ConnectionStatus *string `json:"ConnectionStatus,omitempty" yaml:"ConnectionStatus,omitempty"`
+	// Cisco Integrated adapter or other type.
+	Integrated *string `json:"Integrated,omitempty" yaml:"Integrated,omitempty"`
+	// Operational state of an adapter unit.
+	OperState *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
+	// Operability state of an adapter unit.
+	Operability *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
+	// Part number of an adapter unit.
+	PartNumber *string `json:"PartNumber,omitempty" yaml:"PartNumber,omitempty"`
+	// PCIe slot of the adapter in the server.
+	PciSlot *string `json:"PciSlot,omitempty" yaml:"PciSlot,omitempty"`
+	// Power state of an adapter unit.
+	Power *string `json:"Power,omitempty" yaml:"Power,omitempty"`
+	// Adapter Unit presence or absence.
+	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
+	// Thermal state of an adapter unit.
+	Thermal *string `json:"Thermal,omitempty" yaml:"Thermal,omitempty"`
+	// Virtual Id of the adapter in the server.
 	Vid             *string                           `json:"Vid,omitempty" yaml:"Vid,omitempty"`
 	ComputeBlade    *ComputeBladeRelationship         `json:"ComputeBlade,omitempty" yaml:"ComputeBlade,omitempty"`
 	ComputeRackUnit *ComputeRackUnitRelationship      `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
 	Controller      *ManagementControllerRelationship `json:"Controller,omitempty" yaml:"Controller,omitempty"`
 	// An array of relationships to adapterExtEthInterface resources.
-	ExtEthIfs *[]AdapterExtEthInterfaceRelationship `json:"ExtEthIfs,omitempty" yaml:"ExtEthIfs,omitempty"`
+	ExtEthIfs []AdapterExtEthInterfaceRelationship `json:"ExtEthIfs,omitempty" yaml:"ExtEthIfs,omitempty"`
 	// An array of relationships to adapterHostEthInterface resources.
-	HostEthIfs *[]AdapterHostEthInterfaceRelationship `json:"HostEthIfs,omitempty" yaml:"HostEthIfs,omitempty"`
+	HostEthIfs []AdapterHostEthInterfaceRelationship `json:"HostEthIfs,omitempty" yaml:"HostEthIfs,omitempty"`
 	// An array of relationships to adapterHostFcInterface resources.
-	HostFcIfs *[]AdapterHostFcInterfaceRelationship `json:"HostFcIfs,omitempty" yaml:"HostFcIfs,omitempty"`
+	HostFcIfs []AdapterHostFcInterfaceRelationship `json:"HostFcIfs,omitempty" yaml:"HostFcIfs,omitempty"`
 	// An array of relationships to adapterHostIscsiInterface resources.
-	HostIscsiIfs     *[]AdapterHostIscsiInterfaceRelationship `json:"HostIscsiIfs,omitempty" yaml:"HostIscsiIfs,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship     `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	HostIscsiIfs        []AdapterHostIscsiInterfaceRelationship `json:"HostIscsiIfs,omitempty" yaml:"HostIscsiIfs,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship        `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship    `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewAdapterUnit instantiates a new AdapterUnit object
@@ -124,6 +137,38 @@ func (o *AdapterUnit) HasBaseMacAddress() bool {
 // SetBaseMacAddress gets a reference to the given string and assigns it to the BaseMacAddress field.
 func (o *AdapterUnit) SetBaseMacAddress(v string) {
 	o.BaseMacAddress = &v
+}
+
+// GetConnectionStatus returns the ConnectionStatus field value if set, zero value otherwise.
+func (o *AdapterUnit) GetConnectionStatus() string {
+	if o == nil || o.ConnectionStatus == nil {
+		var ret string
+		return ret
+	}
+	return *o.ConnectionStatus
+}
+
+// GetConnectionStatusOk returns a tuple with the ConnectionStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdapterUnit) GetConnectionStatusOk() (*string, bool) {
+	if o == nil || o.ConnectionStatus == nil {
+		return nil, false
+	}
+	return o.ConnectionStatus, true
+}
+
+// HasConnectionStatus returns a boolean if a field has been set.
+func (o *AdapterUnit) HasConnectionStatus() bool {
+	if o != nil && o.ConnectionStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConnectionStatus gets a reference to the given string and assigns it to the ConnectionStatus field.
+func (o *AdapterUnit) SetConnectionStatus(v string) {
+	o.ConnectionStatus = &v
 }
 
 // GetIntegrated returns the Integrated field value if set, zero value otherwise.
@@ -510,22 +555,23 @@ func (o *AdapterUnit) SetController(v ManagementControllerRelationship) {
 	o.Controller = &v
 }
 
-// GetExtEthIfs returns the ExtEthIfs field value if set, zero value otherwise.
+// GetExtEthIfs returns the ExtEthIfs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdapterUnit) GetExtEthIfs() []AdapterExtEthInterfaceRelationship {
-	if o == nil || o.ExtEthIfs == nil {
+	if o == nil {
 		var ret []AdapterExtEthInterfaceRelationship
 		return ret
 	}
-	return *o.ExtEthIfs
+	return o.ExtEthIfs
 }
 
 // GetExtEthIfsOk returns a tuple with the ExtEthIfs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdapterUnit) GetExtEthIfsOk() (*[]AdapterExtEthInterfaceRelationship, bool) {
 	if o == nil || o.ExtEthIfs == nil {
 		return nil, false
 	}
-	return o.ExtEthIfs, true
+	return &o.ExtEthIfs, true
 }
 
 // HasExtEthIfs returns a boolean if a field has been set.
@@ -539,25 +585,26 @@ func (o *AdapterUnit) HasExtEthIfs() bool {
 
 // SetExtEthIfs gets a reference to the given []AdapterExtEthInterfaceRelationship and assigns it to the ExtEthIfs field.
 func (o *AdapterUnit) SetExtEthIfs(v []AdapterExtEthInterfaceRelationship) {
-	o.ExtEthIfs = &v
+	o.ExtEthIfs = v
 }
 
-// GetHostEthIfs returns the HostEthIfs field value if set, zero value otherwise.
+// GetHostEthIfs returns the HostEthIfs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdapterUnit) GetHostEthIfs() []AdapterHostEthInterfaceRelationship {
-	if o == nil || o.HostEthIfs == nil {
+	if o == nil {
 		var ret []AdapterHostEthInterfaceRelationship
 		return ret
 	}
-	return *o.HostEthIfs
+	return o.HostEthIfs
 }
 
 // GetHostEthIfsOk returns a tuple with the HostEthIfs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdapterUnit) GetHostEthIfsOk() (*[]AdapterHostEthInterfaceRelationship, bool) {
 	if o == nil || o.HostEthIfs == nil {
 		return nil, false
 	}
-	return o.HostEthIfs, true
+	return &o.HostEthIfs, true
 }
 
 // HasHostEthIfs returns a boolean if a field has been set.
@@ -571,25 +618,26 @@ func (o *AdapterUnit) HasHostEthIfs() bool {
 
 // SetHostEthIfs gets a reference to the given []AdapterHostEthInterfaceRelationship and assigns it to the HostEthIfs field.
 func (o *AdapterUnit) SetHostEthIfs(v []AdapterHostEthInterfaceRelationship) {
-	o.HostEthIfs = &v
+	o.HostEthIfs = v
 }
 
-// GetHostFcIfs returns the HostFcIfs field value if set, zero value otherwise.
+// GetHostFcIfs returns the HostFcIfs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdapterUnit) GetHostFcIfs() []AdapterHostFcInterfaceRelationship {
-	if o == nil || o.HostFcIfs == nil {
+	if o == nil {
 		var ret []AdapterHostFcInterfaceRelationship
 		return ret
 	}
-	return *o.HostFcIfs
+	return o.HostFcIfs
 }
 
 // GetHostFcIfsOk returns a tuple with the HostFcIfs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdapterUnit) GetHostFcIfsOk() (*[]AdapterHostFcInterfaceRelationship, bool) {
 	if o == nil || o.HostFcIfs == nil {
 		return nil, false
 	}
-	return o.HostFcIfs, true
+	return &o.HostFcIfs, true
 }
 
 // HasHostFcIfs returns a boolean if a field has been set.
@@ -603,25 +651,26 @@ func (o *AdapterUnit) HasHostFcIfs() bool {
 
 // SetHostFcIfs gets a reference to the given []AdapterHostFcInterfaceRelationship and assigns it to the HostFcIfs field.
 func (o *AdapterUnit) SetHostFcIfs(v []AdapterHostFcInterfaceRelationship) {
-	o.HostFcIfs = &v
+	o.HostFcIfs = v
 }
 
-// GetHostIscsiIfs returns the HostIscsiIfs field value if set, zero value otherwise.
+// GetHostIscsiIfs returns the HostIscsiIfs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdapterUnit) GetHostIscsiIfs() []AdapterHostIscsiInterfaceRelationship {
-	if o == nil || o.HostIscsiIfs == nil {
+	if o == nil {
 		var ret []AdapterHostIscsiInterfaceRelationship
 		return ret
 	}
-	return *o.HostIscsiIfs
+	return o.HostIscsiIfs
 }
 
 // GetHostIscsiIfsOk returns a tuple with the HostIscsiIfs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AdapterUnit) GetHostIscsiIfsOk() (*[]AdapterHostIscsiInterfaceRelationship, bool) {
 	if o == nil || o.HostIscsiIfs == nil {
 		return nil, false
 	}
-	return o.HostIscsiIfs, true
+	return &o.HostIscsiIfs, true
 }
 
 // HasHostIscsiIfs returns a boolean if a field has been set.
@@ -635,7 +684,39 @@ func (o *AdapterUnit) HasHostIscsiIfs() bool {
 
 // SetHostIscsiIfs gets a reference to the given []AdapterHostIscsiInterfaceRelationship and assigns it to the HostIscsiIfs field.
 func (o *AdapterUnit) SetHostIscsiIfs(v []AdapterHostIscsiInterfaceRelationship) {
-	o.HostIscsiIfs = &v
+	o.HostIscsiIfs = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *AdapterUnit) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdapterUnit) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *AdapterUnit) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *AdapterUnit) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -686,6 +767,9 @@ func (o AdapterUnit) MarshalJSON() ([]byte, error) {
 	if o.BaseMacAddress != nil {
 		toSerialize["BaseMacAddress"] = o.BaseMacAddress
 	}
+	if o.ConnectionStatus != nil {
+		toSerialize["ConnectionStatus"] = o.ConnectionStatus
+	}
 	if o.Integrated != nil {
 		toSerialize["Integrated"] = o.Integrated
 	}
@@ -733,6 +817,9 @@ func (o AdapterUnit) MarshalJSON() ([]byte, error) {
 	}
 	if o.HostIscsiIfs != nil {
 		toSerialize["HostIscsiIfs"] = o.HostIscsiIfs
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice

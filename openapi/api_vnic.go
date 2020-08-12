@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -82,7 +82,7 @@ func (r apiCreateVnicEthAdapterPolicyRequest) Execute() (VnicEthAdapterPolicy, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthAdapterPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/EthAdapterPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -254,7 +254,7 @@ func (r apiCreateVnicEthIfRequest) Execute() (VnicEthIf, *_nethttp.Response, err
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthIfs"
+	localVarPath := localBasePath + "/api/v1/vnic/EthIfs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -426,7 +426,7 @@ func (r apiCreateVnicEthNetworkPolicyRequest) Execute() (VnicEthNetworkPolicy, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthNetworkPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/EthNetworkPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -598,7 +598,7 @@ func (r apiCreateVnicEthQosPolicyRequest) Execute() (VnicEthQosPolicy, *_nethttp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthQosPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/EthQosPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -770,7 +770,7 @@ func (r apiCreateVnicFcAdapterPolicyRequest) Execute() (VnicFcAdapterPolicy, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcAdapterPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/FcAdapterPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -942,7 +942,7 @@ func (r apiCreateVnicFcIfRequest) Execute() (VnicFcIf, *_nethttp.Response, error
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcIfs"
+	localVarPath := localBasePath + "/api/v1/vnic/FcIfs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1114,7 +1114,7 @@ func (r apiCreateVnicFcNetworkPolicyRequest) Execute() (VnicFcNetworkPolicy, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcNetworkPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/FcNetworkPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1286,7 +1286,7 @@ func (r apiCreateVnicFcQosPolicyRequest) Execute() (VnicFcQosPolicy, *_nethttp.R
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcQosPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/FcQosPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1458,7 +1458,7 @@ func (r apiCreateVnicLanConnectivityPolicyRequest) Execute() (VnicLanConnectivit
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/LanConnectivityPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/LanConnectivityPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1630,7 +1630,7 @@ func (r apiCreateVnicSanConnectivityPolicyRequest) Execute() (VnicSanConnectivit
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/SanConnectivityPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/SanConnectivityPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1786,7 +1786,7 @@ func (r apiDeleteVnicEthAdapterPolicyRequest) Execute() (*_nethttp.Response, err
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1922,7 +1922,7 @@ func (r apiDeleteVnicEthIfRequest) Execute() (*_nethttp.Response, error) {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2058,7 +2058,7 @@ func (r apiDeleteVnicEthNetworkPolicyRequest) Execute() (*_nethttp.Response, err
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2194,7 +2194,7 @@ func (r apiDeleteVnicEthQosPolicyRequest) Execute() (*_nethttp.Response, error) 
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2330,7 +2330,7 @@ func (r apiDeleteVnicFcAdapterPolicyRequest) Execute() (*_nethttp.Response, erro
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2466,7 +2466,7 @@ func (r apiDeleteVnicFcIfRequest) Execute() (*_nethttp.Response, error) {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2602,7 +2602,7 @@ func (r apiDeleteVnicFcNetworkPolicyRequest) Execute() (*_nethttp.Response, erro
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2738,7 +2738,7 @@ func (r apiDeleteVnicFcQosPolicyRequest) Execute() (*_nethttp.Response, error) {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2874,7 +2874,7 @@ func (r apiDeleteVnicLanConnectivityPolicyRequest) Execute() (*_nethttp.Response
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/LanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/LanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3010,7 +3010,7 @@ func (r apiDeleteVnicSanConnectivityPolicyRequest) Execute() (*_nethttp.Response
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/SanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/SanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3147,7 +3147,7 @@ func (r apiGetVnicEthAdapterPolicyByMoidRequest) Execute() (VnicEthAdapterPolicy
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3356,7 +3356,7 @@ func (r apiGetVnicEthAdapterPolicyListRequest) Execute() (VnicEthAdapterPolicyRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthAdapterPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/EthAdapterPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3534,7 +3534,7 @@ func (r apiGetVnicEthIfByMoidRequest) Execute() (VnicEthIf, *_nethttp.Response, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3743,7 +3743,7 @@ func (r apiGetVnicEthIfListRequest) Execute() (VnicEthIfResponse, *_nethttp.Resp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthIfs"
+	localVarPath := localBasePath + "/api/v1/vnic/EthIfs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3921,7 +3921,7 @@ func (r apiGetVnicEthNetworkPolicyByMoidRequest) Execute() (VnicEthNetworkPolicy
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4130,7 +4130,7 @@ func (r apiGetVnicEthNetworkPolicyListRequest) Execute() (VnicEthNetworkPolicyRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthNetworkPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/EthNetworkPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4308,7 +4308,7 @@ func (r apiGetVnicEthQosPolicyByMoidRequest) Execute() (VnicEthQosPolicy, *_neth
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4517,7 +4517,7 @@ func (r apiGetVnicEthQosPolicyListRequest) Execute() (VnicEthQosPolicyResponse, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthQosPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/EthQosPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4695,7 +4695,7 @@ func (r apiGetVnicFcAdapterPolicyByMoidRequest) Execute() (VnicFcAdapterPolicy, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4904,7 +4904,7 @@ func (r apiGetVnicFcAdapterPolicyListRequest) Execute() (VnicFcAdapterPolicyResp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcAdapterPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/FcAdapterPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5082,7 +5082,7 @@ func (r apiGetVnicFcIfByMoidRequest) Execute() (VnicFcIf, *_nethttp.Response, er
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5291,7 +5291,7 @@ func (r apiGetVnicFcIfListRequest) Execute() (VnicFcIfResponse, *_nethttp.Respon
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcIfs"
+	localVarPath := localBasePath + "/api/v1/vnic/FcIfs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5469,7 +5469,7 @@ func (r apiGetVnicFcNetworkPolicyByMoidRequest) Execute() (VnicFcNetworkPolicy, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5678,7 +5678,7 @@ func (r apiGetVnicFcNetworkPolicyListRequest) Execute() (VnicFcNetworkPolicyResp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcNetworkPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/FcNetworkPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5856,7 +5856,7 @@ func (r apiGetVnicFcQosPolicyByMoidRequest) Execute() (VnicFcQosPolicy, *_nethtt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6065,7 +6065,7 @@ func (r apiGetVnicFcQosPolicyListRequest) Execute() (VnicFcQosPolicyResponse, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcQosPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/FcQosPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -6243,7 +6243,7 @@ func (r apiGetVnicLanConnectivityPolicyByMoidRequest) Execute() (VnicLanConnecti
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/LanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/LanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6452,7 +6452,7 @@ func (r apiGetVnicLanConnectivityPolicyListRequest) Execute() (VnicLanConnectivi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/LanConnectivityPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/LanConnectivityPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -6630,7 +6630,7 @@ func (r apiGetVnicSanConnectivityPolicyByMoidRequest) Execute() (VnicSanConnecti
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/SanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/SanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6839,7 +6839,7 @@ func (r apiGetVnicSanConnectivityPolicyListRequest) Execute() (VnicSanConnectivi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/SanConnectivityPolicies"
+	localVarPath := localBasePath + "/api/v1/vnic/SanConnectivityPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -7029,7 +7029,7 @@ func (r apiPatchVnicEthAdapterPolicyRequest) Execute() (VnicEthAdapterPolicy, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7196,7 +7196,7 @@ func (r apiPatchVnicEthIfRequest) Execute() (VnicEthIf, *_nethttp.Response, erro
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7363,7 +7363,7 @@ func (r apiPatchVnicEthNetworkPolicyRequest) Execute() (VnicEthNetworkPolicy, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7530,7 +7530,7 @@ func (r apiPatchVnicEthQosPolicyRequest) Execute() (VnicEthQosPolicy, *_nethttp.
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7697,7 +7697,7 @@ func (r apiPatchVnicFcAdapterPolicyRequest) Execute() (VnicFcAdapterPolicy, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7864,7 +7864,7 @@ func (r apiPatchVnicFcIfRequest) Execute() (VnicFcIf, *_nethttp.Response, error)
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8031,7 +8031,7 @@ func (r apiPatchVnicFcNetworkPolicyRequest) Execute() (VnicFcNetworkPolicy, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8198,7 +8198,7 @@ func (r apiPatchVnicFcQosPolicyRequest) Execute() (VnicFcQosPolicy, *_nethttp.Re
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8365,7 +8365,7 @@ func (r apiPatchVnicLanConnectivityPolicyRequest) Execute() (VnicLanConnectivity
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/LanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/LanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8532,7 +8532,7 @@ func (r apiPatchVnicSanConnectivityPolicyRequest) Execute() (VnicSanConnectivity
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/SanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/SanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8699,7 +8699,7 @@ func (r apiUpdateVnicEthAdapterPolicyRequest) Execute() (VnicEthAdapterPolicy, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8866,7 +8866,7 @@ func (r apiUpdateVnicEthIfRequest) Execute() (VnicEthIf, *_nethttp.Response, err
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9033,7 +9033,7 @@ func (r apiUpdateVnicEthNetworkPolicyRequest) Execute() (VnicEthNetworkPolicy, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9200,7 +9200,7 @@ func (r apiUpdateVnicEthQosPolicyRequest) Execute() (VnicEthQosPolicy, *_nethttp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/EthQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/EthQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9367,7 +9367,7 @@ func (r apiUpdateVnicFcAdapterPolicyRequest) Execute() (VnicFcAdapterPolicy, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcAdapterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcAdapterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9534,7 +9534,7 @@ func (r apiUpdateVnicFcIfRequest) Execute() (VnicFcIf, *_nethttp.Response, error
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcIfs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcIfs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9701,7 +9701,7 @@ func (r apiUpdateVnicFcNetworkPolicyRequest) Execute() (VnicFcNetworkPolicy, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9868,7 +9868,7 @@ func (r apiUpdateVnicFcQosPolicyRequest) Execute() (VnicFcQosPolicy, *_nethttp.R
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/FcQosPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/FcQosPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -10035,7 +10035,7 @@ func (r apiUpdateVnicLanConnectivityPolicyRequest) Execute() (VnicLanConnectivit
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/LanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/LanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -10202,7 +10202,7 @@ func (r apiUpdateVnicSanConnectivityPolicyRequest) Execute() (VnicSanConnectivit
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/vnic/SanConnectivityPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/vnic/SanConnectivityPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,229 +19,239 @@ import (
 // BiosPolicy Policy for setting BIOS tokens on the endpoint.
 type BiosPolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
-	// BIOS Token for setting ACS Control GPU-1 configuration.
+	// BIOS Token for setting ACS Control GPU-1 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu1state *string `json:"AcsControlGpu1state,omitempty" yaml:"AcsControlGpu1state,omitempty"`
-	// BIOS Token for setting ACS Control GPU-2 configuration.
+	// BIOS Token for setting ACS Control GPU-2 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu2state *string `json:"AcsControlGpu2state,omitempty" yaml:"AcsControlGpu2state,omitempty"`
-	// BIOS Token for setting ACS Control GPU-3 configuration.
+	// BIOS Token for setting ACS Control GPU-3 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu3state *string `json:"AcsControlGpu3state,omitempty" yaml:"AcsControlGpu3state,omitempty"`
-	// BIOS Token for setting ACS Control GPU-4 configuration.
+	// BIOS Token for setting ACS Control GPU-4 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu4state *string `json:"AcsControlGpu4state,omitempty" yaml:"AcsControlGpu4state,omitempty"`
-	// BIOS Token for setting ACS Control GPU-5 configuration.
+	// BIOS Token for setting ACS Control GPU-5 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu5state *string `json:"AcsControlGpu5state,omitempty" yaml:"AcsControlGpu5state,omitempty"`
-	// BIOS Token for setting ACS Control GPU-6 configuration.
+	// BIOS Token for setting ACS Control GPU-6 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu6state *string `json:"AcsControlGpu6state,omitempty" yaml:"AcsControlGpu6state,omitempty"`
-	// BIOS Token for setting ACS Control GPU-7 configuration.
+	// BIOS Token for setting ACS Control GPU-7 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu7state *string `json:"AcsControlGpu7state,omitempty" yaml:"AcsControlGpu7state,omitempty"`
-	// BIOS Token for setting ACS Control GPU-8 configuration.
+	// BIOS Token for setting ACS Control GPU-8 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlGpu8state *string `json:"AcsControlGpu8state,omitempty" yaml:"AcsControlGpu8state,omitempty"`
-	// BIOS Token for setting ACS Control Slot 11 configuration.
+	// BIOS Token for setting ACS Control Slot 11 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlSlot11state *string `json:"AcsControlSlot11state,omitempty" yaml:"AcsControlSlot11state,omitempty"`
-	// BIOS Token for setting ACS Control Slot 12 configuration.
+	// BIOS Token for setting ACS Control Slot 12 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlSlot12state *string `json:"AcsControlSlot12state,omitempty" yaml:"AcsControlSlot12state,omitempty"`
-	// BIOS Token for setting ACS Control Slot 13 configuration.
+	// BIOS Token for setting ACS Control Slot 13 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlSlot13state *string `json:"AcsControlSlot13state,omitempty" yaml:"AcsControlSlot13state,omitempty"`
-	// BIOS Token for setting ACS Control Slot 14 configuration.
+	// BIOS Token for setting ACS Control Slot 14 configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AcsControlSlot14state *string `json:"AcsControlSlot14state,omitempty" yaml:"AcsControlSlot14state,omitempty"`
-	// BIOS Token for setting Adjacent Cache Line Prefetcher configuration.
+	// BIOS Token for setting Adjacent Cache Line Prefetcher configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AdjacentCacheLinePrefetch *string `json:"AdjacentCacheLinePrefetch,omitempty" yaml:"AdjacentCacheLinePrefetch,omitempty"`
-	// BIOS Token for setting All USB Devices configuration.
+	// BIOS Token for setting All USB Devices configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AllUsbDevices *string `json:"AllUsbDevices,omitempty" yaml:"AllUsbDevices,omitempty"`
-	// BIOS Token for setting Altitude configuration.
+	// BIOS Token for setting Altitude configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1500-m` - Value - 1500-m for configuring Altitude token. * `300-m` - Value - 300-m for configuring Altitude token. * `3000-m` - Value - 3000-m for configuring Altitude token. * `900-m` - Value - 900-m for configuring Altitude token. * `auto` - Value - auto for configuring Altitude token.
 	Altitude *string `json:"Altitude,omitempty" yaml:"Altitude,omitempty"`
-	// BIOS Token for setting ASPM Support configuration.
+	// BIOS Token for setting ASPM Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring AspmSupport token. * `Disabled` - Value - Disabled for configuring AspmSupport token. * `Force L0s` - Value - Force L0s for configuring AspmSupport token. * `L1 Only` - Value - L1 Only for configuring AspmSupport token.
 	AspmSupport *string `json:"AspmSupport,omitempty" yaml:"AspmSupport,omitempty"`
-	// BIOS Token for setting Assert NMI on PERR configuration.
+	// BIOS Token for setting Assert NMI on PERR configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AssertNmiOnPerr *string `json:"AssertNmiOnPerr,omitempty" yaml:"AssertNmiOnPerr,omitempty"`
-	// BIOS Token for setting Assert NMI on SERR configuration.
+	// BIOS Token for setting Assert NMI on SERR configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AssertNmiOnSerr *string `json:"AssertNmiOnSerr,omitempty" yaml:"AssertNmiOnSerr,omitempty"`
-	// BIOS Token for setting Autonomous Core C-state configuration.
+	// BIOS Token for setting Autonomous Core C-state configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AutoCcState *string `json:"AutoCcState,omitempty" yaml:"AutoCcState,omitempty"`
-	// BIOS Token for setting CPU Autonomous Cstate configuration.
+	// BIOS Token for setting CPU Autonomous Cstate configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	AutonumousCstateEnable *string `json:"AutonumousCstateEnable,omitempty" yaml:"AutonumousCstateEnable,omitempty"`
-	// BIOS Token for setting Baud rate configuration.
+	// BIOS Token for setting Baud rate configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `115200` - Value - 115200 for configuring BaudRate token. * `19200` - Value - 19200 for configuring BaudRate token. * `38400` - Value - 38400 for configuring BaudRate token. * `57600` - Value - 57600 for configuring BaudRate token. * `9600` - Value - 9600 for configuring BaudRate token.
 	BaudRate *string `json:"BaudRate,omitempty" yaml:"BaudRate,omitempty"`
-	// BIOS Token for setting BME DMA Mitigation configuration.
+	// BIOS Token for setting BME DMA Mitigation configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	BmeDmaMitigation *string `json:"BmeDmaMitigation,omitempty" yaml:"BmeDmaMitigation,omitempty"`
-	// BIOS Token for setting Number of Retries configuration.
+	// BIOS Token for setting Number of Retries configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `13` - Value - 13 for configuring BootOptionNumRetry token. * `5` - Value - 5 for configuring BootOptionNumRetry token. * `Infinite` - Value - Infinite for configuring BootOptionNumRetry token.
 	BootOptionNumRetry *string `json:"BootOptionNumRetry,omitempty" yaml:"BootOptionNumRetry,omitempty"`
-	// BIOS Token for setting Cool Down Time  (sec) configuration.
+	// BIOS Token for setting Cool Down Time  (sec) configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `15` - Value - 15 for configuring BootOptionReCoolDown token. * `45` - Value - 45 for configuring BootOptionReCoolDown token. * `90` - Value - 90 for configuring BootOptionReCoolDown token.
 	BootOptionReCoolDown *string `json:"BootOptionReCoolDown,omitempty" yaml:"BootOptionReCoolDown,omitempty"`
-	// BIOS Token for setting Boot option retry configuration.
+	// BIOS Token for setting Boot option retry configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	BootOptionRetry *string `json:"BootOptionRetry,omitempty" yaml:"BootOptionRetry,omitempty"`
-	// BIOS Token for setting Boot Performance Mode configuration.
+	// BIOS Token for setting Boot Performance Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Max Efficient` - Value - Max Efficient for configuring BootPerformanceMode token. * `Max Performance` - Value - Max Performance for configuring BootPerformanceMode token. * `Set by Intel NM` - Value - Set by Intel NM for configuring BootPerformanceMode token.
 	BootPerformanceMode *string `json:"BootPerformanceMode,omitempty" yaml:"BootPerformanceMode,omitempty"`
-	// BIOS Token for setting Core Performance Boost configuration.
+	// BIOS Token for setting Core Performance Boost configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnCpuCpb token. * `disabled` - Value - disabled for configuring CbsCmnCpuCpb token.
 	CbsCmnCpuCpb *string `json:"CbsCmnCpuCpb,omitempty" yaml:"CbsCmnCpuCpb,omitempty"`
-	// BIOS Token for setting Downcore control configuration.
+	// BIOS Token for setting Downcore control configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnCpuGenDowncoreCtrl token. * `FOUR (2 + 2)` - Value - FOUR (2 + 2) for configuring CbsCmnCpuGenDowncoreCtrl token. * `FOUR (4 + 0)` - Value - FOUR (4 + 0) for configuring CbsCmnCpuGenDowncoreCtrl token. * `SIX (3 + 3)` - Value - SIX (3 + 3) for configuring CbsCmnCpuGenDowncoreCtrl token. * `THREE (3 + 0)` - Value - THREE (3 + 0) for configuring CbsCmnCpuGenDowncoreCtrl token. * `TWO (1 + 1)` - Value - TWO (1 + 1) for configuring CbsCmnCpuGenDowncoreCtrl token. * `TWO (2 + 0)` - Value - TWO (2 + 0) for configuring CbsCmnCpuGenDowncoreCtrl token.
 	CbsCmnCpuGenDowncoreCtrl *string `json:"CbsCmnCpuGenDowncoreCtrl,omitempty" yaml:"CbsCmnCpuGenDowncoreCtrl,omitempty"`
-	// BIOS Token for setting Global C-state Control configuration.
+	// BIOS Token for setting Global C-state Control configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnCpuGlobalCstateCtrl token. * `disabled` - Value - disabled for configuring CbsCmnCpuGlobalCstateCtrl token. * `enabled` - Value - enabled for configuring CbsCmnCpuGlobalCstateCtrl token.
 	CbsCmnCpuGlobalCstateCtrl *string `json:"CbsCmnCpuGlobalCstateCtrl,omitempty" yaml:"CbsCmnCpuGlobalCstateCtrl,omitempty"`
-	// BIOS Token for setting L1 Stream HW Prefetcher configuration.
+	// BIOS Token for setting L1 Stream HW Prefetcher configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnCpuL1streamHwPrefetcher token. * `disabled` - Value - disabled for configuring CbsCmnCpuL1streamHwPrefetcher token. * `enabled` - Value - enabled for configuring CbsCmnCpuL1streamHwPrefetcher token.
 	CbsCmnCpuL1streamHwPrefetcher *string `json:"CbsCmnCpuL1streamHwPrefetcher,omitempty" yaml:"CbsCmnCpuL1streamHwPrefetcher,omitempty"`
-	// BIOS Token for setting L2 Stream HW Prefetcher configuration.
+	// BIOS Token for setting L2 Stream HW Prefetcher configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnCpuL2streamHwPrefetcher token. * `disabled` - Value - disabled for configuring CbsCmnCpuL2streamHwPrefetcher token. * `enabled` - Value - enabled for configuring CbsCmnCpuL2streamHwPrefetcher token.
 	CbsCmnCpuL2streamHwPrefetcher *string `json:"CbsCmnCpuL2streamHwPrefetcher,omitempty" yaml:"CbsCmnCpuL2streamHwPrefetcher,omitempty"`
-	// BIOS Token for setting Determinism Slider configuration.
+	// BIOS Token for setting Determinism Slider configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnDeterminismSlider token. * `Performance` - Value - Performance for configuring CbsCmnDeterminismSlider token. * `Power` - Value - Power for configuring CbsCmnDeterminismSlider token.
 	CbsCmnDeterminismSlider *string `json:"CbsCmnDeterminismSlider,omitempty" yaml:"CbsCmnDeterminismSlider,omitempty"`
-	// BIOS Token for setting IOMMU configuration.
+	// BIOS Token for setting IOMMU configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnGnbNbIommu token. * `disabled` - Value - disabled for configuring CbsCmnGnbNbIommu token. * `enabled` - Value - enabled for configuring CbsCmnGnbNbIommu token.
 	CbsCmnGnbNbIommu *string `json:"CbsCmnGnbNbIommu,omitempty" yaml:"CbsCmnGnbNbIommu,omitempty"`
-	// BIOS Token for setting Bank Group Swap configuration.
+	// BIOS Token for setting Bank Group Swap configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnMemCtrlBankGroupSwapDdr4 token. * `disabled` - Value - disabled for configuring CbsCmnMemCtrlBankGroupSwapDdr4 token. * `enabled` - Value - enabled for configuring CbsCmnMemCtrlBankGroupSwapDdr4 token.
 	CbsCmnMemCtrlBankGroupSwapDdr4 *string `json:"CbsCmnMemCtrlBankGroupSwapDdr4,omitempty" yaml:"CbsCmnMemCtrlBankGroupSwapDdr4,omitempty"`
-	// BIOS Token for setting Chipselect Interleaving configuration.
+	// BIOS Token for setting Chipselect Interleaving configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmnMemMapBankInterleaveDdr4 token. * `disabled` - Value - disabled for configuring CbsCmnMemMapBankInterleaveDdr4 token.
 	CbsCmnMemMapBankInterleaveDdr4 *string `json:"CbsCmnMemMapBankInterleaveDdr4,omitempty" yaml:"CbsCmnMemMapBankInterleaveDdr4,omitempty"`
-	// BIOS Token for setting cTDP Control configuration.
+	// BIOS Token for setting cTDP Control configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsCmncTdpCtl token. * `Manual` - Value - Manual for configuring CbsCmncTdpCtl token.
 	CbsCmncTdpCtl *string `json:"CbsCmncTdpCtl,omitempty" yaml:"CbsCmncTdpCtl,omitempty"`
-	// BIOS Token for setting Memory interleaving configuration.
+	// BIOS Token for setting Memory interleaving configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CbsDfCmnMemIntlv token. * `Channel` - Value - Channel for configuring CbsDfCmnMemIntlv token. * `Channel NPS2` - Value - Channel NPS2 for configuring CbsDfCmnMemIntlv token. * `Channel NPS4` - Value - Channel NPS4 for configuring CbsDfCmnMemIntlv token. * `Die` - Value - Die for configuring CbsDfCmnMemIntlv token. * `Die NPS1` - Value - Die NPS1 for configuring CbsDfCmnMemIntlv token. * `None` - Value - None for configuring CbsDfCmnMemIntlv token. * `Socket` - Value - Socket for configuring CbsDfCmnMemIntlv token. * `Socket NPS0` - Value - Socket NPS0 for configuring CbsDfCmnMemIntlv token.
 	CbsDfCmnMemIntlv *string `json:"CbsDfCmnMemIntlv,omitempty" yaml:"CbsDfCmnMemIntlv,omitempty"`
-	// BIOS Token for setting Memory interleaving size configuration.
+	// BIOS Token for setting Memory interleaving size configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1 KB` - Value - 1 KiB for configuring CbsDfCmnMemIntlvSize token. * `2 KB` - Value - 2 KiB for configuring CbsDfCmnMemIntlvSize token. * `256 Bytes` - Value - 256 Bytes for configuring CbsDfCmnMemIntlvSize token. * `512 Bytes` - Value - 512 Bytes for configuring CbsDfCmnMemIntlvSize token. * `Auto` - Value - Auto for configuring CbsDfCmnMemIntlvSize token.
 	CbsDfCmnMemIntlvSize *string `json:"CbsDfCmnMemIntlvSize,omitempty" yaml:"CbsDfCmnMemIntlvSize,omitempty"`
-	// BIOS Token for setting Consistent Device Naming configuration.
+	// BIOS Token for setting Consistent Device Naming configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	CdnEnable *string `json:"CdnEnable,omitempty" yaml:"CdnEnable,omitempty"`
-	// BIOS Token for setting CDN Support for LOM configuration.
+	// BIOS Token for setting CDN Support for LOM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring CdnSupport token. * `enabled` - Value - enabled for configuring CdnSupport token. * `LOMs Only` - Value - LOMs Only for configuring CdnSupport token.
 	CdnSupport *string `json:"CdnSupport,omitempty" yaml:"CdnSupport,omitempty"`
-	// BIOS Token for setting Channel Interleaving configuration.
+	// BIOS Token for setting Channel Interleaving configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1-way` - Value - 1-way for configuring ChannelInterLeave token. * `2-way` - Value - 2-way for configuring ChannelInterLeave token. * `3-way` - Value - 3-way for configuring ChannelInterLeave token. * `4-way` - Value - 4-way for configuring ChannelInterLeave token. * `auto` - Value - auto for configuring ChannelInterLeave token.
 	ChannelInterLeave *string `json:"ChannelInterLeave,omitempty" yaml:"ChannelInterLeave,omitempty"`
-	// BIOS Token for setting Adaptive Memory Training configuration.
+	// BIOS Token for setting Adaptive Memory Training configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	CiscoAdaptiveMemTraining *string `json:"CiscoAdaptiveMemTraining,omitempty" yaml:"CiscoAdaptiveMemTraining,omitempty"`
-	// BIOS Token for setting BIOS Techlog Level configuration.
+	// BIOS Token for setting BIOS Techlog Level configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Maximum` - Value - Maximum for configuring CiscoDebugLevel token. * `Minimum` - Value - Minimum for configuring CiscoDebugLevel token. * `Normal` - Value - Normal for configuring CiscoDebugLevel token.
 	CiscoDebugLevel *string `json:"CiscoDebugLevel,omitempty" yaml:"CiscoDebugLevel,omitempty"`
-	// BIOS Token for setting OptionROM Launch Optimization configuration.
+	// BIOS Token for setting OptionROM Launch Optimization configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	CiscoOpromLaunchOptimization *string `json:"CiscoOpromLaunchOptimization,omitempty" yaml:"CiscoOpromLaunchOptimization,omitempty"`
-	// BIOS Token for setting CKE Low Policy configuration.
+	// BIOS Token for setting CKE Low Policy configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `auto` - Value - auto for configuring CkeLowPolicy token. * `disabled` - Value - disabled for configuring CkeLowPolicy token. * `fast` - Value - fast for configuring CkeLowPolicy token. * `slow` - Value - slow for configuring CkeLowPolicy token.
 	CkeLowPolicy *string `json:"CkeLowPolicy,omitempty" yaml:"CkeLowPolicy,omitempty"`
-	// BIOS Token for setting Closed Loop Therm Throt configuration.
+	// BIOS Token for setting Closed Loop Therm Throt configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	ClosedLoopThermThrotl *string `json:"ClosedLoopThermThrotl,omitempty" yaml:"ClosedLoopThermThrotl,omitempty"`
-	// BIOS Token for setting Processor CMCI configuration.
+	// BIOS Token for setting Processor CMCI configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	CmciEnable *string `json:"CmciEnable,omitempty" yaml:"CmciEnable,omitempty"`
-	// BIOS Token for setting Config TDP configuration.
+	// BIOS Token for setting Config TDP configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	ConfigTdp *string `json:"ConfigTdp,omitempty" yaml:"ConfigTdp,omitempty"`
-	// BIOS Token for setting Console redirection configuration.
+	// BIOS Token for setting Configurable TDP Level configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Level 1` - Value - Level 1 for configuring ConfigTdpLevel token. * `Level 2` - Value - Level 2 for configuring ConfigTdpLevel token. * `Normal` - Value - Normal for configuring ConfigTdpLevel token.
+	ConfigTdpLevel *string `json:"ConfigTdpLevel,omitempty" yaml:"ConfigTdpLevel,omitempty"`
+	// BIOS Token for setting Console redirection configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `com-0` - Value - com-0 for configuring ConsoleRedirection token. * `com-1` - Value - com-1 for configuring ConsoleRedirection token. * `disabled` - Value - disabled for configuring ConsoleRedirection token. * `enabled` - Value - enabled for configuring ConsoleRedirection token. * `serial-port-a` - Value - serial-port-a for configuring ConsoleRedirection token.
 	ConsoleRedirection *string `json:"ConsoleRedirection,omitempty" yaml:"ConsoleRedirection,omitempty"`
-	// BIOS Token for setting Core MultiProcessing configuration.
+	// BIOS Token for setting Core MultiProcessing configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1` - Value - 1 for configuring CoreMultiProcessing token. * `10` - Value - 10 for configuring CoreMultiProcessing token. * `11` - Value - 11 for configuring CoreMultiProcessing token. * `12` - Value - 12 for configuring CoreMultiProcessing token. * `13` - Value - 13 for configuring CoreMultiProcessing token. * `14` - Value - 14 for configuring CoreMultiProcessing token. * `15` - Value - 15 for configuring CoreMultiProcessing token. * `16` - Value - 16 for configuring CoreMultiProcessing token. * `17` - Value - 17 for configuring CoreMultiProcessing token. * `18` - Value - 18 for configuring CoreMultiProcessing token. * `19` - Value - 19 for configuring CoreMultiProcessing token. * `2` - Value - 2 for configuring CoreMultiProcessing token. * `20` - Value - 20 for configuring CoreMultiProcessing token. * `21` - Value - 21 for configuring CoreMultiProcessing token. * `22` - Value - 22 for configuring CoreMultiProcessing token. * `23` - Value - 23 for configuring CoreMultiProcessing token. * `24` - Value - 24 for configuring CoreMultiProcessing token. * `25` - Value - 25 for configuring CoreMultiProcessing token. * `26` - Value - 26 for configuring CoreMultiProcessing token. * `27` - Value - 27 for configuring CoreMultiProcessing token. * `28` - Value - 28 for configuring CoreMultiProcessing token. * `3` - Value - 3 for configuring CoreMultiProcessing token. * `4` - Value - 4 for configuring CoreMultiProcessing token. * `5` - Value - 5 for configuring CoreMultiProcessing token. * `6` - Value - 6 for configuring CoreMultiProcessing token. * `7` - Value - 7 for configuring CoreMultiProcessing token. * `8` - Value - 8 for configuring CoreMultiProcessing token. * `9` - Value - 9 for configuring CoreMultiProcessing token. * `all` - Value - all for configuring CoreMultiProcessing token.
 	CoreMultiProcessing *string `json:"CoreMultiProcessing,omitempty" yaml:"CoreMultiProcessing,omitempty"`
-	// BIOS Token for setting Energy Performance configuration.
+	// BIOS Token for setting Energy Performance configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `balanced-energy` - Value - balanced-energy for configuring CpuEnergyPerformance token. * `balanced-performance` - Value - balanced-performance for configuring CpuEnergyPerformance token. * `balanced-power` - Value - balanced-power for configuring CpuEnergyPerformance token. * `energy-efficient` - Value - energy-efficient for configuring CpuEnergyPerformance token. * `performance` - Value - performance for configuring CpuEnergyPerformance token. * `power` - Value - power for configuring CpuEnergyPerformance token.
 	CpuEnergyPerformance *string `json:"CpuEnergyPerformance,omitempty" yaml:"CpuEnergyPerformance,omitempty"`
-	// BIOS Token for setting Frequency Floor Override configuration.
+	// BIOS Token for setting Frequency Floor Override configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	CpuFrequencyFloor *string `json:"CpuFrequencyFloor,omitempty" yaml:"CpuFrequencyFloor,omitempty"`
-	// BIOS Token for setting CPU Performance configuration.
+	// BIOS Token for setting CPU Performance configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `custom` - Value - custom for configuring CpuPerformance token. * `enterprise` - Value - enterprise for configuring CpuPerformance token. * `high-throughput` - Value - high-throughput for configuring CpuPerformance token. * `hpc` - Value - hpc for configuring CpuPerformance token.
 	CpuPerformance *string `json:"CpuPerformance,omitempty" yaml:"CpuPerformance,omitempty"`
-	// BIOS Token for setting Power Technology configuration.
+	// BIOS Token for setting Power Technology configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `custom` - Value - custom for configuring CpuPowerManagement token. * `disabled` - Value - disabled for configuring CpuPowerManagement token. * `energy-efficient` - Value - energy-efficient for configuring CpuPowerManagement token. * `performance` - Value - performance for configuring CpuPowerManagement token.
 	CpuPowerManagement *string `json:"CpuPowerManagement,omitempty" yaml:"CpuPowerManagement,omitempty"`
-	// BIOS Token for setting DCPMM Firmware Downgrade configuration.
+	// BIOS Token for setting CR QoS configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Disabled` - Value - Disabled for configuring CrQos token. * `Recipe 1` - Value - Recipe 1 for configuring CrQos token. * `Recipe 2` - Value - Recipe 2 for configuring CrQos token. * `Recipe 3` - Value - Recipe 3 for configuring CrQos token.
+	CrQos *string `json:"CrQos,omitempty" yaml:"CrQos,omitempty"`
+	// BIOS Token for setting CR FastGo Config configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring CrfastgoConfig token. * `Default` - Value - Default for configuring CrfastgoConfig token. * `Option 1` - Value - Option 1 for configuring CrfastgoConfig token. * `Option 2` - Value - Option 2 for configuring CrfastgoConfig token. * `Option 3` - Value - Option 3 for configuring CrfastgoConfig token. * `Option 4` - Value - Option 4 for configuring CrfastgoConfig token. * `Option 5` - Value - Option 5 for configuring CrfastgoConfig token.
+	CrfastgoConfig *string `json:"CrfastgoConfig,omitempty" yaml:"CrfastgoConfig,omitempty"`
+	// BIOS Token for setting DCPMM Firmware Downgrade configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	DcpmmFirmwareDowngrade *string `json:"DcpmmFirmwareDowngrade,omitempty" yaml:"DcpmmFirmwareDowngrade,omitempty"`
-	// BIOS Token for setting Demand Scrub configuration.
+	// BIOS Token for setting Demand Scrub configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	DemandScrub *string `json:"DemandScrub,omitempty" yaml:"DemandScrub,omitempty"`
-	// BIOS Token for setting Direct Cache Access Support configuration.
+	// BIOS Token for setting Direct Cache Access Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `auto` - Value - auto for configuring DirectCacheAccess token. * `disabled` - Value - disabled for configuring DirectCacheAccess token. * `enabled` - Value - enabled for configuring DirectCacheAccess token.
 	DirectCacheAccess *string `json:"DirectCacheAccess,omitempty" yaml:"DirectCacheAccess,omitempty"`
-	// BIOS Token for setting DRAM Clock Throttling configuration.
+	// BIOS Token for setting DRAM Clock Throttling configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring DramClockThrottling token. * `Balanced` - Value - Balanced for configuring DramClockThrottling token. * `Energy Efficient` - Value - Energy Efficient for configuring DramClockThrottling token. * `Performance` - Value - Performance for configuring DramClockThrottling token.
 	DramClockThrottling *string `json:"DramClockThrottling,omitempty" yaml:"DramClockThrottling,omitempty"`
-	// BIOS Token for setting DRAM Refresh Rate configuration.
+	// BIOS Token for setting DRAM Refresh Rate configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1x` - Value - 1x for configuring DramRefreshRate token. * `2x` - Value - 2x for configuring DramRefreshRate token. * `3x` - Value - 3x for configuring DramRefreshRate token. * `4x` - Value - 4x for configuring DramRefreshRate token. * `Auto` - Value - Auto for configuring DramRefreshRate token.
 	DramRefreshRate *string `json:"DramRefreshRate,omitempty" yaml:"DramRefreshRate,omitempty"`
-	// BIOS Token for setting Energy Efficient Turbo configuration.
+	// BIOS Token for setting External SSC Enable configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	EnableClockSpreadSpec *string `json:"EnableClockSpreadSpec,omitempty" yaml:"EnableClockSpreadSpec,omitempty"`
+	// BIOS Token for setting Energy Efficient Turbo configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	EnergyEfficientTurbo *string `json:"EnergyEfficientTurbo,omitempty" yaml:"EnergyEfficientTurbo,omitempty"`
-	// BIOS Token for setting Energy Performance Tuning configuration.
+	// BIOS Token for setting Energy Performance Tuning configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `BIOS` - Value - BIOS for configuring EngPerfTuning token. * `OS` - Value - OS for configuring EngPerfTuning token.
 	EngPerfTuning *string `json:"EngPerfTuning,omitempty" yaml:"EngPerfTuning,omitempty"`
-	// BIOS Token for setting Enhanced Intel Speedstep (R) Technology configuration.
+	// BIOS Token for setting Enhanced Intel Speedstep (R) Technology configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	EnhancedIntelSpeedStepTech *string `json:"EnhancedIntelSpeedStepTech,omitempty" yaml:"EnhancedIntelSpeedStepTech,omitempty"`
-	// BIOS Token for setting EPP Profile configuration.
+	// BIOS Token for setting EPP Profile configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Balanced Performance` - Value - Balanced Performance for configuring EppProfile token. * `Balanced Power` - Value - Balanced Power for configuring EppProfile token. * `Performance` - Value - Performance for configuring EppProfile token. * `Power` - Value - Power for configuring EppProfile token.
 	EppProfile *string `json:"EppProfile,omitempty" yaml:"EppProfile,omitempty"`
-	// BIOS Token for setting Execute Disable Bit configuration.
+	// BIOS Token for setting Execute Disable Bit configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	ExecuteDisableBit *string `json:"ExecuteDisableBit,omitempty" yaml:"ExecuteDisableBit,omitempty"`
-	// BIOS Token for setting Local X2 Apic configuration.
+	// BIOS Token for setting Local X2 Apic configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring ExtendedApic token. * `enabled` - Value - enabled for configuring ExtendedApic token. * `X2APIC` - Value - X2APIC for configuring ExtendedApic token. * `XAPIC` - Value - XAPIC for configuring ExtendedApic token.
 	ExtendedApic *string `json:"ExtendedApic,omitempty" yaml:"ExtendedApic,omitempty"`
-	// BIOS Token for setting Flow Control configuration.
+	// BIOS Token for setting Flow Control configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `none` - Value - none for configuring FlowControl token. * `rts-cts` - Value - rts-cts for configuring FlowControl token.
 	FlowControl *string `json:"FlowControl,omitempty" yaml:"FlowControl,omitempty"`
-	// BIOS Token for setting FRB-2 Timer configuration.
+	// BIOS Token for setting FRB-2 Timer configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Frb2enable *string `json:"Frb2enable,omitempty" yaml:"Frb2enable,omitempty"`
-	// BIOS Token for setting Hardware Prefetcher configuration.
+	// BIOS Token for setting Hardware Prefetcher configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	HardwarePrefetch *string `json:"HardwarePrefetch,omitempty" yaml:"HardwarePrefetch,omitempty"`
-	// BIOS Token for setting CPU Hardware Power Management configuration.
+	// BIOS Token for setting CPU Hardware Power Management configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Disabled` - Value - Disabled for configuring HwpmEnable token. * `HWPM Native Mode` - Value - HWPM Native Mode for configuring HwpmEnable token. * `HWPM OOB Mode` - Value - HWPM OOB Mode for configuring HwpmEnable token. * `NATIVE MODE` - Value - NATIVE MODE for configuring HwpmEnable token. * `Native Mode with no Legacy` - Value - Native Mode with no Legacy for configuring HwpmEnable token. * `OOB MODE` - Value - OOB MODE for configuring HwpmEnable token.
 	HwpmEnable *string `json:"HwpmEnable,omitempty" yaml:"HwpmEnable,omitempty"`
-	// BIOS Token for setting IMC Interleaving configuration.
+	// BIOS Token for setting IMC Interleaving configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1-way Interleave` - Value - 1-way Interleave for configuring ImcInterleave token. * `2-way Interleave` - Value - 2-way Interleave for configuring ImcInterleave token. * `Auto` - Value - Auto for configuring ImcInterleave token.
 	ImcInterleave *string `json:"ImcInterleave,omitempty" yaml:"ImcInterleave,omitempty"`
-	// BIOS Token for setting Intel HyperThreading Tech configuration.
+	// BIOS Token for setting Intel HyperThreading Tech configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelHyperThreadingTech *string `json:"IntelHyperThreadingTech,omitempty" yaml:"IntelHyperThreadingTech,omitempty"`
-	// BIOS Token for setting Intel Speed Select configuration.
+	// BIOS Token for setting Intel Speed Select configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Base` - Value - Base for configuring IntelSpeedSelect token. * `Config 1` - Value - Config 1 for configuring IntelSpeedSelect token. * `Config 2` - Value - Config 2 for configuring IntelSpeedSelect token.
 	IntelSpeedSelect *string `json:"IntelSpeedSelect,omitempty" yaml:"IntelSpeedSelect,omitempty"`
-	// BIOS Token for setting Intel Turbo Boost Tech configuration.
+	// BIOS Token for setting Intel Turbo Boost Tech configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelTurboBoostTech *string `json:"IntelTurboBoostTech,omitempty" yaml:"IntelTurboBoostTech,omitempty"`
-	// BIOS Token for setting Intel (R) VT configuration.
+	// BIOS Token for setting Intel (R) VT configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelVirtualizationTechnology *string `json:"IntelVirtualizationTechnology,omitempty" yaml:"IntelVirtualizationTechnology,omitempty"`
-	// BIOS Token for setting Intel VT for directed IO configuration.
+	// BIOS Token for setting Intel VT for directed IO configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelVtForDirectedIo *string `json:"IntelVtForDirectedIo,omitempty" yaml:"IntelVtForDirectedIo,omitempty"`
-	// BIOS Token for setting Intel (R) VT-d Coherency Support configuration.
+	// BIOS Token for setting Intel (R) VT-d Coherency Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelVtdCoherencySupport *string `json:"IntelVtdCoherencySupport,omitempty" yaml:"IntelVtdCoherencySupport,omitempty"`
-	// BIOS Token for setting Intel (R) VT-d Interrupt Remapping configuration.
+	// BIOS Token for setting Intel (R) VT-d Interrupt Remapping configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelVtdInterruptRemapping *string `json:"IntelVtdInterruptRemapping,omitempty" yaml:"IntelVtdInterruptRemapping,omitempty"`
-	// BIOS Token for setting Intel (R) VT-d PassThrough DMA support configuration.
+	// BIOS Token for setting Intel (R) VT-d PassThrough DMA support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelVtdPassThroughDmaSupport *string `json:"IntelVtdPassThroughDmaSupport,omitempty" yaml:"IntelVtdPassThroughDmaSupport,omitempty"`
-	// BIOS Token for setting Intel VTD ATS support configuration.
+	// BIOS Token for setting Intel VTD ATS support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IntelVtdatsSupport *string `json:"IntelVtdatsSupport,omitempty" yaml:"IntelVtdatsSupport,omitempty"`
-	// BIOS Token for setting IIO Error Enable configuration.
+	// BIOS Token for setting IIO Error Enable configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `No` - Value - No for configuring IohErrorEnable token. * `Yes` - Value - Yes for configuring IohErrorEnable token.
 	IohErrorEnable *string `json:"IohErrorEnable,omitempty" yaml:"IohErrorEnable,omitempty"`
-	// BIOS Token for setting IOH Resource Allocation configuration.
+	// BIOS Token for setting IOH Resource Allocation configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `IOH0 24k IOH1 40k` - Value - IOH0 24k IOH1 40k for configuring IohResource token. * `IOH0 32k IOH1 32k` - Value - IOH0 32k IOH1 32k for configuring IohResource token. * `IOH0 40k IOH1 24k` - Value - IOH0 40k IOH1 24k for configuring IohResource token. * `IOH0 48k IOH1 16k` - Value - IOH0 48k IOH1 16k for configuring IohResource token. * `IOH0 56k IOH1 8k` - Value - IOH0 56k IOH1 8k for configuring IohResource token.
 	IohResource *string `json:"IohResource,omitempty" yaml:"IohResource,omitempty"`
-	// BIOS Token for setting DCU IP Prefetcher configuration.
+	// BIOS Token for setting DCU IP Prefetcher configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	IpPrefetch *string `json:"IpPrefetch,omitempty" yaml:"IpPrefetch,omitempty"`
-	// BIOS Token for setting IPv4 PXE Support configuration.
+	// BIOS Token for setting IPv4 PXE Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Ipv4pxe *string `json:"Ipv4pxe,omitempty" yaml:"Ipv4pxe,omitempty"`
-	// BIOS Token for setting IPV6 PXE Support configuration.
+	// BIOS Token for setting IPV6 PXE Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Ipv6pxe *string `json:"Ipv6pxe,omitempty" yaml:"Ipv6pxe,omitempty"`
-	// BIOS Token for setting KTI Prefetch configuration.
+	// BIOS Token for setting KTI Prefetch configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	KtiPrefetch *string `json:"KtiPrefetch,omitempty" yaml:"KtiPrefetch,omitempty"`
-	// BIOS Token for setting Legacy OS redirection configuration.
+	// BIOS Token for setting Legacy OS redirection configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	LegacyOsRedirection *string `json:"LegacyOsRedirection,omitempty" yaml:"LegacyOsRedirection,omitempty"`
-	// BIOS Token for setting Legacy USB Support configuration.
+	// BIOS Token for setting Legacy USB Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `auto` - Value - auto for configuring LegacyUsbSupport token. * `disabled` - Value - disabled for configuring LegacyUsbSupport token. * `enabled` - Value - enabled for configuring LegacyUsbSupport token.
 	LegacyUsbSupport *string `json:"LegacyUsbSupport,omitempty" yaml:"LegacyUsbSupport,omitempty"`
-	// BIOS Token for setting LLC Prefetch configuration.
+	// BIOS Token for setting LLC Prefetch configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	LlcPrefetch *string `json:"LlcPrefetch,omitempty" yaml:"LlcPrefetch,omitempty"`
-	// BIOS Token for setting LOM Port 0 OptionROM configuration.
+	// BIOS Token for setting LOM Port 0 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring LomPort0state token. * `enabled` - Value - enabled for configuring LomPort0state token. * `Legacy Only` - Value - Legacy Only for configuring LomPort0state token. * `UEFI Only` - Value - UEFI Only for configuring LomPort0state token.
 	LomPort0state *string `json:"LomPort0state,omitempty" yaml:"LomPort0state,omitempty"`
-	// BIOS Token for setting LOM Port 1 OptionRom configuration.
+	// BIOS Token for setting LOM Port 1 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring LomPort1state token. * `enabled` - Value - enabled for configuring LomPort1state token. * `Legacy Only` - Value - Legacy Only for configuring LomPort1state token. * `UEFI Only` - Value - UEFI Only for configuring LomPort1state token.
 	LomPort1state *string `json:"LomPort1state,omitempty" yaml:"LomPort1state,omitempty"`
-	// BIOS Token for setting LOM Port 2 OptionRom configuration.
+	// BIOS Token for setting LOM Port 2 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring LomPort2state token. * `enabled` - Value - enabled for configuring LomPort2state token. * `Legacy Only` - Value - Legacy Only for configuring LomPort2state token. * `UEFI Only` - Value - UEFI Only for configuring LomPort2state token.
 	LomPort2state *string `json:"LomPort2state,omitempty" yaml:"LomPort2state,omitempty"`
-	// BIOS Token for setting LOM Port 3 OptionRom configuration.
+	// BIOS Token for setting LOM Port 3 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring LomPort3state token. * `enabled` - Value - enabled for configuring LomPort3state token. * `Legacy Only` - Value - Legacy Only for configuring LomPort3state token. * `UEFI Only` - Value - UEFI Only for configuring LomPort3state token.
 	LomPort3state *string `json:"LomPort3state,omitempty" yaml:"LomPort3state,omitempty"`
-	// BIOS Token for setting All Onboard LOM Ports configuration.
+	// BIOS Token for setting All Onboard LOM Ports configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	LomPortsAllState *string `json:"LomPortsAllState,omitempty" yaml:"LomPortsAllState,omitempty"`
-	// BIOS Token for setting Low Voltage DDR Mode configuration.
+	// BIOS Token for setting Low Voltage DDR Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `auto` - Value - auto for configuring LvDdrMode token. * `performance-mode` - Value - performance-mode for configuring LvDdrMode token. * `power-saving-mode` - Value - power-saving-mode for configuring LvDdrMode token.
 	LvDdrMode *string `json:"LvDdrMode,omitempty" yaml:"LvDdrMode,omitempty"`
-	// BIOS Token for setting Make Device Non Bootable configuration.
+	// BIOS Token for setting Make Device Non Bootable configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	MakeDeviceNonBootable *string `json:"MakeDeviceNonBootable,omitempty" yaml:"MakeDeviceNonBootable,omitempty"`
-	// BIOS Token for setting Memory Interleaving configuration.
+	// BIOS Token for setting Memory Interleaving configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1 Way Node Interleave` - Value - 1 Way Node Interleave for configuring MemoryInterLeave token. * `2 Way Node Interleave` - Value - 2 Way Node Interleave for configuring MemoryInterLeave token. * `4 Way Node Interleave` - Value - 4 Way Node Interleave for configuring MemoryInterLeave token. * `8 Way Node Interleave` - Value - 8 Way Node Interleave for configuring MemoryInterLeave token. * `disabled` - Value - disabled for configuring MemoryInterLeave token. * `enabled` - Value - enabled for configuring MemoryInterLeave token.
 	MemoryInterLeave *string `json:"MemoryInterLeave,omitempty" yaml:"MemoryInterLeave,omitempty"`
-	// BIOS Token for setting Memory mapped IO above 4GiB configuration.
+	// BIOS Token for setting Memory mapped IO above 4GiB configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	MemoryMappedIoAbove4gb *string `json:"MemoryMappedIoAbove4gb,omitempty" yaml:"MemoryMappedIoAbove4gb,omitempty"`
 	// BIOS Token for setting Memory Size Limit in GiB configuration (0-65535).
 	MemorySizeLimit *string `json:"MemorySizeLimit,omitempty" yaml:"MemorySizeLimit,omitempty"`
-	// BIOS Token for setting Mirroring Mode configuration.
+	// BIOS Token for setting Mirroring Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `inter-socket` - Value - inter-socket for configuring MirroringMode token. * `intra-socket` - Value - intra-socket for configuring MirroringMode token.
 	MirroringMode *string `json:"MirroringMode,omitempty" yaml:"MirroringMode,omitempty"`
-	// BIOS Token for setting MMCFG BASE configuration.
+	// BIOS Token for setting MMCFG BASE configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1 GB` - Value - 1 GiB for configuring MmcfgBase token. * `2 GB` - Value - 2 GiB for configuring MmcfgBase token. * `2.5 GB` - Value - 2.5 GiB for configuring MmcfgBase token. * `3 GB` - Value - 3 GiB for configuring MmcfgBase token. * `Auto` - Value - Auto for configuring MmcfgBase token.
 	MmcfgBase *string `json:"MmcfgBase,omitempty" yaml:"MmcfgBase,omitempty"`
-	// BIOS Token for setting Network Stack configuration.
+	// BIOS Token for setting Network Stack configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	NetworkStack *string `json:"NetworkStack,omitempty" yaml:"NetworkStack,omitempty"`
-	// BIOS Token for setting NUMA optimized configuration.
+	// BIOS Token for setting NUMA optimized configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	NumaOptimized *string `json:"NumaOptimized,omitempty" yaml:"NumaOptimized,omitempty"`
-	// BIOS Token for setting Onboard 10Gbit LOM configuration.
+	// BIOS Token for setting NVM Performance Setting configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `BW Optimized` - Value - BW Optimized for configuring NvmdimmPerformConfig token. * `Balanced Profile` - Value - Balanced Profile for configuring NvmdimmPerformConfig token. * `Latency Optimized` - Value - Latency Optimized for configuring NvmdimmPerformConfig token.
+	NvmdimmPerformConfig *string `json:"NvmdimmPerformConfig,omitempty" yaml:"NvmdimmPerformConfig,omitempty"`
+	// BIOS Token for setting Onboard 10Gbit LOM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Onboard10gbitLom *string `json:"Onboard10gbitLom,omitempty" yaml:"Onboard10gbitLom,omitempty"`
-	// BIOS Token for setting Onboard Gbit LOM configuration.
+	// BIOS Token for setting Onboard Gbit LOM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	OnboardGbitLom *string `json:"OnboardGbitLom,omitempty" yaml:"OnboardGbitLom,omitempty"`
-	// BIOS Token for setting Onboard SCU Storage Support configuration.
+	// BIOS Token for setting Onboard SCU Storage Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	OnboardScuStorageSupport *string `json:"OnboardScuStorageSupport,omitempty" yaml:"OnboardScuStorageSupport,omitempty"`
-	// BIOS Token for setting Onboard SCU Storage SW Stack configuration.
+	// BIOS Token for setting Onboard SCU Storage SW Stack configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Intel RSTe` - Value - Intel RSTe for configuring OnboardScuStorageSwStack token. * `LSI SW RAID` - Value - LSI SW RAID for configuring OnboardScuStorageSwStack token.
 	OnboardScuStorageSwStack *string `json:"OnboardScuStorageSwStack,omitempty" yaml:"OnboardScuStorageSwStack,omitempty"`
-	// BIOS Token for setting OS Boot Watchdog Timer configuration.
+	// BIOS Token for setting OS Boot Watchdog Timer configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	OsBootWatchdogTimer *string `json:"OsBootWatchdogTimer,omitempty" yaml:"OsBootWatchdogTimer,omitempty"`
-	// BIOS Token for setting OS Boot Watchdog Timer Policy configuration.
+	// BIOS Token for setting OS Boot Watchdog Timer Policy configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `do-nothing` - Value - do-nothing for configuring OsBootWatchdogTimerPolicy token. * `power-off` - Value - power-off for configuring OsBootWatchdogTimerPolicy token. * `reset` - Value - reset for configuring OsBootWatchdogTimerPolicy token.
 	OsBootWatchdogTimerPolicy *string `json:"OsBootWatchdogTimerPolicy,omitempty" yaml:"OsBootWatchdogTimerPolicy,omitempty"`
-	// BIOS Token for setting OS Boot Watchdog Timer Timeout configuration.
+	// BIOS Token for setting OS Boot Watchdog Timer Timeout configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `10-minutes` - Value - 10-minutes for configuring OsBootWatchdogTimerTimeout token. * `15-minutes` - Value - 15-minutes for configuring OsBootWatchdogTimerTimeout token. * `20-minutes` - Value - 20-minutes for configuring OsBootWatchdogTimerTimeout token. * `5-minutes` - Value - 5-minutes for configuring OsBootWatchdogTimerTimeout token.
 	OsBootWatchdogTimerTimeout *string `json:"OsBootWatchdogTimerTimeout,omitempty" yaml:"OsBootWatchdogTimerTimeout,omitempty"`
-	// BIOS Token for setting Out-of-Band Mgmt Port configuration.
+	// BIOS Token for setting Out-of-Band Mgmt Port configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	OutOfBandMgmtPort *string `json:"OutOfBandMgmtPort,omitempty" yaml:"OutOfBandMgmtPort,omitempty"`
-	// BIOS Token for setting Package C State Limit configuration.
+	// BIOS Token for setting Package C State Limit configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PackageCstateLimit token. * `C0 C1 State` - Value - C0 C1 State for configuring PackageCstateLimit token. * `C0/C1` - Value - C0/C1 for configuring PackageCstateLimit token. * `C2` - Value - C2 for configuring PackageCstateLimit token. * `C6 Non Retention` - Value - C6 Non Retention for configuring PackageCstateLimit token. * `C6 Retention` - Value - C6 Retention for configuring PackageCstateLimit token. * `No Limit` - Value - No Limit for configuring PackageCstateLimit token.
 	PackageCstateLimit *string `json:"PackageCstateLimit,omitempty" yaml:"PackageCstateLimit,omitempty"`
-	// BIOS Token for setting Partial Memory Mirror Mode configuration.
+	// BIOS Token for setting Partial Memory Mirror Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring PartialMirrorModeConfig token. * `Percentage` - Value - Percentage for configuring PartialMirrorModeConfig token. * `Value in GB` - Value - Value in GiB for configuring PartialMirrorModeConfig token.
 	PartialMirrorModeConfig *string `json:"PartialMirrorModeConfig,omitempty" yaml:"PartialMirrorModeConfig,omitempty"`
 	// BIOS Token for setting Partial Mirror percentage configuration (0.00-50.00).
 	PartialMirrorPercent *string `json:"PartialMirrorPercent,omitempty" yaml:"PartialMirrorPercent,omitempty"`
@@ -253,299 +263,337 @@ type BiosPolicy struct {
 	PartialMirrorValue3 *string `json:"PartialMirrorValue3,omitempty" yaml:"PartialMirrorValue3,omitempty"`
 	// BIOS Token for setting Partial Mirror4 Size in GiB configuration (0-65535).
 	PartialMirrorValue4 *string `json:"PartialMirrorValue4,omitempty" yaml:"PartialMirrorValue4,omitempty"`
-	// BIOS Token for setting Patrol Scrub configuration.
+	// BIOS Token for setting Patrol Scrub configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PatrolScrub *string `json:"PatrolScrub,omitempty" yaml:"PatrolScrub,omitempty"`
-	// BIOS Token for setting Patrol Scrub Interval configuration.
+	// BIOS Token for setting Patrol Scrub Interval configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PatrolScrubDuration *string `json:"PatrolScrubDuration,omitempty" yaml:"PatrolScrubDuration,omitempty"`
-	// BIOS Token for setting PCIe RAS Support configuration.
+	// BIOS Token for setting PCIe RAS Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PcIeRasSupport *string `json:"PcIeRasSupport,omitempty" yaml:"PcIeRasSupport,omitempty"`
-	// BIOS Token for setting NVMe SSD Hot-Plug Support configuration.
+	// BIOS Token for setting NVMe SSD Hot-Plug Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PcIeSsdHotPlugSupport *string `json:"PcIeSsdHotPlugSupport,omitempty" yaml:"PcIeSsdHotPlugSupport,omitempty"`
-	// BIOS Token for setting xHCI Mode configuration.
+	// BIOS Token for setting xHCI Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PchUsb30mode *string `json:"PchUsb30mode,omitempty" yaml:"PchUsb30mode,omitempty"`
-	// BIOS Token for setting All PCIe Slots OptionROM configuration.
+	// BIOS Token for setting All PCIe Slots OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring PciOptionRoMs token. * `enabled` - Value - enabled for configuring PciOptionRoMs token. * `Legacy Only` - Value - Legacy Only for configuring PciOptionRoMs token. * `UEFI Only` - Value - UEFI Only for configuring PciOptionRoMs token.
 	PciOptionRoMs *string `json:"PciOptionRoMs,omitempty" yaml:"PciOptionRoMs,omitempty"`
-	// BIOS Token for setting PCI ROM CLP configuration.
+	// BIOS Token for setting PCI ROM CLP configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PciRomClp *string `json:"PciRomClp,omitempty" yaml:"PciRomClp,omitempty"`
-	// BIOS Token for setting Power ON Password configuration.
+	// BIOS Token for setting PCIe ARI Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PcieAriSupport token. * `disabled` - Value - disabled for configuring PcieAriSupport token. * `enabled` - Value - enabled for configuring PcieAriSupport token.
+	PcieAriSupport *string `json:"PcieAriSupport,omitempty" yaml:"PcieAriSupport,omitempty"`
+	// BIOS Token for setting PCIe PLL SSC configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PciePllSsc token. * `Disabled` - Value - Disabled for configuring PciePllSsc token. * `ZeroPointFive` - Value - ZeroPointFive for configuring PciePllSsc token.
+	PciePllSsc *string `json:"PciePllSsc,omitempty" yaml:"PciePllSsc,omitempty"`
+	// BIOS Token for setting PCIe Slot MSTOR RAID OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	PcieSlotMstorraidOptionRom *string `json:"PcieSlotMstorraidOptionRom,omitempty" yaml:"PcieSlotMstorraidOptionRom,omitempty"`
+	// BIOS Token for setting NVME-1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PcieSlotNvme1linkSpeed token. * `Disabled` - Value - Disabled for configuring PcieSlotNvme1linkSpeed token. * `GEN1` - Value - GEN1 for configuring PcieSlotNvme1linkSpeed token. * `GEN2` - Value - GEN2 for configuring PcieSlotNvme1linkSpeed token. * `GEN3` - Value - GEN3 for configuring PcieSlotNvme1linkSpeed token.
+	PcieSlotNvme1linkSpeed *string `json:"PcieSlotNvme1linkSpeed,omitempty" yaml:"PcieSlotNvme1linkSpeed,omitempty"`
+	// BIOS Token for setting NVME-1 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	PcieSlotNvme1optionRom *string `json:"PcieSlotNvme1optionRom,omitempty" yaml:"PcieSlotNvme1optionRom,omitempty"`
+	// BIOS Token for setting NVME-2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PcieSlotNvme2linkSpeed token. * `Disabled` - Value - Disabled for configuring PcieSlotNvme2linkSpeed token. * `GEN1` - Value - GEN1 for configuring PcieSlotNvme2linkSpeed token. * `GEN2` - Value - GEN2 for configuring PcieSlotNvme2linkSpeed token. * `GEN3` - Value - GEN3 for configuring PcieSlotNvme2linkSpeed token.
+	PcieSlotNvme2linkSpeed *string `json:"PcieSlotNvme2linkSpeed,omitempty" yaml:"PcieSlotNvme2linkSpeed,omitempty"`
+	// BIOS Token for setting NVME-2 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	PcieSlotNvme2optionRom *string `json:"PcieSlotNvme2optionRom,omitempty" yaml:"PcieSlotNvme2optionRom,omitempty"`
+	// BIOS Token for setting NVME-3 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PcieSlotNvme3linkSpeed token. * `Disabled` - Value - Disabled for configuring PcieSlotNvme3linkSpeed token. * `GEN1` - Value - GEN1 for configuring PcieSlotNvme3linkSpeed token. * `GEN2` - Value - GEN2 for configuring PcieSlotNvme3linkSpeed token. * `GEN3` - Value - GEN3 for configuring PcieSlotNvme3linkSpeed token.
+	PcieSlotNvme3linkSpeed *string `json:"PcieSlotNvme3linkSpeed,omitempty" yaml:"PcieSlotNvme3linkSpeed,omitempty"`
+	// BIOS Token for setting NVME-3 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	PcieSlotNvme3optionRom *string `json:"PcieSlotNvme3optionRom,omitempty" yaml:"PcieSlotNvme3optionRom,omitempty"`
+	// BIOS Token for setting NVME-4 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PcieSlotNvme4linkSpeed token. * `Disabled` - Value - Disabled for configuring PcieSlotNvme4linkSpeed token. * `GEN1` - Value - GEN1 for configuring PcieSlotNvme4linkSpeed token. * `GEN2` - Value - GEN2 for configuring PcieSlotNvme4linkSpeed token. * `GEN3` - Value - GEN3 for configuring PcieSlotNvme4linkSpeed token.
+	PcieSlotNvme4linkSpeed *string `json:"PcieSlotNvme4linkSpeed,omitempty" yaml:"PcieSlotNvme4linkSpeed,omitempty"`
+	// BIOS Token for setting NVME-4 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	PcieSlotNvme4optionRom *string `json:"PcieSlotNvme4optionRom,omitempty" yaml:"PcieSlotNvme4optionRom,omitempty"`
+	// BIOS Token for setting NVME-5 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PcieSlotNvme5linkSpeed token. * `Disabled` - Value - Disabled for configuring PcieSlotNvme5linkSpeed token. * `GEN1` - Value - GEN1 for configuring PcieSlotNvme5linkSpeed token. * `GEN2` - Value - GEN2 for configuring PcieSlotNvme5linkSpeed token. * `GEN3` - Value - GEN3 for configuring PcieSlotNvme5linkSpeed token.
+	PcieSlotNvme5linkSpeed *string `json:"PcieSlotNvme5linkSpeed,omitempty" yaml:"PcieSlotNvme5linkSpeed,omitempty"`
+	// BIOS Token for setting NVME-5 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	PcieSlotNvme5optionRom *string `json:"PcieSlotNvme5optionRom,omitempty" yaml:"PcieSlotNvme5optionRom,omitempty"`
+	// BIOS Token for setting NVME-6 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring PcieSlotNvme6linkSpeed token. * `Disabled` - Value - Disabled for configuring PcieSlotNvme6linkSpeed token. * `GEN1` - Value - GEN1 for configuring PcieSlotNvme6linkSpeed token. * `GEN2` - Value - GEN2 for configuring PcieSlotNvme6linkSpeed token. * `GEN3` - Value - GEN3 for configuring PcieSlotNvme6linkSpeed token.
+	PcieSlotNvme6linkSpeed *string `json:"PcieSlotNvme6linkSpeed,omitempty" yaml:"PcieSlotNvme6linkSpeed,omitempty"`
+	// BIOS Token for setting NVME-6 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	PcieSlotNvme6optionRom *string `json:"PcieSlotNvme6optionRom,omitempty" yaml:"PcieSlotNvme6optionRom,omitempty"`
+	// BIOS Token for setting Power ON Password configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PopSupport *string `json:"PopSupport,omitempty" yaml:"PopSupport,omitempty"`
-	// BIOS Token for setting POST Error Pause configuration.
+	// BIOS Token for setting POST Error Pause configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	PostErrorPause *string `json:"PostErrorPause,omitempty" yaml:"PostErrorPause,omitempty"`
-	// BIOS Token for setting Processor C1E configuration.
+	// BIOS Token for setting Processor C1E configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	ProcessorC1e *string `json:"ProcessorC1e,omitempty" yaml:"ProcessorC1e,omitempty"`
-	// BIOS Token for setting Processor C3 Report configuration.
+	// BIOS Token for setting Processor C3 Report configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	ProcessorC3report *string `json:"ProcessorC3report,omitempty" yaml:"ProcessorC3report,omitempty"`
-	// BIOS Token for setting Processor C6 Report configuration.
+	// BIOS Token for setting Processor C6 Report configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	ProcessorC6report *string `json:"ProcessorC6report,omitempty" yaml:"ProcessorC6report,omitempty"`
-	// BIOS Token for setting CPU C State configuration.
+	// BIOS Token for setting CPU C State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	ProcessorCstate *string `json:"ProcessorCstate,omitempty" yaml:"ProcessorCstate,omitempty"`
-	// BIOS Token for setting P-SATA mode configuration.
+	// BIOS Token for setting P-SATA mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `AHCI` - Value - AHCI for configuring Psata token. * `Disabled` - Value - Disabled for configuring Psata token. * `LSI SW RAID` - Value - LSI SW RAID for configuring Psata token.
 	Psata *string `json:"Psata,omitempty" yaml:"Psata,omitempty"`
-	// BIOS Token for setting P-STATE Coordination configuration.
+	// BIOS Token for setting P-STATE Coordination configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `HW ALL` - Value - HW ALL for configuring PstateCoordType token. * `SW ALL` - Value - SW ALL for configuring PstateCoordType token. * `SW ANY` - Value - SW ANY for configuring PstateCoordType token.
 	PstateCoordType *string `json:"PstateCoordType,omitempty" yaml:"PstateCoordType,omitempty"`
-	// BIOS Token for setting Putty KeyPad configuration.
+	// BIOS Token for setting Putty KeyPad configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `ESCN` - Value - ESCN for configuring PuttyKeyPad token. * `LINUX` - Value - LINUX for configuring PuttyKeyPad token. * `SCO` - Value - SCO for configuring PuttyKeyPad token. * `VT100` - Value - VT100 for configuring PuttyKeyPad token. * `VT400` - Value - VT400 for configuring PuttyKeyPad token. * `XTERMR6` - Value - XTERMR6 for configuring PuttyKeyPad token.
 	PuttyKeyPad *string `json:"PuttyKeyPad,omitempty" yaml:"PuttyKeyPad,omitempty"`
-	// BIOS Token for setting Power Performance Tuning configuration.
+	// BIOS Token for setting Power Performance Tuning configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `bios` - Value - BIOS for configuring PwrPerfTuning token. * `os` - Value - os for configuring PwrPerfTuning token.
 	PwrPerfTuning *string `json:"PwrPerfTuning,omitempty" yaml:"PwrPerfTuning,omitempty"`
-	// BIOS Token for setting QPI Link Frequency Select configuration.
+	// BIOS Token for setting QPI Link Frequency Select configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `6.4-gt/s` - Value - 6.4-gt/s for configuring QpiLinkFrequency token. * `7.2-gt/s` - Value - 7.2-gt/s for configuring QpiLinkFrequency token. * `8.0-gt/s` - Value - 8.0-gt/s for configuring QpiLinkFrequency token. * `9.6-gt/s` - Value - 9.6-gt/s for configuring QpiLinkFrequency token. * `auto` - Value - auto for configuring QpiLinkFrequency token.
 	QpiLinkFrequency *string `json:"QpiLinkFrequency,omitempty" yaml:"QpiLinkFrequency,omitempty"`
-	// BIOS Token for setting QPI Snoop Mode configuration.
+	// BIOS Token for setting UPI Link Frequency Select configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `10.4GT/s` - Value - 10.4GT/s for configuring QpiLinkSpeed token. * `9.6GT/s` - Value - 9.6GT/s for configuring QpiLinkSpeed token. * `Auto` - Value - Auto for configuring QpiLinkSpeed token.
+	QpiLinkSpeed *string `json:"QpiLinkSpeed,omitempty" yaml:"QpiLinkSpeed,omitempty"`
+	// BIOS Token for setting QPI Snoop Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `auto` - Value - auto for configuring QpiSnoopMode token. * `cluster-on-die` - Value - cluster-on-die for configuring QpiSnoopMode token. * `early-snoop` - Value - early-snoop for configuring QpiSnoopMode token. * `home-directory-snoop` - Value - home-directory-snoop for configuring QpiSnoopMode token. * `home-directory-snoop-with-osb` - Value - home-directory-snoop-with-osb for configuring QpiSnoopMode token. * `home-snoop` - Value - home-snoop for configuring QpiSnoopMode token.
 	QpiSnoopMode *string `json:"QpiSnoopMode,omitempty" yaml:"QpiSnoopMode,omitempty"`
-	// BIOS Token for setting Rank Interleaving configuration.
+	// BIOS Token for setting Rank Interleaving configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `1-way` - Value - 1-way for configuring RankInterLeave token. * `2-way` - Value - 2-way for configuring RankInterLeave token. * `4-way` - Value - 4-way for configuring RankInterLeave token. * `8-way` - Value - 8-way for configuring RankInterLeave token. * `auto` - Value - auto for configuring RankInterLeave token.
 	RankInterLeave *string `json:"RankInterLeave,omitempty" yaml:"RankInterLeave,omitempty"`
-	// BIOS Token for setting Redirection After BIOS POST configuration.
+	// BIOS Token for setting Redirection After BIOS POST configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Always Enable` - Value - Always Enable for configuring RedirectionAfterPost token. * `Bootloader` - Value - Bootloader for configuring RedirectionAfterPost token.
 	RedirectionAfterPost *string `json:"RedirectionAfterPost,omitempty" yaml:"RedirectionAfterPost,omitempty"`
-	// BIOS Token for setting SATA mode configuration.
+	// BIOS Token for setting SATA mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `AHCI` - Value - AHCI for configuring SataModeSelect token. * `Disabled` - Value - Disabled for configuring SataModeSelect token. * `LSI SW RAID` - Value - LSI SW RAID for configuring SataModeSelect token.
 	SataModeSelect *string `json:"SataModeSelect,omitempty" yaml:"SataModeSelect,omitempty"`
-	// BIOS Token for setting SelectMemory RAS configuration configuration.
+	// BIOS Token for setting SelectMemory RAS configuration configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `adddc-sparing` - Value - adddc-sparing for configuring SelectMemoryRasConfiguration token. * `lockstep` - Value - lockstep for configuring SelectMemoryRasConfiguration token. * `maximum-performance` - Value - maximum-performance for configuring SelectMemoryRasConfiguration token. * `mirror-mode-1lm` - Value - mirror-mode-1lm for configuring SelectMemoryRasConfiguration token. * `mirroring` - Value - mirroring for configuring SelectMemoryRasConfiguration token. * `partial-mirror-mode-1lm` - Value - partial-mirror-mode-1lm for configuring SelectMemoryRasConfiguration token. * `sparing` - Value - sparing for configuring SelectMemoryRasConfiguration token.
 	SelectMemoryRasConfiguration *string `json:"SelectMemoryRasConfiguration,omitempty" yaml:"SelectMemoryRasConfiguration,omitempty"`
-	// BIOS Token for setting Select PPR Type configuration.
+	// BIOS Token for setting Select PPR Type configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring SelectPprType token. * `Hard PPR` - Value - Hard PPR for configuring SelectPprType token.
 	SelectPprType *string `json:"SelectPprType,omitempty" yaml:"SelectPprType,omitempty"`
-	// BIOS Token for setting Serial A Enable configuration.
+	// BIOS Token for setting Serial A Enable configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SerialPortAenable *string `json:"SerialPortAenable,omitempty" yaml:"SerialPortAenable,omitempty"`
-	// BIOS Token for setting Single PCTL configuration.
+	// BIOS Token for setting Single PCTL configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `No` - Value - No for configuring SinglePctlEnable token. * `Yes` - Value - Yes for configuring SinglePctlEnable token.
 	SinglePctlEnable *string `json:"SinglePctlEnable,omitempty" yaml:"SinglePctlEnable,omitempty"`
-	// BIOS Token for setting PCIe Slot:10 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:10 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot10linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot10linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot10linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot10linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot10linkSpeed token.
 	Slot10linkSpeed *string `json:"Slot10linkSpeed,omitempty" yaml:"Slot10linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 10 state configuration.
+	// BIOS Token for setting Slot 10 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot10state token. * `enabled` - Value - enabled for configuring Slot10state token. * `Legacy Only` - Value - Legacy Only for configuring Slot10state token. * `UEFI Only` - Value - UEFI Only for configuring Slot10state token.
 	Slot10state *string `json:"Slot10state,omitempty" yaml:"Slot10state,omitempty"`
-	// BIOS Token for setting PCIe Slot:11 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:11 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot11linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot11linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot11linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot11linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot11linkSpeed token.
 	Slot11linkSpeed *string `json:"Slot11linkSpeed,omitempty" yaml:"Slot11linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 11 state configuration.
+	// BIOS Token for setting Slot 11 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Slot11state *string `json:"Slot11state,omitempty" yaml:"Slot11state,omitempty"`
-	// BIOS Token for setting PCIe Slot:12 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:12 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot12linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot12linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot12linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot12linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot12linkSpeed token.
 	Slot12linkSpeed *string `json:"Slot12linkSpeed,omitempty" yaml:"Slot12linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 12 state configuration.
+	// BIOS Token for setting Slot 12 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Slot12state *string `json:"Slot12state,omitempty" yaml:"Slot12state,omitempty"`
-	// BIOS Token for setting PCIe Slot 13 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot 13 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Slot13state *string `json:"Slot13state,omitempty" yaml:"Slot13state,omitempty"`
-	// BIOS Token for setting PCIe Slot 14 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot 14 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Slot14state *string `json:"Slot14state,omitempty" yaml:"Slot14state,omitempty"`
-	// BIOS Token for setting PCIe Slot:1 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot1linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot1linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot1linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot1linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot1linkSpeed token.
 	Slot1linkSpeed *string `json:"Slot1linkSpeed,omitempty" yaml:"Slot1linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 1 state configuration.
+	// BIOS Token for setting Slot 1 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot1state token. * `enabled` - Value - enabled for configuring Slot1state token. * `Legacy Only` - Value - Legacy Only for configuring Slot1state token. * `UEFI Only` - Value - UEFI Only for configuring Slot1state token.
 	Slot1state *string `json:"Slot1state,omitempty" yaml:"Slot1state,omitempty"`
-	// BIOS Token for setting PCIe Slot:2 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot2linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot2linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot2linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot2linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot2linkSpeed token.
 	Slot2linkSpeed *string `json:"Slot2linkSpeed,omitempty" yaml:"Slot2linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 2 state configuration.
+	// BIOS Token for setting Slot 2 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot2state token. * `enabled` - Value - enabled for configuring Slot2state token. * `Legacy Only` - Value - Legacy Only for configuring Slot2state token. * `UEFI Only` - Value - UEFI Only for configuring Slot2state token.
 	Slot2state *string `json:"Slot2state,omitempty" yaml:"Slot2state,omitempty"`
-	// BIOS Token for setting PCIe Slot:3 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:3 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot3linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot3linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot3linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot3linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot3linkSpeed token.
 	Slot3linkSpeed *string `json:"Slot3linkSpeed,omitempty" yaml:"Slot3linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 3 state configuration.
+	// BIOS Token for setting Slot 3 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot3state token. * `enabled` - Value - enabled for configuring Slot3state token. * `Legacy Only` - Value - Legacy Only for configuring Slot3state token. * `UEFI Only` - Value - UEFI Only for configuring Slot3state token.
 	Slot3state *string `json:"Slot3state,omitempty" yaml:"Slot3state,omitempty"`
-	// BIOS Token for setting PCIe Slot:4 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:4 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot4linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot4linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot4linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot4linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot4linkSpeed token.
 	Slot4linkSpeed *string `json:"Slot4linkSpeed,omitempty" yaml:"Slot4linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 4 state configuration.
+	// BIOS Token for setting Slot 4 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot4state token. * `enabled` - Value - enabled for configuring Slot4state token. * `Legacy Only` - Value - Legacy Only for configuring Slot4state token. * `UEFI Only` - Value - UEFI Only for configuring Slot4state token.
 	Slot4state *string `json:"Slot4state,omitempty" yaml:"Slot4state,omitempty"`
-	// BIOS Token for setting PCIe Slot:5 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:5 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot5linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot5linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot5linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot5linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot5linkSpeed token.
 	Slot5linkSpeed *string `json:"Slot5linkSpeed,omitempty" yaml:"Slot5linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 5 state configuration.
+	// BIOS Token for setting Slot 5 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot5state token. * `enabled` - Value - enabled for configuring Slot5state token. * `Legacy Only` - Value - Legacy Only for configuring Slot5state token. * `UEFI Only` - Value - UEFI Only for configuring Slot5state token.
 	Slot5state *string `json:"Slot5state,omitempty" yaml:"Slot5state,omitempty"`
-	// BIOS Token for setting PCIe Slot:6 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:6 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot6linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot6linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot6linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot6linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot6linkSpeed token.
 	Slot6linkSpeed *string `json:"Slot6linkSpeed,omitempty" yaml:"Slot6linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 6 state configuration.
+	// BIOS Token for setting Slot 6 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot6state token. * `enabled` - Value - enabled for configuring Slot6state token. * `Legacy Only` - Value - Legacy Only for configuring Slot6state token. * `UEFI Only` - Value - UEFI Only for configuring Slot6state token.
 	Slot6state *string `json:"Slot6state,omitempty" yaml:"Slot6state,omitempty"`
-	// BIOS Token for setting PCIe Slot:7 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:7 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot7linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot7linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot7linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot7linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot7linkSpeed token.
 	Slot7linkSpeed *string `json:"Slot7linkSpeed,omitempty" yaml:"Slot7linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 7 state configuration.
+	// BIOS Token for setting Slot 7 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot7state token. * `enabled` - Value - enabled for configuring Slot7state token. * `Legacy Only` - Value - Legacy Only for configuring Slot7state token. * `UEFI Only` - Value - UEFI Only for configuring Slot7state token.
 	Slot7state *string `json:"Slot7state,omitempty" yaml:"Slot7state,omitempty"`
-	// BIOS Token for setting PCIe Slot:8 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:8 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot8linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot8linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot8linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot8linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot8linkSpeed token.
 	Slot8linkSpeed *string `json:"Slot8linkSpeed,omitempty" yaml:"Slot8linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 8 state configuration.
+	// BIOS Token for setting Slot 8 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot8state token. * `enabled` - Value - enabled for configuring Slot8state token. * `Legacy Only` - Value - Legacy Only for configuring Slot8state token. * `UEFI Only` - Value - UEFI Only for configuring Slot8state token.
 	Slot8state *string `json:"Slot8state,omitempty" yaml:"Slot8state,omitempty"`
-	// BIOS Token for setting PCIe Slot:9 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:9 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Slot9linkSpeed token. * `Disabled` - Value - Disabled for configuring Slot9linkSpeed token. * `GEN1` - Value - GEN1 for configuring Slot9linkSpeed token. * `GEN2` - Value - GEN2 for configuring Slot9linkSpeed token. * `GEN3` - Value - GEN3 for configuring Slot9linkSpeed token.
 	Slot9linkSpeed *string `json:"Slot9linkSpeed,omitempty" yaml:"Slot9linkSpeed,omitempty"`
-	// BIOS Token for setting Slot 9 state configuration.
+	// BIOS Token for setting Slot 9 State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring Slot9state token. * `enabled` - Value - enabled for configuring Slot9state token. * `Legacy Only` - Value - Legacy Only for configuring Slot9state token. * `UEFI Only` - Value - UEFI Only for configuring Slot9state token.
 	Slot9state *string `json:"Slot9state,omitempty" yaml:"Slot9state,omitempty"`
-	// BIOS Token for setting PCIe Slot:FLOM Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:FLOM Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotFlomLinkSpeed token. * `Disabled` - Value - Disabled for configuring SlotFlomLinkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotFlomLinkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotFlomLinkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotFlomLinkSpeed token.
 	SlotFlomLinkSpeed *string `json:"SlotFlomLinkSpeed,omitempty" yaml:"SlotFlomLinkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Front Nvme1 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Front Nvme1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotFrontNvme1linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotFrontNvme1linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotFrontNvme1linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotFrontNvme1linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotFrontNvme1linkSpeed token.
 	SlotFrontNvme1linkSpeed *string `json:"SlotFrontNvme1linkSpeed,omitempty" yaml:"SlotFrontNvme1linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Front Nvme2 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Front Nvme2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotFrontNvme2linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotFrontNvme2linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotFrontNvme2linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotFrontNvme2linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotFrontNvme2linkSpeed token.
 	SlotFrontNvme2linkSpeed *string `json:"SlotFrontNvme2linkSpeed,omitempty" yaml:"SlotFrontNvme2linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Front1 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Front1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotFrontSlot5linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotFrontSlot5linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotFrontSlot5linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotFrontSlot5linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotFrontSlot5linkSpeed token.
 	SlotFrontSlot5linkSpeed *string `json:"SlotFrontSlot5linkSpeed,omitempty" yaml:"SlotFrontSlot5linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Front2 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Front2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotFrontSlot6linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotFrontSlot6linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotFrontSlot6linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotFrontSlot6linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotFrontSlot6linkSpeed token.
 	SlotFrontSlot6linkSpeed *string `json:"SlotFrontSlot6linkSpeed,omitempty" yaml:"SlotFrontSlot6linkSpeed,omitempty"`
-	// BIOS Token for setting GPU1 OptionROM configuration.
+	// BIOS Token for setting GPU1 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu1state *string `json:"SlotGpu1state,omitempty" yaml:"SlotGpu1state,omitempty"`
-	// BIOS Token for setting GPU2 OptionROM configuration.
+	// BIOS Token for setting GPU2 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu2state *string `json:"SlotGpu2state,omitempty" yaml:"SlotGpu2state,omitempty"`
-	// BIOS Token for setting GPU3 OptionROM configuration.
+	// BIOS Token for setting GPU3 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu3state *string `json:"SlotGpu3state,omitempty" yaml:"SlotGpu3state,omitempty"`
-	// BIOS Token for setting GPU4 OptionROM configuration.
+	// BIOS Token for setting GPU4 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu4state *string `json:"SlotGpu4state,omitempty" yaml:"SlotGpu4state,omitempty"`
-	// BIOS Token for setting GPU5 OptionROM configuration.
+	// BIOS Token for setting GPU5 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu5state *string `json:"SlotGpu5state,omitempty" yaml:"SlotGpu5state,omitempty"`
-	// BIOS Token for setting GPU6 OptionROM configuration.
+	// BIOS Token for setting GPU6 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu6state *string `json:"SlotGpu6state,omitempty" yaml:"SlotGpu6state,omitempty"`
-	// BIOS Token for setting GPU7 OptionROM configuration.
+	// BIOS Token for setting GPU7 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu7state *string `json:"SlotGpu7state,omitempty" yaml:"SlotGpu7state,omitempty"`
-	// BIOS Token for setting GPU8 OptionROM configuration.
+	// BIOS Token for setting GPU8 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotGpu8state *string `json:"SlotGpu8state,omitempty" yaml:"SlotGpu8state,omitempty"`
-	// BIOS Token for setting PCIe Slot:HBA Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:HBA Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotHbaLinkSpeed token. * `Disabled` - Value - Disabled for configuring SlotHbaLinkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotHbaLinkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotHbaLinkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotHbaLinkSpeed token.
 	SlotHbaLinkSpeed *string `json:"SlotHbaLinkSpeed,omitempty" yaml:"SlotHbaLinkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:HBA OptionROM configuration.
+	// BIOS Token for setting PCIe Slot:HBA OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring SlotHbaState token. * `enabled` - Value - enabled for configuring SlotHbaState token. * `Legacy Only` - Value - Legacy Only for configuring SlotHbaState token. * `UEFI Only` - Value - UEFI Only for configuring SlotHbaState token.
 	SlotHbaState *string `json:"SlotHbaState,omitempty" yaml:"SlotHbaState,omitempty"`
-	// BIOS Token for setting PCIe LOM:1 Link configuration.
+	// BIOS Token for setting PCIe LOM:1 Link configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotLom1link *string `json:"SlotLom1link,omitempty" yaml:"SlotLom1link,omitempty"`
-	// BIOS Token for setting PCIe LOM:2 Link configuration.
+	// BIOS Token for setting PCIe LOM:2 Link configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotLom2link *string `json:"SlotLom2link,omitempty" yaml:"SlotLom2link,omitempty"`
-	// BIOS Token for setting Slot Mezz state configuration.
+	// BIOS Token for setting Slot Mezz State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring SlotMezzState token. * `enabled` - Value - enabled for configuring SlotMezzState token. * `Legacy Only` - Value - Legacy Only for configuring SlotMezzState token. * `UEFI Only` - Value - UEFI Only for configuring SlotMezzState token.
 	SlotMezzState *string `json:"SlotMezzState,omitempty" yaml:"SlotMezzState,omitempty"`
-	// BIOS Token for setting PCIe Slot:MLOM Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:MLOM Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotMlomLinkSpeed token. * `Disabled` - Value - Disabled for configuring SlotMlomLinkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotMlomLinkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotMlomLinkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotMlomLinkSpeed token.
 	SlotMlomLinkSpeed *string `json:"SlotMlomLinkSpeed,omitempty" yaml:"SlotMlomLinkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot MLOM OptionROM configuration.
+	// BIOS Token for setting PCIe Slot MLOM OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring SlotMlomState token. * `enabled` - Value - enabled for configuring SlotMlomState token. * `Legacy Only` - Value - Legacy Only for configuring SlotMlomState token. * `UEFI Only` - Value - UEFI Only for configuring SlotMlomState token.
 	SlotMlomState *string `json:"SlotMlomState,omitempty" yaml:"SlotMlomState,omitempty"`
-	// BIOS Token for setting MRAID Link Speed configuration.
+	// BIOS Token for setting MRAID Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotMraidLinkSpeed token. * `Disabled` - Value - Disabled for configuring SlotMraidLinkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotMraidLinkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotMraidLinkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotMraidLinkSpeed token.
 	SlotMraidLinkSpeed *string `json:"SlotMraidLinkSpeed,omitempty" yaml:"SlotMraidLinkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot MRAID OptionROM configuration.
+	// BIOS Token for setting PCIe Slot MRAID OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotMraidState *string `json:"SlotMraidState,omitempty" yaml:"SlotMraidState,omitempty"`
-	// BIOS Token for setting PCIe Slot N10 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N10 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN10state *string `json:"SlotN10state,omitempty" yaml:"SlotN10state,omitempty"`
-	// BIOS Token for setting PCIe Slot N11 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N11 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN11state *string `json:"SlotN11state,omitempty" yaml:"SlotN11state,omitempty"`
-	// BIOS Token for setting PCIe Slot N12 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N12 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN12state *string `json:"SlotN12state,omitempty" yaml:"SlotN12state,omitempty"`
-	// BIOS Token for setting PCIe Slot N13 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N13 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN13state *string `json:"SlotN13state,omitempty" yaml:"SlotN13state,omitempty"`
-	// BIOS Token for setting PCIe Slot N14 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N14 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN14state *string `json:"SlotN14state,omitempty" yaml:"SlotN14state,omitempty"`
-	// BIOS Token for setting PCIe Slot N15 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N15 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN15state *string `json:"SlotN15state,omitempty" yaml:"SlotN15state,omitempty"`
-	// BIOS Token for setting PCIe Slot N16 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N16 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN16state *string `json:"SlotN16state,omitempty" yaml:"SlotN16state,omitempty"`
-	// BIOS Token for setting PCIe Slot N17 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N17 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN17state *string `json:"SlotN17state,omitempty" yaml:"SlotN17state,omitempty"`
-	// BIOS Token for setting PCIe Slot N18 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N18 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN18state *string `json:"SlotN18state,omitempty" yaml:"SlotN18state,omitempty"`
-	// BIOS Token for setting PCIe Slot N19 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N19 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN19state *string `json:"SlotN19state,omitempty" yaml:"SlotN19state,omitempty"`
-	// BIOS Token for setting PCIe Slot N1 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N1 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring SlotN1state token. * `enabled` - Value - enabled for configuring SlotN1state token. * `Legacy Only` - Value - Legacy Only for configuring SlotN1state token. * `UEFI Only` - Value - UEFI Only for configuring SlotN1state token.
 	SlotN1state *string `json:"SlotN1state,omitempty" yaml:"SlotN1state,omitempty"`
-	// BIOS Token for setting PCIe Slot N20 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N20 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN20state *string `json:"SlotN20state,omitempty" yaml:"SlotN20state,omitempty"`
-	// BIOS Token for setting PCIe Slot N21 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N21 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN21state *string `json:"SlotN21state,omitempty" yaml:"SlotN21state,omitempty"`
-	// BIOS Token for setting PCIe Slot N22 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N22 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN22state *string `json:"SlotN22state,omitempty" yaml:"SlotN22state,omitempty"`
-	// BIOS Token for setting PCIe Slot N23 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N23 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN23state *string `json:"SlotN23state,omitempty" yaml:"SlotN23state,omitempty"`
-	// BIOS Token for setting PCIe Slot N24 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N24 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN24state *string `json:"SlotN24state,omitempty" yaml:"SlotN24state,omitempty"`
-	// BIOS Token for setting PCIe Slot N2 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N2 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring SlotN2state token. * `enabled` - Value - enabled for configuring SlotN2state token. * `Legacy Only` - Value - Legacy Only for configuring SlotN2state token. * `UEFI Only` - Value - UEFI Only for configuring SlotN2state token.
 	SlotN2state *string `json:"SlotN2state,omitempty" yaml:"SlotN2state,omitempty"`
-	// BIOS Token for setting PCIe Slot N3 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N3 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN3state *string `json:"SlotN3state,omitempty" yaml:"SlotN3state,omitempty"`
-	// BIOS Token for setting PCIe Slot N4 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N4 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN4state *string `json:"SlotN4state,omitempty" yaml:"SlotN4state,omitempty"`
-	// BIOS Token for setting PCIe Slot N5 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N5 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN5state *string `json:"SlotN5state,omitempty" yaml:"SlotN5state,omitempty"`
-	// BIOS Token for setting PCIe Slot N6 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N6 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN6state *string `json:"SlotN6state,omitempty" yaml:"SlotN6state,omitempty"`
-	// BIOS Token for setting PCIe Slot N7 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N7 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN7state *string `json:"SlotN7state,omitempty" yaml:"SlotN7state,omitempty"`
-	// BIOS Token for setting PCIe Slot N8 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N8 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN8state *string `json:"SlotN8state,omitempty" yaml:"SlotN8state,omitempty"`
-	// BIOS Token for setting PCIe Slot N9 OptionROM configuration.
+	// BIOS Token for setting PCIe Slot N9 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotN9state *string `json:"SlotN9state,omitempty" yaml:"SlotN9state,omitempty"`
-	// BIOS Token for setting RAID Link Speed configuration.
+	// BIOS Token for setting RAID Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRaidLinkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRaidLinkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRaidLinkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRaidLinkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRaidLinkSpeed token.
 	SlotRaidLinkSpeed *string `json:"SlotRaidLinkSpeed,omitempty" yaml:"SlotRaidLinkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot RAID OptionROM configuration.
+	// BIOS Token for setting PCIe Slot RAID OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRaidState *string `json:"SlotRaidState,omitempty" yaml:"SlotRaidState,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear Nvme1 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Rear Nvme1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRearNvme1linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRearNvme1linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRearNvme1linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRearNvme1linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRearNvme1linkSpeed token.
 	SlotRearNvme1linkSpeed *string `json:"SlotRearNvme1linkSpeed,omitempty" yaml:"SlotRearNvme1linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 1 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 1 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme1state *string `json:"SlotRearNvme1state,omitempty" yaml:"SlotRearNvme1state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear Nvme2 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Rear Nvme2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRearNvme2linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRearNvme2linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRearNvme2linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRearNvme2linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRearNvme2linkSpeed token.
 	SlotRearNvme2linkSpeed *string `json:"SlotRearNvme2linkSpeed,omitempty" yaml:"SlotRearNvme2linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 2 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 2 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme2state *string `json:"SlotRearNvme2state,omitempty" yaml:"SlotRearNvme2state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 3 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 3 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme3state *string `json:"SlotRearNvme3state,omitempty" yaml:"SlotRearNvme3state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 4 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 4 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme4state *string `json:"SlotRearNvme4state,omitempty" yaml:"SlotRearNvme4state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 5 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 5 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme5state *string `json:"SlotRearNvme5state,omitempty" yaml:"SlotRearNvme5state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 6 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 6 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme6state *string `json:"SlotRearNvme6state,omitempty" yaml:"SlotRearNvme6state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 7 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 7 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme7state *string `json:"SlotRearNvme7state,omitempty" yaml:"SlotRearNvme7state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Rear NVME 8 OptionRom configuration.
+	// BIOS Token for setting PCIe Slot:Rear NVME 8 OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SlotRearNvme8state *string `json:"SlotRearNvme8state,omitempty" yaml:"SlotRearNvme8state,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser1 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser1linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser1linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser1linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser1linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser1linkSpeed token.
 	SlotRiser1linkSpeed *string `json:"SlotRiser1linkSpeed,omitempty" yaml:"SlotRiser1linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser1 Slot1 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser1 Slot1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser1slot1linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser1slot1linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser1slot1linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser1slot1linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser1slot1linkSpeed token.
 	SlotRiser1slot1linkSpeed *string `json:"SlotRiser1slot1linkSpeed,omitempty" yaml:"SlotRiser1slot1linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser1 Slot2 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser1 Slot2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser1slot2linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser1slot2linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser1slot2linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser1slot2linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser1slot2linkSpeed token.
 	SlotRiser1slot2linkSpeed *string `json:"SlotRiser1slot2linkSpeed,omitempty" yaml:"SlotRiser1slot2linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser1 Slot3 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser1 Slot3 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser1slot3linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser1slot3linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser1slot3linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser1slot3linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser1slot3linkSpeed token.
 	SlotRiser1slot3linkSpeed *string `json:"SlotRiser1slot3linkSpeed,omitempty" yaml:"SlotRiser1slot3linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser2 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser2linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser2linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser2linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser2linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser2linkSpeed token.
 	SlotRiser2linkSpeed *string `json:"SlotRiser2linkSpeed,omitempty" yaml:"SlotRiser2linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser2 Slot4 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser2 Slot4 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser2slot4linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser2slot4linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser2slot4linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser2slot4linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser2slot4linkSpeed token.
 	SlotRiser2slot4linkSpeed *string `json:"SlotRiser2slot4linkSpeed,omitempty" yaml:"SlotRiser2slot4linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser2 Slot5 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser2 Slot5 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser2slot5linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser2slot5linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser2slot5linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser2slot5linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser2slot5linkSpeed token.
 	SlotRiser2slot5linkSpeed *string `json:"SlotRiser2slot5linkSpeed,omitempty" yaml:"SlotRiser2slot5linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:Riser2 Slot6 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:Riser2 Slot6 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotRiser2slot6linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotRiser2slot6linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotRiser2slot6linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotRiser2slot6linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotRiser2slot6linkSpeed token.
 	SlotRiser2slot6linkSpeed *string `json:"SlotRiser2slot6linkSpeed,omitempty" yaml:"SlotRiser2slot6linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:SAS OptionROM configuration.
+	// BIOS Token for setting PCIe Slot:SAS OptionROM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `disabled` - Value - disabled for configuring SlotSasState token. * `enabled` - Value - enabled for configuring SlotSasState token. * `Legacy Only` - Value - Legacy Only for configuring SlotSasState token. * `UEFI Only` - Value - UEFI Only for configuring SlotSasState token.
 	SlotSasState *string `json:"SlotSasState,omitempty" yaml:"SlotSasState,omitempty"`
-	// BIOS Token for setting PCIe Slot:FrontSSD1 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:FrontSSD1 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotSsdSlot1linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotSsdSlot1linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotSsdSlot1linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotSsdSlot1linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotSsdSlot1linkSpeed token.
 	SlotSsdSlot1linkSpeed *string `json:"SlotSsdSlot1linkSpeed,omitempty" yaml:"SlotSsdSlot1linkSpeed,omitempty"`
-	// BIOS Token for setting PCIe Slot:FrontSSD2 Link Speed configuration.
+	// BIOS Token for setting PCIe Slot:FrontSSD2 Link Speed configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SlotSsdSlot2linkSpeed token. * `Disabled` - Value - Disabled for configuring SlotSsdSlot2linkSpeed token. * `GEN1` - Value - GEN1 for configuring SlotSsdSlot2linkSpeed token. * `GEN2` - Value - GEN2 for configuring SlotSsdSlot2linkSpeed token. * `GEN3` - Value - GEN3 for configuring SlotSsdSlot2linkSpeed token.
 	SlotSsdSlot2linkSpeed *string `json:"SlotSsdSlot2linkSpeed,omitempty" yaml:"SlotSsdSlot2linkSpeed,omitempty"`
-	// BIOS Token for setting SMEE configuration.
+	// BIOS Token for setting SMEE configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	Smee *string `json:"Smee,omitempty" yaml:"Smee,omitempty"`
-	// BIOS Token for setting SMT Mode configuration.
+	// BIOS Token for setting SMT Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring SmtMode token. * `Off` - Value - Off for configuring SmtMode token.
 	SmtMode *string `json:"SmtMode,omitempty" yaml:"SmtMode,omitempty"`
-	// BIOS Token for setting Sub Numa Clustering configuration.
+	// BIOS Token for setting Sub Numa Clustering configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring Snc token. * `disabled` - Value - disabled for configuring Snc token. * `enabled` - Value - enabled for configuring Snc token.
 	Snc *string `json:"Snc,omitempty" yaml:"Snc,omitempty"`
-	// BIOS Token for setting Sparing Mode configuration.
+	// BIOS Token for setting Snoopy Mode for 2LM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	SnoopyModeFor2lm *string `json:"SnoopyModeFor2lm,omitempty" yaml:"SnoopyModeFor2lm,omitempty"`
+	// BIOS Token for setting Snoopy Mode for AD configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	SnoopyModeForAd *string `json:"SnoopyModeForAd,omitempty" yaml:"SnoopyModeForAd,omitempty"`
+	// BIOS Token for setting Sparing Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `dimm-sparing` - Value - dimm-sparing for configuring SparingMode token. * `rank-sparing` - Value - rank-sparing for configuring SparingMode token.
 	SparingMode *string `json:"SparingMode,omitempty" yaml:"SparingMode,omitempty"`
-	// BIOS Token for setting SR-IOV Support configuration.
+	// BIOS Token for setting SR-IOV Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SrIov *string `json:"SrIov,omitempty" yaml:"SrIov,omitempty"`
-	// BIOS Token for setting DCU Streamer Prefetch configuration.
+	// BIOS Token for setting DCU Streamer Prefetch configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	StreamerPrefetch *string `json:"StreamerPrefetch,omitempty" yaml:"StreamerPrefetch,omitempty"`
-	// BIOS Token for setting SVM Mode configuration.
+	// BIOS Token for setting SVM Mode configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	SvmMode *string `json:"SvmMode,omitempty" yaml:"SvmMode,omitempty"`
-	// BIOS Token for setting Terminal Type configuration.
+	// BIOS Token for setting Terminal Type configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `pc-ansi` - Value - pc-ansi for configuring TerminalType token. * `vt-utf8` - Value - vt-utf8 for configuring TerminalType token. * `vt100` - Value - vt100 for configuring TerminalType token. * `vt100-plus` - Value - vt100-plus for configuring TerminalType token.
 	TerminalType *string `json:"TerminalType,omitempty" yaml:"TerminalType,omitempty"`
-	// BIOS Token for setting Trusted Platform Module State configuration.
+	// BIOS Token for setting Trusted Platform Module State configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	TpmControl *string `json:"TpmControl,omitempty" yaml:"TpmControl,omitempty"`
-	// BIOS Token for setting TPM Support configuration.
+	// BIOS Token for setting TPM Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	TpmSupport *string `json:"TpmSupport,omitempty" yaml:"TpmSupport,omitempty"`
-	// BIOS Token for setting Intel Trusted Execution Technology Support configuration.
+	// BIOS Token for setting Intel Trusted Execution Technology Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	TxtSupport *string `json:"TxtSupport,omitempty" yaml:"TxtSupport,omitempty"`
-	// BIOS Token for setting Boot Order Rules configuration.
+	// BIOS Token for setting Boot Order Rules configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Loose` - Value - Loose for configuring UcsmBootOrderRule token. * `Strict` - Value - Strict for configuring UcsmBootOrderRule token.
 	UcsmBootOrderRule *string `json:"UcsmBootOrderRule,omitempty" yaml:"UcsmBootOrderRule,omitempty"`
-	// BIOS Token for setting Port 60/64 Emulation configuration.
+	// BIOS Token for setting Uncore Frequency Scaling configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
+	UfsDisable *string `json:"UfsDisable,omitempty" yaml:"UfsDisable,omitempty"`
+	// BIOS Token for setting Port 60/64 Emulation configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbEmul6064 *string `json:"UsbEmul6064,omitempty" yaml:"UsbEmul6064,omitempty"`
-	// BIOS Token for setting USB Port Front configuration.
+	// BIOS Token for setting USB Port Front configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbPortFront *string `json:"UsbPortFront,omitempty" yaml:"UsbPortFront,omitempty"`
-	// BIOS Token for setting USB Port Internal configuration.
+	// BIOS Token for setting USB Port Internal configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbPortInternal *string `json:"UsbPortInternal,omitempty" yaml:"UsbPortInternal,omitempty"`
-	// BIOS Token for setting USB Port KVM configuration.
+	// BIOS Token for setting USB Port KVM configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbPortKvm *string `json:"UsbPortKvm,omitempty" yaml:"UsbPortKvm,omitempty"`
-	// BIOS Token for setting USB Port Rear configuration.
+	// BIOS Token for setting USB Port Rear configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbPortRear *string `json:"UsbPortRear,omitempty" yaml:"UsbPortRear,omitempty"`
-	// BIOS Token for setting USB Port SD Card configuration.
+	// BIOS Token for setting USB Port SD Card configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbPortSdCard *string `json:"UsbPortSdCard,omitempty" yaml:"UsbPortSdCard,omitempty"`
-	// BIOS Token for setting USB Port VMedia configuration.
+	// BIOS Token for setting USB Port VMedia configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbPortVmedia *string `json:"UsbPortVmedia,omitempty" yaml:"UsbPortVmedia,omitempty"`
-	// BIOS Token for setting XHCI Legacy Support configuration.
+	// BIOS Token for setting XHCI Legacy Support configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	UsbXhciSupport *string `json:"UsbXhciSupport,omitempty" yaml:"UsbXhciSupport,omitempty"`
-	// BIOS Token for setting VGA Priority configuration.
+	// BIOS Token for setting VGA Priority configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Offboard` - Value - Offboard for configuring VgaPriority token. * `Onboard` - Value - Onboard for configuring VgaPriority token. * `Onboard VGA Disabled` - Value - Onboard VGA Disabled for configuring VgaPriority token.
 	VgaPriority *string `json:"VgaPriority,omitempty" yaml:"VgaPriority,omitempty"`
-	// BIOS Token for setting VMD Enablement configuration.
+	// BIOS Token for setting VMD Enablement configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `enabled` - Enables the BIOS setting. * `disabled` - Disables the BIOS setting.
 	VmdEnable *string `json:"VmdEnable,omitempty" yaml:"VmdEnable,omitempty"`
-	// BIOS Token for setting Workload Configuration configuration.
+	// BIOS Token for setting Workload Configuration configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Balanced` - Value - Balanced for configuring WorkLoadConfig token. * `I/O Sensitive` - Value - I/O Sensitive for configuring WorkLoadConfig token. * `NUMA` - Value - NUMA for configuring WorkLoadConfig token. * `UMA` - Value - UMA for configuring WorkLoadConfig token.
 	WorkLoadConfig *string `json:"WorkLoadConfig,omitempty" yaml:"WorkLoadConfig,omitempty"`
-	// BIOS Token for setting XPT Prefetch configuration.
+	// BIOS Token for setting XPT Prefetch configuration. * `platform-default` - Default value used by the platform for the BIOS setting. * `Auto` - Value - Auto for configuring XptPrefetch token. * `disabled` - Value - disabled for configuring XptPrefetch token. * `enabled` - Value - enabled for configuring XptPrefetch token.
 	XptPrefetch  *string                               `json:"XptPrefetch,omitempty" yaml:"XptPrefetch,omitempty"`
 	Organization *OrganizationOrganizationRelationship `json:"Organization,omitempty" yaml:"Organization,omitempty"`
 	// An array of relationships to policyAbstractConfigProfile resources.
-	Profiles *[]PolicyAbstractConfigProfileRelationship `json:"Profiles,omitempty" yaml:"Profiles,omitempty"`
+	Profiles []PolicyAbstractConfigProfileRelationship `json:"Profiles,omitempty" yaml:"Profiles,omitempty"`
 }
 
 // NewBiosPolicy instantiates a new BiosPolicy object
@@ -650,6 +698,8 @@ func NewBiosPolicy() *BiosPolicy {
 	this.CmciEnable = &cmciEnable
 	var configTdp string = "platform-default"
 	this.ConfigTdp = &configTdp
+	var configTdpLevel string = "platform-default"
+	this.ConfigTdpLevel = &configTdpLevel
 	var consoleRedirection string = "platform-default"
 	this.ConsoleRedirection = &consoleRedirection
 	var coreMultiProcessing string = "platform-default"
@@ -662,6 +712,10 @@ func NewBiosPolicy() *BiosPolicy {
 	this.CpuPerformance = &cpuPerformance
 	var cpuPowerManagement string = "platform-default"
 	this.CpuPowerManagement = &cpuPowerManagement
+	var crQos string = "platform-default"
+	this.CrQos = &crQos
+	var crfastgoConfig string = "platform-default"
+	this.CrfastgoConfig = &crfastgoConfig
 	var dcpmmFirmwareDowngrade string = "platform-default"
 	this.DcpmmFirmwareDowngrade = &dcpmmFirmwareDowngrade
 	var demandScrub string = "platform-default"
@@ -672,6 +726,8 @@ func NewBiosPolicy() *BiosPolicy {
 	this.DramClockThrottling = &dramClockThrottling
 	var dramRefreshRate string = "platform-default"
 	this.DramRefreshRate = &dramRefreshRate
+	var enableClockSpreadSpec string = "platform-default"
+	this.EnableClockSpreadSpec = &enableClockSpreadSpec
 	var energyEfficientTurbo string = "platform-default"
 	this.EnergyEfficientTurbo = &energyEfficientTurbo
 	var engPerfTuning string = "platform-default"
@@ -756,6 +812,8 @@ func NewBiosPolicy() *BiosPolicy {
 	this.NetworkStack = &networkStack
 	var numaOptimized string = "platform-default"
 	this.NumaOptimized = &numaOptimized
+	var nvmdimmPerformConfig string = "platform-default"
+	this.NvmdimmPerformConfig = &nvmdimmPerformConfig
 	var onboard10gbitLom string = "platform-default"
 	this.Onboard10gbitLom = &onboard10gbitLom
 	var onboardGbitLom string = "platform-default"
@@ -790,6 +848,36 @@ func NewBiosPolicy() *BiosPolicy {
 	this.PciOptionRoMs = &pciOptionRoMs
 	var pciRomClp string = "platform-default"
 	this.PciRomClp = &pciRomClp
+	var pcieAriSupport string = "platform-default"
+	this.PcieAriSupport = &pcieAriSupport
+	var pciePllSsc string = "platform-default"
+	this.PciePllSsc = &pciePllSsc
+	var pcieSlotMstorraidOptionRom string = "platform-default"
+	this.PcieSlotMstorraidOptionRom = &pcieSlotMstorraidOptionRom
+	var pcieSlotNvme1linkSpeed string = "platform-default"
+	this.PcieSlotNvme1linkSpeed = &pcieSlotNvme1linkSpeed
+	var pcieSlotNvme1optionRom string = "platform-default"
+	this.PcieSlotNvme1optionRom = &pcieSlotNvme1optionRom
+	var pcieSlotNvme2linkSpeed string = "platform-default"
+	this.PcieSlotNvme2linkSpeed = &pcieSlotNvme2linkSpeed
+	var pcieSlotNvme2optionRom string = "platform-default"
+	this.PcieSlotNvme2optionRom = &pcieSlotNvme2optionRom
+	var pcieSlotNvme3linkSpeed string = "platform-default"
+	this.PcieSlotNvme3linkSpeed = &pcieSlotNvme3linkSpeed
+	var pcieSlotNvme3optionRom string = "platform-default"
+	this.PcieSlotNvme3optionRom = &pcieSlotNvme3optionRom
+	var pcieSlotNvme4linkSpeed string = "platform-default"
+	this.PcieSlotNvme4linkSpeed = &pcieSlotNvme4linkSpeed
+	var pcieSlotNvme4optionRom string = "platform-default"
+	this.PcieSlotNvme4optionRom = &pcieSlotNvme4optionRom
+	var pcieSlotNvme5linkSpeed string = "platform-default"
+	this.PcieSlotNvme5linkSpeed = &pcieSlotNvme5linkSpeed
+	var pcieSlotNvme5optionRom string = "platform-default"
+	this.PcieSlotNvme5optionRom = &pcieSlotNvme5optionRom
+	var pcieSlotNvme6linkSpeed string = "platform-default"
+	this.PcieSlotNvme6linkSpeed = &pcieSlotNvme6linkSpeed
+	var pcieSlotNvme6optionRom string = "platform-default"
+	this.PcieSlotNvme6optionRom = &pcieSlotNvme6optionRom
 	var popSupport string = "platform-default"
 	this.PopSupport = &popSupport
 	var postErrorPause string = "platform-default"
@@ -812,6 +900,8 @@ func NewBiosPolicy() *BiosPolicy {
 	this.PwrPerfTuning = &pwrPerfTuning
 	var qpiLinkFrequency string = "platform-default"
 	this.QpiLinkFrequency = &qpiLinkFrequency
+	var qpiLinkSpeed string = "platform-default"
+	this.QpiLinkSpeed = &qpiLinkSpeed
 	var qpiSnoopMode string = "platform-default"
 	this.QpiSnoopMode = &qpiSnoopMode
 	var rankInterLeave string = "platform-default"
@@ -1024,6 +1114,10 @@ func NewBiosPolicy() *BiosPolicy {
 	this.SmtMode = &smtMode
 	var snc string = "platform-default"
 	this.Snc = &snc
+	var snoopyModeFor2lm string = "platform-default"
+	this.SnoopyModeFor2lm = &snoopyModeFor2lm
+	var snoopyModeForAd string = "platform-default"
+	this.SnoopyModeForAd = &snoopyModeForAd
 	var sparingMode string = "platform-default"
 	this.SparingMode = &sparingMode
 	var srIov string = "platform-default"
@@ -1042,6 +1136,8 @@ func NewBiosPolicy() *BiosPolicy {
 	this.TxtSupport = &txtSupport
 	var ucsmBootOrderRule string = "platform-default"
 	this.UcsmBootOrderRule = &ucsmBootOrderRule
+	var ufsDisable string = "platform-default"
+	this.UfsDisable = &ufsDisable
 	var usbEmul6064 string = "platform-default"
 	this.UsbEmul6064 = &usbEmul6064
 	var usbPortFront string = "platform-default"
@@ -1170,6 +1266,8 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.CmciEnable = &cmciEnable
 	var configTdp string = "platform-default"
 	this.ConfigTdp = &configTdp
+	var configTdpLevel string = "platform-default"
+	this.ConfigTdpLevel = &configTdpLevel
 	var consoleRedirection string = "platform-default"
 	this.ConsoleRedirection = &consoleRedirection
 	var coreMultiProcessing string = "platform-default"
@@ -1182,6 +1280,10 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.CpuPerformance = &cpuPerformance
 	var cpuPowerManagement string = "platform-default"
 	this.CpuPowerManagement = &cpuPowerManagement
+	var crQos string = "platform-default"
+	this.CrQos = &crQos
+	var crfastgoConfig string = "platform-default"
+	this.CrfastgoConfig = &crfastgoConfig
 	var dcpmmFirmwareDowngrade string = "platform-default"
 	this.DcpmmFirmwareDowngrade = &dcpmmFirmwareDowngrade
 	var demandScrub string = "platform-default"
@@ -1192,6 +1294,8 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.DramClockThrottling = &dramClockThrottling
 	var dramRefreshRate string = "platform-default"
 	this.DramRefreshRate = &dramRefreshRate
+	var enableClockSpreadSpec string = "platform-default"
+	this.EnableClockSpreadSpec = &enableClockSpreadSpec
 	var energyEfficientTurbo string = "platform-default"
 	this.EnergyEfficientTurbo = &energyEfficientTurbo
 	var engPerfTuning string = "platform-default"
@@ -1276,6 +1380,8 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.NetworkStack = &networkStack
 	var numaOptimized string = "platform-default"
 	this.NumaOptimized = &numaOptimized
+	var nvmdimmPerformConfig string = "platform-default"
+	this.NvmdimmPerformConfig = &nvmdimmPerformConfig
 	var onboard10gbitLom string = "platform-default"
 	this.Onboard10gbitLom = &onboard10gbitLom
 	var onboardGbitLom string = "platform-default"
@@ -1310,6 +1416,36 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.PciOptionRoMs = &pciOptionRoMs
 	var pciRomClp string = "platform-default"
 	this.PciRomClp = &pciRomClp
+	var pcieAriSupport string = "platform-default"
+	this.PcieAriSupport = &pcieAriSupport
+	var pciePllSsc string = "platform-default"
+	this.PciePllSsc = &pciePllSsc
+	var pcieSlotMstorraidOptionRom string = "platform-default"
+	this.PcieSlotMstorraidOptionRom = &pcieSlotMstorraidOptionRom
+	var pcieSlotNvme1linkSpeed string = "platform-default"
+	this.PcieSlotNvme1linkSpeed = &pcieSlotNvme1linkSpeed
+	var pcieSlotNvme1optionRom string = "platform-default"
+	this.PcieSlotNvme1optionRom = &pcieSlotNvme1optionRom
+	var pcieSlotNvme2linkSpeed string = "platform-default"
+	this.PcieSlotNvme2linkSpeed = &pcieSlotNvme2linkSpeed
+	var pcieSlotNvme2optionRom string = "platform-default"
+	this.PcieSlotNvme2optionRom = &pcieSlotNvme2optionRom
+	var pcieSlotNvme3linkSpeed string = "platform-default"
+	this.PcieSlotNvme3linkSpeed = &pcieSlotNvme3linkSpeed
+	var pcieSlotNvme3optionRom string = "platform-default"
+	this.PcieSlotNvme3optionRom = &pcieSlotNvme3optionRom
+	var pcieSlotNvme4linkSpeed string = "platform-default"
+	this.PcieSlotNvme4linkSpeed = &pcieSlotNvme4linkSpeed
+	var pcieSlotNvme4optionRom string = "platform-default"
+	this.PcieSlotNvme4optionRom = &pcieSlotNvme4optionRom
+	var pcieSlotNvme5linkSpeed string = "platform-default"
+	this.PcieSlotNvme5linkSpeed = &pcieSlotNvme5linkSpeed
+	var pcieSlotNvme5optionRom string = "platform-default"
+	this.PcieSlotNvme5optionRom = &pcieSlotNvme5optionRom
+	var pcieSlotNvme6linkSpeed string = "platform-default"
+	this.PcieSlotNvme6linkSpeed = &pcieSlotNvme6linkSpeed
+	var pcieSlotNvme6optionRom string = "platform-default"
+	this.PcieSlotNvme6optionRom = &pcieSlotNvme6optionRom
 	var popSupport string = "platform-default"
 	this.PopSupport = &popSupport
 	var postErrorPause string = "platform-default"
@@ -1332,6 +1468,8 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.PwrPerfTuning = &pwrPerfTuning
 	var qpiLinkFrequency string = "platform-default"
 	this.QpiLinkFrequency = &qpiLinkFrequency
+	var qpiLinkSpeed string = "platform-default"
+	this.QpiLinkSpeed = &qpiLinkSpeed
 	var qpiSnoopMode string = "platform-default"
 	this.QpiSnoopMode = &qpiSnoopMode
 	var rankInterLeave string = "platform-default"
@@ -1544,6 +1682,10 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.SmtMode = &smtMode
 	var snc string = "platform-default"
 	this.Snc = &snc
+	var snoopyModeFor2lm string = "platform-default"
+	this.SnoopyModeFor2lm = &snoopyModeFor2lm
+	var snoopyModeForAd string = "platform-default"
+	this.SnoopyModeForAd = &snoopyModeForAd
 	var sparingMode string = "platform-default"
 	this.SparingMode = &sparingMode
 	var srIov string = "platform-default"
@@ -1562,6 +1704,8 @@ func NewBiosPolicyWithDefaults() *BiosPolicy {
 	this.TxtSupport = &txtSupport
 	var ucsmBootOrderRule string = "platform-default"
 	this.UcsmBootOrderRule = &ucsmBootOrderRule
+	var ufsDisable string = "platform-default"
+	this.UfsDisable = &ufsDisable
 	var usbEmul6064 string = "platform-default"
 	this.UsbEmul6064 = &usbEmul6064
 	var usbPortFront string = "platform-default"
@@ -3125,6 +3269,38 @@ func (o *BiosPolicy) SetConfigTdp(v string) {
 	o.ConfigTdp = &v
 }
 
+// GetConfigTdpLevel returns the ConfigTdpLevel field value if set, zero value otherwise.
+func (o *BiosPolicy) GetConfigTdpLevel() string {
+	if o == nil || o.ConfigTdpLevel == nil {
+		var ret string
+		return ret
+	}
+	return *o.ConfigTdpLevel
+}
+
+// GetConfigTdpLevelOk returns a tuple with the ConfigTdpLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetConfigTdpLevelOk() (*string, bool) {
+	if o == nil || o.ConfigTdpLevel == nil {
+		return nil, false
+	}
+	return o.ConfigTdpLevel, true
+}
+
+// HasConfigTdpLevel returns a boolean if a field has been set.
+func (o *BiosPolicy) HasConfigTdpLevel() bool {
+	if o != nil && o.ConfigTdpLevel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigTdpLevel gets a reference to the given string and assigns it to the ConfigTdpLevel field.
+func (o *BiosPolicy) SetConfigTdpLevel(v string) {
+	o.ConfigTdpLevel = &v
+}
+
 // GetConsoleRedirection returns the ConsoleRedirection field value if set, zero value otherwise.
 func (o *BiosPolicy) GetConsoleRedirection() string {
 	if o == nil || o.ConsoleRedirection == nil {
@@ -3317,6 +3493,70 @@ func (o *BiosPolicy) SetCpuPowerManagement(v string) {
 	o.CpuPowerManagement = &v
 }
 
+// GetCrQos returns the CrQos field value if set, zero value otherwise.
+func (o *BiosPolicy) GetCrQos() string {
+	if o == nil || o.CrQos == nil {
+		var ret string
+		return ret
+	}
+	return *o.CrQos
+}
+
+// GetCrQosOk returns a tuple with the CrQos field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetCrQosOk() (*string, bool) {
+	if o == nil || o.CrQos == nil {
+		return nil, false
+	}
+	return o.CrQos, true
+}
+
+// HasCrQos returns a boolean if a field has been set.
+func (o *BiosPolicy) HasCrQos() bool {
+	if o != nil && o.CrQos != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCrQos gets a reference to the given string and assigns it to the CrQos field.
+func (o *BiosPolicy) SetCrQos(v string) {
+	o.CrQos = &v
+}
+
+// GetCrfastgoConfig returns the CrfastgoConfig field value if set, zero value otherwise.
+func (o *BiosPolicy) GetCrfastgoConfig() string {
+	if o == nil || o.CrfastgoConfig == nil {
+		var ret string
+		return ret
+	}
+	return *o.CrfastgoConfig
+}
+
+// GetCrfastgoConfigOk returns a tuple with the CrfastgoConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetCrfastgoConfigOk() (*string, bool) {
+	if o == nil || o.CrfastgoConfig == nil {
+		return nil, false
+	}
+	return o.CrfastgoConfig, true
+}
+
+// HasCrfastgoConfig returns a boolean if a field has been set.
+func (o *BiosPolicy) HasCrfastgoConfig() bool {
+	if o != nil && o.CrfastgoConfig != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCrfastgoConfig gets a reference to the given string and assigns it to the CrfastgoConfig field.
+func (o *BiosPolicy) SetCrfastgoConfig(v string) {
+	o.CrfastgoConfig = &v
+}
+
 // GetDcpmmFirmwareDowngrade returns the DcpmmFirmwareDowngrade field value if set, zero value otherwise.
 func (o *BiosPolicy) GetDcpmmFirmwareDowngrade() string {
 	if o == nil || o.DcpmmFirmwareDowngrade == nil {
@@ -3475,6 +3715,38 @@ func (o *BiosPolicy) HasDramRefreshRate() bool {
 // SetDramRefreshRate gets a reference to the given string and assigns it to the DramRefreshRate field.
 func (o *BiosPolicy) SetDramRefreshRate(v string) {
 	o.DramRefreshRate = &v
+}
+
+// GetEnableClockSpreadSpec returns the EnableClockSpreadSpec field value if set, zero value otherwise.
+func (o *BiosPolicy) GetEnableClockSpreadSpec() string {
+	if o == nil || o.EnableClockSpreadSpec == nil {
+		var ret string
+		return ret
+	}
+	return *o.EnableClockSpreadSpec
+}
+
+// GetEnableClockSpreadSpecOk returns a tuple with the EnableClockSpreadSpec field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetEnableClockSpreadSpecOk() (*string, bool) {
+	if o == nil || o.EnableClockSpreadSpec == nil {
+		return nil, false
+	}
+	return o.EnableClockSpreadSpec, true
+}
+
+// HasEnableClockSpreadSpec returns a boolean if a field has been set.
+func (o *BiosPolicy) HasEnableClockSpreadSpec() bool {
+	if o != nil && o.EnableClockSpreadSpec != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEnableClockSpreadSpec gets a reference to the given string and assigns it to the EnableClockSpreadSpec field.
+func (o *BiosPolicy) SetEnableClockSpreadSpec(v string) {
+	o.EnableClockSpreadSpec = &v
 }
 
 // GetEnergyEfficientTurbo returns the EnergyEfficientTurbo field value if set, zero value otherwise.
@@ -4853,6 +5125,38 @@ func (o *BiosPolicy) SetNumaOptimized(v string) {
 	o.NumaOptimized = &v
 }
 
+// GetNvmdimmPerformConfig returns the NvmdimmPerformConfig field value if set, zero value otherwise.
+func (o *BiosPolicy) GetNvmdimmPerformConfig() string {
+	if o == nil || o.NvmdimmPerformConfig == nil {
+		var ret string
+		return ret
+	}
+	return *o.NvmdimmPerformConfig
+}
+
+// GetNvmdimmPerformConfigOk returns a tuple with the NvmdimmPerformConfig field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetNvmdimmPerformConfigOk() (*string, bool) {
+	if o == nil || o.NvmdimmPerformConfig == nil {
+		return nil, false
+	}
+	return o.NvmdimmPerformConfig, true
+}
+
+// HasNvmdimmPerformConfig returns a boolean if a field has been set.
+func (o *BiosPolicy) HasNvmdimmPerformConfig() bool {
+	if o != nil && o.NvmdimmPerformConfig != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNvmdimmPerformConfig gets a reference to the given string and assigns it to the NvmdimmPerformConfig field.
+func (o *BiosPolicy) SetNvmdimmPerformConfig(v string) {
+	o.NvmdimmPerformConfig = &v
+}
+
 // GetOnboard10gbitLom returns the Onboard10gbitLom field value if set, zero value otherwise.
 func (o *BiosPolicy) GetOnboard10gbitLom() string {
 	if o == nil || o.Onboard10gbitLom == nil {
@@ -5557,6 +5861,486 @@ func (o *BiosPolicy) SetPciRomClp(v string) {
 	o.PciRomClp = &v
 }
 
+// GetPcieAriSupport returns the PcieAriSupport field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieAriSupport() string {
+	if o == nil || o.PcieAriSupport == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieAriSupport
+}
+
+// GetPcieAriSupportOk returns a tuple with the PcieAriSupport field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieAriSupportOk() (*string, bool) {
+	if o == nil || o.PcieAriSupport == nil {
+		return nil, false
+	}
+	return o.PcieAriSupport, true
+}
+
+// HasPcieAriSupport returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieAriSupport() bool {
+	if o != nil && o.PcieAriSupport != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieAriSupport gets a reference to the given string and assigns it to the PcieAriSupport field.
+func (o *BiosPolicy) SetPcieAriSupport(v string) {
+	o.PcieAriSupport = &v
+}
+
+// GetPciePllSsc returns the PciePllSsc field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPciePllSsc() string {
+	if o == nil || o.PciePllSsc == nil {
+		var ret string
+		return ret
+	}
+	return *o.PciePllSsc
+}
+
+// GetPciePllSscOk returns a tuple with the PciePllSsc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPciePllSscOk() (*string, bool) {
+	if o == nil || o.PciePllSsc == nil {
+		return nil, false
+	}
+	return o.PciePllSsc, true
+}
+
+// HasPciePllSsc returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPciePllSsc() bool {
+	if o != nil && o.PciePllSsc != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPciePllSsc gets a reference to the given string and assigns it to the PciePllSsc field.
+func (o *BiosPolicy) SetPciePllSsc(v string) {
+	o.PciePllSsc = &v
+}
+
+// GetPcieSlotMstorraidOptionRom returns the PcieSlotMstorraidOptionRom field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotMstorraidOptionRom() string {
+	if o == nil || o.PcieSlotMstorraidOptionRom == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotMstorraidOptionRom
+}
+
+// GetPcieSlotMstorraidOptionRomOk returns a tuple with the PcieSlotMstorraidOptionRom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotMstorraidOptionRomOk() (*string, bool) {
+	if o == nil || o.PcieSlotMstorraidOptionRom == nil {
+		return nil, false
+	}
+	return o.PcieSlotMstorraidOptionRom, true
+}
+
+// HasPcieSlotMstorraidOptionRom returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotMstorraidOptionRom() bool {
+	if o != nil && o.PcieSlotMstorraidOptionRom != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotMstorraidOptionRom gets a reference to the given string and assigns it to the PcieSlotMstorraidOptionRom field.
+func (o *BiosPolicy) SetPcieSlotMstorraidOptionRom(v string) {
+	o.PcieSlotMstorraidOptionRom = &v
+}
+
+// GetPcieSlotNvme1linkSpeed returns the PcieSlotNvme1linkSpeed field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme1linkSpeed() string {
+	if o == nil || o.PcieSlotNvme1linkSpeed == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme1linkSpeed
+}
+
+// GetPcieSlotNvme1linkSpeedOk returns a tuple with the PcieSlotNvme1linkSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme1linkSpeedOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme1linkSpeed == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme1linkSpeed, true
+}
+
+// HasPcieSlotNvme1linkSpeed returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme1linkSpeed() bool {
+	if o != nil && o.PcieSlotNvme1linkSpeed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme1linkSpeed gets a reference to the given string and assigns it to the PcieSlotNvme1linkSpeed field.
+func (o *BiosPolicy) SetPcieSlotNvme1linkSpeed(v string) {
+	o.PcieSlotNvme1linkSpeed = &v
+}
+
+// GetPcieSlotNvme1optionRom returns the PcieSlotNvme1optionRom field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme1optionRom() string {
+	if o == nil || o.PcieSlotNvme1optionRom == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme1optionRom
+}
+
+// GetPcieSlotNvme1optionRomOk returns a tuple with the PcieSlotNvme1optionRom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme1optionRomOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme1optionRom == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme1optionRom, true
+}
+
+// HasPcieSlotNvme1optionRom returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme1optionRom() bool {
+	if o != nil && o.PcieSlotNvme1optionRom != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme1optionRom gets a reference to the given string and assigns it to the PcieSlotNvme1optionRom field.
+func (o *BiosPolicy) SetPcieSlotNvme1optionRom(v string) {
+	o.PcieSlotNvme1optionRom = &v
+}
+
+// GetPcieSlotNvme2linkSpeed returns the PcieSlotNvme2linkSpeed field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme2linkSpeed() string {
+	if o == nil || o.PcieSlotNvme2linkSpeed == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme2linkSpeed
+}
+
+// GetPcieSlotNvme2linkSpeedOk returns a tuple with the PcieSlotNvme2linkSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme2linkSpeedOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme2linkSpeed == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme2linkSpeed, true
+}
+
+// HasPcieSlotNvme2linkSpeed returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme2linkSpeed() bool {
+	if o != nil && o.PcieSlotNvme2linkSpeed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme2linkSpeed gets a reference to the given string and assigns it to the PcieSlotNvme2linkSpeed field.
+func (o *BiosPolicy) SetPcieSlotNvme2linkSpeed(v string) {
+	o.PcieSlotNvme2linkSpeed = &v
+}
+
+// GetPcieSlotNvme2optionRom returns the PcieSlotNvme2optionRom field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme2optionRom() string {
+	if o == nil || o.PcieSlotNvme2optionRom == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme2optionRom
+}
+
+// GetPcieSlotNvme2optionRomOk returns a tuple with the PcieSlotNvme2optionRom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme2optionRomOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme2optionRom == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme2optionRom, true
+}
+
+// HasPcieSlotNvme2optionRom returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme2optionRom() bool {
+	if o != nil && o.PcieSlotNvme2optionRom != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme2optionRom gets a reference to the given string and assigns it to the PcieSlotNvme2optionRom field.
+func (o *BiosPolicy) SetPcieSlotNvme2optionRom(v string) {
+	o.PcieSlotNvme2optionRom = &v
+}
+
+// GetPcieSlotNvme3linkSpeed returns the PcieSlotNvme3linkSpeed field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme3linkSpeed() string {
+	if o == nil || o.PcieSlotNvme3linkSpeed == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme3linkSpeed
+}
+
+// GetPcieSlotNvme3linkSpeedOk returns a tuple with the PcieSlotNvme3linkSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme3linkSpeedOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme3linkSpeed == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme3linkSpeed, true
+}
+
+// HasPcieSlotNvme3linkSpeed returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme3linkSpeed() bool {
+	if o != nil && o.PcieSlotNvme3linkSpeed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme3linkSpeed gets a reference to the given string and assigns it to the PcieSlotNvme3linkSpeed field.
+func (o *BiosPolicy) SetPcieSlotNvme3linkSpeed(v string) {
+	o.PcieSlotNvme3linkSpeed = &v
+}
+
+// GetPcieSlotNvme3optionRom returns the PcieSlotNvme3optionRom field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme3optionRom() string {
+	if o == nil || o.PcieSlotNvme3optionRom == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme3optionRom
+}
+
+// GetPcieSlotNvme3optionRomOk returns a tuple with the PcieSlotNvme3optionRom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme3optionRomOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme3optionRom == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme3optionRom, true
+}
+
+// HasPcieSlotNvme3optionRom returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme3optionRom() bool {
+	if o != nil && o.PcieSlotNvme3optionRom != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme3optionRom gets a reference to the given string and assigns it to the PcieSlotNvme3optionRom field.
+func (o *BiosPolicy) SetPcieSlotNvme3optionRom(v string) {
+	o.PcieSlotNvme3optionRom = &v
+}
+
+// GetPcieSlotNvme4linkSpeed returns the PcieSlotNvme4linkSpeed field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme4linkSpeed() string {
+	if o == nil || o.PcieSlotNvme4linkSpeed == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme4linkSpeed
+}
+
+// GetPcieSlotNvme4linkSpeedOk returns a tuple with the PcieSlotNvme4linkSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme4linkSpeedOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme4linkSpeed == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme4linkSpeed, true
+}
+
+// HasPcieSlotNvme4linkSpeed returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme4linkSpeed() bool {
+	if o != nil && o.PcieSlotNvme4linkSpeed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme4linkSpeed gets a reference to the given string and assigns it to the PcieSlotNvme4linkSpeed field.
+func (o *BiosPolicy) SetPcieSlotNvme4linkSpeed(v string) {
+	o.PcieSlotNvme4linkSpeed = &v
+}
+
+// GetPcieSlotNvme4optionRom returns the PcieSlotNvme4optionRom field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme4optionRom() string {
+	if o == nil || o.PcieSlotNvme4optionRom == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme4optionRom
+}
+
+// GetPcieSlotNvme4optionRomOk returns a tuple with the PcieSlotNvme4optionRom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme4optionRomOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme4optionRom == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme4optionRom, true
+}
+
+// HasPcieSlotNvme4optionRom returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme4optionRom() bool {
+	if o != nil && o.PcieSlotNvme4optionRom != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme4optionRom gets a reference to the given string and assigns it to the PcieSlotNvme4optionRom field.
+func (o *BiosPolicy) SetPcieSlotNvme4optionRom(v string) {
+	o.PcieSlotNvme4optionRom = &v
+}
+
+// GetPcieSlotNvme5linkSpeed returns the PcieSlotNvme5linkSpeed field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme5linkSpeed() string {
+	if o == nil || o.PcieSlotNvme5linkSpeed == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme5linkSpeed
+}
+
+// GetPcieSlotNvme5linkSpeedOk returns a tuple with the PcieSlotNvme5linkSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme5linkSpeedOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme5linkSpeed == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme5linkSpeed, true
+}
+
+// HasPcieSlotNvme5linkSpeed returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme5linkSpeed() bool {
+	if o != nil && o.PcieSlotNvme5linkSpeed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme5linkSpeed gets a reference to the given string and assigns it to the PcieSlotNvme5linkSpeed field.
+func (o *BiosPolicy) SetPcieSlotNvme5linkSpeed(v string) {
+	o.PcieSlotNvme5linkSpeed = &v
+}
+
+// GetPcieSlotNvme5optionRom returns the PcieSlotNvme5optionRom field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme5optionRom() string {
+	if o == nil || o.PcieSlotNvme5optionRom == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme5optionRom
+}
+
+// GetPcieSlotNvme5optionRomOk returns a tuple with the PcieSlotNvme5optionRom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme5optionRomOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme5optionRom == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme5optionRom, true
+}
+
+// HasPcieSlotNvme5optionRom returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme5optionRom() bool {
+	if o != nil && o.PcieSlotNvme5optionRom != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme5optionRom gets a reference to the given string and assigns it to the PcieSlotNvme5optionRom field.
+func (o *BiosPolicy) SetPcieSlotNvme5optionRom(v string) {
+	o.PcieSlotNvme5optionRom = &v
+}
+
+// GetPcieSlotNvme6linkSpeed returns the PcieSlotNvme6linkSpeed field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme6linkSpeed() string {
+	if o == nil || o.PcieSlotNvme6linkSpeed == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme6linkSpeed
+}
+
+// GetPcieSlotNvme6linkSpeedOk returns a tuple with the PcieSlotNvme6linkSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme6linkSpeedOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme6linkSpeed == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme6linkSpeed, true
+}
+
+// HasPcieSlotNvme6linkSpeed returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme6linkSpeed() bool {
+	if o != nil && o.PcieSlotNvme6linkSpeed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme6linkSpeed gets a reference to the given string and assigns it to the PcieSlotNvme6linkSpeed field.
+func (o *BiosPolicy) SetPcieSlotNvme6linkSpeed(v string) {
+	o.PcieSlotNvme6linkSpeed = &v
+}
+
+// GetPcieSlotNvme6optionRom returns the PcieSlotNvme6optionRom field value if set, zero value otherwise.
+func (o *BiosPolicy) GetPcieSlotNvme6optionRom() string {
+	if o == nil || o.PcieSlotNvme6optionRom == nil {
+		var ret string
+		return ret
+	}
+	return *o.PcieSlotNvme6optionRom
+}
+
+// GetPcieSlotNvme6optionRomOk returns a tuple with the PcieSlotNvme6optionRom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetPcieSlotNvme6optionRomOk() (*string, bool) {
+	if o == nil || o.PcieSlotNvme6optionRom == nil {
+		return nil, false
+	}
+	return o.PcieSlotNvme6optionRom, true
+}
+
+// HasPcieSlotNvme6optionRom returns a boolean if a field has been set.
+func (o *BiosPolicy) HasPcieSlotNvme6optionRom() bool {
+	if o != nil && o.PcieSlotNvme6optionRom != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPcieSlotNvme6optionRom gets a reference to the given string and assigns it to the PcieSlotNvme6optionRom field.
+func (o *BiosPolicy) SetPcieSlotNvme6optionRom(v string) {
+	o.PcieSlotNvme6optionRom = &v
+}
+
 // GetPopSupport returns the PopSupport field value if set, zero value otherwise.
 func (o *BiosPolicy) GetPopSupport() string {
 	if o == nil || o.PopSupport == nil {
@@ -5907,6 +6691,38 @@ func (o *BiosPolicy) HasQpiLinkFrequency() bool {
 // SetQpiLinkFrequency gets a reference to the given string and assigns it to the QpiLinkFrequency field.
 func (o *BiosPolicy) SetQpiLinkFrequency(v string) {
 	o.QpiLinkFrequency = &v
+}
+
+// GetQpiLinkSpeed returns the QpiLinkSpeed field value if set, zero value otherwise.
+func (o *BiosPolicy) GetQpiLinkSpeed() string {
+	if o == nil || o.QpiLinkSpeed == nil {
+		var ret string
+		return ret
+	}
+	return *o.QpiLinkSpeed
+}
+
+// GetQpiLinkSpeedOk returns a tuple with the QpiLinkSpeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetQpiLinkSpeedOk() (*string, bool) {
+	if o == nil || o.QpiLinkSpeed == nil {
+		return nil, false
+	}
+	return o.QpiLinkSpeed, true
+}
+
+// HasQpiLinkSpeed returns a boolean if a field has been set.
+func (o *BiosPolicy) HasQpiLinkSpeed() bool {
+	if o != nil && o.QpiLinkSpeed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQpiLinkSpeed gets a reference to the given string and assigns it to the QpiLinkSpeed field.
+func (o *BiosPolicy) SetQpiLinkSpeed(v string) {
+	o.QpiLinkSpeed = &v
 }
 
 // GetQpiSnoopMode returns the QpiSnoopMode field value if set, zero value otherwise.
@@ -9301,6 +10117,70 @@ func (o *BiosPolicy) SetSnc(v string) {
 	o.Snc = &v
 }
 
+// GetSnoopyModeFor2lm returns the SnoopyModeFor2lm field value if set, zero value otherwise.
+func (o *BiosPolicy) GetSnoopyModeFor2lm() string {
+	if o == nil || o.SnoopyModeFor2lm == nil {
+		var ret string
+		return ret
+	}
+	return *o.SnoopyModeFor2lm
+}
+
+// GetSnoopyModeFor2lmOk returns a tuple with the SnoopyModeFor2lm field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetSnoopyModeFor2lmOk() (*string, bool) {
+	if o == nil || o.SnoopyModeFor2lm == nil {
+		return nil, false
+	}
+	return o.SnoopyModeFor2lm, true
+}
+
+// HasSnoopyModeFor2lm returns a boolean if a field has been set.
+func (o *BiosPolicy) HasSnoopyModeFor2lm() bool {
+	if o != nil && o.SnoopyModeFor2lm != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSnoopyModeFor2lm gets a reference to the given string and assigns it to the SnoopyModeFor2lm field.
+func (o *BiosPolicy) SetSnoopyModeFor2lm(v string) {
+	o.SnoopyModeFor2lm = &v
+}
+
+// GetSnoopyModeForAd returns the SnoopyModeForAd field value if set, zero value otherwise.
+func (o *BiosPolicy) GetSnoopyModeForAd() string {
+	if o == nil || o.SnoopyModeForAd == nil {
+		var ret string
+		return ret
+	}
+	return *o.SnoopyModeForAd
+}
+
+// GetSnoopyModeForAdOk returns a tuple with the SnoopyModeForAd field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetSnoopyModeForAdOk() (*string, bool) {
+	if o == nil || o.SnoopyModeForAd == nil {
+		return nil, false
+	}
+	return o.SnoopyModeForAd, true
+}
+
+// HasSnoopyModeForAd returns a boolean if a field has been set.
+func (o *BiosPolicy) HasSnoopyModeForAd() bool {
+	if o != nil && o.SnoopyModeForAd != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSnoopyModeForAd gets a reference to the given string and assigns it to the SnoopyModeForAd field.
+func (o *BiosPolicy) SetSnoopyModeForAd(v string) {
+	o.SnoopyModeForAd = &v
+}
+
 // GetSparingMode returns the SparingMode field value if set, zero value otherwise.
 func (o *BiosPolicy) GetSparingMode() string {
 	if o == nil || o.SparingMode == nil {
@@ -9587,6 +10467,38 @@ func (o *BiosPolicy) HasUcsmBootOrderRule() bool {
 // SetUcsmBootOrderRule gets a reference to the given string and assigns it to the UcsmBootOrderRule field.
 func (o *BiosPolicy) SetUcsmBootOrderRule(v string) {
 	o.UcsmBootOrderRule = &v
+}
+
+// GetUfsDisable returns the UfsDisable field value if set, zero value otherwise.
+func (o *BiosPolicy) GetUfsDisable() string {
+	if o == nil || o.UfsDisable == nil {
+		var ret string
+		return ret
+	}
+	return *o.UfsDisable
+}
+
+// GetUfsDisableOk returns a tuple with the UfsDisable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BiosPolicy) GetUfsDisableOk() (*string, bool) {
+	if o == nil || o.UfsDisable == nil {
+		return nil, false
+	}
+	return o.UfsDisable, true
+}
+
+// HasUfsDisable returns a boolean if a field has been set.
+func (o *BiosPolicy) HasUfsDisable() bool {
+	if o != nil && o.UfsDisable != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUfsDisable gets a reference to the given string and assigns it to the UfsDisable field.
+func (o *BiosPolicy) SetUfsDisable(v string) {
+	o.UfsDisable = &v
 }
 
 // GetUsbEmul6064 returns the UsbEmul6064 field value if set, zero value otherwise.
@@ -10005,22 +10917,23 @@ func (o *BiosPolicy) SetOrganization(v OrganizationOrganizationRelationship) {
 	o.Organization = &v
 }
 
-// GetProfiles returns the Profiles field value if set, zero value otherwise.
+// GetProfiles returns the Profiles field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BiosPolicy) GetProfiles() []PolicyAbstractConfigProfileRelationship {
-	if o == nil || o.Profiles == nil {
+	if o == nil {
 		var ret []PolicyAbstractConfigProfileRelationship
 		return ret
 	}
-	return *o.Profiles
+	return o.Profiles
 }
 
 // GetProfilesOk returns a tuple with the Profiles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BiosPolicy) GetProfilesOk() (*[]PolicyAbstractConfigProfileRelationship, bool) {
 	if o == nil || o.Profiles == nil {
 		return nil, false
 	}
-	return o.Profiles, true
+	return &o.Profiles, true
 }
 
 // HasProfiles returns a boolean if a field has been set.
@@ -10034,7 +10947,7 @@ func (o *BiosPolicy) HasProfiles() bool {
 
 // SetProfiles gets a reference to the given []PolicyAbstractConfigProfileRelationship and assigns it to the Profiles field.
 func (o *BiosPolicy) SetProfiles(v []PolicyAbstractConfigProfileRelationship) {
-	o.Profiles = &v
+	o.Profiles = v
 }
 
 func (o BiosPolicy) MarshalJSON() ([]byte, error) {
@@ -10191,6 +11104,9 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	if o.ConfigTdp != nil {
 		toSerialize["ConfigTdp"] = o.ConfigTdp
 	}
+	if o.ConfigTdpLevel != nil {
+		toSerialize["ConfigTdpLevel"] = o.ConfigTdpLevel
+	}
 	if o.ConsoleRedirection != nil {
 		toSerialize["ConsoleRedirection"] = o.ConsoleRedirection
 	}
@@ -10209,6 +11125,12 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	if o.CpuPowerManagement != nil {
 		toSerialize["CpuPowerManagement"] = o.CpuPowerManagement
 	}
+	if o.CrQos != nil {
+		toSerialize["CrQos"] = o.CrQos
+	}
+	if o.CrfastgoConfig != nil {
+		toSerialize["CrfastgoConfig"] = o.CrfastgoConfig
+	}
 	if o.DcpmmFirmwareDowngrade != nil {
 		toSerialize["DcpmmFirmwareDowngrade"] = o.DcpmmFirmwareDowngrade
 	}
@@ -10223,6 +11145,9 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	}
 	if o.DramRefreshRate != nil {
 		toSerialize["DramRefreshRate"] = o.DramRefreshRate
+	}
+	if o.EnableClockSpreadSpec != nil {
+		toSerialize["EnableClockSpreadSpec"] = o.EnableClockSpreadSpec
 	}
 	if o.EnergyEfficientTurbo != nil {
 		toSerialize["EnergyEfficientTurbo"] = o.EnergyEfficientTurbo
@@ -10353,6 +11278,9 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	if o.NumaOptimized != nil {
 		toSerialize["NumaOptimized"] = o.NumaOptimized
 	}
+	if o.NvmdimmPerformConfig != nil {
+		toSerialize["NvmdimmPerformConfig"] = o.NvmdimmPerformConfig
+	}
 	if o.Onboard10gbitLom != nil {
 		toSerialize["Onboard10gbitLom"] = o.Onboard10gbitLom
 	}
@@ -10419,6 +11347,51 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	if o.PciRomClp != nil {
 		toSerialize["PciRomClp"] = o.PciRomClp
 	}
+	if o.PcieAriSupport != nil {
+		toSerialize["PcieAriSupport"] = o.PcieAriSupport
+	}
+	if o.PciePllSsc != nil {
+		toSerialize["PciePllSsc"] = o.PciePllSsc
+	}
+	if o.PcieSlotMstorraidOptionRom != nil {
+		toSerialize["PcieSlotMstorraidOptionRom"] = o.PcieSlotMstorraidOptionRom
+	}
+	if o.PcieSlotNvme1linkSpeed != nil {
+		toSerialize["PcieSlotNvme1linkSpeed"] = o.PcieSlotNvme1linkSpeed
+	}
+	if o.PcieSlotNvme1optionRom != nil {
+		toSerialize["PcieSlotNvme1optionRom"] = o.PcieSlotNvme1optionRom
+	}
+	if o.PcieSlotNvme2linkSpeed != nil {
+		toSerialize["PcieSlotNvme2linkSpeed"] = o.PcieSlotNvme2linkSpeed
+	}
+	if o.PcieSlotNvme2optionRom != nil {
+		toSerialize["PcieSlotNvme2optionRom"] = o.PcieSlotNvme2optionRom
+	}
+	if o.PcieSlotNvme3linkSpeed != nil {
+		toSerialize["PcieSlotNvme3linkSpeed"] = o.PcieSlotNvme3linkSpeed
+	}
+	if o.PcieSlotNvme3optionRom != nil {
+		toSerialize["PcieSlotNvme3optionRom"] = o.PcieSlotNvme3optionRom
+	}
+	if o.PcieSlotNvme4linkSpeed != nil {
+		toSerialize["PcieSlotNvme4linkSpeed"] = o.PcieSlotNvme4linkSpeed
+	}
+	if o.PcieSlotNvme4optionRom != nil {
+		toSerialize["PcieSlotNvme4optionRom"] = o.PcieSlotNvme4optionRom
+	}
+	if o.PcieSlotNvme5linkSpeed != nil {
+		toSerialize["PcieSlotNvme5linkSpeed"] = o.PcieSlotNvme5linkSpeed
+	}
+	if o.PcieSlotNvme5optionRom != nil {
+		toSerialize["PcieSlotNvme5optionRom"] = o.PcieSlotNvme5optionRom
+	}
+	if o.PcieSlotNvme6linkSpeed != nil {
+		toSerialize["PcieSlotNvme6linkSpeed"] = o.PcieSlotNvme6linkSpeed
+	}
+	if o.PcieSlotNvme6optionRom != nil {
+		toSerialize["PcieSlotNvme6optionRom"] = o.PcieSlotNvme6optionRom
+	}
 	if o.PopSupport != nil {
 		toSerialize["PopSupport"] = o.PopSupport
 	}
@@ -10451,6 +11424,9 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	}
 	if o.QpiLinkFrequency != nil {
 		toSerialize["QpiLinkFrequency"] = o.QpiLinkFrequency
+	}
+	if o.QpiLinkSpeed != nil {
+		toSerialize["QpiLinkSpeed"] = o.QpiLinkSpeed
 	}
 	if o.QpiSnoopMode != nil {
 		toSerialize["QpiSnoopMode"] = o.QpiSnoopMode
@@ -10770,6 +11746,12 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	if o.Snc != nil {
 		toSerialize["Snc"] = o.Snc
 	}
+	if o.SnoopyModeFor2lm != nil {
+		toSerialize["SnoopyModeFor2lm"] = o.SnoopyModeFor2lm
+	}
+	if o.SnoopyModeForAd != nil {
+		toSerialize["SnoopyModeForAd"] = o.SnoopyModeForAd
+	}
 	if o.SparingMode != nil {
 		toSerialize["SparingMode"] = o.SparingMode
 	}
@@ -10796,6 +11778,9 @@ func (o BiosPolicy) MarshalJSON() ([]byte, error) {
 	}
 	if o.UcsmBootOrderRule != nil {
 		toSerialize["UcsmBootOrderRule"] = o.UcsmBootOrderRule
+	}
+	if o.UfsDisable != nil {
+		toSerialize["UfsDisable"] = o.UfsDisable
 	}
 	if o.UsbEmul6064 != nil {
 		toSerialize["UsbEmul6064"] = o.UsbEmul6064

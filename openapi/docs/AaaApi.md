@@ -1,11 +1,11 @@
 # \AaaApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAaaAuditRecordByMoid**](AaaApi.md#GetAaaAuditRecordByMoid) | **Get** /aaa/AuditRecords/{Moid} | Read a &#39;aaa.AuditRecord&#39; resource.
-[**GetAaaAuditRecordList**](AaaApi.md#GetAaaAuditRecordList) | **Get** /aaa/AuditRecords | Read a &#39;aaa.AuditRecord&#39; resource.
+[**GetAaaAuditRecordByMoid**](AaaApi.md#GetAaaAuditRecordByMoid) | **Get** /api/v1/aaa/AuditRecords/{Moid} | Read a &#39;aaa.AuditRecord&#39; resource.
+[**GetAaaAuditRecordList**](AaaApi.md#GetAaaAuditRecordList) | **Get** /api/v1/aaa/AuditRecords | Read a &#39;aaa.AuditRecord&#39; resource.
 
 
 

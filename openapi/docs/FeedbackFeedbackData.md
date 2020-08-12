@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **AlternativeFollowUpEmails** | Pointer to **[]string** |  | [optional] 
 **Comment** | Pointer to **string** | Text of the feedback as provided by the user, if it is a bug or a comment. | [optional] 
 **Email** | Pointer to **string** | User&#39;s email address details. | [optional] 
-**Evaluation** | Pointer to **string** | Evalation rating as provided by the user to capture user sentiment regarding the issue. | [optional] [default to "Excellent"]
+**Evaluation** | Pointer to **string** | Evalation rating as provided by the user to capture user sentiment regarding the issue. * &#x60;Excellent&#x60; - Option that specifies user&#39;s excelent evaluation. * &#x60;Poor&#x60; - Option that specifies user&#39;s poor evaluation. * &#x60;Fair&#x60; - Option that specifies user&#39;s fair evaluation. * &#x60;Good&#x60; - Option that specifies user&#39;s good evaluation. | [optional] [default to "Excellent"]
 **FollowUp** | Pointer to **bool** | If a user is open for follow-up or not. | [optional] 
-**TraceIds** | Pointer to **map[string]interface{}** | Bunch of last traceId for reproducing user last activity. | [optional] 
-**Type** | Pointer to **string** | Type of the feedback from user. | [optional] [default to "Evaluation"]
+**TraceIds** | Pointer to **interface{}** | Bunch of last traceId for reproducing user last activity. | [optional] 
+**Type** | Pointer to **string** | Type of the feedback from user. * &#x60;Evaluation&#x60; - User&#39;s feedback classified as an evaluation. * &#x60;Bug&#x60; - User&#39;s feedback classified as a bug. | [optional] [default to "Evaluation"]
 
 ## Methods
 
@@ -184,20 +184,20 @@ HasFollowUp returns a boolean if a field has been set.
 
 ### GetTraceIds
 
-`func (o *FeedbackFeedbackData) GetTraceIds() map[string]interface{}`
+`func (o *FeedbackFeedbackData) GetTraceIds() interface{}`
 
 GetTraceIds returns the TraceIds field if non-nil, zero value otherwise.
 
 ### GetTraceIdsOk
 
-`func (o *FeedbackFeedbackData) GetTraceIdsOk() (*map[string]interface{}, bool)`
+`func (o *FeedbackFeedbackData) GetTraceIdsOk() (*interface{}, bool)`
 
 GetTraceIdsOk returns a tuple with the TraceIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTraceIds
 
-`func (o *FeedbackFeedbackData) SetTraceIds(v map[string]interface{})`
+`func (o *FeedbackFeedbackData) SetTraceIds(v interface{})`
 
 SetTraceIds sets TraceIds field to given value.
 
@@ -207,6 +207,16 @@ SetTraceIds sets TraceIds field to given value.
 
 HasTraceIds returns a boolean if a field has been set.
 
+### SetTraceIdsNil
+
+`func (o *FeedbackFeedbackData) SetTraceIdsNil(b bool)`
+
+ SetTraceIdsNil sets the value for TraceIds to be an explicit nil
+
+### UnsetTraceIds
+`func (o *FeedbackFeedbackData) UnsetTraceIds()`
+
+UnsetTraceIds ensures that no value is present for TraceIds, not even an explicit nil
 ### GetType
 
 `func (o *FeedbackFeedbackData) GetType() string`

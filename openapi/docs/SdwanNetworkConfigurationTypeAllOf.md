@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NetworkType** | Pointer to **string** | Type of the Port group being added. | [optional] [default to "WAN"]
+**NetworkType** | Pointer to **string** | Type of the Port group being added. * &#x60;WAN&#x60; - Port-group being added is used for WAN traffic. * &#x60;LAN&#x60; - Port-group being added is used for LAN traffic. * &#x60;Management&#x60; - Port-group being added is used for Management traffic. | [optional] [default to "WAN"]
 **PortGroup** | Pointer to **string** | Name of the Port Group to create. | [optional] 
 **Vlan** | Pointer to **int64** | VLAN to be added to the Port Group. | [optional] 
 

@@ -18,16 +18,16 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Short description about the volume. | [optional] [readonly] 
 **NaaId** | Pointer to **string** | NAA id of volume. It is a significant number to identify corresponding lun path in hypervisor. | [optional] [readonly] 
 **Name** | Pointer to **string** | Named entity of the volume. | [optional] [readonly] 
 **Size** | Pointer to **int64** | User provisioned volume size. It is the size exposed to host. | [optional] [readonly] 
-**StorageUtilization** | Pointer to [**StorageCapacity**](storage.Capacity.md) |  | [optional] 
-**StorageArray** | Pointer to [**StorageGenericArrayRelationship**](storage.GenericArray.Relationship.md) |  | [optional] 
+**StorageUtilization** | Pointer to [**StorageBaseCapacity**](storage.BaseCapacity.md) |  | [optional] 
 **Created** | Pointer to [**time.Time**](time.Time.md) | Creation time of the volume. | [optional] [readonly] 
 **Serial** | Pointer to **string** | Serial number of the volume. | [optional] [readonly] 
 **Source** | Pointer to **string** | Source from which the volume is created. Applicable only if the volume is cloned from other volume or snapshot. | [optional] [readonly] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
 **ProtectionGroup** | Pointer to [**StoragePureProtectionGroupRelationship**](storage.PureProtectionGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -340,6 +340,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StoragePureVolumeRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StoragePureVolumeRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StoragePureVolumeRelationship) GetParent() MoBaseMoRelationship`
@@ -390,6 +400,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StoragePureVolumeRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StoragePureVolumeRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StoragePureVolumeRelationship) GetDisplayNames() map[string][]string`
@@ -527,20 +547,20 @@ HasSize returns a boolean if a field has been set.
 
 ### GetStorageUtilization
 
-`func (o *StoragePureVolumeRelationship) GetStorageUtilization() StorageCapacity`
+`func (o *StoragePureVolumeRelationship) GetStorageUtilization() StorageBaseCapacity`
 
 GetStorageUtilization returns the StorageUtilization field if non-nil, zero value otherwise.
 
 ### GetStorageUtilizationOk
 
-`func (o *StoragePureVolumeRelationship) GetStorageUtilizationOk() (*StorageCapacity, bool)`
+`func (o *StoragePureVolumeRelationship) GetStorageUtilizationOk() (*StorageBaseCapacity, bool)`
 
 GetStorageUtilizationOk returns a tuple with the StorageUtilization field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStorageUtilization
 
-`func (o *StoragePureVolumeRelationship) SetStorageUtilization(v StorageCapacity)`
+`func (o *StoragePureVolumeRelationship) SetStorageUtilization(v StorageBaseCapacity)`
 
 SetStorageUtilization sets StorageUtilization field to given value.
 
@@ -549,31 +569,6 @@ SetStorageUtilization sets StorageUtilization field to given value.
 `func (o *StoragePureVolumeRelationship) HasStorageUtilization() bool`
 
 HasStorageUtilization returns a boolean if a field has been set.
-
-### GetStorageArray
-
-`func (o *StoragePureVolumeRelationship) GetStorageArray() StorageGenericArrayRelationship`
-
-GetStorageArray returns the StorageArray field if non-nil, zero value otherwise.
-
-### GetStorageArrayOk
-
-`func (o *StoragePureVolumeRelationship) GetStorageArrayOk() (*StorageGenericArrayRelationship, bool)`
-
-GetStorageArrayOk returns a tuple with the StorageArray field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStorageArray
-
-`func (o *StoragePureVolumeRelationship) SetStorageArray(v StorageGenericArrayRelationship)`
-
-SetStorageArray sets StorageArray field to given value.
-
-### HasStorageArray
-
-`func (o *StoragePureVolumeRelationship) HasStorageArray() bool`
-
-HasStorageArray returns a boolean if a field has been set.
 
 ### GetCreated
 
@@ -649,6 +644,31 @@ SetSource sets Source field to given value.
 `func (o *StoragePureVolumeRelationship) HasSource() bool`
 
 HasSource returns a boolean if a field has been set.
+
+### GetArray
+
+`func (o *StoragePureVolumeRelationship) GetArray() StoragePureArrayRelationship`
+
+GetArray returns the Array field if non-nil, zero value otherwise.
+
+### GetArrayOk
+
+`func (o *StoragePureVolumeRelationship) GetArrayOk() (*StoragePureArrayRelationship, bool)`
+
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArray
+
+`func (o *StoragePureVolumeRelationship) SetArray(v StoragePureArrayRelationship)`
+
+SetArray sets Array field to given value.
+
+### HasArray
+
+`func (o *StoragePureVolumeRelationship) HasArray() bool`
+
+HasArray returns a boolean if a field has been set.
 
 ### GetProtectionGroup
 

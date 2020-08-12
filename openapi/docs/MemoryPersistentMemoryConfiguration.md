@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **SecurityState** | Pointer to **string** | Collective security state of all Persistent Memory modules on a server. | [optional] [readonly] 
 **TotalCapacity** | Pointer to **string** | Total capacity in GiB of a Persistent Memory configuration on a server. | [optional] [readonly] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PersistentMemoryConfigResult** | Pointer to [**MemoryPersistentMemoryConfigResultRelationship**](memory.PersistentMemoryConfigResult.Relationship.md) |  | [optional] 
 **PersistentMemoryRegions** | Pointer to [**[]MemoryPersistentMemoryRegionRelationship**](memory.PersistentMemoryRegion.Relationship.md) | An array of relationships to memoryPersistentMemoryRegion resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -235,6 +236,31 @@ SetComputeBoard sets ComputeBoard field to given value.
 
 HasComputeBoard returns a boolean if a field has been set.
 
+### GetInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryConfiguration) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *MemoryPersistentMemoryConfiguration) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryConfiguration) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryConfiguration) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetPersistentMemoryConfigResult
 
 `func (o *MemoryPersistentMemoryConfiguration) GetPersistentMemoryConfigResult() MemoryPersistentMemoryConfigResultRelationship`
@@ -285,6 +311,16 @@ SetPersistentMemoryRegions sets PersistentMemoryRegions field to given value.
 
 HasPersistentMemoryRegions returns a boolean if a field has been set.
 
+### SetPersistentMemoryRegionsNil
+
+`func (o *MemoryPersistentMemoryConfiguration) SetPersistentMemoryRegionsNil(b bool)`
+
+ SetPersistentMemoryRegionsNil sets the value for PersistentMemoryRegions to be an explicit nil
+
+### UnsetPersistentMemoryRegions
+`func (o *MemoryPersistentMemoryConfiguration) UnsetPersistentMemoryRegions()`
+
+UnsetPersistentMemoryRegions ensures that no value is present for PersistentMemoryRegions, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *MemoryPersistentMemoryConfiguration) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

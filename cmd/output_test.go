@@ -13,7 +13,7 @@ func TestApplyJSONPathFilter(t *testing.T) {
 			MoBaseResponse: openapi.MoBaseResponse{
 				ObjectType: "ntp.Policy.List",
 			},
-			Results: &[]openapi.NtpPolicy{
+			Results: []openapi.NtpPolicy{
 				{
 					PolicyAbstractPolicy: openapi.PolicyAbstractPolicy{
 						MoBaseMo: openapi.MoBaseMo{

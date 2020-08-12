@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountName** | Pointer to **string** | The UCSD infra account name. Account Name is created when UCSD admin adds any new infra account (Physical/Virtual/Compute/Network) to be managed by UCSD. | [optional] [readonly] 
 **AccountType** | Pointer to **string** | The UCSD Infra Account type. | [optional] [readonly] 
-**ClaimStatus** | Pointer to **string** | Describes if the device is claimed in Intersight or not. | [optional] [readonly] [default to "Unknown"]
+**Category** | Pointer to **string** | The UCSD Infra Account category. | [optional] [readonly] 
+**ClaimStatus** | Pointer to **string** | Describes if the device is claimed in Intersight or not. * &#x60;Unknown&#x60; - If UCS Director managed account claim status information is unknown. * &#x60;Yes&#x60; - If UCS Director managed account is claimed in Intersight. * &#x60;No&#x60; - If UCS Director managed account is not claimed in Intersight. * &#x60;Not Applicable&#x60; - If UCS Director managed account is not capable of providing claim status information. | [optional] [readonly] [default to "Unknown"]
 **ConnectionStatus** | Pointer to **string** | Describes about the connection status between the UCSD and the actual end device. | [optional] [readonly] 
 **DeviceModel** | Pointer to **string** | Describes about the device model. | [optional] [readonly] 
 **DeviceVendor** | Pointer to **string** | Describes about the device vendor/manufacturer of the device. | [optional] [readonly] 
@@ -84,6 +85,31 @@ SetAccountType sets AccountType field to given value.
 `func (o *IaasDeviceStatus) HasAccountType() bool`
 
 HasAccountType returns a boolean if a field has been set.
+
+### GetCategory
+
+`func (o *IaasDeviceStatus) GetCategory() string`
+
+GetCategory returns the Category field if non-nil, zero value otherwise.
+
+### GetCategoryOk
+
+`func (o *IaasDeviceStatus) GetCategoryOk() (*string, bool)`
+
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategory
+
+`func (o *IaasDeviceStatus) SetCategory(v string)`
+
+SetCategory sets Category field to given value.
+
+### HasCategory
+
+`func (o *IaasDeviceStatus) HasCategory() bool`
+
+HasCategory returns a boolean if a field has been set.
 
 ### GetClaimStatus
 

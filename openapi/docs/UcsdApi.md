@@ -1,12 +1,12 @@
 # \UcsdApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteUcsdBackupInfo**](UcsdApi.md#DeleteUcsdBackupInfo) | **Delete** /ucsd/BackupInfos/{Moid} | Delete a &#39;ucsd.BackupInfo&#39; resource.
-[**GetUcsdBackupInfoByMoid**](UcsdApi.md#GetUcsdBackupInfoByMoid) | **Get** /ucsd/BackupInfos/{Moid} | Read a &#39;ucsd.BackupInfo&#39; resource.
-[**GetUcsdBackupInfoList**](UcsdApi.md#GetUcsdBackupInfoList) | **Get** /ucsd/BackupInfos | Read a &#39;ucsd.BackupInfo&#39; resource.
+[**DeleteUcsdBackupInfo**](UcsdApi.md#DeleteUcsdBackupInfo) | **Delete** /api/v1/ucsd/BackupInfos/{Moid} | Delete a &#39;ucsd.BackupInfo&#39; resource.
+[**GetUcsdBackupInfoByMoid**](UcsdApi.md#GetUcsdBackupInfoByMoid) | **Get** /api/v1/ucsd/BackupInfos/{Moid} | Read a &#39;ucsd.BackupInfo&#39; resource.
+[**GetUcsdBackupInfoList**](UcsdApi.md#GetUcsdBackupInfoList) | **Get** /api/v1/ucsd/BackupInfos | Read a &#39;ucsd.BackupInfo&#39; resource.
 
 
 

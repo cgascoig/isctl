@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ErrorMessage** | Pointer to **string** | The reason for the failure of an import operation, if applicable. | [optional] [readonly] 
-**Progress** | Pointer to **int64** | The progress percentage of the import operation. | [optional] [readonly] 
+**Progress** | Pointer to **int64** | The progress percentage for the import operation. | [optional] [readonly] 
 
 ## Methods
 

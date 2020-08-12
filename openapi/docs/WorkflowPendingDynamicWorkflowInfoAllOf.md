@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Input** | Pointer to **map[string]interface{}** | The inputs of the workflow. | [optional] 
+**Input** | Pointer to **interface{}** | The inputs of the workflow. | [optional] 
 **Name** | Pointer to **string** | A name for the pending dynamic workflow. | [optional] 
 **PendingServices** | Pointer to **[]string** |  | [optional] 
 **Src** | Pointer to **string** | The src is workflow owner service. | [optional] 
-**Status** | Pointer to **string** | The current status of the PendingDynamicWorkflowInfo. | [optional] [default to "GatheringTasks"]
+**Status** | Pointer to **string** | The current status of the PendingDynamicWorkflowInfo. * &#x60;GatheringTasks&#x60; - Dynamic workflow is gathering tasks before workflow can start execution. * &#x60;Waiting&#x60; - Dynamic workflow is in waiting state and not yet started execution. | [optional] [default to "GatheringTasks"]
 **WaitOnDuplicate** | Pointer to **bool** | When set to true workflow engine will wait for a duplicate to finish before starting a new one. | [optional] 
 **WorkflowActionTaskLists** | Pointer to [**[]WorkflowDynamicWorkflowActionTaskList**](workflow.DynamicWorkflowActionTaskList.md) |  | [optional] 
-**WorkflowCtx** | Pointer to **map[string]interface{}** | The workflow&#39;s workflow context which contains initiator and target information. | [optional] 
+**WorkflowCtx** | Pointer to [**WorkflowWorkflowCtx**](workflow.WorkflowCtx.md) |  | [optional] 
 **WorkflowKey** | Pointer to **string** | This key contains workflow, initiator and target name. Workflow engine uses the key to do workflow dedup. | [optional] 
-**WorkflowMeta** | Pointer to **map[string]interface{}** | The metadata of the workflow. | [optional] 
+**WorkflowMeta** | Pointer to **interface{}** | The metadata of the workflow. | [optional] 
 **WorkflowInfo** | Pointer to [**WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -37,20 +37,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetInput
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInput() map[string]interface{}`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInput() interface{}`
 
 GetInput returns the Input field if non-nil, zero value otherwise.
 
 ### GetInputOk
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInputOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInputOk() (*interface{}, bool)`
 
 GetInputOk returns a tuple with the Input field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInput
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetInput(v map[string]interface{})`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetInput(v interface{})`
 
 SetInput sets Input field to given value.
 
@@ -60,6 +60,16 @@ SetInput sets Input field to given value.
 
 HasInput returns a boolean if a field has been set.
 
+### SetInputNil
+
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetInputNil(b bool)`
+
+ SetInputNil sets the value for Input to be an explicit nil
+
+### UnsetInput
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) UnsetInput()`
+
+UnsetInput ensures that no value is present for Input, not even an explicit nil
 ### GetName
 
 `func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetName() string`
@@ -212,20 +222,20 @@ HasWorkflowActionTaskLists returns a boolean if a field has been set.
 
 ### GetWorkflowCtx
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtx() map[string]interface{}`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtx() WorkflowWorkflowCtx`
 
 GetWorkflowCtx returns the WorkflowCtx field if non-nil, zero value otherwise.
 
 ### GetWorkflowCtxOk
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtxOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtxOk() (*WorkflowWorkflowCtx, bool)`
 
 GetWorkflowCtxOk returns a tuple with the WorkflowCtx field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkflowCtx
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowCtx(v map[string]interface{})`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowCtx(v WorkflowWorkflowCtx)`
 
 SetWorkflowCtx sets WorkflowCtx field to given value.
 
@@ -262,20 +272,20 @@ HasWorkflowKey returns a boolean if a field has been set.
 
 ### GetWorkflowMeta
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMeta() map[string]interface{}`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMeta() interface{}`
 
 GetWorkflowMeta returns the WorkflowMeta field if non-nil, zero value otherwise.
 
 ### GetWorkflowMetaOk
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMetaOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMetaOk() (*interface{}, bool)`
 
 GetWorkflowMetaOk returns a tuple with the WorkflowMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkflowMeta
 
-`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowMeta(v map[string]interface{})`
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowMeta(v interface{})`
 
 SetWorkflowMeta sets WorkflowMeta field to given value.
 
@@ -285,6 +295,16 @@ SetWorkflowMeta sets WorkflowMeta field to given value.
 
 HasWorkflowMeta returns a boolean if a field has been set.
 
+### SetWorkflowMetaNil
+
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowMetaNil(b bool)`
+
+ SetWorkflowMetaNil sets the value for WorkflowMeta to be an explicit nil
+
+### UnsetWorkflowMeta
+`func (o *WorkflowPendingDynamicWorkflowInfoAllOf) UnsetWorkflowMeta()`
+
+UnsetWorkflowMeta ensures that no value is present for WorkflowMeta, not even an explicit nil
 ### GetWorkflowInfo
 
 `func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowInfo() WorkflowWorkflowInfoRelationship`

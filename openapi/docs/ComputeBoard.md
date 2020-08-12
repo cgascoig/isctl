@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BoardId** | Pointer to **int64** |  | [optional] [readonly] 
-**CpuTypeController** | Pointer to **string** |  | [optional] [readonly] 
+**BoardId** | Pointer to **int64** | The identity of the motherboard. | [optional] [readonly] 
+**CpuTypeController** | Pointer to **string** | The type of central processing unit on the mother board. | [optional] [readonly] 
 **OperPowerState** | Pointer to **string** | Current power state of the mother board of the server. | [optional] [readonly] 
 **Presence** | Pointer to **string** | Identifies the presence of the mother board of the server. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **EquipmentTpms** | Pointer to [**[]EquipmentTpmRelationship**](equipment.Tpm.Relationship.md) | An array of relationships to equipmentTpm resources. | [optional] [readonly] 
 **GraphicsCards** | Pointer to [**[]GraphicsCardRelationship**](graphics.Card.Relationship.md) | An array of relationships to graphicsCard resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **MemoryArrays** | Pointer to [**[]MemoryArrayRelationship**](memory.Array.Relationship.md) | An array of relationships to memoryArray resources. | [optional] [readonly] 
 **PciCoprocessorCards** | Pointer to [**[]PciCoprocessorCardRelationship**](pci.CoprocessorCard.Relationship.md) | An array of relationships to pciCoprocessorCard resources. | [optional] [readonly] 
 **PciSwitch** | Pointer to [**[]PciSwitchRelationship**](pci.Switch.Relationship.md) | An array of relationships to pciSwitch resources. | [optional] [readonly] 
@@ -217,6 +218,16 @@ SetEquipmentTpms sets EquipmentTpms field to given value.
 
 HasEquipmentTpms returns a boolean if a field has been set.
 
+### SetEquipmentTpmsNil
+
+`func (o *ComputeBoard) SetEquipmentTpmsNil(b bool)`
+
+ SetEquipmentTpmsNil sets the value for EquipmentTpms to be an explicit nil
+
+### UnsetEquipmentTpms
+`func (o *ComputeBoard) UnsetEquipmentTpms()`
+
+UnsetEquipmentTpms ensures that no value is present for EquipmentTpms, not even an explicit nil
 ### GetGraphicsCards
 
 `func (o *ComputeBoard) GetGraphicsCards() []GraphicsCardRelationship`
@@ -241,6 +252,41 @@ SetGraphicsCards sets GraphicsCards field to given value.
 `func (o *ComputeBoard) HasGraphicsCards() bool`
 
 HasGraphicsCards returns a boolean if a field has been set.
+
+### SetGraphicsCardsNil
+
+`func (o *ComputeBoard) SetGraphicsCardsNil(b bool)`
+
+ SetGraphicsCardsNil sets the value for GraphicsCards to be an explicit nil
+
+### UnsetGraphicsCards
+`func (o *ComputeBoard) UnsetGraphicsCards()`
+
+UnsetGraphicsCards ensures that no value is present for GraphicsCards, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *ComputeBoard) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ComputeBoard) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ComputeBoard) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ComputeBoard) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetMemoryArrays
 
@@ -267,6 +313,16 @@ SetMemoryArrays sets MemoryArrays field to given value.
 
 HasMemoryArrays returns a boolean if a field has been set.
 
+### SetMemoryArraysNil
+
+`func (o *ComputeBoard) SetMemoryArraysNil(b bool)`
+
+ SetMemoryArraysNil sets the value for MemoryArrays to be an explicit nil
+
+### UnsetMemoryArrays
+`func (o *ComputeBoard) UnsetMemoryArrays()`
+
+UnsetMemoryArrays ensures that no value is present for MemoryArrays, not even an explicit nil
 ### GetPciCoprocessorCards
 
 `func (o *ComputeBoard) GetPciCoprocessorCards() []PciCoprocessorCardRelationship`
@@ -292,6 +348,16 @@ SetPciCoprocessorCards sets PciCoprocessorCards field to given value.
 
 HasPciCoprocessorCards returns a boolean if a field has been set.
 
+### SetPciCoprocessorCardsNil
+
+`func (o *ComputeBoard) SetPciCoprocessorCardsNil(b bool)`
+
+ SetPciCoprocessorCardsNil sets the value for PciCoprocessorCards to be an explicit nil
+
+### UnsetPciCoprocessorCards
+`func (o *ComputeBoard) UnsetPciCoprocessorCards()`
+
+UnsetPciCoprocessorCards ensures that no value is present for PciCoprocessorCards, not even an explicit nil
 ### GetPciSwitch
 
 `func (o *ComputeBoard) GetPciSwitch() []PciSwitchRelationship`
@@ -317,6 +383,16 @@ SetPciSwitch sets PciSwitch field to given value.
 
 HasPciSwitch returns a boolean if a field has been set.
 
+### SetPciSwitchNil
+
+`func (o *ComputeBoard) SetPciSwitchNil(b bool)`
+
+ SetPciSwitchNil sets the value for PciSwitch to be an explicit nil
+
+### UnsetPciSwitch
+`func (o *ComputeBoard) UnsetPciSwitch()`
+
+UnsetPciSwitch ensures that no value is present for PciSwitch, not even an explicit nil
 ### GetPersistentMemoryConfiguration
 
 `func (o *ComputeBoard) GetPersistentMemoryConfiguration() MemoryPersistentMemoryConfigurationRelationship`
@@ -367,6 +443,16 @@ SetProcessors sets Processors field to given value.
 
 HasProcessors returns a boolean if a field has been set.
 
+### SetProcessorsNil
+
+`func (o *ComputeBoard) SetProcessorsNil(b bool)`
+
+ SetProcessorsNil sets the value for Processors to be an explicit nil
+
+### UnsetProcessors
+`func (o *ComputeBoard) UnsetProcessors()`
+
+UnsetProcessors ensures that no value is present for Processors, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *ComputeBoard) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -417,6 +503,16 @@ SetSecurityUnits sets SecurityUnits field to given value.
 
 HasSecurityUnits returns a boolean if a field has been set.
 
+### SetSecurityUnitsNil
+
+`func (o *ComputeBoard) SetSecurityUnitsNil(b bool)`
+
+ SetSecurityUnitsNil sets the value for SecurityUnits to be an explicit nil
+
+### UnsetSecurityUnits
+`func (o *ComputeBoard) UnsetSecurityUnits()`
+
+UnsetSecurityUnits ensures that no value is present for SecurityUnits, not even an explicit nil
 ### GetStorageControllers
 
 `func (o *ComputeBoard) GetStorageControllers() []StorageControllerRelationship`
@@ -442,6 +538,16 @@ SetStorageControllers sets StorageControllers field to given value.
 
 HasStorageControllers returns a boolean if a field has been set.
 
+### SetStorageControllersNil
+
+`func (o *ComputeBoard) SetStorageControllersNil(b bool)`
+
+ SetStorageControllersNil sets the value for StorageControllers to be an explicit nil
+
+### UnsetStorageControllers
+`func (o *ComputeBoard) UnsetStorageControllers()`
+
+UnsetStorageControllers ensures that no value is present for StorageControllers, not even an explicit nil
 ### GetStorageFlexFlashControllers
 
 `func (o *ComputeBoard) GetStorageFlexFlashControllers() []StorageFlexFlashControllerRelationship`
@@ -467,6 +573,16 @@ SetStorageFlexFlashControllers sets StorageFlexFlashControllers field to given v
 
 HasStorageFlexFlashControllers returns a boolean if a field has been set.
 
+### SetStorageFlexFlashControllersNil
+
+`func (o *ComputeBoard) SetStorageFlexFlashControllersNil(b bool)`
+
+ SetStorageFlexFlashControllersNil sets the value for StorageFlexFlashControllers to be an explicit nil
+
+### UnsetStorageFlexFlashControllers
+`func (o *ComputeBoard) UnsetStorageFlexFlashControllers()`
+
+UnsetStorageFlexFlashControllers ensures that no value is present for StorageFlexFlashControllers, not even an explicit nil
 ### GetStorageFlexUtilControllers
 
 `func (o *ComputeBoard) GetStorageFlexUtilControllers() []StorageFlexUtilControllerRelationship`
@@ -492,6 +608,16 @@ SetStorageFlexUtilControllers sets StorageFlexUtilControllers field to given val
 
 HasStorageFlexUtilControllers returns a boolean if a field has been set.
 
+### SetStorageFlexUtilControllersNil
+
+`func (o *ComputeBoard) SetStorageFlexUtilControllersNil(b bool)`
+
+ SetStorageFlexUtilControllersNil sets the value for StorageFlexUtilControllers to be an explicit nil
+
+### UnsetStorageFlexUtilControllers
+`func (o *ComputeBoard) UnsetStorageFlexUtilControllers()`
+
+UnsetStorageFlexUtilControllers ensures that no value is present for StorageFlexUtilControllers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GlobalHotSpares** | Pointer to [**[]StorageLocalDisk**](storage.LocalDisk.md) |  | [optional] 
 **RetainPolicyVirtualDrives** | Pointer to **bool** | Retains the virtual drives defined in policy if they exist already. If this flag is false, the existing virtual drives are removed and created again based on virtual drives in the policy. | [optional] 
-**UnusedDisksState** | Pointer to **string** | This is used to specify the state, unconfigured good or jbod, in which the disks that are not used in this policy should be moved. | [optional] [default to "UnconfiguredGood"]
+**UnusedDisksState** | Pointer to **string** | Unused Disks State is used to specify the state, unconfigured good or jbod, in which the disks that are not used in this policy should be moved. * &#x60;UnconfiguredGood&#x60; - Unconfigured good state -ready to be added in a RAID group. * &#x60;Jbod&#x60; - JBOD state where the disks start showing up to host os. | [optional] [default to "UnconfiguredGood"]
 **VirtualDrives** | Pointer to [**[]StorageVirtualDriveConfig**](storage.VirtualDriveConfig.md) |  | [optional] 
 **DiskGroupPolicies** | Pointer to [**[]StorageDiskGroupPolicyRelationship**](storage.DiskGroupPolicy.Relationship.md) | An array of relationships to storageDiskGroupPolicy resources. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
@@ -156,6 +156,16 @@ SetDiskGroupPolicies sets DiskGroupPolicies field to given value.
 
 HasDiskGroupPolicies returns a boolean if a field has been set.
 
+### SetDiskGroupPoliciesNil
+
+`func (o *StorageStoragePolicy) SetDiskGroupPoliciesNil(b bool)`
+
+ SetDiskGroupPoliciesNil sets the value for DiskGroupPolicies to be an explicit nil
+
+### UnsetDiskGroupPolicies
+`func (o *StorageStoragePolicy) UnsetDiskGroupPolicies()`
+
+UnsetDiskGroupPolicies ensures that no value is present for DiskGroupPolicies, not even an explicit nil
 ### GetOrganization
 
 `func (o *StorageStoragePolicy) GetOrganization() OrganizationOrganizationRelationship`
@@ -206,6 +216,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *StorageStoragePolicy) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *StorageStoragePolicy) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

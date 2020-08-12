@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,17 +19,17 @@ import (
 // WorkflowWebApi This models a single Web API request within a batch of requests that get executed within a single workflow task.
 type WorkflowWebApi struct {
 	WorkflowApi `yaml:"WorkflowApi,inline"`
-	// If the target type is Endpoint, this property determines whether the request is to be handled as internal request or external request by the device connector.
+	// If the target type is Endpoint, this property determines whether the request is to be handled as internal request or external request by the device connector. * `Internal` - The endpoint API executed is an internal request handled by the device connector plugin. * `External` - The endpoint API request is passed through by the device connector.
 	EndpointRequestType *string `json:"EndpointRequestType,omitempty" yaml:"EndpointRequestType,omitempty"`
 	// Collection of key value pairs to set in the request header.
-	Headers *map[string]interface{} `json:"Headers,omitempty" yaml:"Headers,omitempty"`
+	Headers interface{} `json:"Headers,omitempty" yaml:"Headers,omitempty"`
 	// The HTTP method to be executed in the given URL (GET, POST, PUT, etc). If the value is not specified, GET will be used as default.
 	Method *string `json:"Method,omitempty" yaml:"Method,omitempty"`
 	// The type of the intersight object for which API request is to be made. The property is valid in case of Intersight API calls and the base url is automatically prepended based on the value.
 	MoType *string `json:"MoType,omitempty" yaml:"MoType,omitempty"`
 	// The accepted web protocol values are http and https.
 	Protocol *string `json:"Protocol,omitempty" yaml:"Protocol,omitempty"`
-	// If the web API is to be executed in a remote device connected to the Intersight through device connector, 'Endpoint' is expected as the value whereas if the API is an Intersight API, 'Local' is expected as the value.
+	// If the web API is to be executed in a remote device connected to the Intersight through device connector, 'Endpoint' is expected as the value whereas if the API is an Intersight API, 'Local' is expected as the value. * `Endpoint` - The API is executed in a remote device connected to the Intersightthrough its device connector. * `Local` - The API is an internal API to be executed within the Intersight.
 	TargetType *string `json:"TargetType,omitempty" yaml:"TargetType,omitempty"`
 	// The URL of the resource in the target to which the API request is made.
 	Url *string `json:"Url,omitempty" yaml:"Url,omitempty"`
@@ -92,22 +92,23 @@ func (o *WorkflowWebApi) SetEndpointRequestType(v string) {
 	o.EndpointRequestType = &v
 }
 
-// GetHeaders returns the Headers field value if set, zero value otherwise.
-func (o *WorkflowWebApi) GetHeaders() map[string]interface{} {
-	if o == nil || o.Headers == nil {
-		var ret map[string]interface{}
+// GetHeaders returns the Headers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowWebApi) GetHeaders() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Headers
+	return o.Headers
 }
 
 // GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowWebApi) GetHeadersOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowWebApi) GetHeadersOk() (*interface{}, bool) {
 	if o == nil || o.Headers == nil {
 		return nil, false
 	}
-	return o.Headers, true
+	return &o.Headers, true
 }
 
 // HasHeaders returns a boolean if a field has been set.
@@ -119,9 +120,9 @@ func (o *WorkflowWebApi) HasHeaders() bool {
 	return false
 }
 
-// SetHeaders gets a reference to the given map[string]interface{} and assigns it to the Headers field.
-func (o *WorkflowWebApi) SetHeaders(v map[string]interface{}) {
-	o.Headers = &v
+// SetHeaders gets a reference to the given interface{} and assigns it to the Headers field.
+func (o *WorkflowWebApi) SetHeaders(v interface{}) {
+	o.Headers = v
 }
 
 // GetMethod returns the Method field value if set, zero value otherwise.

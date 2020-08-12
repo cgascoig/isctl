@@ -6,13 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Component** | Pointer to **string** | Kind of the firmware - boot-booloader/system/kernel. | [optional] [readonly] 
 **PackageVersion** | Pointer to **string** | Package version which the firmware belongs to. | [optional] [readonly] 
-**Type** | Pointer to **string** | Type of the firmware. | [optional] [readonly] 
-**Version** | Pointer to **string** | Version of the firmware. | [optional] [readonly] 
+**Type** | Pointer to **string** | The type of the firmware. | [optional] [readonly] 
+**Version** | Pointer to **string** | The version of the firmware. | [optional] [readonly] 
 **BiosUnit** | Pointer to [**BiosUnitRelationship**](bios.Unit.Relationship.md) |  | [optional] 
+**GraphicsCard** | Pointer to [**GraphicsCardRelationship**](graphics.Card.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **NetworkElements** | Pointer to [**[]NetworkElementRelationship**](network.Element.Relationship.md) | An array of relationships to networkElement resources. | [optional] 
+**PciSwitch** | Pointer to [**PciSwitchRelationship**](pci.Switch.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageController** | Pointer to [**StorageControllerRelationship**](storage.Controller.Relationship.md) |  | [optional] 
+**StorageFlexFlashController** | Pointer to [**StorageFlexFlashControllerRelationship**](storage.FlexFlashController.Relationship.md) |  | [optional] 
 **StoragePhysicalDisk** | Pointer to [**StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -159,6 +163,56 @@ SetBiosUnit sets BiosUnit field to given value.
 
 HasBiosUnit returns a boolean if a field has been set.
 
+### GetGraphicsCard
+
+`func (o *FirmwareRunningFirmwareAllOf) GetGraphicsCard() GraphicsCardRelationship`
+
+GetGraphicsCard returns the GraphicsCard field if non-nil, zero value otherwise.
+
+### GetGraphicsCardOk
+
+`func (o *FirmwareRunningFirmwareAllOf) GetGraphicsCardOk() (*GraphicsCardRelationship, bool)`
+
+GetGraphicsCardOk returns a tuple with the GraphicsCard field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGraphicsCard
+
+`func (o *FirmwareRunningFirmwareAllOf) SetGraphicsCard(v GraphicsCardRelationship)`
+
+SetGraphicsCard sets GraphicsCard field to given value.
+
+### HasGraphicsCard
+
+`func (o *FirmwareRunningFirmwareAllOf) HasGraphicsCard() bool`
+
+HasGraphicsCard returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *FirmwareRunningFirmwareAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *FirmwareRunningFirmwareAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *FirmwareRunningFirmwareAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *FirmwareRunningFirmwareAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetManagementController
 
 `func (o *FirmwareRunningFirmwareAllOf) GetManagementController() ManagementControllerRelationship`
@@ -209,6 +263,41 @@ SetNetworkElements sets NetworkElements field to given value.
 
 HasNetworkElements returns a boolean if a field has been set.
 
+### SetNetworkElementsNil
+
+`func (o *FirmwareRunningFirmwareAllOf) SetNetworkElementsNil(b bool)`
+
+ SetNetworkElementsNil sets the value for NetworkElements to be an explicit nil
+
+### UnsetNetworkElements
+`func (o *FirmwareRunningFirmwareAllOf) UnsetNetworkElements()`
+
+UnsetNetworkElements ensures that no value is present for NetworkElements, not even an explicit nil
+### GetPciSwitch
+
+`func (o *FirmwareRunningFirmwareAllOf) GetPciSwitch() PciSwitchRelationship`
+
+GetPciSwitch returns the PciSwitch field if non-nil, zero value otherwise.
+
+### GetPciSwitchOk
+
+`func (o *FirmwareRunningFirmwareAllOf) GetPciSwitchOk() (*PciSwitchRelationship, bool)`
+
+GetPciSwitchOk returns a tuple with the PciSwitch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPciSwitch
+
+`func (o *FirmwareRunningFirmwareAllOf) SetPciSwitch(v PciSwitchRelationship)`
+
+SetPciSwitch sets PciSwitch field to given value.
+
+### HasPciSwitch
+
+`func (o *FirmwareRunningFirmwareAllOf) HasPciSwitch() bool`
+
+HasPciSwitch returns a boolean if a field has been set.
+
 ### GetRegisteredDevice
 
 `func (o *FirmwareRunningFirmwareAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -258,6 +347,31 @@ SetStorageController sets StorageController field to given value.
 `func (o *FirmwareRunningFirmwareAllOf) HasStorageController() bool`
 
 HasStorageController returns a boolean if a field has been set.
+
+### GetStorageFlexFlashController
+
+`func (o *FirmwareRunningFirmwareAllOf) GetStorageFlexFlashController() StorageFlexFlashControllerRelationship`
+
+GetStorageFlexFlashController returns the StorageFlexFlashController field if non-nil, zero value otherwise.
+
+### GetStorageFlexFlashControllerOk
+
+`func (o *FirmwareRunningFirmwareAllOf) GetStorageFlexFlashControllerOk() (*StorageFlexFlashControllerRelationship, bool)`
+
+GetStorageFlexFlashControllerOk returns a tuple with the StorageFlexFlashController field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageFlexFlashController
+
+`func (o *FirmwareRunningFirmwareAllOf) SetStorageFlexFlashController(v StorageFlexFlashControllerRelationship)`
+
+SetStorageFlexFlashController sets StorageFlexFlashController field to given value.
+
+### HasStorageFlexFlashController
+
+`func (o *FirmwareRunningFirmwareAllOf) HasStorageFlexFlashController() bool`
+
+HasStorageFlexFlashController returns a boolean if a field has been set.
 
 ### GetStoragePhysicalDisk
 

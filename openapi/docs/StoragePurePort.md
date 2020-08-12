@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Failover** | Pointer to **string** | Name of the port to which this port has failed over. | [optional] [readonly] 
 **Portal** | Pointer to **string** | Ip address of iSCSI portal configured on the port. | [optional] [readonly] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
+**Controller** | Pointer to [**StoragePureControllerRelationship**](storage.PureController.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -76,6 +78,56 @@ SetPortal sets Portal field to given value.
 `func (o *StoragePurePort) HasPortal() bool`
 
 HasPortal returns a boolean if a field has been set.
+
+### GetArray
+
+`func (o *StoragePurePort) GetArray() StoragePureArrayRelationship`
+
+GetArray returns the Array field if non-nil, zero value otherwise.
+
+### GetArrayOk
+
+`func (o *StoragePurePort) GetArrayOk() (*StoragePureArrayRelationship, bool)`
+
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArray
+
+`func (o *StoragePurePort) SetArray(v StoragePureArrayRelationship)`
+
+SetArray sets Array field to given value.
+
+### HasArray
+
+`func (o *StoragePurePort) HasArray() bool`
+
+HasArray returns a boolean if a field has been set.
+
+### GetController
+
+`func (o *StoragePurePort) GetController() StoragePureControllerRelationship`
+
+GetController returns the Controller field if non-nil, zero value otherwise.
+
+### GetControllerOk
+
+`func (o *StoragePurePort) GetControllerOk() (*StoragePureControllerRelationship, bool)`
+
+GetControllerOk returns a tuple with the Controller field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetController
+
+`func (o *StoragePurePort) SetController(v StoragePureControllerRelationship)`
+
+SetController sets Controller field to given value.
+
+### HasController
+
+`func (o *StoragePurePort) HasController() bool`
+
+HasController returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

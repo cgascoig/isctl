@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | Pointer to **string** | The action of the Dynamic Workflow. | [optional] 
-**Tasks** | Pointer to **map[string]interface{}** | The task list that has precedence which dictates how the workflow should be constructed. | [optional] 
+**Tasks** | Pointer to **interface{}** | The task list that has precedence which dictates how the workflow should be constructed. | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasAction returns a boolean if a field has been set.
 
 ### GetTasks
 
-`func (o *WorkflowDynamicWorkflowActionTaskList) GetTasks() map[string]interface{}`
+`func (o *WorkflowDynamicWorkflowActionTaskList) GetTasks() interface{}`
 
 GetTasks returns the Tasks field if non-nil, zero value otherwise.
 
 ### GetTasksOk
 
-`func (o *WorkflowDynamicWorkflowActionTaskList) GetTasksOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowDynamicWorkflowActionTaskList) GetTasksOk() (*interface{}, bool)`
 
 GetTasksOk returns a tuple with the Tasks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTasks
 
-`func (o *WorkflowDynamicWorkflowActionTaskList) SetTasks(v map[string]interface{})`
+`func (o *WorkflowDynamicWorkflowActionTaskList) SetTasks(v interface{})`
 
 SetTasks sets Tasks field to given value.
 
@@ -76,6 +76,16 @@ SetTasks sets Tasks field to given value.
 
 HasTasks returns a boolean if a field has been set.
 
+### SetTasksNil
+
+`func (o *WorkflowDynamicWorkflowActionTaskList) SetTasksNil(b bool)`
+
+ SetTasksNil sets the value for Tasks to be an explicit nil
+
+### UnsetTasks
+`func (o *WorkflowDynamicWorkflowActionTaskList) UnsetTasks()`
+
+UnsetTasks ensures that no value is present for Tasks, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

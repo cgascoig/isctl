@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -82,7 +82,7 @@ func (r apiCreateApplianceBackupRequest) Execute() (ApplianceBackup, *_nethttp.R
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Backups"
+	localVarPath := localBasePath + "/api/v1/appliance/Backups"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -254,7 +254,7 @@ func (r apiCreateApplianceBackupPolicyRequest) Execute() (ApplianceBackupPolicy,
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/BackupPolicies"
+	localVarPath := localBasePath + "/api/v1/appliance/BackupPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -426,7 +426,7 @@ func (r apiCreateApplianceDataExportPolicyRequest) Execute() (ApplianceDataExpor
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DataExportPolicies"
+	localVarPath := localBasePath + "/api/v1/appliance/DataExportPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -598,7 +598,7 @@ func (r apiCreateApplianceDeviceClaimRequest) Execute() (ApplianceDeviceClaim, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DeviceClaims"
+	localVarPath := localBasePath + "/api/v1/appliance/DeviceClaims"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -770,7 +770,7 @@ func (r apiCreateApplianceDiagSettingRequest) Execute() (ApplianceDiagSetting, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DiagSettings"
+	localVarPath := localBasePath + "/api/v1/appliance/DiagSettings"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -942,7 +942,7 @@ func (r apiCreateApplianceRestoreRequest) Execute() (ApplianceRestore, *_nethttp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Restores"
+	localVarPath := localBasePath + "/api/v1/appliance/Restores"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1098,7 +1098,7 @@ func (r apiDeleteApplianceBackupRequest) Execute() (*_nethttp.Response, error) {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Backups/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/Backups/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1234,7 +1234,7 @@ func (r apiDeleteApplianceRestoreRequest) Execute() (*_nethttp.Response, error) 
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Restores/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/Restores/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1371,7 +1371,7 @@ func (r apiGetApplianceBackupByMoidRequest) Execute() (ApplianceBackup, *_nethtt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Backups/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/Backups/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1580,7 +1580,7 @@ func (r apiGetApplianceBackupListRequest) Execute() (ApplianceBackupResponse, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Backups"
+	localVarPath := localBasePath + "/api/v1/appliance/Backups"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1758,7 +1758,7 @@ func (r apiGetApplianceBackupPolicyByMoidRequest) Execute() (ApplianceBackupPoli
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/BackupPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/BackupPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1967,7 +1967,7 @@ func (r apiGetApplianceBackupPolicyListRequest) Execute() (ApplianceBackupPolicy
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/BackupPolicies"
+	localVarPath := localBasePath + "/api/v1/appliance/BackupPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2145,7 +2145,7 @@ func (r apiGetApplianceCertificateSettingByMoidRequest) Execute() (ApplianceCert
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/CertificateSettings/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/CertificateSettings/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2354,7 +2354,7 @@ func (r apiGetApplianceCertificateSettingListRequest) Execute() (ApplianceCertif
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/CertificateSettings"
+	localVarPath := localBasePath + "/api/v1/appliance/CertificateSettings"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2532,7 +2532,7 @@ func (r apiGetApplianceDataExportPolicyByMoidRequest) Execute() (ApplianceDataEx
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DataExportPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/DataExportPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2741,7 +2741,7 @@ func (r apiGetApplianceDataExportPolicyListRequest) Execute() (ApplianceDataExpo
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DataExportPolicies"
+	localVarPath := localBasePath + "/api/v1/appliance/DataExportPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2919,7 +2919,7 @@ func (r apiGetApplianceDeviceClaimByMoidRequest) Execute() (ApplianceDeviceClaim
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DeviceClaims/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/DeviceClaims/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3128,7 +3128,7 @@ func (r apiGetApplianceDeviceClaimListRequest) Execute() (ApplianceDeviceClaimRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DeviceClaims"
+	localVarPath := localBasePath + "/api/v1/appliance/DeviceClaims"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3306,7 +3306,7 @@ func (r apiGetApplianceDiagSettingByMoidRequest) Execute() (ApplianceDiagSetting
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DiagSettings/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/DiagSettings/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3515,7 +3515,7 @@ func (r apiGetApplianceDiagSettingListRequest) Execute() (ApplianceDiagSettingRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DiagSettings"
+	localVarPath := localBasePath + "/api/v1/appliance/DiagSettings"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3693,7 +3693,7 @@ func (r apiGetApplianceImageBundleByMoidRequest) Execute() (ApplianceImageBundle
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/ImageBundles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/ImageBundles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3902,7 +3902,7 @@ func (r apiGetApplianceImageBundleListRequest) Execute() (ApplianceImageBundleRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/ImageBundles"
+	localVarPath := localBasePath + "/api/v1/appliance/ImageBundles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4080,7 +4080,7 @@ func (r apiGetApplianceNodeInfoByMoidRequest) Execute() (ApplianceNodeInfo, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/NodeInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/NodeInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4289,7 +4289,7 @@ func (r apiGetApplianceNodeInfoListRequest) Execute() (ApplianceNodeInfoResponse
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/NodeInfos"
+	localVarPath := localBasePath + "/api/v1/appliance/NodeInfos"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4467,7 +4467,7 @@ func (r apiGetApplianceReleaseNoteByMoidRequest) Execute() (ApplianceReleaseNote
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/ReleaseNotes/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/ReleaseNotes/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4676,7 +4676,7 @@ func (r apiGetApplianceReleaseNoteListRequest) Execute() (ApplianceReleaseNoteRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/ReleaseNotes"
+	localVarPath := localBasePath + "/api/v1/appliance/ReleaseNotes"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4854,7 +4854,7 @@ func (r apiGetApplianceRestoreByMoidRequest) Execute() (ApplianceRestore, *_neth
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Restores/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/Restores/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5063,7 +5063,7 @@ func (r apiGetApplianceRestoreListRequest) Execute() (ApplianceRestoreResponse, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Restores"
+	localVarPath := localBasePath + "/api/v1/appliance/Restores"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5241,7 +5241,7 @@ func (r apiGetApplianceSetupInfoByMoidRequest) Execute() (ApplianceSetupInfo, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/SetupInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/SetupInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5450,7 +5450,7 @@ func (r apiGetApplianceSetupInfoListRequest) Execute() (ApplianceSetupInfoRespon
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/SetupInfos"
+	localVarPath := localBasePath + "/api/v1/appliance/SetupInfos"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5628,7 +5628,7 @@ func (r apiGetApplianceSystemInfoByMoidRequest) Execute() (ApplianceSystemInfo, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/SystemInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/SystemInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5837,7 +5837,7 @@ func (r apiGetApplianceSystemInfoListRequest) Execute() (ApplianceSystemInfoResp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/SystemInfos"
+	localVarPath := localBasePath + "/api/v1/appliance/SystemInfos"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -6015,7 +6015,7 @@ func (r apiGetApplianceUpgradeByMoidRequest) Execute() (ApplianceUpgrade, *_neth
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Upgrades/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/Upgrades/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6224,7 +6224,7 @@ func (r apiGetApplianceUpgradeListRequest) Execute() (ApplianceUpgradeResponse, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Upgrades"
+	localVarPath := localBasePath + "/api/v1/appliance/Upgrades"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -6402,7 +6402,7 @@ func (r apiGetApplianceUpgradePolicyByMoidRequest) Execute() (ApplianceUpgradePo
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/UpgradePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/UpgradePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6611,7 +6611,7 @@ func (r apiGetApplianceUpgradePolicyListRequest) Execute() (ApplianceUpgradePoli
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/UpgradePolicies"
+	localVarPath := localBasePath + "/api/v1/appliance/UpgradePolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -6801,7 +6801,7 @@ func (r apiPatchApplianceBackupPolicyRequest) Execute() (ApplianceBackupPolicy, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/BackupPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/BackupPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6968,7 +6968,7 @@ func (r apiPatchApplianceCertificateSettingRequest) Execute() (ApplianceCertific
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/CertificateSettings/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/CertificateSettings/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7135,7 +7135,7 @@ func (r apiPatchApplianceDataExportPolicyRequest) Execute() (ApplianceDataExport
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DataExportPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/DataExportPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7302,7 +7302,7 @@ func (r apiPatchApplianceDiagSettingRequest) Execute() (ApplianceDiagSetting, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DiagSettings/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/DiagSettings/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7469,7 +7469,7 @@ func (r apiPatchApplianceSetupInfoRequest) Execute() (ApplianceSetupInfo, *_neth
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/SetupInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/SetupInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7636,7 +7636,7 @@ func (r apiPatchApplianceUpgradeRequest) Execute() (ApplianceUpgrade, *_nethttp.
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Upgrades/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/Upgrades/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7803,7 +7803,7 @@ func (r apiPatchApplianceUpgradePolicyRequest) Execute() (ApplianceUpgradePolicy
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/UpgradePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/UpgradePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7970,7 +7970,7 @@ func (r apiUpdateApplianceBackupPolicyRequest) Execute() (ApplianceBackupPolicy,
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/BackupPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/BackupPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8137,7 +8137,7 @@ func (r apiUpdateApplianceCertificateSettingRequest) Execute() (ApplianceCertifi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/CertificateSettings/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/CertificateSettings/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8304,7 +8304,7 @@ func (r apiUpdateApplianceDataExportPolicyRequest) Execute() (ApplianceDataExpor
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DataExportPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/DataExportPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8471,7 +8471,7 @@ func (r apiUpdateApplianceDiagSettingRequest) Execute() (ApplianceDiagSetting, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/DiagSettings/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/DiagSettings/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8638,7 +8638,7 @@ func (r apiUpdateApplianceSetupInfoRequest) Execute() (ApplianceSetupInfo, *_net
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/SetupInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/SetupInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8805,7 +8805,7 @@ func (r apiUpdateApplianceUpgradeRequest) Execute() (ApplianceUpgrade, *_nethttp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/Upgrades/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/Upgrades/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8972,7 +8972,7 @@ func (r apiUpdateApplianceUpgradePolicyRequest) Execute() (ApplianceUpgradePolic
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/appliance/UpgradePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/appliance/UpgradePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

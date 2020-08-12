@@ -18,40 +18,42 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**AccessPolicy** | Pointer to **string** |  | [optional] [readonly] 
-**ActualWriteCachePolicy** | Pointer to **string** |  | [optional] [readonly] 
-**AvailableSize** | Pointer to **string** |  | [optional] [readonly] 
-**BlockSize** | Pointer to **string** |  | [optional] [readonly] 
-**Bootable** | Pointer to **string** |  | [optional] [readonly] 
-**ConfigState** | Pointer to **string** |  | [optional] [readonly] 
-**ConfiguredWriteCachePolicy** | Pointer to **string** |  | [optional] [readonly] 
-**ConnectionProtocol** | Pointer to **string** |  | [optional] [readonly] 
-**DriveCache** | Pointer to **string** |  | [optional] [readonly] 
-**DriveSecurity** | Pointer to **string** |  | [optional] [readonly] 
-**DriveState** | Pointer to **string** | It shows the Virtual drive state. | [optional] [readonly] 
-**IoPolicy** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
-**NumBlocks** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** | It shows the current operational state of Virtual drive. | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**PhysicalBlockSize** | Pointer to **string** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**ReadPolicy** | Pointer to **string** |  | [optional] [readonly] 
-**SecurityFlags** | Pointer to **string** |  | [optional] [readonly] 
-**Size** | Pointer to **string** |  | [optional] [readonly] 
+**AccessPolicy** | Pointer to **string** | The access policy of the virtual drive. | [optional] [readonly] 
+**ActualWriteCachePolicy** | Pointer to **string** | The current write cache policy of the virtual drive. | [optional] [readonly] 
+**AvailableSize** | Pointer to **string** | Available storage capacity of the virtual drive. | [optional] [readonly] 
+**BlockSize** | Pointer to **string** | Block size of the virtual drive. | [optional] [readonly] 
+**Bootable** | Pointer to **string** | The virtual drive bootable state. | [optional] [readonly] 
+**ConfigState** | Pointer to **string** | The configuration state of the virtual drive. | [optional] [readonly] 
+**ConfiguredWriteCachePolicy** | Pointer to **string** | The requested write cache policy of the virtual drive. | [optional] [readonly] 
+**ConnectionProtocol** | Pointer to **string** | The connection protocol of the virtual drive. | [optional] [readonly] 
+**DriveCache** | Pointer to **string** | The state of the drive cache of the virtual drive. | [optional] [readonly] 
+**DriveSecurity** | Pointer to **string** | The driveSecurity state of the Virtual drive. | [optional] [readonly] 
+**DriveState** | Pointer to **string** | The state of the Virtual drive. | [optional] [readonly] 
+**IoPolicy** | Pointer to **string** | The Input/Output Policy defined on the Virtual drive. | [optional] [readonly] 
+**Name** | Pointer to **string** | The name of the Virtual drive. | [optional] [readonly] 
+**NumBlocks** | Pointer to **string** | Number of Blocks on the Physical Disk. | [optional] [readonly] 
+**OperState** | Pointer to **string** | The current operational state of Virtual drive. | [optional] [readonly] 
+**Operability** | Pointer to **string** | The current operability state of Virtual drive. | [optional] [readonly] 
+**PhysicalBlockSize** | Pointer to **string** | The block size of the the virtual drive. | [optional] [readonly] 
+**Presence** | Pointer to **string** | The presence status of the virtual drive. | [optional] [readonly] 
+**ReadPolicy** | Pointer to **string** | The read-ahead cache mode of the virtual drive. | [optional] [readonly] 
+**SecurityFlags** | Pointer to **string** | The security flags set for this virtual drive. | [optional] [readonly] 
+**Size** | Pointer to **string** | The size of the virtual drive in MB. | [optional] [readonly] 
 **StripSize** | Pointer to **string** | The strip size is the portion of a stripe that resides on a single drive in the drive group, this is measured in KB. | [optional] [readonly] 
-**Type** | Pointer to **string** |  | [optional] [readonly] 
-**Uuid** | Pointer to **string** |  | [optional] [readonly] 
-**VendorUuid** | Pointer to **string** |  | [optional] [readonly] 
-**VirtualDriveId** | Pointer to **string** |  | [optional] [readonly] 
+**Type** | Pointer to **string** | The raid type of the virtual drive. | [optional] [readonly] 
+**Uuid** | Pointer to **string** | The uuid of the virtual drive. | [optional] [readonly] 
+**VendorUuid** | Pointer to **string** | The UUID value of the vendor. | [optional] [readonly] 
+**VirtualDriveId** | Pointer to **string** | The identifier for this Virtual drive. | [optional] [readonly] 
+**DiskGroup** | Pointer to [**StorageDiskGroupRelationship**](storage.DiskGroup.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PhysicalDiskUsages** | Pointer to [**[]StoragePhysicalDiskUsageRelationship**](storage.PhysicalDiskUsage.Relationship.md) | An array of relationships to storagePhysicalDiskUsage resources. | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageController** | Pointer to [**StorageControllerRelationship**](storage.Controller.Relationship.md) |  | [optional] 
@@ -367,6 +369,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StorageVirtualDriveRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StorageVirtualDriveRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StorageVirtualDriveRelationship) GetParent() MoBaseMoRelationship`
@@ -417,6 +429,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StorageVirtualDriveRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StorageVirtualDriveRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StorageVirtualDriveRelationship) GetDisplayNames() map[string][]string`
@@ -1277,6 +1299,56 @@ SetVirtualDriveId sets VirtualDriveId field to given value.
 
 HasVirtualDriveId returns a boolean if a field has been set.
 
+### GetDiskGroup
+
+`func (o *StorageVirtualDriveRelationship) GetDiskGroup() StorageDiskGroupRelationship`
+
+GetDiskGroup returns the DiskGroup field if non-nil, zero value otherwise.
+
+### GetDiskGroupOk
+
+`func (o *StorageVirtualDriveRelationship) GetDiskGroupOk() (*StorageDiskGroupRelationship, bool)`
+
+GetDiskGroupOk returns a tuple with the DiskGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiskGroup
+
+`func (o *StorageVirtualDriveRelationship) SetDiskGroup(v StorageDiskGroupRelationship)`
+
+SetDiskGroup sets DiskGroup field to given value.
+
+### HasDiskGroup
+
+`func (o *StorageVirtualDriveRelationship) HasDiskGroup() bool`
+
+HasDiskGroup returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageVirtualDriveRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageVirtualDriveRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageVirtualDriveRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageVirtualDriveRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetPhysicalDiskUsages
 
 `func (o *StorageVirtualDriveRelationship) GetPhysicalDiskUsages() []StoragePhysicalDiskUsageRelationship`
@@ -1302,6 +1374,16 @@ SetPhysicalDiskUsages sets PhysicalDiskUsages field to given value.
 
 HasPhysicalDiskUsages returns a boolean if a field has been set.
 
+### SetPhysicalDiskUsagesNil
+
+`func (o *StorageVirtualDriveRelationship) SetPhysicalDiskUsagesNil(b bool)`
+
+ SetPhysicalDiskUsagesNil sets the value for PhysicalDiskUsages to be an explicit nil
+
+### UnsetPhysicalDiskUsages
+`func (o *StorageVirtualDriveRelationship) UnsetPhysicalDiskUsages()`
+
+UnsetPhysicalDiskUsages ensures that no value is present for PhysicalDiskUsages, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *StorageVirtualDriveRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -1377,6 +1459,16 @@ SetVdMemberEps sets VdMemberEps field to given value.
 
 HasVdMemberEps returns a boolean if a field has been set.
 
+### SetVdMemberEpsNil
+
+`func (o *StorageVirtualDriveRelationship) SetVdMemberEpsNil(b bool)`
+
+ SetVdMemberEpsNil sets the value for VdMemberEps to be an explicit nil
+
+### UnsetVdMemberEps
+`func (o *StorageVirtualDriveRelationship) UnsetVdMemberEps()`
+
+UnsetVdMemberEps ensures that no value is present for VdMemberEps, not even an explicit nil
 ### GetVirtualDriveExtension
 
 `func (o *StorageVirtualDriveRelationship) GetVirtualDriveExtension() StorageVirtualDriveExtensionRelationship`

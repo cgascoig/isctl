@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,7 +18,8 @@ import (
 
 // HyperflexCluster A HyperFlex cluster. Contains inventory information concerning the health, software versions, storage, and nodes of the cluster.
 type HyperflexCluster struct {
-	MoBaseMo `yaml:"MoBaseMo,inline"`
+	MoBaseMo     `yaml:"MoBaseMo,inline"`
+	AlarmSummary *HyperflexAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
 	// The number of days remaining before the cluster's storage utilization reaches the recommended capacity limit of 76%. Default value is math.MaxInt32 to indicate that the capacity runway is \"Unknown\" for a cluster that is not connected or with not sufficient data.
 	CapacityRunway *int64 `json:"CapacityRunway,omitempty" yaml:"CapacityRunway,omitempty"`
 	// The name of this HyperFlex cluster.
@@ -31,7 +32,7 @@ type HyperflexCluster struct {
 	ComputeNodeCount *int64 `json:"ComputeNodeCount,omitempty" yaml:"ComputeNodeCount,omitempty"`
 	// The number of converged nodes that belong to this cluster.
 	ConvergedNodeCount *int64 `json:"ConvergedNodeCount,omitempty" yaml:"ConvergedNodeCount,omitempty"`
-	// The deployment type of the HyperFlex cluster. The cluster can have one of the following configurations: 1. Datacenter: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes on a single site. 2. Stretched Cluster: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes distributed across multiple sites. 3. Edge: The HyperFlex cluster consists of 2-4 standalone nodes. If the cluster is running a HyperFlex Data Platform version less than 4.0 or if the deployment type cannot be determined, the deployment type is set as 'NA' (not available).
+	// The deployment type of the HyperFlex cluster. The cluster can have one of the following configurations: 1. Datacenter: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes on a single site. 2. Stretched Cluster: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes distributed across multiple sites. 3. Edge: The HyperFlex cluster consists of 2-4 standalone nodes. If the cluster is running a HyperFlex Data Platform version less than 4.0 or if the deployment type cannot be determined, the deployment type is set as 'NA' (not available). * `NA` - The deployment type of the HyperFlex cluster is not available. * `Datacenter` - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes on the same site. * `Stretched Cluster` - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes across different sites. * `Edge` - The deployment type of a HyperFlex cluster consisting of 2-4 standalone nodes.
 	DeploymentType *string `json:"DeploymentType,omitempty" yaml:"DeploymentType,omitempty"`
 	// The unique identifier of the device registration that represents this HyperFlex cluster's connection to Intersight.
 	DeviceId *string `json:"DeviceId,omitempty" yaml:"DeviceId,omitempty"`
@@ -41,7 +42,7 @@ type HyperflexCluster struct {
 	HxVersion *string `json:"HxVersion,omitempty" yaml:"HxVersion,omitempty"`
 	// The version and build number of the HyperFlex Data Platform for this cluster. After a cluster upgrade, this version string will be updated on the next inventory cycle to reflect the newly installed version.
 	HxdpBuildVersion *string `json:"HxdpBuildVersion,omitempty" yaml:"HxdpBuildVersion,omitempty"`
-	// The type of hypervisor running on this cluster.
+	// The type of hypervisor running on this cluster. * `ESXi` - ESXi hypervisor as specified by the user. * `HYPERV` - Hyperv hypervisor as specified by the user. * `KVM` - KVM hypervisor as specified by the user.
 	HypervisorType *string `json:"HypervisorType,omitempty" yaml:"HypervisorType,omitempty"`
 	// The version of hypervisor running on this cluster.
 	HypervisorVersion *string           `json:"HypervisorVersion,omitempty" yaml:"HypervisorVersion,omitempty"`
@@ -53,10 +54,10 @@ type HyperflexCluster struct {
 	// The number of virtual machines present on this cluster.
 	VmCount *int64 `json:"VmCount,omitempty" yaml:"VmCount,omitempty"`
 	// An array of relationships to hyperflexAlarm resources.
-	Alarm  *[]HyperflexAlarmRelationship `json:"Alarm,omitempty" yaml:"Alarm,omitempty"`
-	Health *HyperflexHealthRelationship  `json:"Health,omitempty" yaml:"Health,omitempty"`
+	Alarm  []HyperflexAlarmRelationship `json:"Alarm,omitempty" yaml:"Alarm,omitempty"`
+	Health *HyperflexHealthRelationship `json:"Health,omitempty" yaml:"Health,omitempty"`
 	// An array of relationships to hyperflexNode resources.
-	Nodes            *[]HyperflexNodeRelationship         `json:"Nodes,omitempty" yaml:"Nodes,omitempty"`
+	Nodes            []HyperflexNodeRelationship          `json:"Nodes,omitempty" yaml:"Nodes,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
@@ -83,6 +84,38 @@ func NewHyperflexClusterWithDefaults() *HyperflexCluster {
 	var hypervisorType string = "ESXi"
 	this.HypervisorType = &hypervisorType
 	return &this
+}
+
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+func (o *HyperflexCluster) GetAlarmSummary() HyperflexAlarmSummary {
+	if o == nil || o.AlarmSummary == nil {
+		var ret HyperflexAlarmSummary
+		return ret
+	}
+	return *o.AlarmSummary
+}
+
+// GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HyperflexCluster) GetAlarmSummaryOk() (*HyperflexAlarmSummary, bool) {
+	if o == nil || o.AlarmSummary == nil {
+		return nil, false
+	}
+	return o.AlarmSummary, true
+}
+
+// HasAlarmSummary returns a boolean if a field has been set.
+func (o *HyperflexCluster) HasAlarmSummary() bool {
+	if o != nil && o.AlarmSummary != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAlarmSummary gets a reference to the given HyperflexAlarmSummary and assigns it to the AlarmSummary field.
+func (o *HyperflexCluster) SetAlarmSummary(v HyperflexAlarmSummary) {
+	o.AlarmSummary = &v
 }
 
 // GetCapacityRunway returns the CapacityRunway field value if set, zero value otherwise.
@@ -629,22 +662,23 @@ func (o *HyperflexCluster) SetVmCount(v int64) {
 	o.VmCount = &v
 }
 
-// GetAlarm returns the Alarm field value if set, zero value otherwise.
+// GetAlarm returns the Alarm field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexCluster) GetAlarm() []HyperflexAlarmRelationship {
-	if o == nil || o.Alarm == nil {
+	if o == nil {
 		var ret []HyperflexAlarmRelationship
 		return ret
 	}
-	return *o.Alarm
+	return o.Alarm
 }
 
 // GetAlarmOk returns a tuple with the Alarm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexCluster) GetAlarmOk() (*[]HyperflexAlarmRelationship, bool) {
 	if o == nil || o.Alarm == nil {
 		return nil, false
 	}
-	return o.Alarm, true
+	return &o.Alarm, true
 }
 
 // HasAlarm returns a boolean if a field has been set.
@@ -658,7 +692,7 @@ func (o *HyperflexCluster) HasAlarm() bool {
 
 // SetAlarm gets a reference to the given []HyperflexAlarmRelationship and assigns it to the Alarm field.
 func (o *HyperflexCluster) SetAlarm(v []HyperflexAlarmRelationship) {
-	o.Alarm = &v
+	o.Alarm = v
 }
 
 // GetHealth returns the Health field value if set, zero value otherwise.
@@ -693,22 +727,23 @@ func (o *HyperflexCluster) SetHealth(v HyperflexHealthRelationship) {
 	o.Health = &v
 }
 
-// GetNodes returns the Nodes field value if set, zero value otherwise.
+// GetNodes returns the Nodes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexCluster) GetNodes() []HyperflexNodeRelationship {
-	if o == nil || o.Nodes == nil {
+	if o == nil {
 		var ret []HyperflexNodeRelationship
 		return ret
 	}
-	return *o.Nodes
+	return o.Nodes
 }
 
 // GetNodesOk returns a tuple with the Nodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexCluster) GetNodesOk() (*[]HyperflexNodeRelationship, bool) {
 	if o == nil || o.Nodes == nil {
 		return nil, false
 	}
-	return o.Nodes, true
+	return &o.Nodes, true
 }
 
 // HasNodes returns a boolean if a field has been set.
@@ -722,7 +757,7 @@ func (o *HyperflexCluster) HasNodes() bool {
 
 // SetNodes gets a reference to the given []HyperflexNodeRelationship and assigns it to the Nodes field.
 func (o *HyperflexCluster) SetNodes(v []HyperflexNodeRelationship) {
-	o.Nodes = &v
+	o.Nodes = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -766,6 +801,9 @@ func (o HyperflexCluster) MarshalJSON() ([]byte, error) {
 	errMoBaseMo = json.Unmarshal([]byte(serializedMoBaseMo), &toSerialize)
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
+	}
+	if o.AlarmSummary != nil {
+		toSerialize["AlarmSummary"] = o.AlarmSummary
 	}
 	if o.CapacityRunway != nil {
 		toSerialize["CapacityRunway"] = o.CapacityRunway

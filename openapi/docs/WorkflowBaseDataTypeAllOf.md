@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Default** | Pointer to [**WorkflowDefaultValue**](workflow.DefaultValue.md) |  | [optional] 
 **Description** | Pointer to **string** | Provide a detailed description of the data type. | [optional] 
-**Label** | Pointer to **string** | Descriptive label for the data type. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), space ( ) or an underscore (_). The first and last character in label must be an alphanumeric character. | [optional] 
+**Label** | Pointer to **string** | Descriptive label for the data type. Label can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), space ( ) or an underscore (_). The first and last character in label must be an alphanumeric character. | [optional] 
 **Name** | Pointer to **string** | Descriptive name for the data type. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-) or an underscore (_). The first and last character in name must be an alphanumeric character. | [optional] 
 **Required** | Pointer to **bool** | Specifies whether this parameter is required. The field is applicable for task and workflow. | [optional] 
 

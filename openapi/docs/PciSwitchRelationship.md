@@ -18,29 +18,31 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**DeviceId** | Pointer to **string** | It shows the device id of the switch. | [optional] [readonly] 
-**Health** | Pointer to **string** | It shows the composite health of the switch. | [optional] [readonly] 
-**NumOfAdaptors** | Pointer to **string** | It shows the number of gpus and pci adapters connected the switch. | [optional] [readonly] 
-**PciAddress** | Pointer to **string** | It shows shows the PCI address of switch. | [optional] [readonly] 
-**PciSlot** | Pointer to **string** | It shows the PCI slot name for switch. | [optional] [readonly] 
-**ProductName** | Pointer to **string** | It shows the model information for the switch. | [optional] [readonly] 
-**ProductRevision** | Pointer to **string** | It shows the revision for the product. | [optional] [readonly] 
-**SubDeviceId** | Pointer to **string** | It shows the sub device id of the switch. | [optional] [readonly] 
-**SubVendorId** | Pointer to **string** | It shows the sub vendor id of the switch. | [optional] [readonly] 
-**Temperature** | Pointer to **string** | It shows the current temperature of the switch. | [optional] [readonly] 
-**Type** | Pointer to **string** | It shows the type inforamtion of switch. | [optional] 
-**VendorId** | Pointer to **string** | It shows the vendor id of the switch. | [optional] [readonly] 
+**DeviceId** | Pointer to **string** | The device id of the switch. | [optional] [readonly] 
+**Health** | Pointer to **string** | The composite health of the switch. | [optional] [readonly] 
+**NumOfAdaptors** | Pointer to **string** | The number of GPUs and PCI adapters connected the switch. | [optional] [readonly] 
+**PciAddress** | Pointer to **string** | The PCI address of the switch. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | The PCI slot name of the switch. | [optional] [readonly] 
+**ProductName** | Pointer to **string** | The model information for the switch. | [optional] [readonly] 
+**ProductRevision** | Pointer to **string** | The product revision of the switch. | [optional] [readonly] 
+**SubDeviceId** | Pointer to **string** | The sub device id of the switch. | [optional] [readonly] 
+**SubVendorId** | Pointer to **string** | The sub vendor id of the switch. | [optional] [readonly] 
+**Temperature** | Pointer to **string** | The current temperature of the switch. | [optional] [readonly] 
+**Type** | Pointer to **string** | The type information of the switch. | [optional] 
+**VendorId** | Pointer to **string** | The vendor id of the switch. | [optional] [readonly] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **Links** | Pointer to [**[]PciLinkRelationship**](pci.Link.Relationship.md) | An array of relationships to pciLink resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**RunningFirmware** | Pointer to [**[]FirmwareRunningFirmwareRelationship**](firmware.RunningFirmware.Relationship.md) | An array of relationships to firmwareRunningFirmware resources. | [optional] [readonly] 
 
 ## Methods
 
@@ -351,6 +353,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *PciSwitchRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *PciSwitchRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *PciSwitchRelationship) GetParent() MoBaseMoRelationship`
@@ -401,6 +413,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *PciSwitchRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *PciSwitchRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *PciSwitchRelationship) GetDisplayNames() map[string][]string`
@@ -936,6 +958,31 @@ SetComputeBoard sets ComputeBoard field to given value.
 
 HasComputeBoard returns a boolean if a field has been set.
 
+### GetInventoryDeviceInfo
+
+`func (o *PciSwitchRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *PciSwitchRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *PciSwitchRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *PciSwitchRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetLinks
 
 `func (o *PciSwitchRelationship) GetLinks() []PciLinkRelationship`
@@ -961,6 +1008,16 @@ SetLinks sets Links field to given value.
 
 HasLinks returns a boolean if a field has been set.
 
+### SetLinksNil
+
+`func (o *PciSwitchRelationship) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *PciSwitchRelationship) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *PciSwitchRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -986,6 +1043,41 @@ SetRegisteredDevice sets RegisteredDevice field to given value.
 
 HasRegisteredDevice returns a boolean if a field has been set.
 
+### GetRunningFirmware
+
+`func (o *PciSwitchRelationship) GetRunningFirmware() []FirmwareRunningFirmwareRelationship`
+
+GetRunningFirmware returns the RunningFirmware field if non-nil, zero value otherwise.
+
+### GetRunningFirmwareOk
+
+`func (o *PciSwitchRelationship) GetRunningFirmwareOk() (*[]FirmwareRunningFirmwareRelationship, bool)`
+
+GetRunningFirmwareOk returns a tuple with the RunningFirmware field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRunningFirmware
+
+`func (o *PciSwitchRelationship) SetRunningFirmware(v []FirmwareRunningFirmwareRelationship)`
+
+SetRunningFirmware sets RunningFirmware field to given value.
+
+### HasRunningFirmware
+
+`func (o *PciSwitchRelationship) HasRunningFirmware() bool`
+
+HasRunningFirmware returns a boolean if a field has been set.
+
+### SetRunningFirmwareNil
+
+`func (o *PciSwitchRelationship) SetRunningFirmwareNil(b bool)`
+
+ SetRunningFirmwareNil sets the value for RunningFirmware to be an explicit nil
+
+### UnsetRunningFirmware
+`func (o *PciSwitchRelationship) UnsetRunningFirmware()`
+
+UnsetRunningFirmware ensures that no value is present for RunningFirmware, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

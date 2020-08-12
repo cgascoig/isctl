@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DedicatedHotSpares** | Pointer to [**[]StorageLocalDisk**](storage.LocalDisk.md) |  | [optional] 
-**RaidLevel** | Pointer to **string** | The supported RAID level for the disk group. | [optional] [default to "Raid0"]
+**RaidLevel** | Pointer to **string** | The supported RAID level for the disk group. * &#x60;Raid0&#x60; - RAID 0 Stripe Raid Level. * &#x60;Raid1&#x60; - RAID 1 Mirror Raid Level. * &#x60;Raid5&#x60; - RAID 5 Mirror Raid Level. * &#x60;Raid6&#x60; - RAID 6 Mirror Raid Level. * &#x60;Raid10&#x60; - RAID 10 Mirror Raid Level. * &#x60;Raid50&#x60; - RAID 50 Mirror Raid Level. * &#x60;Raid60&#x60; - RAID 60 Mirror Raid Level. | [optional] [default to "Raid0"]
 **SpanGroups** | Pointer to [**[]StorageSpanGroup**](storage.SpanGroup.md) |  | [optional] 
 **UseJbods** | Pointer to **bool** | Selected disks in the disk group in JBOD state will be set to Unconfigured Good state before they are used in virtual drive creation. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
@@ -180,6 +180,16 @@ SetStoragePolicies sets StoragePolicies field to given value.
 
 HasStoragePolicies returns a boolean if a field has been set.
 
+### SetStoragePoliciesNil
+
+`func (o *StorageDiskGroupPolicyAllOf) SetStoragePoliciesNil(b bool)`
+
+ SetStoragePoliciesNil sets the value for StoragePolicies to be an explicit nil
+
+### UnsetStoragePolicies
+`func (o *StorageDiskGroupPolicyAllOf) UnsetStoragePolicies()`
+
+UnsetStoragePolicies ensures that no value is present for StoragePolicies, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

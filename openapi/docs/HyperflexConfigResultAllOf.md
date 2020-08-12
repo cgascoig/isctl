@@ -154,6 +154,16 @@ SetResultEntries sets ResultEntries field to given value.
 
 HasResultEntries returns a boolean if a field has been set.
 
+### SetResultEntriesNil
+
+`func (o *HyperflexConfigResultAllOf) SetResultEntriesNil(b bool)`
+
+ SetResultEntriesNil sets the value for ResultEntries to be an explicit nil
+
+### UnsetResultEntries
+`func (o *HyperflexConfigResultAllOf) UnsetResultEntries()`
+
+UnsetResultEntries ensures that no value is present for ResultEntries, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

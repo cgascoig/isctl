@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -16,7 +16,7 @@ import (
 	"encoding/json"
 )
 
-// EquipmentFanModule Moudule housing one or more fans.
+// EquipmentFanModule This represents Fan module housing multiple fans for chassis/server.
 type EquipmentFanModule struct {
 	EquipmentBase `yaml:"EquipmentBase,inline"`
 	// This field is to provide description for the fan module.
@@ -41,9 +41,10 @@ type EquipmentFanModule struct {
 	EquipmentChassis       *EquipmentChassisRelationship       `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
 	EquipmentRackEnclosure *EquipmentRackEnclosureRelationship `json:"EquipmentRackEnclosure,omitempty" yaml:"EquipmentRackEnclosure,omitempty"`
 	// An array of relationships to equipmentFan resources.
-	Fans             *[]EquipmentFanRelationship          `json:"Fans,omitempty" yaml:"Fans,omitempty"`
-	NetworkElement   *NetworkElementRelationship          `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	Fans                []EquipmentFanRelationship           `json:"Fans,omitempty" yaml:"Fans,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	NetworkElement      *NetworkElementRelationship          `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewEquipmentFanModule instantiates a new EquipmentFanModule object
@@ -447,22 +448,23 @@ func (o *EquipmentFanModule) SetEquipmentRackEnclosure(v EquipmentRackEnclosureR
 	o.EquipmentRackEnclosure = &v
 }
 
-// GetFans returns the Fans field value if set, zero value otherwise.
+// GetFans returns the Fans field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EquipmentFanModule) GetFans() []EquipmentFanRelationship {
-	if o == nil || o.Fans == nil {
+	if o == nil {
 		var ret []EquipmentFanRelationship
 		return ret
 	}
-	return *o.Fans
+	return o.Fans
 }
 
 // GetFansOk returns a tuple with the Fans field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EquipmentFanModule) GetFansOk() (*[]EquipmentFanRelationship, bool) {
 	if o == nil || o.Fans == nil {
 		return nil, false
 	}
-	return o.Fans, true
+	return &o.Fans, true
 }
 
 // HasFans returns a boolean if a field has been set.
@@ -476,7 +478,39 @@ func (o *EquipmentFanModule) HasFans() bool {
 
 // SetFans gets a reference to the given []EquipmentFanRelationship and assigns it to the Fans field.
 func (o *EquipmentFanModule) SetFans(v []EquipmentFanRelationship) {
-	o.Fans = &v
+	o.Fans = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *EquipmentFanModule) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentFanModule) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *EquipmentFanModule) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *EquipmentFanModule) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetNetworkElement returns the NetworkElement field value if set, zero value otherwise.
@@ -591,6 +625,9 @@ func (o EquipmentFanModule) MarshalJSON() ([]byte, error) {
 	}
 	if o.Fans != nil {
 		toSerialize["Fans"] = o.Fans
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.NetworkElement != nil {
 		toSerialize["NetworkElement"] = o.NetworkElement

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**QueryType** | Pointer to **string** | null | 
 **DataSource** | Pointer to [**TelemetryDruidDataSource**](telemetry.DruidDataSource.md) |  | 
 **Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. If an interval is not specified, the query will use a default interval that spans a configurable period before the end time of the most recent segment. | [optional] 
 **ToInclude** | Pointer to **map[string]interface{}** | A JSON Object representing what columns should be included in the result. Defaults to \&quot;all\&quot;. | [optional] 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidSegmentMetadataRequest
 
-`func NewTelemetryDruidSegmentMetadataRequest(dataSource TelemetryDruidDataSource, ) *TelemetryDruidSegmentMetadataRequest`
+`func NewTelemetryDruidSegmentMetadataRequest(queryType string, dataSource TelemetryDruidDataSource, ) *TelemetryDruidSegmentMetadataRequest`
 
 NewTelemetryDruidSegmentMetadataRequest instantiates a new TelemetryDruidSegmentMetadataRequest object
 This constructor will assign default values to properties that have it defined,
@@ -30,6 +31,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidSegmentMetadataRequestWithDefaults instantiates a new TelemetryDruidSegmentMetadataRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetQueryType
+
+`func (o *TelemetryDruidSegmentMetadataRequest) GetQueryType() string`
+
+GetQueryType returns the QueryType field if non-nil, zero value otherwise.
+
+### GetQueryTypeOk
+
+`func (o *TelemetryDruidSegmentMetadataRequest) GetQueryTypeOk() (*string, bool)`
+
+GetQueryTypeOk returns a tuple with the QueryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueryType
+
+`func (o *TelemetryDruidSegmentMetadataRequest) SetQueryType(v string)`
+
+SetQueryType sets QueryType field to given value.
+
 
 ### GetDataSource
 

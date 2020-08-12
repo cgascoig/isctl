@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -20,10 +20,10 @@ import (
 type IamEndPointUserPolicyAllOf struct {
 	PasswordProperties *IamEndPointPasswordProperties `json:"PasswordProperties,omitempty" yaml:"PasswordProperties,omitempty"`
 	// An array of relationships to iamEndPointUserRole resources.
-	EndPointUserRoles *[]IamEndPointUserRoleRelationship    `json:"EndPointUserRoles,omitempty" yaml:"EndPointUserRoles,omitempty"`
+	EndPointUserRoles []IamEndPointUserRoleRelationship     `json:"EndPointUserRoles,omitempty" yaml:"EndPointUserRoles,omitempty"`
 	Organization      *OrganizationOrganizationRelationship `json:"Organization,omitempty" yaml:"Organization,omitempty"`
 	// An array of relationships to policyAbstractConfigProfile resources.
-	Profiles *[]PolicyAbstractConfigProfileRelationship `json:"Profiles,omitempty" yaml:"Profiles,omitempty"`
+	Profiles []PolicyAbstractConfigProfileRelationship `json:"Profiles,omitempty" yaml:"Profiles,omitempty"`
 }
 
 // NewIamEndPointUserPolicyAllOf instantiates a new IamEndPointUserPolicyAllOf object
@@ -75,22 +75,23 @@ func (o *IamEndPointUserPolicyAllOf) SetPasswordProperties(v IamEndPointPassword
 	o.PasswordProperties = &v
 }
 
-// GetEndPointUserRoles returns the EndPointUserRoles field value if set, zero value otherwise.
+// GetEndPointUserRoles returns the EndPointUserRoles field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamEndPointUserPolicyAllOf) GetEndPointUserRoles() []IamEndPointUserRoleRelationship {
-	if o == nil || o.EndPointUserRoles == nil {
+	if o == nil {
 		var ret []IamEndPointUserRoleRelationship
 		return ret
 	}
-	return *o.EndPointUserRoles
+	return o.EndPointUserRoles
 }
 
 // GetEndPointUserRolesOk returns a tuple with the EndPointUserRoles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamEndPointUserPolicyAllOf) GetEndPointUserRolesOk() (*[]IamEndPointUserRoleRelationship, bool) {
 	if o == nil || o.EndPointUserRoles == nil {
 		return nil, false
 	}
-	return o.EndPointUserRoles, true
+	return &o.EndPointUserRoles, true
 }
 
 // HasEndPointUserRoles returns a boolean if a field has been set.
@@ -104,7 +105,7 @@ func (o *IamEndPointUserPolicyAllOf) HasEndPointUserRoles() bool {
 
 // SetEndPointUserRoles gets a reference to the given []IamEndPointUserRoleRelationship and assigns it to the EndPointUserRoles field.
 func (o *IamEndPointUserPolicyAllOf) SetEndPointUserRoles(v []IamEndPointUserRoleRelationship) {
-	o.EndPointUserRoles = &v
+	o.EndPointUserRoles = v
 }
 
 // GetOrganization returns the Organization field value if set, zero value otherwise.
@@ -139,22 +140,23 @@ func (o *IamEndPointUserPolicyAllOf) SetOrganization(v OrganizationOrganizationR
 	o.Organization = &v
 }
 
-// GetProfiles returns the Profiles field value if set, zero value otherwise.
+// GetProfiles returns the Profiles field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamEndPointUserPolicyAllOf) GetProfiles() []PolicyAbstractConfigProfileRelationship {
-	if o == nil || o.Profiles == nil {
+	if o == nil {
 		var ret []PolicyAbstractConfigProfileRelationship
 		return ret
 	}
-	return *o.Profiles
+	return o.Profiles
 }
 
 // GetProfilesOk returns a tuple with the Profiles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamEndPointUserPolicyAllOf) GetProfilesOk() (*[]PolicyAbstractConfigProfileRelationship, bool) {
 	if o == nil || o.Profiles == nil {
 		return nil, false
 	}
-	return o.Profiles, true
+	return &o.Profiles, true
 }
 
 // HasProfiles returns a boolean if a field has been set.
@@ -168,7 +170,7 @@ func (o *IamEndPointUserPolicyAllOf) HasProfiles() bool {
 
 // SetProfiles gets a reference to the given []PolicyAbstractConfigProfileRelationship and assigns it to the Profiles field.
 func (o *IamEndPointUserPolicyAllOf) SetProfiles(v []PolicyAbstractConfigProfileRelationship) {
-	o.Profiles = &v
+	o.Profiles = v
 }
 
 func (o IamEndPointUserPolicyAllOf) MarshalJSON() ([]byte, error) {

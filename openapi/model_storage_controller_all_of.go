@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,42 +18,57 @@ import (
 
 // StorageControllerAllOf Definition of the list of properties defined in 'storage.Controller', excluding properties defined in parent classes.
 type StorageControllerAllOf struct {
+	// The flags for the storage controller.
 	ControllerFlags *string `json:"ControllerFlags,omitempty" yaml:"ControllerFlags,omitempty"`
-	// It shows the Id of controller.
+	// The Id of the storage controller.
 	ControllerId *string `json:"ControllerId,omitempty" yaml:"ControllerId,omitempty"`
-	// It shows the current status of controller.
+	// The current status of controller.
 	ControllerStatus *string `json:"ControllerStatus,omitempty" yaml:"ControllerStatus,omitempty"`
-	// It shows the hardware revision of controller.
+	// Storage controller has detected disks in foreign config.
+	ForeignConfigPresent *bool `json:"ForeignConfigPresent,omitempty" yaml:"ForeignConfigPresent,omitempty"`
+	// The hardware revision of controller.
 	HwRevision *string `json:"HwRevision,omitempty" yaml:"HwRevision,omitempty"`
-	// It shows CIMC support for out-of-band configuration of controller.
+	// Interface types are Sas, Sata, PCH.
+	InterfaceType *string `json:"InterfaceType,omitempty" yaml:"InterfaceType,omitempty"`
+	// Maximum virtual drives that can be created on this Storage Controller.
+	MaxVolumesSupported *int64 `json:"MaxVolumesSupported,omitempty" yaml:"MaxVolumesSupported,omitempty"`
+	// The CIMC support for out-of-band configuration of controller.
 	OobInterfaceSupported *string `json:"OobInterfaceSupported,omitempty" yaml:"OobInterfaceSupported,omitempty"`
-	// It shows the current operational state of controller.
-	OperState   *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
+	// The current operational state of controller.
+	OperState *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
+	// Operability state of the storage controller.
 	Operability *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
-	// It shows the current pci address of controller.
+	// The current pci address of controller.
 	PciAddr *string `json:"PciAddr,omitempty" yaml:"PciAddr,omitempty"`
-	// It shows the pci slot name for the controller.
+	// The pci slot name for the controller.
 	PciSlot *string `json:"PciSlot,omitempty" yaml:"PciSlot,omitempty"`
-	// It shows physical presence or absence of the controller on server.
+	// Physical Presence State for the Storage Controller.
 	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
-	// It shows the RAID levels supported by controller.
-	RaidSupport        *string `json:"RaidSupport,omitempty" yaml:"RaidSupport,omitempty"`
-	RebuildRate        *string `json:"RebuildRate,omitempty" yaml:"RebuildRate,omitempty"`
+	// The RAID levels supported by controller.
+	RaidSupport *string `json:"RaidSupport,omitempty" yaml:"RaidSupport,omitempty"`
+	// Logical volume or RAID rebuild rate of Storage Controller.
+	RebuildRate *string `json:"RebuildRate,omitempty" yaml:"RebuildRate,omitempty"`
+	// Storage controller disk self encryption state.
 	SelfEncryptEnabled *string `json:"SelfEncryptEnabled,omitempty" yaml:"SelfEncryptEnabled,omitempty"`
-	// Controller types are SAS, SATA, PCH, NVME.
-	Type         *string                   `json:"Type,omitempty" yaml:"Type,omitempty"`
-	ComputeBoard *ComputeBoardRelationship `json:"ComputeBoard,omitempty" yaml:"ComputeBoard,omitempty"`
+	// Controller types are Raid, FlexFlash.
+	Type            *string                      `json:"Type,omitempty" yaml:"Type,omitempty"`
+	ComputeBlade    *ComputeBladeRelationship    `json:"ComputeBlade,omitempty" yaml:"ComputeBlade,omitempty"`
+	ComputeBoard    *ComputeBoardRelationship    `json:"ComputeBoard,omitempty" yaml:"ComputeBoard,omitempty"`
+	ComputeRackUnit *ComputeRackUnitRelationship `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
+	// An array of relationships to storageDiskGroup resources.
+	DiskGroup           []StorageDiskGroupRelationship   `json:"DiskGroup,omitempty" yaml:"DiskGroup,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to storagePhysicalDiskExtension resources.
-	PhysicalDiskExtensions *[]StoragePhysicalDiskExtensionRelationship `json:"PhysicalDiskExtensions,omitempty" yaml:"PhysicalDiskExtensions,omitempty"`
+	PhysicalDiskExtensions []StoragePhysicalDiskExtensionRelationship `json:"PhysicalDiskExtensions,omitempty" yaml:"PhysicalDiskExtensions,omitempty"`
 	// An array of relationships to storagePhysicalDisk resources.
-	PhysicalDisks    *[]StoragePhysicalDiskRelationship   `json:"PhysicalDisks,omitempty" yaml:"PhysicalDisks,omitempty"`
+	PhysicalDisks    []StoragePhysicalDiskRelationship    `json:"PhysicalDisks,omitempty" yaml:"PhysicalDisks,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 	// An array of relationships to firmwareRunningFirmware resources.
-	RunningFirmware *[]FirmwareRunningFirmwareRelationship `json:"RunningFirmware,omitempty" yaml:"RunningFirmware,omitempty"`
+	RunningFirmware []FirmwareRunningFirmwareRelationship `json:"RunningFirmware,omitempty" yaml:"RunningFirmware,omitempty"`
 	// An array of relationships to storageVirtualDriveExtension resources.
-	VirtualDriveExtensions *[]StorageVirtualDriveExtensionRelationship `json:"VirtualDriveExtensions,omitempty" yaml:"VirtualDriveExtensions,omitempty"`
+	VirtualDriveExtensions []StorageVirtualDriveExtensionRelationship `json:"VirtualDriveExtensions,omitempty" yaml:"VirtualDriveExtensions,omitempty"`
 	// An array of relationships to storageVirtualDrive resources.
-	VirtualDrives *[]StorageVirtualDriveRelationship `json:"VirtualDrives,omitempty" yaml:"VirtualDrives,omitempty"`
+	VirtualDrives []StorageVirtualDriveRelationship `json:"VirtualDrives,omitempty" yaml:"VirtualDrives,omitempty"`
 }
 
 // NewStorageControllerAllOf instantiates a new StorageControllerAllOf object
@@ -169,6 +184,38 @@ func (o *StorageControllerAllOf) SetControllerStatus(v string) {
 	o.ControllerStatus = &v
 }
 
+// GetForeignConfigPresent returns the ForeignConfigPresent field value if set, zero value otherwise.
+func (o *StorageControllerAllOf) GetForeignConfigPresent() bool {
+	if o == nil || o.ForeignConfigPresent == nil {
+		var ret bool
+		return ret
+	}
+	return *o.ForeignConfigPresent
+}
+
+// GetForeignConfigPresentOk returns a tuple with the ForeignConfigPresent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageControllerAllOf) GetForeignConfigPresentOk() (*bool, bool) {
+	if o == nil || o.ForeignConfigPresent == nil {
+		return nil, false
+	}
+	return o.ForeignConfigPresent, true
+}
+
+// HasForeignConfigPresent returns a boolean if a field has been set.
+func (o *StorageControllerAllOf) HasForeignConfigPresent() bool {
+	if o != nil && o.ForeignConfigPresent != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetForeignConfigPresent gets a reference to the given bool and assigns it to the ForeignConfigPresent field.
+func (o *StorageControllerAllOf) SetForeignConfigPresent(v bool) {
+	o.ForeignConfigPresent = &v
+}
+
 // GetHwRevision returns the HwRevision field value if set, zero value otherwise.
 func (o *StorageControllerAllOf) GetHwRevision() string {
 	if o == nil || o.HwRevision == nil {
@@ -199,6 +246,70 @@ func (o *StorageControllerAllOf) HasHwRevision() bool {
 // SetHwRevision gets a reference to the given string and assigns it to the HwRevision field.
 func (o *StorageControllerAllOf) SetHwRevision(v string) {
 	o.HwRevision = &v
+}
+
+// GetInterfaceType returns the InterfaceType field value if set, zero value otherwise.
+func (o *StorageControllerAllOf) GetInterfaceType() string {
+	if o == nil || o.InterfaceType == nil {
+		var ret string
+		return ret
+	}
+	return *o.InterfaceType
+}
+
+// GetInterfaceTypeOk returns a tuple with the InterfaceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageControllerAllOf) GetInterfaceTypeOk() (*string, bool) {
+	if o == nil || o.InterfaceType == nil {
+		return nil, false
+	}
+	return o.InterfaceType, true
+}
+
+// HasInterfaceType returns a boolean if a field has been set.
+func (o *StorageControllerAllOf) HasInterfaceType() bool {
+	if o != nil && o.InterfaceType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInterfaceType gets a reference to the given string and assigns it to the InterfaceType field.
+func (o *StorageControllerAllOf) SetInterfaceType(v string) {
+	o.InterfaceType = &v
+}
+
+// GetMaxVolumesSupported returns the MaxVolumesSupported field value if set, zero value otherwise.
+func (o *StorageControllerAllOf) GetMaxVolumesSupported() int64 {
+	if o == nil || o.MaxVolumesSupported == nil {
+		var ret int64
+		return ret
+	}
+	return *o.MaxVolumesSupported
+}
+
+// GetMaxVolumesSupportedOk returns a tuple with the MaxVolumesSupported field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageControllerAllOf) GetMaxVolumesSupportedOk() (*int64, bool) {
+	if o == nil || o.MaxVolumesSupported == nil {
+		return nil, false
+	}
+	return o.MaxVolumesSupported, true
+}
+
+// HasMaxVolumesSupported returns a boolean if a field has been set.
+func (o *StorageControllerAllOf) HasMaxVolumesSupported() bool {
+	if o != nil && o.MaxVolumesSupported != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxVolumesSupported gets a reference to the given int64 and assigns it to the MaxVolumesSupported field.
+func (o *StorageControllerAllOf) SetMaxVolumesSupported(v int64) {
+	o.MaxVolumesSupported = &v
 }
 
 // GetOobInterfaceSupported returns the OobInterfaceSupported field value if set, zero value otherwise.
@@ -521,6 +632,38 @@ func (o *StorageControllerAllOf) SetType(v string) {
 	o.Type = &v
 }
 
+// GetComputeBlade returns the ComputeBlade field value if set, zero value otherwise.
+func (o *StorageControllerAllOf) GetComputeBlade() ComputeBladeRelationship {
+	if o == nil || o.ComputeBlade == nil {
+		var ret ComputeBladeRelationship
+		return ret
+	}
+	return *o.ComputeBlade
+}
+
+// GetComputeBladeOk returns a tuple with the ComputeBlade field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageControllerAllOf) GetComputeBladeOk() (*ComputeBladeRelationship, bool) {
+	if o == nil || o.ComputeBlade == nil {
+		return nil, false
+	}
+	return o.ComputeBlade, true
+}
+
+// HasComputeBlade returns a boolean if a field has been set.
+func (o *StorageControllerAllOf) HasComputeBlade() bool {
+	if o != nil && o.ComputeBlade != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComputeBlade gets a reference to the given ComputeBladeRelationship and assigns it to the ComputeBlade field.
+func (o *StorageControllerAllOf) SetComputeBlade(v ComputeBladeRelationship) {
+	o.ComputeBlade = &v
+}
+
 // GetComputeBoard returns the ComputeBoard field value if set, zero value otherwise.
 func (o *StorageControllerAllOf) GetComputeBoard() ComputeBoardRelationship {
 	if o == nil || o.ComputeBoard == nil {
@@ -553,22 +696,120 @@ func (o *StorageControllerAllOf) SetComputeBoard(v ComputeBoardRelationship) {
 	o.ComputeBoard = &v
 }
 
-// GetPhysicalDiskExtensions returns the PhysicalDiskExtensions field value if set, zero value otherwise.
+// GetComputeRackUnit returns the ComputeRackUnit field value if set, zero value otherwise.
+func (o *StorageControllerAllOf) GetComputeRackUnit() ComputeRackUnitRelationship {
+	if o == nil || o.ComputeRackUnit == nil {
+		var ret ComputeRackUnitRelationship
+		return ret
+	}
+	return *o.ComputeRackUnit
+}
+
+// GetComputeRackUnitOk returns a tuple with the ComputeRackUnit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageControllerAllOf) GetComputeRackUnitOk() (*ComputeRackUnitRelationship, bool) {
+	if o == nil || o.ComputeRackUnit == nil {
+		return nil, false
+	}
+	return o.ComputeRackUnit, true
+}
+
+// HasComputeRackUnit returns a boolean if a field has been set.
+func (o *StorageControllerAllOf) HasComputeRackUnit() bool {
+	if o != nil && o.ComputeRackUnit != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComputeRackUnit gets a reference to the given ComputeRackUnitRelationship and assigns it to the ComputeRackUnit field.
+func (o *StorageControllerAllOf) SetComputeRackUnit(v ComputeRackUnitRelationship) {
+	o.ComputeRackUnit = &v
+}
+
+// GetDiskGroup returns the DiskGroup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StorageControllerAllOf) GetDiskGroup() []StorageDiskGroupRelationship {
+	if o == nil {
+		var ret []StorageDiskGroupRelationship
+		return ret
+	}
+	return o.DiskGroup
+}
+
+// GetDiskGroupOk returns a tuple with the DiskGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StorageControllerAllOf) GetDiskGroupOk() (*[]StorageDiskGroupRelationship, bool) {
+	if o == nil || o.DiskGroup == nil {
+		return nil, false
+	}
+	return &o.DiskGroup, true
+}
+
+// HasDiskGroup returns a boolean if a field has been set.
+func (o *StorageControllerAllOf) HasDiskGroup() bool {
+	if o != nil && o.DiskGroup != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDiskGroup gets a reference to the given []StorageDiskGroupRelationship and assigns it to the DiskGroup field.
+func (o *StorageControllerAllOf) SetDiskGroup(v []StorageDiskGroupRelationship) {
+	o.DiskGroup = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *StorageControllerAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageControllerAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *StorageControllerAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *StorageControllerAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetPhysicalDiskExtensions returns the PhysicalDiskExtensions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageControllerAllOf) GetPhysicalDiskExtensions() []StoragePhysicalDiskExtensionRelationship {
-	if o == nil || o.PhysicalDiskExtensions == nil {
+	if o == nil {
 		var ret []StoragePhysicalDiskExtensionRelationship
 		return ret
 	}
-	return *o.PhysicalDiskExtensions
+	return o.PhysicalDiskExtensions
 }
 
 // GetPhysicalDiskExtensionsOk returns a tuple with the PhysicalDiskExtensions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageControllerAllOf) GetPhysicalDiskExtensionsOk() (*[]StoragePhysicalDiskExtensionRelationship, bool) {
 	if o == nil || o.PhysicalDiskExtensions == nil {
 		return nil, false
 	}
-	return o.PhysicalDiskExtensions, true
+	return &o.PhysicalDiskExtensions, true
 }
 
 // HasPhysicalDiskExtensions returns a boolean if a field has been set.
@@ -582,25 +823,26 @@ func (o *StorageControllerAllOf) HasPhysicalDiskExtensions() bool {
 
 // SetPhysicalDiskExtensions gets a reference to the given []StoragePhysicalDiskExtensionRelationship and assigns it to the PhysicalDiskExtensions field.
 func (o *StorageControllerAllOf) SetPhysicalDiskExtensions(v []StoragePhysicalDiskExtensionRelationship) {
-	o.PhysicalDiskExtensions = &v
+	o.PhysicalDiskExtensions = v
 }
 
-// GetPhysicalDisks returns the PhysicalDisks field value if set, zero value otherwise.
+// GetPhysicalDisks returns the PhysicalDisks field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageControllerAllOf) GetPhysicalDisks() []StoragePhysicalDiskRelationship {
-	if o == nil || o.PhysicalDisks == nil {
+	if o == nil {
 		var ret []StoragePhysicalDiskRelationship
 		return ret
 	}
-	return *o.PhysicalDisks
+	return o.PhysicalDisks
 }
 
 // GetPhysicalDisksOk returns a tuple with the PhysicalDisks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageControllerAllOf) GetPhysicalDisksOk() (*[]StoragePhysicalDiskRelationship, bool) {
 	if o == nil || o.PhysicalDisks == nil {
 		return nil, false
 	}
-	return o.PhysicalDisks, true
+	return &o.PhysicalDisks, true
 }
 
 // HasPhysicalDisks returns a boolean if a field has been set.
@@ -614,7 +856,7 @@ func (o *StorageControllerAllOf) HasPhysicalDisks() bool {
 
 // SetPhysicalDisks gets a reference to the given []StoragePhysicalDiskRelationship and assigns it to the PhysicalDisks field.
 func (o *StorageControllerAllOf) SetPhysicalDisks(v []StoragePhysicalDiskRelationship) {
-	o.PhysicalDisks = &v
+	o.PhysicalDisks = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -649,22 +891,23 @@ func (o *StorageControllerAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRe
 	o.RegisteredDevice = &v
 }
 
-// GetRunningFirmware returns the RunningFirmware field value if set, zero value otherwise.
+// GetRunningFirmware returns the RunningFirmware field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageControllerAllOf) GetRunningFirmware() []FirmwareRunningFirmwareRelationship {
-	if o == nil || o.RunningFirmware == nil {
+	if o == nil {
 		var ret []FirmwareRunningFirmwareRelationship
 		return ret
 	}
-	return *o.RunningFirmware
+	return o.RunningFirmware
 }
 
 // GetRunningFirmwareOk returns a tuple with the RunningFirmware field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageControllerAllOf) GetRunningFirmwareOk() (*[]FirmwareRunningFirmwareRelationship, bool) {
 	if o == nil || o.RunningFirmware == nil {
 		return nil, false
 	}
-	return o.RunningFirmware, true
+	return &o.RunningFirmware, true
 }
 
 // HasRunningFirmware returns a boolean if a field has been set.
@@ -678,25 +921,26 @@ func (o *StorageControllerAllOf) HasRunningFirmware() bool {
 
 // SetRunningFirmware gets a reference to the given []FirmwareRunningFirmwareRelationship and assigns it to the RunningFirmware field.
 func (o *StorageControllerAllOf) SetRunningFirmware(v []FirmwareRunningFirmwareRelationship) {
-	o.RunningFirmware = &v
+	o.RunningFirmware = v
 }
 
-// GetVirtualDriveExtensions returns the VirtualDriveExtensions field value if set, zero value otherwise.
+// GetVirtualDriveExtensions returns the VirtualDriveExtensions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageControllerAllOf) GetVirtualDriveExtensions() []StorageVirtualDriveExtensionRelationship {
-	if o == nil || o.VirtualDriveExtensions == nil {
+	if o == nil {
 		var ret []StorageVirtualDriveExtensionRelationship
 		return ret
 	}
-	return *o.VirtualDriveExtensions
+	return o.VirtualDriveExtensions
 }
 
 // GetVirtualDriveExtensionsOk returns a tuple with the VirtualDriveExtensions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageControllerAllOf) GetVirtualDriveExtensionsOk() (*[]StorageVirtualDriveExtensionRelationship, bool) {
 	if o == nil || o.VirtualDriveExtensions == nil {
 		return nil, false
 	}
-	return o.VirtualDriveExtensions, true
+	return &o.VirtualDriveExtensions, true
 }
 
 // HasVirtualDriveExtensions returns a boolean if a field has been set.
@@ -710,25 +954,26 @@ func (o *StorageControllerAllOf) HasVirtualDriveExtensions() bool {
 
 // SetVirtualDriveExtensions gets a reference to the given []StorageVirtualDriveExtensionRelationship and assigns it to the VirtualDriveExtensions field.
 func (o *StorageControllerAllOf) SetVirtualDriveExtensions(v []StorageVirtualDriveExtensionRelationship) {
-	o.VirtualDriveExtensions = &v
+	o.VirtualDriveExtensions = v
 }
 
-// GetVirtualDrives returns the VirtualDrives field value if set, zero value otherwise.
+// GetVirtualDrives returns the VirtualDrives field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageControllerAllOf) GetVirtualDrives() []StorageVirtualDriveRelationship {
-	if o == nil || o.VirtualDrives == nil {
+	if o == nil {
 		var ret []StorageVirtualDriveRelationship
 		return ret
 	}
-	return *o.VirtualDrives
+	return o.VirtualDrives
 }
 
 // GetVirtualDrivesOk returns a tuple with the VirtualDrives field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageControllerAllOf) GetVirtualDrivesOk() (*[]StorageVirtualDriveRelationship, bool) {
 	if o == nil || o.VirtualDrives == nil {
 		return nil, false
 	}
-	return o.VirtualDrives, true
+	return &o.VirtualDrives, true
 }
 
 // HasVirtualDrives returns a boolean if a field has been set.
@@ -742,7 +987,7 @@ func (o *StorageControllerAllOf) HasVirtualDrives() bool {
 
 // SetVirtualDrives gets a reference to the given []StorageVirtualDriveRelationship and assigns it to the VirtualDrives field.
 func (o *StorageControllerAllOf) SetVirtualDrives(v []StorageVirtualDriveRelationship) {
-	o.VirtualDrives = &v
+	o.VirtualDrives = v
 }
 
 func (o StorageControllerAllOf) MarshalJSON() ([]byte, error) {
@@ -756,8 +1001,17 @@ func (o StorageControllerAllOf) MarshalJSON() ([]byte, error) {
 	if o.ControllerStatus != nil {
 		toSerialize["ControllerStatus"] = o.ControllerStatus
 	}
+	if o.ForeignConfigPresent != nil {
+		toSerialize["ForeignConfigPresent"] = o.ForeignConfigPresent
+	}
 	if o.HwRevision != nil {
 		toSerialize["HwRevision"] = o.HwRevision
+	}
+	if o.InterfaceType != nil {
+		toSerialize["InterfaceType"] = o.InterfaceType
+	}
+	if o.MaxVolumesSupported != nil {
+		toSerialize["MaxVolumesSupported"] = o.MaxVolumesSupported
 	}
 	if o.OobInterfaceSupported != nil {
 		toSerialize["OobInterfaceSupported"] = o.OobInterfaceSupported
@@ -789,8 +1043,20 @@ func (o StorageControllerAllOf) MarshalJSON() ([]byte, error) {
 	if o.Type != nil {
 		toSerialize["Type"] = o.Type
 	}
+	if o.ComputeBlade != nil {
+		toSerialize["ComputeBlade"] = o.ComputeBlade
+	}
 	if o.ComputeBoard != nil {
 		toSerialize["ComputeBoard"] = o.ComputeBoard
+	}
+	if o.ComputeRackUnit != nil {
+		toSerialize["ComputeRackUnit"] = o.ComputeRackUnit
+	}
+	if o.DiskGroup != nil {
+		toSerialize["DiskGroup"] = o.DiskGroup
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.PhysicalDiskExtensions != nil {
 		toSerialize["PhysicalDiskExtensions"] = o.PhysicalDiskExtensions

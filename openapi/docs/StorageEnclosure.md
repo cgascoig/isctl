@@ -4,18 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChassisId** | Pointer to **int64** |  | [optional] [readonly] 
-**Description** | Pointer to **string** |  | [optional] [readonly] 
-**EnclosureId** | Pointer to **int64** |  | [optional] [readonly] 
-**NumSlots** | Pointer to **int64** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**ServerId** | Pointer to **int64** |  | [optional] [readonly] 
-**Type** | Pointer to **string** |  | [optional] [readonly] 
+**ChassisId** | Pointer to **int64** | This represent the chassis-ID that houses the storage enclosure. | [optional] [readonly] 
+**Description** | Pointer to **string** | This represnets the description for the storage enclosure. | [optional] [readonly] 
+**EnclosureId** | Pointer to **int64** | This represnets the Identifier for the storage enclosure. | [optional] [readonly] 
+**NumSlots** | Pointer to **int64** | This represent the number of slots present in storage enclosure. | [optional] [readonly] 
+**Presence** | Pointer to **string** | This represent the availability of storage enclosure. | [optional] [readonly] 
+**ServerId** | Pointer to **int64** | This represent the server-ID that houses the storage enclosure. | [optional] [readonly] 
+**Type** | Pointer to **string** | This represent the type of storage enclosure. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **EnclosureDiskSlots** | Pointer to [**[]StorageEnclosureDiskSlotEpRelationship**](storage.EnclosureDiskSlotEp.Relationship.md) | An array of relationships to storageEnclosureDiskSlotEp resources. | [optional] [readonly] 
 **EnclosureDisks** | Pointer to [**[]StorageEnclosureDiskRelationship**](storage.EnclosureDisk.Relationship.md) | An array of relationships to storageEnclosureDisk resources. | [optional] [readonly] 
 **EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PhysicalDisks** | Pointer to [**[]StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) | An array of relationships to storagePhysicalDisk resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -288,6 +289,16 @@ SetEnclosureDiskSlots sets EnclosureDiskSlots field to given value.
 
 HasEnclosureDiskSlots returns a boolean if a field has been set.
 
+### SetEnclosureDiskSlotsNil
+
+`func (o *StorageEnclosure) SetEnclosureDiskSlotsNil(b bool)`
+
+ SetEnclosureDiskSlotsNil sets the value for EnclosureDiskSlots to be an explicit nil
+
+### UnsetEnclosureDiskSlots
+`func (o *StorageEnclosure) UnsetEnclosureDiskSlots()`
+
+UnsetEnclosureDiskSlots ensures that no value is present for EnclosureDiskSlots, not even an explicit nil
 ### GetEnclosureDisks
 
 `func (o *StorageEnclosure) GetEnclosureDisks() []StorageEnclosureDiskRelationship`
@@ -313,6 +324,16 @@ SetEnclosureDisks sets EnclosureDisks field to given value.
 
 HasEnclosureDisks returns a boolean if a field has been set.
 
+### SetEnclosureDisksNil
+
+`func (o *StorageEnclosure) SetEnclosureDisksNil(b bool)`
+
+ SetEnclosureDisksNil sets the value for EnclosureDisks to be an explicit nil
+
+### UnsetEnclosureDisks
+`func (o *StorageEnclosure) UnsetEnclosureDisks()`
+
+UnsetEnclosureDisks ensures that no value is present for EnclosureDisks, not even an explicit nil
 ### GetEquipmentChassis
 
 `func (o *StorageEnclosure) GetEquipmentChassis() EquipmentChassisRelationship`
@@ -337,6 +358,31 @@ SetEquipmentChassis sets EquipmentChassis field to given value.
 `func (o *StorageEnclosure) HasEquipmentChassis() bool`
 
 HasEquipmentChassis returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageEnclosure) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageEnclosure) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageEnclosure) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageEnclosure) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPhysicalDisks
 
@@ -363,6 +409,16 @@ SetPhysicalDisks sets PhysicalDisks field to given value.
 
 HasPhysicalDisks returns a boolean if a field has been set.
 
+### SetPhysicalDisksNil
+
+`func (o *StorageEnclosure) SetPhysicalDisksNil(b bool)`
+
+ SetPhysicalDisksNil sets the value for PhysicalDisks to be an explicit nil
+
+### UnsetPhysicalDisks
+`func (o *StorageEnclosure) UnsetPhysicalDisks()`
+
+UnsetPhysicalDisks ensures that no value is present for PhysicalDisks, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *StorageEnclosure) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

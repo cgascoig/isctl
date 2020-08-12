@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,24 +18,27 @@ import (
 
 // TelemetryDruidStringFirstLastAggregator Computes the metric value with the minimum/maximum timestamp or null if no row exist.
 type TelemetryDruidStringFirstLastAggregator struct {
-	TelemetryDruidBaseAggregator `yaml:"TelemetryDruidBaseAggregator,inline"`
+	// The aggregator type.
+	Type string `json:"type" yaml:"type"`
 	// Output name for the minimum/maximum timestamp value.
 	Name string `json:"name" yaml:"name"`
 	// Name of the metric column.
 	FieldName string `json:"fieldName" yaml:"fieldName"`
 	// null
-	MaxStringBytes int32 `json:"maxStringBytes" yaml:"maxStringBytes"`
+	MaxStringBytes *int32 `json:"maxStringBytes,omitempty" yaml:"maxStringBytes,omitempty"`
 }
 
 // NewTelemetryDruidStringFirstLastAggregator instantiates a new TelemetryDruidStringFirstLastAggregator object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTelemetryDruidStringFirstLastAggregator(name string, fieldName string, maxStringBytes int32) *TelemetryDruidStringFirstLastAggregator {
+func NewTelemetryDruidStringFirstLastAggregator(type_ string, name string, fieldName string) *TelemetryDruidStringFirstLastAggregator {
 	this := TelemetryDruidStringFirstLastAggregator{}
+	this.Type = type_
 	this.Name = name
 	this.FieldName = fieldName
-	this.MaxStringBytes = maxStringBytes
+	var maxStringBytes int32 = 1024
+	this.MaxStringBytes = &maxStringBytes
 	return &this
 }
 
@@ -45,8 +48,32 @@ func NewTelemetryDruidStringFirstLastAggregator(name string, fieldName string, m
 func NewTelemetryDruidStringFirstLastAggregatorWithDefaults() *TelemetryDruidStringFirstLastAggregator {
 	this := TelemetryDruidStringFirstLastAggregator{}
 	var maxStringBytes int32 = 1024
-	this.MaxStringBytes = maxStringBytes
+	this.MaxStringBytes = &maxStringBytes
 	return &this
+}
+
+// GetType returns the Type field value
+func (o *TelemetryDruidStringFirstLastAggregator) GetType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *TelemetryDruidStringFirstLastAggregator) GetTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *TelemetryDruidStringFirstLastAggregator) SetType(v string) {
+	o.Type = v
 }
 
 // GetName returns the Name field value
@@ -97,39 +124,42 @@ func (o *TelemetryDruidStringFirstLastAggregator) SetFieldName(v string) {
 	o.FieldName = v
 }
 
-// GetMaxStringBytes returns the MaxStringBytes field value
+// GetMaxStringBytes returns the MaxStringBytes field value if set, zero value otherwise.
 func (o *TelemetryDruidStringFirstLastAggregator) GetMaxStringBytes() int32 {
-	if o == nil {
+	if o == nil || o.MaxStringBytes == nil {
 		var ret int32
 		return ret
 	}
-
-	return o.MaxStringBytes
+	return *o.MaxStringBytes
 }
 
-// GetMaxStringBytesOk returns a tuple with the MaxStringBytes field value
+// GetMaxStringBytesOk returns a tuple with the MaxStringBytes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TelemetryDruidStringFirstLastAggregator) GetMaxStringBytesOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || o.MaxStringBytes == nil {
 		return nil, false
 	}
-	return &o.MaxStringBytes, true
+	return o.MaxStringBytes, true
 }
 
-// SetMaxStringBytes sets field value
+// HasMaxStringBytes returns a boolean if a field has been set.
+func (o *TelemetryDruidStringFirstLastAggregator) HasMaxStringBytes() bool {
+	if o != nil && o.MaxStringBytes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxStringBytes gets a reference to the given int32 and assigns it to the MaxStringBytes field.
 func (o *TelemetryDruidStringFirstLastAggregator) SetMaxStringBytes(v int32) {
-	o.MaxStringBytes = v
+	o.MaxStringBytes = &v
 }
 
 func (o TelemetryDruidStringFirstLastAggregator) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedTelemetryDruidBaseAggregator, errTelemetryDruidBaseAggregator := json.Marshal(o.TelemetryDruidBaseAggregator)
-	if errTelemetryDruidBaseAggregator != nil {
-		return []byte{}, errTelemetryDruidBaseAggregator
-	}
-	errTelemetryDruidBaseAggregator = json.Unmarshal([]byte(serializedTelemetryDruidBaseAggregator), &toSerialize)
-	if errTelemetryDruidBaseAggregator != nil {
-		return []byte{}, errTelemetryDruidBaseAggregator
+	if true {
+		toSerialize["type"] = o.Type
 	}
 	if true {
 		toSerialize["name"] = o.Name
@@ -137,7 +167,7 @@ func (o TelemetryDruidStringFirstLastAggregator) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["fieldName"] = o.FieldName
 	}
-	if true {
+	if o.MaxStringBytes != nil {
 		toSerialize["maxStringBytes"] = o.MaxStringBytes
 	}
 	return json.Marshal(toSerialize)

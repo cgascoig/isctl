@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DataIpAddress** | Pointer to **string** | The storage data IP address for the HyperFlex cluster. | [optional] 
-**HypervisorType** | Pointer to **string** | The hypervisor type for the HyperFlex cluster. | [optional] [default to "ESXi"]
+**HypervisorType** | Pointer to **string** | The hypervisor type for the HyperFlex cluster. * &#x60;ESXi&#x60; - ESXi hypervisor as specified by the user. * &#x60;HYPERV&#x60; - Hyperv hypervisor as specified by the user. * &#x60;KVM&#x60; - KVM hypervisor as specified by the user. | [optional] [default to "ESXi"]
 **MacAddressPrefix** | Pointer to **string** | The MAC address prefix in the form of 00:25:B5:XX. | [optional] 
 **MgmtIpAddress** | Pointer to **string** | The management IP address for the HyperFlex cluster. | [optional] 
-**MgmtPlatform** | Pointer to **string** | The management platform for the HyperFlex cluster. | [optional] [default to "FI"]
+**MgmtPlatform** | Pointer to **string** | The management platform for the HyperFlex cluster. * &#x60;FI&#x60; - The host servers used in the cluster deployment are managed by a UCS Fabric Interconnect. * &#x60;EDGE&#x60; - The host servers used in the cluster deployment are standalone severs. | [optional] [default to "FI"]
 **Replication** | Pointer to **int64** | The number of copies of each data block written. | [optional] 
 **StorageDataVlan** | Pointer to [**HyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
 **WwxnPrefix** | Pointer to **string** | The WWxN prefix in the form of 20:00:00:25:B5:XX. | [optional] 
@@ -499,6 +499,16 @@ SetNodeProfileConfig sets NodeProfileConfig field to given value.
 
 HasNodeProfileConfig returns a boolean if a field has been set.
 
+### SetNodeProfileConfigNil
+
+`func (o *HyperflexClusterProfileAllOf) SetNodeProfileConfigNil(b bool)`
+
+ SetNodeProfileConfigNil sets the value for NodeProfileConfig to be an explicit nil
+
+### UnsetNodeProfileConfig
+`func (o *HyperflexClusterProfileAllOf) UnsetNodeProfileConfig()`
+
+UnsetNodeProfileConfig ensures that no value is present for NodeProfileConfig, not even an explicit nil
 ### GetOrganization
 
 `func (o *HyperflexClusterProfileAllOf) GetOrganization() OrganizationOrganizationRelationship`
@@ -574,6 +584,16 @@ SetRunningWorkflows sets RunningWorkflows field to given value.
 
 HasRunningWorkflows returns a boolean if a field has been set.
 
+### SetRunningWorkflowsNil
+
+`func (o *HyperflexClusterProfileAllOf) SetRunningWorkflowsNil(b bool)`
+
+ SetRunningWorkflowsNil sets the value for RunningWorkflows to be an explicit nil
+
+### UnsetRunningWorkflows
+`func (o *HyperflexClusterProfileAllOf) UnsetRunningWorkflows()`
+
+UnsetRunningWorkflows ensures that no value is present for RunningWorkflows, not even an explicit nil
 ### GetSoftwareVersion
 
 `func (o *HyperflexClusterProfileAllOf) GetSoftwareVersion() HyperflexSoftwareVersionPolicyRelationship`

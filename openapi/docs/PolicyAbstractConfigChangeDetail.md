@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Changes** | Pointer to **[]string** |  | [optional] 
 **ConfigChangeContext** | Pointer to [**PolicyConfigResultContext**](policy.ConfigResultContext.md) |  | [optional] 
-**ConfigChangeFlag** | Pointer to **string** | Config change flag to differentiate Pending-changes and Config-drift. | [optional] [default to "Pending-changes"]
+**ConfigChangeFlag** | Pointer to **string** | Config change flag to differentiate Pending-changes and Config-drift. * &#x60;Pending-changes&#x60; - Config change flag represents changes are due to not deployed changes from Intersight. * &#x60;Drift-changes&#x60; - Config change flag represents changes are due to endpoint configuration changes. | [optional] [default to "Pending-changes"]
 **Disruptions** | Pointer to **[]string** |  | [optional] 
-**Message** | Pointer to **interface{}** | Detailed description of the config change. type: string | [optional] 
-**ModStatus** | Pointer to **string** | Modification status of the mo in this config change. | [optional] [default to "None"]
+**Message** | Pointer to **string** | Detailed description of the config change. | [optional] 
+**ModStatus** | Pointer to **string** | Modification status of the mo in this config change. * &#x60;None&#x60; - The &#39;none&#39; operation/state.Indicates a configuration profile has been deployed, and the desired configuration matches the actual device configuration. * &#x60;Created&#x60; - The &#39;create&#39; operation/state.Indicates a configuration profile has been created and associated with a device, but the configuration specified in the profilehas not been applied yet. For example, this could happen when the user creates a server profile and has not deployed the profile yet. * &#x60;Modified&#x60; - The &#39;update&#39; operation/state.Indicates some of the desired configuration changes specified in a profile have not been been applied to the associated device.This happens when the user has made changes to a profile and has not deployed the changes yet, or when the workflow to applythe configuration changes has not completed succesfully. * &#x60;Deleted&#x60; - The &#39;delete&#39; operation/state.Indicates a configuration profile has been been disassociated from a device and the user has not undeployed these changes yet. | [optional] [default to "None"]
 
 ## Methods
 
@@ -132,20 +132,20 @@ HasDisruptions returns a boolean if a field has been set.
 
 ### GetMessage
 
-`func (o *PolicyAbstractConfigChangeDetail) GetMessage() interface{}`
+`func (o *PolicyAbstractConfigChangeDetail) GetMessage() string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *PolicyAbstractConfigChangeDetail) GetMessageOk() (*interface{}, bool)`
+`func (o *PolicyAbstractConfigChangeDetail) GetMessageOk() (*string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *PolicyAbstractConfigChangeDetail) SetMessage(v interface{})`
+`func (o *PolicyAbstractConfigChangeDetail) SetMessage(v string)`
 
 SetMessage sets Message field to given value.
 
@@ -155,16 +155,6 @@ SetMessage sets Message field to given value.
 
 HasMessage returns a boolean if a field has been set.
 
-### SetMessageNil
-
-`func (o *PolicyAbstractConfigChangeDetail) SetMessageNil(b bool)`
-
- SetMessageNil sets the value for Message to be an explicit nil
-
-### UnsetMessage
-`func (o *PolicyAbstractConfigChangeDetail) UnsetMessage()`
-
-UnsetMessage ensures that no value is present for Message, not even an explicit nil
 ### GetModStatus
 
 `func (o *PolicyAbstractConfigChangeDetail) GetModStatus() string`

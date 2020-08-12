@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Attribute** | Pointer to **string** | Role and locale information of the user. | [optional] 
 **BaseDn** | Pointer to **string** | Base Distinguished Name (DN). Starting point from where server will search for users and groups. | [optional] 
 **BindDn** | Pointer to **string** | Distinguished Name (DN) of the user, that is used to authenticate against LDAP servers. | [optional] 
-**BindMethod** | Pointer to **string** | Authentication method to access LDAP servers. | [optional] [default to "LoginCredentials"]
+**BindMethod** | Pointer to **string** | Authentication method to access LDAP servers. * &#x60;LoginCredentials&#x60; - Requires the user credentials. If the bind process fails, then user is denied access. * &#x60;Anonymous&#x60; - Requires no username and password. If this option is selected and the LDAP server is configured for Anonymous logins, then the user gains access. * &#x60;ConfiguredCredentials&#x60; - Requires a known set of credentials to be specified for the initial bind process. If the initial bind process succeeds, then the distinguished name (DN) of the user name is queried and re-used for the re-binding process. If the re-binding process fails, then the user is denied access. | [optional] [default to "LoginCredentials"]
 **Domain** | Pointer to **string** | The IPv4 domain that all users must be in. | [optional] 
 **EnableEncryption** | Pointer to **bool** | If enabled, the endpoint encrypts all information it sends to the LDAP server. | [optional] 
 **EnableGroupAuthorization** | Pointer to **bool** | If enabled, user authorization is also done at the group level for LDAP users not in the local user database. | [optional] 

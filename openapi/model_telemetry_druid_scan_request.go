@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,8 +18,9 @@ import (
 
 // TelemetryDruidScanRequest The Scan query returns raw Apache Druid rows in streaming mode. In addition to straightforward usage where a Scan query is issued to the Broker, the Scan query can also be issued directly to Historical processes or streaming ingestion tasks. This can be useful if you want to retrieve large amounts of data in parallel.
 type TelemetryDruidScanRequest struct {
-	TelemetryDruidBaseRequest `yaml:"TelemetryDruidBaseRequest,inline"`
-	DataSource                TelemetryDruidDataSource `json:"dataSource" yaml:"dataSource"`
+	// null
+	QueryType  string                   `json:"queryType" yaml:"queryType"`
+	DataSource TelemetryDruidDataSource `json:"dataSource" yaml:"dataSource"`
 	// A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over.
 	Intervals []string `json:"intervals" yaml:"intervals"`
 	// How the results are represented, list, compactedList or valueVector. Currently only list and compactedList are supported.
@@ -42,8 +43,9 @@ type TelemetryDruidScanRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTelemetryDruidScanRequest(dataSource TelemetryDruidDataSource, intervals []string) *TelemetryDruidScanRequest {
+func NewTelemetryDruidScanRequest(queryType string, dataSource TelemetryDruidDataSource, intervals []string) *TelemetryDruidScanRequest {
 	this := TelemetryDruidScanRequest{}
+	this.QueryType = queryType
 	this.DataSource = dataSource
 	this.Intervals = intervals
 	var resultFormat string = "list"
@@ -71,6 +73,30 @@ func NewTelemetryDruidScanRequestWithDefaults() *TelemetryDruidScanRequest {
 	var legacy bool = false
 	this.Legacy = &legacy
 	return &this
+}
+
+// GetQueryType returns the QueryType field value
+func (o *TelemetryDruidScanRequest) GetQueryType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.QueryType
+}
+
+// GetQueryTypeOk returns a tuple with the QueryType field value
+// and a boolean to check if the value has been set.
+func (o *TelemetryDruidScanRequest) GetQueryTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.QueryType, true
+}
+
+// SetQueryType sets field value
+func (o *TelemetryDruidScanRequest) SetQueryType(v string) {
+	o.QueryType = v
 }
 
 // GetDataSource returns the DataSource field value
@@ -379,13 +405,8 @@ func (o *TelemetryDruidScanRequest) SetContext(v TelemetryDruidQueryContext) {
 
 func (o TelemetryDruidScanRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedTelemetryDruidBaseRequest, errTelemetryDruidBaseRequest := json.Marshal(o.TelemetryDruidBaseRequest)
-	if errTelemetryDruidBaseRequest != nil {
-		return []byte{}, errTelemetryDruidBaseRequest
-	}
-	errTelemetryDruidBaseRequest = json.Unmarshal([]byte(serializedTelemetryDruidBaseRequest), &toSerialize)
-	if errTelemetryDruidBaseRequest != nil {
-		return []byte{}, errTelemetryDruidBaseRequest
+	if true {
+		toSerialize["queryType"] = o.QueryType
 	}
 	if true {
 		toSerialize["dataSource"] = o.DataSource

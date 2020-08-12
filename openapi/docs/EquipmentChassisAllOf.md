@@ -4,22 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AlarmSummary** | Pointer to [**ComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
 **ChassisId** | Pointer to **int64** | The assigned identifier for a chassis. | [optional] [readonly] 
 **ConnectionPath** | Pointer to **string** | This field identifies the connectivity path for the chassis enclosure. | [optional] [readonly] 
 **ConnectionStatus** | Pointer to **string** | This field identifies the connectivity status for the chassis enclosure. | [optional] [readonly] 
 **Description** | Pointer to **string** | This field is to provide description for chassis model. | [optional] [readonly] 
-**FaultSummary** | Pointer to **int64** |  | [optional] 
+**FaultSummary** | Pointer to **int64** | This field summarizes the faults on the chassis enclosure. | [optional] 
+**ManagementMode** | Pointer to **string** | The management mode of the blade server chassis. * &#x60;IntersightStandalone&#x60; - Intersight Standalone mode of operation. * &#x60;UCSM&#x60; - Unified Computing System Manager mode of operation. * &#x60;Intersight&#x60; - Intersight managed mode of operation. | [optional] [readonly] [default to "IntersightStandalone"]
 **Name** | Pointer to **string** | This field identifies the name for the chassis enclosure. | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
+**OperState** | Pointer to **string** | This field identifies the Chassis Operational State. | [optional] [readonly] 
 **PartNumber** | Pointer to **string** | Part Number identifier for the chassis enclosure. | [optional] [readonly] 
 **Pid** | Pointer to **string** | This field identifies the Product ID for the chassis enclosure. | [optional] [readonly] 
-**PlatformType** | Pointer to **string** |  | [optional] 
+**PlatformType** | Pointer to **string** | The platform type that the chassis is a part of. | [optional] 
 **ProductName** | Pointer to **string** | This field identifies the Product Name for the chassis enclosure. | [optional] [readonly] 
 **Sku** | Pointer to **string** | This field identifies the Stock Keeping Unit for the chassis enclosure. | [optional] [readonly] 
 **Vid** | Pointer to **string** | This field identifies the Vendor ID for the chassis enclosure. | [optional] [readonly] 
 **Blades** | Pointer to [**[]ComputeBladeRelationship**](compute.Blade.Relationship.md) | An array of relationships to computeBlade resources. | [optional] [readonly] 
 **Fanmodules** | Pointer to [**[]EquipmentFanModuleRelationship**](equipment.FanModule.Relationship.md) | An array of relationships to equipmentFanModule resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **Ioms** | Pointer to [**[]EquipmentIoCardRelationship**](equipment.IoCard.Relationship.md) | An array of relationships to equipmentIoCard resources. | [optional] [readonly] 
+**LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](equipment.LocatorLed.Relationship.md) |  | [optional] 
+**PsuControl** | Pointer to [**EquipmentPsuControlRelationship**](equipment.PsuControl.Relationship.md) |  | [optional] 
 **Psus** | Pointer to [**[]EquipmentPsuRelationship**](equipment.Psu.Relationship.md) | An array of relationships to equipmentPsu resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **Sasexpanders** | Pointer to [**[]StorageSasExpanderRelationship**](storage.SasExpander.Relationship.md) | An array of relationships to storageSasExpander resources. | [optional] [readonly] 
@@ -44,6 +49,31 @@ will change when the set of required properties is changed
 NewEquipmentChassisAllOfWithDefaults instantiates a new EquipmentChassisAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAlarmSummary
+
+`func (o *EquipmentChassisAllOf) GetAlarmSummary() ComputeAlarmSummary`
+
+GetAlarmSummary returns the AlarmSummary field if non-nil, zero value otherwise.
+
+### GetAlarmSummaryOk
+
+`func (o *EquipmentChassisAllOf) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool)`
+
+GetAlarmSummaryOk returns a tuple with the AlarmSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlarmSummary
+
+`func (o *EquipmentChassisAllOf) SetAlarmSummary(v ComputeAlarmSummary)`
+
+SetAlarmSummary sets AlarmSummary field to given value.
+
+### HasAlarmSummary
+
+`func (o *EquipmentChassisAllOf) HasAlarmSummary() bool`
+
+HasAlarmSummary returns a boolean if a field has been set.
 
 ### GetChassisId
 
@@ -169,6 +199,31 @@ SetFaultSummary sets FaultSummary field to given value.
 `func (o *EquipmentChassisAllOf) HasFaultSummary() bool`
 
 HasFaultSummary returns a boolean if a field has been set.
+
+### GetManagementMode
+
+`func (o *EquipmentChassisAllOf) GetManagementMode() string`
+
+GetManagementMode returns the ManagementMode field if non-nil, zero value otherwise.
+
+### GetManagementModeOk
+
+`func (o *EquipmentChassisAllOf) GetManagementModeOk() (*string, bool)`
+
+GetManagementModeOk returns a tuple with the ManagementMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagementMode
+
+`func (o *EquipmentChassisAllOf) SetManagementMode(v string)`
+
+SetManagementMode sets ManagementMode field to given value.
+
+### HasManagementMode
+
+`func (o *EquipmentChassisAllOf) HasManagementMode() bool`
+
+HasManagementMode returns a boolean if a field has been set.
 
 ### GetName
 
@@ -395,6 +450,16 @@ SetBlades sets Blades field to given value.
 
 HasBlades returns a boolean if a field has been set.
 
+### SetBladesNil
+
+`func (o *EquipmentChassisAllOf) SetBladesNil(b bool)`
+
+ SetBladesNil sets the value for Blades to be an explicit nil
+
+### UnsetBlades
+`func (o *EquipmentChassisAllOf) UnsetBlades()`
+
+UnsetBlades ensures that no value is present for Blades, not even an explicit nil
 ### GetFanmodules
 
 `func (o *EquipmentChassisAllOf) GetFanmodules() []EquipmentFanModuleRelationship`
@@ -419,6 +484,41 @@ SetFanmodules sets Fanmodules field to given value.
 `func (o *EquipmentChassisAllOf) HasFanmodules() bool`
 
 HasFanmodules returns a boolean if a field has been set.
+
+### SetFanmodulesNil
+
+`func (o *EquipmentChassisAllOf) SetFanmodulesNil(b bool)`
+
+ SetFanmodulesNil sets the value for Fanmodules to be an explicit nil
+
+### UnsetFanmodules
+`func (o *EquipmentChassisAllOf) UnsetFanmodules()`
+
+UnsetFanmodules ensures that no value is present for Fanmodules, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentChassisAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentChassisAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentChassisAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentChassisAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetIoms
 
@@ -445,6 +545,66 @@ SetIoms sets Ioms field to given value.
 
 HasIoms returns a boolean if a field has been set.
 
+### SetIomsNil
+
+`func (o *EquipmentChassisAllOf) SetIomsNil(b bool)`
+
+ SetIomsNil sets the value for Ioms to be an explicit nil
+
+### UnsetIoms
+`func (o *EquipmentChassisAllOf) UnsetIoms()`
+
+UnsetIoms ensures that no value is present for Ioms, not even an explicit nil
+### GetLocatorLed
+
+`func (o *EquipmentChassisAllOf) GetLocatorLed() EquipmentLocatorLedRelationship`
+
+GetLocatorLed returns the LocatorLed field if non-nil, zero value otherwise.
+
+### GetLocatorLedOk
+
+`func (o *EquipmentChassisAllOf) GetLocatorLedOk() (*EquipmentLocatorLedRelationship, bool)`
+
+GetLocatorLedOk returns a tuple with the LocatorLed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocatorLed
+
+`func (o *EquipmentChassisAllOf) SetLocatorLed(v EquipmentLocatorLedRelationship)`
+
+SetLocatorLed sets LocatorLed field to given value.
+
+### HasLocatorLed
+
+`func (o *EquipmentChassisAllOf) HasLocatorLed() bool`
+
+HasLocatorLed returns a boolean if a field has been set.
+
+### GetPsuControl
+
+`func (o *EquipmentChassisAllOf) GetPsuControl() EquipmentPsuControlRelationship`
+
+GetPsuControl returns the PsuControl field if non-nil, zero value otherwise.
+
+### GetPsuControlOk
+
+`func (o *EquipmentChassisAllOf) GetPsuControlOk() (*EquipmentPsuControlRelationship, bool)`
+
+GetPsuControlOk returns a tuple with the PsuControl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPsuControl
+
+`func (o *EquipmentChassisAllOf) SetPsuControl(v EquipmentPsuControlRelationship)`
+
+SetPsuControl sets PsuControl field to given value.
+
+### HasPsuControl
+
+`func (o *EquipmentChassisAllOf) HasPsuControl() bool`
+
+HasPsuControl returns a boolean if a field has been set.
+
 ### GetPsus
 
 `func (o *EquipmentChassisAllOf) GetPsus() []EquipmentPsuRelationship`
@@ -470,6 +630,16 @@ SetPsus sets Psus field to given value.
 
 HasPsus returns a boolean if a field has been set.
 
+### SetPsusNil
+
+`func (o *EquipmentChassisAllOf) SetPsusNil(b bool)`
+
+ SetPsusNil sets the value for Psus to be an explicit nil
+
+### UnsetPsus
+`func (o *EquipmentChassisAllOf) UnsetPsus()`
+
+UnsetPsus ensures that no value is present for Psus, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *EquipmentChassisAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -520,6 +690,16 @@ SetSasexpanders sets Sasexpanders field to given value.
 
 HasSasexpanders returns a boolean if a field has been set.
 
+### SetSasexpandersNil
+
+`func (o *EquipmentChassisAllOf) SetSasexpandersNil(b bool)`
+
+ SetSasexpandersNil sets the value for Sasexpanders to be an explicit nil
+
+### UnsetSasexpanders
+`func (o *EquipmentChassisAllOf) UnsetSasexpanders()`
+
+UnsetSasexpanders ensures that no value is present for Sasexpanders, not even an explicit nil
 ### GetSiocs
 
 `func (o *EquipmentChassisAllOf) GetSiocs() []EquipmentSystemIoControllerRelationship`
@@ -545,6 +725,16 @@ SetSiocs sets Siocs field to given value.
 
 HasSiocs returns a boolean if a field has been set.
 
+### SetSiocsNil
+
+`func (o *EquipmentChassisAllOf) SetSiocsNil(b bool)`
+
+ SetSiocsNil sets the value for Siocs to be an explicit nil
+
+### UnsetSiocs
+`func (o *EquipmentChassisAllOf) UnsetSiocs()`
+
+UnsetSiocs ensures that no value is present for Siocs, not even an explicit nil
 ### GetStorageEnclosures
 
 `func (o *EquipmentChassisAllOf) GetStorageEnclosures() []StorageEnclosureRelationship`
@@ -570,6 +760,16 @@ SetStorageEnclosures sets StorageEnclosures field to given value.
 
 HasStorageEnclosures returns a boolean if a field has been set.
 
+### SetStorageEnclosuresNil
+
+`func (o *EquipmentChassisAllOf) SetStorageEnclosuresNil(b bool)`
+
+ SetStorageEnclosuresNil sets the value for StorageEnclosures to be an explicit nil
+
+### UnsetStorageEnclosures
+`func (o *EquipmentChassisAllOf) UnsetStorageEnclosures()`
+
+UnsetStorageEnclosures ensures that no value is present for StorageEnclosures, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

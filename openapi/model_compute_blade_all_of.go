@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,27 +19,38 @@ import (
 // ComputeBladeAllOf Definition of the list of properties defined in 'compute.Blade', excluding properties defined in parent classes.
 type ComputeBladeAllOf struct {
 	// The id of the chassis that the blade is located in.
-	ChassisId  *string `json:"ChassisId,omitempty" yaml:"ChassisId,omitempty"`
+	ChassisId *string `json:"ChassisId,omitempty" yaml:"ChassisId,omitempty"`
+	// The mode of the server that determines it is scaled.
 	ScaledMode *string `json:"ScaledMode,omitempty" yaml:"ScaledMode,omitempty"`
-	SlotId     *int64  `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
+	// The slot number in the chassis that the blade is located in.
+	SlotId *int64 `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
 	// An array of relationships to adapterUnit resources.
-	Adapters *[]AdapterUnitRelationship `json:"Adapters,omitempty" yaml:"Adapters,omitempty"`
+	Adapters []AdapterUnitRelationship `json:"Adapters,omitempty" yaml:"Adapters,omitempty"`
 	// An array of relationships to biosUnit resources.
-	BiosUnits        *[]BiosUnitRelationship           `json:"BiosUnits,omitempty" yaml:"BiosUnits,omitempty"`
+	BiosUnits        []BiosUnitRelationship            `json:"BiosUnits,omitempty" yaml:"BiosUnits,omitempty"`
 	Bmc              *ManagementControllerRelationship `json:"Bmc,omitempty" yaml:"Bmc,omitempty"`
 	Board            *ComputeBoardRelationship         `json:"Board,omitempty" yaml:"Board,omitempty"`
 	EquipmentChassis *EquipmentChassisRelationship     `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
 	// An array of relationships to equipmentIoExpander resources.
-	EquipmentIoExpanders *[]EquipmentIoExpanderRelationship `json:"EquipmentIoExpanders,omitempty" yaml:"EquipmentIoExpanders,omitempty"`
+	EquipmentIoExpanders []EquipmentIoExpanderRelationship `json:"EquipmentIoExpanders,omitempty" yaml:"EquipmentIoExpanders,omitempty"`
 	// An array of relationships to inventoryGenericInventoryHolder resources.
-	GenericInventoryHolders *[]InventoryGenericInventoryHolderRelationship `json:"GenericInventoryHolders,omitempty" yaml:"GenericInventoryHolders,omitempty"`
-	LocatorLed              *EquipmentLocatorLedRelationship               `json:"LocatorLed,omitempty" yaml:"LocatorLed,omitempty"`
+	GenericInventoryHolders []InventoryGenericInventoryHolderRelationship `json:"GenericInventoryHolders,omitempty" yaml:"GenericInventoryHolders,omitempty"`
+	// An array of relationships to graphicsCard resources.
+	GraphicsCards       []GraphicsCardRelationship       `json:"GraphicsCards,omitempty" yaml:"GraphicsCards,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	LocatorLed          *EquipmentLocatorLedRelationship `json:"LocatorLed,omitempty" yaml:"LocatorLed,omitempty"`
+	// An array of relationships to memoryArray resources.
+	MemoryArrays []MemoryArrayRelationship `json:"MemoryArrays,omitempty" yaml:"MemoryArrays,omitempty"`
 	// An array of relationships to pciDevice resources.
-	PciDevices       *[]PciDeviceRelationship             `json:"PciDevices,omitempty" yaml:"PciDevices,omitempty"`
+	PciDevices []PciDeviceRelationship `json:"PciDevices,omitempty" yaml:"PciDevices,omitempty"`
+	// An array of relationships to processorUnit resources.
+	Processors       []ProcessorUnitRelationship          `json:"Processors,omitempty" yaml:"Processors,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// An array of relationships to storageController resources.
+	StorageControllers []StorageControllerRelationship `json:"StorageControllers,omitempty" yaml:"StorageControllers,omitempty"`
 	// An array of relationships to storageEnclosure resources.
-	StorageEnclosures *[]StorageEnclosureRelationship `json:"StorageEnclosures,omitempty" yaml:"StorageEnclosures,omitempty"`
-	TopSystem         *TopSystemRelationship          `json:"TopSystem,omitempty" yaml:"TopSystem,omitempty"`
+	StorageEnclosures []StorageEnclosureRelationship `json:"StorageEnclosures,omitempty" yaml:"StorageEnclosures,omitempty"`
+	TopSystem         *TopSystemRelationship         `json:"TopSystem,omitempty" yaml:"TopSystem,omitempty"`
 }
 
 // NewComputeBladeAllOf instantiates a new ComputeBladeAllOf object
@@ -155,22 +166,23 @@ func (o *ComputeBladeAllOf) SetSlotId(v int64) {
 	o.SlotId = &v
 }
 
-// GetAdapters returns the Adapters field value if set, zero value otherwise.
+// GetAdapters returns the Adapters field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBladeAllOf) GetAdapters() []AdapterUnitRelationship {
-	if o == nil || o.Adapters == nil {
+	if o == nil {
 		var ret []AdapterUnitRelationship
 		return ret
 	}
-	return *o.Adapters
+	return o.Adapters
 }
 
 // GetAdaptersOk returns a tuple with the Adapters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBladeAllOf) GetAdaptersOk() (*[]AdapterUnitRelationship, bool) {
 	if o == nil || o.Adapters == nil {
 		return nil, false
 	}
-	return o.Adapters, true
+	return &o.Adapters, true
 }
 
 // HasAdapters returns a boolean if a field has been set.
@@ -184,25 +196,26 @@ func (o *ComputeBladeAllOf) HasAdapters() bool {
 
 // SetAdapters gets a reference to the given []AdapterUnitRelationship and assigns it to the Adapters field.
 func (o *ComputeBladeAllOf) SetAdapters(v []AdapterUnitRelationship) {
-	o.Adapters = &v
+	o.Adapters = v
 }
 
-// GetBiosUnits returns the BiosUnits field value if set, zero value otherwise.
+// GetBiosUnits returns the BiosUnits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBladeAllOf) GetBiosUnits() []BiosUnitRelationship {
-	if o == nil || o.BiosUnits == nil {
+	if o == nil {
 		var ret []BiosUnitRelationship
 		return ret
 	}
-	return *o.BiosUnits
+	return o.BiosUnits
 }
 
 // GetBiosUnitsOk returns a tuple with the BiosUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBladeAllOf) GetBiosUnitsOk() (*[]BiosUnitRelationship, bool) {
 	if o == nil || o.BiosUnits == nil {
 		return nil, false
 	}
-	return o.BiosUnits, true
+	return &o.BiosUnits, true
 }
 
 // HasBiosUnits returns a boolean if a field has been set.
@@ -216,7 +229,7 @@ func (o *ComputeBladeAllOf) HasBiosUnits() bool {
 
 // SetBiosUnits gets a reference to the given []BiosUnitRelationship and assigns it to the BiosUnits field.
 func (o *ComputeBladeAllOf) SetBiosUnits(v []BiosUnitRelationship) {
-	o.BiosUnits = &v
+	o.BiosUnits = v
 }
 
 // GetBmc returns the Bmc field value if set, zero value otherwise.
@@ -315,22 +328,23 @@ func (o *ComputeBladeAllOf) SetEquipmentChassis(v EquipmentChassisRelationship) 
 	o.EquipmentChassis = &v
 }
 
-// GetEquipmentIoExpanders returns the EquipmentIoExpanders field value if set, zero value otherwise.
+// GetEquipmentIoExpanders returns the EquipmentIoExpanders field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBladeAllOf) GetEquipmentIoExpanders() []EquipmentIoExpanderRelationship {
-	if o == nil || o.EquipmentIoExpanders == nil {
+	if o == nil {
 		var ret []EquipmentIoExpanderRelationship
 		return ret
 	}
-	return *o.EquipmentIoExpanders
+	return o.EquipmentIoExpanders
 }
 
 // GetEquipmentIoExpandersOk returns a tuple with the EquipmentIoExpanders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBladeAllOf) GetEquipmentIoExpandersOk() (*[]EquipmentIoExpanderRelationship, bool) {
 	if o == nil || o.EquipmentIoExpanders == nil {
 		return nil, false
 	}
-	return o.EquipmentIoExpanders, true
+	return &o.EquipmentIoExpanders, true
 }
 
 // HasEquipmentIoExpanders returns a boolean if a field has been set.
@@ -344,25 +358,26 @@ func (o *ComputeBladeAllOf) HasEquipmentIoExpanders() bool {
 
 // SetEquipmentIoExpanders gets a reference to the given []EquipmentIoExpanderRelationship and assigns it to the EquipmentIoExpanders field.
 func (o *ComputeBladeAllOf) SetEquipmentIoExpanders(v []EquipmentIoExpanderRelationship) {
-	o.EquipmentIoExpanders = &v
+	o.EquipmentIoExpanders = v
 }
 
-// GetGenericInventoryHolders returns the GenericInventoryHolders field value if set, zero value otherwise.
+// GetGenericInventoryHolders returns the GenericInventoryHolders field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBladeAllOf) GetGenericInventoryHolders() []InventoryGenericInventoryHolderRelationship {
-	if o == nil || o.GenericInventoryHolders == nil {
+	if o == nil {
 		var ret []InventoryGenericInventoryHolderRelationship
 		return ret
 	}
-	return *o.GenericInventoryHolders
+	return o.GenericInventoryHolders
 }
 
 // GetGenericInventoryHoldersOk returns a tuple with the GenericInventoryHolders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBladeAllOf) GetGenericInventoryHoldersOk() (*[]InventoryGenericInventoryHolderRelationship, bool) {
 	if o == nil || o.GenericInventoryHolders == nil {
 		return nil, false
 	}
-	return o.GenericInventoryHolders, true
+	return &o.GenericInventoryHolders, true
 }
 
 // HasGenericInventoryHolders returns a boolean if a field has been set.
@@ -376,7 +391,72 @@ func (o *ComputeBladeAllOf) HasGenericInventoryHolders() bool {
 
 // SetGenericInventoryHolders gets a reference to the given []InventoryGenericInventoryHolderRelationship and assigns it to the GenericInventoryHolders field.
 func (o *ComputeBladeAllOf) SetGenericInventoryHolders(v []InventoryGenericInventoryHolderRelationship) {
-	o.GenericInventoryHolders = &v
+	o.GenericInventoryHolders = v
+}
+
+// GetGraphicsCards returns the GraphicsCards field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputeBladeAllOf) GetGraphicsCards() []GraphicsCardRelationship {
+	if o == nil {
+		var ret []GraphicsCardRelationship
+		return ret
+	}
+	return o.GraphicsCards
+}
+
+// GetGraphicsCardsOk returns a tuple with the GraphicsCards field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputeBladeAllOf) GetGraphicsCardsOk() (*[]GraphicsCardRelationship, bool) {
+	if o == nil || o.GraphicsCards == nil {
+		return nil, false
+	}
+	return &o.GraphicsCards, true
+}
+
+// HasGraphicsCards returns a boolean if a field has been set.
+func (o *ComputeBladeAllOf) HasGraphicsCards() bool {
+	if o != nil && o.GraphicsCards != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGraphicsCards gets a reference to the given []GraphicsCardRelationship and assigns it to the GraphicsCards field.
+func (o *ComputeBladeAllOf) SetGraphicsCards(v []GraphicsCardRelationship) {
+	o.GraphicsCards = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *ComputeBladeAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeBladeAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *ComputeBladeAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *ComputeBladeAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetLocatorLed returns the LocatorLed field value if set, zero value otherwise.
@@ -411,22 +491,56 @@ func (o *ComputeBladeAllOf) SetLocatorLed(v EquipmentLocatorLedRelationship) {
 	o.LocatorLed = &v
 }
 
-// GetPciDevices returns the PciDevices field value if set, zero value otherwise.
+// GetMemoryArrays returns the MemoryArrays field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputeBladeAllOf) GetMemoryArrays() []MemoryArrayRelationship {
+	if o == nil {
+		var ret []MemoryArrayRelationship
+		return ret
+	}
+	return o.MemoryArrays
+}
+
+// GetMemoryArraysOk returns a tuple with the MemoryArrays field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputeBladeAllOf) GetMemoryArraysOk() (*[]MemoryArrayRelationship, bool) {
+	if o == nil || o.MemoryArrays == nil {
+		return nil, false
+	}
+	return &o.MemoryArrays, true
+}
+
+// HasMemoryArrays returns a boolean if a field has been set.
+func (o *ComputeBladeAllOf) HasMemoryArrays() bool {
+	if o != nil && o.MemoryArrays != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMemoryArrays gets a reference to the given []MemoryArrayRelationship and assigns it to the MemoryArrays field.
+func (o *ComputeBladeAllOf) SetMemoryArrays(v []MemoryArrayRelationship) {
+	o.MemoryArrays = v
+}
+
+// GetPciDevices returns the PciDevices field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBladeAllOf) GetPciDevices() []PciDeviceRelationship {
-	if o == nil || o.PciDevices == nil {
+	if o == nil {
 		var ret []PciDeviceRelationship
 		return ret
 	}
-	return *o.PciDevices
+	return o.PciDevices
 }
 
 // GetPciDevicesOk returns a tuple with the PciDevices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBladeAllOf) GetPciDevicesOk() (*[]PciDeviceRelationship, bool) {
 	if o == nil || o.PciDevices == nil {
 		return nil, false
 	}
-	return o.PciDevices, true
+	return &o.PciDevices, true
 }
 
 // HasPciDevices returns a boolean if a field has been set.
@@ -440,7 +554,40 @@ func (o *ComputeBladeAllOf) HasPciDevices() bool {
 
 // SetPciDevices gets a reference to the given []PciDeviceRelationship and assigns it to the PciDevices field.
 func (o *ComputeBladeAllOf) SetPciDevices(v []PciDeviceRelationship) {
-	o.PciDevices = &v
+	o.PciDevices = v
+}
+
+// GetProcessors returns the Processors field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputeBladeAllOf) GetProcessors() []ProcessorUnitRelationship {
+	if o == nil {
+		var ret []ProcessorUnitRelationship
+		return ret
+	}
+	return o.Processors
+}
+
+// GetProcessorsOk returns a tuple with the Processors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputeBladeAllOf) GetProcessorsOk() (*[]ProcessorUnitRelationship, bool) {
+	if o == nil || o.Processors == nil {
+		return nil, false
+	}
+	return &o.Processors, true
+}
+
+// HasProcessors returns a boolean if a field has been set.
+func (o *ComputeBladeAllOf) HasProcessors() bool {
+	if o != nil && o.Processors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProcessors gets a reference to the given []ProcessorUnitRelationship and assigns it to the Processors field.
+func (o *ComputeBladeAllOf) SetProcessors(v []ProcessorUnitRelationship) {
+	o.Processors = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -475,22 +622,56 @@ func (o *ComputeBladeAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRelatio
 	o.RegisteredDevice = &v
 }
 
-// GetStorageEnclosures returns the StorageEnclosures field value if set, zero value otherwise.
+// GetStorageControllers returns the StorageControllers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputeBladeAllOf) GetStorageControllers() []StorageControllerRelationship {
+	if o == nil {
+		var ret []StorageControllerRelationship
+		return ret
+	}
+	return o.StorageControllers
+}
+
+// GetStorageControllersOk returns a tuple with the StorageControllers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputeBladeAllOf) GetStorageControllersOk() (*[]StorageControllerRelationship, bool) {
+	if o == nil || o.StorageControllers == nil {
+		return nil, false
+	}
+	return &o.StorageControllers, true
+}
+
+// HasStorageControllers returns a boolean if a field has been set.
+func (o *ComputeBladeAllOf) HasStorageControllers() bool {
+	if o != nil && o.StorageControllers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageControllers gets a reference to the given []StorageControllerRelationship and assigns it to the StorageControllers field.
+func (o *ComputeBladeAllOf) SetStorageControllers(v []StorageControllerRelationship) {
+	o.StorageControllers = v
+}
+
+// GetStorageEnclosures returns the StorageEnclosures field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBladeAllOf) GetStorageEnclosures() []StorageEnclosureRelationship {
-	if o == nil || o.StorageEnclosures == nil {
+	if o == nil {
 		var ret []StorageEnclosureRelationship
 		return ret
 	}
-	return *o.StorageEnclosures
+	return o.StorageEnclosures
 }
 
 // GetStorageEnclosuresOk returns a tuple with the StorageEnclosures field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBladeAllOf) GetStorageEnclosuresOk() (*[]StorageEnclosureRelationship, bool) {
 	if o == nil || o.StorageEnclosures == nil {
 		return nil, false
 	}
-	return o.StorageEnclosures, true
+	return &o.StorageEnclosures, true
 }
 
 // HasStorageEnclosures returns a boolean if a field has been set.
@@ -504,7 +685,7 @@ func (o *ComputeBladeAllOf) HasStorageEnclosures() bool {
 
 // SetStorageEnclosures gets a reference to the given []StorageEnclosureRelationship and assigns it to the StorageEnclosures field.
 func (o *ComputeBladeAllOf) SetStorageEnclosures(v []StorageEnclosureRelationship) {
-	o.StorageEnclosures = &v
+	o.StorageEnclosures = v
 }
 
 // GetTopSystem returns the TopSystem field value if set, zero value otherwise.
@@ -571,14 +752,29 @@ func (o ComputeBladeAllOf) MarshalJSON() ([]byte, error) {
 	if o.GenericInventoryHolders != nil {
 		toSerialize["GenericInventoryHolders"] = o.GenericInventoryHolders
 	}
+	if o.GraphicsCards != nil {
+		toSerialize["GraphicsCards"] = o.GraphicsCards
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
+	}
 	if o.LocatorLed != nil {
 		toSerialize["LocatorLed"] = o.LocatorLed
+	}
+	if o.MemoryArrays != nil {
+		toSerialize["MemoryArrays"] = o.MemoryArrays
 	}
 	if o.PciDevices != nil {
 		toSerialize["PciDevices"] = o.PciDevices
 	}
+	if o.Processors != nil {
+		toSerialize["Processors"] = o.Processors
+	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice
+	}
+	if o.StorageControllers != nil {
+		toSerialize["StorageControllers"] = o.StorageControllers
 	}
 	if o.StorageEnclosures != nil {
 		toSerialize["StorageEnclosures"] = o.StorageEnclosures

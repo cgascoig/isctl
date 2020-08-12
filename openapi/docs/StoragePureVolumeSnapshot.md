@@ -5,7 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Serial** | Pointer to **string** | Unique serial number of the snapshot allocated by the storage array. | [optional] [readonly] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
+**ProtectionGroupSnapshot** | Pointer to [**StoragePureProtectionGroupSnapshotRelationship**](storage.PureProtectionGroupSnapshot.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Volume** | Pointer to [**StoragePureVolumeRelationship**](storage.PureVolume.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -51,6 +54,56 @@ SetSerial sets Serial field to given value.
 
 HasSerial returns a boolean if a field has been set.
 
+### GetArray
+
+`func (o *StoragePureVolumeSnapshot) GetArray() StoragePureArrayRelationship`
+
+GetArray returns the Array field if non-nil, zero value otherwise.
+
+### GetArrayOk
+
+`func (o *StoragePureVolumeSnapshot) GetArrayOk() (*StoragePureArrayRelationship, bool)`
+
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArray
+
+`func (o *StoragePureVolumeSnapshot) SetArray(v StoragePureArrayRelationship)`
+
+SetArray sets Array field to given value.
+
+### HasArray
+
+`func (o *StoragePureVolumeSnapshot) HasArray() bool`
+
+HasArray returns a boolean if a field has been set.
+
+### GetProtectionGroupSnapshot
+
+`func (o *StoragePureVolumeSnapshot) GetProtectionGroupSnapshot() StoragePureProtectionGroupSnapshotRelationship`
+
+GetProtectionGroupSnapshot returns the ProtectionGroupSnapshot field if non-nil, zero value otherwise.
+
+### GetProtectionGroupSnapshotOk
+
+`func (o *StoragePureVolumeSnapshot) GetProtectionGroupSnapshotOk() (*StoragePureProtectionGroupSnapshotRelationship, bool)`
+
+GetProtectionGroupSnapshotOk returns a tuple with the ProtectionGroupSnapshot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProtectionGroupSnapshot
+
+`func (o *StoragePureVolumeSnapshot) SetProtectionGroupSnapshot(v StoragePureProtectionGroupSnapshotRelationship)`
+
+SetProtectionGroupSnapshot sets ProtectionGroupSnapshot field to given value.
+
+### HasProtectionGroupSnapshot
+
+`func (o *StoragePureVolumeSnapshot) HasProtectionGroupSnapshot() bool`
+
+HasProtectionGroupSnapshot returns a boolean if a field has been set.
+
 ### GetRegisteredDevice
 
 `func (o *StoragePureVolumeSnapshot) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -75,6 +128,31 @@ SetRegisteredDevice sets RegisteredDevice field to given value.
 `func (o *StoragePureVolumeSnapshot) HasRegisteredDevice() bool`
 
 HasRegisteredDevice returns a boolean if a field has been set.
+
+### GetVolume
+
+`func (o *StoragePureVolumeSnapshot) GetVolume() StoragePureVolumeRelationship`
+
+GetVolume returns the Volume field if non-nil, zero value otherwise.
+
+### GetVolumeOk
+
+`func (o *StoragePureVolumeSnapshot) GetVolumeOk() (*StoragePureVolumeRelationship, bool)`
+
+GetVolumeOk returns a tuple with the Volume field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVolume
+
+`func (o *StoragePureVolumeSnapshot) SetVolume(v StoragePureVolumeRelationship)`
+
+SetVolume sets Volume field to given value.
+
+### HasVolume
+
+`func (o *StoragePureVolumeSnapshot) HasVolume() bool`
+
+HasVolume returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

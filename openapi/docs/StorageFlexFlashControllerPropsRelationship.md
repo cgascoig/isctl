@@ -18,25 +18,26 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**CardsManageable** | Pointer to **string** |  | [optional] 
-**ConfiguredMode** | Pointer to **string** |  | [optional] 
-**ControllerName** | Pointer to **string** |  | [optional] 
-**ControllerStatus** | Pointer to **string** |  | [optional] 
-**FwVersion** | Pointer to **string** |  | [optional] 
-**InternalState** | Pointer to **string** |  | [optional] 
-**OperatingMode** | Pointer to **string** |  | [optional] 
-**PhysicalDriveCount** | Pointer to **string** |  | [optional] 
-**ProductName** | Pointer to **string** |  | [optional] 
-**StartupFwVersion** | Pointer to **string** |  | [optional] 
-**VirtualDriveCount** | Pointer to **string** |  | [optional] 
+**CardsManageable** | Pointer to **string** | Manageable card on the flex flash controller. | [optional] 
+**ConfiguredMode** | Pointer to **string** | Mode configured on the flex flash controller. | [optional] 
+**ControllerName** | Pointer to **string** | The current name of the flex flash controller. | [optional] 
+**ControllerStatus** | Pointer to **string** | The current status of the flex flash controller. | [optional] 
+**FwVersion** | Pointer to **string** | Firmware version of the flex flash controller. | [optional] 
+**InternalState** | Pointer to **string** | Internal state of the flex flash controller. | [optional] 
+**OperatingMode** | Pointer to **string** | Operating mode of flex flash controller. | [optional] 
+**PhysicalDriveCount** | Pointer to **string** | Number of connected physical drives to a specific Flex flash controller. | [optional] 
+**ProductName** | Pointer to **string** | Product name of the flex flash controller. | [optional] 
+**StartupFwVersion** | Pointer to **string** | Startup firmware version of the Flex flash controller. | [optional] 
+**VirtualDriveCount** | Pointer to **string** | Number of virtual drives for a specific Flex flash controller. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageFlexFlashController** | Pointer to [**StorageFlexFlashControllerRelationship**](storage.FlexFlashController.Relationship.md) |  | [optional] 
 
@@ -349,6 +350,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StorageFlexFlashControllerPropsRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StorageFlexFlashControllerPropsRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StorageFlexFlashControllerPropsRelationship) GetParent() MoBaseMoRelationship`
@@ -399,6 +410,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StorageFlexFlashControllerPropsRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StorageFlexFlashControllerPropsRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StorageFlexFlashControllerPropsRelationship) GetDisplayNames() map[string][]string`
@@ -883,6 +904,31 @@ SetVirtualDriveCount sets VirtualDriveCount field to given value.
 `func (o *StorageFlexFlashControllerPropsRelationship) HasVirtualDriveCount() bool`
 
 HasVirtualDriveCount returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageFlexFlashControllerPropsRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageFlexFlashControllerPropsRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageFlexFlashControllerPropsRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageFlexFlashControllerPropsRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

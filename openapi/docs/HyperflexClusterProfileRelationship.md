@@ -18,18 +18,18 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Description of the profile. | [optional] 
 **Name** | Pointer to **string** | Name of the concrete profile. | [optional] 
-**Type** | Pointer to **string** | Defines the type of the profile. Accepted value is instance. | [optional] [default to "instance"]
+**Type** | Pointer to **string** | Defines the type of the profile. Accepted value is instance. * &#x60;instance&#x60; - The profile defines the configuration for a specific instance of a target. | [optional] [default to "instance"]
 **SrcTemplate** | Pointer to [**PolicyAbstractProfileRelationship**](policy.AbstractProfile.Relationship.md) |  | [optional] 
 **Action** | Pointer to **string** | User initiated action. Each profile type has its own supported actions. For HyperFlex cluster profile, the supported actions are -- Validate, Deploy, Continue, Retry, Abort, Unassign For server profile, the support actions are -- Deploy, Unassign. | [optional] 
 **ConfigContext** | Pointer to [**PolicyConfigContext**](policy.ConfigContext.md) |  | [optional] 
 **DataIpAddress** | Pointer to **string** | The storage data IP address for the HyperFlex cluster. | [optional] 
-**HypervisorType** | Pointer to **string** | The hypervisor type for the HyperFlex cluster. | [optional] [default to "ESXi"]
+**HypervisorType** | Pointer to **string** | The hypervisor type for the HyperFlex cluster. * &#x60;ESXi&#x60; - ESXi hypervisor as specified by the user. * &#x60;HYPERV&#x60; - Hyperv hypervisor as specified by the user. * &#x60;KVM&#x60; - KVM hypervisor as specified by the user. | [optional] [default to "ESXi"]
 **MacAddressPrefix** | Pointer to **string** | The MAC address prefix in the form of 00:25:B5:XX. | [optional] 
 **MgmtIpAddress** | Pointer to **string** | The management IP address for the HyperFlex cluster. | [optional] 
-**MgmtPlatform** | Pointer to **string** | The management platform for the HyperFlex cluster. | [optional] [default to "FI"]
+**MgmtPlatform** | Pointer to **string** | The management platform for the HyperFlex cluster. * &#x60;FI&#x60; - The host servers used in the cluster deployment are managed by a UCS Fabric Interconnect. * &#x60;EDGE&#x60; - The host servers used in the cluster deployment are standalone severs. | [optional] [default to "FI"]
 **Replication** | Pointer to **int64** | The number of copies of each data block written. | [optional] 
 **StorageDataVlan** | Pointer to [**HyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
 **WwxnPrefix** | Pointer to **string** | The WWxN prefix in the form of 20:00:00:25:B5:XX. | [optional] 
@@ -360,6 +360,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *HyperflexClusterProfileRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *HyperflexClusterProfileRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *HyperflexClusterProfileRelationship) GetParent() MoBaseMoRelationship`
@@ -410,6 +420,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *HyperflexClusterProfileRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *HyperflexClusterProfileRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *HyperflexClusterProfileRelationship) GetDisplayNames() map[string][]string`
@@ -1045,6 +1065,16 @@ SetNodeProfileConfig sets NodeProfileConfig field to given value.
 
 HasNodeProfileConfig returns a boolean if a field has been set.
 
+### SetNodeProfileConfigNil
+
+`func (o *HyperflexClusterProfileRelationship) SetNodeProfileConfigNil(b bool)`
+
+ SetNodeProfileConfigNil sets the value for NodeProfileConfig to be an explicit nil
+
+### UnsetNodeProfileConfig
+`func (o *HyperflexClusterProfileRelationship) UnsetNodeProfileConfig()`
+
+UnsetNodeProfileConfig ensures that no value is present for NodeProfileConfig, not even an explicit nil
 ### GetOrganization
 
 `func (o *HyperflexClusterProfileRelationship) GetOrganization() OrganizationOrganizationRelationship`
@@ -1120,6 +1150,16 @@ SetRunningWorkflows sets RunningWorkflows field to given value.
 
 HasRunningWorkflows returns a boolean if a field has been set.
 
+### SetRunningWorkflowsNil
+
+`func (o *HyperflexClusterProfileRelationship) SetRunningWorkflowsNil(b bool)`
+
+ SetRunningWorkflowsNil sets the value for RunningWorkflows to be an explicit nil
+
+### UnsetRunningWorkflows
+`func (o *HyperflexClusterProfileRelationship) UnsetRunningWorkflows()`
+
+UnsetRunningWorkflows ensures that no value is present for RunningWorkflows, not even an explicit nil
 ### GetSoftwareVersion
 
 `func (o *HyperflexClusterProfileRelationship) GetSoftwareVersion() HyperflexSoftwareVersionPolicyRelationship`

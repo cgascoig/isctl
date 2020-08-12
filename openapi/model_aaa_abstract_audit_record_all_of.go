@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -21,13 +21,13 @@ type AaaAbstractAuditRecordAllOf struct {
 	// The operation that was performed on this Managed Object. The event is a compound string that includes the CRUD operation such as Create, Modify, Delete, and a string representing the Managed Object type.
 	Event *string `json:"Event,omitempty" yaml:"Event,omitempty"`
 	// The user-friendly names of the changed MO.
-	MoDisplayNames *map[string]interface{} `json:"MoDisplayNames,omitempty" yaml:"MoDisplayNames,omitempty"`
+	MoDisplayNames interface{} `json:"MoDisplayNames,omitempty" yaml:"MoDisplayNames,omitempty"`
 	// The object type of the REST resource that was created, modified or deleted.
 	MoType *string `json:"MoType,omitempty" yaml:"MoType,omitempty"`
 	// The Moid of the REST resource that was created, modified or deleted.
 	ObjectMoid *string `json:"ObjectMoid,omitempty" yaml:"ObjectMoid,omitempty"`
 	// The body of the REST request that was received from a client to create or modify a REST resource, represented as a JSON document.
-	Request *map[string]interface{} `json:"Request,omitempty" yaml:"Request,omitempty"`
+	Request interface{} `json:"Request,omitempty" yaml:"Request,omitempty"`
 	// The trace id of the request that was used to create, modify or delete a REST resource. A trace id is a unique identifier for one particular REST request. It may be used for troubleshooting purpose by the Intersight technical support team.
 	TraceId *string `json:"TraceId,omitempty" yaml:"TraceId,omitempty"`
 }
@@ -81,22 +81,23 @@ func (o *AaaAbstractAuditRecordAllOf) SetEvent(v string) {
 	o.Event = &v
 }
 
-// GetMoDisplayNames returns the MoDisplayNames field value if set, zero value otherwise.
-func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNames() map[string]interface{} {
-	if o == nil || o.MoDisplayNames == nil {
-		var ret map[string]interface{}
+// GetMoDisplayNames returns the MoDisplayNames field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNames() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.MoDisplayNames
+	return o.MoDisplayNames
 }
 
 // GetMoDisplayNamesOk returns a tuple with the MoDisplayNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNamesOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AaaAbstractAuditRecordAllOf) GetMoDisplayNamesOk() (*interface{}, bool) {
 	if o == nil || o.MoDisplayNames == nil {
 		return nil, false
 	}
-	return o.MoDisplayNames, true
+	return &o.MoDisplayNames, true
 }
 
 // HasMoDisplayNames returns a boolean if a field has been set.
@@ -108,9 +109,9 @@ func (o *AaaAbstractAuditRecordAllOf) HasMoDisplayNames() bool {
 	return false
 }
 
-// SetMoDisplayNames gets a reference to the given map[string]interface{} and assigns it to the MoDisplayNames field.
-func (o *AaaAbstractAuditRecordAllOf) SetMoDisplayNames(v map[string]interface{}) {
-	o.MoDisplayNames = &v
+// SetMoDisplayNames gets a reference to the given interface{} and assigns it to the MoDisplayNames field.
+func (o *AaaAbstractAuditRecordAllOf) SetMoDisplayNames(v interface{}) {
+	o.MoDisplayNames = v
 }
 
 // GetMoType returns the MoType field value if set, zero value otherwise.
@@ -177,22 +178,23 @@ func (o *AaaAbstractAuditRecordAllOf) SetObjectMoid(v string) {
 	o.ObjectMoid = &v
 }
 
-// GetRequest returns the Request field value if set, zero value otherwise.
-func (o *AaaAbstractAuditRecordAllOf) GetRequest() map[string]interface{} {
-	if o == nil || o.Request == nil {
-		var ret map[string]interface{}
+// GetRequest returns the Request field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AaaAbstractAuditRecordAllOf) GetRequest() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Request
+	return o.Request
 }
 
 // GetRequestOk returns a tuple with the Request field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AaaAbstractAuditRecordAllOf) GetRequestOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AaaAbstractAuditRecordAllOf) GetRequestOk() (*interface{}, bool) {
 	if o == nil || o.Request == nil {
 		return nil, false
 	}
-	return o.Request, true
+	return &o.Request, true
 }
 
 // HasRequest returns a boolean if a field has been set.
@@ -204,9 +206,9 @@ func (o *AaaAbstractAuditRecordAllOf) HasRequest() bool {
 	return false
 }
 
-// SetRequest gets a reference to the given map[string]interface{} and assigns it to the Request field.
-func (o *AaaAbstractAuditRecordAllOf) SetRequest(v map[string]interface{}) {
-	o.Request = &v
+// SetRequest gets a reference to the given interface{} and assigns it to the Request field.
+func (o *AaaAbstractAuditRecordAllOf) SetRequest(v interface{}) {
+	o.Request = v
 }
 
 // GetTraceId returns the TraceId field value if set, zero value otherwise.

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EntityData** | Pointer to **map[string]interface{}** | The data of the object present in config result context. | [optional] 
+**EntityData** | Pointer to **interface{}** | The data of the object present in config result context. | [optional] 
 **EntityMoid** | Pointer to **string** | The Moid of the object present in config result context. | [optional] 
 **EntityName** | Pointer to **string** | The name of the object present in config result context. | [optional] 
 **EntityType** | Pointer to **string** | The type of the object present in config result context. | [optional] 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEntityData
 
-`func (o *PolicyConfigResultContextAllOf) GetEntityData() map[string]interface{}`
+`func (o *PolicyConfigResultContextAllOf) GetEntityData() interface{}`
 
 GetEntityData returns the EntityData field if non-nil, zero value otherwise.
 
 ### GetEntityDataOk
 
-`func (o *PolicyConfigResultContextAllOf) GetEntityDataOk() (*map[string]interface{}, bool)`
+`func (o *PolicyConfigResultContextAllOf) GetEntityDataOk() (*interface{}, bool)`
 
 GetEntityDataOk returns a tuple with the EntityData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityData
 
-`func (o *PolicyConfigResultContextAllOf) SetEntityData(v map[string]interface{})`
+`func (o *PolicyConfigResultContextAllOf) SetEntityData(v interface{})`
 
 SetEntityData sets EntityData field to given value.
 
@@ -53,6 +53,16 @@ SetEntityData sets EntityData field to given value.
 
 HasEntityData returns a boolean if a field has been set.
 
+### SetEntityDataNil
+
+`func (o *PolicyConfigResultContextAllOf) SetEntityDataNil(b bool)`
+
+ SetEntityDataNil sets the value for EntityData to be an explicit nil
+
+### UnsetEntityData
+`func (o *PolicyConfigResultContextAllOf) UnsetEntityData()`
+
+UnsetEntityData ensures that no value is present for EntityData, not even an explicit nil
 ### GetEntityMoid
 
 `func (o *PolicyConfigResultContextAllOf) GetEntityMoid() string`

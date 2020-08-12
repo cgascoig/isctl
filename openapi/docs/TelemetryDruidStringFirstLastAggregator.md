@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | Pointer to **string** | The aggregator type. | 
 **Name** | Pointer to **string** | Output name for the minimum/maximum timestamp value. | 
 **FieldName** | Pointer to **string** | Name of the metric column. | 
-**MaxStringBytes** | Pointer to **int32** | null | [default to 1024]
+**MaxStringBytes** | Pointer to **int32** | null | [optional] [default to 1024]
 
 ## Methods
 
 ### NewTelemetryDruidStringFirstLastAggregator
 
-`func NewTelemetryDruidStringFirstLastAggregator(name string, fieldName string, maxStringBytes int32, ) *TelemetryDruidStringFirstLastAggregator`
+`func NewTelemetryDruidStringFirstLastAggregator(type_ string, name string, fieldName string, ) *TelemetryDruidStringFirstLastAggregator`
 
 NewTelemetryDruidStringFirstLastAggregator instantiates a new TelemetryDruidStringFirstLastAggregator object
 This constructor will assign default values to properties that have it defined,
@@ -26,6 +27,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidStringFirstLastAggregatorWithDefaults instantiates a new TelemetryDruidStringFirstLastAggregator object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *TelemetryDruidStringFirstLastAggregator) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TelemetryDruidStringFirstLastAggregator) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TelemetryDruidStringFirstLastAggregator) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetName
 
@@ -86,6 +107,11 @@ and a boolean to check if the value has been set.
 
 SetMaxStringBytes sets MaxStringBytes field to given value.
 
+### HasMaxStringBytes
+
+`func (o *TelemetryDruidStringFirstLastAggregator) HasMaxStringBytes() bool`
+
+HasMaxStringBytes returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

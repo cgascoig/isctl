@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -23,13 +23,13 @@ type HyperflexAppCatalogAllOf struct {
 	FeatureLimitExternal *HyperflexFeatureLimitExternalRelationship `json:"FeatureLimitExternal,omitempty" yaml:"FeatureLimitExternal,omitempty"`
 	FeatureLimitInternal *HyperflexFeatureLimitInternalRelationship `json:"FeatureLimitInternal,omitempty" yaml:"FeatureLimitInternal,omitempty"`
 	// An array of relationships to hyperflexHxdpVersion resources.
-	HxdpVersions *[]HyperflexHxdpVersionRelationship `json:"HxdpVersions,omitempty" yaml:"HxdpVersions,omitempty"`
+	HxdpVersions []HyperflexHxdpVersionRelationship `json:"HxdpVersions,omitempty" yaml:"HxdpVersions,omitempty"`
 	// An array of relationships to hyperflexCapabilityInfo resources.
-	HyperflexCapabilityInfos *[]HyperflexCapabilityInfoRelationship `json:"HyperflexCapabilityInfos,omitempty" yaml:"HyperflexCapabilityInfos,omitempty"`
+	HyperflexCapabilityInfos []HyperflexCapabilityInfoRelationship `json:"HyperflexCapabilityInfos,omitempty" yaml:"HyperflexCapabilityInfos,omitempty"`
 	// An array of relationships to hclHyperflexSoftwareCompatibilityInfo resources.
-	HyperflexSoftwareCompatibilityInfos *[]HclHyperflexSoftwareCompatibilityInfoRelationship `json:"HyperflexSoftwareCompatibilityInfos,omitempty" yaml:"HyperflexSoftwareCompatibilityInfos,omitempty"`
-	ServerFirmwareVersion               *HyperflexServerFirmwareVersionRelationship          `json:"ServerFirmwareVersion,omitempty" yaml:"ServerFirmwareVersion,omitempty"`
-	ServerModel                         *HyperflexServerModelRelationship                    `json:"ServerModel,omitempty" yaml:"ServerModel,omitempty"`
+	HyperflexSoftwareCompatibilityInfos []HclHyperflexSoftwareCompatibilityInfoRelationship `json:"HyperflexSoftwareCompatibilityInfos,omitempty" yaml:"HyperflexSoftwareCompatibilityInfos,omitempty"`
+	ServerFirmwareVersion               *HyperflexServerFirmwareVersionRelationship         `json:"ServerFirmwareVersion,omitempty" yaml:"ServerFirmwareVersion,omitempty"`
+	ServerModel                         *HyperflexServerModelRelationship                   `json:"ServerModel,omitempty" yaml:"ServerModel,omitempty"`
 }
 
 // NewHyperflexAppCatalogAllOf instantiates a new HyperflexAppCatalogAllOf object
@@ -145,22 +145,23 @@ func (o *HyperflexAppCatalogAllOf) SetFeatureLimitInternal(v HyperflexFeatureLim
 	o.FeatureLimitInternal = &v
 }
 
-// GetHxdpVersions returns the HxdpVersions field value if set, zero value otherwise.
+// GetHxdpVersions returns the HxdpVersions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexAppCatalogAllOf) GetHxdpVersions() []HyperflexHxdpVersionRelationship {
-	if o == nil || o.HxdpVersions == nil {
+	if o == nil {
 		var ret []HyperflexHxdpVersionRelationship
 		return ret
 	}
-	return *o.HxdpVersions
+	return o.HxdpVersions
 }
 
 // GetHxdpVersionsOk returns a tuple with the HxdpVersions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexAppCatalogAllOf) GetHxdpVersionsOk() (*[]HyperflexHxdpVersionRelationship, bool) {
 	if o == nil || o.HxdpVersions == nil {
 		return nil, false
 	}
-	return o.HxdpVersions, true
+	return &o.HxdpVersions, true
 }
 
 // HasHxdpVersions returns a boolean if a field has been set.
@@ -174,25 +175,26 @@ func (o *HyperflexAppCatalogAllOf) HasHxdpVersions() bool {
 
 // SetHxdpVersions gets a reference to the given []HyperflexHxdpVersionRelationship and assigns it to the HxdpVersions field.
 func (o *HyperflexAppCatalogAllOf) SetHxdpVersions(v []HyperflexHxdpVersionRelationship) {
-	o.HxdpVersions = &v
+	o.HxdpVersions = v
 }
 
-// GetHyperflexCapabilityInfos returns the HyperflexCapabilityInfos field value if set, zero value otherwise.
+// GetHyperflexCapabilityInfos returns the HyperflexCapabilityInfos field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexAppCatalogAllOf) GetHyperflexCapabilityInfos() []HyperflexCapabilityInfoRelationship {
-	if o == nil || o.HyperflexCapabilityInfos == nil {
+	if o == nil {
 		var ret []HyperflexCapabilityInfoRelationship
 		return ret
 	}
-	return *o.HyperflexCapabilityInfos
+	return o.HyperflexCapabilityInfos
 }
 
 // GetHyperflexCapabilityInfosOk returns a tuple with the HyperflexCapabilityInfos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexAppCatalogAllOf) GetHyperflexCapabilityInfosOk() (*[]HyperflexCapabilityInfoRelationship, bool) {
 	if o == nil || o.HyperflexCapabilityInfos == nil {
 		return nil, false
 	}
-	return o.HyperflexCapabilityInfos, true
+	return &o.HyperflexCapabilityInfos, true
 }
 
 // HasHyperflexCapabilityInfos returns a boolean if a field has been set.
@@ -206,25 +208,26 @@ func (o *HyperflexAppCatalogAllOf) HasHyperflexCapabilityInfos() bool {
 
 // SetHyperflexCapabilityInfos gets a reference to the given []HyperflexCapabilityInfoRelationship and assigns it to the HyperflexCapabilityInfos field.
 func (o *HyperflexAppCatalogAllOf) SetHyperflexCapabilityInfos(v []HyperflexCapabilityInfoRelationship) {
-	o.HyperflexCapabilityInfos = &v
+	o.HyperflexCapabilityInfos = v
 }
 
-// GetHyperflexSoftwareCompatibilityInfos returns the HyperflexSoftwareCompatibilityInfos field value if set, zero value otherwise.
+// GetHyperflexSoftwareCompatibilityInfos returns the HyperflexSoftwareCompatibilityInfos field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexAppCatalogAllOf) GetHyperflexSoftwareCompatibilityInfos() []HclHyperflexSoftwareCompatibilityInfoRelationship {
-	if o == nil || o.HyperflexSoftwareCompatibilityInfos == nil {
+	if o == nil {
 		var ret []HclHyperflexSoftwareCompatibilityInfoRelationship
 		return ret
 	}
-	return *o.HyperflexSoftwareCompatibilityInfos
+	return o.HyperflexSoftwareCompatibilityInfos
 }
 
 // GetHyperflexSoftwareCompatibilityInfosOk returns a tuple with the HyperflexSoftwareCompatibilityInfos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexAppCatalogAllOf) GetHyperflexSoftwareCompatibilityInfosOk() (*[]HclHyperflexSoftwareCompatibilityInfoRelationship, bool) {
 	if o == nil || o.HyperflexSoftwareCompatibilityInfos == nil {
 		return nil, false
 	}
-	return o.HyperflexSoftwareCompatibilityInfos, true
+	return &o.HyperflexSoftwareCompatibilityInfos, true
 }
 
 // HasHyperflexSoftwareCompatibilityInfos returns a boolean if a field has been set.
@@ -238,7 +241,7 @@ func (o *HyperflexAppCatalogAllOf) HasHyperflexSoftwareCompatibilityInfos() bool
 
 // SetHyperflexSoftwareCompatibilityInfos gets a reference to the given []HclHyperflexSoftwareCompatibilityInfoRelationship and assigns it to the HyperflexSoftwareCompatibilityInfos field.
 func (o *HyperflexAppCatalogAllOf) SetHyperflexSoftwareCompatibilityInfos(v []HclHyperflexSoftwareCompatibilityInfoRelationship) {
-	o.HyperflexSoftwareCompatibilityInfos = &v
+	o.HyperflexSoftwareCompatibilityInfos = v
 }
 
 // GetServerFirmwareVersion returns the ServerFirmwareVersion field value if set, zero value otherwise.

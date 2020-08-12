@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -22,8 +22,11 @@ type StoragePureHostLunAllOf struct {
 	HostGroupName *string `json:"HostGroupName,omitempty" yaml:"HostGroupName,omitempty"`
 	// Kind of volume connection to host. True if it is connected through host group. False in case of direct host connection.
 	Shared           *bool                                `json:"Shared,omitempty" yaml:"Shared,omitempty"`
+	Array            *StoragePureArrayRelationship        `json:"Array,omitempty" yaml:"Array,omitempty"`
+	Host             *StoragePureHostRelationship         `json:"Host,omitempty" yaml:"Host,omitempty"`
 	HostGroup        *StoragePureHostGroupRelationship    `json:"HostGroup,omitempty" yaml:"HostGroup,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	Volume           *StoragePureVolumeRelationship       `json:"Volume,omitempty" yaml:"Volume,omitempty"`
 }
 
 // NewStoragePureHostLunAllOf instantiates a new StoragePureHostLunAllOf object
@@ -107,6 +110,70 @@ func (o *StoragePureHostLunAllOf) SetShared(v bool) {
 	o.Shared = &v
 }
 
+// GetArray returns the Array field value if set, zero value otherwise.
+func (o *StoragePureHostLunAllOf) GetArray() StoragePureArrayRelationship {
+	if o == nil || o.Array == nil {
+		var ret StoragePureArrayRelationship
+		return ret
+	}
+	return *o.Array
+}
+
+// GetArrayOk returns a tuple with the Array field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePureHostLunAllOf) GetArrayOk() (*StoragePureArrayRelationship, bool) {
+	if o == nil || o.Array == nil {
+		return nil, false
+	}
+	return o.Array, true
+}
+
+// HasArray returns a boolean if a field has been set.
+func (o *StoragePureHostLunAllOf) HasArray() bool {
+	if o != nil && o.Array != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetArray gets a reference to the given StoragePureArrayRelationship and assigns it to the Array field.
+func (o *StoragePureHostLunAllOf) SetArray(v StoragePureArrayRelationship) {
+	o.Array = &v
+}
+
+// GetHost returns the Host field value if set, zero value otherwise.
+func (o *StoragePureHostLunAllOf) GetHost() StoragePureHostRelationship {
+	if o == nil || o.Host == nil {
+		var ret StoragePureHostRelationship
+		return ret
+	}
+	return *o.Host
+}
+
+// GetHostOk returns a tuple with the Host field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePureHostLunAllOf) GetHostOk() (*StoragePureHostRelationship, bool) {
+	if o == nil || o.Host == nil {
+		return nil, false
+	}
+	return o.Host, true
+}
+
+// HasHost returns a boolean if a field has been set.
+func (o *StoragePureHostLunAllOf) HasHost() bool {
+	if o != nil && o.Host != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHost gets a reference to the given StoragePureHostRelationship and assigns it to the Host field.
+func (o *StoragePureHostLunAllOf) SetHost(v StoragePureHostRelationship) {
+	o.Host = &v
+}
+
 // GetHostGroup returns the HostGroup field value if set, zero value otherwise.
 func (o *StoragePureHostLunAllOf) GetHostGroup() StoragePureHostGroupRelationship {
 	if o == nil || o.HostGroup == nil {
@@ -171,6 +238,38 @@ func (o *StoragePureHostLunAllOf) SetRegisteredDevice(v AssetDeviceRegistrationR
 	o.RegisteredDevice = &v
 }
 
+// GetVolume returns the Volume field value if set, zero value otherwise.
+func (o *StoragePureHostLunAllOf) GetVolume() StoragePureVolumeRelationship {
+	if o == nil || o.Volume == nil {
+		var ret StoragePureVolumeRelationship
+		return ret
+	}
+	return *o.Volume
+}
+
+// GetVolumeOk returns a tuple with the Volume field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePureHostLunAllOf) GetVolumeOk() (*StoragePureVolumeRelationship, bool) {
+	if o == nil || o.Volume == nil {
+		return nil, false
+	}
+	return o.Volume, true
+}
+
+// HasVolume returns a boolean if a field has been set.
+func (o *StoragePureHostLunAllOf) HasVolume() bool {
+	if o != nil && o.Volume != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVolume gets a reference to the given StoragePureVolumeRelationship and assigns it to the Volume field.
+func (o *StoragePureHostLunAllOf) SetVolume(v StoragePureVolumeRelationship) {
+	o.Volume = &v
+}
+
 func (o StoragePureHostLunAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.HostGroupName != nil {
@@ -179,11 +278,20 @@ func (o StoragePureHostLunAllOf) MarshalJSON() ([]byte, error) {
 	if o.Shared != nil {
 		toSerialize["Shared"] = o.Shared
 	}
+	if o.Array != nil {
+		toSerialize["Array"] = o.Array
+	}
+	if o.Host != nil {
+		toSerialize["Host"] = o.Host
+	}
 	if o.HostGroup != nil {
 		toSerialize["HostGroup"] = o.HostGroup
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice
+	}
+	if o.Volume != nil {
+		toSerialize["Volume"] = o.Volume
 	}
 	return json.Marshal(toSerialize)
 }

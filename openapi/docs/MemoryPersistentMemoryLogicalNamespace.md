@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Capacity** | Pointer to **int32** | Capacity of this Namespace that is created or modified. | [optional] 
-**Mode** | Pointer to **string** | Mode of this Namespace that is created or modified. | [optional] [default to "raw"]
+**Mode** | Pointer to **string** | Mode of this Namespace that is created or modified. * &#x60;raw&#x60; - The raw mode of Persistent Memory Namespace. * &#x60;block&#x60; - The block mode of Persistent Memory Namespace. | [optional] [default to "raw"]
 **Name** | Pointer to **string** | Name of this Namespace to be created on the server. | [optional] 
-**SocketId** | Pointer to **int32** | Socket ID of the region on which this Namespace has to be created or modified. | [optional] [default to 1]
-**SocketMemoryId** | Pointer to **string** | Socket Memory ID of the region on which this Namespace has to be created or modified. | [optional] [default to "Not Applicable"]
+**SocketId** | Pointer to **int32** | Socket ID of the region on which this Namespace has to be created or modified. * &#x60;1&#x60; - The first CPU socket in a server. * &#x60;2&#x60; - The second CPU socket in a server. * &#x60;3&#x60; - The third CPU socket in a server. * &#x60;4&#x60; - The fourth CPU socket in a server. | [optional] [default to 1]
+**SocketMemoryId** | Pointer to **string** | Socket Memory ID of the region on which this Namespace has to be created or modified. * &#x60;Not Applicable&#x60; - The socket memory ID is not applicable if app-direct persistent memory type is selected in the goal. * &#x60;2&#x60; - The second socket memory ID within a socket in a server. * &#x60;4&#x60; - The fourth socket memory ID within a socket in a server. * &#x60;6&#x60; - The sixth socket memory ID within a socket in a server. * &#x60;8&#x60; - The eighth socket memory ID within a socket in a server. * &#x60;10&#x60; - The tenth socket memory ID within a socket in a server. * &#x60;12&#x60; - The twelfth socket memory ID within a socket in a server. | [optional] [default to "Not Applicable"]
 
 ## Methods
 

@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardStatus** | Pointer to **string** |  | [optional] 
-**CardType** | Pointer to **string** |  | [optional] 
-**OemId** | Pointer to **string** |  | [optional] 
-**PdStatus** | Pointer to **string** |  | [optional] 
+**CardStatus** | Pointer to **string** | The status of the flex flash physical drive. | [optional] 
+**CardType** | Pointer to **string** | The card type of the flex flash physical drive. | [optional] 
+**OemId** | Pointer to **string** | The OEM Identifier of the flex flash physical drive. | [optional] 
+**PdStatus** | Pointer to **string** | The drive status of the flex flash physical drive. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageFlexFlashController** | Pointer to [**StorageFlexFlashControllerRelationship**](storage.FlexFlashController.Relationship.md) |  | [optional] 
 
@@ -129,6 +130,31 @@ SetPdStatus sets PdStatus field to given value.
 `func (o *StorageFlexFlashPhysicalDriveAllOf) HasPdStatus() bool`
 
 HasPdStatus returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageFlexFlashPhysicalDriveAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageFlexFlashPhysicalDriveAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageFlexFlashPhysicalDriveAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageFlexFlashPhysicalDriveAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

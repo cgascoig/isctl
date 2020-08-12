@@ -18,9 +18,10 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Name** | Pointer to **string** | The catalog name. There will be one for system and one for each user account. | [optional] 
 **ConfigurationFiles** | Pointer to [**[]OsConfigurationFileRelationship**](os.ConfigurationFile.Relationship.md) | An array of relationships to osConfigurationFile resources. | [optional] 
+**Distributions** | Pointer to [**[]OsDistributionRelationship**](os.Distribution.Relationship.md) | An array of relationships to osDistribution resources. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -332,6 +333,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *OsCatalogRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *OsCatalogRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *OsCatalogRelationship) GetParent() MoBaseMoRelationship`
@@ -382,6 +393,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *OsCatalogRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *OsCatalogRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *OsCatalogRelationship) GetDisplayNames() map[string][]string`
@@ -467,6 +488,51 @@ SetConfigurationFiles sets ConfigurationFiles field to given value.
 
 HasConfigurationFiles returns a boolean if a field has been set.
 
+### SetConfigurationFilesNil
+
+`func (o *OsCatalogRelationship) SetConfigurationFilesNil(b bool)`
+
+ SetConfigurationFilesNil sets the value for ConfigurationFiles to be an explicit nil
+
+### UnsetConfigurationFiles
+`func (o *OsCatalogRelationship) UnsetConfigurationFiles()`
+
+UnsetConfigurationFiles ensures that no value is present for ConfigurationFiles, not even an explicit nil
+### GetDistributions
+
+`func (o *OsCatalogRelationship) GetDistributions() []OsDistributionRelationship`
+
+GetDistributions returns the Distributions field if non-nil, zero value otherwise.
+
+### GetDistributionsOk
+
+`func (o *OsCatalogRelationship) GetDistributionsOk() (*[]OsDistributionRelationship, bool)`
+
+GetDistributionsOk returns a tuple with the Distributions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistributions
+
+`func (o *OsCatalogRelationship) SetDistributions(v []OsDistributionRelationship)`
+
+SetDistributions sets Distributions field to given value.
+
+### HasDistributions
+
+`func (o *OsCatalogRelationship) HasDistributions() bool`
+
+HasDistributions returns a boolean if a field has been set.
+
+### SetDistributionsNil
+
+`func (o *OsCatalogRelationship) SetDistributionsNil(b bool)`
+
+ SetDistributionsNil sets the value for Distributions to be an explicit nil
+
+### UnsetDistributions
+`func (o *OsCatalogRelationship) UnsetDistributions()`
+
+UnsetDistributions ensures that no value is present for Distributions, not even an explicit nil
 ### GetOrganization
 
 `func (o *OsCatalogRelationship) GetOrganization() OrganizationOrganizationRelationship`

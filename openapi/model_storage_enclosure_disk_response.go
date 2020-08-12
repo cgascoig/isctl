@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -21,13 +21,25 @@ import (
 
 // StorageEnclosureDiskResponse - The response body of a HTTP GET request for the 'storage.EnclosureDisk' resource. The value may be one of the following types. 1. When 'tag' is specified in the URL query, the response schema     is a summary of the tag usage. 1. When '$apply' is specified in the URL query, the response schema     is dynamically-generated schema based on the $apply value. 1. When '$count' is specified in the URL query, the response is     a simple object providing the count of the resources. 1. In all other cases, the response is a list of 'storage.EnclosureDisk' resources.
 type StorageEnclosureDiskResponse struct {
+	MoAggregateTransform     *MoAggregateTransform
 	MoDocumentCount          *MoDocumentCount
+	MoTagSummary             *MoTagSummary
 	StorageEnclosureDiskList *StorageEnclosureDiskList
+}
+
+// MoAggregateTransformAsStorageEnclosureDiskResponse is a convenience function that returns MoAggregateTransform wrapped in StorageEnclosureDiskResponse
+func MoAggregateTransformAsStorageEnclosureDiskResponse(v *MoAggregateTransform) StorageEnclosureDiskResponse {
+	return StorageEnclosureDiskResponse{MoAggregateTransform: v}
 }
 
 // MoDocumentCountAsStorageEnclosureDiskResponse is a convenience function that returns MoDocumentCount wrapped in StorageEnclosureDiskResponse
 func MoDocumentCountAsStorageEnclosureDiskResponse(v *MoDocumentCount) StorageEnclosureDiskResponse {
 	return StorageEnclosureDiskResponse{MoDocumentCount: v}
+}
+
+// MoTagSummaryAsStorageEnclosureDiskResponse is a convenience function that returns MoTagSummary wrapped in StorageEnclosureDiskResponse
+func MoTagSummaryAsStorageEnclosureDiskResponse(v *MoTagSummary) StorageEnclosureDiskResponse {
+	return StorageEnclosureDiskResponse{MoTagSummary: v}
 }
 
 // StorageEnclosureDiskListAsStorageEnclosureDiskResponse is a convenience function that returns StorageEnclosureDiskList wrapped in StorageEnclosureDiskResponse
@@ -46,6 +58,14 @@ func (dst *StorageEnclosureDiskResponse) UnmarshalJSON(data []byte) error {
 	}
 	if v, ok := unmarshaled["ObjectType"]; ok {
 		switch v {
+		case "mo.AggregateTransform":
+			var result *MoAggregateTransform = &MoAggregateTransform{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.MoAggregateTransform = result
+			return nil
 		case "mo.DocumentCount":
 			var result *MoDocumentCount = &MoDocumentCount{}
 			err = json.Unmarshal(data, result)
@@ -53,6 +73,14 @@ func (dst *StorageEnclosureDiskResponse) UnmarshalJSON(data []byte) error {
 				return err
 			}
 			dst.MoDocumentCount = result
+			return nil
+		case "mo.TagSummary":
+			var result *MoTagSummary = &MoTagSummary{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.MoTagSummary = result
 			return nil
 		case "storage.EnclosureDisk.List":
 			var result *StorageEnclosureDiskList = &StorageEnclosureDiskList{}
@@ -73,8 +101,16 @@ func (dst *StorageEnclosureDiskResponse) UnmarshalJSON(data []byte) error {
 
 // Marshl data from the first non-nil pointers in the struct to JSON
 func (src *StorageEnclosureDiskResponse) MarshalJSON() ([]byte, error) {
+	if src.MoAggregateTransform != nil {
+		return json.Marshal(&src.MoAggregateTransform)
+	}
+
 	if src.MoDocumentCount != nil {
 		return json.Marshal(&src.MoDocumentCount)
+	}
+
+	if src.MoTagSummary != nil {
+		return json.Marshal(&src.MoTagSummary)
 	}
 
 	if src.StorageEnclosureDiskList != nil {
@@ -86,8 +122,16 @@ func (src *StorageEnclosureDiskResponse) MarshalJSON() ([]byte, error) {
 
 // Marshl data from the first non-nil pointers in the struct to YAML
 func (src *StorageEnclosureDiskResponse) MarshalYAML() ([]byte, error) {
+	if src.MoAggregateTransform != nil {
+		return yaml.Marshal(&src.MoAggregateTransform)
+	}
+
 	if src.MoDocumentCount != nil {
 		return yaml.Marshal(&src.MoDocumentCount)
+	}
+
+	if src.MoTagSummary != nil {
+		return yaml.Marshal(&src.MoTagSummary)
 	}
 
 	if src.StorageEnclosureDiskList != nil {
@@ -99,8 +143,16 @@ func (src *StorageEnclosureDiskResponse) MarshalYAML() ([]byte, error) {
 
 // Get the actual instance
 func (obj *StorageEnclosureDiskResponse) GetActualInstance() interface{} {
+	if obj.MoAggregateTransform != nil {
+		return obj.MoAggregateTransform
+	}
+
 	if obj.MoDocumentCount != nil {
 		return obj.MoDocumentCount
+	}
+
+	if obj.MoTagSummary != nil {
+		return obj.MoTagSummary
 	}
 
 	if obj.StorageEnclosureDiskList != nil {

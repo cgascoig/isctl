@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Name of the Intersight account. By default, name is same as the MoID of the account. | [optional] 
 **Status** | Pointer to **string** | Status of the account. To activate the Intersight account, claim a device to the account. | [optional] [readonly] 
+**Var2LicenseReservationOp** | Pointer to [**LicenseLicenseReservationOpRelationship**](license.LicenseReservationOp.Relationship.md) |  | [optional] 
 **AppRegistrations** | Pointer to [**[]IamAppRegistrationRelationship**](iam.AppRegistration.Relationship.md) | An array of relationships to iamAppRegistration resources. | [optional] [readonly] 
 **DomainGroups** | Pointer to [**[]IamDomainGroupRelationship**](iam.DomainGroup.Relationship.md) | An array of relationships to iamDomainGroup resources. | [optional] [readonly] 
 **EndPointRoles** | Pointer to [**[]IamEndPointRoleRelationship**](iam.EndPointRole.Relationship.md) | An array of relationships to iamEndPointRole resources. | [optional] [readonly] 
@@ -88,6 +89,31 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### GetVar2LicenseReservationOp
+
+`func (o *IamAccount) GetVar2LicenseReservationOp() LicenseLicenseReservationOpRelationship`
+
+GetVar2LicenseReservationOp returns the Var2LicenseReservationOp field if non-nil, zero value otherwise.
+
+### GetVar2LicenseReservationOpOk
+
+`func (o *IamAccount) GetVar2LicenseReservationOpOk() (*LicenseLicenseReservationOpRelationship, bool)`
+
+GetVar2LicenseReservationOpOk returns a tuple with the Var2LicenseReservationOp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVar2LicenseReservationOp
+
+`func (o *IamAccount) SetVar2LicenseReservationOp(v LicenseLicenseReservationOpRelationship)`
+
+SetVar2LicenseReservationOp sets Var2LicenseReservationOp field to given value.
+
+### HasVar2LicenseReservationOp
+
+`func (o *IamAccount) HasVar2LicenseReservationOp() bool`
+
+HasVar2LicenseReservationOp returns a boolean if a field has been set.
+
 ### GetAppRegistrations
 
 `func (o *IamAccount) GetAppRegistrations() []IamAppRegistrationRelationship`
@@ -113,6 +139,16 @@ SetAppRegistrations sets AppRegistrations field to given value.
 
 HasAppRegistrations returns a boolean if a field has been set.
 
+### SetAppRegistrationsNil
+
+`func (o *IamAccount) SetAppRegistrationsNil(b bool)`
+
+ SetAppRegistrationsNil sets the value for AppRegistrations to be an explicit nil
+
+### UnsetAppRegistrations
+`func (o *IamAccount) UnsetAppRegistrations()`
+
+UnsetAppRegistrations ensures that no value is present for AppRegistrations, not even an explicit nil
 ### GetDomainGroups
 
 `func (o *IamAccount) GetDomainGroups() []IamDomainGroupRelationship`
@@ -138,6 +174,16 @@ SetDomainGroups sets DomainGroups field to given value.
 
 HasDomainGroups returns a boolean if a field has been set.
 
+### SetDomainGroupsNil
+
+`func (o *IamAccount) SetDomainGroupsNil(b bool)`
+
+ SetDomainGroupsNil sets the value for DomainGroups to be an explicit nil
+
+### UnsetDomainGroups
+`func (o *IamAccount) UnsetDomainGroups()`
+
+UnsetDomainGroups ensures that no value is present for DomainGroups, not even an explicit nil
 ### GetEndPointRoles
 
 `func (o *IamAccount) GetEndPointRoles() []IamEndPointRoleRelationship`
@@ -163,6 +209,16 @@ SetEndPointRoles sets EndPointRoles field to given value.
 
 HasEndPointRoles returns a boolean if a field has been set.
 
+### SetEndPointRolesNil
+
+`func (o *IamAccount) SetEndPointRolesNil(b bool)`
+
+ SetEndPointRolesNil sets the value for EndPointRoles to be an explicit nil
+
+### UnsetEndPointRoles
+`func (o *IamAccount) UnsetEndPointRoles()`
+
+UnsetEndPointRoles ensures that no value is present for EndPointRoles, not even an explicit nil
 ### GetIdpreferences
 
 `func (o *IamAccount) GetIdpreferences() []IamIdpReferenceRelationship`
@@ -188,6 +244,16 @@ SetIdpreferences sets Idpreferences field to given value.
 
 HasIdpreferences returns a boolean if a field has been set.
 
+### SetIdpreferencesNil
+
+`func (o *IamAccount) SetIdpreferencesNil(b bool)`
+
+ SetIdpreferencesNil sets the value for Idpreferences to be an explicit nil
+
+### UnsetIdpreferences
+`func (o *IamAccount) UnsetIdpreferences()`
+
+UnsetIdpreferences ensures that no value is present for Idpreferences, not even an explicit nil
 ### GetIdps
 
 `func (o *IamAccount) GetIdps() []IamIdpRelationship`
@@ -213,6 +279,16 @@ SetIdps sets Idps field to given value.
 
 HasIdps returns a boolean if a field has been set.
 
+### SetIdpsNil
+
+`func (o *IamAccount) SetIdpsNil(b bool)`
+
+ SetIdpsNil sets the value for Idps to be an explicit nil
+
+### UnsetIdps
+`func (o *IamAccount) UnsetIdps()`
+
+UnsetIdps ensures that no value is present for Idps, not even an explicit nil
 ### GetPermissions
 
 `func (o *IamAccount) GetPermissions() []IamPermissionRelationship`
@@ -238,6 +314,16 @@ SetPermissions sets Permissions field to given value.
 
 HasPermissions returns a boolean if a field has been set.
 
+### SetPermissionsNil
+
+`func (o *IamAccount) SetPermissionsNil(b bool)`
+
+ SetPermissionsNil sets the value for Permissions to be an explicit nil
+
+### UnsetPermissions
+`func (o *IamAccount) UnsetPermissions()`
+
+UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
 ### GetPrivilegeSets
 
 `func (o *IamAccount) GetPrivilegeSets() []IamPrivilegeSetRelationship`
@@ -263,6 +349,16 @@ SetPrivilegeSets sets PrivilegeSets field to given value.
 
 HasPrivilegeSets returns a boolean if a field has been set.
 
+### SetPrivilegeSetsNil
+
+`func (o *IamAccount) SetPrivilegeSetsNil(b bool)`
+
+ SetPrivilegeSetsNil sets the value for PrivilegeSets to be an explicit nil
+
+### UnsetPrivilegeSets
+`func (o *IamAccount) UnsetPrivilegeSets()`
+
+UnsetPrivilegeSets ensures that no value is present for PrivilegeSets, not even an explicit nil
 ### GetPrivileges
 
 `func (o *IamAccount) GetPrivileges() []IamPrivilegeRelationship`
@@ -288,6 +384,16 @@ SetPrivileges sets Privileges field to given value.
 
 HasPrivileges returns a boolean if a field has been set.
 
+### SetPrivilegesNil
+
+`func (o *IamAccount) SetPrivilegesNil(b bool)`
+
+ SetPrivilegesNil sets the value for Privileges to be an explicit nil
+
+### UnsetPrivileges
+`func (o *IamAccount) UnsetPrivileges()`
+
+UnsetPrivileges ensures that no value is present for Privileges, not even an explicit nil
 ### GetResourceLimits
 
 `func (o *IamAccount) GetResourceLimits() IamResourceLimitsRelationship`
@@ -338,6 +444,16 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
+### SetRolesNil
+
+`func (o *IamAccount) SetRolesNil(b bool)`
+
+ SetRolesNil sets the value for Roles to be an explicit nil
+
+### UnsetRoles
+`func (o *IamAccount) UnsetRoles()`
+
+UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 ### GetSecurityHolder
 
 `func (o *IamAccount) GetSecurityHolder() IamSecurityHolderRelationship`

@@ -76,6 +76,16 @@ SetResults sets Results field to given value.
 
 HasResults returns a boolean if a field has been set.
 
+### SetResultsNil
+
+`func (o *RecoveryOnDemandBackupList) SetResultsNil(b bool)`
+
+ SetResultsNil sets the value for Results to be an explicit nil
+
+### UnsetResults
+`func (o *RecoveryOnDemandBackupList) UnsetResults()`
+
+UnsetResults ensures that no value is present for Results, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

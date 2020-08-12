@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,6 +18,8 @@ import (
 
 // VnicRoceSettingsAllOf Definition of the list of properties defined in 'vnic.RoceSettings', excluding properties defined in parent classes.
 type VnicRoceSettingsAllOf struct {
+	// The Class of Service for RoCE on this virtual interface. * `5` - RDMA CoS Service Level 5. * `1` - RDMA CoS Service Level 1. * `2` - RDMA CoS Service Level 2. * `4` - RDMA CoS Service Level 4. * `6` - RDMA CoS Service Level 6.
+	ClassOfService *int32 `json:"ClassOfService,omitempty" yaml:"ClassOfService,omitempty"`
 	// If enabled sets RDMA over Converged Ethernet (RoCE) on this virtual interface.
 	Enabled *bool `json:"Enabled,omitempty" yaml:"Enabled,omitempty"`
 	// The number of memory regions per adapter. Recommended value = integer power of 2.
@@ -26,6 +28,8 @@ type VnicRoceSettingsAllOf struct {
 	QueuePairs *int64 `json:"QueuePairs,omitempty" yaml:"QueuePairs,omitempty"`
 	// The number of resource groups per adapter. Recommended value = be an integer power of 2 greater than or equal to the number of CPU cores on the system for optimum performance.
 	ResourceGroups *int64 `json:"ResourceGroups,omitempty" yaml:"ResourceGroups,omitempty"`
+	// Configures RDMA over Converged Ethernet (RoCE) version on the virtual interface. Only RoceV1 is supported onn Cisco VIC models 13xx and only RoceV2 is supported on models 14xx. * `1` - RDMA over Converged Ethernet Protocol Version 1. * `2` - RDMA over Converged Ethernet Protocol Version 2.
+	Version *int32 `json:"Version,omitempty" yaml:"Version,omitempty"`
 }
 
 // NewVnicRoceSettingsAllOf instantiates a new VnicRoceSettingsAllOf object
@@ -34,6 +38,10 @@ type VnicRoceSettingsAllOf struct {
 // will change when the set of required properties is changed
 func NewVnicRoceSettingsAllOf() *VnicRoceSettingsAllOf {
 	this := VnicRoceSettingsAllOf{}
+	var classOfService int32 = 5
+	this.ClassOfService = &classOfService
+	var version int32 = 1
+	this.Version = &version
 	return &this
 }
 
@@ -42,7 +50,43 @@ func NewVnicRoceSettingsAllOf() *VnicRoceSettingsAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewVnicRoceSettingsAllOfWithDefaults() *VnicRoceSettingsAllOf {
 	this := VnicRoceSettingsAllOf{}
+	var classOfService int32 = 5
+	this.ClassOfService = &classOfService
+	var version int32 = 1
+	this.Version = &version
 	return &this
+}
+
+// GetClassOfService returns the ClassOfService field value if set, zero value otherwise.
+func (o *VnicRoceSettingsAllOf) GetClassOfService() int32 {
+	if o == nil || o.ClassOfService == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ClassOfService
+}
+
+// GetClassOfServiceOk returns a tuple with the ClassOfService field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicRoceSettingsAllOf) GetClassOfServiceOk() (*int32, bool) {
+	if o == nil || o.ClassOfService == nil {
+		return nil, false
+	}
+	return o.ClassOfService, true
+}
+
+// HasClassOfService returns a boolean if a field has been set.
+func (o *VnicRoceSettingsAllOf) HasClassOfService() bool {
+	if o != nil && o.ClassOfService != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClassOfService gets a reference to the given int32 and assigns it to the ClassOfService field.
+func (o *VnicRoceSettingsAllOf) SetClassOfService(v int32) {
+	o.ClassOfService = &v
 }
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
@@ -173,8 +217,43 @@ func (o *VnicRoceSettingsAllOf) SetResourceGroups(v int64) {
 	o.ResourceGroups = &v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *VnicRoceSettingsAllOf) GetVersion() int32 {
+	if o == nil || o.Version == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicRoceSettingsAllOf) GetVersionOk() (*int32, bool) {
+	if o == nil || o.Version == nil {
+		return nil, false
+	}
+	return o.Version, true
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *VnicRoceSettingsAllOf) HasVersion() bool {
+	if o != nil && o.Version != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given int32 and assigns it to the Version field.
+func (o *VnicRoceSettingsAllOf) SetVersion(v int32) {
+	o.Version = &v
+}
+
 func (o VnicRoceSettingsAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.ClassOfService != nil {
+		toSerialize["ClassOfService"] = o.ClassOfService
+	}
 	if o.Enabled != nil {
 		toSerialize["Enabled"] = o.Enabled
 	}
@@ -186,6 +265,9 @@ func (o VnicRoceSettingsAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.ResourceGroups != nil {
 		toSerialize["ResourceGroups"] = o.ResourceGroups
+	}
+	if o.Version != nil {
+		toSerialize["Version"] = o.Version
 	}
 	return json.Marshal(toSerialize)
 }

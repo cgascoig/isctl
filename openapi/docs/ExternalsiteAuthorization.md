@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **IsPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;password&#39; property has been set. | [optional] [readonly] 
 **IsUserIdSet** | Pointer to **bool** | Indicates whether the value of the &#39;userId&#39; property has been set. | [optional] [readonly] 
 **Password** | Pointer to **string** | The password of the given username to download the image from external repository like cisco.com. | [optional] 
-**RepositoryType** | Pointer to **string** | The repository type to which this authorization will be requested. Cisco is the only available repository today. | [optional] [default to "cisco"]
+**RepositoryType** | Pointer to **string** | The repository type to which this authorization will be requested. Cisco is the only available repository today. * &#x60;cisco&#x60; - Cisco as an external site from where the resources like image will be downloaded. | [optional] [default to "cisco"]
 **UserId** | Pointer to **string** | The username that has permission to download the image from external repository like cisco.com. | [optional] 
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
 

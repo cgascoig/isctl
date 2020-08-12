@@ -4,17 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardsManageable** | Pointer to **string** |  | [optional] 
-**ConfiguredMode** | Pointer to **string** |  | [optional] 
-**ControllerName** | Pointer to **string** |  | [optional] 
-**ControllerStatus** | Pointer to **string** |  | [optional] 
-**FwVersion** | Pointer to **string** |  | [optional] 
-**InternalState** | Pointer to **string** |  | [optional] 
-**OperatingMode** | Pointer to **string** |  | [optional] 
-**PhysicalDriveCount** | Pointer to **string** |  | [optional] 
-**ProductName** | Pointer to **string** |  | [optional] 
-**StartupFwVersion** | Pointer to **string** |  | [optional] 
-**VirtualDriveCount** | Pointer to **string** |  | [optional] 
+**CardsManageable** | Pointer to **string** | Manageable card on the flex flash controller. | [optional] 
+**ConfiguredMode** | Pointer to **string** | Mode configured on the flex flash controller. | [optional] 
+**ControllerName** | Pointer to **string** | The current name of the flex flash controller. | [optional] 
+**ControllerStatus** | Pointer to **string** | The current status of the flex flash controller. | [optional] 
+**FwVersion** | Pointer to **string** | Firmware version of the flex flash controller. | [optional] 
+**InternalState** | Pointer to **string** | Internal state of the flex flash controller. | [optional] 
+**OperatingMode** | Pointer to **string** | Operating mode of flex flash controller. | [optional] 
+**PhysicalDriveCount** | Pointer to **string** | Number of connected physical drives to a specific Flex flash controller. | [optional] 
+**ProductName** | Pointer to **string** | Product name of the flex flash controller. | [optional] 
+**StartupFwVersion** | Pointer to **string** | Startup firmware version of the Flex flash controller. | [optional] 
+**VirtualDriveCount** | Pointer to **string** | Number of virtual drives for a specific Flex flash controller. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageFlexFlashController** | Pointer to [**StorageFlexFlashControllerRelationship**](storage.FlexFlashController.Relationship.md) |  | [optional] 
 
@@ -311,6 +312,31 @@ SetVirtualDriveCount sets VirtualDriveCount field to given value.
 `func (o *StorageFlexFlashControllerPropsAllOf) HasVirtualDriveCount() bool`
 
 HasVirtualDriveCount returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageFlexFlashControllerPropsAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageFlexFlashControllerPropsAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageFlexFlashControllerPropsAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageFlexFlashControllerPropsAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

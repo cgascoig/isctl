@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Preference** | Pointer to **map[string]interface{}** | UI preferences of the user. | [optional] 
+**Preference** | Pointer to **interface{}** | UI preferences of the user. | [optional] 
+**UserUniqueIdentifier** | Pointer to **string** | Unique id of the user used by the identity provider to store the user. | [optional] [readonly] 
 **Idp** | Pointer to [**IamIdpRelationship**](iam.Idp.Relationship.md) |  | [optional] 
 **IdpReference** | Pointer to [**IamIdpReferenceRelationship**](iam.IdpReference.Relationship.md) |  | [optional] 
 
@@ -29,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetPreference
 
-`func (o *IamUserPreferenceAllOf) GetPreference() map[string]interface{}`
+`func (o *IamUserPreferenceAllOf) GetPreference() interface{}`
 
 GetPreference returns the Preference field if non-nil, zero value otherwise.
 
 ### GetPreferenceOk
 
-`func (o *IamUserPreferenceAllOf) GetPreferenceOk() (*map[string]interface{}, bool)`
+`func (o *IamUserPreferenceAllOf) GetPreferenceOk() (*interface{}, bool)`
 
 GetPreferenceOk returns a tuple with the Preference field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreference
 
-`func (o *IamUserPreferenceAllOf) SetPreference(v map[string]interface{})`
+`func (o *IamUserPreferenceAllOf) SetPreference(v interface{})`
 
 SetPreference sets Preference field to given value.
 
@@ -51,6 +52,41 @@ SetPreference sets Preference field to given value.
 `func (o *IamUserPreferenceAllOf) HasPreference() bool`
 
 HasPreference returns a boolean if a field has been set.
+
+### SetPreferenceNil
+
+`func (o *IamUserPreferenceAllOf) SetPreferenceNil(b bool)`
+
+ SetPreferenceNil sets the value for Preference to be an explicit nil
+
+### UnsetPreference
+`func (o *IamUserPreferenceAllOf) UnsetPreference()`
+
+UnsetPreference ensures that no value is present for Preference, not even an explicit nil
+### GetUserUniqueIdentifier
+
+`func (o *IamUserPreferenceAllOf) GetUserUniqueIdentifier() string`
+
+GetUserUniqueIdentifier returns the UserUniqueIdentifier field if non-nil, zero value otherwise.
+
+### GetUserUniqueIdentifierOk
+
+`func (o *IamUserPreferenceAllOf) GetUserUniqueIdentifierOk() (*string, bool)`
+
+GetUserUniqueIdentifierOk returns a tuple with the UserUniqueIdentifier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserUniqueIdentifier
+
+`func (o *IamUserPreferenceAllOf) SetUserUniqueIdentifier(v string)`
+
+SetUserUniqueIdentifier sets UserUniqueIdentifier field to given value.
+
+### HasUserUniqueIdentifier
+
+`func (o *IamUserPreferenceAllOf) HasUserUniqueIdentifier() bool`
+
+HasUserUniqueIdentifier returns a boolean if a field has been set.
 
 ### GetIdp
 

@@ -4,15 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ArrayId** | Pointer to **int64** | ID of the memory array on a server. | [optional] [readonly] 
+**ArrayId** | Pointer to **int64** | The instance number of the memory array. | [optional] [readonly] 
 **CpuId** | Pointer to **int64** | ID of the CPU that access this memory array. | [optional] [readonly] 
 **CurrentCapacity** | Pointer to **string** | Current capacity of all the memory units on a server. | [optional] [readonly] 
-**ErrorCorrection** | Pointer to **string** |  | [optional] [readonly] 
+**ErrorCorrection** | Pointer to **string** | The primary hardware error detection or correction method supported by the memory array. | [optional] [readonly] 
 **MaxCapacity** | Pointer to **string** | Maximum capacity of all the memory units on a server. | [optional] [readonly] 
-**MaxDevices** | Pointer to **string** |  | [optional] [readonly] 
-**OperPowerState** | Pointer to **string** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
+**MaxDevices** | Pointer to **string** | The maximum number of slots or sockets available for memory devices in the memory array. | [optional] [readonly] 
+**OperPowerState** | Pointer to **string** | The power state indicator of the memory array. | [optional] [readonly] 
+**Presence** | Pointer to **string** | The presence of atleast one memory device in the array. Valid values are &#39;equipped&#39; and &#39;absent&#39;. | [optional] [readonly] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PersistentMemoryUnits** | Pointer to [**[]MemoryPersistentMemoryUnitRelationship**](memory.PersistentMemoryUnit.Relationship.md) | An array of relationships to memoryPersistentMemoryUnit resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **Units** | Pointer to [**[]MemoryUnitRelationship**](memory.Unit.Relationship.md) | An array of relationships to memoryUnit resources. | [optional] [readonly] 
@@ -236,6 +239,31 @@ SetPresence sets Presence field to given value.
 
 HasPresence returns a boolean if a field has been set.
 
+### GetComputeBlade
+
+`func (o *MemoryArray) GetComputeBlade() ComputeBladeRelationship`
+
+GetComputeBlade returns the ComputeBlade field if non-nil, zero value otherwise.
+
+### GetComputeBladeOk
+
+`func (o *MemoryArray) GetComputeBladeOk() (*ComputeBladeRelationship, bool)`
+
+GetComputeBladeOk returns a tuple with the ComputeBlade field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeBlade
+
+`func (o *MemoryArray) SetComputeBlade(v ComputeBladeRelationship)`
+
+SetComputeBlade sets ComputeBlade field to given value.
+
+### HasComputeBlade
+
+`func (o *MemoryArray) HasComputeBlade() bool`
+
+HasComputeBlade returns a boolean if a field has been set.
+
 ### GetComputeBoard
 
 `func (o *MemoryArray) GetComputeBoard() ComputeBoardRelationship`
@@ -260,6 +288,56 @@ SetComputeBoard sets ComputeBoard field to given value.
 `func (o *MemoryArray) HasComputeBoard() bool`
 
 HasComputeBoard returns a boolean if a field has been set.
+
+### GetComputeRackUnit
+
+`func (o *MemoryArray) GetComputeRackUnit() ComputeRackUnitRelationship`
+
+GetComputeRackUnit returns the ComputeRackUnit field if non-nil, zero value otherwise.
+
+### GetComputeRackUnitOk
+
+`func (o *MemoryArray) GetComputeRackUnitOk() (*ComputeRackUnitRelationship, bool)`
+
+GetComputeRackUnitOk returns a tuple with the ComputeRackUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeRackUnit
+
+`func (o *MemoryArray) SetComputeRackUnit(v ComputeRackUnitRelationship)`
+
+SetComputeRackUnit sets ComputeRackUnit field to given value.
+
+### HasComputeRackUnit
+
+`func (o *MemoryArray) HasComputeRackUnit() bool`
+
+HasComputeRackUnit returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *MemoryArray) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *MemoryArray) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *MemoryArray) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *MemoryArray) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPersistentMemoryUnits
 
@@ -286,6 +364,16 @@ SetPersistentMemoryUnits sets PersistentMemoryUnits field to given value.
 
 HasPersistentMemoryUnits returns a boolean if a field has been set.
 
+### SetPersistentMemoryUnitsNil
+
+`func (o *MemoryArray) SetPersistentMemoryUnitsNil(b bool)`
+
+ SetPersistentMemoryUnitsNil sets the value for PersistentMemoryUnits to be an explicit nil
+
+### UnsetPersistentMemoryUnits
+`func (o *MemoryArray) UnsetPersistentMemoryUnits()`
+
+UnsetPersistentMemoryUnits ensures that no value is present for PersistentMemoryUnits, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *MemoryArray) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -336,6 +424,16 @@ SetUnits sets Units field to given value.
 
 HasUnits returns a boolean if a field has been set.
 
+### SetUnitsNil
+
+`func (o *MemoryArray) SetUnitsNil(b bool)`
+
+ SetUnitsNil sets the value for Units to be an explicit nil
+
+### UnsetUnits
+`func (o *MemoryArray) UnsetUnits()`
+
+UnsetUnits ensures that no value is present for Units, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

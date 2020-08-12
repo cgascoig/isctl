@@ -18,14 +18,18 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | Model of the endpoint that houses the management controller. | [optional] [readonly] 
 **AdapterUnit** | Pointer to [**AdapterUnitRelationship**](adapter.Unit.Relationship.md) |  | [optional] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**EquipmentIoCardBase** | Pointer to [**EquipmentIoCardBaseRelationship**](equipment.IoCardBase.Relationship.md) |  | [optional] 
+**EquipmentSharedIoModule** | Pointer to [**EquipmentSharedIoModuleRelationship**](equipment.SharedIoModule.Relationship.md) |  | [optional] 
+**EquipmentSystemIoController** | Pointer to [**EquipmentSystemIoControllerRelationship**](equipment.SystemIoController.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementInterfaces** | Pointer to [**[]ManagementInterfaceRelationship**](management.Interface.Relationship.md) | An array of relationships to managementInterface resources. | [optional] [readonly] 
 **NetworkElement** | Pointer to [**NetworkElementRelationship**](network.Element.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -342,6 +346,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *ManagementControllerRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *ManagementControllerRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *ManagementControllerRelationship) GetParent() MoBaseMoRelationship`
@@ -392,6 +406,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *ManagementControllerRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *ManagementControllerRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *ManagementControllerRelationship) GetDisplayNames() map[string][]string`
@@ -602,6 +626,106 @@ SetComputeRackUnit sets ComputeRackUnit field to given value.
 
 HasComputeRackUnit returns a boolean if a field has been set.
 
+### GetEquipmentIoCardBase
+
+`func (o *ManagementControllerRelationship) GetEquipmentIoCardBase() EquipmentIoCardBaseRelationship`
+
+GetEquipmentIoCardBase returns the EquipmentIoCardBase field if non-nil, zero value otherwise.
+
+### GetEquipmentIoCardBaseOk
+
+`func (o *ManagementControllerRelationship) GetEquipmentIoCardBaseOk() (*EquipmentIoCardBaseRelationship, bool)`
+
+GetEquipmentIoCardBaseOk returns a tuple with the EquipmentIoCardBase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentIoCardBase
+
+`func (o *ManagementControllerRelationship) SetEquipmentIoCardBase(v EquipmentIoCardBaseRelationship)`
+
+SetEquipmentIoCardBase sets EquipmentIoCardBase field to given value.
+
+### HasEquipmentIoCardBase
+
+`func (o *ManagementControllerRelationship) HasEquipmentIoCardBase() bool`
+
+HasEquipmentIoCardBase returns a boolean if a field has been set.
+
+### GetEquipmentSharedIoModule
+
+`func (o *ManagementControllerRelationship) GetEquipmentSharedIoModule() EquipmentSharedIoModuleRelationship`
+
+GetEquipmentSharedIoModule returns the EquipmentSharedIoModule field if non-nil, zero value otherwise.
+
+### GetEquipmentSharedIoModuleOk
+
+`func (o *ManagementControllerRelationship) GetEquipmentSharedIoModuleOk() (*EquipmentSharedIoModuleRelationship, bool)`
+
+GetEquipmentSharedIoModuleOk returns a tuple with the EquipmentSharedIoModule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentSharedIoModule
+
+`func (o *ManagementControllerRelationship) SetEquipmentSharedIoModule(v EquipmentSharedIoModuleRelationship)`
+
+SetEquipmentSharedIoModule sets EquipmentSharedIoModule field to given value.
+
+### HasEquipmentSharedIoModule
+
+`func (o *ManagementControllerRelationship) HasEquipmentSharedIoModule() bool`
+
+HasEquipmentSharedIoModule returns a boolean if a field has been set.
+
+### GetEquipmentSystemIoController
+
+`func (o *ManagementControllerRelationship) GetEquipmentSystemIoController() EquipmentSystemIoControllerRelationship`
+
+GetEquipmentSystemIoController returns the EquipmentSystemIoController field if non-nil, zero value otherwise.
+
+### GetEquipmentSystemIoControllerOk
+
+`func (o *ManagementControllerRelationship) GetEquipmentSystemIoControllerOk() (*EquipmentSystemIoControllerRelationship, bool)`
+
+GetEquipmentSystemIoControllerOk returns a tuple with the EquipmentSystemIoController field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentSystemIoController
+
+`func (o *ManagementControllerRelationship) SetEquipmentSystemIoController(v EquipmentSystemIoControllerRelationship)`
+
+SetEquipmentSystemIoController sets EquipmentSystemIoController field to given value.
+
+### HasEquipmentSystemIoController
+
+`func (o *ManagementControllerRelationship) HasEquipmentSystemIoController() bool`
+
+HasEquipmentSystemIoController returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *ManagementControllerRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ManagementControllerRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ManagementControllerRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ManagementControllerRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetManagementInterfaces
 
 `func (o *ManagementControllerRelationship) GetManagementInterfaces() []ManagementInterfaceRelationship`
@@ -627,6 +751,16 @@ SetManagementInterfaces sets ManagementInterfaces field to given value.
 
 HasManagementInterfaces returns a boolean if a field has been set.
 
+### SetManagementInterfacesNil
+
+`func (o *ManagementControllerRelationship) SetManagementInterfacesNil(b bool)`
+
+ SetManagementInterfacesNil sets the value for ManagementInterfaces to be an explicit nil
+
+### UnsetManagementInterfaces
+`func (o *ManagementControllerRelationship) UnsetManagementInterfaces()`
+
+UnsetManagementInterfaces ensures that no value is present for ManagementInterfaces, not even an explicit nil
 ### GetNetworkElement
 
 `func (o *ManagementControllerRelationship) GetNetworkElement() NetworkElementRelationship`
@@ -702,6 +836,16 @@ SetRunningFirmware sets RunningFirmware field to given value.
 
 HasRunningFirmware returns a boolean if a field has been set.
 
+### SetRunningFirmwareNil
+
+`func (o *ManagementControllerRelationship) SetRunningFirmwareNil(b bool)`
+
+ SetRunningFirmwareNil sets the value for RunningFirmware to be an explicit nil
+
+### UnsetRunningFirmware
+`func (o *ManagementControllerRelationship) UnsetRunningFirmware()`
+
+UnsetRunningFirmware ensures that no value is present for RunningFirmware, not even an explicit nil
 ### GetStorageSasExpander
 
 `func (o *ManagementControllerRelationship) GetStorageSasExpander() StorageSasExpanderRelationship`

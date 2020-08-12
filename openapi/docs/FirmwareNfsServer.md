@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileLocation** | Pointer to **string** | The location to the image file. The accepted format is IP-or-hostname/folder1/folder2/.../imageFile. | [optional] 
-**MountOptions** | Pointer to **string** | Mount option as configured on the NFS Server. Example:nolock. | [optional] 
-**RemoteFile** | Pointer to **string** | Filename of the image in the remote share location. Example:ucs-c220m5-huu-3.1.2c.iso. | [optional] [readonly] 
-**RemoteIp** | Pointer to **string** | NFS Server Hostname or IP Address. Example:NFS-server-hostname or 10.10.8.7. | [optional] [readonly] 
-**RemoteShare** | Pointer to **string** | Directory where the image is stored. Example:/share/subfolder. | [optional] [readonly] 
+**MountOptions** | Pointer to **string** | Mount option as configured on the NFS Server. For example:nolock. | [optional] 
+**RemoteFile** | Pointer to **string** | Filename of the image in the remote share location. For example:ucs-c220m5-huu-3.1.2c.iso. | [optional] [readonly] 
+**RemoteIp** | Pointer to **string** | NFS Server Hostname or IP Address. For example:NFS-server-hostname or 10.10.8.7. The remote share server should have network connectivity with the CIMC of the selected devices for a successful upgrade. | [optional] [readonly] 
+**RemoteShare** | Pointer to **string** | Directory where the image is stored. For example:/share/subfolder. | [optional] [readonly] 
 
 ## Methods
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,12 +19,19 @@ import (
 // ManagementEntity Logical representation that captures the role of each Fabric Interconnect in UCS Manager.
 type ManagementEntity struct {
 	InventoryBase `yaml:"InventoryBase,inline"`
+	// Cluster link state between the Fabric Interconnects.
+	ClusterLinkState *string `json:"ClusterLinkState,omitempty" yaml:"ClusterLinkState,omitempty"`
+	// Cluster readiness of the Fabric Interconnect.
+	ClusterReadiness *string `json:"ClusterReadiness,omitempty" yaml:"ClusterReadiness,omitempty"`
+	// Cluster state of the Fabric Interconnect.
+	ClusterState *string `json:"ClusterState,omitempty" yaml:"ClusterState,omitempty"`
 	// Identity of the Fabric Interconnect - A/B.
 	EntityId *string `json:"EntityId,omitempty" yaml:"EntityId,omitempty"`
 	// Role (Primary / Subordinate) of the Fabric Interconnect.
-	Leadership       *string                              `json:"Leadership,omitempty" yaml:"Leadership,omitempty"`
-	NetworkElement   *NetworkElementRelationship          `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	Leadership          *string                              `json:"Leadership,omitempty" yaml:"Leadership,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	NetworkElement      *NetworkElementRelationship          `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewManagementEntity instantiates a new ManagementEntity object
@@ -42,6 +49,102 @@ func NewManagementEntity() *ManagementEntity {
 func NewManagementEntityWithDefaults() *ManagementEntity {
 	this := ManagementEntity{}
 	return &this
+}
+
+// GetClusterLinkState returns the ClusterLinkState field value if set, zero value otherwise.
+func (o *ManagementEntity) GetClusterLinkState() string {
+	if o == nil || o.ClusterLinkState == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClusterLinkState
+}
+
+// GetClusterLinkStateOk returns a tuple with the ClusterLinkState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementEntity) GetClusterLinkStateOk() (*string, bool) {
+	if o == nil || o.ClusterLinkState == nil {
+		return nil, false
+	}
+	return o.ClusterLinkState, true
+}
+
+// HasClusterLinkState returns a boolean if a field has been set.
+func (o *ManagementEntity) HasClusterLinkState() bool {
+	if o != nil && o.ClusterLinkState != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterLinkState gets a reference to the given string and assigns it to the ClusterLinkState field.
+func (o *ManagementEntity) SetClusterLinkState(v string) {
+	o.ClusterLinkState = &v
+}
+
+// GetClusterReadiness returns the ClusterReadiness field value if set, zero value otherwise.
+func (o *ManagementEntity) GetClusterReadiness() string {
+	if o == nil || o.ClusterReadiness == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClusterReadiness
+}
+
+// GetClusterReadinessOk returns a tuple with the ClusterReadiness field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementEntity) GetClusterReadinessOk() (*string, bool) {
+	if o == nil || o.ClusterReadiness == nil {
+		return nil, false
+	}
+	return o.ClusterReadiness, true
+}
+
+// HasClusterReadiness returns a boolean if a field has been set.
+func (o *ManagementEntity) HasClusterReadiness() bool {
+	if o != nil && o.ClusterReadiness != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterReadiness gets a reference to the given string and assigns it to the ClusterReadiness field.
+func (o *ManagementEntity) SetClusterReadiness(v string) {
+	o.ClusterReadiness = &v
+}
+
+// GetClusterState returns the ClusterState field value if set, zero value otherwise.
+func (o *ManagementEntity) GetClusterState() string {
+	if o == nil || o.ClusterState == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClusterState
+}
+
+// GetClusterStateOk returns a tuple with the ClusterState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementEntity) GetClusterStateOk() (*string, bool) {
+	if o == nil || o.ClusterState == nil {
+		return nil, false
+	}
+	return o.ClusterState, true
+}
+
+// HasClusterState returns a boolean if a field has been set.
+func (o *ManagementEntity) HasClusterState() bool {
+	if o != nil && o.ClusterState != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterState gets a reference to the given string and assigns it to the ClusterState field.
+func (o *ManagementEntity) SetClusterState(v string) {
+	o.ClusterState = &v
 }
 
 // GetEntityId returns the EntityId field value if set, zero value otherwise.
@@ -106,6 +209,38 @@ func (o *ManagementEntity) HasLeadership() bool {
 // SetLeadership gets a reference to the given string and assigns it to the Leadership field.
 func (o *ManagementEntity) SetLeadership(v string) {
 	o.Leadership = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *ManagementEntity) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementEntity) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *ManagementEntity) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *ManagementEntity) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetNetworkElement returns the NetworkElement field value if set, zero value otherwise.
@@ -182,11 +317,23 @@ func (o ManagementEntity) MarshalJSON() ([]byte, error) {
 	if errInventoryBase != nil {
 		return []byte{}, errInventoryBase
 	}
+	if o.ClusterLinkState != nil {
+		toSerialize["ClusterLinkState"] = o.ClusterLinkState
+	}
+	if o.ClusterReadiness != nil {
+		toSerialize["ClusterReadiness"] = o.ClusterReadiness
+	}
+	if o.ClusterState != nil {
+		toSerialize["ClusterState"] = o.ClusterState
+	}
 	if o.EntityId != nil {
 		toSerialize["EntityId"] = o.EntityId
 	}
 	if o.Leadership != nil {
 		toSerialize["Leadership"] = o.Leadership
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.NetworkElement != nil {
 		toSerialize["NetworkElement"] = o.NetworkElement

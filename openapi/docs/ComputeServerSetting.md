@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdminLocatorLedState** | Pointer to **string** | User configured state of the locator LED for the server. | [optional] [default to "None"]
-**AdminPowerState** | Pointer to **string** | User configured power state of the server. | [optional] [default to "Policy"]
-**ConfigState** | Pointer to **string** | The configured state of these settings in the target server. The value is any one of Applied, Applying, Failed. Applied - This state denotes that the settings are applied successfully in the target server. Applying - This state denotes that the settings are being applied in the target server. Failed - This state denotes that the settings could not be applied in the target server. | [optional] [readonly] [default to "Applied"]
+**AdminLocatorLedState** | Pointer to **string** | User configured state of the locator LED for the server. * &#x60;None&#x60; - No operation property for locator led. * &#x60;On&#x60; - The Locator Led is turned on. * &#x60;Off&#x60; - The Locator Led is turned off. | [optional] [default to "None"]
+**AdminPowerState** | Pointer to **string** | User configured power state of the server. * &#x60;Policy&#x60; - Power state is set to the default value in the policy. * &#x60;PowerOn&#x60; - Power state of the server is set to On. * &#x60;PowerOff&#x60; - Power state is the server set to Off. * &#x60;PowerCycle&#x60; - Power state the server is reset. * &#x60;HardReset&#x60; - Power state the server is hard reset. * &#x60;Shutdown&#x60; - Operating system on the server is shut down. * &#x60;Reboot&#x60; - Power state of IMC is rebooted. | [optional] [default to "Policy"]
+**ConfigState** | Pointer to **string** | The configured state of these settings in the target server. The value is any one of Applied, Applying, Failed. Applied - This state denotes that the settings are applied successfully in the target server. Applying - This state denotes that the settings are being applied in the target server. Failed - This state denotes that the settings could not be applied in the target server. * &#x60;Applied&#x60; - User configured settings are in applied state. * &#x60;Applying&#x60; - User settings are being applied on the target server. * &#x60;Failed&#x60; - User configured settings could not be applied. | [optional] [readonly] [default to "Applied"]
 **OneTimeBootDevice** | Pointer to **string** | The name of the device chosen by user for configuring One-Time Boot device. | [optional] 
 **PersistentMemoryOperation** | Pointer to [**ComputePersistentMemoryOperation**](compute.PersistentMemoryOperation.md) |  | [optional] 
 **ServerConfig** | Pointer to [**ComputeServerConfig**](compute.ServerConfig.md) |  | [optional] 
 **LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](equipment.LocatorLed.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**Server** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**RunningWorkflow** | Pointer to [**WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) |  | [optional] 
+**Server** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -233,22 +234,47 @@ SetRegisteredDevice sets RegisteredDevice field to given value.
 
 HasRegisteredDevice returns a boolean if a field has been set.
 
+### GetRunningWorkflow
+
+`func (o *ComputeServerSetting) GetRunningWorkflow() WorkflowWorkflowInfoRelationship`
+
+GetRunningWorkflow returns the RunningWorkflow field if non-nil, zero value otherwise.
+
+### GetRunningWorkflowOk
+
+`func (o *ComputeServerSetting) GetRunningWorkflowOk() (*WorkflowWorkflowInfoRelationship, bool)`
+
+GetRunningWorkflowOk returns a tuple with the RunningWorkflow field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRunningWorkflow
+
+`func (o *ComputeServerSetting) SetRunningWorkflow(v WorkflowWorkflowInfoRelationship)`
+
+SetRunningWorkflow sets RunningWorkflow field to given value.
+
+### HasRunningWorkflow
+
+`func (o *ComputeServerSetting) HasRunningWorkflow() bool`
+
+HasRunningWorkflow returns a boolean if a field has been set.
+
 ### GetServer
 
-`func (o *ComputeServerSetting) GetServer() ComputeRackUnitRelationship`
+`func (o *ComputeServerSetting) GetServer() ComputePhysicalRelationship`
 
 GetServer returns the Server field if non-nil, zero value otherwise.
 
 ### GetServerOk
 
-`func (o *ComputeServerSetting) GetServerOk() (*ComputeRackUnitRelationship, bool)`
+`func (o *ComputeServerSetting) GetServerOk() (*ComputePhysicalRelationship, bool)`
 
 GetServerOk returns a tuple with the Server field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServer
 
-`func (o *ComputeServerSetting) SetServer(v ComputeRackUnitRelationship)`
+`func (o *ComputeServerSetting) SetServer(v ComputePhysicalRelationship)`
 
 SetServer sets Server field to given value.
 

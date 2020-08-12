@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServerId** | Pointer to **int64** | The server id of the Rack server. | [optional] [readonly] 
+**ConnectionStatus** | Pointer to **string** | Connectivity Status of RackUnit to Switch - A or B or AB. | [optional] [readonly] 
+**ServerId** | Pointer to **int64** | RackUnit ID that uniquely identifies the server. | [optional] [readonly] 
+**TopologyScanStatus** | Pointer to **string** | To maintain the Topology workflow run status. | [optional] 
 **Adapters** | Pointer to [**[]AdapterUnitRelationship**](adapter.Unit.Relationship.md) | An array of relationships to adapterUnit resources. | [optional] [readonly] 
 **BiosBootmode** | Pointer to [**BiosBootModeRelationship**](bios.BootMode.Relationship.md) |  | [optional] 
 **Biosunits** | Pointer to [**[]BiosUnitRelationship**](bios.Unit.Relationship.md) | An array of relationships to biosUnit resources. | [optional] [readonly] 
@@ -13,12 +15,17 @@ Name | Type | Description | Notes
 **BootDeviceBootmode** | Pointer to [**BootDeviceBootModeRelationship**](boot.DeviceBootMode.Relationship.md) |  | [optional] 
 **Fanmodules** | Pointer to [**[]EquipmentFanModuleRelationship**](equipment.FanModule.Relationship.md) | An array of relationships to equipmentFanModule resources. | [optional] [readonly] 
 **GenericInventoryHolders** | Pointer to [**[]InventoryGenericInventoryHolderRelationship**](inventory.GenericInventoryHolder.Relationship.md) | An array of relationships to inventoryGenericInventoryHolder resources. | [optional] [readonly] 
+**GraphicsCards** | Pointer to [**[]GraphicsCardRelationship**](graphics.Card.Relationship.md) | An array of relationships to graphicsCard resources. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](equipment.LocatorLed.Relationship.md) |  | [optional] 
+**MemoryArrays** | Pointer to [**[]MemoryArrayRelationship**](memory.Array.Relationship.md) | An array of relationships to memoryArray resources. | [optional] 
 **PciDevices** | Pointer to [**[]PciDeviceRelationship**](pci.Device.Relationship.md) | An array of relationships to pciDevice resources. | [optional] [readonly] 
+**Processors** | Pointer to [**[]ProcessorUnitRelationship**](processor.Unit.Relationship.md) | An array of relationships to processorUnit resources. | [optional] 
 **Psus** | Pointer to [**[]EquipmentPsuRelationship**](equipment.Psu.Relationship.md) | An array of relationships to equipmentPsu resources. | [optional] [readonly] 
 **RackEnclosureSlot** | Pointer to [**EquipmentRackEnclosureSlotRelationship**](equipment.RackEnclosureSlot.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **SasExpanders** | Pointer to [**[]StorageSasExpanderRelationship**](storage.SasExpander.Relationship.md) | An array of relationships to storageSasExpander resources. | [optional] 
+**StorageControllers** | Pointer to [**[]StorageControllerRelationship**](storage.Controller.Relationship.md) | An array of relationships to storageController resources. | [optional] 
 **StorageEnclosures** | Pointer to [**[]StorageEnclosureRelationship**](storage.Enclosure.Relationship.md) | An array of relationships to storageEnclosure resources. | [optional] [readonly] 
 **TopSystem** | Pointer to [**TopSystemRelationship**](top.System.Relationship.md) |  | [optional] 
 
@@ -40,6 +47,31 @@ will change when the set of required properties is changed
 NewComputeRackUnitWithDefaults instantiates a new ComputeRackUnit object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetConnectionStatus
+
+`func (o *ComputeRackUnit) GetConnectionStatus() string`
+
+GetConnectionStatus returns the ConnectionStatus field if non-nil, zero value otherwise.
+
+### GetConnectionStatusOk
+
+`func (o *ComputeRackUnit) GetConnectionStatusOk() (*string, bool)`
+
+GetConnectionStatusOk returns a tuple with the ConnectionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectionStatus
+
+`func (o *ComputeRackUnit) SetConnectionStatus(v string)`
+
+SetConnectionStatus sets ConnectionStatus field to given value.
+
+### HasConnectionStatus
+
+`func (o *ComputeRackUnit) HasConnectionStatus() bool`
+
+HasConnectionStatus returns a boolean if a field has been set.
 
 ### GetServerId
 
@@ -66,6 +98,31 @@ SetServerId sets ServerId field to given value.
 
 HasServerId returns a boolean if a field has been set.
 
+### GetTopologyScanStatus
+
+`func (o *ComputeRackUnit) GetTopologyScanStatus() string`
+
+GetTopologyScanStatus returns the TopologyScanStatus field if non-nil, zero value otherwise.
+
+### GetTopologyScanStatusOk
+
+`func (o *ComputeRackUnit) GetTopologyScanStatusOk() (*string, bool)`
+
+GetTopologyScanStatusOk returns a tuple with the TopologyScanStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTopologyScanStatus
+
+`func (o *ComputeRackUnit) SetTopologyScanStatus(v string)`
+
+SetTopologyScanStatus sets TopologyScanStatus field to given value.
+
+### HasTopologyScanStatus
+
+`func (o *ComputeRackUnit) HasTopologyScanStatus() bool`
+
+HasTopologyScanStatus returns a boolean if a field has been set.
+
 ### GetAdapters
 
 `func (o *ComputeRackUnit) GetAdapters() []AdapterUnitRelationship`
@@ -91,6 +148,16 @@ SetAdapters sets Adapters field to given value.
 
 HasAdapters returns a boolean if a field has been set.
 
+### SetAdaptersNil
+
+`func (o *ComputeRackUnit) SetAdaptersNil(b bool)`
+
+ SetAdaptersNil sets the value for Adapters to be an explicit nil
+
+### UnsetAdapters
+`func (o *ComputeRackUnit) UnsetAdapters()`
+
+UnsetAdapters ensures that no value is present for Adapters, not even an explicit nil
 ### GetBiosBootmode
 
 `func (o *ComputeRackUnit) GetBiosBootmode() BiosBootModeRelationship`
@@ -141,6 +208,16 @@ SetBiosunits sets Biosunits field to given value.
 
 HasBiosunits returns a boolean if a field has been set.
 
+### SetBiosunitsNil
+
+`func (o *ComputeRackUnit) SetBiosunitsNil(b bool)`
+
+ SetBiosunitsNil sets the value for Biosunits to be an explicit nil
+
+### UnsetBiosunits
+`func (o *ComputeRackUnit) UnsetBiosunits()`
+
+UnsetBiosunits ensures that no value is present for Biosunits, not even an explicit nil
 ### GetBmc
 
 `func (o *ComputeRackUnit) GetBmc() ManagementControllerRelationship`
@@ -241,6 +318,16 @@ SetFanmodules sets Fanmodules field to given value.
 
 HasFanmodules returns a boolean if a field has been set.
 
+### SetFanmodulesNil
+
+`func (o *ComputeRackUnit) SetFanmodulesNil(b bool)`
+
+ SetFanmodulesNil sets the value for Fanmodules to be an explicit nil
+
+### UnsetFanmodules
+`func (o *ComputeRackUnit) UnsetFanmodules()`
+
+UnsetFanmodules ensures that no value is present for Fanmodules, not even an explicit nil
 ### GetGenericInventoryHolders
 
 `func (o *ComputeRackUnit) GetGenericInventoryHolders() []InventoryGenericInventoryHolderRelationship`
@@ -265,6 +352,76 @@ SetGenericInventoryHolders sets GenericInventoryHolders field to given value.
 `func (o *ComputeRackUnit) HasGenericInventoryHolders() bool`
 
 HasGenericInventoryHolders returns a boolean if a field has been set.
+
+### SetGenericInventoryHoldersNil
+
+`func (o *ComputeRackUnit) SetGenericInventoryHoldersNil(b bool)`
+
+ SetGenericInventoryHoldersNil sets the value for GenericInventoryHolders to be an explicit nil
+
+### UnsetGenericInventoryHolders
+`func (o *ComputeRackUnit) UnsetGenericInventoryHolders()`
+
+UnsetGenericInventoryHolders ensures that no value is present for GenericInventoryHolders, not even an explicit nil
+### GetGraphicsCards
+
+`func (o *ComputeRackUnit) GetGraphicsCards() []GraphicsCardRelationship`
+
+GetGraphicsCards returns the GraphicsCards field if non-nil, zero value otherwise.
+
+### GetGraphicsCardsOk
+
+`func (o *ComputeRackUnit) GetGraphicsCardsOk() (*[]GraphicsCardRelationship, bool)`
+
+GetGraphicsCardsOk returns a tuple with the GraphicsCards field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGraphicsCards
+
+`func (o *ComputeRackUnit) SetGraphicsCards(v []GraphicsCardRelationship)`
+
+SetGraphicsCards sets GraphicsCards field to given value.
+
+### HasGraphicsCards
+
+`func (o *ComputeRackUnit) HasGraphicsCards() bool`
+
+HasGraphicsCards returns a boolean if a field has been set.
+
+### SetGraphicsCardsNil
+
+`func (o *ComputeRackUnit) SetGraphicsCardsNil(b bool)`
+
+ SetGraphicsCardsNil sets the value for GraphicsCards to be an explicit nil
+
+### UnsetGraphicsCards
+`func (o *ComputeRackUnit) UnsetGraphicsCards()`
+
+UnsetGraphicsCards ensures that no value is present for GraphicsCards, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *ComputeRackUnit) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ComputeRackUnit) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ComputeRackUnit) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ComputeRackUnit) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetLocatorLed
 
@@ -291,6 +448,41 @@ SetLocatorLed sets LocatorLed field to given value.
 
 HasLocatorLed returns a boolean if a field has been set.
 
+### GetMemoryArrays
+
+`func (o *ComputeRackUnit) GetMemoryArrays() []MemoryArrayRelationship`
+
+GetMemoryArrays returns the MemoryArrays field if non-nil, zero value otherwise.
+
+### GetMemoryArraysOk
+
+`func (o *ComputeRackUnit) GetMemoryArraysOk() (*[]MemoryArrayRelationship, bool)`
+
+GetMemoryArraysOk returns a tuple with the MemoryArrays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryArrays
+
+`func (o *ComputeRackUnit) SetMemoryArrays(v []MemoryArrayRelationship)`
+
+SetMemoryArrays sets MemoryArrays field to given value.
+
+### HasMemoryArrays
+
+`func (o *ComputeRackUnit) HasMemoryArrays() bool`
+
+HasMemoryArrays returns a boolean if a field has been set.
+
+### SetMemoryArraysNil
+
+`func (o *ComputeRackUnit) SetMemoryArraysNil(b bool)`
+
+ SetMemoryArraysNil sets the value for MemoryArrays to be an explicit nil
+
+### UnsetMemoryArrays
+`func (o *ComputeRackUnit) UnsetMemoryArrays()`
+
+UnsetMemoryArrays ensures that no value is present for MemoryArrays, not even an explicit nil
 ### GetPciDevices
 
 `func (o *ComputeRackUnit) GetPciDevices() []PciDeviceRelationship`
@@ -316,6 +508,51 @@ SetPciDevices sets PciDevices field to given value.
 
 HasPciDevices returns a boolean if a field has been set.
 
+### SetPciDevicesNil
+
+`func (o *ComputeRackUnit) SetPciDevicesNil(b bool)`
+
+ SetPciDevicesNil sets the value for PciDevices to be an explicit nil
+
+### UnsetPciDevices
+`func (o *ComputeRackUnit) UnsetPciDevices()`
+
+UnsetPciDevices ensures that no value is present for PciDevices, not even an explicit nil
+### GetProcessors
+
+`func (o *ComputeRackUnit) GetProcessors() []ProcessorUnitRelationship`
+
+GetProcessors returns the Processors field if non-nil, zero value otherwise.
+
+### GetProcessorsOk
+
+`func (o *ComputeRackUnit) GetProcessorsOk() (*[]ProcessorUnitRelationship, bool)`
+
+GetProcessorsOk returns a tuple with the Processors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProcessors
+
+`func (o *ComputeRackUnit) SetProcessors(v []ProcessorUnitRelationship)`
+
+SetProcessors sets Processors field to given value.
+
+### HasProcessors
+
+`func (o *ComputeRackUnit) HasProcessors() bool`
+
+HasProcessors returns a boolean if a field has been set.
+
+### SetProcessorsNil
+
+`func (o *ComputeRackUnit) SetProcessorsNil(b bool)`
+
+ SetProcessorsNil sets the value for Processors to be an explicit nil
+
+### UnsetProcessors
+`func (o *ComputeRackUnit) UnsetProcessors()`
+
+UnsetProcessors ensures that no value is present for Processors, not even an explicit nil
 ### GetPsus
 
 `func (o *ComputeRackUnit) GetPsus() []EquipmentPsuRelationship`
@@ -341,6 +578,16 @@ SetPsus sets Psus field to given value.
 
 HasPsus returns a boolean if a field has been set.
 
+### SetPsusNil
+
+`func (o *ComputeRackUnit) SetPsusNil(b bool)`
+
+ SetPsusNil sets the value for Psus to be an explicit nil
+
+### UnsetPsus
+`func (o *ComputeRackUnit) UnsetPsus()`
+
+UnsetPsus ensures that no value is present for Psus, not even an explicit nil
 ### GetRackEnclosureSlot
 
 `func (o *ComputeRackUnit) GetRackEnclosureSlot() EquipmentRackEnclosureSlotRelationship`
@@ -416,6 +663,51 @@ SetSasExpanders sets SasExpanders field to given value.
 
 HasSasExpanders returns a boolean if a field has been set.
 
+### SetSasExpandersNil
+
+`func (o *ComputeRackUnit) SetSasExpandersNil(b bool)`
+
+ SetSasExpandersNil sets the value for SasExpanders to be an explicit nil
+
+### UnsetSasExpanders
+`func (o *ComputeRackUnit) UnsetSasExpanders()`
+
+UnsetSasExpanders ensures that no value is present for SasExpanders, not even an explicit nil
+### GetStorageControllers
+
+`func (o *ComputeRackUnit) GetStorageControllers() []StorageControllerRelationship`
+
+GetStorageControllers returns the StorageControllers field if non-nil, zero value otherwise.
+
+### GetStorageControllersOk
+
+`func (o *ComputeRackUnit) GetStorageControllersOk() (*[]StorageControllerRelationship, bool)`
+
+GetStorageControllersOk returns a tuple with the StorageControllers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageControllers
+
+`func (o *ComputeRackUnit) SetStorageControllers(v []StorageControllerRelationship)`
+
+SetStorageControllers sets StorageControllers field to given value.
+
+### HasStorageControllers
+
+`func (o *ComputeRackUnit) HasStorageControllers() bool`
+
+HasStorageControllers returns a boolean if a field has been set.
+
+### SetStorageControllersNil
+
+`func (o *ComputeRackUnit) SetStorageControllersNil(b bool)`
+
+ SetStorageControllersNil sets the value for StorageControllers to be an explicit nil
+
+### UnsetStorageControllers
+`func (o *ComputeRackUnit) UnsetStorageControllers()`
+
+UnsetStorageControllers ensures that no value is present for StorageControllers, not even an explicit nil
 ### GetStorageEnclosures
 
 `func (o *ComputeRackUnit) GetStorageEnclosures() []StorageEnclosureRelationship`
@@ -441,6 +733,16 @@ SetStorageEnclosures sets StorageEnclosures field to given value.
 
 HasStorageEnclosures returns a boolean if a field has been set.
 
+### SetStorageEnclosuresNil
+
+`func (o *ComputeRackUnit) SetStorageEnclosuresNil(b bool)`
+
+ SetStorageEnclosuresNil sets the value for StorageEnclosures to be an explicit nil
+
+### UnsetStorageEnclosures
+`func (o *ComputeRackUnit) UnsetStorageEnclosures()`
+
+UnsetStorageEnclosures ensures that no value is present for StorageEnclosures, not even an explicit nil
 ### GetTopSystem
 
 `func (o *ComputeRackUnit) GetTopSystem() TopSystemRelationship`

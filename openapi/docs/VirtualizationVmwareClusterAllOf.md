@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DatastoreCount** | Pointer to **int64** | Count of all datastores associated with this cluster. | [optional] 
 **Datacenter** | Pointer to [**VirtualizationVmwareDatacenterRelationship**](virtualization.VmwareDatacenter.Relationship.md) |  | [optional] 
-**Hosts** | Pointer to [**[]VirtualizationVmwareHostRelationship**](virtualization.VmwareHost.Relationship.md) | An array of relationships to virtualizationVmwareHost resources. | [optional] 
 
 ## Methods
 
@@ -76,31 +75,6 @@ SetDatacenter sets Datacenter field to given value.
 `func (o *VirtualizationVmwareClusterAllOf) HasDatacenter() bool`
 
 HasDatacenter returns a boolean if a field has been set.
-
-### GetHosts
-
-`func (o *VirtualizationVmwareClusterAllOf) GetHosts() []VirtualizationVmwareHostRelationship`
-
-GetHosts returns the Hosts field if non-nil, zero value otherwise.
-
-### GetHostsOk
-
-`func (o *VirtualizationVmwareClusterAllOf) GetHostsOk() (*[]VirtualizationVmwareHostRelationship, bool)`
-
-GetHostsOk returns a tuple with the Hosts field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHosts
-
-`func (o *VirtualizationVmwareClusterAllOf) SetHosts(v []VirtualizationVmwareHostRelationship)`
-
-SetHosts sets Hosts field to given value.
-
-### HasHosts
-
-`func (o *VirtualizationVmwareClusterAllOf) HasHosts() bool`
-
-HasHosts returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

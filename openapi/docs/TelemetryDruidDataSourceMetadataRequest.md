@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**QueryType** | Pointer to **string** | null | 
 **DataSource** | Pointer to [**TelemetryDruidDataSource**](telemetry.DruidDataSource.md) |  | 
 **Context** | Pointer to [**TelemetryDruidQueryContext**](telemetry.DruidQueryContext.md) |  | [optional] 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidDataSourceMetadataRequest
 
-`func NewTelemetryDruidDataSourceMetadataRequest(dataSource TelemetryDruidDataSource, ) *TelemetryDruidDataSourceMetadataRequest`
+`func NewTelemetryDruidDataSourceMetadataRequest(queryType string, dataSource TelemetryDruidDataSource, ) *TelemetryDruidDataSourceMetadataRequest`
 
 NewTelemetryDruidDataSourceMetadataRequest instantiates a new TelemetryDruidDataSourceMetadataRequest object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidDataSourceMetadataRequestWithDefaults instantiates a new TelemetryDruidDataSourceMetadataRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetQueryType
+
+`func (o *TelemetryDruidDataSourceMetadataRequest) GetQueryType() string`
+
+GetQueryType returns the QueryType field if non-nil, zero value otherwise.
+
+### GetQueryTypeOk
+
+`func (o *TelemetryDruidDataSourceMetadataRequest) GetQueryTypeOk() (*string, bool)`
+
+GetQueryTypeOk returns a tuple with the QueryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueryType
+
+`func (o *TelemetryDruidDataSourceMetadataRequest) SetQueryType(v string)`
+
+SetQueryType sets QueryType field to given value.
+
 
 ### GetDataSource
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FeatureActivated** | Pointer to **string** | Features activated on device being inventoried | [optional] 
-**LicenseActivated** | Pointer to **string** | Licenses activated on device being inventoried | [optional] 
-**PidType** | Pointer to **string** | PID of device being inventoried | [optional] 
-**Serial** | Pointer to **string** | Serial number of device being inventoried | [optional] 
+**FeatureActivated** | Pointer to **string** | Features activated on device being inventoried. This determines which features are currently enabled on the device that the license API can check. | [optional] 
+**LicenseActivated** | Pointer to **string** | Licenses activated on device being inventoried. This determines which lienceses are currently enabled on the device. | [optional] 
+**PidType** | Pointer to **string** | PID of device being inventoried. This determines the hardware model type of the device. | [optional] 
+**Serial** | Pointer to **string** | Serial number of device being inventoried. The serial number is unique per device. | [optional] 
 **Device** | Pointer to [**NiatelemetryNiaInventoryRelationship**](niatelemetry.NiaInventory.Relationship.md) |  | [optional] 
 
 ## Methods

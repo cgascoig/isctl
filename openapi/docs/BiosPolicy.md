@@ -4,268 +4,292 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcsControlGpu1state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-1 configuration. | [optional] [default to "platform-default"]
-**AcsControlGpu2state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-2 configuration. | [optional] [default to "platform-default"]
-**AcsControlGpu3state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-3 configuration. | [optional] [default to "platform-default"]
-**AcsControlGpu4state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-4 configuration. | [optional] [default to "platform-default"]
-**AcsControlGpu5state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-5 configuration. | [optional] [default to "platform-default"]
-**AcsControlGpu6state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-6 configuration. | [optional] [default to "platform-default"]
-**AcsControlGpu7state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-7 configuration. | [optional] [default to "platform-default"]
-**AcsControlGpu8state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-8 configuration. | [optional] [default to "platform-default"]
-**AcsControlSlot11state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 11 configuration. | [optional] [default to "platform-default"]
-**AcsControlSlot12state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 12 configuration. | [optional] [default to "platform-default"]
-**AcsControlSlot13state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 13 configuration. | [optional] [default to "platform-default"]
-**AcsControlSlot14state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 14 configuration. | [optional] [default to "platform-default"]
-**AdjacentCacheLinePrefetch** | Pointer to **string** | BIOS Token for setting Adjacent Cache Line Prefetcher configuration. | [optional] [default to "platform-default"]
-**AllUsbDevices** | Pointer to **string** | BIOS Token for setting All USB Devices configuration. | [optional] [default to "platform-default"]
-**Altitude** | Pointer to **string** | BIOS Token for setting Altitude configuration. | [optional] [default to "platform-default"]
-**AspmSupport** | Pointer to **string** | BIOS Token for setting ASPM Support configuration. | [optional] [default to "platform-default"]
-**AssertNmiOnPerr** | Pointer to **string** | BIOS Token for setting Assert NMI on PERR configuration. | [optional] [default to "platform-default"]
-**AssertNmiOnSerr** | Pointer to **string** | BIOS Token for setting Assert NMI on SERR configuration. | [optional] [default to "platform-default"]
-**AutoCcState** | Pointer to **string** | BIOS Token for setting Autonomous Core C-state configuration. | [optional] [default to "platform-default"]
-**AutonumousCstateEnable** | Pointer to **string** | BIOS Token for setting CPU Autonomous Cstate configuration. | [optional] [default to "platform-default"]
-**BaudRate** | Pointer to **string** | BIOS Token for setting Baud rate configuration. | [optional] [default to "platform-default"]
-**BmeDmaMitigation** | Pointer to **string** | BIOS Token for setting BME DMA Mitigation configuration. | [optional] [default to "platform-default"]
-**BootOptionNumRetry** | Pointer to **string** | BIOS Token for setting Number of Retries configuration. | [optional] [default to "platform-default"]
-**BootOptionReCoolDown** | Pointer to **string** | BIOS Token for setting Cool Down Time  (sec) configuration. | [optional] [default to "platform-default"]
-**BootOptionRetry** | Pointer to **string** | BIOS Token for setting Boot option retry configuration. | [optional] [default to "platform-default"]
-**BootPerformanceMode** | Pointer to **string** | BIOS Token for setting Boot Performance Mode configuration. | [optional] [default to "platform-default"]
-**CbsCmnCpuCpb** | Pointer to **string** | BIOS Token for setting Core Performance Boost configuration. | [optional] [default to "platform-default"]
-**CbsCmnCpuGenDowncoreCtrl** | Pointer to **string** | BIOS Token for setting Downcore control configuration. | [optional] [default to "platform-default"]
-**CbsCmnCpuGlobalCstateCtrl** | Pointer to **string** | BIOS Token for setting Global C-state Control configuration. | [optional] [default to "platform-default"]
-**CbsCmnCpuL1streamHwPrefetcher** | Pointer to **string** | BIOS Token for setting L1 Stream HW Prefetcher configuration. | [optional] [default to "platform-default"]
-**CbsCmnCpuL2streamHwPrefetcher** | Pointer to **string** | BIOS Token for setting L2 Stream HW Prefetcher configuration. | [optional] [default to "platform-default"]
-**CbsCmnDeterminismSlider** | Pointer to **string** | BIOS Token for setting Determinism Slider configuration. | [optional] [default to "platform-default"]
-**CbsCmnGnbNbIommu** | Pointer to **string** | BIOS Token for setting IOMMU configuration. | [optional] [default to "platform-default"]
-**CbsCmnMemCtrlBankGroupSwapDdr4** | Pointer to **string** | BIOS Token for setting Bank Group Swap configuration. | [optional] [default to "platform-default"]
-**CbsCmnMemMapBankInterleaveDdr4** | Pointer to **string** | BIOS Token for setting Chipselect Interleaving configuration. | [optional] [default to "platform-default"]
-**CbsCmncTdpCtl** | Pointer to **string** | BIOS Token for setting cTDP Control configuration. | [optional] [default to "platform-default"]
-**CbsDfCmnMemIntlv** | Pointer to **string** | BIOS Token for setting Memory interleaving configuration. | [optional] [default to "platform-default"]
-**CbsDfCmnMemIntlvSize** | Pointer to **string** | BIOS Token for setting Memory interleaving size configuration. | [optional] [default to "platform-default"]
-**CdnEnable** | Pointer to **string** | BIOS Token for setting Consistent Device Naming configuration. | [optional] [default to "platform-default"]
-**CdnSupport** | Pointer to **string** | BIOS Token for setting CDN Support for LOM configuration. | [optional] [default to "platform-default"]
-**ChannelInterLeave** | Pointer to **string** | BIOS Token for setting Channel Interleaving configuration. | [optional] [default to "platform-default"]
-**CiscoAdaptiveMemTraining** | Pointer to **string** | BIOS Token for setting Adaptive Memory Training configuration. | [optional] [default to "platform-default"]
-**CiscoDebugLevel** | Pointer to **string** | BIOS Token for setting BIOS Techlog Level configuration. | [optional] [default to "platform-default"]
-**CiscoOpromLaunchOptimization** | Pointer to **string** | BIOS Token for setting OptionROM Launch Optimization configuration. | [optional] [default to "platform-default"]
-**CkeLowPolicy** | Pointer to **string** | BIOS Token for setting CKE Low Policy configuration. | [optional] [default to "platform-default"]
-**ClosedLoopThermThrotl** | Pointer to **string** | BIOS Token for setting Closed Loop Therm Throt configuration. | [optional] [default to "platform-default"]
-**CmciEnable** | Pointer to **string** | BIOS Token for setting Processor CMCI configuration. | [optional] [default to "platform-default"]
-**ConfigTdp** | Pointer to **string** | BIOS Token for setting Config TDP configuration. | [optional] [default to "platform-default"]
-**ConsoleRedirection** | Pointer to **string** | BIOS Token for setting Console redirection configuration. | [optional] [default to "platform-default"]
-**CoreMultiProcessing** | Pointer to **string** | BIOS Token for setting Core MultiProcessing configuration. | [optional] [default to "platform-default"]
-**CpuEnergyPerformance** | Pointer to **string** | BIOS Token for setting Energy Performance configuration. | [optional] [default to "platform-default"]
-**CpuFrequencyFloor** | Pointer to **string** | BIOS Token for setting Frequency Floor Override configuration. | [optional] [default to "platform-default"]
-**CpuPerformance** | Pointer to **string** | BIOS Token for setting CPU Performance configuration. | [optional] [default to "platform-default"]
-**CpuPowerManagement** | Pointer to **string** | BIOS Token for setting Power Technology configuration. | [optional] [default to "platform-default"]
-**DcpmmFirmwareDowngrade** | Pointer to **string** | BIOS Token for setting DCPMM Firmware Downgrade configuration. | [optional] [default to "platform-default"]
-**DemandScrub** | Pointer to **string** | BIOS Token for setting Demand Scrub configuration. | [optional] [default to "platform-default"]
-**DirectCacheAccess** | Pointer to **string** | BIOS Token for setting Direct Cache Access Support configuration. | [optional] [default to "platform-default"]
-**DramClockThrottling** | Pointer to **string** | BIOS Token for setting DRAM Clock Throttling configuration. | [optional] [default to "platform-default"]
-**DramRefreshRate** | Pointer to **string** | BIOS Token for setting DRAM Refresh Rate configuration. | [optional] [default to "platform-default"]
-**EnergyEfficientTurbo** | Pointer to **string** | BIOS Token for setting Energy Efficient Turbo configuration. | [optional] [default to "platform-default"]
-**EngPerfTuning** | Pointer to **string** | BIOS Token for setting Energy Performance Tuning configuration. | [optional] [default to "platform-default"]
-**EnhancedIntelSpeedStepTech** | Pointer to **string** | BIOS Token for setting Enhanced Intel Speedstep (R) Technology configuration. | [optional] [default to "platform-default"]
-**EppProfile** | Pointer to **string** | BIOS Token for setting EPP Profile configuration. | [optional] [default to "platform-default"]
-**ExecuteDisableBit** | Pointer to **string** | BIOS Token for setting Execute Disable Bit configuration. | [optional] [default to "platform-default"]
-**ExtendedApic** | Pointer to **string** | BIOS Token for setting Local X2 Apic configuration. | [optional] [default to "platform-default"]
-**FlowControl** | Pointer to **string** | BIOS Token for setting Flow Control configuration. | [optional] [default to "platform-default"]
-**Frb2enable** | Pointer to **string** | BIOS Token for setting FRB-2 Timer configuration. | [optional] [default to "platform-default"]
-**HardwarePrefetch** | Pointer to **string** | BIOS Token for setting Hardware Prefetcher configuration. | [optional] [default to "platform-default"]
-**HwpmEnable** | Pointer to **string** | BIOS Token for setting CPU Hardware Power Management configuration. | [optional] [default to "platform-default"]
-**ImcInterleave** | Pointer to **string** | BIOS Token for setting IMC Interleaving configuration. | [optional] [default to "platform-default"]
-**IntelHyperThreadingTech** | Pointer to **string** | BIOS Token for setting Intel HyperThreading Tech configuration. | [optional] [default to "platform-default"]
-**IntelSpeedSelect** | Pointer to **string** | BIOS Token for setting Intel Speed Select configuration. | [optional] [default to "platform-default"]
-**IntelTurboBoostTech** | Pointer to **string** | BIOS Token for setting Intel Turbo Boost Tech configuration. | [optional] [default to "platform-default"]
-**IntelVirtualizationTechnology** | Pointer to **string** | BIOS Token for setting Intel (R) VT configuration. | [optional] [default to "platform-default"]
-**IntelVtForDirectedIo** | Pointer to **string** | BIOS Token for setting Intel VT for directed IO configuration. | [optional] [default to "platform-default"]
-**IntelVtdCoherencySupport** | Pointer to **string** | BIOS Token for setting Intel (R) VT-d Coherency Support configuration. | [optional] [default to "platform-default"]
-**IntelVtdInterruptRemapping** | Pointer to **string** | BIOS Token for setting Intel (R) VT-d Interrupt Remapping configuration. | [optional] [default to "platform-default"]
-**IntelVtdPassThroughDmaSupport** | Pointer to **string** | BIOS Token for setting Intel (R) VT-d PassThrough DMA support configuration. | [optional] [default to "platform-default"]
-**IntelVtdatsSupport** | Pointer to **string** | BIOS Token for setting Intel VTD ATS support configuration. | [optional] [default to "platform-default"]
-**IohErrorEnable** | Pointer to **string** | BIOS Token for setting IIO Error Enable configuration. | [optional] [default to "platform-default"]
-**IohResource** | Pointer to **string** | BIOS Token for setting IOH Resource Allocation configuration. | [optional] [default to "platform-default"]
-**IpPrefetch** | Pointer to **string** | BIOS Token for setting DCU IP Prefetcher configuration. | [optional] [default to "platform-default"]
-**Ipv4pxe** | Pointer to **string** | BIOS Token for setting IPv4 PXE Support configuration. | [optional] [default to "platform-default"]
-**Ipv6pxe** | Pointer to **string** | BIOS Token for setting IPV6 PXE Support configuration. | [optional] [default to "platform-default"]
-**KtiPrefetch** | Pointer to **string** | BIOS Token for setting KTI Prefetch configuration. | [optional] [default to "platform-default"]
-**LegacyOsRedirection** | Pointer to **string** | BIOS Token for setting Legacy OS redirection configuration. | [optional] [default to "platform-default"]
-**LegacyUsbSupport** | Pointer to **string** | BIOS Token for setting Legacy USB Support configuration. | [optional] [default to "platform-default"]
-**LlcPrefetch** | Pointer to **string** | BIOS Token for setting LLC Prefetch configuration. | [optional] [default to "platform-default"]
-**LomPort0state** | Pointer to **string** | BIOS Token for setting LOM Port 0 OptionROM configuration. | [optional] [default to "platform-default"]
-**LomPort1state** | Pointer to **string** | BIOS Token for setting LOM Port 1 OptionRom configuration. | [optional] [default to "platform-default"]
-**LomPort2state** | Pointer to **string** | BIOS Token for setting LOM Port 2 OptionRom configuration. | [optional] [default to "platform-default"]
-**LomPort3state** | Pointer to **string** | BIOS Token for setting LOM Port 3 OptionRom configuration. | [optional] [default to "platform-default"]
-**LomPortsAllState** | Pointer to **string** | BIOS Token for setting All Onboard LOM Ports configuration. | [optional] [default to "platform-default"]
-**LvDdrMode** | Pointer to **string** | BIOS Token for setting Low Voltage DDR Mode configuration. | [optional] [default to "platform-default"]
-**MakeDeviceNonBootable** | Pointer to **string** | BIOS Token for setting Make Device Non Bootable configuration. | [optional] [default to "platform-default"]
-**MemoryInterLeave** | Pointer to **string** | BIOS Token for setting Memory Interleaving configuration. | [optional] [default to "platform-default"]
-**MemoryMappedIoAbove4gb** | Pointer to **string** | BIOS Token for setting Memory mapped IO above 4GiB configuration. | [optional] [default to "platform-default"]
+**AcsControlGpu1state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-1 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlGpu2state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-2 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlGpu3state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-3 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlGpu4state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-4 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlGpu5state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-5 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlGpu6state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-6 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlGpu7state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-7 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlGpu8state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-8 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlSlot11state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 11 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlSlot12state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 12 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlSlot13state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 13 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AcsControlSlot14state** | Pointer to **string** | BIOS Token for setting ACS Control Slot 14 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AdjacentCacheLinePrefetch** | Pointer to **string** | BIOS Token for setting Adjacent Cache Line Prefetcher configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AllUsbDevices** | Pointer to **string** | BIOS Token for setting All USB Devices configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Altitude** | Pointer to **string** | BIOS Token for setting Altitude configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1500-m&#x60; - Value - 1500-m for configuring Altitude token. * &#x60;300-m&#x60; - Value - 300-m for configuring Altitude token. * &#x60;3000-m&#x60; - Value - 3000-m for configuring Altitude token. * &#x60;900-m&#x60; - Value - 900-m for configuring Altitude token. * &#x60;auto&#x60; - Value - auto for configuring Altitude token. | [optional] [default to "platform-default"]
+**AspmSupport** | Pointer to **string** | BIOS Token for setting ASPM Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring AspmSupport token. * &#x60;Disabled&#x60; - Value - Disabled for configuring AspmSupport token. * &#x60;Force L0s&#x60; - Value - Force L0s for configuring AspmSupport token. * &#x60;L1 Only&#x60; - Value - L1 Only for configuring AspmSupport token. | [optional] [default to "platform-default"]
+**AssertNmiOnPerr** | Pointer to **string** | BIOS Token for setting Assert NMI on PERR configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AssertNmiOnSerr** | Pointer to **string** | BIOS Token for setting Assert NMI on SERR configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AutoCcState** | Pointer to **string** | BIOS Token for setting Autonomous Core C-state configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**AutonumousCstateEnable** | Pointer to **string** | BIOS Token for setting CPU Autonomous Cstate configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**BaudRate** | Pointer to **string** | BIOS Token for setting Baud rate configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;115200&#x60; - Value - 115200 for configuring BaudRate token. * &#x60;19200&#x60; - Value - 19200 for configuring BaudRate token. * &#x60;38400&#x60; - Value - 38400 for configuring BaudRate token. * &#x60;57600&#x60; - Value - 57600 for configuring BaudRate token. * &#x60;9600&#x60; - Value - 9600 for configuring BaudRate token. | [optional] [default to "platform-default"]
+**BmeDmaMitigation** | Pointer to **string** | BIOS Token for setting BME DMA Mitigation configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**BootOptionNumRetry** | Pointer to **string** | BIOS Token for setting Number of Retries configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;13&#x60; - Value - 13 for configuring BootOptionNumRetry token. * &#x60;5&#x60; - Value - 5 for configuring BootOptionNumRetry token. * &#x60;Infinite&#x60; - Value - Infinite for configuring BootOptionNumRetry token. | [optional] [default to "platform-default"]
+**BootOptionReCoolDown** | Pointer to **string** | BIOS Token for setting Cool Down Time  (sec) configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;15&#x60; - Value - 15 for configuring BootOptionReCoolDown token. * &#x60;45&#x60; - Value - 45 for configuring BootOptionReCoolDown token. * &#x60;90&#x60; - Value - 90 for configuring BootOptionReCoolDown token. | [optional] [default to "platform-default"]
+**BootOptionRetry** | Pointer to **string** | BIOS Token for setting Boot option retry configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**BootPerformanceMode** | Pointer to **string** | BIOS Token for setting Boot Performance Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Max Efficient&#x60; - Value - Max Efficient for configuring BootPerformanceMode token. * &#x60;Max Performance&#x60; - Value - Max Performance for configuring BootPerformanceMode token. * &#x60;Set by Intel NM&#x60; - Value - Set by Intel NM for configuring BootPerformanceMode token. | [optional] [default to "platform-default"]
+**CbsCmnCpuCpb** | Pointer to **string** | BIOS Token for setting Core Performance Boost configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnCpuCpb token. * &#x60;disabled&#x60; - Value - disabled for configuring CbsCmnCpuCpb token. | [optional] [default to "platform-default"]
+**CbsCmnCpuGenDowncoreCtrl** | Pointer to **string** | BIOS Token for setting Downcore control configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnCpuGenDowncoreCtrl token. * &#x60;FOUR (2 + 2)&#x60; - Value - FOUR (2 + 2) for configuring CbsCmnCpuGenDowncoreCtrl token. * &#x60;FOUR (4 + 0)&#x60; - Value - FOUR (4 + 0) for configuring CbsCmnCpuGenDowncoreCtrl token. * &#x60;SIX (3 + 3)&#x60; - Value - SIX (3 + 3) for configuring CbsCmnCpuGenDowncoreCtrl token. * &#x60;THREE (3 + 0)&#x60; - Value - THREE (3 + 0) for configuring CbsCmnCpuGenDowncoreCtrl token. * &#x60;TWO (1 + 1)&#x60; - Value - TWO (1 + 1) for configuring CbsCmnCpuGenDowncoreCtrl token. * &#x60;TWO (2 + 0)&#x60; - Value - TWO (2 + 0) for configuring CbsCmnCpuGenDowncoreCtrl token. | [optional] [default to "platform-default"]
+**CbsCmnCpuGlobalCstateCtrl** | Pointer to **string** | BIOS Token for setting Global C-state Control configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnCpuGlobalCstateCtrl token. * &#x60;disabled&#x60; - Value - disabled for configuring CbsCmnCpuGlobalCstateCtrl token. * &#x60;enabled&#x60; - Value - enabled for configuring CbsCmnCpuGlobalCstateCtrl token. | [optional] [default to "platform-default"]
+**CbsCmnCpuL1streamHwPrefetcher** | Pointer to **string** | BIOS Token for setting L1 Stream HW Prefetcher configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnCpuL1streamHwPrefetcher token. * &#x60;disabled&#x60; - Value - disabled for configuring CbsCmnCpuL1streamHwPrefetcher token. * &#x60;enabled&#x60; - Value - enabled for configuring CbsCmnCpuL1streamHwPrefetcher token. | [optional] [default to "platform-default"]
+**CbsCmnCpuL2streamHwPrefetcher** | Pointer to **string** | BIOS Token for setting L2 Stream HW Prefetcher configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnCpuL2streamHwPrefetcher token. * &#x60;disabled&#x60; - Value - disabled for configuring CbsCmnCpuL2streamHwPrefetcher token. * &#x60;enabled&#x60; - Value - enabled for configuring CbsCmnCpuL2streamHwPrefetcher token. | [optional] [default to "platform-default"]
+**CbsCmnDeterminismSlider** | Pointer to **string** | BIOS Token for setting Determinism Slider configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnDeterminismSlider token. * &#x60;Performance&#x60; - Value - Performance for configuring CbsCmnDeterminismSlider token. * &#x60;Power&#x60; - Value - Power for configuring CbsCmnDeterminismSlider token. | [optional] [default to "platform-default"]
+**CbsCmnGnbNbIommu** | Pointer to **string** | BIOS Token for setting IOMMU configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnGnbNbIommu token. * &#x60;disabled&#x60; - Value - disabled for configuring CbsCmnGnbNbIommu token. * &#x60;enabled&#x60; - Value - enabled for configuring CbsCmnGnbNbIommu token. | [optional] [default to "platform-default"]
+**CbsCmnMemCtrlBankGroupSwapDdr4** | Pointer to **string** | BIOS Token for setting Bank Group Swap configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnMemCtrlBankGroupSwapDdr4 token. * &#x60;disabled&#x60; - Value - disabled for configuring CbsCmnMemCtrlBankGroupSwapDdr4 token. * &#x60;enabled&#x60; - Value - enabled for configuring CbsCmnMemCtrlBankGroupSwapDdr4 token. | [optional] [default to "platform-default"]
+**CbsCmnMemMapBankInterleaveDdr4** | Pointer to **string** | BIOS Token for setting Chipselect Interleaving configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmnMemMapBankInterleaveDdr4 token. * &#x60;disabled&#x60; - Value - disabled for configuring CbsCmnMemMapBankInterleaveDdr4 token. | [optional] [default to "platform-default"]
+**CbsCmncTdpCtl** | Pointer to **string** | BIOS Token for setting cTDP Control configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsCmncTdpCtl token. * &#x60;Manual&#x60; - Value - Manual for configuring CbsCmncTdpCtl token. | [optional] [default to "platform-default"]
+**CbsDfCmnMemIntlv** | Pointer to **string** | BIOS Token for setting Memory interleaving configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CbsDfCmnMemIntlv token. * &#x60;Channel&#x60; - Value - Channel for configuring CbsDfCmnMemIntlv token. * &#x60;Channel NPS2&#x60; - Value - Channel NPS2 for configuring CbsDfCmnMemIntlv token. * &#x60;Channel NPS4&#x60; - Value - Channel NPS4 for configuring CbsDfCmnMemIntlv token. * &#x60;Die&#x60; - Value - Die for configuring CbsDfCmnMemIntlv token. * &#x60;Die NPS1&#x60; - Value - Die NPS1 for configuring CbsDfCmnMemIntlv token. * &#x60;None&#x60; - Value - None for configuring CbsDfCmnMemIntlv token. * &#x60;Socket&#x60; - Value - Socket for configuring CbsDfCmnMemIntlv token. * &#x60;Socket NPS0&#x60; - Value - Socket NPS0 for configuring CbsDfCmnMemIntlv token. | [optional] [default to "platform-default"]
+**CbsDfCmnMemIntlvSize** | Pointer to **string** | BIOS Token for setting Memory interleaving size configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1 KB&#x60; - Value - 1 KiB for configuring CbsDfCmnMemIntlvSize token. * &#x60;2 KB&#x60; - Value - 2 KiB for configuring CbsDfCmnMemIntlvSize token. * &#x60;256 Bytes&#x60; - Value - 256 Bytes for configuring CbsDfCmnMemIntlvSize token. * &#x60;512 Bytes&#x60; - Value - 512 Bytes for configuring CbsDfCmnMemIntlvSize token. * &#x60;Auto&#x60; - Value - Auto for configuring CbsDfCmnMemIntlvSize token. | [optional] [default to "platform-default"]
+**CdnEnable** | Pointer to **string** | BIOS Token for setting Consistent Device Naming configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**CdnSupport** | Pointer to **string** | BIOS Token for setting CDN Support for LOM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring CdnSupport token. * &#x60;enabled&#x60; - Value - enabled for configuring CdnSupport token. * &#x60;LOMs Only&#x60; - Value - LOMs Only for configuring CdnSupport token. | [optional] [default to "platform-default"]
+**ChannelInterLeave** | Pointer to **string** | BIOS Token for setting Channel Interleaving configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1-way&#x60; - Value - 1-way for configuring ChannelInterLeave token. * &#x60;2-way&#x60; - Value - 2-way for configuring ChannelInterLeave token. * &#x60;3-way&#x60; - Value - 3-way for configuring ChannelInterLeave token. * &#x60;4-way&#x60; - Value - 4-way for configuring ChannelInterLeave token. * &#x60;auto&#x60; - Value - auto for configuring ChannelInterLeave token. | [optional] [default to "platform-default"]
+**CiscoAdaptiveMemTraining** | Pointer to **string** | BIOS Token for setting Adaptive Memory Training configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**CiscoDebugLevel** | Pointer to **string** | BIOS Token for setting BIOS Techlog Level configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Maximum&#x60; - Value - Maximum for configuring CiscoDebugLevel token. * &#x60;Minimum&#x60; - Value - Minimum for configuring CiscoDebugLevel token. * &#x60;Normal&#x60; - Value - Normal for configuring CiscoDebugLevel token. | [optional] [default to "platform-default"]
+**CiscoOpromLaunchOptimization** | Pointer to **string** | BIOS Token for setting OptionROM Launch Optimization configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**CkeLowPolicy** | Pointer to **string** | BIOS Token for setting CKE Low Policy configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;auto&#x60; - Value - auto for configuring CkeLowPolicy token. * &#x60;disabled&#x60; - Value - disabled for configuring CkeLowPolicy token. * &#x60;fast&#x60; - Value - fast for configuring CkeLowPolicy token. * &#x60;slow&#x60; - Value - slow for configuring CkeLowPolicy token. | [optional] [default to "platform-default"]
+**ClosedLoopThermThrotl** | Pointer to **string** | BIOS Token for setting Closed Loop Therm Throt configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**CmciEnable** | Pointer to **string** | BIOS Token for setting Processor CMCI configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**ConfigTdp** | Pointer to **string** | BIOS Token for setting Config TDP configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**ConfigTdpLevel** | Pointer to **string** | BIOS Token for setting Configurable TDP Level configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Level 1&#x60; - Value - Level 1 for configuring ConfigTdpLevel token. * &#x60;Level 2&#x60; - Value - Level 2 for configuring ConfigTdpLevel token. * &#x60;Normal&#x60; - Value - Normal for configuring ConfigTdpLevel token. | [optional] [default to "platform-default"]
+**ConsoleRedirection** | Pointer to **string** | BIOS Token for setting Console redirection configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;com-0&#x60; - Value - com-0 for configuring ConsoleRedirection token. * &#x60;com-1&#x60; - Value - com-1 for configuring ConsoleRedirection token. * &#x60;disabled&#x60; - Value - disabled for configuring ConsoleRedirection token. * &#x60;enabled&#x60; - Value - enabled for configuring ConsoleRedirection token. * &#x60;serial-port-a&#x60; - Value - serial-port-a for configuring ConsoleRedirection token. | [optional] [default to "platform-default"]
+**CoreMultiProcessing** | Pointer to **string** | BIOS Token for setting Core MultiProcessing configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1&#x60; - Value - 1 for configuring CoreMultiProcessing token. * &#x60;10&#x60; - Value - 10 for configuring CoreMultiProcessing token. * &#x60;11&#x60; - Value - 11 for configuring CoreMultiProcessing token. * &#x60;12&#x60; - Value - 12 for configuring CoreMultiProcessing token. * &#x60;13&#x60; - Value - 13 for configuring CoreMultiProcessing token. * &#x60;14&#x60; - Value - 14 for configuring CoreMultiProcessing token. * &#x60;15&#x60; - Value - 15 for configuring CoreMultiProcessing token. * &#x60;16&#x60; - Value - 16 for configuring CoreMultiProcessing token. * &#x60;17&#x60; - Value - 17 for configuring CoreMultiProcessing token. * &#x60;18&#x60; - Value - 18 for configuring CoreMultiProcessing token. * &#x60;19&#x60; - Value - 19 for configuring CoreMultiProcessing token. * &#x60;2&#x60; - Value - 2 for configuring CoreMultiProcessing token. * &#x60;20&#x60; - Value - 20 for configuring CoreMultiProcessing token. * &#x60;21&#x60; - Value - 21 for configuring CoreMultiProcessing token. * &#x60;22&#x60; - Value - 22 for configuring CoreMultiProcessing token. * &#x60;23&#x60; - Value - 23 for configuring CoreMultiProcessing token. * &#x60;24&#x60; - Value - 24 for configuring CoreMultiProcessing token. * &#x60;25&#x60; - Value - 25 for configuring CoreMultiProcessing token. * &#x60;26&#x60; - Value - 26 for configuring CoreMultiProcessing token. * &#x60;27&#x60; - Value - 27 for configuring CoreMultiProcessing token. * &#x60;28&#x60; - Value - 28 for configuring CoreMultiProcessing token. * &#x60;3&#x60; - Value - 3 for configuring CoreMultiProcessing token. * &#x60;4&#x60; - Value - 4 for configuring CoreMultiProcessing token. * &#x60;5&#x60; - Value - 5 for configuring CoreMultiProcessing token. * &#x60;6&#x60; - Value - 6 for configuring CoreMultiProcessing token. * &#x60;7&#x60; - Value - 7 for configuring CoreMultiProcessing token. * &#x60;8&#x60; - Value - 8 for configuring CoreMultiProcessing token. * &#x60;9&#x60; - Value - 9 for configuring CoreMultiProcessing token. * &#x60;all&#x60; - Value - all for configuring CoreMultiProcessing token. | [optional] [default to "platform-default"]
+**CpuEnergyPerformance** | Pointer to **string** | BIOS Token for setting Energy Performance configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;balanced-energy&#x60; - Value - balanced-energy for configuring CpuEnergyPerformance token. * &#x60;balanced-performance&#x60; - Value - balanced-performance for configuring CpuEnergyPerformance token. * &#x60;balanced-power&#x60; - Value - balanced-power for configuring CpuEnergyPerformance token. * &#x60;energy-efficient&#x60; - Value - energy-efficient for configuring CpuEnergyPerformance token. * &#x60;performance&#x60; - Value - performance for configuring CpuEnergyPerformance token. * &#x60;power&#x60; - Value - power for configuring CpuEnergyPerformance token. | [optional] [default to "platform-default"]
+**CpuFrequencyFloor** | Pointer to **string** | BIOS Token for setting Frequency Floor Override configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**CpuPerformance** | Pointer to **string** | BIOS Token for setting CPU Performance configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;custom&#x60; - Value - custom for configuring CpuPerformance token. * &#x60;enterprise&#x60; - Value - enterprise for configuring CpuPerformance token. * &#x60;high-throughput&#x60; - Value - high-throughput for configuring CpuPerformance token. * &#x60;hpc&#x60; - Value - hpc for configuring CpuPerformance token. | [optional] [default to "platform-default"]
+**CpuPowerManagement** | Pointer to **string** | BIOS Token for setting Power Technology configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;custom&#x60; - Value - custom for configuring CpuPowerManagement token. * &#x60;disabled&#x60; - Value - disabled for configuring CpuPowerManagement token. * &#x60;energy-efficient&#x60; - Value - energy-efficient for configuring CpuPowerManagement token. * &#x60;performance&#x60; - Value - performance for configuring CpuPowerManagement token. | [optional] [default to "platform-default"]
+**CrQos** | Pointer to **string** | BIOS Token for setting CR QoS configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Disabled&#x60; - Value - Disabled for configuring CrQos token. * &#x60;Recipe 1&#x60; - Value - Recipe 1 for configuring CrQos token. * &#x60;Recipe 2&#x60; - Value - Recipe 2 for configuring CrQos token. * &#x60;Recipe 3&#x60; - Value - Recipe 3 for configuring CrQos token. | [optional] [default to "platform-default"]
+**CrfastgoConfig** | Pointer to **string** | BIOS Token for setting CR FastGo Config configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring CrfastgoConfig token. * &#x60;Default&#x60; - Value - Default for configuring CrfastgoConfig token. * &#x60;Option 1&#x60; - Value - Option 1 for configuring CrfastgoConfig token. * &#x60;Option 2&#x60; - Value - Option 2 for configuring CrfastgoConfig token. * &#x60;Option 3&#x60; - Value - Option 3 for configuring CrfastgoConfig token. * &#x60;Option 4&#x60; - Value - Option 4 for configuring CrfastgoConfig token. * &#x60;Option 5&#x60; - Value - Option 5 for configuring CrfastgoConfig token. | [optional] [default to "platform-default"]
+**DcpmmFirmwareDowngrade** | Pointer to **string** | BIOS Token for setting DCPMM Firmware Downgrade configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**DemandScrub** | Pointer to **string** | BIOS Token for setting Demand Scrub configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**DirectCacheAccess** | Pointer to **string** | BIOS Token for setting Direct Cache Access Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;auto&#x60; - Value - auto for configuring DirectCacheAccess token. * &#x60;disabled&#x60; - Value - disabled for configuring DirectCacheAccess token. * &#x60;enabled&#x60; - Value - enabled for configuring DirectCacheAccess token. | [optional] [default to "platform-default"]
+**DramClockThrottling** | Pointer to **string** | BIOS Token for setting DRAM Clock Throttling configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring DramClockThrottling token. * &#x60;Balanced&#x60; - Value - Balanced for configuring DramClockThrottling token. * &#x60;Energy Efficient&#x60; - Value - Energy Efficient for configuring DramClockThrottling token. * &#x60;Performance&#x60; - Value - Performance for configuring DramClockThrottling token. | [optional] [default to "platform-default"]
+**DramRefreshRate** | Pointer to **string** | BIOS Token for setting DRAM Refresh Rate configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1x&#x60; - Value - 1x for configuring DramRefreshRate token. * &#x60;2x&#x60; - Value - 2x for configuring DramRefreshRate token. * &#x60;3x&#x60; - Value - 3x for configuring DramRefreshRate token. * &#x60;4x&#x60; - Value - 4x for configuring DramRefreshRate token. * &#x60;Auto&#x60; - Value - Auto for configuring DramRefreshRate token. | [optional] [default to "platform-default"]
+**EnableClockSpreadSpec** | Pointer to **string** | BIOS Token for setting External SSC Enable configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**EnergyEfficientTurbo** | Pointer to **string** | BIOS Token for setting Energy Efficient Turbo configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**EngPerfTuning** | Pointer to **string** | BIOS Token for setting Energy Performance Tuning configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;BIOS&#x60; - Value - BIOS for configuring EngPerfTuning token. * &#x60;OS&#x60; - Value - OS for configuring EngPerfTuning token. | [optional] [default to "platform-default"]
+**EnhancedIntelSpeedStepTech** | Pointer to **string** | BIOS Token for setting Enhanced Intel Speedstep (R) Technology configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**EppProfile** | Pointer to **string** | BIOS Token for setting EPP Profile configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Balanced Performance&#x60; - Value - Balanced Performance for configuring EppProfile token. * &#x60;Balanced Power&#x60; - Value - Balanced Power for configuring EppProfile token. * &#x60;Performance&#x60; - Value - Performance for configuring EppProfile token. * &#x60;Power&#x60; - Value - Power for configuring EppProfile token. | [optional] [default to "platform-default"]
+**ExecuteDisableBit** | Pointer to **string** | BIOS Token for setting Execute Disable Bit configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**ExtendedApic** | Pointer to **string** | BIOS Token for setting Local X2 Apic configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring ExtendedApic token. * &#x60;enabled&#x60; - Value - enabled for configuring ExtendedApic token. * &#x60;X2APIC&#x60; - Value - X2APIC for configuring ExtendedApic token. * &#x60;XAPIC&#x60; - Value - XAPIC for configuring ExtendedApic token. | [optional] [default to "platform-default"]
+**FlowControl** | Pointer to **string** | BIOS Token for setting Flow Control configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;none&#x60; - Value - none for configuring FlowControl token. * &#x60;rts-cts&#x60; - Value - rts-cts for configuring FlowControl token. | [optional] [default to "platform-default"]
+**Frb2enable** | Pointer to **string** | BIOS Token for setting FRB-2 Timer configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**HardwarePrefetch** | Pointer to **string** | BIOS Token for setting Hardware Prefetcher configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**HwpmEnable** | Pointer to **string** | BIOS Token for setting CPU Hardware Power Management configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Disabled&#x60; - Value - Disabled for configuring HwpmEnable token. * &#x60;HWPM Native Mode&#x60; - Value - HWPM Native Mode for configuring HwpmEnable token. * &#x60;HWPM OOB Mode&#x60; - Value - HWPM OOB Mode for configuring HwpmEnable token. * &#x60;NATIVE MODE&#x60; - Value - NATIVE MODE for configuring HwpmEnable token. * &#x60;Native Mode with no Legacy&#x60; - Value - Native Mode with no Legacy for configuring HwpmEnable token. * &#x60;OOB MODE&#x60; - Value - OOB MODE for configuring HwpmEnable token. | [optional] [default to "platform-default"]
+**ImcInterleave** | Pointer to **string** | BIOS Token for setting IMC Interleaving configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1-way Interleave&#x60; - Value - 1-way Interleave for configuring ImcInterleave token. * &#x60;2-way Interleave&#x60; - Value - 2-way Interleave for configuring ImcInterleave token. * &#x60;Auto&#x60; - Value - Auto for configuring ImcInterleave token. | [optional] [default to "platform-default"]
+**IntelHyperThreadingTech** | Pointer to **string** | BIOS Token for setting Intel HyperThreading Tech configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IntelSpeedSelect** | Pointer to **string** | BIOS Token for setting Intel Speed Select configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Base&#x60; - Value - Base for configuring IntelSpeedSelect token. * &#x60;Config 1&#x60; - Value - Config 1 for configuring IntelSpeedSelect token. * &#x60;Config 2&#x60; - Value - Config 2 for configuring IntelSpeedSelect token. | [optional] [default to "platform-default"]
+**IntelTurboBoostTech** | Pointer to **string** | BIOS Token for setting Intel Turbo Boost Tech configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IntelVirtualizationTechnology** | Pointer to **string** | BIOS Token for setting Intel (R) VT configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IntelVtForDirectedIo** | Pointer to **string** | BIOS Token for setting Intel VT for directed IO configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IntelVtdCoherencySupport** | Pointer to **string** | BIOS Token for setting Intel (R) VT-d Coherency Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IntelVtdInterruptRemapping** | Pointer to **string** | BIOS Token for setting Intel (R) VT-d Interrupt Remapping configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IntelVtdPassThroughDmaSupport** | Pointer to **string** | BIOS Token for setting Intel (R) VT-d PassThrough DMA support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IntelVtdatsSupport** | Pointer to **string** | BIOS Token for setting Intel VTD ATS support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**IohErrorEnable** | Pointer to **string** | BIOS Token for setting IIO Error Enable configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;No&#x60; - Value - No for configuring IohErrorEnable token. * &#x60;Yes&#x60; - Value - Yes for configuring IohErrorEnable token. | [optional] [default to "platform-default"]
+**IohResource** | Pointer to **string** | BIOS Token for setting IOH Resource Allocation configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;IOH0 24k IOH1 40k&#x60; - Value - IOH0 24k IOH1 40k for configuring IohResource token. * &#x60;IOH0 32k IOH1 32k&#x60; - Value - IOH0 32k IOH1 32k for configuring IohResource token. * &#x60;IOH0 40k IOH1 24k&#x60; - Value - IOH0 40k IOH1 24k for configuring IohResource token. * &#x60;IOH0 48k IOH1 16k&#x60; - Value - IOH0 48k IOH1 16k for configuring IohResource token. * &#x60;IOH0 56k IOH1 8k&#x60; - Value - IOH0 56k IOH1 8k for configuring IohResource token. | [optional] [default to "platform-default"]
+**IpPrefetch** | Pointer to **string** | BIOS Token for setting DCU IP Prefetcher configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Ipv4pxe** | Pointer to **string** | BIOS Token for setting IPv4 PXE Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Ipv6pxe** | Pointer to **string** | BIOS Token for setting IPV6 PXE Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**KtiPrefetch** | Pointer to **string** | BIOS Token for setting KTI Prefetch configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**LegacyOsRedirection** | Pointer to **string** | BIOS Token for setting Legacy OS redirection configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**LegacyUsbSupport** | Pointer to **string** | BIOS Token for setting Legacy USB Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;auto&#x60; - Value - auto for configuring LegacyUsbSupport token. * &#x60;disabled&#x60; - Value - disabled for configuring LegacyUsbSupport token. * &#x60;enabled&#x60; - Value - enabled for configuring LegacyUsbSupport token. | [optional] [default to "platform-default"]
+**LlcPrefetch** | Pointer to **string** | BIOS Token for setting LLC Prefetch configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**LomPort0state** | Pointer to **string** | BIOS Token for setting LOM Port 0 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring LomPort0state token. * &#x60;enabled&#x60; - Value - enabled for configuring LomPort0state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring LomPort0state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring LomPort0state token. | [optional] [default to "platform-default"]
+**LomPort1state** | Pointer to **string** | BIOS Token for setting LOM Port 1 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring LomPort1state token. * &#x60;enabled&#x60; - Value - enabled for configuring LomPort1state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring LomPort1state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring LomPort1state token. | [optional] [default to "platform-default"]
+**LomPort2state** | Pointer to **string** | BIOS Token for setting LOM Port 2 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring LomPort2state token. * &#x60;enabled&#x60; - Value - enabled for configuring LomPort2state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring LomPort2state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring LomPort2state token. | [optional] [default to "platform-default"]
+**LomPort3state** | Pointer to **string** | BIOS Token for setting LOM Port 3 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring LomPort3state token. * &#x60;enabled&#x60; - Value - enabled for configuring LomPort3state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring LomPort3state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring LomPort3state token. | [optional] [default to "platform-default"]
+**LomPortsAllState** | Pointer to **string** | BIOS Token for setting All Onboard LOM Ports configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**LvDdrMode** | Pointer to **string** | BIOS Token for setting Low Voltage DDR Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;auto&#x60; - Value - auto for configuring LvDdrMode token. * &#x60;performance-mode&#x60; - Value - performance-mode for configuring LvDdrMode token. * &#x60;power-saving-mode&#x60; - Value - power-saving-mode for configuring LvDdrMode token. | [optional] [default to "platform-default"]
+**MakeDeviceNonBootable** | Pointer to **string** | BIOS Token for setting Make Device Non Bootable configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**MemoryInterLeave** | Pointer to **string** | BIOS Token for setting Memory Interleaving configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1 Way Node Interleave&#x60; - Value - 1 Way Node Interleave for configuring MemoryInterLeave token. * &#x60;2 Way Node Interleave&#x60; - Value - 2 Way Node Interleave for configuring MemoryInterLeave token. * &#x60;4 Way Node Interleave&#x60; - Value - 4 Way Node Interleave for configuring MemoryInterLeave token. * &#x60;8 Way Node Interleave&#x60; - Value - 8 Way Node Interleave for configuring MemoryInterLeave token. * &#x60;disabled&#x60; - Value - disabled for configuring MemoryInterLeave token. * &#x60;enabled&#x60; - Value - enabled for configuring MemoryInterLeave token. | [optional] [default to "platform-default"]
+**MemoryMappedIoAbove4gb** | Pointer to **string** | BIOS Token for setting Memory mapped IO above 4GiB configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
 **MemorySizeLimit** | Pointer to **string** | BIOS Token for setting Memory Size Limit in GiB configuration (0-65535). | [optional] 
-**MirroringMode** | Pointer to **string** | BIOS Token for setting Mirroring Mode configuration. | [optional] [default to "platform-default"]
-**MmcfgBase** | Pointer to **string** | BIOS Token for setting MMCFG BASE configuration. | [optional] [default to "platform-default"]
-**NetworkStack** | Pointer to **string** | BIOS Token for setting Network Stack configuration. | [optional] [default to "platform-default"]
-**NumaOptimized** | Pointer to **string** | BIOS Token for setting NUMA optimized configuration. | [optional] [default to "platform-default"]
-**Onboard10gbitLom** | Pointer to **string** | BIOS Token for setting Onboard 10Gbit LOM configuration. | [optional] [default to "platform-default"]
-**OnboardGbitLom** | Pointer to **string** | BIOS Token for setting Onboard Gbit LOM configuration. | [optional] [default to "platform-default"]
-**OnboardScuStorageSupport** | Pointer to **string** | BIOS Token for setting Onboard SCU Storage Support configuration. | [optional] [default to "platform-default"]
-**OnboardScuStorageSwStack** | Pointer to **string** | BIOS Token for setting Onboard SCU Storage SW Stack configuration. | [optional] [default to "platform-default"]
-**OsBootWatchdogTimer** | Pointer to **string** | BIOS Token for setting OS Boot Watchdog Timer configuration. | [optional] [default to "platform-default"]
-**OsBootWatchdogTimerPolicy** | Pointer to **string** | BIOS Token for setting OS Boot Watchdog Timer Policy configuration. | [optional] [default to "platform-default"]
-**OsBootWatchdogTimerTimeout** | Pointer to **string** | BIOS Token for setting OS Boot Watchdog Timer Timeout configuration. | [optional] [default to "platform-default"]
-**OutOfBandMgmtPort** | Pointer to **string** | BIOS Token for setting Out-of-Band Mgmt Port configuration. | [optional] [default to "platform-default"]
-**PackageCstateLimit** | Pointer to **string** | BIOS Token for setting Package C State Limit configuration. | [optional] [default to "platform-default"]
-**PartialMirrorModeConfig** | Pointer to **string** | BIOS Token for setting Partial Memory Mirror Mode configuration. | [optional] [default to "platform-default"]
+**MirroringMode** | Pointer to **string** | BIOS Token for setting Mirroring Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;inter-socket&#x60; - Value - inter-socket for configuring MirroringMode token. * &#x60;intra-socket&#x60; - Value - intra-socket for configuring MirroringMode token. | [optional] [default to "platform-default"]
+**MmcfgBase** | Pointer to **string** | BIOS Token for setting MMCFG BASE configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1 GB&#x60; - Value - 1 GiB for configuring MmcfgBase token. * &#x60;2 GB&#x60; - Value - 2 GiB for configuring MmcfgBase token. * &#x60;2.5 GB&#x60; - Value - 2.5 GiB for configuring MmcfgBase token. * &#x60;3 GB&#x60; - Value - 3 GiB for configuring MmcfgBase token. * &#x60;Auto&#x60; - Value - Auto for configuring MmcfgBase token. | [optional] [default to "platform-default"]
+**NetworkStack** | Pointer to **string** | BIOS Token for setting Network Stack configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**NumaOptimized** | Pointer to **string** | BIOS Token for setting NUMA optimized configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**NvmdimmPerformConfig** | Pointer to **string** | BIOS Token for setting NVM Performance Setting configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;BW Optimized&#x60; - Value - BW Optimized for configuring NvmdimmPerformConfig token. * &#x60;Balanced Profile&#x60; - Value - Balanced Profile for configuring NvmdimmPerformConfig token. * &#x60;Latency Optimized&#x60; - Value - Latency Optimized for configuring NvmdimmPerformConfig token. | [optional] [default to "platform-default"]
+**Onboard10gbitLom** | Pointer to **string** | BIOS Token for setting Onboard 10Gbit LOM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**OnboardGbitLom** | Pointer to **string** | BIOS Token for setting Onboard Gbit LOM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**OnboardScuStorageSupport** | Pointer to **string** | BIOS Token for setting Onboard SCU Storage Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**OnboardScuStorageSwStack** | Pointer to **string** | BIOS Token for setting Onboard SCU Storage SW Stack configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Intel RSTe&#x60; - Value - Intel RSTe for configuring OnboardScuStorageSwStack token. * &#x60;LSI SW RAID&#x60; - Value - LSI SW RAID for configuring OnboardScuStorageSwStack token. | [optional] [default to "platform-default"]
+**OsBootWatchdogTimer** | Pointer to **string** | BIOS Token for setting OS Boot Watchdog Timer configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**OsBootWatchdogTimerPolicy** | Pointer to **string** | BIOS Token for setting OS Boot Watchdog Timer Policy configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;do-nothing&#x60; - Value - do-nothing for configuring OsBootWatchdogTimerPolicy token. * &#x60;power-off&#x60; - Value - power-off for configuring OsBootWatchdogTimerPolicy token. * &#x60;reset&#x60; - Value - reset for configuring OsBootWatchdogTimerPolicy token. | [optional] [default to "platform-default"]
+**OsBootWatchdogTimerTimeout** | Pointer to **string** | BIOS Token for setting OS Boot Watchdog Timer Timeout configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;10-minutes&#x60; - Value - 10-minutes for configuring OsBootWatchdogTimerTimeout token. * &#x60;15-minutes&#x60; - Value - 15-minutes for configuring OsBootWatchdogTimerTimeout token. * &#x60;20-minutes&#x60; - Value - 20-minutes for configuring OsBootWatchdogTimerTimeout token. * &#x60;5-minutes&#x60; - Value - 5-minutes for configuring OsBootWatchdogTimerTimeout token. | [optional] [default to "platform-default"]
+**OutOfBandMgmtPort** | Pointer to **string** | BIOS Token for setting Out-of-Band Mgmt Port configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PackageCstateLimit** | Pointer to **string** | BIOS Token for setting Package C State Limit configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PackageCstateLimit token. * &#x60;C0 C1 State&#x60; - Value - C0 C1 State for configuring PackageCstateLimit token. * &#x60;C0/C1&#x60; - Value - C0/C1 for configuring PackageCstateLimit token. * &#x60;C2&#x60; - Value - C2 for configuring PackageCstateLimit token. * &#x60;C6 Non Retention&#x60; - Value - C6 Non Retention for configuring PackageCstateLimit token. * &#x60;C6 Retention&#x60; - Value - C6 Retention for configuring PackageCstateLimit token. * &#x60;No Limit&#x60; - Value - No Limit for configuring PackageCstateLimit token. | [optional] [default to "platform-default"]
+**PartialMirrorModeConfig** | Pointer to **string** | BIOS Token for setting Partial Memory Mirror Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring PartialMirrorModeConfig token. * &#x60;Percentage&#x60; - Value - Percentage for configuring PartialMirrorModeConfig token. * &#x60;Value in GB&#x60; - Value - Value in GiB for configuring PartialMirrorModeConfig token. | [optional] [default to "platform-default"]
 **PartialMirrorPercent** | Pointer to **string** | BIOS Token for setting Partial Mirror percentage configuration (0.00-50.00). | [optional] 
 **PartialMirrorValue1** | Pointer to **string** | BIOS Token for setting Partial Mirror1 Size in GiB configuration (0-65535). | [optional] 
 **PartialMirrorValue2** | Pointer to **string** | BIOS Token for setting Partial Mirror2 Size in GiB configuration (0-65535). | [optional] 
 **PartialMirrorValue3** | Pointer to **string** | BIOS Token for setting Partial Mirror3 Size in GiB configuration (0-65535). | [optional] 
 **PartialMirrorValue4** | Pointer to **string** | BIOS Token for setting Partial Mirror4 Size in GiB configuration (0-65535). | [optional] 
-**PatrolScrub** | Pointer to **string** | BIOS Token for setting Patrol Scrub configuration. | [optional] [default to "platform-default"]
-**PatrolScrubDuration** | Pointer to **string** | BIOS Token for setting Patrol Scrub Interval configuration. | [optional] [default to "platform-default"]
-**PcIeRasSupport** | Pointer to **string** | BIOS Token for setting PCIe RAS Support configuration. | [optional] [default to "platform-default"]
-**PcIeSsdHotPlugSupport** | Pointer to **string** | BIOS Token for setting NVMe SSD Hot-Plug Support configuration. | [optional] [default to "platform-default"]
-**PchUsb30mode** | Pointer to **string** | BIOS Token for setting xHCI Mode configuration. | [optional] [default to "platform-default"]
-**PciOptionRoMs** | Pointer to **string** | BIOS Token for setting All PCIe Slots OptionROM configuration. | [optional] [default to "platform-default"]
-**PciRomClp** | Pointer to **string** | BIOS Token for setting PCI ROM CLP configuration. | [optional] [default to "platform-default"]
-**PopSupport** | Pointer to **string** | BIOS Token for setting Power ON Password configuration. | [optional] [default to "platform-default"]
-**PostErrorPause** | Pointer to **string** | BIOS Token for setting POST Error Pause configuration. | [optional] [default to "platform-default"]
-**ProcessorC1e** | Pointer to **string** | BIOS Token for setting Processor C1E configuration. | [optional] [default to "platform-default"]
-**ProcessorC3report** | Pointer to **string** | BIOS Token for setting Processor C3 Report configuration. | [optional] [default to "platform-default"]
-**ProcessorC6report** | Pointer to **string** | BIOS Token for setting Processor C6 Report configuration. | [optional] [default to "platform-default"]
-**ProcessorCstate** | Pointer to **string** | BIOS Token for setting CPU C State configuration. | [optional] [default to "platform-default"]
-**Psata** | Pointer to **string** | BIOS Token for setting P-SATA mode configuration. | [optional] [default to "platform-default"]
-**PstateCoordType** | Pointer to **string** | BIOS Token for setting P-STATE Coordination configuration. | [optional] [default to "platform-default"]
-**PuttyKeyPad** | Pointer to **string** | BIOS Token for setting Putty KeyPad configuration. | [optional] [default to "platform-default"]
-**PwrPerfTuning** | Pointer to **string** | BIOS Token for setting Power Performance Tuning configuration. | [optional] [default to "platform-default"]
-**QpiLinkFrequency** | Pointer to **string** | BIOS Token for setting QPI Link Frequency Select configuration. | [optional] [default to "platform-default"]
-**QpiSnoopMode** | Pointer to **string** | BIOS Token for setting QPI Snoop Mode configuration. | [optional] [default to "platform-default"]
-**RankInterLeave** | Pointer to **string** | BIOS Token for setting Rank Interleaving configuration. | [optional] [default to "platform-default"]
-**RedirectionAfterPost** | Pointer to **string** | BIOS Token for setting Redirection After BIOS POST configuration. | [optional] [default to "platform-default"]
-**SataModeSelect** | Pointer to **string** | BIOS Token for setting SATA mode configuration. | [optional] [default to "platform-default"]
-**SelectMemoryRasConfiguration** | Pointer to **string** | BIOS Token for setting SelectMemory RAS configuration configuration. | [optional] [default to "platform-default"]
-**SelectPprType** | Pointer to **string** | BIOS Token for setting Select PPR Type configuration. | [optional] [default to "platform-default"]
-**SerialPortAenable** | Pointer to **string** | BIOS Token for setting Serial A Enable configuration. | [optional] [default to "platform-default"]
-**SinglePctlEnable** | Pointer to **string** | BIOS Token for setting Single PCTL configuration. | [optional] [default to "platform-default"]
-**Slot10linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:10 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot10state** | Pointer to **string** | BIOS Token for setting Slot 10 state configuration. | [optional] [default to "platform-default"]
-**Slot11linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:11 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot11state** | Pointer to **string** | BIOS Token for setting Slot 11 state configuration. | [optional] [default to "platform-default"]
-**Slot12linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:12 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot12state** | Pointer to **string** | BIOS Token for setting Slot 12 state configuration. | [optional] [default to "platform-default"]
-**Slot13state** | Pointer to **string** | BIOS Token for setting PCIe Slot 13 OptionROM configuration. | [optional] [default to "platform-default"]
-**Slot14state** | Pointer to **string** | BIOS Token for setting PCIe Slot 14 OptionROM configuration. | [optional] [default to "platform-default"]
-**Slot1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:1 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot1state** | Pointer to **string** | BIOS Token for setting Slot 1 state configuration. | [optional] [default to "platform-default"]
-**Slot2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:2 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot2state** | Pointer to **string** | BIOS Token for setting Slot 2 state configuration. | [optional] [default to "platform-default"]
-**Slot3linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:3 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot3state** | Pointer to **string** | BIOS Token for setting Slot 3 state configuration. | [optional] [default to "platform-default"]
-**Slot4linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:4 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot4state** | Pointer to **string** | BIOS Token for setting Slot 4 state configuration. | [optional] [default to "platform-default"]
-**Slot5linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:5 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot5state** | Pointer to **string** | BIOS Token for setting Slot 5 state configuration. | [optional] [default to "platform-default"]
-**Slot6linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:6 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot6state** | Pointer to **string** | BIOS Token for setting Slot 6 state configuration. | [optional] [default to "platform-default"]
-**Slot7linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:7 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot7state** | Pointer to **string** | BIOS Token for setting Slot 7 state configuration. | [optional] [default to "platform-default"]
-**Slot8linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:8 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot8state** | Pointer to **string** | BIOS Token for setting Slot 8 state configuration. | [optional] [default to "platform-default"]
-**Slot9linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:9 Link Speed configuration. | [optional] [default to "platform-default"]
-**Slot9state** | Pointer to **string** | BIOS Token for setting Slot 9 state configuration. | [optional] [default to "platform-default"]
-**SlotFlomLinkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:FLOM Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotFrontNvme1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front Nvme1 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotFrontNvme2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front Nvme2 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotFrontSlot5linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front1 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotFrontSlot6linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front2 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotGpu1state** | Pointer to **string** | BIOS Token for setting GPU1 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotGpu2state** | Pointer to **string** | BIOS Token for setting GPU2 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotGpu3state** | Pointer to **string** | BIOS Token for setting GPU3 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotGpu4state** | Pointer to **string** | BIOS Token for setting GPU4 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotGpu5state** | Pointer to **string** | BIOS Token for setting GPU5 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotGpu6state** | Pointer to **string** | BIOS Token for setting GPU6 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotGpu7state** | Pointer to **string** | BIOS Token for setting GPU7 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotGpu8state** | Pointer to **string** | BIOS Token for setting GPU8 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotHbaLinkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:HBA Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotHbaState** | Pointer to **string** | BIOS Token for setting PCIe Slot:HBA OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotLom1link** | Pointer to **string** | BIOS Token for setting PCIe LOM:1 Link configuration. | [optional] [default to "platform-default"]
-**SlotLom2link** | Pointer to **string** | BIOS Token for setting PCIe LOM:2 Link configuration. | [optional] [default to "platform-default"]
-**SlotMezzState** | Pointer to **string** | BIOS Token for setting Slot Mezz state configuration. | [optional] [default to "platform-default"]
-**SlotMlomLinkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:MLOM Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotMlomState** | Pointer to **string** | BIOS Token for setting PCIe Slot MLOM OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotMraidLinkSpeed** | Pointer to **string** | BIOS Token for setting MRAID Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotMraidState** | Pointer to **string** | BIOS Token for setting PCIe Slot MRAID OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN10state** | Pointer to **string** | BIOS Token for setting PCIe Slot N10 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN11state** | Pointer to **string** | BIOS Token for setting PCIe Slot N11 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN12state** | Pointer to **string** | BIOS Token for setting PCIe Slot N12 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN13state** | Pointer to **string** | BIOS Token for setting PCIe Slot N13 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN14state** | Pointer to **string** | BIOS Token for setting PCIe Slot N14 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN15state** | Pointer to **string** | BIOS Token for setting PCIe Slot N15 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN16state** | Pointer to **string** | BIOS Token for setting PCIe Slot N16 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN17state** | Pointer to **string** | BIOS Token for setting PCIe Slot N17 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN18state** | Pointer to **string** | BIOS Token for setting PCIe Slot N18 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN19state** | Pointer to **string** | BIOS Token for setting PCIe Slot N19 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN1state** | Pointer to **string** | BIOS Token for setting PCIe Slot N1 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN20state** | Pointer to **string** | BIOS Token for setting PCIe Slot N20 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN21state** | Pointer to **string** | BIOS Token for setting PCIe Slot N21 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN22state** | Pointer to **string** | BIOS Token for setting PCIe Slot N22 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN23state** | Pointer to **string** | BIOS Token for setting PCIe Slot N23 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN24state** | Pointer to **string** | BIOS Token for setting PCIe Slot N24 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN2state** | Pointer to **string** | BIOS Token for setting PCIe Slot N2 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN3state** | Pointer to **string** | BIOS Token for setting PCIe Slot N3 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN4state** | Pointer to **string** | BIOS Token for setting PCIe Slot N4 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN5state** | Pointer to **string** | BIOS Token for setting PCIe Slot N5 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN6state** | Pointer to **string** | BIOS Token for setting PCIe Slot N6 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN7state** | Pointer to **string** | BIOS Token for setting PCIe Slot N7 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN8state** | Pointer to **string** | BIOS Token for setting PCIe Slot N8 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotN9state** | Pointer to **string** | BIOS Token for setting PCIe Slot N9 OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotRaidLinkSpeed** | Pointer to **string** | BIOS Token for setting RAID Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRaidState** | Pointer to **string** | BIOS Token for setting PCIe Slot RAID OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear Nvme1 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme1state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 1 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear Nvme2 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme2state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 2 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme3state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 3 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme4state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 4 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme5state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 5 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme6state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 6 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme7state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 7 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRearNvme8state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 8 OptionRom configuration. | [optional] [default to "platform-default"]
-**SlotRiser1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRiser1slot1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Slot1 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRiser1slot2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Slot2 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRiser1slot3linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Slot3 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRiser2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRiser2slot4linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Slot4 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRiser2slot5linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Slot5 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotRiser2slot6linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Slot6 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotSasState** | Pointer to **string** | BIOS Token for setting PCIe Slot:SAS OptionROM configuration. | [optional] [default to "platform-default"]
-**SlotSsdSlot1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:FrontSSD1 Link Speed configuration. | [optional] [default to "platform-default"]
-**SlotSsdSlot2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:FrontSSD2 Link Speed configuration. | [optional] [default to "platform-default"]
-**Smee** | Pointer to **string** | BIOS Token for setting SMEE configuration. | [optional] [default to "platform-default"]
-**SmtMode** | Pointer to **string** | BIOS Token for setting SMT Mode configuration. | [optional] [default to "platform-default"]
-**Snc** | Pointer to **string** | BIOS Token for setting Sub Numa Clustering configuration. | [optional] [default to "platform-default"]
-**SparingMode** | Pointer to **string** | BIOS Token for setting Sparing Mode configuration. | [optional] [default to "platform-default"]
-**SrIov** | Pointer to **string** | BIOS Token for setting SR-IOV Support configuration. | [optional] [default to "platform-default"]
-**StreamerPrefetch** | Pointer to **string** | BIOS Token for setting DCU Streamer Prefetch configuration. | [optional] [default to "platform-default"]
-**SvmMode** | Pointer to **string** | BIOS Token for setting SVM Mode configuration. | [optional] [default to "platform-default"]
-**TerminalType** | Pointer to **string** | BIOS Token for setting Terminal Type configuration. | [optional] [default to "platform-default"]
-**TpmControl** | Pointer to **string** | BIOS Token for setting Trusted Platform Module State configuration. | [optional] [default to "platform-default"]
-**TpmSupport** | Pointer to **string** | BIOS Token for setting TPM Support configuration. | [optional] [default to "platform-default"]
-**TxtSupport** | Pointer to **string** | BIOS Token for setting Intel Trusted Execution Technology Support configuration. | [optional] [default to "platform-default"]
-**UcsmBootOrderRule** | Pointer to **string** | BIOS Token for setting Boot Order Rules configuration. | [optional] [default to "platform-default"]
-**UsbEmul6064** | Pointer to **string** | BIOS Token for setting Port 60/64 Emulation configuration. | [optional] [default to "platform-default"]
-**UsbPortFront** | Pointer to **string** | BIOS Token for setting USB Port Front configuration. | [optional] [default to "platform-default"]
-**UsbPortInternal** | Pointer to **string** | BIOS Token for setting USB Port Internal configuration. | [optional] [default to "platform-default"]
-**UsbPortKvm** | Pointer to **string** | BIOS Token for setting USB Port KVM configuration. | [optional] [default to "platform-default"]
-**UsbPortRear** | Pointer to **string** | BIOS Token for setting USB Port Rear configuration. | [optional] [default to "platform-default"]
-**UsbPortSdCard** | Pointer to **string** | BIOS Token for setting USB Port SD Card configuration. | [optional] [default to "platform-default"]
-**UsbPortVmedia** | Pointer to **string** | BIOS Token for setting USB Port VMedia configuration. | [optional] [default to "platform-default"]
-**UsbXhciSupport** | Pointer to **string** | BIOS Token for setting XHCI Legacy Support configuration. | [optional] [default to "platform-default"]
-**VgaPriority** | Pointer to **string** | BIOS Token for setting VGA Priority configuration. | [optional] [default to "platform-default"]
-**VmdEnable** | Pointer to **string** | BIOS Token for setting VMD Enablement configuration. | [optional] [default to "platform-default"]
-**WorkLoadConfig** | Pointer to **string** | BIOS Token for setting Workload Configuration configuration. | [optional] [default to "platform-default"]
-**XptPrefetch** | Pointer to **string** | BIOS Token for setting XPT Prefetch configuration. | [optional] [default to "platform-default"]
+**PatrolScrub** | Pointer to **string** | BIOS Token for setting Patrol Scrub configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PatrolScrubDuration** | Pointer to **string** | BIOS Token for setting Patrol Scrub Interval configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcIeRasSupport** | Pointer to **string** | BIOS Token for setting PCIe RAS Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcIeSsdHotPlugSupport** | Pointer to **string** | BIOS Token for setting NVMe SSD Hot-Plug Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PchUsb30mode** | Pointer to **string** | BIOS Token for setting xHCI Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PciOptionRoMs** | Pointer to **string** | BIOS Token for setting All PCIe Slots OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring PciOptionRoMs token. * &#x60;enabled&#x60; - Value - enabled for configuring PciOptionRoMs token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring PciOptionRoMs token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring PciOptionRoMs token. | [optional] [default to "platform-default"]
+**PciRomClp** | Pointer to **string** | BIOS Token for setting PCI ROM CLP configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcieAriSupport** | Pointer to **string** | BIOS Token for setting PCIe ARI Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PcieAriSupport token. * &#x60;disabled&#x60; - Value - disabled for configuring PcieAriSupport token. * &#x60;enabled&#x60; - Value - enabled for configuring PcieAriSupport token. | [optional] [default to "platform-default"]
+**PciePllSsc** | Pointer to **string** | BIOS Token for setting PCIe PLL SSC configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PciePllSsc token. * &#x60;Disabled&#x60; - Value - Disabled for configuring PciePllSsc token. * &#x60;ZeroPointFive&#x60; - Value - ZeroPointFive for configuring PciePllSsc token. | [optional] [default to "platform-default"]
+**PcieSlotMstorraidOptionRom** | Pointer to **string** | BIOS Token for setting PCIe Slot MSTOR RAID OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcieSlotNvme1linkSpeed** | Pointer to **string** | BIOS Token for setting NVME-1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PcieSlotNvme1linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring PcieSlotNvme1linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring PcieSlotNvme1linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring PcieSlotNvme1linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring PcieSlotNvme1linkSpeed token. | [optional] [default to "platform-default"]
+**PcieSlotNvme1optionRom** | Pointer to **string** | BIOS Token for setting NVME-1 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcieSlotNvme2linkSpeed** | Pointer to **string** | BIOS Token for setting NVME-2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PcieSlotNvme2linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring PcieSlotNvme2linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring PcieSlotNvme2linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring PcieSlotNvme2linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring PcieSlotNvme2linkSpeed token. | [optional] [default to "platform-default"]
+**PcieSlotNvme2optionRom** | Pointer to **string** | BIOS Token for setting NVME-2 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcieSlotNvme3linkSpeed** | Pointer to **string** | BIOS Token for setting NVME-3 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PcieSlotNvme3linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring PcieSlotNvme3linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring PcieSlotNvme3linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring PcieSlotNvme3linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring PcieSlotNvme3linkSpeed token. | [optional] [default to "platform-default"]
+**PcieSlotNvme3optionRom** | Pointer to **string** | BIOS Token for setting NVME-3 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcieSlotNvme4linkSpeed** | Pointer to **string** | BIOS Token for setting NVME-4 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PcieSlotNvme4linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring PcieSlotNvme4linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring PcieSlotNvme4linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring PcieSlotNvme4linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring PcieSlotNvme4linkSpeed token. | [optional] [default to "platform-default"]
+**PcieSlotNvme4optionRom** | Pointer to **string** | BIOS Token for setting NVME-4 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcieSlotNvme5linkSpeed** | Pointer to **string** | BIOS Token for setting NVME-5 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PcieSlotNvme5linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring PcieSlotNvme5linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring PcieSlotNvme5linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring PcieSlotNvme5linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring PcieSlotNvme5linkSpeed token. | [optional] [default to "platform-default"]
+**PcieSlotNvme5optionRom** | Pointer to **string** | BIOS Token for setting NVME-5 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PcieSlotNvme6linkSpeed** | Pointer to **string** | BIOS Token for setting NVME-6 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring PcieSlotNvme6linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring PcieSlotNvme6linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring PcieSlotNvme6linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring PcieSlotNvme6linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring PcieSlotNvme6linkSpeed token. | [optional] [default to "platform-default"]
+**PcieSlotNvme6optionRom** | Pointer to **string** | BIOS Token for setting NVME-6 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PopSupport** | Pointer to **string** | BIOS Token for setting Power ON Password configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**PostErrorPause** | Pointer to **string** | BIOS Token for setting POST Error Pause configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**ProcessorC1e** | Pointer to **string** | BIOS Token for setting Processor C1E configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**ProcessorC3report** | Pointer to **string** | BIOS Token for setting Processor C3 Report configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**ProcessorC6report** | Pointer to **string** | BIOS Token for setting Processor C6 Report configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**ProcessorCstate** | Pointer to **string** | BIOS Token for setting CPU C State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Psata** | Pointer to **string** | BIOS Token for setting P-SATA mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;AHCI&#x60; - Value - AHCI for configuring Psata token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Psata token. * &#x60;LSI SW RAID&#x60; - Value - LSI SW RAID for configuring Psata token. | [optional] [default to "platform-default"]
+**PstateCoordType** | Pointer to **string** | BIOS Token for setting P-STATE Coordination configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;HW ALL&#x60; - Value - HW ALL for configuring PstateCoordType token. * &#x60;SW ALL&#x60; - Value - SW ALL for configuring PstateCoordType token. * &#x60;SW ANY&#x60; - Value - SW ANY for configuring PstateCoordType token. | [optional] [default to "platform-default"]
+**PuttyKeyPad** | Pointer to **string** | BIOS Token for setting Putty KeyPad configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;ESCN&#x60; - Value - ESCN for configuring PuttyKeyPad token. * &#x60;LINUX&#x60; - Value - LINUX for configuring PuttyKeyPad token. * &#x60;SCO&#x60; - Value - SCO for configuring PuttyKeyPad token. * &#x60;VT100&#x60; - Value - VT100 for configuring PuttyKeyPad token. * &#x60;VT400&#x60; - Value - VT400 for configuring PuttyKeyPad token. * &#x60;XTERMR6&#x60; - Value - XTERMR6 for configuring PuttyKeyPad token. | [optional] [default to "platform-default"]
+**PwrPerfTuning** | Pointer to **string** | BIOS Token for setting Power Performance Tuning configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;bios&#x60; - Value - BIOS for configuring PwrPerfTuning token. * &#x60;os&#x60; - Value - os for configuring PwrPerfTuning token. | [optional] [default to "platform-default"]
+**QpiLinkFrequency** | Pointer to **string** | BIOS Token for setting QPI Link Frequency Select configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;6.4-gt/s&#x60; - Value - 6.4-gt/s for configuring QpiLinkFrequency token. * &#x60;7.2-gt/s&#x60; - Value - 7.2-gt/s for configuring QpiLinkFrequency token. * &#x60;8.0-gt/s&#x60; - Value - 8.0-gt/s for configuring QpiLinkFrequency token. * &#x60;9.6-gt/s&#x60; - Value - 9.6-gt/s for configuring QpiLinkFrequency token. * &#x60;auto&#x60; - Value - auto for configuring QpiLinkFrequency token. | [optional] [default to "platform-default"]
+**QpiLinkSpeed** | Pointer to **string** | BIOS Token for setting UPI Link Frequency Select configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;10.4GT/s&#x60; - Value - 10.4GT/s for configuring QpiLinkSpeed token. * &#x60;9.6GT/s&#x60; - Value - 9.6GT/s for configuring QpiLinkSpeed token. * &#x60;Auto&#x60; - Value - Auto for configuring QpiLinkSpeed token. | [optional] [default to "platform-default"]
+**QpiSnoopMode** | Pointer to **string** | BIOS Token for setting QPI Snoop Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;auto&#x60; - Value - auto for configuring QpiSnoopMode token. * &#x60;cluster-on-die&#x60; - Value - cluster-on-die for configuring QpiSnoopMode token. * &#x60;early-snoop&#x60; - Value - early-snoop for configuring QpiSnoopMode token. * &#x60;home-directory-snoop&#x60; - Value - home-directory-snoop for configuring QpiSnoopMode token. * &#x60;home-directory-snoop-with-osb&#x60; - Value - home-directory-snoop-with-osb for configuring QpiSnoopMode token. * &#x60;home-snoop&#x60; - Value - home-snoop for configuring QpiSnoopMode token. | [optional] [default to "platform-default"]
+**RankInterLeave** | Pointer to **string** | BIOS Token for setting Rank Interleaving configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;1-way&#x60; - Value - 1-way for configuring RankInterLeave token. * &#x60;2-way&#x60; - Value - 2-way for configuring RankInterLeave token. * &#x60;4-way&#x60; - Value - 4-way for configuring RankInterLeave token. * &#x60;8-way&#x60; - Value - 8-way for configuring RankInterLeave token. * &#x60;auto&#x60; - Value - auto for configuring RankInterLeave token. | [optional] [default to "platform-default"]
+**RedirectionAfterPost** | Pointer to **string** | BIOS Token for setting Redirection After BIOS POST configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Always Enable&#x60; - Value - Always Enable for configuring RedirectionAfterPost token. * &#x60;Bootloader&#x60; - Value - Bootloader for configuring RedirectionAfterPost token. | [optional] [default to "platform-default"]
+**SataModeSelect** | Pointer to **string** | BIOS Token for setting SATA mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;AHCI&#x60; - Value - AHCI for configuring SataModeSelect token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SataModeSelect token. * &#x60;LSI SW RAID&#x60; - Value - LSI SW RAID for configuring SataModeSelect token. | [optional] [default to "platform-default"]
+**SelectMemoryRasConfiguration** | Pointer to **string** | BIOS Token for setting SelectMemory RAS configuration configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;adddc-sparing&#x60; - Value - adddc-sparing for configuring SelectMemoryRasConfiguration token. * &#x60;lockstep&#x60; - Value - lockstep for configuring SelectMemoryRasConfiguration token. * &#x60;maximum-performance&#x60; - Value - maximum-performance for configuring SelectMemoryRasConfiguration token. * &#x60;mirror-mode-1lm&#x60; - Value - mirror-mode-1lm for configuring SelectMemoryRasConfiguration token. * &#x60;mirroring&#x60; - Value - mirroring for configuring SelectMemoryRasConfiguration token. * &#x60;partial-mirror-mode-1lm&#x60; - Value - partial-mirror-mode-1lm for configuring SelectMemoryRasConfiguration token. * &#x60;sparing&#x60; - Value - sparing for configuring SelectMemoryRasConfiguration token. | [optional] [default to "platform-default"]
+**SelectPprType** | Pointer to **string** | BIOS Token for setting Select PPR Type configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring SelectPprType token. * &#x60;Hard PPR&#x60; - Value - Hard PPR for configuring SelectPprType token. | [optional] [default to "platform-default"]
+**SerialPortAenable** | Pointer to **string** | BIOS Token for setting Serial A Enable configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SinglePctlEnable** | Pointer to **string** | BIOS Token for setting Single PCTL configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;No&#x60; - Value - No for configuring SinglePctlEnable token. * &#x60;Yes&#x60; - Value - Yes for configuring SinglePctlEnable token. | [optional] [default to "platform-default"]
+**Slot10linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:10 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot10linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot10linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot10linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot10linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot10linkSpeed token. | [optional] [default to "platform-default"]
+**Slot10state** | Pointer to **string** | BIOS Token for setting Slot 10 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot10state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot10state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot10state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot10state token. | [optional] [default to "platform-default"]
+**Slot11linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:11 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot11linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot11linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot11linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot11linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot11linkSpeed token. | [optional] [default to "platform-default"]
+**Slot11state** | Pointer to **string** | BIOS Token for setting Slot 11 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Slot12linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:12 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot12linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot12linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot12linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot12linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot12linkSpeed token. | [optional] [default to "platform-default"]
+**Slot12state** | Pointer to **string** | BIOS Token for setting Slot 12 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Slot13state** | Pointer to **string** | BIOS Token for setting PCIe Slot 13 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Slot14state** | Pointer to **string** | BIOS Token for setting PCIe Slot 14 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**Slot1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot1linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot1linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot1linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot1linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot1linkSpeed token. | [optional] [default to "platform-default"]
+**Slot1state** | Pointer to **string** | BIOS Token for setting Slot 1 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot1state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot1state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot1state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot1state token. | [optional] [default to "platform-default"]
+**Slot2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot2linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot2linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot2linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot2linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot2linkSpeed token. | [optional] [default to "platform-default"]
+**Slot2state** | Pointer to **string** | BIOS Token for setting Slot 2 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot2state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot2state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot2state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot2state token. | [optional] [default to "platform-default"]
+**Slot3linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:3 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot3linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot3linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot3linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot3linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot3linkSpeed token. | [optional] [default to "platform-default"]
+**Slot3state** | Pointer to **string** | BIOS Token for setting Slot 3 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot3state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot3state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot3state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot3state token. | [optional] [default to "platform-default"]
+**Slot4linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:4 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot4linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot4linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot4linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot4linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot4linkSpeed token. | [optional] [default to "platform-default"]
+**Slot4state** | Pointer to **string** | BIOS Token for setting Slot 4 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot4state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot4state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot4state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot4state token. | [optional] [default to "platform-default"]
+**Slot5linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:5 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot5linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot5linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot5linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot5linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot5linkSpeed token. | [optional] [default to "platform-default"]
+**Slot5state** | Pointer to **string** | BIOS Token for setting Slot 5 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot5state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot5state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot5state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot5state token. | [optional] [default to "platform-default"]
+**Slot6linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:6 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot6linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot6linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot6linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot6linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot6linkSpeed token. | [optional] [default to "platform-default"]
+**Slot6state** | Pointer to **string** | BIOS Token for setting Slot 6 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot6state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot6state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot6state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot6state token. | [optional] [default to "platform-default"]
+**Slot7linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:7 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot7linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot7linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot7linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot7linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot7linkSpeed token. | [optional] [default to "platform-default"]
+**Slot7state** | Pointer to **string** | BIOS Token for setting Slot 7 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot7state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot7state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot7state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot7state token. | [optional] [default to "platform-default"]
+**Slot8linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:8 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot8linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot8linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot8linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot8linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot8linkSpeed token. | [optional] [default to "platform-default"]
+**Slot8state** | Pointer to **string** | BIOS Token for setting Slot 8 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot8state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot8state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot8state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot8state token. | [optional] [default to "platform-default"]
+**Slot9linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:9 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Slot9linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring Slot9linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring Slot9linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring Slot9linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring Slot9linkSpeed token. | [optional] [default to "platform-default"]
+**Slot9state** | Pointer to **string** | BIOS Token for setting Slot 9 State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring Slot9state token. * &#x60;enabled&#x60; - Value - enabled for configuring Slot9state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring Slot9state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring Slot9state token. | [optional] [default to "platform-default"]
+**SlotFlomLinkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:FLOM Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotFlomLinkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotFlomLinkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotFlomLinkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotFlomLinkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotFlomLinkSpeed token. | [optional] [default to "platform-default"]
+**SlotFrontNvme1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front Nvme1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotFrontNvme1linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotFrontNvme1linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotFrontNvme1linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotFrontNvme1linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotFrontNvme1linkSpeed token. | [optional] [default to "platform-default"]
+**SlotFrontNvme2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front Nvme2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotFrontNvme2linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotFrontNvme2linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotFrontNvme2linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotFrontNvme2linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotFrontNvme2linkSpeed token. | [optional] [default to "platform-default"]
+**SlotFrontSlot5linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotFrontSlot5linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotFrontSlot5linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotFrontSlot5linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotFrontSlot5linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotFrontSlot5linkSpeed token. | [optional] [default to "platform-default"]
+**SlotFrontSlot6linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Front2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotFrontSlot6linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotFrontSlot6linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotFrontSlot6linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotFrontSlot6linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotFrontSlot6linkSpeed token. | [optional] [default to "platform-default"]
+**SlotGpu1state** | Pointer to **string** | BIOS Token for setting GPU1 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotGpu2state** | Pointer to **string** | BIOS Token for setting GPU2 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotGpu3state** | Pointer to **string** | BIOS Token for setting GPU3 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotGpu4state** | Pointer to **string** | BIOS Token for setting GPU4 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotGpu5state** | Pointer to **string** | BIOS Token for setting GPU5 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotGpu6state** | Pointer to **string** | BIOS Token for setting GPU6 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotGpu7state** | Pointer to **string** | BIOS Token for setting GPU7 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotGpu8state** | Pointer to **string** | BIOS Token for setting GPU8 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotHbaLinkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:HBA Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotHbaLinkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotHbaLinkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotHbaLinkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotHbaLinkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotHbaLinkSpeed token. | [optional] [default to "platform-default"]
+**SlotHbaState** | Pointer to **string** | BIOS Token for setting PCIe Slot:HBA OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring SlotHbaState token. * &#x60;enabled&#x60; - Value - enabled for configuring SlotHbaState token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring SlotHbaState token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring SlotHbaState token. | [optional] [default to "platform-default"]
+**SlotLom1link** | Pointer to **string** | BIOS Token for setting PCIe LOM:1 Link configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotLom2link** | Pointer to **string** | BIOS Token for setting PCIe LOM:2 Link configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotMezzState** | Pointer to **string** | BIOS Token for setting Slot Mezz State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring SlotMezzState token. * &#x60;enabled&#x60; - Value - enabled for configuring SlotMezzState token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring SlotMezzState token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring SlotMezzState token. | [optional] [default to "platform-default"]
+**SlotMlomLinkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:MLOM Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotMlomLinkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotMlomLinkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotMlomLinkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotMlomLinkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotMlomLinkSpeed token. | [optional] [default to "platform-default"]
+**SlotMlomState** | Pointer to **string** | BIOS Token for setting PCIe Slot MLOM OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring SlotMlomState token. * &#x60;enabled&#x60; - Value - enabled for configuring SlotMlomState token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring SlotMlomState token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring SlotMlomState token. | [optional] [default to "platform-default"]
+**SlotMraidLinkSpeed** | Pointer to **string** | BIOS Token for setting MRAID Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotMraidLinkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotMraidLinkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotMraidLinkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotMraidLinkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotMraidLinkSpeed token. | [optional] [default to "platform-default"]
+**SlotMraidState** | Pointer to **string** | BIOS Token for setting PCIe Slot MRAID OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN10state** | Pointer to **string** | BIOS Token for setting PCIe Slot N10 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN11state** | Pointer to **string** | BIOS Token for setting PCIe Slot N11 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN12state** | Pointer to **string** | BIOS Token for setting PCIe Slot N12 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN13state** | Pointer to **string** | BIOS Token for setting PCIe Slot N13 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN14state** | Pointer to **string** | BIOS Token for setting PCIe Slot N14 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN15state** | Pointer to **string** | BIOS Token for setting PCIe Slot N15 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN16state** | Pointer to **string** | BIOS Token for setting PCIe Slot N16 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN17state** | Pointer to **string** | BIOS Token for setting PCIe Slot N17 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN18state** | Pointer to **string** | BIOS Token for setting PCIe Slot N18 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN19state** | Pointer to **string** | BIOS Token for setting PCIe Slot N19 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN1state** | Pointer to **string** | BIOS Token for setting PCIe Slot N1 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring SlotN1state token. * &#x60;enabled&#x60; - Value - enabled for configuring SlotN1state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring SlotN1state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring SlotN1state token. | [optional] [default to "platform-default"]
+**SlotN20state** | Pointer to **string** | BIOS Token for setting PCIe Slot N20 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN21state** | Pointer to **string** | BIOS Token for setting PCIe Slot N21 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN22state** | Pointer to **string** | BIOS Token for setting PCIe Slot N22 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN23state** | Pointer to **string** | BIOS Token for setting PCIe Slot N23 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN24state** | Pointer to **string** | BIOS Token for setting PCIe Slot N24 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN2state** | Pointer to **string** | BIOS Token for setting PCIe Slot N2 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring SlotN2state token. * &#x60;enabled&#x60; - Value - enabled for configuring SlotN2state token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring SlotN2state token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring SlotN2state token. | [optional] [default to "platform-default"]
+**SlotN3state** | Pointer to **string** | BIOS Token for setting PCIe Slot N3 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN4state** | Pointer to **string** | BIOS Token for setting PCIe Slot N4 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN5state** | Pointer to **string** | BIOS Token for setting PCIe Slot N5 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN6state** | Pointer to **string** | BIOS Token for setting PCIe Slot N6 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN7state** | Pointer to **string** | BIOS Token for setting PCIe Slot N7 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN8state** | Pointer to **string** | BIOS Token for setting PCIe Slot N8 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotN9state** | Pointer to **string** | BIOS Token for setting PCIe Slot N9 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRaidLinkSpeed** | Pointer to **string** | BIOS Token for setting RAID Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRaidLinkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRaidLinkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRaidLinkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRaidLinkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRaidLinkSpeed token. | [optional] [default to "platform-default"]
+**SlotRaidState** | Pointer to **string** | BIOS Token for setting PCIe Slot RAID OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear Nvme1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRearNvme1linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRearNvme1linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRearNvme1linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRearNvme1linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRearNvme1linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRearNvme1state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 1 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear Nvme2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRearNvme2linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRearNvme2linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRearNvme2linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRearNvme2linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRearNvme2linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRearNvme2state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 2 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme3state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 3 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme4state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 4 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme5state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 5 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme6state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 6 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme7state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 7 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRearNvme8state** | Pointer to **string** | BIOS Token for setting PCIe Slot:Rear NVME 8 OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SlotRiser1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser1linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser1linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser1linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser1linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser1linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRiser1slot1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Slot1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser1slot1linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser1slot1linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser1slot1linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser1slot1linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser1slot1linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRiser1slot2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Slot2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser1slot2linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser1slot2linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser1slot2linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser1slot2linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser1slot2linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRiser1slot3linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser1 Slot3 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser1slot3linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser1slot3linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser1slot3linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser1slot3linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser1slot3linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRiser2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser2linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser2linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser2linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser2linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser2linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRiser2slot4linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Slot4 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser2slot4linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser2slot4linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser2slot4linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser2slot4linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser2slot4linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRiser2slot5linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Slot5 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser2slot5linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser2slot5linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser2slot5linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser2slot5linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser2slot5linkSpeed token. | [optional] [default to "platform-default"]
+**SlotRiser2slot6linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:Riser2 Slot6 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotRiser2slot6linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotRiser2slot6linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotRiser2slot6linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotRiser2slot6linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotRiser2slot6linkSpeed token. | [optional] [default to "platform-default"]
+**SlotSasState** | Pointer to **string** | BIOS Token for setting PCIe Slot:SAS OptionROM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;disabled&#x60; - Value - disabled for configuring SlotSasState token. * &#x60;enabled&#x60; - Value - enabled for configuring SlotSasState token. * &#x60;Legacy Only&#x60; - Value - Legacy Only for configuring SlotSasState token. * &#x60;UEFI Only&#x60; - Value - UEFI Only for configuring SlotSasState token. | [optional] [default to "platform-default"]
+**SlotSsdSlot1linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:FrontSSD1 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotSsdSlot1linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotSsdSlot1linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotSsdSlot1linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotSsdSlot1linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotSsdSlot1linkSpeed token. | [optional] [default to "platform-default"]
+**SlotSsdSlot2linkSpeed** | Pointer to **string** | BIOS Token for setting PCIe Slot:FrontSSD2 Link Speed configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SlotSsdSlot2linkSpeed token. * &#x60;Disabled&#x60; - Value - Disabled for configuring SlotSsdSlot2linkSpeed token. * &#x60;GEN1&#x60; - Value - GEN1 for configuring SlotSsdSlot2linkSpeed token. * &#x60;GEN2&#x60; - Value - GEN2 for configuring SlotSsdSlot2linkSpeed token. * &#x60;GEN3&#x60; - Value - GEN3 for configuring SlotSsdSlot2linkSpeed token. | [optional] [default to "platform-default"]
+**Smee** | Pointer to **string** | BIOS Token for setting SMEE configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SmtMode** | Pointer to **string** | BIOS Token for setting SMT Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring SmtMode token. * &#x60;Off&#x60; - Value - Off for configuring SmtMode token. | [optional] [default to "platform-default"]
+**Snc** | Pointer to **string** | BIOS Token for setting Sub Numa Clustering configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring Snc token. * &#x60;disabled&#x60; - Value - disabled for configuring Snc token. * &#x60;enabled&#x60; - Value - enabled for configuring Snc token. | [optional] [default to "platform-default"]
+**SnoopyModeFor2lm** | Pointer to **string** | BIOS Token for setting Snoopy Mode for 2LM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SnoopyModeForAd** | Pointer to **string** | BIOS Token for setting Snoopy Mode for AD configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SparingMode** | Pointer to **string** | BIOS Token for setting Sparing Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;dimm-sparing&#x60; - Value - dimm-sparing for configuring SparingMode token. * &#x60;rank-sparing&#x60; - Value - rank-sparing for configuring SparingMode token. | [optional] [default to "platform-default"]
+**SrIov** | Pointer to **string** | BIOS Token for setting SR-IOV Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**StreamerPrefetch** | Pointer to **string** | BIOS Token for setting DCU Streamer Prefetch configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**SvmMode** | Pointer to **string** | BIOS Token for setting SVM Mode configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**TerminalType** | Pointer to **string** | BIOS Token for setting Terminal Type configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;pc-ansi&#x60; - Value - pc-ansi for configuring TerminalType token. * &#x60;vt-utf8&#x60; - Value - vt-utf8 for configuring TerminalType token. * &#x60;vt100&#x60; - Value - vt100 for configuring TerminalType token. * &#x60;vt100-plus&#x60; - Value - vt100-plus for configuring TerminalType token. | [optional] [default to "platform-default"]
+**TpmControl** | Pointer to **string** | BIOS Token for setting Trusted Platform Module State configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**TpmSupport** | Pointer to **string** | BIOS Token for setting TPM Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**TxtSupport** | Pointer to **string** | BIOS Token for setting Intel Trusted Execution Technology Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UcsmBootOrderRule** | Pointer to **string** | BIOS Token for setting Boot Order Rules configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Loose&#x60; - Value - Loose for configuring UcsmBootOrderRule token. * &#x60;Strict&#x60; - Value - Strict for configuring UcsmBootOrderRule token. | [optional] [default to "platform-default"]
+**UfsDisable** | Pointer to **string** | BIOS Token for setting Uncore Frequency Scaling configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbEmul6064** | Pointer to **string** | BIOS Token for setting Port 60/64 Emulation configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbPortFront** | Pointer to **string** | BIOS Token for setting USB Port Front configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbPortInternal** | Pointer to **string** | BIOS Token for setting USB Port Internal configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbPortKvm** | Pointer to **string** | BIOS Token for setting USB Port KVM configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbPortRear** | Pointer to **string** | BIOS Token for setting USB Port Rear configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbPortSdCard** | Pointer to **string** | BIOS Token for setting USB Port SD Card configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbPortVmedia** | Pointer to **string** | BIOS Token for setting USB Port VMedia configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**UsbXhciSupport** | Pointer to **string** | BIOS Token for setting XHCI Legacy Support configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**VgaPriority** | Pointer to **string** | BIOS Token for setting VGA Priority configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Offboard&#x60; - Value - Offboard for configuring VgaPriority token. * &#x60;Onboard&#x60; - Value - Onboard for configuring VgaPriority token. * &#x60;Onboard VGA Disabled&#x60; - Value - Onboard VGA Disabled for configuring VgaPriority token. | [optional] [default to "platform-default"]
+**VmdEnable** | Pointer to **string** | BIOS Token for setting VMD Enablement configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
+**WorkLoadConfig** | Pointer to **string** | BIOS Token for setting Workload Configuration configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Balanced&#x60; - Value - Balanced for configuring WorkLoadConfig token. * &#x60;I/O Sensitive&#x60; - Value - I/O Sensitive for configuring WorkLoadConfig token. * &#x60;NUMA&#x60; - Value - NUMA for configuring WorkLoadConfig token. * &#x60;UMA&#x60; - Value - UMA for configuring WorkLoadConfig token. | [optional] [default to "platform-default"]
+**XptPrefetch** | Pointer to **string** | BIOS Token for setting XPT Prefetch configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;Auto&#x60; - Value - Auto for configuring XptPrefetch token. * &#x60;disabled&#x60; - Value - disabled for configuring XptPrefetch token. * &#x60;enabled&#x60; - Value - enabled for configuring XptPrefetch token. | [optional] [default to "platform-default"]
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 **Profiles** | Pointer to [**[]PolicyAbstractConfigProfileRelationship**](policy.AbstractConfigProfile.Relationship.md) | An array of relationships to policyAbstractConfigProfile resources. | [optional] 
 
@@ -1488,6 +1512,31 @@ SetConfigTdp sets ConfigTdp field to given value.
 
 HasConfigTdp returns a boolean if a field has been set.
 
+### GetConfigTdpLevel
+
+`func (o *BiosPolicy) GetConfigTdpLevel() string`
+
+GetConfigTdpLevel returns the ConfigTdpLevel field if non-nil, zero value otherwise.
+
+### GetConfigTdpLevelOk
+
+`func (o *BiosPolicy) GetConfigTdpLevelOk() (*string, bool)`
+
+GetConfigTdpLevelOk returns a tuple with the ConfigTdpLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigTdpLevel
+
+`func (o *BiosPolicy) SetConfigTdpLevel(v string)`
+
+SetConfigTdpLevel sets ConfigTdpLevel field to given value.
+
+### HasConfigTdpLevel
+
+`func (o *BiosPolicy) HasConfigTdpLevel() bool`
+
+HasConfigTdpLevel returns a boolean if a field has been set.
+
 ### GetConsoleRedirection
 
 `func (o *BiosPolicy) GetConsoleRedirection() string`
@@ -1638,6 +1687,56 @@ SetCpuPowerManagement sets CpuPowerManagement field to given value.
 
 HasCpuPowerManagement returns a boolean if a field has been set.
 
+### GetCrQos
+
+`func (o *BiosPolicy) GetCrQos() string`
+
+GetCrQos returns the CrQos field if non-nil, zero value otherwise.
+
+### GetCrQosOk
+
+`func (o *BiosPolicy) GetCrQosOk() (*string, bool)`
+
+GetCrQosOk returns a tuple with the CrQos field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCrQos
+
+`func (o *BiosPolicy) SetCrQos(v string)`
+
+SetCrQos sets CrQos field to given value.
+
+### HasCrQos
+
+`func (o *BiosPolicy) HasCrQos() bool`
+
+HasCrQos returns a boolean if a field has been set.
+
+### GetCrfastgoConfig
+
+`func (o *BiosPolicy) GetCrfastgoConfig() string`
+
+GetCrfastgoConfig returns the CrfastgoConfig field if non-nil, zero value otherwise.
+
+### GetCrfastgoConfigOk
+
+`func (o *BiosPolicy) GetCrfastgoConfigOk() (*string, bool)`
+
+GetCrfastgoConfigOk returns a tuple with the CrfastgoConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCrfastgoConfig
+
+`func (o *BiosPolicy) SetCrfastgoConfig(v string)`
+
+SetCrfastgoConfig sets CrfastgoConfig field to given value.
+
+### HasCrfastgoConfig
+
+`func (o *BiosPolicy) HasCrfastgoConfig() bool`
+
+HasCrfastgoConfig returns a boolean if a field has been set.
+
 ### GetDcpmmFirmwareDowngrade
 
 `func (o *BiosPolicy) GetDcpmmFirmwareDowngrade() string`
@@ -1762,6 +1861,31 @@ SetDramRefreshRate sets DramRefreshRate field to given value.
 `func (o *BiosPolicy) HasDramRefreshRate() bool`
 
 HasDramRefreshRate returns a boolean if a field has been set.
+
+### GetEnableClockSpreadSpec
+
+`func (o *BiosPolicy) GetEnableClockSpreadSpec() string`
+
+GetEnableClockSpreadSpec returns the EnableClockSpreadSpec field if non-nil, zero value otherwise.
+
+### GetEnableClockSpreadSpecOk
+
+`func (o *BiosPolicy) GetEnableClockSpreadSpecOk() (*string, bool)`
+
+GetEnableClockSpreadSpecOk returns a tuple with the EnableClockSpreadSpec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableClockSpreadSpec
+
+`func (o *BiosPolicy) SetEnableClockSpreadSpec(v string)`
+
+SetEnableClockSpreadSpec sets EnableClockSpreadSpec field to given value.
+
+### HasEnableClockSpreadSpec
+
+`func (o *BiosPolicy) HasEnableClockSpreadSpec() bool`
+
+HasEnableClockSpreadSpec returns a boolean if a field has been set.
 
 ### GetEnergyEfficientTurbo
 
@@ -2838,6 +2962,31 @@ SetNumaOptimized sets NumaOptimized field to given value.
 
 HasNumaOptimized returns a boolean if a field has been set.
 
+### GetNvmdimmPerformConfig
+
+`func (o *BiosPolicy) GetNvmdimmPerformConfig() string`
+
+GetNvmdimmPerformConfig returns the NvmdimmPerformConfig field if non-nil, zero value otherwise.
+
+### GetNvmdimmPerformConfigOk
+
+`func (o *BiosPolicy) GetNvmdimmPerformConfigOk() (*string, bool)`
+
+GetNvmdimmPerformConfigOk returns a tuple with the NvmdimmPerformConfig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNvmdimmPerformConfig
+
+`func (o *BiosPolicy) SetNvmdimmPerformConfig(v string)`
+
+SetNvmdimmPerformConfig sets NvmdimmPerformConfig field to given value.
+
+### HasNvmdimmPerformConfig
+
+`func (o *BiosPolicy) HasNvmdimmPerformConfig() bool`
+
+HasNvmdimmPerformConfig returns a boolean if a field has been set.
+
 ### GetOnboard10gbitLom
 
 `func (o *BiosPolicy) GetOnboard10gbitLom() string`
@@ -3388,6 +3537,381 @@ SetPciRomClp sets PciRomClp field to given value.
 
 HasPciRomClp returns a boolean if a field has been set.
 
+### GetPcieAriSupport
+
+`func (o *BiosPolicy) GetPcieAriSupport() string`
+
+GetPcieAriSupport returns the PcieAriSupport field if non-nil, zero value otherwise.
+
+### GetPcieAriSupportOk
+
+`func (o *BiosPolicy) GetPcieAriSupportOk() (*string, bool)`
+
+GetPcieAriSupportOk returns a tuple with the PcieAriSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieAriSupport
+
+`func (o *BiosPolicy) SetPcieAriSupport(v string)`
+
+SetPcieAriSupport sets PcieAriSupport field to given value.
+
+### HasPcieAriSupport
+
+`func (o *BiosPolicy) HasPcieAriSupport() bool`
+
+HasPcieAriSupport returns a boolean if a field has been set.
+
+### GetPciePllSsc
+
+`func (o *BiosPolicy) GetPciePllSsc() string`
+
+GetPciePllSsc returns the PciePllSsc field if non-nil, zero value otherwise.
+
+### GetPciePllSscOk
+
+`func (o *BiosPolicy) GetPciePllSscOk() (*string, bool)`
+
+GetPciePllSscOk returns a tuple with the PciePllSsc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPciePllSsc
+
+`func (o *BiosPolicy) SetPciePllSsc(v string)`
+
+SetPciePllSsc sets PciePllSsc field to given value.
+
+### HasPciePllSsc
+
+`func (o *BiosPolicy) HasPciePllSsc() bool`
+
+HasPciePllSsc returns a boolean if a field has been set.
+
+### GetPcieSlotMstorraidOptionRom
+
+`func (o *BiosPolicy) GetPcieSlotMstorraidOptionRom() string`
+
+GetPcieSlotMstorraidOptionRom returns the PcieSlotMstorraidOptionRom field if non-nil, zero value otherwise.
+
+### GetPcieSlotMstorraidOptionRomOk
+
+`func (o *BiosPolicy) GetPcieSlotMstorraidOptionRomOk() (*string, bool)`
+
+GetPcieSlotMstorraidOptionRomOk returns a tuple with the PcieSlotMstorraidOptionRom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotMstorraidOptionRom
+
+`func (o *BiosPolicy) SetPcieSlotMstorraidOptionRom(v string)`
+
+SetPcieSlotMstorraidOptionRom sets PcieSlotMstorraidOptionRom field to given value.
+
+### HasPcieSlotMstorraidOptionRom
+
+`func (o *BiosPolicy) HasPcieSlotMstorraidOptionRom() bool`
+
+HasPcieSlotMstorraidOptionRom returns a boolean if a field has been set.
+
+### GetPcieSlotNvme1linkSpeed
+
+`func (o *BiosPolicy) GetPcieSlotNvme1linkSpeed() string`
+
+GetPcieSlotNvme1linkSpeed returns the PcieSlotNvme1linkSpeed field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme1linkSpeedOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme1linkSpeedOk() (*string, bool)`
+
+GetPcieSlotNvme1linkSpeedOk returns a tuple with the PcieSlotNvme1linkSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme1linkSpeed
+
+`func (o *BiosPolicy) SetPcieSlotNvme1linkSpeed(v string)`
+
+SetPcieSlotNvme1linkSpeed sets PcieSlotNvme1linkSpeed field to given value.
+
+### HasPcieSlotNvme1linkSpeed
+
+`func (o *BiosPolicy) HasPcieSlotNvme1linkSpeed() bool`
+
+HasPcieSlotNvme1linkSpeed returns a boolean if a field has been set.
+
+### GetPcieSlotNvme1optionRom
+
+`func (o *BiosPolicy) GetPcieSlotNvme1optionRom() string`
+
+GetPcieSlotNvme1optionRom returns the PcieSlotNvme1optionRom field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme1optionRomOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme1optionRomOk() (*string, bool)`
+
+GetPcieSlotNvme1optionRomOk returns a tuple with the PcieSlotNvme1optionRom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme1optionRom
+
+`func (o *BiosPolicy) SetPcieSlotNvme1optionRom(v string)`
+
+SetPcieSlotNvme1optionRom sets PcieSlotNvme1optionRom field to given value.
+
+### HasPcieSlotNvme1optionRom
+
+`func (o *BiosPolicy) HasPcieSlotNvme1optionRom() bool`
+
+HasPcieSlotNvme1optionRom returns a boolean if a field has been set.
+
+### GetPcieSlotNvme2linkSpeed
+
+`func (o *BiosPolicy) GetPcieSlotNvme2linkSpeed() string`
+
+GetPcieSlotNvme2linkSpeed returns the PcieSlotNvme2linkSpeed field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme2linkSpeedOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme2linkSpeedOk() (*string, bool)`
+
+GetPcieSlotNvme2linkSpeedOk returns a tuple with the PcieSlotNvme2linkSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme2linkSpeed
+
+`func (o *BiosPolicy) SetPcieSlotNvme2linkSpeed(v string)`
+
+SetPcieSlotNvme2linkSpeed sets PcieSlotNvme2linkSpeed field to given value.
+
+### HasPcieSlotNvme2linkSpeed
+
+`func (o *BiosPolicy) HasPcieSlotNvme2linkSpeed() bool`
+
+HasPcieSlotNvme2linkSpeed returns a boolean if a field has been set.
+
+### GetPcieSlotNvme2optionRom
+
+`func (o *BiosPolicy) GetPcieSlotNvme2optionRom() string`
+
+GetPcieSlotNvme2optionRom returns the PcieSlotNvme2optionRom field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme2optionRomOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme2optionRomOk() (*string, bool)`
+
+GetPcieSlotNvme2optionRomOk returns a tuple with the PcieSlotNvme2optionRom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme2optionRom
+
+`func (o *BiosPolicy) SetPcieSlotNvme2optionRom(v string)`
+
+SetPcieSlotNvme2optionRom sets PcieSlotNvme2optionRom field to given value.
+
+### HasPcieSlotNvme2optionRom
+
+`func (o *BiosPolicy) HasPcieSlotNvme2optionRom() bool`
+
+HasPcieSlotNvme2optionRom returns a boolean if a field has been set.
+
+### GetPcieSlotNvme3linkSpeed
+
+`func (o *BiosPolicy) GetPcieSlotNvme3linkSpeed() string`
+
+GetPcieSlotNvme3linkSpeed returns the PcieSlotNvme3linkSpeed field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme3linkSpeedOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme3linkSpeedOk() (*string, bool)`
+
+GetPcieSlotNvme3linkSpeedOk returns a tuple with the PcieSlotNvme3linkSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme3linkSpeed
+
+`func (o *BiosPolicy) SetPcieSlotNvme3linkSpeed(v string)`
+
+SetPcieSlotNvme3linkSpeed sets PcieSlotNvme3linkSpeed field to given value.
+
+### HasPcieSlotNvme3linkSpeed
+
+`func (o *BiosPolicy) HasPcieSlotNvme3linkSpeed() bool`
+
+HasPcieSlotNvme3linkSpeed returns a boolean if a field has been set.
+
+### GetPcieSlotNvme3optionRom
+
+`func (o *BiosPolicy) GetPcieSlotNvme3optionRom() string`
+
+GetPcieSlotNvme3optionRom returns the PcieSlotNvme3optionRom field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme3optionRomOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme3optionRomOk() (*string, bool)`
+
+GetPcieSlotNvme3optionRomOk returns a tuple with the PcieSlotNvme3optionRom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme3optionRom
+
+`func (o *BiosPolicy) SetPcieSlotNvme3optionRom(v string)`
+
+SetPcieSlotNvme3optionRom sets PcieSlotNvme3optionRom field to given value.
+
+### HasPcieSlotNvme3optionRom
+
+`func (o *BiosPolicy) HasPcieSlotNvme3optionRom() bool`
+
+HasPcieSlotNvme3optionRom returns a boolean if a field has been set.
+
+### GetPcieSlotNvme4linkSpeed
+
+`func (o *BiosPolicy) GetPcieSlotNvme4linkSpeed() string`
+
+GetPcieSlotNvme4linkSpeed returns the PcieSlotNvme4linkSpeed field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme4linkSpeedOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme4linkSpeedOk() (*string, bool)`
+
+GetPcieSlotNvme4linkSpeedOk returns a tuple with the PcieSlotNvme4linkSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme4linkSpeed
+
+`func (o *BiosPolicy) SetPcieSlotNvme4linkSpeed(v string)`
+
+SetPcieSlotNvme4linkSpeed sets PcieSlotNvme4linkSpeed field to given value.
+
+### HasPcieSlotNvme4linkSpeed
+
+`func (o *BiosPolicy) HasPcieSlotNvme4linkSpeed() bool`
+
+HasPcieSlotNvme4linkSpeed returns a boolean if a field has been set.
+
+### GetPcieSlotNvme4optionRom
+
+`func (o *BiosPolicy) GetPcieSlotNvme4optionRom() string`
+
+GetPcieSlotNvme4optionRom returns the PcieSlotNvme4optionRom field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme4optionRomOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme4optionRomOk() (*string, bool)`
+
+GetPcieSlotNvme4optionRomOk returns a tuple with the PcieSlotNvme4optionRom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme4optionRom
+
+`func (o *BiosPolicy) SetPcieSlotNvme4optionRom(v string)`
+
+SetPcieSlotNvme4optionRom sets PcieSlotNvme4optionRom field to given value.
+
+### HasPcieSlotNvme4optionRom
+
+`func (o *BiosPolicy) HasPcieSlotNvme4optionRom() bool`
+
+HasPcieSlotNvme4optionRom returns a boolean if a field has been set.
+
+### GetPcieSlotNvme5linkSpeed
+
+`func (o *BiosPolicy) GetPcieSlotNvme5linkSpeed() string`
+
+GetPcieSlotNvme5linkSpeed returns the PcieSlotNvme5linkSpeed field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme5linkSpeedOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme5linkSpeedOk() (*string, bool)`
+
+GetPcieSlotNvme5linkSpeedOk returns a tuple with the PcieSlotNvme5linkSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme5linkSpeed
+
+`func (o *BiosPolicy) SetPcieSlotNvme5linkSpeed(v string)`
+
+SetPcieSlotNvme5linkSpeed sets PcieSlotNvme5linkSpeed field to given value.
+
+### HasPcieSlotNvme5linkSpeed
+
+`func (o *BiosPolicy) HasPcieSlotNvme5linkSpeed() bool`
+
+HasPcieSlotNvme5linkSpeed returns a boolean if a field has been set.
+
+### GetPcieSlotNvme5optionRom
+
+`func (o *BiosPolicy) GetPcieSlotNvme5optionRom() string`
+
+GetPcieSlotNvme5optionRom returns the PcieSlotNvme5optionRom field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme5optionRomOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme5optionRomOk() (*string, bool)`
+
+GetPcieSlotNvme5optionRomOk returns a tuple with the PcieSlotNvme5optionRom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme5optionRom
+
+`func (o *BiosPolicy) SetPcieSlotNvme5optionRom(v string)`
+
+SetPcieSlotNvme5optionRom sets PcieSlotNvme5optionRom field to given value.
+
+### HasPcieSlotNvme5optionRom
+
+`func (o *BiosPolicy) HasPcieSlotNvme5optionRom() bool`
+
+HasPcieSlotNvme5optionRom returns a boolean if a field has been set.
+
+### GetPcieSlotNvme6linkSpeed
+
+`func (o *BiosPolicy) GetPcieSlotNvme6linkSpeed() string`
+
+GetPcieSlotNvme6linkSpeed returns the PcieSlotNvme6linkSpeed field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme6linkSpeedOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme6linkSpeedOk() (*string, bool)`
+
+GetPcieSlotNvme6linkSpeedOk returns a tuple with the PcieSlotNvme6linkSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme6linkSpeed
+
+`func (o *BiosPolicy) SetPcieSlotNvme6linkSpeed(v string)`
+
+SetPcieSlotNvme6linkSpeed sets PcieSlotNvme6linkSpeed field to given value.
+
+### HasPcieSlotNvme6linkSpeed
+
+`func (o *BiosPolicy) HasPcieSlotNvme6linkSpeed() bool`
+
+HasPcieSlotNvme6linkSpeed returns a boolean if a field has been set.
+
+### GetPcieSlotNvme6optionRom
+
+`func (o *BiosPolicy) GetPcieSlotNvme6optionRom() string`
+
+GetPcieSlotNvme6optionRom returns the PcieSlotNvme6optionRom field if non-nil, zero value otherwise.
+
+### GetPcieSlotNvme6optionRomOk
+
+`func (o *BiosPolicy) GetPcieSlotNvme6optionRomOk() (*string, bool)`
+
+GetPcieSlotNvme6optionRomOk returns a tuple with the PcieSlotNvme6optionRom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcieSlotNvme6optionRom
+
+`func (o *BiosPolicy) SetPcieSlotNvme6optionRom(v string)`
+
+SetPcieSlotNvme6optionRom sets PcieSlotNvme6optionRom field to given value.
+
+### HasPcieSlotNvme6optionRom
+
+`func (o *BiosPolicy) HasPcieSlotNvme6optionRom() bool`
+
+HasPcieSlotNvme6optionRom returns a boolean if a field has been set.
+
 ### GetPopSupport
 
 `func (o *BiosPolicy) GetPopSupport() string`
@@ -3662,6 +4186,31 @@ SetQpiLinkFrequency sets QpiLinkFrequency field to given value.
 `func (o *BiosPolicy) HasQpiLinkFrequency() bool`
 
 HasQpiLinkFrequency returns a boolean if a field has been set.
+
+### GetQpiLinkSpeed
+
+`func (o *BiosPolicy) GetQpiLinkSpeed() string`
+
+GetQpiLinkSpeed returns the QpiLinkSpeed field if non-nil, zero value otherwise.
+
+### GetQpiLinkSpeedOk
+
+`func (o *BiosPolicy) GetQpiLinkSpeedOk() (*string, bool)`
+
+GetQpiLinkSpeedOk returns a tuple with the QpiLinkSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQpiLinkSpeed
+
+`func (o *BiosPolicy) SetQpiLinkSpeed(v string)`
+
+SetQpiLinkSpeed sets QpiLinkSpeed field to given value.
+
+### HasQpiLinkSpeed
+
+`func (o *BiosPolicy) HasQpiLinkSpeed() bool`
+
+HasQpiLinkSpeed returns a boolean if a field has been set.
 
 ### GetQpiSnoopMode
 
@@ -6313,6 +6862,56 @@ SetSnc sets Snc field to given value.
 
 HasSnc returns a boolean if a field has been set.
 
+### GetSnoopyModeFor2lm
+
+`func (o *BiosPolicy) GetSnoopyModeFor2lm() string`
+
+GetSnoopyModeFor2lm returns the SnoopyModeFor2lm field if non-nil, zero value otherwise.
+
+### GetSnoopyModeFor2lmOk
+
+`func (o *BiosPolicy) GetSnoopyModeFor2lmOk() (*string, bool)`
+
+GetSnoopyModeFor2lmOk returns a tuple with the SnoopyModeFor2lm field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnoopyModeFor2lm
+
+`func (o *BiosPolicy) SetSnoopyModeFor2lm(v string)`
+
+SetSnoopyModeFor2lm sets SnoopyModeFor2lm field to given value.
+
+### HasSnoopyModeFor2lm
+
+`func (o *BiosPolicy) HasSnoopyModeFor2lm() bool`
+
+HasSnoopyModeFor2lm returns a boolean if a field has been set.
+
+### GetSnoopyModeForAd
+
+`func (o *BiosPolicy) GetSnoopyModeForAd() string`
+
+GetSnoopyModeForAd returns the SnoopyModeForAd field if non-nil, zero value otherwise.
+
+### GetSnoopyModeForAdOk
+
+`func (o *BiosPolicy) GetSnoopyModeForAdOk() (*string, bool)`
+
+GetSnoopyModeForAdOk returns a tuple with the SnoopyModeForAd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnoopyModeForAd
+
+`func (o *BiosPolicy) SetSnoopyModeForAd(v string)`
+
+SetSnoopyModeForAd sets SnoopyModeForAd field to given value.
+
+### HasSnoopyModeForAd
+
+`func (o *BiosPolicy) HasSnoopyModeForAd() bool`
+
+HasSnoopyModeForAd returns a boolean if a field has been set.
+
 ### GetSparingMode
 
 `func (o *BiosPolicy) GetSparingMode() string`
@@ -6537,6 +7136,31 @@ SetUcsmBootOrderRule sets UcsmBootOrderRule field to given value.
 `func (o *BiosPolicy) HasUcsmBootOrderRule() bool`
 
 HasUcsmBootOrderRule returns a boolean if a field has been set.
+
+### GetUfsDisable
+
+`func (o *BiosPolicy) GetUfsDisable() string`
+
+GetUfsDisable returns the UfsDisable field if non-nil, zero value otherwise.
+
+### GetUfsDisableOk
+
+`func (o *BiosPolicy) GetUfsDisableOk() (*string, bool)`
+
+GetUfsDisableOk returns a tuple with the UfsDisable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUfsDisable
+
+`func (o *BiosPolicy) SetUfsDisable(v string)`
+
+SetUfsDisable sets UfsDisable field to given value.
+
+### HasUfsDisable
+
+`func (o *BiosPolicy) HasUfsDisable() bool`
+
+HasUfsDisable returns a boolean if a field has been set.
 
 ### GetUsbEmul6064
 
@@ -6888,6 +7512,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *BiosPolicy) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *BiosPolicy) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

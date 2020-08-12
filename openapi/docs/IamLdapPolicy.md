@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DnsParameters** | Pointer to [**IamLdapDnsParameters**](iam.LdapDnsParameters.md) |  | [optional] 
 **EnableDns** | Pointer to **bool** | Enables DNS to access LDAP servers. | [optional] 
 **Enabled** | Pointer to **bool** | LDAP server performs authentication. | [optional] 
-**UserSearchPrecedence** | Pointer to **string** | Search precedence between local user database and LDAP user database. | [optional] [default to "LocalUserDb"]
+**UserSearchPrecedence** | Pointer to **string** | Search precedence between local user database and LDAP user database. * &#x60;LocalUserDb&#x60; - Precedence is given to local user database while searching. * &#x60;LDAPUserDb&#x60; - Precedence is given to LADP user database while searching. | [optional] [default to "LocalUserDb"]
 **Var0Idp** | Pointer to [**IamIdpRelationship**](iam.Idp.Relationship.md) |  | [optional] 
 **ApplianceAccount** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
 **Groups** | Pointer to [**[]IamLdapGroupRelationship**](iam.LdapGroup.Relationship.md) | An array of relationships to iamLdapGroup resources. | [optional] 
@@ -235,6 +235,16 @@ SetGroups sets Groups field to given value.
 
 HasGroups returns a boolean if a field has been set.
 
+### SetGroupsNil
+
+`func (o *IamLdapPolicy) SetGroupsNil(b bool)`
+
+ SetGroupsNil sets the value for Groups to be an explicit nil
+
+### UnsetGroups
+`func (o *IamLdapPolicy) UnsetGroups()`
+
+UnsetGroups ensures that no value is present for Groups, not even an explicit nil
 ### GetOrganization
 
 `func (o *IamLdapPolicy) GetOrganization() OrganizationOrganizationRelationship`
@@ -285,6 +295,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *IamLdapPolicy) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *IamLdapPolicy) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 ### GetProviders
 
 `func (o *IamLdapPolicy) GetProviders() []IamLdapProviderRelationship`
@@ -310,6 +330,16 @@ SetProviders sets Providers field to given value.
 
 HasProviders returns a boolean if a field has been set.
 
+### SetProvidersNil
+
+`func (o *IamLdapPolicy) SetProvidersNil(b bool)`
+
+ SetProvidersNil sets the value for Providers to be an explicit nil
+
+### UnsetProviders
+`func (o *IamLdapPolicy) UnsetProviders()`
+
+UnsetProviders ensures that no value is present for Providers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

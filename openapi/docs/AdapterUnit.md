@@ -5,16 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdapterId** | Pointer to **string** | Unique Identifier of an adapter Unit within a Rack Interface. | [optional] [readonly] 
-**BaseMacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**Integrated** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**PartNumber** | Pointer to **string** |  | [optional] [readonly] 
-**PciSlot** | Pointer to **string** |  | [optional] [readonly] 
-**Power** | Pointer to **string** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**Thermal** | Pointer to **string** |  | [optional] [readonly] 
-**Vid** | Pointer to **string** |  | [optional] [readonly] 
+**BaseMacAddress** | Pointer to **string** | Original Base Mac address of an adapter unit. | [optional] [readonly] 
+**ConnectionStatus** | Pointer to **string** | Connectivity Status of adapter - A or B or AB. | [optional] [readonly] 
+**Integrated** | Pointer to **string** | Cisco Integrated adapter or other type. | [optional] [readonly] 
+**OperState** | Pointer to **string** | Operational state of an adapter unit. | [optional] [readonly] 
+**Operability** | Pointer to **string** | Operability state of an adapter unit. | [optional] [readonly] 
+**PartNumber** | Pointer to **string** | Part number of an adapter unit. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | PCIe slot of the adapter in the server. | [optional] [readonly] 
+**Power** | Pointer to **string** | Power state of an adapter unit. | [optional] [readonly] 
+**Presence** | Pointer to **string** | Adapter Unit presence or absence. | [optional] [readonly] 
+**Thermal** | Pointer to **string** | Thermal state of an adapter unit. | [optional] [readonly] 
+**Vid** | Pointer to **string** | Virtual Id of the adapter in the server. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **Controller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
@@ -22,6 +23,7 @@ Name | Type | Description | Notes
 **HostEthIfs** | Pointer to [**[]AdapterHostEthInterfaceRelationship**](adapter.HostEthInterface.Relationship.md) | An array of relationships to adapterHostEthInterface resources. | [optional] [readonly] 
 **HostFcIfs** | Pointer to [**[]AdapterHostFcInterfaceRelationship**](adapter.HostFcInterface.Relationship.md) | An array of relationships to adapterHostFcInterface resources. | [optional] [readonly] 
 **HostIscsiIfs** | Pointer to [**[]AdapterHostIscsiInterfaceRelationship**](adapter.HostIscsiInterface.Relationship.md) | An array of relationships to adapterHostIscsiInterface resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -92,6 +94,31 @@ SetBaseMacAddress sets BaseMacAddress field to given value.
 `func (o *AdapterUnit) HasBaseMacAddress() bool`
 
 HasBaseMacAddress returns a boolean if a field has been set.
+
+### GetConnectionStatus
+
+`func (o *AdapterUnit) GetConnectionStatus() string`
+
+GetConnectionStatus returns the ConnectionStatus field if non-nil, zero value otherwise.
+
+### GetConnectionStatusOk
+
+`func (o *AdapterUnit) GetConnectionStatusOk() (*string, bool)`
+
+GetConnectionStatusOk returns a tuple with the ConnectionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectionStatus
+
+`func (o *AdapterUnit) SetConnectionStatus(v string)`
+
+SetConnectionStatus sets ConnectionStatus field to given value.
+
+### HasConnectionStatus
+
+`func (o *AdapterUnit) HasConnectionStatus() bool`
+
+HasConnectionStatus returns a boolean if a field has been set.
 
 ### GetIntegrated
 
@@ -418,6 +445,16 @@ SetExtEthIfs sets ExtEthIfs field to given value.
 
 HasExtEthIfs returns a boolean if a field has been set.
 
+### SetExtEthIfsNil
+
+`func (o *AdapterUnit) SetExtEthIfsNil(b bool)`
+
+ SetExtEthIfsNil sets the value for ExtEthIfs to be an explicit nil
+
+### UnsetExtEthIfs
+`func (o *AdapterUnit) UnsetExtEthIfs()`
+
+UnsetExtEthIfs ensures that no value is present for ExtEthIfs, not even an explicit nil
 ### GetHostEthIfs
 
 `func (o *AdapterUnit) GetHostEthIfs() []AdapterHostEthInterfaceRelationship`
@@ -443,6 +480,16 @@ SetHostEthIfs sets HostEthIfs field to given value.
 
 HasHostEthIfs returns a boolean if a field has been set.
 
+### SetHostEthIfsNil
+
+`func (o *AdapterUnit) SetHostEthIfsNil(b bool)`
+
+ SetHostEthIfsNil sets the value for HostEthIfs to be an explicit nil
+
+### UnsetHostEthIfs
+`func (o *AdapterUnit) UnsetHostEthIfs()`
+
+UnsetHostEthIfs ensures that no value is present for HostEthIfs, not even an explicit nil
 ### GetHostFcIfs
 
 `func (o *AdapterUnit) GetHostFcIfs() []AdapterHostFcInterfaceRelationship`
@@ -468,6 +515,16 @@ SetHostFcIfs sets HostFcIfs field to given value.
 
 HasHostFcIfs returns a boolean if a field has been set.
 
+### SetHostFcIfsNil
+
+`func (o *AdapterUnit) SetHostFcIfsNil(b bool)`
+
+ SetHostFcIfsNil sets the value for HostFcIfs to be an explicit nil
+
+### UnsetHostFcIfs
+`func (o *AdapterUnit) UnsetHostFcIfs()`
+
+UnsetHostFcIfs ensures that no value is present for HostFcIfs, not even an explicit nil
 ### GetHostIscsiIfs
 
 `func (o *AdapterUnit) GetHostIscsiIfs() []AdapterHostIscsiInterfaceRelationship`
@@ -492,6 +549,41 @@ SetHostIscsiIfs sets HostIscsiIfs field to given value.
 `func (o *AdapterUnit) HasHostIscsiIfs() bool`
 
 HasHostIscsiIfs returns a boolean if a field has been set.
+
+### SetHostIscsiIfsNil
+
+`func (o *AdapterUnit) SetHostIscsiIfsNil(b bool)`
+
+ SetHostIscsiIfsNil sets the value for HostIscsiIfs to be an explicit nil
+
+### UnsetHostIscsiIfs
+`func (o *AdapterUnit) UnsetHostIscsiIfs()`
+
+UnsetHostIscsiIfs ensures that no value is present for HostIscsiIfs, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *AdapterUnit) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *AdapterUnit) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *AdapterUnit) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *AdapterUnit) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

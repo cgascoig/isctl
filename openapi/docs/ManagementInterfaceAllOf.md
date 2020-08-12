@@ -15,9 +15,10 @@ Name | Type | Description | Notes
 **Ipv6Prefix** | Pointer to **int64** | IPv6 prefix for the interface. | [optional] 
 **MacAddress** | Pointer to **string** | MAC address configured for the interface. | [optional] [readonly] 
 **Mask** | Pointer to **string** | Netmask for the interface. | [optional] [readonly] 
-**SwitchId** | Pointer to **string** | Switch Id of the interface. | [optional] 
-**UemConnStatus** | Pointer to **string** | Status of UEM connection. | [optional] 
+**SwitchId** | Pointer to **string** | Switch Id connected to the interface. | [optional] 
+**UemConnStatus** | Pointer to **string** | The event channel connection status for the interface. | [optional] 
 **VirtualHostName** | Pointer to **string** | Virtual hostname configured for the interface in case of clustered environment. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -389,6 +390,31 @@ SetVirtualHostName sets VirtualHostName field to given value.
 `func (o *ManagementInterfaceAllOf) HasVirtualHostName() bool`
 
 HasVirtualHostName returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *ManagementInterfaceAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ManagementInterfaceAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ManagementInterfaceAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ManagementInterfaceAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetManagementController
 

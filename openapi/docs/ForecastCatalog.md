@@ -102,6 +102,16 @@ SetDefinition sets Definition field to given value.
 
 HasDefinition returns a boolean if a field has been set.
 
+### SetDefinitionNil
+
+`func (o *ForecastCatalog) SetDefinitionNil(b bool)`
+
+ SetDefinitionNil sets the value for Definition to be an explicit nil
+
+### UnsetDefinition
+`func (o *ForecastCatalog) UnsetDefinition()`
+
+UnsetDefinition ensures that no value is present for Definition, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

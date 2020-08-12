@@ -18,25 +18,26 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
 **AdapterId** | Pointer to **string** | Unique Identifier of an adapter Unit within a Rack Interface. | [optional] [readonly] 
-**BaseMacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**Integrated** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**PartNumber** | Pointer to **string** |  | [optional] [readonly] 
-**PciSlot** | Pointer to **string** |  | [optional] [readonly] 
-**Power** | Pointer to **string** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**Thermal** | Pointer to **string** |  | [optional] [readonly] 
-**Vid** | Pointer to **string** |  | [optional] [readonly] 
+**BaseMacAddress** | Pointer to **string** | Original Base Mac address of an adapter unit. | [optional] [readonly] 
+**ConnectionStatus** | Pointer to **string** | Connectivity Status of adapter - A or B or AB. | [optional] [readonly] 
+**Integrated** | Pointer to **string** | Cisco Integrated adapter or other type. | [optional] [readonly] 
+**OperState** | Pointer to **string** | Operational state of an adapter unit. | [optional] [readonly] 
+**Operability** | Pointer to **string** | Operability state of an adapter unit. | [optional] [readonly] 
+**PartNumber** | Pointer to **string** | Part number of an adapter unit. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | PCIe slot of the adapter in the server. | [optional] [readonly] 
+**Power** | Pointer to **string** | Power state of an adapter unit. | [optional] [readonly] 
+**Presence** | Pointer to **string** | Adapter Unit presence or absence. | [optional] [readonly] 
+**Thermal** | Pointer to **string** | Thermal state of an adapter unit. | [optional] [readonly] 
+**Vid** | Pointer to **string** | Virtual Id of the adapter in the server. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **Controller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
@@ -44,6 +45,7 @@ Name | Type | Description | Notes
 **HostEthIfs** | Pointer to [**[]AdapterHostEthInterfaceRelationship**](adapter.HostEthInterface.Relationship.md) | An array of relationships to adapterHostEthInterface resources. | [optional] [readonly] 
 **HostFcIfs** | Pointer to [**[]AdapterHostFcInterfaceRelationship**](adapter.HostFcInterface.Relationship.md) | An array of relationships to adapterHostFcInterface resources. | [optional] [readonly] 
 **HostIscsiIfs** | Pointer to [**[]AdapterHostIscsiInterfaceRelationship**](adapter.HostIscsiInterface.Relationship.md) | An array of relationships to adapterHostIscsiInterface resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -355,6 +357,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *AdapterUnitRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *AdapterUnitRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *AdapterUnitRelationship) GetParent() MoBaseMoRelationship`
@@ -405,6 +417,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *AdapterUnitRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *AdapterUnitRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *AdapterUnitRelationship) GetDisplayNames() map[string][]string`
@@ -664,6 +686,31 @@ SetBaseMacAddress sets BaseMacAddress field to given value.
 `func (o *AdapterUnitRelationship) HasBaseMacAddress() bool`
 
 HasBaseMacAddress returns a boolean if a field has been set.
+
+### GetConnectionStatus
+
+`func (o *AdapterUnitRelationship) GetConnectionStatus() string`
+
+GetConnectionStatus returns the ConnectionStatus field if non-nil, zero value otherwise.
+
+### GetConnectionStatusOk
+
+`func (o *AdapterUnitRelationship) GetConnectionStatusOk() (*string, bool)`
+
+GetConnectionStatusOk returns a tuple with the ConnectionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectionStatus
+
+`func (o *AdapterUnitRelationship) SetConnectionStatus(v string)`
+
+SetConnectionStatus sets ConnectionStatus field to given value.
+
+### HasConnectionStatus
+
+`func (o *AdapterUnitRelationship) HasConnectionStatus() bool`
+
+HasConnectionStatus returns a boolean if a field has been set.
 
 ### GetIntegrated
 
@@ -990,6 +1037,16 @@ SetExtEthIfs sets ExtEthIfs field to given value.
 
 HasExtEthIfs returns a boolean if a field has been set.
 
+### SetExtEthIfsNil
+
+`func (o *AdapterUnitRelationship) SetExtEthIfsNil(b bool)`
+
+ SetExtEthIfsNil sets the value for ExtEthIfs to be an explicit nil
+
+### UnsetExtEthIfs
+`func (o *AdapterUnitRelationship) UnsetExtEthIfs()`
+
+UnsetExtEthIfs ensures that no value is present for ExtEthIfs, not even an explicit nil
 ### GetHostEthIfs
 
 `func (o *AdapterUnitRelationship) GetHostEthIfs() []AdapterHostEthInterfaceRelationship`
@@ -1015,6 +1072,16 @@ SetHostEthIfs sets HostEthIfs field to given value.
 
 HasHostEthIfs returns a boolean if a field has been set.
 
+### SetHostEthIfsNil
+
+`func (o *AdapterUnitRelationship) SetHostEthIfsNil(b bool)`
+
+ SetHostEthIfsNil sets the value for HostEthIfs to be an explicit nil
+
+### UnsetHostEthIfs
+`func (o *AdapterUnitRelationship) UnsetHostEthIfs()`
+
+UnsetHostEthIfs ensures that no value is present for HostEthIfs, not even an explicit nil
 ### GetHostFcIfs
 
 `func (o *AdapterUnitRelationship) GetHostFcIfs() []AdapterHostFcInterfaceRelationship`
@@ -1040,6 +1107,16 @@ SetHostFcIfs sets HostFcIfs field to given value.
 
 HasHostFcIfs returns a boolean if a field has been set.
 
+### SetHostFcIfsNil
+
+`func (o *AdapterUnitRelationship) SetHostFcIfsNil(b bool)`
+
+ SetHostFcIfsNil sets the value for HostFcIfs to be an explicit nil
+
+### UnsetHostFcIfs
+`func (o *AdapterUnitRelationship) UnsetHostFcIfs()`
+
+UnsetHostFcIfs ensures that no value is present for HostFcIfs, not even an explicit nil
 ### GetHostIscsiIfs
 
 `func (o *AdapterUnitRelationship) GetHostIscsiIfs() []AdapterHostIscsiInterfaceRelationship`
@@ -1064,6 +1141,41 @@ SetHostIscsiIfs sets HostIscsiIfs field to given value.
 `func (o *AdapterUnitRelationship) HasHostIscsiIfs() bool`
 
 HasHostIscsiIfs returns a boolean if a field has been set.
+
+### SetHostIscsiIfsNil
+
+`func (o *AdapterUnitRelationship) SetHostIscsiIfsNil(b bool)`
+
+ SetHostIscsiIfsNil sets the value for HostIscsiIfs to be an explicit nil
+
+### UnsetHostIscsiIfs
+`func (o *AdapterUnitRelationship) UnsetHostIscsiIfs()`
+
+UnsetHostIscsiIfs ensures that no value is present for HostIscsiIfs, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *AdapterUnitRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *AdapterUnitRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *AdapterUnitRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *AdapterUnitRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

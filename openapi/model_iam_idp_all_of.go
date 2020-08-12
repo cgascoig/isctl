@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -26,17 +26,17 @@ type IamIdpAllOf struct {
 	Metadata *string `json:"Metadata,omitempty" yaml:"Metadata,omitempty"`
 	// The name of the Identity Provider, for example Cisco, Okta, or OneID.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
-	// Authentication protocol used by the IdP.
+	// Authentication protocol used by the IdP. * `saml` - Use SAML as the authentication protocol for sign-on. * `oidc` - Open ID connect to be used as an authentication protocol for sign-on. * `local` - The local authentication method to be used for sign-on. Local type is set to default for the Intersight Appliance IdP.
 	Type       *string                    `json:"Type,omitempty" yaml:"Type,omitempty"`
 	Account    *IamAccountRelationship    `json:"Account,omitempty" yaml:"Account,omitempty"`
 	LdapPolicy *IamLdapPolicyRelationship `json:"LdapPolicy,omitempty" yaml:"LdapPolicy,omitempty"`
 	System     *IamSystemRelationship     `json:"System,omitempty" yaml:"System,omitempty"`
 	// An array of relationships to iamUserPreference resources.
-	UserPreferences *[]IamUserPreferenceRelationship `json:"UserPreferences,omitempty" yaml:"UserPreferences,omitempty"`
+	UserPreferences []IamUserPreferenceRelationship `json:"UserPreferences,omitempty" yaml:"UserPreferences,omitempty"`
 	// An array of relationships to iamUserGroup resources.
-	Usergroups *[]IamUserGroupRelationship `json:"Usergroups,omitempty" yaml:"Usergroups,omitempty"`
+	Usergroups []IamUserGroupRelationship `json:"Usergroups,omitempty" yaml:"Usergroups,omitempty"`
 	// An array of relationships to iamUser resources.
-	Users *[]IamUserRelationship `json:"Users,omitempty" yaml:"Users,omitempty"`
+	Users []IamUserRelationship `json:"Users,omitempty" yaml:"Users,omitempty"`
 }
 
 // NewIamIdpAllOf instantiates a new IamIdpAllOf object
@@ -316,22 +316,23 @@ func (o *IamIdpAllOf) SetSystem(v IamSystemRelationship) {
 	o.System = &v
 }
 
-// GetUserPreferences returns the UserPreferences field value if set, zero value otherwise.
+// GetUserPreferences returns the UserPreferences field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamIdpAllOf) GetUserPreferences() []IamUserPreferenceRelationship {
-	if o == nil || o.UserPreferences == nil {
+	if o == nil {
 		var ret []IamUserPreferenceRelationship
 		return ret
 	}
-	return *o.UserPreferences
+	return o.UserPreferences
 }
 
 // GetUserPreferencesOk returns a tuple with the UserPreferences field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamIdpAllOf) GetUserPreferencesOk() (*[]IamUserPreferenceRelationship, bool) {
 	if o == nil || o.UserPreferences == nil {
 		return nil, false
 	}
-	return o.UserPreferences, true
+	return &o.UserPreferences, true
 }
 
 // HasUserPreferences returns a boolean if a field has been set.
@@ -345,25 +346,26 @@ func (o *IamIdpAllOf) HasUserPreferences() bool {
 
 // SetUserPreferences gets a reference to the given []IamUserPreferenceRelationship and assigns it to the UserPreferences field.
 func (o *IamIdpAllOf) SetUserPreferences(v []IamUserPreferenceRelationship) {
-	o.UserPreferences = &v
+	o.UserPreferences = v
 }
 
-// GetUsergroups returns the Usergroups field value if set, zero value otherwise.
+// GetUsergroups returns the Usergroups field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamIdpAllOf) GetUsergroups() []IamUserGroupRelationship {
-	if o == nil || o.Usergroups == nil {
+	if o == nil {
 		var ret []IamUserGroupRelationship
 		return ret
 	}
-	return *o.Usergroups
+	return o.Usergroups
 }
 
 // GetUsergroupsOk returns a tuple with the Usergroups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamIdpAllOf) GetUsergroupsOk() (*[]IamUserGroupRelationship, bool) {
 	if o == nil || o.Usergroups == nil {
 		return nil, false
 	}
-	return o.Usergroups, true
+	return &o.Usergroups, true
 }
 
 // HasUsergroups returns a boolean if a field has been set.
@@ -377,25 +379,26 @@ func (o *IamIdpAllOf) HasUsergroups() bool {
 
 // SetUsergroups gets a reference to the given []IamUserGroupRelationship and assigns it to the Usergroups field.
 func (o *IamIdpAllOf) SetUsergroups(v []IamUserGroupRelationship) {
-	o.Usergroups = &v
+	o.Usergroups = v
 }
 
-// GetUsers returns the Users field value if set, zero value otherwise.
+// GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IamIdpAllOf) GetUsers() []IamUserRelationship {
-	if o == nil || o.Users == nil {
+	if o == nil {
 		var ret []IamUserRelationship
 		return ret
 	}
-	return *o.Users
+	return o.Users
 }
 
 // GetUsersOk returns a tuple with the Users field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IamIdpAllOf) GetUsersOk() (*[]IamUserRelationship, bool) {
 	if o == nil || o.Users == nil {
 		return nil, false
 	}
-	return o.Users, true
+	return &o.Users, true
 }
 
 // HasUsers returns a boolean if a field has been set.
@@ -409,7 +412,7 @@ func (o *IamIdpAllOf) HasUsers() bool {
 
 // SetUsers gets a reference to the given []IamUserRelationship and assigns it to the Users field.
 func (o *IamIdpAllOf) SetUsers(v []IamUserRelationship) {
-	o.Users = &v
+	o.Users = v
 }
 
 func (o IamIdpAllOf) MarshalJSON() ([]byte, error) {

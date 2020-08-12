@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Bootloader** | Pointer to [**BootBootloader**](boot.Bootloader.md) |  | [optional] 
 **Lun** | Pointer to **int64** | The Logical Unit Number (LUN) of the device. It is the Virtual Drive number for Cisco UCS C-Series Servers. Virtual Drive number is found in storage inventory. | [optional] 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewBootPchStorageAllOfWithDefaults instantiates a new BootPchStorageAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBootloader
+
+`func (o *BootPchStorageAllOf) GetBootloader() BootBootloader`
+
+GetBootloader returns the Bootloader field if non-nil, zero value otherwise.
+
+### GetBootloaderOk
+
+`func (o *BootPchStorageAllOf) GetBootloaderOk() (*BootBootloader, bool)`
+
+GetBootloaderOk returns a tuple with the Bootloader field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBootloader
+
+`func (o *BootPchStorageAllOf) SetBootloader(v BootBootloader)`
+
+SetBootloader sets Bootloader field to given value.
+
+### HasBootloader
+
+`func (o *BootPchStorageAllOf) HasBootloader() bool`
+
+HasBootloader returns a boolean if a field has been set.
 
 ### GetLun
 

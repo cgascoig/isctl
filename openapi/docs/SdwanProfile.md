@@ -78,6 +78,16 @@ SetRouterNodes sets RouterNodes field to given value.
 
 HasRouterNodes returns a boolean if a field has been set.
 
+### SetRouterNodesNil
+
+`func (o *SdwanProfile) SetRouterNodesNil(b bool)`
+
+ SetRouterNodesNil sets the value for RouterNodes to be an explicit nil
+
+### UnsetRouterNodes
+`func (o *SdwanProfile) UnsetRouterNodes()`
+
+UnsetRouterNodes ensures that no value is present for RouterNodes, not even an explicit nil
 ### GetRouterPolicy
 
 `func (o *SdwanProfile) GetRouterPolicy() SdwanRouterPolicyRelationship`

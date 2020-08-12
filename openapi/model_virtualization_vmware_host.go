@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,16 +19,16 @@ import (
 
 // VirtualizationVmwareHost The VMware Host entity with its attributes. Every Host belongs to a Datacenter and may run VMs.
 type VirtualizationVmwareHost struct {
-	VirtualizationHost `yaml:"VirtualizationHost,inline"`
+	VirtualizationBaseHost `yaml:"VirtualizationBaseHost,inline"`
 	// The time when this host booted up.
 	BootTime *time.Time `json:"BootTime,omitempty" yaml:"BootTime,omitempty"`
 	// Indicates if the host is connected to the vCenter. Values are connected, not connected.
 	ConnectionState *string `json:"ConnectionState,omitempty" yaml:"ConnectionState,omitempty"`
-	// Is the host Powered-up or Powered-down.
+	// Is the host Powered-up or Powered-down. * `Unknown` - The entity's power state is unknown. * `PoweredOn` - The entity is powered on. * `PoweredOff` - The entity is powered down. * `StandBy` - The entity is in standby mode. * `Paused` - The entity is in pause state.
 	HwPowerState *string `json:"HwPowerState,omitempty" yaml:"HwPowerState,omitempty"`
 	// The count of all network adapters attached to this host.
-	NetworkAdapterCount *int64                             `json:"NetworkAdapterCount,omitempty" yaml:"NetworkAdapterCount,omitempty"`
-	ResourceConsumed    *VirtualizationResourceConsumption `json:"ResourceConsumed,omitempty" yaml:"ResourceConsumed,omitempty"`
+	NetworkAdapterCount *int64                                   `json:"NetworkAdapterCount,omitempty" yaml:"NetworkAdapterCount,omitempty"`
+	ResourceConsumed    *VirtualizationVmwareResourceConsumption `json:"ResourceConsumed,omitempty" yaml:"ResourceConsumed,omitempty"`
 	// The count of all storage adapters attached to this host.
 	StorageAdapterCount *int64 `json:"StorageAdapterCount,omitempty" yaml:"StorageAdapterCount,omitempty"`
 	// The identity of this host within vCenter (optional).
@@ -36,7 +36,7 @@ type VirtualizationVmwareHost struct {
 	Cluster       *VirtualizationVmwareClusterRelationship    `json:"Cluster,omitempty" yaml:"Cluster,omitempty"`
 	Datacenter    *VirtualizationVmwareDatacenterRelationship `json:"Datacenter,omitempty" yaml:"Datacenter,omitempty"`
 	// An array of relationships to virtualizationVmwareDatastore resources.
-	Datastores *[]VirtualizationVmwareDatastoreRelationship `json:"Datastores,omitempty" yaml:"Datastores,omitempty"`
+	Datastores []VirtualizationVmwareDatastoreRelationship `json:"Datastores,omitempty" yaml:"Datastores,omitempty"`
 }
 
 // NewVirtualizationVmwareHost instantiates a new VirtualizationVmwareHost object
@@ -189,9 +189,9 @@ func (o *VirtualizationVmwareHost) SetNetworkAdapterCount(v int64) {
 }
 
 // GetResourceConsumed returns the ResourceConsumed field value if set, zero value otherwise.
-func (o *VirtualizationVmwareHost) GetResourceConsumed() VirtualizationResourceConsumption {
+func (o *VirtualizationVmwareHost) GetResourceConsumed() VirtualizationVmwareResourceConsumption {
 	if o == nil || o.ResourceConsumed == nil {
-		var ret VirtualizationResourceConsumption
+		var ret VirtualizationVmwareResourceConsumption
 		return ret
 	}
 	return *o.ResourceConsumed
@@ -199,7 +199,7 @@ func (o *VirtualizationVmwareHost) GetResourceConsumed() VirtualizationResourceC
 
 // GetResourceConsumedOk returns a tuple with the ResourceConsumed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VirtualizationVmwareHost) GetResourceConsumedOk() (*VirtualizationResourceConsumption, bool) {
+func (o *VirtualizationVmwareHost) GetResourceConsumedOk() (*VirtualizationVmwareResourceConsumption, bool) {
 	if o == nil || o.ResourceConsumed == nil {
 		return nil, false
 	}
@@ -215,8 +215,8 @@ func (o *VirtualizationVmwareHost) HasResourceConsumed() bool {
 	return false
 }
 
-// SetResourceConsumed gets a reference to the given VirtualizationResourceConsumption and assigns it to the ResourceConsumed field.
-func (o *VirtualizationVmwareHost) SetResourceConsumed(v VirtualizationResourceConsumption) {
+// SetResourceConsumed gets a reference to the given VirtualizationVmwareResourceConsumption and assigns it to the ResourceConsumed field.
+func (o *VirtualizationVmwareHost) SetResourceConsumed(v VirtualizationVmwareResourceConsumption) {
 	o.ResourceConsumed = &v
 }
 
@@ -348,22 +348,23 @@ func (o *VirtualizationVmwareHost) SetDatacenter(v VirtualizationVmwareDatacente
 	o.Datacenter = &v
 }
 
-// GetDatastores returns the Datastores field value if set, zero value otherwise.
+// GetDatastores returns the Datastores field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VirtualizationVmwareHost) GetDatastores() []VirtualizationVmwareDatastoreRelationship {
-	if o == nil || o.Datastores == nil {
+	if o == nil {
 		var ret []VirtualizationVmwareDatastoreRelationship
 		return ret
 	}
-	return *o.Datastores
+	return o.Datastores
 }
 
 // GetDatastoresOk returns a tuple with the Datastores field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VirtualizationVmwareHost) GetDatastoresOk() (*[]VirtualizationVmwareDatastoreRelationship, bool) {
 	if o == nil || o.Datastores == nil {
 		return nil, false
 	}
-	return o.Datastores, true
+	return &o.Datastores, true
 }
 
 // HasDatastores returns a boolean if a field has been set.
@@ -377,18 +378,18 @@ func (o *VirtualizationVmwareHost) HasDatastores() bool {
 
 // SetDatastores gets a reference to the given []VirtualizationVmwareDatastoreRelationship and assigns it to the Datastores field.
 func (o *VirtualizationVmwareHost) SetDatastores(v []VirtualizationVmwareDatastoreRelationship) {
-	o.Datastores = &v
+	o.Datastores = v
 }
 
 func (o VirtualizationVmwareHost) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedVirtualizationHost, errVirtualizationHost := json.Marshal(o.VirtualizationHost)
-	if errVirtualizationHost != nil {
-		return []byte{}, errVirtualizationHost
+	serializedVirtualizationBaseHost, errVirtualizationBaseHost := json.Marshal(o.VirtualizationBaseHost)
+	if errVirtualizationBaseHost != nil {
+		return []byte{}, errVirtualizationBaseHost
 	}
-	errVirtualizationHost = json.Unmarshal([]byte(serializedVirtualizationHost), &toSerialize)
-	if errVirtualizationHost != nil {
-		return []byte{}, errVirtualizationHost
+	errVirtualizationBaseHost = json.Unmarshal([]byte(serializedVirtualizationBaseHost), &toSerialize)
+	if errVirtualizationBaseHost != nil {
+		return []byte{}, errVirtualizationBaseHost
 	}
 	if o.BootTime != nil {
 		toSerialize["BootTime"] = o.BootTime

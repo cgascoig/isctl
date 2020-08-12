@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LicenseType** | Pointer to **string** | Type of licensing defined for this resource group. Used for licensing group. | [optional] [readonly] [default to "Base"]
+**LicenseType** | Pointer to **string** | Type of licensing defined for this resource group. Used for licensing group. * &#x60;Base&#x60; - Base as a License type. It is default license type. * &#x60;Essential&#x60; - Essential as a License type. * &#x60;Standard&#x60; - Standard as a License type. * &#x60;Advantage&#x60; - Advantage as a License type. * &#x60;Premier&#x60; - Premier as a License type. | [optional] [readonly] [default to "Base"]
 **ResourceCount** | Pointer to **int64** | The number of resource belongs to this licensing tier. | [optional] [readonly] 
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
 **LicenseGroups** | Pointer to [**[]ResourceGroupRelationship**](resource.Group.Relationship.md) | An array of relationships to resourceGroup resources. | [optional] [readonly] 
@@ -128,6 +128,16 @@ SetLicenseGroups sets LicenseGroups field to given value.
 
 HasLicenseGroups returns a boolean if a field has been set.
 
+### SetLicenseGroupsNil
+
+`func (o *ResourceLicenseResourceCount) SetLicenseGroupsNil(b bool)`
+
+ SetLicenseGroupsNil sets the value for LicenseGroups to be an explicit nil
+
+### UnsetLicenseGroups
+`func (o *ResourceLicenseResourceCount) UnsetLicenseGroups()`
+
+UnsetLicenseGroups ensures that no value is present for LicenseGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

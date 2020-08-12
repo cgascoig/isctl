@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **HostNames** | Pointer to **[]string** |  | [optional] 
-**StorageUtilization** | Pointer to [**StorageHostUtilization**](storage.HostUtilization.md) |  | [optional] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
 **Hosts** | Pointer to [**[]StoragePureHostRelationship**](storage.PureHost.Relationship.md) | An array of relationships to storagePureHost resources. | [optional] [readonly] 
 **ProtectionGroup** | Pointer to [**StoragePureProtectionGroupRelationship**](storage.PureProtectionGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -54,30 +54,30 @@ SetHostNames sets HostNames field to given value.
 
 HasHostNames returns a boolean if a field has been set.
 
-### GetStorageUtilization
+### GetArray
 
-`func (o *StoragePureHostGroup) GetStorageUtilization() StorageHostUtilization`
+`func (o *StoragePureHostGroup) GetArray() StoragePureArrayRelationship`
 
-GetStorageUtilization returns the StorageUtilization field if non-nil, zero value otherwise.
+GetArray returns the Array field if non-nil, zero value otherwise.
 
-### GetStorageUtilizationOk
+### GetArrayOk
 
-`func (o *StoragePureHostGroup) GetStorageUtilizationOk() (*StorageHostUtilization, bool)`
+`func (o *StoragePureHostGroup) GetArrayOk() (*StoragePureArrayRelationship, bool)`
 
-GetStorageUtilizationOk returns a tuple with the StorageUtilization field if it's non-nil, zero value otherwise
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStorageUtilization
+### SetArray
 
-`func (o *StoragePureHostGroup) SetStorageUtilization(v StorageHostUtilization)`
+`func (o *StoragePureHostGroup) SetArray(v StoragePureArrayRelationship)`
 
-SetStorageUtilization sets StorageUtilization field to given value.
+SetArray sets Array field to given value.
 
-### HasStorageUtilization
+### HasArray
 
-`func (o *StoragePureHostGroup) HasStorageUtilization() bool`
+`func (o *StoragePureHostGroup) HasArray() bool`
 
-HasStorageUtilization returns a boolean if a field has been set.
+HasArray returns a boolean if a field has been set.
 
 ### GetHosts
 
@@ -104,6 +104,16 @@ SetHosts sets Hosts field to given value.
 
 HasHosts returns a boolean if a field has been set.
 
+### SetHostsNil
+
+`func (o *StoragePureHostGroup) SetHostsNil(b bool)`
+
+ SetHostsNil sets the value for Hosts to be an explicit nil
+
+### UnsetHosts
+`func (o *StoragePureHostGroup) UnsetHosts()`
+
+UnsetHosts ensures that no value is present for Hosts, not even an explicit nil
 ### GetProtectionGroup
 
 `func (o *StoragePureHostGroup) GetProtectionGroup() StoragePureProtectionGroupRelationship`

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Accuracy** | Pointer to **float32** | The standard error of the estimate is a measure of the accuracy of predictions from predective modeling. | [optional] 
 **ModelData** | Pointer to **[]float32** |  | [optional] 
-**ModelType** | Pointer to **string** | Model type indicating type of predictive model used for computing forecast. | [optional] [default to "Linear"]
+**ModelType** | Pointer to **string** | Model type indicating type of predictive model used for computing forecast. * &#x60;Linear&#x60; - The Enum value Linear represents that the predictive model type used for forecast computation is linear regression. | [optional] [default to "Linear"]
 
 ## Methods
 

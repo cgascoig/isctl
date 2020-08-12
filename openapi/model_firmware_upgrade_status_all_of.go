@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -20,23 +20,30 @@ import (
 type FirmwareUpgradeStatusAllOf struct {
 	// The error message from the endpoint during the download.
 	DownloadError *string `json:"DownloadError,omitempty" yaml:"DownloadError,omitempty"`
+	// The message from the endpoint during the download.
+	DownloadMessage *string `json:"DownloadMessage,omitempty" yaml:"DownloadMessage,omitempty"`
 	// The percentage of the image downloaded in the endpoint.
 	DownloadPercentage *int64 `json:"DownloadPercentage,omitempty" yaml:"DownloadPercentage,omitempty"`
+	// The download progress of the file represented as a percentage between 0% and 100%. If progress reporting is not possible a value of -1 is sent.
+	DownloadProgress *int64 `json:"DownloadProgress,omitempty" yaml:"DownloadProgress,omitempty"`
+	// The number of retries the plugin attempted before succeeding or failing the download.
+	DownloadRetries *int64 `json:"DownloadRetries,omitempty" yaml:"DownloadRetries,omitempty"`
 	// The image download stages. Example:downloading, flashing.
 	DownloadStage *string `json:"DownloadStage,omitempty" yaml:"DownloadStage,omitempty"`
-	// The download status of the image in the endpoint.
-	DownloadStatus *string `json:"DownloadStatus,omitempty" yaml:"DownloadStatus,omitempty"`
-	// The server power status after the upgrade request is submitted in the endpoint.
+	// The server power status after the upgrade request is submitted in the endpoint. * `none` - Server power status is none. * `powered on` - Server power status is powered on. * `powered off` - Server power status is powered off.
 	EpPowerStatus *string `json:"EpPowerStatus,omitempty" yaml:"EpPowerStatus,omitempty"`
 	// The reason for the operation failure.
 	OverallError *string `json:"OverallError,omitempty" yaml:"OverallError,omitempty"`
 	// The overall percentage of the operation.
 	OverallPercentage *int64 `json:"OverallPercentage,omitempty" yaml:"OverallPercentage,omitempty"`
-	// The overall status of the operation.
+	// The overall status of the operation. * `none` - Upgrade stage is no upgrade stage. * `started` - Upgrade stage is started. * `prepare initiating` - Upgrade configuration is being prepared. * `prepare initiated` - Upgrade configuration is initiated. * `prepared` - Upgrade configuration is prepared. * `download initiating` - Upgrade stage is download initiating. * `download initiated` - Upgrade stage is download initiated. * `downloading` - Upgrade stage is downloading. * `downloaded` - Upgrade stage is downloaded. * `upgrade initiating on fabric A` - Upgrade stage is in upgrade initiating when upgrade is being started in endopint. * `upgrade initiated on fabric A` - Upgrade stage is in upgrade initiated when the upgrade has started in endpoint. * `upgrading fabric A` - Upgrade stage is in upgrading when the upgrade requires reboot to complete. * `rebooting fabric A` - Upgrade is in rebooting when the endpoint is being rebooted. * `upgraded fabric A` - Upgrade stage is in upgraded when the corresponding endpoint has completed. * `upgrade initiating on fabric B` - Upgrade stage is in upgrade initiating when upgrade is being started in endopint. * `upgrade initiated on fabric B` - Upgrade stage is in upgrade initiated when upgrade has started in endpoint. * `upgrading fabric B` - Upgrade stage is in upgrading when the upgrade requires reboot to complete. * `rebooting fabric B` - Upgrade is in rebooting when the endpoint is being rebooted. * `upgraded fabric B` - Upgrade stage is in upgraded when the corresponding endpoint has completed. * `upgrade initiating` - Upgrade stage is upgrade initiating. * `upgrade initiated` - Upgrade stage is upgrade initiated. * `upgrading` - Upgrade stage is upgrading. * `oob images staging` - Out-of-band component images staging. * `oob images staged` - Out-of-band component images staged. * `rebooting` - Upgrade is rebooting the endpoint. * `upgraded` - Upgrade stage is upgraded. * `success` - Upgrade stage is success. * `failed` - Upgrade stage is upgrade failed. * `terminated` - Upgrade stage is terminated. * `pending` - Upgrade stage is pending. * `ReadyForCache` - The image is ready to be cached into the Intersight Appliance. * `Caching` - The image will be cached into Intersight Appliance or an endpoint cache. * `Cached` - The image has been cached into the Intersight Appliance or endpoint cache. * `CachingFailed` - The image caching into the Intersight Appliance failed or endpoint cache.
 	Overallstatus *string `json:"Overallstatus,omitempty" yaml:"Overallstatus,omitempty"`
-	// Pending reason for the upgrade waiting.
-	PendingType *string                      `json:"PendingType,omitempty" yaml:"PendingType,omitempty"`
-	Upgrade     *FirmwareUpgradeRelationship `json:"Upgrade,omitempty" yaml:"Upgrade,omitempty"`
+	// Pending reason for the upgrade waiting. * `none` - Upgrade pending reason is none. * `pending for next reboot` - Upgrade pending reason is pending for next reboot.
+	PendingType *string `json:"PendingType,omitempty" yaml:"PendingType,omitempty"`
+	// The sha256checksum of the downloaded file as calculated by the download plugin after successfully downloading a file.
+	Sha256checksum *string                           `json:"Sha256checksum,omitempty" yaml:"Sha256checksum,omitempty"`
+	Upgrade        *FirmwareUpgradeBaseRelationship  `json:"Upgrade,omitempty" yaml:"Upgrade,omitempty"`
+	Workflow       *WorkflowWorkflowInfoRelationship `json:"Workflow,omitempty" yaml:"Workflow,omitempty"`
 }
 
 // NewFirmwareUpgradeStatusAllOf instantiates a new FirmwareUpgradeStatusAllOf object
@@ -100,6 +107,38 @@ func (o *FirmwareUpgradeStatusAllOf) SetDownloadError(v string) {
 	o.DownloadError = &v
 }
 
+// GetDownloadMessage returns the DownloadMessage field value if set, zero value otherwise.
+func (o *FirmwareUpgradeStatusAllOf) GetDownloadMessage() string {
+	if o == nil || o.DownloadMessage == nil {
+		var ret string
+		return ret
+	}
+	return *o.DownloadMessage
+}
+
+// GetDownloadMessageOk returns a tuple with the DownloadMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FirmwareUpgradeStatusAllOf) GetDownloadMessageOk() (*string, bool) {
+	if o == nil || o.DownloadMessage == nil {
+		return nil, false
+	}
+	return o.DownloadMessage, true
+}
+
+// HasDownloadMessage returns a boolean if a field has been set.
+func (o *FirmwareUpgradeStatusAllOf) HasDownloadMessage() bool {
+	if o != nil && o.DownloadMessage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDownloadMessage gets a reference to the given string and assigns it to the DownloadMessage field.
+func (o *FirmwareUpgradeStatusAllOf) SetDownloadMessage(v string) {
+	o.DownloadMessage = &v
+}
+
 // GetDownloadPercentage returns the DownloadPercentage field value if set, zero value otherwise.
 func (o *FirmwareUpgradeStatusAllOf) GetDownloadPercentage() int64 {
 	if o == nil || o.DownloadPercentage == nil {
@@ -132,6 +171,70 @@ func (o *FirmwareUpgradeStatusAllOf) SetDownloadPercentage(v int64) {
 	o.DownloadPercentage = &v
 }
 
+// GetDownloadProgress returns the DownloadProgress field value if set, zero value otherwise.
+func (o *FirmwareUpgradeStatusAllOf) GetDownloadProgress() int64 {
+	if o == nil || o.DownloadProgress == nil {
+		var ret int64
+		return ret
+	}
+	return *o.DownloadProgress
+}
+
+// GetDownloadProgressOk returns a tuple with the DownloadProgress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FirmwareUpgradeStatusAllOf) GetDownloadProgressOk() (*int64, bool) {
+	if o == nil || o.DownloadProgress == nil {
+		return nil, false
+	}
+	return o.DownloadProgress, true
+}
+
+// HasDownloadProgress returns a boolean if a field has been set.
+func (o *FirmwareUpgradeStatusAllOf) HasDownloadProgress() bool {
+	if o != nil && o.DownloadProgress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDownloadProgress gets a reference to the given int64 and assigns it to the DownloadProgress field.
+func (o *FirmwareUpgradeStatusAllOf) SetDownloadProgress(v int64) {
+	o.DownloadProgress = &v
+}
+
+// GetDownloadRetries returns the DownloadRetries field value if set, zero value otherwise.
+func (o *FirmwareUpgradeStatusAllOf) GetDownloadRetries() int64 {
+	if o == nil || o.DownloadRetries == nil {
+		var ret int64
+		return ret
+	}
+	return *o.DownloadRetries
+}
+
+// GetDownloadRetriesOk returns a tuple with the DownloadRetries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FirmwareUpgradeStatusAllOf) GetDownloadRetriesOk() (*int64, bool) {
+	if o == nil || o.DownloadRetries == nil {
+		return nil, false
+	}
+	return o.DownloadRetries, true
+}
+
+// HasDownloadRetries returns a boolean if a field has been set.
+func (o *FirmwareUpgradeStatusAllOf) HasDownloadRetries() bool {
+	if o != nil && o.DownloadRetries != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDownloadRetries gets a reference to the given int64 and assigns it to the DownloadRetries field.
+func (o *FirmwareUpgradeStatusAllOf) SetDownloadRetries(v int64) {
+	o.DownloadRetries = &v
+}
+
 // GetDownloadStage returns the DownloadStage field value if set, zero value otherwise.
 func (o *FirmwareUpgradeStatusAllOf) GetDownloadStage() string {
 	if o == nil || o.DownloadStage == nil {
@@ -162,38 +265,6 @@ func (o *FirmwareUpgradeStatusAllOf) HasDownloadStage() bool {
 // SetDownloadStage gets a reference to the given string and assigns it to the DownloadStage field.
 func (o *FirmwareUpgradeStatusAllOf) SetDownloadStage(v string) {
 	o.DownloadStage = &v
-}
-
-// GetDownloadStatus returns the DownloadStatus field value if set, zero value otherwise.
-func (o *FirmwareUpgradeStatusAllOf) GetDownloadStatus() string {
-	if o == nil || o.DownloadStatus == nil {
-		var ret string
-		return ret
-	}
-	return *o.DownloadStatus
-}
-
-// GetDownloadStatusOk returns a tuple with the DownloadStatus field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeStatusAllOf) GetDownloadStatusOk() (*string, bool) {
-	if o == nil || o.DownloadStatus == nil {
-		return nil, false
-	}
-	return o.DownloadStatus, true
-}
-
-// HasDownloadStatus returns a boolean if a field has been set.
-func (o *FirmwareUpgradeStatusAllOf) HasDownloadStatus() bool {
-	if o != nil && o.DownloadStatus != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDownloadStatus gets a reference to the given string and assigns it to the DownloadStatus field.
-func (o *FirmwareUpgradeStatusAllOf) SetDownloadStatus(v string) {
-	o.DownloadStatus = &v
 }
 
 // GetEpPowerStatus returns the EpPowerStatus field value if set, zero value otherwise.
@@ -356,10 +427,42 @@ func (o *FirmwareUpgradeStatusAllOf) SetPendingType(v string) {
 	o.PendingType = &v
 }
 
+// GetSha256checksum returns the Sha256checksum field value if set, zero value otherwise.
+func (o *FirmwareUpgradeStatusAllOf) GetSha256checksum() string {
+	if o == nil || o.Sha256checksum == nil {
+		var ret string
+		return ret
+	}
+	return *o.Sha256checksum
+}
+
+// GetSha256checksumOk returns a tuple with the Sha256checksum field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FirmwareUpgradeStatusAllOf) GetSha256checksumOk() (*string, bool) {
+	if o == nil || o.Sha256checksum == nil {
+		return nil, false
+	}
+	return o.Sha256checksum, true
+}
+
+// HasSha256checksum returns a boolean if a field has been set.
+func (o *FirmwareUpgradeStatusAllOf) HasSha256checksum() bool {
+	if o != nil && o.Sha256checksum != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSha256checksum gets a reference to the given string and assigns it to the Sha256checksum field.
+func (o *FirmwareUpgradeStatusAllOf) SetSha256checksum(v string) {
+	o.Sha256checksum = &v
+}
+
 // GetUpgrade returns the Upgrade field value if set, zero value otherwise.
-func (o *FirmwareUpgradeStatusAllOf) GetUpgrade() FirmwareUpgradeRelationship {
+func (o *FirmwareUpgradeStatusAllOf) GetUpgrade() FirmwareUpgradeBaseRelationship {
 	if o == nil || o.Upgrade == nil {
-		var ret FirmwareUpgradeRelationship
+		var ret FirmwareUpgradeBaseRelationship
 		return ret
 	}
 	return *o.Upgrade
@@ -367,7 +470,7 @@ func (o *FirmwareUpgradeStatusAllOf) GetUpgrade() FirmwareUpgradeRelationship {
 
 // GetUpgradeOk returns a tuple with the Upgrade field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeStatusAllOf) GetUpgradeOk() (*FirmwareUpgradeRelationship, bool) {
+func (o *FirmwareUpgradeStatusAllOf) GetUpgradeOk() (*FirmwareUpgradeBaseRelationship, bool) {
 	if o == nil || o.Upgrade == nil {
 		return nil, false
 	}
@@ -383,9 +486,41 @@ func (o *FirmwareUpgradeStatusAllOf) HasUpgrade() bool {
 	return false
 }
 
-// SetUpgrade gets a reference to the given FirmwareUpgradeRelationship and assigns it to the Upgrade field.
-func (o *FirmwareUpgradeStatusAllOf) SetUpgrade(v FirmwareUpgradeRelationship) {
+// SetUpgrade gets a reference to the given FirmwareUpgradeBaseRelationship and assigns it to the Upgrade field.
+func (o *FirmwareUpgradeStatusAllOf) SetUpgrade(v FirmwareUpgradeBaseRelationship) {
 	o.Upgrade = &v
+}
+
+// GetWorkflow returns the Workflow field value if set, zero value otherwise.
+func (o *FirmwareUpgradeStatusAllOf) GetWorkflow() WorkflowWorkflowInfoRelationship {
+	if o == nil || o.Workflow == nil {
+		var ret WorkflowWorkflowInfoRelationship
+		return ret
+	}
+	return *o.Workflow
+}
+
+// GetWorkflowOk returns a tuple with the Workflow field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FirmwareUpgradeStatusAllOf) GetWorkflowOk() (*WorkflowWorkflowInfoRelationship, bool) {
+	if o == nil || o.Workflow == nil {
+		return nil, false
+	}
+	return o.Workflow, true
+}
+
+// HasWorkflow returns a boolean if a field has been set.
+func (o *FirmwareUpgradeStatusAllOf) HasWorkflow() bool {
+	if o != nil && o.Workflow != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkflow gets a reference to the given WorkflowWorkflowInfoRelationship and assigns it to the Workflow field.
+func (o *FirmwareUpgradeStatusAllOf) SetWorkflow(v WorkflowWorkflowInfoRelationship) {
+	o.Workflow = &v
 }
 
 func (o FirmwareUpgradeStatusAllOf) MarshalJSON() ([]byte, error) {
@@ -393,14 +528,20 @@ func (o FirmwareUpgradeStatusAllOf) MarshalJSON() ([]byte, error) {
 	if o.DownloadError != nil {
 		toSerialize["DownloadError"] = o.DownloadError
 	}
+	if o.DownloadMessage != nil {
+		toSerialize["DownloadMessage"] = o.DownloadMessage
+	}
 	if o.DownloadPercentage != nil {
 		toSerialize["DownloadPercentage"] = o.DownloadPercentage
 	}
+	if o.DownloadProgress != nil {
+		toSerialize["DownloadProgress"] = o.DownloadProgress
+	}
+	if o.DownloadRetries != nil {
+		toSerialize["DownloadRetries"] = o.DownloadRetries
+	}
 	if o.DownloadStage != nil {
 		toSerialize["DownloadStage"] = o.DownloadStage
-	}
-	if o.DownloadStatus != nil {
-		toSerialize["DownloadStatus"] = o.DownloadStatus
 	}
 	if o.EpPowerStatus != nil {
 		toSerialize["EpPowerStatus"] = o.EpPowerStatus
@@ -417,8 +558,14 @@ func (o FirmwareUpgradeStatusAllOf) MarshalJSON() ([]byte, error) {
 	if o.PendingType != nil {
 		toSerialize["PendingType"] = o.PendingType
 	}
+	if o.Sha256checksum != nil {
+		toSerialize["Sha256checksum"] = o.Sha256checksum
+	}
 	if o.Upgrade != nil {
 		toSerialize["Upgrade"] = o.Upgrade
+	}
+	if o.Workflow != nil {
+		toSerialize["Workflow"] = o.Workflow
 	}
 	return json.Marshal(toSerialize)
 }
