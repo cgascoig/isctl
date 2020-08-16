@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **AffectedObjectType** | Pointer to **string** | Object type of the Intersight MO affected by the alert. Deprecated now and will be removed in subsequent releases. | [optional] 
 **LastStateChangeTime** | Pointer to [**time.Time**](time.Time.md) | Timestamp when a state change was observed on this advisory instnace. | [optional] [readonly] 
 **LastVerifiedTime** | Pointer to [**time.Time**](time.Time.md) | Timestamp when this advisory was last evaluated. | [optional] [readonly] 
-**State** | Pointer to **string** | Current state of the advisory instance (Active/Cleared/Unknown etc.). | [optional] [default to "unknown"]
-**Advisory** | Pointer to [**TamAdvisoryRelationship**](tam.Advisory.Relationship.md) |  | [optional] 
+**State** | Pointer to **string** | Current state of the advisory instance (Active/Cleared/Unknown etc.). * &#x60;unknown&#x60; - Intersight is unable to determine if the Advisory instance is applicable for the affected managed object. * &#x60;active&#x60; - Advisory instance is currently active and applicable for the affected managed object. * &#x60;cleared&#x60; - Advisory instance is no longer applicable for the affected managed object. | [optional] [default to "unknown"]
+**Advisory** | Pointer to [**TamBaseAdvisoryRelationship**](tam.BaseAdvisory.Relationship.md) |  | [optional] 
 **AffectedObject** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **DeviceRegistration** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -159,20 +159,20 @@ HasState returns a boolean if a field has been set.
 
 ### GetAdvisory
 
-`func (o *TamAdvisoryInstance) GetAdvisory() TamAdvisoryRelationship`
+`func (o *TamAdvisoryInstance) GetAdvisory() TamBaseAdvisoryRelationship`
 
 GetAdvisory returns the Advisory field if non-nil, zero value otherwise.
 
 ### GetAdvisoryOk
 
-`func (o *TamAdvisoryInstance) GetAdvisoryOk() (*TamAdvisoryRelationship, bool)`
+`func (o *TamAdvisoryInstance) GetAdvisoryOk() (*TamBaseAdvisoryRelationship, bool)`
 
 GetAdvisoryOk returns a tuple with the Advisory field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdvisory
 
-`func (o *TamAdvisoryInstance) SetAdvisory(v TamAdvisoryRelationship)`
+`func (o *TamAdvisoryInstance) SetAdvisory(v TamBaseAdvisoryRelationship)`
 
 SetAdvisory sets Advisory field to given value.
 

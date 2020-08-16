@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -22,11 +22,13 @@ type TelemetryDruidTimeSeriesRequestAllOf struct {
 	// Whether to make descending ordered result. Default is false(ascending).
 	Descending *bool `json:"descending,omitempty" yaml:"descending,omitempty"`
 	// A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over.
-	Intervals        []string                      `json:"intervals" yaml:"intervals"`
-	Granularity      TelemetryDruidGranularity     `json:"granularity" yaml:"granularity"`
-	Filter           *TelemetryDruidFilter         `json:"filter,omitempty" yaml:"filter,omitempty"`
-	Aggregations     *TelemetryDruidAggregator     `json:"aggregations,omitempty" yaml:"aggregations,omitempty"`
-	PostAggregations *TelemetryDruidPostAggregator `json:"postAggregations,omitempty" yaml:"postAggregations,omitempty"`
+	Intervals   []string                  `json:"intervals" yaml:"intervals"`
+	Granularity TelemetryDruidGranularity `json:"granularity" yaml:"granularity"`
+	Filter      *TelemetryDruidFilter     `json:"filter,omitempty" yaml:"filter,omitempty"`
+	// Aggregation functions are used to summarize data in buckets. Summarization functions include counting rows, calculating the min/max/sum of metrics and retrieving the first/last value of metrics for each bucket. Additional summarization functions are available with extensions. If no aggregator is provided, the results will be empty for each bucket.
+	Aggregations *[]TelemetryDruidAggregator `json:"aggregations,omitempty" yaml:"aggregations,omitempty"`
+	// Post-aggregations are specifications of processing that should happen on aggregated values as they come out of Apache Druid. If you include a post aggregation as part of a query, make sure to include all aggregators the post-aggregator requires.
+	PostAggregations *[]TelemetryDruidPostAggregator `json:"postAggregations,omitempty" yaml:"postAggregations,omitempty"`
 	// An integer that limits the number of results. The default is unlimited.
 	Limit   *int32                      `json:"limit,omitempty" yaml:"limit,omitempty"`
 	Context *TelemetryDruidQueryContext `json:"context,omitempty" yaml:"context,omitempty"`
@@ -189,9 +191,9 @@ func (o *TelemetryDruidTimeSeriesRequestAllOf) SetFilter(v TelemetryDruidFilter)
 }
 
 // GetAggregations returns the Aggregations field value if set, zero value otherwise.
-func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregations() TelemetryDruidAggregator {
+func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregations() []TelemetryDruidAggregator {
 	if o == nil || o.Aggregations == nil {
-		var ret TelemetryDruidAggregator
+		var ret []TelemetryDruidAggregator
 		return ret
 	}
 	return *o.Aggregations
@@ -199,7 +201,7 @@ func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregations() TelemetryDruidA
 
 // GetAggregationsOk returns a tuple with the Aggregations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregationsOk() (*TelemetryDruidAggregator, bool) {
+func (o *TelemetryDruidTimeSeriesRequestAllOf) GetAggregationsOk() (*[]TelemetryDruidAggregator, bool) {
 	if o == nil || o.Aggregations == nil {
 		return nil, false
 	}
@@ -215,15 +217,15 @@ func (o *TelemetryDruidTimeSeriesRequestAllOf) HasAggregations() bool {
 	return false
 }
 
-// SetAggregations gets a reference to the given TelemetryDruidAggregator and assigns it to the Aggregations field.
-func (o *TelemetryDruidTimeSeriesRequestAllOf) SetAggregations(v TelemetryDruidAggregator) {
+// SetAggregations gets a reference to the given []TelemetryDruidAggregator and assigns it to the Aggregations field.
+func (o *TelemetryDruidTimeSeriesRequestAllOf) SetAggregations(v []TelemetryDruidAggregator) {
 	o.Aggregations = &v
 }
 
 // GetPostAggregations returns the PostAggregations field value if set, zero value otherwise.
-func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregations() TelemetryDruidPostAggregator {
+func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregations() []TelemetryDruidPostAggregator {
 	if o == nil || o.PostAggregations == nil {
-		var ret TelemetryDruidPostAggregator
+		var ret []TelemetryDruidPostAggregator
 		return ret
 	}
 	return *o.PostAggregations
@@ -231,7 +233,7 @@ func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregations() TelemetryDr
 
 // GetPostAggregationsOk returns a tuple with the PostAggregations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregationsOk() (*TelemetryDruidPostAggregator, bool) {
+func (o *TelemetryDruidTimeSeriesRequestAllOf) GetPostAggregationsOk() (*[]TelemetryDruidPostAggregator, bool) {
 	if o == nil || o.PostAggregations == nil {
 		return nil, false
 	}
@@ -247,8 +249,8 @@ func (o *TelemetryDruidTimeSeriesRequestAllOf) HasPostAggregations() bool {
 	return false
 }
 
-// SetPostAggregations gets a reference to the given TelemetryDruidPostAggregator and assigns it to the PostAggregations field.
-func (o *TelemetryDruidTimeSeriesRequestAllOf) SetPostAggregations(v TelemetryDruidPostAggregator) {
+// SetPostAggregations gets a reference to the given []TelemetryDruidPostAggregator and assigns it to the PostAggregations field.
+func (o *TelemetryDruidTimeSeriesRequestAllOf) SetPostAggregations(v []TelemetryDruidPostAggregator) {
 	o.PostAggregations = &v
 }
 

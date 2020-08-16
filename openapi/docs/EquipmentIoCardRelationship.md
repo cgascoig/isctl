@@ -18,16 +18,34 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
+**ConnectionStatus** | Pointer to **string** | Connectivity Status of FEX/IOM to Switch - A or B or AB. | [optional] 
+**Description** | Pointer to **string** | This field is to provide description for the iocard module model. | [optional] [readonly] 
+**ModuleId** | Pointer to **int64** | Module Identifier for the IO module. | [optional] [readonly] 
+**OperState** | Pointer to **string** | Operational state of IO card or fabric extender. | [optional] [readonly] 
+**PartNumber** | Pointer to **string** | Part Number identifier for the IO module. | [optional] [readonly] 
+**Pid** | Pointer to **string** | This field identifies the Product ID for the IO module. | [optional] [readonly] 
+**Presence** | Pointer to **string** | This field identifies the Presence state of the IO card module. | [optional] [readonly] 
+**ProductName** | Pointer to **string** | This field identifies the Product Name for the iocard module model. | [optional] [readonly] 
+**Sku** | Pointer to **string** | This field identifies the Stock Keeping Unit for the IO card module. | [optional] [readonly] 
+**Version** | Pointer to **string** | This field identifies the version of the IO card module. | [optional] [readonly] 
+**Vid** | Pointer to **string** | This field identifies the Vendor ID for the IO card module. | [optional] [readonly] 
+**HostPorts** | Pointer to [**[]EtherHostPortRelationship**](ether.HostPort.Relationship.md) | An array of relationships to etherHostPort resources. | [optional] 
+**MgmtController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
+**NetworkPorts** | Pointer to [**[]EtherNetworkPortRelationship**](ether.NetworkPort.Relationship.md) | An array of relationships to etherNetworkPort resources. | [optional] 
+**ConnectionPath** | Pointer to **string** | Switch Id to which the IOM is connected to. The value can be A or B. | [optional] [readonly] 
+**DcSupported** | Pointer to **bool** | IOM device connector support. | [optional] [readonly] 
+**Side** | Pointer to **string** | Location of IOM within a chassis. The value can be left or right. | [optional] [readonly] 
 **EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
+**PhysicalDeviceRegistration** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -339,6 +357,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *EquipmentIoCardRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *EquipmentIoCardRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *EquipmentIoCardRelationship) GetParent() MoBaseMoRelationship`
@@ -389,6 +417,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *EquipmentIoCardRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *EquipmentIoCardRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *EquipmentIoCardRelationship) GetDisplayNames() map[string][]string`
@@ -599,6 +637,81 @@ SetVendor sets Vendor field to given value.
 
 HasVendor returns a boolean if a field has been set.
 
+### GetConnectionStatus
+
+`func (o *EquipmentIoCardRelationship) GetConnectionStatus() string`
+
+GetConnectionStatus returns the ConnectionStatus field if non-nil, zero value otherwise.
+
+### GetConnectionStatusOk
+
+`func (o *EquipmentIoCardRelationship) GetConnectionStatusOk() (*string, bool)`
+
+GetConnectionStatusOk returns a tuple with the ConnectionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectionStatus
+
+`func (o *EquipmentIoCardRelationship) SetConnectionStatus(v string)`
+
+SetConnectionStatus sets ConnectionStatus field to given value.
+
+### HasConnectionStatus
+
+`func (o *EquipmentIoCardRelationship) HasConnectionStatus() bool`
+
+HasConnectionStatus returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *EquipmentIoCardRelationship) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *EquipmentIoCardRelationship) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *EquipmentIoCardRelationship) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *EquipmentIoCardRelationship) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### GetModuleId
+
+`func (o *EquipmentIoCardRelationship) GetModuleId() int64`
+
+GetModuleId returns the ModuleId field if non-nil, zero value otherwise.
+
+### GetModuleIdOk
+
+`func (o *EquipmentIoCardRelationship) GetModuleIdOk() (*int64, bool)`
+
+GetModuleIdOk returns a tuple with the ModuleId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleId
+
+`func (o *EquipmentIoCardRelationship) SetModuleId(v int64)`
+
+SetModuleId sets ModuleId field to given value.
+
+### HasModuleId
+
+`func (o *EquipmentIoCardRelationship) HasModuleId() bool`
+
+HasModuleId returns a boolean if a field has been set.
+
 ### GetOperState
 
 `func (o *EquipmentIoCardRelationship) GetOperState() string`
@@ -624,6 +737,351 @@ SetOperState sets OperState field to given value.
 
 HasOperState returns a boolean if a field has been set.
 
+### GetPartNumber
+
+`func (o *EquipmentIoCardRelationship) GetPartNumber() string`
+
+GetPartNumber returns the PartNumber field if non-nil, zero value otherwise.
+
+### GetPartNumberOk
+
+`func (o *EquipmentIoCardRelationship) GetPartNumberOk() (*string, bool)`
+
+GetPartNumberOk returns a tuple with the PartNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPartNumber
+
+`func (o *EquipmentIoCardRelationship) SetPartNumber(v string)`
+
+SetPartNumber sets PartNumber field to given value.
+
+### HasPartNumber
+
+`func (o *EquipmentIoCardRelationship) HasPartNumber() bool`
+
+HasPartNumber returns a boolean if a field has been set.
+
+### GetPid
+
+`func (o *EquipmentIoCardRelationship) GetPid() string`
+
+GetPid returns the Pid field if non-nil, zero value otherwise.
+
+### GetPidOk
+
+`func (o *EquipmentIoCardRelationship) GetPidOk() (*string, bool)`
+
+GetPidOk returns a tuple with the Pid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPid
+
+`func (o *EquipmentIoCardRelationship) SetPid(v string)`
+
+SetPid sets Pid field to given value.
+
+### HasPid
+
+`func (o *EquipmentIoCardRelationship) HasPid() bool`
+
+HasPid returns a boolean if a field has been set.
+
+### GetPresence
+
+`func (o *EquipmentIoCardRelationship) GetPresence() string`
+
+GetPresence returns the Presence field if non-nil, zero value otherwise.
+
+### GetPresenceOk
+
+`func (o *EquipmentIoCardRelationship) GetPresenceOk() (*string, bool)`
+
+GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPresence
+
+`func (o *EquipmentIoCardRelationship) SetPresence(v string)`
+
+SetPresence sets Presence field to given value.
+
+### HasPresence
+
+`func (o *EquipmentIoCardRelationship) HasPresence() bool`
+
+HasPresence returns a boolean if a field has been set.
+
+### GetProductName
+
+`func (o *EquipmentIoCardRelationship) GetProductName() string`
+
+GetProductName returns the ProductName field if non-nil, zero value otherwise.
+
+### GetProductNameOk
+
+`func (o *EquipmentIoCardRelationship) GetProductNameOk() (*string, bool)`
+
+GetProductNameOk returns a tuple with the ProductName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductName
+
+`func (o *EquipmentIoCardRelationship) SetProductName(v string)`
+
+SetProductName sets ProductName field to given value.
+
+### HasProductName
+
+`func (o *EquipmentIoCardRelationship) HasProductName() bool`
+
+HasProductName returns a boolean if a field has been set.
+
+### GetSku
+
+`func (o *EquipmentIoCardRelationship) GetSku() string`
+
+GetSku returns the Sku field if non-nil, zero value otherwise.
+
+### GetSkuOk
+
+`func (o *EquipmentIoCardRelationship) GetSkuOk() (*string, bool)`
+
+GetSkuOk returns a tuple with the Sku field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSku
+
+`func (o *EquipmentIoCardRelationship) SetSku(v string)`
+
+SetSku sets Sku field to given value.
+
+### HasSku
+
+`func (o *EquipmentIoCardRelationship) HasSku() bool`
+
+HasSku returns a boolean if a field has been set.
+
+### GetVersion
+
+`func (o *EquipmentIoCardRelationship) GetVersion() string`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *EquipmentIoCardRelationship) GetVersionOk() (*string, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *EquipmentIoCardRelationship) SetVersion(v string)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *EquipmentIoCardRelationship) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+### GetVid
+
+`func (o *EquipmentIoCardRelationship) GetVid() string`
+
+GetVid returns the Vid field if non-nil, zero value otherwise.
+
+### GetVidOk
+
+`func (o *EquipmentIoCardRelationship) GetVidOk() (*string, bool)`
+
+GetVidOk returns a tuple with the Vid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVid
+
+`func (o *EquipmentIoCardRelationship) SetVid(v string)`
+
+SetVid sets Vid field to given value.
+
+### HasVid
+
+`func (o *EquipmentIoCardRelationship) HasVid() bool`
+
+HasVid returns a boolean if a field has been set.
+
+### GetHostPorts
+
+`func (o *EquipmentIoCardRelationship) GetHostPorts() []EtherHostPortRelationship`
+
+GetHostPorts returns the HostPorts field if non-nil, zero value otherwise.
+
+### GetHostPortsOk
+
+`func (o *EquipmentIoCardRelationship) GetHostPortsOk() (*[]EtherHostPortRelationship, bool)`
+
+GetHostPortsOk returns a tuple with the HostPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostPorts
+
+`func (o *EquipmentIoCardRelationship) SetHostPorts(v []EtherHostPortRelationship)`
+
+SetHostPorts sets HostPorts field to given value.
+
+### HasHostPorts
+
+`func (o *EquipmentIoCardRelationship) HasHostPorts() bool`
+
+HasHostPorts returns a boolean if a field has been set.
+
+### SetHostPortsNil
+
+`func (o *EquipmentIoCardRelationship) SetHostPortsNil(b bool)`
+
+ SetHostPortsNil sets the value for HostPorts to be an explicit nil
+
+### UnsetHostPorts
+`func (o *EquipmentIoCardRelationship) UnsetHostPorts()`
+
+UnsetHostPorts ensures that no value is present for HostPorts, not even an explicit nil
+### GetMgmtController
+
+`func (o *EquipmentIoCardRelationship) GetMgmtController() ManagementControllerRelationship`
+
+GetMgmtController returns the MgmtController field if non-nil, zero value otherwise.
+
+### GetMgmtControllerOk
+
+`func (o *EquipmentIoCardRelationship) GetMgmtControllerOk() (*ManagementControllerRelationship, bool)`
+
+GetMgmtControllerOk returns a tuple with the MgmtController field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMgmtController
+
+`func (o *EquipmentIoCardRelationship) SetMgmtController(v ManagementControllerRelationship)`
+
+SetMgmtController sets MgmtController field to given value.
+
+### HasMgmtController
+
+`func (o *EquipmentIoCardRelationship) HasMgmtController() bool`
+
+HasMgmtController returns a boolean if a field has been set.
+
+### GetNetworkPorts
+
+`func (o *EquipmentIoCardRelationship) GetNetworkPorts() []EtherNetworkPortRelationship`
+
+GetNetworkPorts returns the NetworkPorts field if non-nil, zero value otherwise.
+
+### GetNetworkPortsOk
+
+`func (o *EquipmentIoCardRelationship) GetNetworkPortsOk() (*[]EtherNetworkPortRelationship, bool)`
+
+GetNetworkPortsOk returns a tuple with the NetworkPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkPorts
+
+`func (o *EquipmentIoCardRelationship) SetNetworkPorts(v []EtherNetworkPortRelationship)`
+
+SetNetworkPorts sets NetworkPorts field to given value.
+
+### HasNetworkPorts
+
+`func (o *EquipmentIoCardRelationship) HasNetworkPorts() bool`
+
+HasNetworkPorts returns a boolean if a field has been set.
+
+### SetNetworkPortsNil
+
+`func (o *EquipmentIoCardRelationship) SetNetworkPortsNil(b bool)`
+
+ SetNetworkPortsNil sets the value for NetworkPorts to be an explicit nil
+
+### UnsetNetworkPorts
+`func (o *EquipmentIoCardRelationship) UnsetNetworkPorts()`
+
+UnsetNetworkPorts ensures that no value is present for NetworkPorts, not even an explicit nil
+### GetConnectionPath
+
+`func (o *EquipmentIoCardRelationship) GetConnectionPath() string`
+
+GetConnectionPath returns the ConnectionPath field if non-nil, zero value otherwise.
+
+### GetConnectionPathOk
+
+`func (o *EquipmentIoCardRelationship) GetConnectionPathOk() (*string, bool)`
+
+GetConnectionPathOk returns a tuple with the ConnectionPath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnectionPath
+
+`func (o *EquipmentIoCardRelationship) SetConnectionPath(v string)`
+
+SetConnectionPath sets ConnectionPath field to given value.
+
+### HasConnectionPath
+
+`func (o *EquipmentIoCardRelationship) HasConnectionPath() bool`
+
+HasConnectionPath returns a boolean if a field has been set.
+
+### GetDcSupported
+
+`func (o *EquipmentIoCardRelationship) GetDcSupported() bool`
+
+GetDcSupported returns the DcSupported field if non-nil, zero value otherwise.
+
+### GetDcSupportedOk
+
+`func (o *EquipmentIoCardRelationship) GetDcSupportedOk() (*bool, bool)`
+
+GetDcSupportedOk returns a tuple with the DcSupported field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDcSupported
+
+`func (o *EquipmentIoCardRelationship) SetDcSupported(v bool)`
+
+SetDcSupported sets DcSupported field to given value.
+
+### HasDcSupported
+
+`func (o *EquipmentIoCardRelationship) HasDcSupported() bool`
+
+HasDcSupported returns a boolean if a field has been set.
+
+### GetSide
+
+`func (o *EquipmentIoCardRelationship) GetSide() string`
+
+GetSide returns the Side field if non-nil, zero value otherwise.
+
+### GetSideOk
+
+`func (o *EquipmentIoCardRelationship) GetSideOk() (*string, bool)`
+
+GetSideOk returns a tuple with the Side field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSide
+
+`func (o *EquipmentIoCardRelationship) SetSide(v string)`
+
+SetSide sets Side field to given value.
+
+### HasSide
+
+`func (o *EquipmentIoCardRelationship) HasSide() bool`
+
+HasSide returns a boolean if a field has been set.
+
 ### GetEquipmentChassis
 
 `func (o *EquipmentIoCardRelationship) GetEquipmentChassis() EquipmentChassisRelationship`
@@ -648,6 +1106,56 @@ SetEquipmentChassis sets EquipmentChassis field to given value.
 `func (o *EquipmentIoCardRelationship) HasEquipmentChassis() bool`
 
 HasEquipmentChassis returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentIoCardRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentIoCardRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentIoCardRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentIoCardRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
+### GetPhysicalDeviceRegistration
+
+`func (o *EquipmentIoCardRelationship) GetPhysicalDeviceRegistration() AssetDeviceRegistrationRelationship`
+
+GetPhysicalDeviceRegistration returns the PhysicalDeviceRegistration field if non-nil, zero value otherwise.
+
+### GetPhysicalDeviceRegistrationOk
+
+`func (o *EquipmentIoCardRelationship) GetPhysicalDeviceRegistrationOk() (*AssetDeviceRegistrationRelationship, bool)`
+
+GetPhysicalDeviceRegistrationOk returns a tuple with the PhysicalDeviceRegistration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPhysicalDeviceRegistration
+
+`func (o *EquipmentIoCardRelationship) SetPhysicalDeviceRegistration(v AssetDeviceRegistrationRelationship)`
+
+SetPhysicalDeviceRegistration sets PhysicalDeviceRegistration field to given value.
+
+### HasPhysicalDeviceRegistration
+
+`func (o *EquipmentIoCardRelationship) HasPhysicalDeviceRegistration() bool`
+
+HasPhysicalDeviceRegistration returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

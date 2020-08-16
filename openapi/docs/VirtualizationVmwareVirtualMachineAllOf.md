@@ -9,25 +9,25 @@ Name | Type | Description | Notes
 **ConfigName** | Pointer to **string** | The configuration name for this VM. This maybe the same as the guest hostname. | [optional] 
 **ConnectionState** | Pointer to **string** | Shows if virtual machine is connected to vCenter. Values are Connected, Disconnected, Orphaned, Inaccessible, and Invalid. | [optional] 
 **CpuHotAddEnabled** | Pointer to **bool** | Indicates if the capability to add CPUs to a running VM is enabled. | [optional] 
-**CpuShares** | Pointer to [**VirtualizationVmCpuShareInfo**](virtualization.VmCpuShareInfo.md) |  | [optional] 
-**CpuSocketInfo** | Pointer to [**VirtualizationVmCpuSocketInfo**](virtualization.VmCpuSocketInfo.md) |  | [optional] 
+**CpuShares** | Pointer to [**VirtualizationVmwareVmCpuShareInfo**](virtualization.VmwareVmCpuShareInfo.md) |  | [optional] 
+**CpuSocketInfo** | Pointer to [**VirtualizationVmwareVmCpuSocketInfo**](virtualization.VmwareVmCpuSocketInfo.md) |  | [optional] 
 **CustomAttributes** | Pointer to **[]string** |  | [optional] 
 **DefaultPowerOffType** | Pointer to **string** | Indicates how the VM will be powered off (soft, hard etc.). | [optional] 
 **DhcpEnabled** | Pointer to **bool** | Shows if DHCP is used for IP/DNS on this VM. | [optional] 
-**DiskCommitInfo** | Pointer to [**VirtualizationVmDiskCommitInfo**](virtualization.VmDiskCommitInfo.md) |  | [optional] 
+**DiskCommitInfo** | Pointer to [**VirtualizationVmwareVmDiskCommitInfo**](virtualization.VmwareVmDiskCommitInfo.md) |  | [optional] 
 **DnsServerList** | Pointer to **[]string** |  | [optional] 
 **DnsSuffixList** | Pointer to **[]string** |  | [optional] 
 **Folder** | Pointer to **string** | The folder name associated with this VM. | [optional] 
-**GuestState** | Pointer to **string** | The state of the guest OS running on this VM. Could be running, not running etc. | [optional] [default to "Unknown"]
+**GuestState** | Pointer to **string** | The state of the guest OS running on this VM. Could be running, not running etc. * &#x60;Unknown&#x60; - Indicates that the guest OS state cannot be determined. * &#x60;NotRunning&#x60; - Indicates that the guest OS is not running. * &#x60;Resetting&#x60; - Indicates that the guest OS is resetting. * &#x60;Running&#x60; - Indicates that the guest OS is running normally. * &#x60;ShuttingDown&#x60; - Indicates that the guest OS is shutting down. * &#x60;Standby&#x60; - Indicates that the guest OS is in standby mode. | [optional] [default to "Unknown"]
 **InstanceUuid** | Pointer to **string** | UUID assigned by vCenter to every VM. | [optional] 
 **IsTemplate** | Pointer to **bool** | If true, indicates that the entity refers to a template of a virtual machine and not a real virtual machine. | [optional] 
 **MacAddress** | Pointer to **[]string** |  | [optional] 
-**MemShares** | Pointer to [**VirtualizationVmMemoryShareInfo**](virtualization.VmMemoryShareInfo.md) |  | [optional] 
+**MemShares** | Pointer to [**VirtualizationVmwareVmMemoryShareInfo**](virtualization.VmwareVmMemoryShareInfo.md) |  | [optional] 
 **MemoryHotAddEnabled** | Pointer to **bool** | Adding memory to a running VM. | [optional] 
 **NetworkCount** | Pointer to **int64** | Indicates how many networks are used by this VM. | [optional] 
 **PortGroups** | Pointer to **[]string** |  | [optional] 
 **ProtectedVm** | Pointer to **bool** | Shows if this is a protected VM. VMs can be in protection groups. | [optional] 
-**RemoteDisplayInfo** | Pointer to [**VirtualizationRemoteDisplayInfo**](virtualization.RemoteDisplayInfo.md) |  | [optional] 
+**RemoteDisplayInfo** | Pointer to [**VirtualizationVmwareRemoteDisplayInfo**](virtualization.VmwareRemoteDisplayInfo.md) |  | [optional] 
 **RemoteDisplayVncEnabled** | Pointer to **bool** | Shows if support for a remote VNC access is enabled. | [optional] 
 **ResourcePool** | Pointer to **string** | Name of the resource pool to which this VM belongs (optional). | [optional] 
 **ResourcePoolOwner** | Pointer to **string** | Who owns the resource pool. | [optional] 
@@ -191,20 +191,20 @@ HasCpuHotAddEnabled returns a boolean if a field has been set.
 
 ### GetCpuShares
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuShares() VirtualizationVmCpuShareInfo`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuShares() VirtualizationVmwareVmCpuShareInfo`
 
 GetCpuShares returns the CpuShares field if non-nil, zero value otherwise.
 
 ### GetCpuSharesOk
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuSharesOk() (*VirtualizationVmCpuShareInfo, bool)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuSharesOk() (*VirtualizationVmwareVmCpuShareInfo, bool)`
 
 GetCpuSharesOk returns a tuple with the CpuShares field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCpuShares
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) SetCpuShares(v VirtualizationVmCpuShareInfo)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetCpuShares(v VirtualizationVmwareVmCpuShareInfo)`
 
 SetCpuShares sets CpuShares field to given value.
 
@@ -216,20 +216,20 @@ HasCpuShares returns a boolean if a field has been set.
 
 ### GetCpuSocketInfo
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuSocketInfo() VirtualizationVmCpuSocketInfo`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuSocketInfo() VirtualizationVmwareVmCpuSocketInfo`
 
 GetCpuSocketInfo returns the CpuSocketInfo field if non-nil, zero value otherwise.
 
 ### GetCpuSocketInfoOk
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuSocketInfoOk() (*VirtualizationVmCpuSocketInfo, bool)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetCpuSocketInfoOk() (*VirtualizationVmwareVmCpuSocketInfo, bool)`
 
 GetCpuSocketInfoOk returns a tuple with the CpuSocketInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCpuSocketInfo
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) SetCpuSocketInfo(v VirtualizationVmCpuSocketInfo)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetCpuSocketInfo(v VirtualizationVmwareVmCpuSocketInfo)`
 
 SetCpuSocketInfo sets CpuSocketInfo field to given value.
 
@@ -316,20 +316,20 @@ HasDhcpEnabled returns a boolean if a field has been set.
 
 ### GetDiskCommitInfo
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetDiskCommitInfo() VirtualizationVmDiskCommitInfo`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetDiskCommitInfo() VirtualizationVmwareVmDiskCommitInfo`
 
 GetDiskCommitInfo returns the DiskCommitInfo field if non-nil, zero value otherwise.
 
 ### GetDiskCommitInfoOk
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetDiskCommitInfoOk() (*VirtualizationVmDiskCommitInfo, bool)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetDiskCommitInfoOk() (*VirtualizationVmwareVmDiskCommitInfo, bool)`
 
 GetDiskCommitInfoOk returns a tuple with the DiskCommitInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDiskCommitInfo
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) SetDiskCommitInfo(v VirtualizationVmDiskCommitInfo)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetDiskCommitInfo(v VirtualizationVmwareVmDiskCommitInfo)`
 
 SetDiskCommitInfo sets DiskCommitInfo field to given value.
 
@@ -516,20 +516,20 @@ HasMacAddress returns a boolean if a field has been set.
 
 ### GetMemShares
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetMemShares() VirtualizationVmMemoryShareInfo`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetMemShares() VirtualizationVmwareVmMemoryShareInfo`
 
 GetMemShares returns the MemShares field if non-nil, zero value otherwise.
 
 ### GetMemSharesOk
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetMemSharesOk() (*VirtualizationVmMemoryShareInfo, bool)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetMemSharesOk() (*VirtualizationVmwareVmMemoryShareInfo, bool)`
 
 GetMemSharesOk returns a tuple with the MemShares field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMemShares
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) SetMemShares(v VirtualizationVmMemoryShareInfo)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetMemShares(v VirtualizationVmwareVmMemoryShareInfo)`
 
 SetMemShares sets MemShares field to given value.
 
@@ -641,20 +641,20 @@ HasProtectedVm returns a boolean if a field has been set.
 
 ### GetRemoteDisplayInfo
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetRemoteDisplayInfo() VirtualizationRemoteDisplayInfo`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetRemoteDisplayInfo() VirtualizationVmwareRemoteDisplayInfo`
 
 GetRemoteDisplayInfo returns the RemoteDisplayInfo field if non-nil, zero value otherwise.
 
 ### GetRemoteDisplayInfoOk
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) GetRemoteDisplayInfoOk() (*VirtualizationRemoteDisplayInfo, bool)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetRemoteDisplayInfoOk() (*VirtualizationVmwareRemoteDisplayInfo, bool)`
 
 GetRemoteDisplayInfoOk returns a tuple with the RemoteDisplayInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRemoteDisplayInfo
 
-`func (o *VirtualizationVmwareVirtualMachineAllOf) SetRemoteDisplayInfo(v VirtualizationRemoteDisplayInfo)`
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetRemoteDisplayInfo(v VirtualizationVmwareRemoteDisplayInfo)`
 
 SetRemoteDisplayInfo sets RemoteDisplayInfo field to given value.
 
@@ -1039,6 +1039,16 @@ SetDatastores sets Datastores field to given value.
 
 HasDatastores returns a boolean if a field has been set.
 
+### SetDatastoresNil
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetDatastoresNil(b bool)`
+
+ SetDatastoresNil sets the value for Datastores to be an explicit nil
+
+### UnsetDatastores
+`func (o *VirtualizationVmwareVirtualMachineAllOf) UnsetDatastores()`
+
+UnsetDatastores ensures that no value is present for Datastores, not even an explicit nil
 ### GetHost
 
 `func (o *VirtualizationVmwareVirtualMachineAllOf) GetHost() VirtualizationVmwareHostRelationship`

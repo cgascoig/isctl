@@ -78,6 +78,16 @@ SetEndPointUserRoles sets EndPointUserRoles field to given value.
 
 HasEndPointUserRoles returns a boolean if a field has been set.
 
+### SetEndPointUserRolesNil
+
+`func (o *IamEndPointUserPolicy) SetEndPointUserRolesNil(b bool)`
+
+ SetEndPointUserRolesNil sets the value for EndPointUserRoles to be an explicit nil
+
+### UnsetEndPointUserRoles
+`func (o *IamEndPointUserPolicy) UnsetEndPointUserRoles()`
+
+UnsetEndPointUserRoles ensures that no value is present for EndPointUserRoles, not even an explicit nil
 ### GetOrganization
 
 `func (o *IamEndPointUserPolicy) GetOrganization() OrganizationOrganizationRelationship`
@@ -128,6 +138,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *IamEndPointUserPolicy) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *IamEndPointUserPolicy) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjectType** | Pointer to **string** | A discriminator value to disambiguate the schema of a HTTP GET response body. | 
 **Count** | Pointer to **int32** | The total number of &#39;kvm.Policy&#39; resources matching the request, accross all pages. The &#39;Count&#39; attribute is included when the HTTP GET request includes the &#39;$inlinecount&#39; parameter. | [optional] 
-**Results** | Pointer to [**[]KvmPolicy**](kvm.Policy.md) | The array of &#39;kvm.Policy&#39; resources matching the request. | [optional] 
+**Results** | Pointer to [**[]MoTagKeySummary**](mo.TagKeySummary.md) |  | [optional] 
 
 ## Methods
 
@@ -74,20 +74,20 @@ HasCount returns a boolean if a field has been set.
 
 ### GetResults
 
-`func (o *KvmPolicyResponse) GetResults() []KvmPolicy`
+`func (o *KvmPolicyResponse) GetResults() []MoTagKeySummary`
 
 GetResults returns the Results field if non-nil, zero value otherwise.
 
 ### GetResultsOk
 
-`func (o *KvmPolicyResponse) GetResultsOk() (*[]KvmPolicy, bool)`
+`func (o *KvmPolicyResponse) GetResultsOk() (*[]MoTagKeySummary, bool)`
 
 GetResultsOk returns a tuple with the Results field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResults
 
-`func (o *KvmPolicyResponse) SetResults(v []KvmPolicy)`
+`func (o *KvmPolicyResponse) SetResults(v []MoTagKeySummary)`
 
 SetResults sets Results field to given value.
 
@@ -97,6 +97,16 @@ SetResults sets Results field to given value.
 
 HasResults returns a boolean if a field has been set.
 
+### SetResultsNil
+
+`func (o *KvmPolicyResponse) SetResultsNil(b bool)`
+
+ SetResultsNil sets the value for Results to be an explicit nil
+
+### UnsetResults
+`func (o *KvmPolicyResponse) UnsetResults()`
+
+UnsetResults ensures that no value is present for Results, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

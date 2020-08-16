@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,7 +19,7 @@ import (
 
 // VirtualizationVmwareVirtualMachine The VMware Virtual machine. It has details such as power state, IP address, resource consumption, etc. Basic elements come from the base class and VMware specific details are provided here.
 type VirtualizationVmwareVirtualMachine struct {
-	VirtualizationAbstractVirtualMachine `yaml:"VirtualizationAbstractVirtualMachine,inline"`
+	VirtualizationBaseVirtualMachine `yaml:"VirtualizationBaseVirtualMachine,inline"`
 	// List of annotations provided to this VM by user. Can be long.
 	Annotation *string `json:"Annotation,omitempty" yaml:"Annotation,omitempty"`
 	// Time when this VM booted up.
@@ -29,35 +29,35 @@ type VirtualizationVmwareVirtualMachine struct {
 	// Shows if virtual machine is connected to vCenter. Values are Connected, Disconnected, Orphaned, Inaccessible, and Invalid.
 	ConnectionState *string `json:"ConnectionState,omitempty" yaml:"ConnectionState,omitempty"`
 	// Indicates if the capability to add CPUs to a running VM is enabled.
-	CpuHotAddEnabled *bool                          `json:"CpuHotAddEnabled,omitempty" yaml:"CpuHotAddEnabled,omitempty"`
-	CpuShares        *VirtualizationVmCpuShareInfo  `json:"CpuShares,omitempty" yaml:"CpuShares,omitempty"`
-	CpuSocketInfo    *VirtualizationVmCpuSocketInfo `json:"CpuSocketInfo,omitempty" yaml:"CpuSocketInfo,omitempty"`
-	CustomAttributes *[]string                      `json:"CustomAttributes,omitempty" yaml:"CustomAttributes,omitempty"`
+	CpuHotAddEnabled *bool                                `json:"CpuHotAddEnabled,omitempty" yaml:"CpuHotAddEnabled,omitempty"`
+	CpuShares        *VirtualizationVmwareVmCpuShareInfo  `json:"CpuShares,omitempty" yaml:"CpuShares,omitempty"`
+	CpuSocketInfo    *VirtualizationVmwareVmCpuSocketInfo `json:"CpuSocketInfo,omitempty" yaml:"CpuSocketInfo,omitempty"`
+	CustomAttributes *[]string                            `json:"CustomAttributes,omitempty" yaml:"CustomAttributes,omitempty"`
 	// Indicates how the VM will be powered off (soft, hard etc.).
 	DefaultPowerOffType *string `json:"DefaultPowerOffType,omitempty" yaml:"DefaultPowerOffType,omitempty"`
 	// Shows if DHCP is used for IP/DNS on this VM.
-	DhcpEnabled    *bool                           `json:"DhcpEnabled,omitempty" yaml:"DhcpEnabled,omitempty"`
-	DiskCommitInfo *VirtualizationVmDiskCommitInfo `json:"DiskCommitInfo,omitempty" yaml:"DiskCommitInfo,omitempty"`
-	DnsServerList  *[]string                       `json:"DnsServerList,omitempty" yaml:"DnsServerList,omitempty"`
-	DnsSuffixList  *[]string                       `json:"DnsSuffixList,omitempty" yaml:"DnsSuffixList,omitempty"`
+	DhcpEnabled    *bool                                 `json:"DhcpEnabled,omitempty" yaml:"DhcpEnabled,omitempty"`
+	DiskCommitInfo *VirtualizationVmwareVmDiskCommitInfo `json:"DiskCommitInfo,omitempty" yaml:"DiskCommitInfo,omitempty"`
+	DnsServerList  *[]string                             `json:"DnsServerList,omitempty" yaml:"DnsServerList,omitempty"`
+	DnsSuffixList  *[]string                             `json:"DnsSuffixList,omitempty" yaml:"DnsSuffixList,omitempty"`
 	// The folder name associated with this VM.
 	Folder *string `json:"Folder,omitempty" yaml:"Folder,omitempty"`
-	// The state of the guest OS running on this VM. Could be running, not running etc.
+	// The state of the guest OS running on this VM. Could be running, not running etc. * `Unknown` - Indicates that the guest OS state cannot be determined. * `NotRunning` - Indicates that the guest OS is not running. * `Resetting` - Indicates that the guest OS is resetting. * `Running` - Indicates that the guest OS is running normally. * `ShuttingDown` - Indicates that the guest OS is shutting down. * `Standby` - Indicates that the guest OS is in standby mode.
 	GuestState *string `json:"GuestState,omitempty" yaml:"GuestState,omitempty"`
 	// UUID assigned by vCenter to every VM.
 	InstanceUuid *string `json:"InstanceUuid,omitempty" yaml:"InstanceUuid,omitempty"`
 	// If true, indicates that the entity refers to a template of a virtual machine and not a real virtual machine.
-	IsTemplate *bool                            `json:"IsTemplate,omitempty" yaml:"IsTemplate,omitempty"`
-	MacAddress *[]string                        `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
-	MemShares  *VirtualizationVmMemoryShareInfo `json:"MemShares,omitempty" yaml:"MemShares,omitempty"`
+	IsTemplate *bool                                  `json:"IsTemplate,omitempty" yaml:"IsTemplate,omitempty"`
+	MacAddress *[]string                              `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
+	MemShares  *VirtualizationVmwareVmMemoryShareInfo `json:"MemShares,omitempty" yaml:"MemShares,omitempty"`
 	// Adding memory to a running VM.
 	MemoryHotAddEnabled *bool `json:"MemoryHotAddEnabled,omitempty" yaml:"MemoryHotAddEnabled,omitempty"`
 	// Indicates how many networks are used by this VM.
 	NetworkCount *int64    `json:"NetworkCount,omitempty" yaml:"NetworkCount,omitempty"`
 	PortGroups   *[]string `json:"PortGroups,omitempty" yaml:"PortGroups,omitempty"`
 	// Shows if this is a protected VM. VMs can be in protection groups.
-	ProtectedVm       *bool                            `json:"ProtectedVm,omitempty" yaml:"ProtectedVm,omitempty"`
-	RemoteDisplayInfo *VirtualizationRemoteDisplayInfo `json:"RemoteDisplayInfo,omitempty" yaml:"RemoteDisplayInfo,omitempty"`
+	ProtectedVm       *bool                                  `json:"ProtectedVm,omitempty" yaml:"ProtectedVm,omitempty"`
+	RemoteDisplayInfo *VirtualizationVmwareRemoteDisplayInfo `json:"RemoteDisplayInfo,omitempty" yaml:"RemoteDisplayInfo,omitempty"`
 	// Shows if support for a remote VNC access is enabled.
 	RemoteDisplayVncEnabled *bool `json:"RemoteDisplayVncEnabled,omitempty" yaml:"RemoteDisplayVncEnabled,omitempty"`
 	// Name of the resource pool to which this VM belongs (optional).
@@ -85,8 +85,8 @@ type VirtualizationVmwareVirtualMachine struct {
 	Cluster            *VirtualizationVmwareClusterRelationship    `json:"Cluster,omitempty" yaml:"Cluster,omitempty"`
 	Datacenter         *VirtualizationVmwareDatacenterRelationship `json:"Datacenter,omitempty" yaml:"Datacenter,omitempty"`
 	// An array of relationships to virtualizationVmwareDatastore resources.
-	Datastores *[]VirtualizationVmwareDatastoreRelationship `json:"Datastores,omitempty" yaml:"Datastores,omitempty"`
-	Host       *VirtualizationVmwareHostRelationship        `json:"Host,omitempty" yaml:"Host,omitempty"`
+	Datastores []VirtualizationVmwareDatastoreRelationship `json:"Datastores,omitempty" yaml:"Datastores,omitempty"`
+	Host       *VirtualizationVmwareHostRelationship       `json:"Host,omitempty" yaml:"Host,omitempty"`
 }
 
 // NewVirtualizationVmwareVirtualMachine instantiates a new VirtualizationVmwareVirtualMachine object
@@ -271,9 +271,9 @@ func (o *VirtualizationVmwareVirtualMachine) SetCpuHotAddEnabled(v bool) {
 }
 
 // GetCpuShares returns the CpuShares field value if set, zero value otherwise.
-func (o *VirtualizationVmwareVirtualMachine) GetCpuShares() VirtualizationVmCpuShareInfo {
+func (o *VirtualizationVmwareVirtualMachine) GetCpuShares() VirtualizationVmwareVmCpuShareInfo {
 	if o == nil || o.CpuShares == nil {
-		var ret VirtualizationVmCpuShareInfo
+		var ret VirtualizationVmwareVmCpuShareInfo
 		return ret
 	}
 	return *o.CpuShares
@@ -281,7 +281,7 @@ func (o *VirtualizationVmwareVirtualMachine) GetCpuShares() VirtualizationVmCpuS
 
 // GetCpuSharesOk returns a tuple with the CpuShares field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VirtualizationVmwareVirtualMachine) GetCpuSharesOk() (*VirtualizationVmCpuShareInfo, bool) {
+func (o *VirtualizationVmwareVirtualMachine) GetCpuSharesOk() (*VirtualizationVmwareVmCpuShareInfo, bool) {
 	if o == nil || o.CpuShares == nil {
 		return nil, false
 	}
@@ -297,15 +297,15 @@ func (o *VirtualizationVmwareVirtualMachine) HasCpuShares() bool {
 	return false
 }
 
-// SetCpuShares gets a reference to the given VirtualizationVmCpuShareInfo and assigns it to the CpuShares field.
-func (o *VirtualizationVmwareVirtualMachine) SetCpuShares(v VirtualizationVmCpuShareInfo) {
+// SetCpuShares gets a reference to the given VirtualizationVmwareVmCpuShareInfo and assigns it to the CpuShares field.
+func (o *VirtualizationVmwareVirtualMachine) SetCpuShares(v VirtualizationVmwareVmCpuShareInfo) {
 	o.CpuShares = &v
 }
 
 // GetCpuSocketInfo returns the CpuSocketInfo field value if set, zero value otherwise.
-func (o *VirtualizationVmwareVirtualMachine) GetCpuSocketInfo() VirtualizationVmCpuSocketInfo {
+func (o *VirtualizationVmwareVirtualMachine) GetCpuSocketInfo() VirtualizationVmwareVmCpuSocketInfo {
 	if o == nil || o.CpuSocketInfo == nil {
-		var ret VirtualizationVmCpuSocketInfo
+		var ret VirtualizationVmwareVmCpuSocketInfo
 		return ret
 	}
 	return *o.CpuSocketInfo
@@ -313,7 +313,7 @@ func (o *VirtualizationVmwareVirtualMachine) GetCpuSocketInfo() VirtualizationVm
 
 // GetCpuSocketInfoOk returns a tuple with the CpuSocketInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VirtualizationVmwareVirtualMachine) GetCpuSocketInfoOk() (*VirtualizationVmCpuSocketInfo, bool) {
+func (o *VirtualizationVmwareVirtualMachine) GetCpuSocketInfoOk() (*VirtualizationVmwareVmCpuSocketInfo, bool) {
 	if o == nil || o.CpuSocketInfo == nil {
 		return nil, false
 	}
@@ -329,8 +329,8 @@ func (o *VirtualizationVmwareVirtualMachine) HasCpuSocketInfo() bool {
 	return false
 }
 
-// SetCpuSocketInfo gets a reference to the given VirtualizationVmCpuSocketInfo and assigns it to the CpuSocketInfo field.
-func (o *VirtualizationVmwareVirtualMachine) SetCpuSocketInfo(v VirtualizationVmCpuSocketInfo) {
+// SetCpuSocketInfo gets a reference to the given VirtualizationVmwareVmCpuSocketInfo and assigns it to the CpuSocketInfo field.
+func (o *VirtualizationVmwareVirtualMachine) SetCpuSocketInfo(v VirtualizationVmwareVmCpuSocketInfo) {
 	o.CpuSocketInfo = &v
 }
 
@@ -431,9 +431,9 @@ func (o *VirtualizationVmwareVirtualMachine) SetDhcpEnabled(v bool) {
 }
 
 // GetDiskCommitInfo returns the DiskCommitInfo field value if set, zero value otherwise.
-func (o *VirtualizationVmwareVirtualMachine) GetDiskCommitInfo() VirtualizationVmDiskCommitInfo {
+func (o *VirtualizationVmwareVirtualMachine) GetDiskCommitInfo() VirtualizationVmwareVmDiskCommitInfo {
 	if o == nil || o.DiskCommitInfo == nil {
-		var ret VirtualizationVmDiskCommitInfo
+		var ret VirtualizationVmwareVmDiskCommitInfo
 		return ret
 	}
 	return *o.DiskCommitInfo
@@ -441,7 +441,7 @@ func (o *VirtualizationVmwareVirtualMachine) GetDiskCommitInfo() VirtualizationV
 
 // GetDiskCommitInfoOk returns a tuple with the DiskCommitInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VirtualizationVmwareVirtualMachine) GetDiskCommitInfoOk() (*VirtualizationVmDiskCommitInfo, bool) {
+func (o *VirtualizationVmwareVirtualMachine) GetDiskCommitInfoOk() (*VirtualizationVmwareVmDiskCommitInfo, bool) {
 	if o == nil || o.DiskCommitInfo == nil {
 		return nil, false
 	}
@@ -457,8 +457,8 @@ func (o *VirtualizationVmwareVirtualMachine) HasDiskCommitInfo() bool {
 	return false
 }
 
-// SetDiskCommitInfo gets a reference to the given VirtualizationVmDiskCommitInfo and assigns it to the DiskCommitInfo field.
-func (o *VirtualizationVmwareVirtualMachine) SetDiskCommitInfo(v VirtualizationVmDiskCommitInfo) {
+// SetDiskCommitInfo gets a reference to the given VirtualizationVmwareVmDiskCommitInfo and assigns it to the DiskCommitInfo field.
+func (o *VirtualizationVmwareVirtualMachine) SetDiskCommitInfo(v VirtualizationVmwareVmDiskCommitInfo) {
 	o.DiskCommitInfo = &v
 }
 
@@ -687,9 +687,9 @@ func (o *VirtualizationVmwareVirtualMachine) SetMacAddress(v []string) {
 }
 
 // GetMemShares returns the MemShares field value if set, zero value otherwise.
-func (o *VirtualizationVmwareVirtualMachine) GetMemShares() VirtualizationVmMemoryShareInfo {
+func (o *VirtualizationVmwareVirtualMachine) GetMemShares() VirtualizationVmwareVmMemoryShareInfo {
 	if o == nil || o.MemShares == nil {
-		var ret VirtualizationVmMemoryShareInfo
+		var ret VirtualizationVmwareVmMemoryShareInfo
 		return ret
 	}
 	return *o.MemShares
@@ -697,7 +697,7 @@ func (o *VirtualizationVmwareVirtualMachine) GetMemShares() VirtualizationVmMemo
 
 // GetMemSharesOk returns a tuple with the MemShares field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VirtualizationVmwareVirtualMachine) GetMemSharesOk() (*VirtualizationVmMemoryShareInfo, bool) {
+func (o *VirtualizationVmwareVirtualMachine) GetMemSharesOk() (*VirtualizationVmwareVmMemoryShareInfo, bool) {
 	if o == nil || o.MemShares == nil {
 		return nil, false
 	}
@@ -713,8 +713,8 @@ func (o *VirtualizationVmwareVirtualMachine) HasMemShares() bool {
 	return false
 }
 
-// SetMemShares gets a reference to the given VirtualizationVmMemoryShareInfo and assigns it to the MemShares field.
-func (o *VirtualizationVmwareVirtualMachine) SetMemShares(v VirtualizationVmMemoryShareInfo) {
+// SetMemShares gets a reference to the given VirtualizationVmwareVmMemoryShareInfo and assigns it to the MemShares field.
+func (o *VirtualizationVmwareVirtualMachine) SetMemShares(v VirtualizationVmwareVmMemoryShareInfo) {
 	o.MemShares = &v
 }
 
@@ -847,9 +847,9 @@ func (o *VirtualizationVmwareVirtualMachine) SetProtectedVm(v bool) {
 }
 
 // GetRemoteDisplayInfo returns the RemoteDisplayInfo field value if set, zero value otherwise.
-func (o *VirtualizationVmwareVirtualMachine) GetRemoteDisplayInfo() VirtualizationRemoteDisplayInfo {
+func (o *VirtualizationVmwareVirtualMachine) GetRemoteDisplayInfo() VirtualizationVmwareRemoteDisplayInfo {
 	if o == nil || o.RemoteDisplayInfo == nil {
-		var ret VirtualizationRemoteDisplayInfo
+		var ret VirtualizationVmwareRemoteDisplayInfo
 		return ret
 	}
 	return *o.RemoteDisplayInfo
@@ -857,7 +857,7 @@ func (o *VirtualizationVmwareVirtualMachine) GetRemoteDisplayInfo() Virtualizati
 
 // GetRemoteDisplayInfoOk returns a tuple with the RemoteDisplayInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VirtualizationVmwareVirtualMachine) GetRemoteDisplayInfoOk() (*VirtualizationRemoteDisplayInfo, bool) {
+func (o *VirtualizationVmwareVirtualMachine) GetRemoteDisplayInfoOk() (*VirtualizationVmwareRemoteDisplayInfo, bool) {
 	if o == nil || o.RemoteDisplayInfo == nil {
 		return nil, false
 	}
@@ -873,8 +873,8 @@ func (o *VirtualizationVmwareVirtualMachine) HasRemoteDisplayInfo() bool {
 	return false
 }
 
-// SetRemoteDisplayInfo gets a reference to the given VirtualizationRemoteDisplayInfo and assigns it to the RemoteDisplayInfo field.
-func (o *VirtualizationVmwareVirtualMachine) SetRemoteDisplayInfo(v VirtualizationRemoteDisplayInfo) {
+// SetRemoteDisplayInfo gets a reference to the given VirtualizationVmwareRemoteDisplayInfo and assigns it to the RemoteDisplayInfo field.
+func (o *VirtualizationVmwareVirtualMachine) SetRemoteDisplayInfo(v VirtualizationVmwareRemoteDisplayInfo) {
 	o.RemoteDisplayInfo = &v
 }
 
@@ -1326,22 +1326,23 @@ func (o *VirtualizationVmwareVirtualMachine) SetDatacenter(v VirtualizationVmwar
 	o.Datacenter = &v
 }
 
-// GetDatastores returns the Datastores field value if set, zero value otherwise.
+// GetDatastores returns the Datastores field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VirtualizationVmwareVirtualMachine) GetDatastores() []VirtualizationVmwareDatastoreRelationship {
-	if o == nil || o.Datastores == nil {
+	if o == nil {
 		var ret []VirtualizationVmwareDatastoreRelationship
 		return ret
 	}
-	return *o.Datastores
+	return o.Datastores
 }
 
 // GetDatastoresOk returns a tuple with the Datastores field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VirtualizationVmwareVirtualMachine) GetDatastoresOk() (*[]VirtualizationVmwareDatastoreRelationship, bool) {
 	if o == nil || o.Datastores == nil {
 		return nil, false
 	}
-	return o.Datastores, true
+	return &o.Datastores, true
 }
 
 // HasDatastores returns a boolean if a field has been set.
@@ -1355,7 +1356,7 @@ func (o *VirtualizationVmwareVirtualMachine) HasDatastores() bool {
 
 // SetDatastores gets a reference to the given []VirtualizationVmwareDatastoreRelationship and assigns it to the Datastores field.
 func (o *VirtualizationVmwareVirtualMachine) SetDatastores(v []VirtualizationVmwareDatastoreRelationship) {
-	o.Datastores = &v
+	o.Datastores = v
 }
 
 // GetHost returns the Host field value if set, zero value otherwise.
@@ -1392,13 +1393,13 @@ func (o *VirtualizationVmwareVirtualMachine) SetHost(v VirtualizationVmwareHostR
 
 func (o VirtualizationVmwareVirtualMachine) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedVirtualizationAbstractVirtualMachine, errVirtualizationAbstractVirtualMachine := json.Marshal(o.VirtualizationAbstractVirtualMachine)
-	if errVirtualizationAbstractVirtualMachine != nil {
-		return []byte{}, errVirtualizationAbstractVirtualMachine
+	serializedVirtualizationBaseVirtualMachine, errVirtualizationBaseVirtualMachine := json.Marshal(o.VirtualizationBaseVirtualMachine)
+	if errVirtualizationBaseVirtualMachine != nil {
+		return []byte{}, errVirtualizationBaseVirtualMachine
 	}
-	errVirtualizationAbstractVirtualMachine = json.Unmarshal([]byte(serializedVirtualizationAbstractVirtualMachine), &toSerialize)
-	if errVirtualizationAbstractVirtualMachine != nil {
-		return []byte{}, errVirtualizationAbstractVirtualMachine
+	errVirtualizationBaseVirtualMachine = json.Unmarshal([]byte(serializedVirtualizationBaseVirtualMachine), &toSerialize)
+	if errVirtualizationBaseVirtualMachine != nil {
+		return []byte{}, errVirtualizationBaseVirtualMachine
 	}
 	if o.Annotation != nil {
 		toSerialize["Annotation"] = o.Annotation

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | Pointer to **string** | The post-aggregator type. | 
 **Name** | Pointer to **string** | Output name for the post-aggregator. | [optional] 
 **Fields** | Pointer to **string** | the fields that are used to compute the greatest or least value. | [optional] 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidGreatestLeastPostAggregator
 
-`func NewTelemetryDruidGreatestLeastPostAggregator() *TelemetryDruidGreatestLeastPostAggregator`
+`func NewTelemetryDruidGreatestLeastPostAggregator(type_ string, ) *TelemetryDruidGreatestLeastPostAggregator`
 
 NewTelemetryDruidGreatestLeastPostAggregator instantiates a new TelemetryDruidGreatestLeastPostAggregator object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidGreatestLeastPostAggregatorWithDefaults instantiates a new TelemetryDruidGreatestLeastPostAggregator object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *TelemetryDruidGreatestLeastPostAggregator) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TelemetryDruidGreatestLeastPostAggregator) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TelemetryDruidGreatestLeastPostAggregator) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetName
 

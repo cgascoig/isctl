@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Enabled** | Pointer to **bool** | If enabled, controls the state of the SMTP client service on the managed device. | [optional] 
-**MinSeverity** | Pointer to **string** | Minimum fault severity level to receive email notifications. Email notifications are sent for all faults whose severity is equal to or greater than the chosen level. | [optional] [default to "critical"]
+**MinSeverity** | Pointer to **string** | Minimum fault severity level to receive email notifications. Email notifications are sent for all faults whose severity is equal to or greater than the chosen level. * &#x60;critical&#x60; - Minimum severity to report is critical. * &#x60;condition&#x60; - Minimum severity to report is informational. * &#x60;warning&#x60; - Minimum severity to report is warning. * &#x60;minor&#x60; - Minimum severity to report is minor. * &#x60;major&#x60; - Minimum severity to report is major. | [optional] [default to "critical"]
 **SenderEmail** | Pointer to **string** | The email address entered here will be displayed as the from address (mail received from address) of all the SMTP mail alerts that are received. If not configured, the hostname of the server is used in the from address field. | [optional] 
 **SmtpPort** | Pointer to **int64** | Port number used by the SMTP server for outgoing SMTP communication. | [optional] 
 **SmtpRecipients** | Pointer to **[]string** |  | [optional] 
@@ -232,6 +232,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *SmtpPolicyAllOf) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *SmtpPolicyAllOf) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

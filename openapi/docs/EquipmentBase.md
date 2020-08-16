@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
 

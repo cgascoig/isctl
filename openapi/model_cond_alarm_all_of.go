@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,12 @@ import (
 
 // CondAlarmAllOf Definition of the list of properties defined in 'cond.Alarm', excluding properties defined in parent classes.
 type CondAlarmAllOf struct {
+	// Alarm acknowledgment state. Default value is None. * `None` - The Enum value None represents that the alarm is not acknowledged and is included as part of health status and overall alarm count. * `Acknowledge` - The Enum value Acknowledge represents that the alarm is acknowledged by user. The alarm will be ignored from the health status and overall alarm count.
+	Acknowledge *string `json:"Acknowledge,omitempty" yaml:"Acknowledge,omitempty"`
+	// User who acknowledged the alarm.
+	AcknowledgeBy *string `json:"AcknowledgeBy,omitempty" yaml:"AcknowledgeBy,omitempty"`
+	// Time at which the alarm was acknowledged by the user.
+	AcknowledgeTime *time.Time `json:"AcknowledgeTime,omitempty" yaml:"AcknowledgeTime,omitempty"`
 	// MoId of the affected object from the managed system's point of view.
 	AffectedMoId *string `json:"AffectedMoId,omitempty" yaml:"AffectedMoId,omitempty"`
 	// Managed system affected object type. For example Adaptor, FI, CIMC.
@@ -41,9 +47,9 @@ type CondAlarmAllOf struct {
 	MsAffectedObject *string `json:"MsAffectedObject,omitempty" yaml:"MsAffectedObject,omitempty"`
 	// Uniquely identifies the type of alarm. For alarms originating from Intersight, this will be a descriptive name. For alarms that are mapped from faults, the name will be derived from fault properties. For example, alarms mapped from UCS faults will use a prefix of UCS and appended with the fault code.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
-	// The original severity when the alarm was first created.
+	// The original severity when the alarm was first created. * `None` - The Enum value None represents that there is no severity. * `Info` - The Enum value Info represents the Informational level of severity. * `Critical` - The Enum value Critical represents the Critical level of severity. * `Warning` - The Enum value Warning represents the Warning level of severity. * `Cleared` - The Enum value Cleared represents that the alarm severity has been cleared.
 	OrigSeverity *string `json:"OrigSeverity,omitempty" yaml:"OrigSeverity,omitempty"`
-	// The severity of the alarm. Valid values are Critical, Warning, Info, and Cleared.
+	// The severity of the alarm. Valid values are Critical, Warning, Info, and Cleared. * `None` - The Enum value None represents that there is no severity. * `Info` - The Enum value Info represents the Informational level of severity. * `Critical` - The Enum value Critical represents the Critical level of severity. * `Warning` - The Enum value Warning represents the Warning level of severity. * `Cleared` - The Enum value Cleared represents that the alarm severity has been cleared.
 	Severity         *string                              `json:"Severity,omitempty" yaml:"Severity,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
@@ -54,6 +60,8 @@ type CondAlarmAllOf struct {
 // will change when the set of required properties is changed
 func NewCondAlarmAllOf() *CondAlarmAllOf {
 	this := CondAlarmAllOf{}
+	var acknowledge string = "None"
+	this.Acknowledge = &acknowledge
 	var origSeverity string = "None"
 	this.OrigSeverity = &origSeverity
 	var severity string = "None"
@@ -66,11 +74,109 @@ func NewCondAlarmAllOf() *CondAlarmAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewCondAlarmAllOfWithDefaults() *CondAlarmAllOf {
 	this := CondAlarmAllOf{}
+	var acknowledge string = "None"
+	this.Acknowledge = &acknowledge
 	var origSeverity string = "None"
 	this.OrigSeverity = &origSeverity
 	var severity string = "None"
 	this.Severity = &severity
 	return &this
+}
+
+// GetAcknowledge returns the Acknowledge field value if set, zero value otherwise.
+func (o *CondAlarmAllOf) GetAcknowledge() string {
+	if o == nil || o.Acknowledge == nil {
+		var ret string
+		return ret
+	}
+	return *o.Acknowledge
+}
+
+// GetAcknowledgeOk returns a tuple with the Acknowledge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAllOf) GetAcknowledgeOk() (*string, bool) {
+	if o == nil || o.Acknowledge == nil {
+		return nil, false
+	}
+	return o.Acknowledge, true
+}
+
+// HasAcknowledge returns a boolean if a field has been set.
+func (o *CondAlarmAllOf) HasAcknowledge() bool {
+	if o != nil && o.Acknowledge != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAcknowledge gets a reference to the given string and assigns it to the Acknowledge field.
+func (o *CondAlarmAllOf) SetAcknowledge(v string) {
+	o.Acknowledge = &v
+}
+
+// GetAcknowledgeBy returns the AcknowledgeBy field value if set, zero value otherwise.
+func (o *CondAlarmAllOf) GetAcknowledgeBy() string {
+	if o == nil || o.AcknowledgeBy == nil {
+		var ret string
+		return ret
+	}
+	return *o.AcknowledgeBy
+}
+
+// GetAcknowledgeByOk returns a tuple with the AcknowledgeBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAllOf) GetAcknowledgeByOk() (*string, bool) {
+	if o == nil || o.AcknowledgeBy == nil {
+		return nil, false
+	}
+	return o.AcknowledgeBy, true
+}
+
+// HasAcknowledgeBy returns a boolean if a field has been set.
+func (o *CondAlarmAllOf) HasAcknowledgeBy() bool {
+	if o != nil && o.AcknowledgeBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAcknowledgeBy gets a reference to the given string and assigns it to the AcknowledgeBy field.
+func (o *CondAlarmAllOf) SetAcknowledgeBy(v string) {
+	o.AcknowledgeBy = &v
+}
+
+// GetAcknowledgeTime returns the AcknowledgeTime field value if set, zero value otherwise.
+func (o *CondAlarmAllOf) GetAcknowledgeTime() time.Time {
+	if o == nil || o.AcknowledgeTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.AcknowledgeTime
+}
+
+// GetAcknowledgeTimeOk returns a tuple with the AcknowledgeTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAllOf) GetAcknowledgeTimeOk() (*time.Time, bool) {
+	if o == nil || o.AcknowledgeTime == nil {
+		return nil, false
+	}
+	return o.AcknowledgeTime, true
+}
+
+// HasAcknowledgeTime returns a boolean if a field has been set.
+func (o *CondAlarmAllOf) HasAcknowledgeTime() bool {
+	if o != nil && o.AcknowledgeTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAcknowledgeTime gets a reference to the given time.Time and assigns it to the AcknowledgeTime field.
+func (o *CondAlarmAllOf) SetAcknowledgeTime(v time.Time) {
+	o.AcknowledgeTime = &v
 }
 
 // GetAffectedMoId returns the AffectedMoId field value if set, zero value otherwise.
@@ -523,6 +629,15 @@ func (o *CondAlarmAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRelationsh
 
 func (o CondAlarmAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Acknowledge != nil {
+		toSerialize["Acknowledge"] = o.Acknowledge
+	}
+	if o.AcknowledgeBy != nil {
+		toSerialize["AcknowledgeBy"] = o.AcknowledgeBy
+	}
+	if o.AcknowledgeTime != nil {
+		toSerialize["AcknowledgeTime"] = o.AcknowledgeTime
+	}
 	if o.AffectedMoId != nil {
 		toSerialize["AffectedMoId"] = o.AffectedMoId
 	}

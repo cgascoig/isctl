@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Enabled** | Pointer to **bool** | State of the IPMI Over LAN service on the endpoint. | [optional] 
 **EncryptionKey** | Pointer to **string** | The encryption key to use for IPMI communication. It should have an even number of hexadecimal characters and not exceed 40 characters. | [optional] 
 **IsEncryptionKeySet** | Pointer to **bool** | Indicates whether the value of the &#39;encryptionKey&#39; property has been set. | [optional] [readonly] 
-**Privilege** | Pointer to **string** | The highest privilege level that can be assigned to an IPMI session on a server. | [optional] [default to "admin"]
+**Privilege** | Pointer to **string** | The highest privilege level that can be assigned to an IPMI session on a server. * &#x60;admin&#x60; - Privilege to perform all actions available through IPMI. * &#x60;user&#x60; - Privilege to perform some functions through IPMI but restriction on performing administrative tasks. * &#x60;read-only&#x60; - Privilege to view information throught IPMI but restriction on making any changes. | [optional] [default to "admin"]
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 **Profiles** | Pointer to [**[]PolicyAbstractConfigProfileRelationship**](policy.AbstractConfigProfile.Relationship.md) | An array of relationships to policyAbstractConfigProfile resources. | [optional] 
 
@@ -180,6 +180,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *IpmioverlanPolicyAllOf) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *IpmioverlanPolicyAllOf) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

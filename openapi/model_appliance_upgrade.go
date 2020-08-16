@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -32,10 +32,19 @@ type ApplianceUpgrade struct {
 	ElapsedTime *int64 `json:"ElapsedTime,omitempty" yaml:"ElapsedTime,omitempty"`
 	// End date of the software upgrade.
 	EndTime *time.Time `json:"EndTime,omitempty" yaml:"EndTime,omitempty"`
+	// Error code for Intersight Appliance's software upgrade. In case of failure - this code will help decide if software upgrade can be retried.
+	ErrorCode *int64 `json:"ErrorCode,omitempty" yaml:"ErrorCode,omitempty"`
 	// Software upgrade manifest's fingerprint.
-	Fingerprint *string   `json:"Fingerprint,omitempty" yaml:"Fingerprint,omitempty"`
-	Messages    *[]string `json:"Messages,omitempty" yaml:"Messages,omitempty"`
-	Services    *[]string `json:"Services,omitempty" yaml:"Services,omitempty"`
+	Fingerprint *string `json:"Fingerprint,omitempty" yaml:"Fingerprint,omitempty"`
+	// Track if software upgrade is upgrading or rolling back.
+	IsRollingBack *bool     `json:"IsRollingBack,omitempty" yaml:"IsRollingBack,omitempty"`
+	Messages      *[]string `json:"Messages,omitempty" yaml:"Messages,omitempty"`
+	// Track if rollback is needed.
+	RollbackNeeded *bool                 `json:"RollbackNeeded,omitempty" yaml:"RollbackNeeded,omitempty"`
+	RollbackPhases *[]OnpremUpgradePhase `json:"RollbackPhases,omitempty" yaml:"RollbackPhases,omitempty"`
+	// Status of the Intersight Appliance's software rollback status.
+	RollbackStatus *string   `json:"RollbackStatus,omitempty" yaml:"RollbackStatus,omitempty"`
+	Services       *[]string `json:"Services,omitempty" yaml:"Services,omitempty"`
 	// Start date of the software upgrade. UI can modify startTime to re-schedule an upgrade.
 	StartTime *time.Time `json:"StartTime,omitempty" yaml:"StartTime,omitempty"`
 	// Status of the Intersight Appliance's software upgrade.
@@ -290,6 +299,38 @@ func (o *ApplianceUpgrade) SetEndTime(v time.Time) {
 	o.EndTime = &v
 }
 
+// GetErrorCode returns the ErrorCode field value if set, zero value otherwise.
+func (o *ApplianceUpgrade) GetErrorCode() int64 {
+	if o == nil || o.ErrorCode == nil {
+		var ret int64
+		return ret
+	}
+	return *o.ErrorCode
+}
+
+// GetErrorCodeOk returns a tuple with the ErrorCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplianceUpgrade) GetErrorCodeOk() (*int64, bool) {
+	if o == nil || o.ErrorCode == nil {
+		return nil, false
+	}
+	return o.ErrorCode, true
+}
+
+// HasErrorCode returns a boolean if a field has been set.
+func (o *ApplianceUpgrade) HasErrorCode() bool {
+	if o != nil && o.ErrorCode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorCode gets a reference to the given int64 and assigns it to the ErrorCode field.
+func (o *ApplianceUpgrade) SetErrorCode(v int64) {
+	o.ErrorCode = &v
+}
+
 // GetFingerprint returns the Fingerprint field value if set, zero value otherwise.
 func (o *ApplianceUpgrade) GetFingerprint() string {
 	if o == nil || o.Fingerprint == nil {
@@ -322,6 +363,38 @@ func (o *ApplianceUpgrade) SetFingerprint(v string) {
 	o.Fingerprint = &v
 }
 
+// GetIsRollingBack returns the IsRollingBack field value if set, zero value otherwise.
+func (o *ApplianceUpgrade) GetIsRollingBack() bool {
+	if o == nil || o.IsRollingBack == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsRollingBack
+}
+
+// GetIsRollingBackOk returns a tuple with the IsRollingBack field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplianceUpgrade) GetIsRollingBackOk() (*bool, bool) {
+	if o == nil || o.IsRollingBack == nil {
+		return nil, false
+	}
+	return o.IsRollingBack, true
+}
+
+// HasIsRollingBack returns a boolean if a field has been set.
+func (o *ApplianceUpgrade) HasIsRollingBack() bool {
+	if o != nil && o.IsRollingBack != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsRollingBack gets a reference to the given bool and assigns it to the IsRollingBack field.
+func (o *ApplianceUpgrade) SetIsRollingBack(v bool) {
+	o.IsRollingBack = &v
+}
+
 // GetMessages returns the Messages field value if set, zero value otherwise.
 func (o *ApplianceUpgrade) GetMessages() []string {
 	if o == nil || o.Messages == nil {
@@ -352,6 +425,102 @@ func (o *ApplianceUpgrade) HasMessages() bool {
 // SetMessages gets a reference to the given []string and assigns it to the Messages field.
 func (o *ApplianceUpgrade) SetMessages(v []string) {
 	o.Messages = &v
+}
+
+// GetRollbackNeeded returns the RollbackNeeded field value if set, zero value otherwise.
+func (o *ApplianceUpgrade) GetRollbackNeeded() bool {
+	if o == nil || o.RollbackNeeded == nil {
+		var ret bool
+		return ret
+	}
+	return *o.RollbackNeeded
+}
+
+// GetRollbackNeededOk returns a tuple with the RollbackNeeded field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplianceUpgrade) GetRollbackNeededOk() (*bool, bool) {
+	if o == nil || o.RollbackNeeded == nil {
+		return nil, false
+	}
+	return o.RollbackNeeded, true
+}
+
+// HasRollbackNeeded returns a boolean if a field has been set.
+func (o *ApplianceUpgrade) HasRollbackNeeded() bool {
+	if o != nil && o.RollbackNeeded != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRollbackNeeded gets a reference to the given bool and assigns it to the RollbackNeeded field.
+func (o *ApplianceUpgrade) SetRollbackNeeded(v bool) {
+	o.RollbackNeeded = &v
+}
+
+// GetRollbackPhases returns the RollbackPhases field value if set, zero value otherwise.
+func (o *ApplianceUpgrade) GetRollbackPhases() []OnpremUpgradePhase {
+	if o == nil || o.RollbackPhases == nil {
+		var ret []OnpremUpgradePhase
+		return ret
+	}
+	return *o.RollbackPhases
+}
+
+// GetRollbackPhasesOk returns a tuple with the RollbackPhases field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplianceUpgrade) GetRollbackPhasesOk() (*[]OnpremUpgradePhase, bool) {
+	if o == nil || o.RollbackPhases == nil {
+		return nil, false
+	}
+	return o.RollbackPhases, true
+}
+
+// HasRollbackPhases returns a boolean if a field has been set.
+func (o *ApplianceUpgrade) HasRollbackPhases() bool {
+	if o != nil && o.RollbackPhases != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRollbackPhases gets a reference to the given []OnpremUpgradePhase and assigns it to the RollbackPhases field.
+func (o *ApplianceUpgrade) SetRollbackPhases(v []OnpremUpgradePhase) {
+	o.RollbackPhases = &v
+}
+
+// GetRollbackStatus returns the RollbackStatus field value if set, zero value otherwise.
+func (o *ApplianceUpgrade) GetRollbackStatus() string {
+	if o == nil || o.RollbackStatus == nil {
+		var ret string
+		return ret
+	}
+	return *o.RollbackStatus
+}
+
+// GetRollbackStatusOk returns a tuple with the RollbackStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplianceUpgrade) GetRollbackStatusOk() (*string, bool) {
+	if o == nil || o.RollbackStatus == nil {
+		return nil, false
+	}
+	return o.RollbackStatus, true
+}
+
+// HasRollbackStatus returns a boolean if a field has been set.
+func (o *ApplianceUpgrade) HasRollbackStatus() bool {
+	if o != nil && o.RollbackStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRollbackStatus gets a reference to the given string and assigns it to the RollbackStatus field.
+func (o *ApplianceUpgrade) SetRollbackStatus(v string) {
+	o.RollbackStatus = &v
 }
 
 // GetServices returns the Services field value if set, zero value otherwise.
@@ -641,11 +810,26 @@ func (o ApplianceUpgrade) MarshalJSON() ([]byte, error) {
 	if o.EndTime != nil {
 		toSerialize["EndTime"] = o.EndTime
 	}
+	if o.ErrorCode != nil {
+		toSerialize["ErrorCode"] = o.ErrorCode
+	}
 	if o.Fingerprint != nil {
 		toSerialize["Fingerprint"] = o.Fingerprint
 	}
+	if o.IsRollingBack != nil {
+		toSerialize["IsRollingBack"] = o.IsRollingBack
+	}
 	if o.Messages != nil {
 		toSerialize["Messages"] = o.Messages
+	}
+	if o.RollbackNeeded != nil {
+		toSerialize["RollbackNeeded"] = o.RollbackNeeded
+	}
+	if o.RollbackPhases != nil {
+		toSerialize["RollbackPhases"] = o.RollbackPhases
+	}
+	if o.RollbackStatus != nil {
+		toSerialize["RollbackStatus"] = o.RollbackStatus
 	}
 	if o.Services != nil {
 		toSerialize["Services"] = o.Services

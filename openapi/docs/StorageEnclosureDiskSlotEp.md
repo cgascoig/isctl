@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Health** | Pointer to **string** | This field identifies the health of the disk inserted in the slot. | [optional] 
 **Presence** | Pointer to **string** | This field identifies the disk is present in the enclosure slot. | [optional] 
 **Slot** | Pointer to **string** | This field represents the slot Id in the storage enclosure. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageEnclosure** | Pointer to [**StorageEnclosureRelationship**](storage.Enclosure.Relationship.md) |  | [optional] 
 
@@ -129,6 +130,31 @@ SetSlot sets Slot field to given value.
 `func (o *StorageEnclosureDiskSlotEp) HasSlot() bool`
 
 HasSlot returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageEnclosureDiskSlotEp) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageEnclosureDiskSlotEp) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageEnclosureDiskSlotEp) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageEnclosureDiskSlotEp) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

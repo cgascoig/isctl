@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **BlockSize** | Pointer to **string** | The block size of the physical disk in bytes. | [optional] 
 **DiskId** | Pointer to **string** | This field represents the disk Id in the storage enclosure. | [optional] 
 **DiskState** | Pointer to **string** | This field identifies the current disk configuration applied in the physical disk. | [optional] 
-**Health** | Pointer to **string** |  | [optional] 
+**Health** | Pointer to **string** | The current health state of the enclosure disk. | [optional] 
 **NumBlocks** | Pointer to **string** | The number of blocks present on the physical disk. | [optional] 
 **Pid** | Pointer to **string** | This field identifies the Product ID for physicalDisk. | [optional] [readonly] 
 **SasAddress1** | Pointer to **string** | This field identifies the SAS address assigned to the disk SAS port-1. | [optional] 
 **SasAddress2** | Pointer to **string** | This field identifies the SAS address assigned to the disk SAS port-2. | [optional] 
 **Size** | Pointer to **string** | The size of the physical disk in MB. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PhysicalDisk** | Pointer to [**StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageEnclosure** | Pointer to [**StorageEnclosureRelationship**](storage.Enclosure.Relationship.md) |  | [optional] 
@@ -260,6 +261,31 @@ SetSize sets Size field to given value.
 `func (o *StorageEnclosureDisk) HasSize() bool`
 
 HasSize returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageEnclosureDisk) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageEnclosureDisk) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageEnclosureDisk) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageEnclosureDisk) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPhysicalDisk
 

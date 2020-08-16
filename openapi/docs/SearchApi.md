@@ -1,14 +1,14 @@
 # \SearchApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSearchSuggestItem**](SearchApi.md#CreateSearchSuggestItem) | **Post** /search/SuggestItems | Create a &#39;search.SuggestItem&#39; resource.
-[**GetSearchSearchItemByMoid**](SearchApi.md#GetSearchSearchItemByMoid) | **Get** /search/SearchItems/{Moid} | Read a &#39;search.SearchItem&#39; resource.
-[**GetSearchSearchItemList**](SearchApi.md#GetSearchSearchItemList) | **Get** /search/SearchItems | Read a &#39;search.SearchItem&#39; resource.
-[**GetSearchTagItemByMoid**](SearchApi.md#GetSearchTagItemByMoid) | **Get** /search/TagItems/{Moid} | Read a &#39;search.TagItem&#39; resource.
-[**GetSearchTagItemList**](SearchApi.md#GetSearchTagItemList) | **Get** /search/TagItems | Read a &#39;search.TagItem&#39; resource.
+[**CreateSearchSuggestItem**](SearchApi.md#CreateSearchSuggestItem) | **Post** /api/v1/search/SuggestItems | Create a &#39;search.SuggestItem&#39; resource.
+[**GetSearchSearchItemByMoid**](SearchApi.md#GetSearchSearchItemByMoid) | **Get** /api/v1/search/SearchItems/{Moid} | Read a &#39;search.SearchItem&#39; resource.
+[**GetSearchSearchItemList**](SearchApi.md#GetSearchSearchItemList) | **Get** /api/v1/search/SearchItems | Read a &#39;search.SearchItem&#39; resource.
+[**GetSearchTagItemByMoid**](SearchApi.md#GetSearchTagItemByMoid) | **Get** /api/v1/search/TagItems/{Moid} | Read a &#39;search.TagItem&#39; resource.
+[**GetSearchTagItemList**](SearchApi.md#GetSearchTagItemList) | **Get** /api/v1/search/TagItems | Read a &#39;search.TagItem&#39; resource.
 
 
 

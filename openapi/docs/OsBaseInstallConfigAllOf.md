@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AdditionalParameters** | Pointer to [**[]OsPlaceHolder**](os.PlaceHolder.md) |  | [optional] 
 **Answers** | Pointer to [**OsAnswers**](os.Answers.md) |  | [optional] 
 **Description** | Pointer to **string** | User provided description about the OS install configuration. | [optional] 
-**InstallMethod** | Pointer to **string** | The install method to be used for OS installation - vMedia, iPXE.  Only vMedia is supported as of now. | [optional] [default to "vMedia"]
+**InstallMethod** | Pointer to **string** | The install method to be used for OS installation - vMedia, iPXE.  Only vMedia is supported as of now. * &#x60;vMedia&#x60; - OS image is mounted as vMedia in target server for OS installation. | [optional] [default to "vMedia"]
 **OperatingSystemParameters** | Pointer to [**OsOperatingSystemParameters**](os.OperatingSystemParameters.md) |  | [optional] 
 
 ## Methods

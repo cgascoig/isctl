@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -82,7 +82,7 @@ func (r apiCreateAdapterConfigPolicyRequest) Execute() (AdapterConfigPolicy, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/adapter/ConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -238,7 +238,7 @@ func (r apiDeleteAdapterConfigPolicyRequest) Execute() (*_nethttp.Response, erro
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/ConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -375,7 +375,7 @@ func (r apiGetAdapterConfigPolicyByMoidRequest) Execute() (AdapterConfigPolicy, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/ConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -584,7 +584,7 @@ func (r apiGetAdapterConfigPolicyListRequest) Execute() (AdapterConfigPolicyResp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/adapter/ConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -762,7 +762,7 @@ func (r apiGetAdapterExtEthInterfaceByMoidRequest) Execute() (AdapterExtEthInter
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ExtEthInterfaces/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/ExtEthInterfaces/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -971,7 +971,7 @@ func (r apiGetAdapterExtEthInterfaceListRequest) Execute() (AdapterExtEthInterfa
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ExtEthInterfaces"
+	localVarPath := localBasePath + "/api/v1/adapter/ExtEthInterfaces"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1149,7 +1149,7 @@ func (r apiGetAdapterHostEthInterfaceByMoidRequest) Execute() (AdapterHostEthInt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/HostEthInterfaces/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/HostEthInterfaces/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1358,7 +1358,7 @@ func (r apiGetAdapterHostEthInterfaceListRequest) Execute() (AdapterHostEthInter
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/HostEthInterfaces"
+	localVarPath := localBasePath + "/api/v1/adapter/HostEthInterfaces"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1536,7 +1536,7 @@ func (r apiGetAdapterHostFcInterfaceByMoidRequest) Execute() (AdapterHostFcInter
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/HostFcInterfaces/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/HostFcInterfaces/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1745,7 +1745,7 @@ func (r apiGetAdapterHostFcInterfaceListRequest) Execute() (AdapterHostFcInterfa
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/HostFcInterfaces"
+	localVarPath := localBasePath + "/api/v1/adapter/HostFcInterfaces"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1923,7 +1923,7 @@ func (r apiGetAdapterHostIscsiInterfaceByMoidRequest) Execute() (AdapterHostIscs
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/HostIscsiInterfaces/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/HostIscsiInterfaces/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2132,7 +2132,7 @@ func (r apiGetAdapterHostIscsiInterfaceListRequest) Execute() (AdapterHostIscsiI
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/HostIscsiInterfaces"
+	localVarPath := localBasePath + "/api/v1/adapter/HostIscsiInterfaces"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2310,7 +2310,7 @@ func (r apiGetAdapterUnitByMoidRequest) Execute() (AdapterUnit, *_nethttp.Respon
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/Units/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/Units/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2519,7 +2519,7 @@ func (r apiGetAdapterUnitListRequest) Execute() (AdapterUnitResponse, *_nethttp.
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/Units"
+	localVarPath := localBasePath + "/api/v1/adapter/Units"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2709,7 +2709,7 @@ func (r apiPatchAdapterConfigPolicyRequest) Execute() (AdapterConfigPolicy, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/ConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2876,7 +2876,7 @@ func (r apiUpdateAdapterConfigPolicyRequest) Execute() (AdapterConfigPolicy, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/adapter/ConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/adapter/ConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -1,12 +1,12 @@
 # \MetaApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteMetaDefinition**](MetaApi.md#DeleteMetaDefinition) | **Delete** /meta/Definitions/{Moid} | Delete a &#39;meta.Definition&#39; resource.
-[**GetMetaDefinitionByMoid**](MetaApi.md#GetMetaDefinitionByMoid) | **Get** /meta/Definitions/{Moid} | Read a &#39;meta.Definition&#39; resource.
-[**GetMetaDefinitionList**](MetaApi.md#GetMetaDefinitionList) | **Get** /meta/Definitions | Read a &#39;meta.Definition&#39; resource.
+[**DeleteMetaDefinition**](MetaApi.md#DeleteMetaDefinition) | **Delete** /api/v1/meta/Definitions/{Moid} | Delete a &#39;meta.Definition&#39; resource.
+[**GetMetaDefinitionByMoid**](MetaApi.md#GetMetaDefinitionByMoid) | **Get** /api/v1/meta/Definitions/{Moid} | Read a &#39;meta.Definition&#39; resource.
+[**GetMetaDefinitionList**](MetaApi.md#GetMetaDefinitionList) | **Get** /api/v1/meta/Definitions | Read a &#39;meta.Definition&#39; resource.
 
 
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -82,7 +82,7 @@ func (r apiCreateSdwanProfileRequest) Execute() (SdwanProfile, *_nethttp.Respons
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/Profiles"
+	localVarPath := localBasePath + "/api/v1/sdwan/Profiles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -254,7 +254,7 @@ func (r apiCreateSdwanRouterNodeRequest) Execute() (SdwanRouterNode, *_nethttp.R
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterNodes"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterNodes"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -426,7 +426,7 @@ func (r apiCreateSdwanRouterPolicyRequest) Execute() (SdwanRouterPolicy, *_netht
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterPolicies"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -598,7 +598,7 @@ func (r apiCreateSdwanVmanageAccountPolicyRequest) Execute() (SdwanVmanageAccoun
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/VmanageAccountPolicies"
+	localVarPath := localBasePath + "/api/v1/sdwan/VmanageAccountPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -754,7 +754,7 @@ func (r apiDeleteSdwanProfileRequest) Execute() (*_nethttp.Response, error) {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/Profiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/Profiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -890,7 +890,7 @@ func (r apiDeleteSdwanRouterNodeRequest) Execute() (*_nethttp.Response, error) {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterNodes/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterNodes/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1026,7 +1026,7 @@ func (r apiDeleteSdwanRouterPolicyRequest) Execute() (*_nethttp.Response, error)
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1162,7 +1162,7 @@ func (r apiDeleteSdwanVmanageAccountPolicyRequest) Execute() (*_nethttp.Response
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/VmanageAccountPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/VmanageAccountPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1299,7 +1299,7 @@ func (r apiGetSdwanProfileByMoidRequest) Execute() (SdwanProfile, *_nethttp.Resp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/Profiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/Profiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1508,7 +1508,7 @@ func (r apiGetSdwanProfileListRequest) Execute() (SdwanProfileResponse, *_nethtt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/Profiles"
+	localVarPath := localBasePath + "/api/v1/sdwan/Profiles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1686,7 +1686,7 @@ func (r apiGetSdwanRouterNodeByMoidRequest) Execute() (SdwanRouterNode, *_nethtt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterNodes/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterNodes/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1895,7 +1895,7 @@ func (r apiGetSdwanRouterNodeListRequest) Execute() (SdwanRouterNodeResponse, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterNodes"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterNodes"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2073,7 +2073,7 @@ func (r apiGetSdwanRouterPolicyByMoidRequest) Execute() (SdwanRouterPolicy, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2282,7 +2282,7 @@ func (r apiGetSdwanRouterPolicyListRequest) Execute() (SdwanRouterPolicyResponse
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterPolicies"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2460,7 +2460,7 @@ func (r apiGetSdwanVmanageAccountPolicyByMoidRequest) Execute() (SdwanVmanageAcc
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/VmanageAccountPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/VmanageAccountPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2669,7 +2669,7 @@ func (r apiGetSdwanVmanageAccountPolicyListRequest) Execute() (SdwanVmanageAccou
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/VmanageAccountPolicies"
+	localVarPath := localBasePath + "/api/v1/sdwan/VmanageAccountPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2859,7 +2859,7 @@ func (r apiPatchSdwanProfileRequest) Execute() (SdwanProfile, *_nethttp.Response
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/Profiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/Profiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3026,7 +3026,7 @@ func (r apiPatchSdwanRouterNodeRequest) Execute() (SdwanRouterNode, *_nethttp.Re
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterNodes/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterNodes/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3193,7 +3193,7 @@ func (r apiPatchSdwanRouterPolicyRequest) Execute() (SdwanRouterPolicy, *_nethtt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3360,7 +3360,7 @@ func (r apiPatchSdwanVmanageAccountPolicyRequest) Execute() (SdwanVmanageAccount
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/VmanageAccountPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/VmanageAccountPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3527,7 +3527,7 @@ func (r apiUpdateSdwanProfileRequest) Execute() (SdwanProfile, *_nethttp.Respons
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/Profiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/Profiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3694,7 +3694,7 @@ func (r apiUpdateSdwanRouterNodeRequest) Execute() (SdwanRouterNode, *_nethttp.R
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterNodes/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterNodes/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3861,7 +3861,7 @@ func (r apiUpdateSdwanRouterPolicyRequest) Execute() (SdwanRouterPolicy, *_netht
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/RouterPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/RouterPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4028,7 +4028,7 @@ func (r apiUpdateSdwanVmanageAccountPolicyRequest) Execute() (SdwanVmanageAccoun
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/sdwan/VmanageAccountPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/sdwan/VmanageAccountPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

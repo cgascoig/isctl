@@ -5,10 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | Pointer to **string** | The SAS Address assigned to storage port. | [optional] [readonly] 
-**DiskId** | Pointer to **int64** | The disk identifier. | [optional] [readonly] 
+**DiskId** | Pointer to **int64** | The unique disk identifier. | [optional] [readonly] 
 **EndPointId** | Pointer to **int64** | The end-point Id assigned to storage port. | [optional] [readonly] 
-**LinkDescription** | Pointer to **string** | The link description. | [optional] [readonly] 
+**LinkDescription** | Pointer to **string** | The description for the link. | [optional] [readonly] 
 **LinkSpeed** | Pointer to **string** | The link speed negotiated for communication. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StoragePhysicalDisk** | Pointer to [**StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) |  | [optional] 
 
@@ -155,6 +156,31 @@ SetLinkSpeed sets LinkSpeed field to given value.
 `func (o *StorageSasPort) HasLinkSpeed() bool`
 
 HasLinkSpeed returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageSasPort) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageSasPort) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageSasPort) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageSasPort) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

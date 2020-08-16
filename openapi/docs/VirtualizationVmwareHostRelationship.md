@@ -18,11 +18,11 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **CpuInfo** | Pointer to [**VirtualizationCpuInfo**](virtualization.CpuInfo.md) |  | [optional] 
 **HardwareInfo** | Pointer to [**InfraHardwareInfo**](infra.HardwareInfo.md) |  | [optional] 
-**HypervisorType** | Pointer to **string** | Identifies the broad type of the underlying hypervisor. | [optional] [default to "Unknown"]
+**HypervisorType** | Pointer to **string** | Identifies the broad type of the underlying hypervisor. * &#x60;Unknown&#x60; - The type of the hypervisor is unknown. * &#x60;ESXi&#x60; - A Vmware ESXi hypervisor of any version. * &#x60;HXAP&#x60; - A Cisco HyperFlex Application Platform hypervisor. | [optional] [default to "Unknown"]
 **Identity** | Pointer to **string** | The internally generated identity of this host. This entity is not manipulated by users. It aids in uniquely identifying the datacenter object. For VMware, this is an MOR (managed object reference). | [optional] 
 **MaintenanceMode** | Pointer to **bool** | Is this host in maintenance mode. Set to true or false. | [optional] 
 **MemoryCapacity** | Pointer to [**VirtualizationMemoryCapacity**](virtualization.MemoryCapacity.md) |  | [optional] 
@@ -31,15 +31,15 @@ Name | Type | Description | Notes
 **ProcessorCapacity** | Pointer to [**VirtualizationComputeCapacity**](virtualization.ComputeCapacity.md) |  | [optional] 
 **ProductInfo** | Pointer to [**VirtualizationProductInfo**](virtualization.ProductInfo.md) |  | [optional] 
 **Serial** | Pointer to **string** | Serial number of this host (internally generated). | [optional] 
-**Status** | Pointer to **string** | Host health status, as reported by the hypervisor platform. | [optional] [default to "Unknown"]
+**Status** | Pointer to **string** | Host health status, as reported by the hypervisor platform. * &#x60;Unknown&#x60; - Entity status is unknown. * &#x60;Degraded&#x60; - State is degraded, and might impact normal operation of the entity. * &#x60;Critical&#x60; - Entity is in a critical state, impacting operations. * &#x60;Ok&#x60; - Entity status is in a stable state, operating normally. | [optional] [default to "Unknown"]
 **UpTime** | Pointer to **string** | The uptime of the host, stored as Duration (from w3c). | [optional] 
 **Uuid** | Pointer to **string** | Universally unique identity of this host (example b3d4483b-5560-9342-8309-b486c9236610). Internally generated. | [optional] 
 **Vendor** | Pointer to **string** | Commercial vendor details of this hardware. | [optional] 
 **BootTime** | Pointer to [**time.Time**](time.Time.md) | The time when this host booted up. | [optional] 
 **ConnectionState** | Pointer to **string** | Indicates if the host is connected to the vCenter. Values are connected, not connected. | [optional] 
-**HwPowerState** | Pointer to **string** | Is the host Powered-up or Powered-down. | [optional] [default to "Unknown"]
+**HwPowerState** | Pointer to **string** | Is the host Powered-up or Powered-down. * &#x60;Unknown&#x60; - The entity&#39;s power state is unknown. * &#x60;PoweredOn&#x60; - The entity is powered on. * &#x60;PoweredOff&#x60; - The entity is powered down. * &#x60;StandBy&#x60; - The entity is in standby mode. * &#x60;Paused&#x60; - The entity is in pause state. | [optional] [default to "Unknown"]
 **NetworkAdapterCount** | Pointer to **int64** | The count of all network adapters attached to this host. | [optional] 
-**ResourceConsumed** | Pointer to [**VirtualizationResourceConsumption**](virtualization.ResourceConsumption.md) |  | [optional] 
+**ResourceConsumed** | Pointer to [**VirtualizationVmwareResourceConsumption**](virtualization.VmwareResourceConsumption.md) |  | [optional] 
 **StorageAdapterCount** | Pointer to **int64** | The count of all storage adapters attached to this host. | [optional] 
 **VcenterHostId** | Pointer to **string** | The identity of this host within vCenter (optional). | [optional] 
 **Cluster** | Pointer to [**VirtualizationVmwareClusterRelationship**](virtualization.VmwareCluster.Relationship.md) |  | [optional] 
@@ -355,6 +355,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *VirtualizationVmwareHostRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *VirtualizationVmwareHostRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *VirtualizationVmwareHostRelationship) GetParent() MoBaseMoRelationship`
@@ -405,6 +415,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *VirtualizationVmwareHostRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *VirtualizationVmwareHostRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *VirtualizationVmwareHostRelationship) GetDisplayNames() map[string][]string`
@@ -942,20 +962,20 @@ HasNetworkAdapterCount returns a boolean if a field has been set.
 
 ### GetResourceConsumed
 
-`func (o *VirtualizationVmwareHostRelationship) GetResourceConsumed() VirtualizationResourceConsumption`
+`func (o *VirtualizationVmwareHostRelationship) GetResourceConsumed() VirtualizationVmwareResourceConsumption`
 
 GetResourceConsumed returns the ResourceConsumed field if non-nil, zero value otherwise.
 
 ### GetResourceConsumedOk
 
-`func (o *VirtualizationVmwareHostRelationship) GetResourceConsumedOk() (*VirtualizationResourceConsumption, bool)`
+`func (o *VirtualizationVmwareHostRelationship) GetResourceConsumedOk() (*VirtualizationVmwareResourceConsumption, bool)`
 
 GetResourceConsumedOk returns a tuple with the ResourceConsumed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceConsumed
 
-`func (o *VirtualizationVmwareHostRelationship) SetResourceConsumed(v VirtualizationResourceConsumption)`
+`func (o *VirtualizationVmwareHostRelationship) SetResourceConsumed(v VirtualizationVmwareResourceConsumption)`
 
 SetResourceConsumed sets ResourceConsumed field to given value.
 
@@ -1090,6 +1110,16 @@ SetDatastores sets Datastores field to given value.
 
 HasDatastores returns a boolean if a field has been set.
 
+### SetDatastoresNil
+
+`func (o *VirtualizationVmwareHostRelationship) SetDatastoresNil(b bool)`
+
+ SetDatastoresNil sets the value for Datastores to be an explicit nil
+
+### UnsetDatastores
+`func (o *VirtualizationVmwareHostRelationship) UnsetDatastores()`
+
+UnsetDatastores ensures that no value is present for Datastores, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

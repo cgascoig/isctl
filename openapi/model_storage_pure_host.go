@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,13 +18,13 @@ import (
 
 // StoragePureHost A host entity in PureStorage FlashArray. It is an abstraction used by PureStorage to organize the storage network addresses (Fibre Channel worldwide names or iSCSI qualified names) of client computers and to control communications between clients and volumes.
 type StoragePureHost struct {
-	StorageHost `yaml:"StorageHost,inline"`
+	StorageBaseHost `yaml:"StorageBaseHost,inline"`
 	// Name of host group where the host belongs to. Empty if host is not part of any HostGroup.
-	HostGroupName      *string                                 `json:"HostGroupName,omitempty" yaml:"HostGroupName,omitempty"`
-	StorageUtilization *StorageHostUtilization                 `json:"StorageUtilization,omitempty" yaml:"StorageUtilization,omitempty"`
-	HostGroup          *StoragePureHostGroupRelationship       `json:"HostGroup,omitempty" yaml:"HostGroup,omitempty"`
-	ProtectionGroup    *StoragePureProtectionGroupRelationship `json:"ProtectionGroup,omitempty" yaml:"ProtectionGroup,omitempty"`
-	RegisteredDevice   *AssetDeviceRegistrationRelationship    `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	HostGroupName    *string                                 `json:"HostGroupName,omitempty" yaml:"HostGroupName,omitempty"`
+	Array            *StoragePureArrayRelationship           `json:"Array,omitempty" yaml:"Array,omitempty"`
+	HostGroup        *StoragePureHostGroupRelationship       `json:"HostGroup,omitempty" yaml:"HostGroup,omitempty"`
+	ProtectionGroup  *StoragePureProtectionGroupRelationship `json:"ProtectionGroup,omitempty" yaml:"ProtectionGroup,omitempty"`
+	RegisteredDevice *AssetDeviceRegistrationRelationship    `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewStoragePureHost instantiates a new StoragePureHost object
@@ -76,36 +76,36 @@ func (o *StoragePureHost) SetHostGroupName(v string) {
 	o.HostGroupName = &v
 }
 
-// GetStorageUtilization returns the StorageUtilization field value if set, zero value otherwise.
-func (o *StoragePureHost) GetStorageUtilization() StorageHostUtilization {
-	if o == nil || o.StorageUtilization == nil {
-		var ret StorageHostUtilization
+// GetArray returns the Array field value if set, zero value otherwise.
+func (o *StoragePureHost) GetArray() StoragePureArrayRelationship {
+	if o == nil || o.Array == nil {
+		var ret StoragePureArrayRelationship
 		return ret
 	}
-	return *o.StorageUtilization
+	return *o.Array
 }
 
-// GetStorageUtilizationOk returns a tuple with the StorageUtilization field value if set, nil otherwise
+// GetArrayOk returns a tuple with the Array field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StoragePureHost) GetStorageUtilizationOk() (*StorageHostUtilization, bool) {
-	if o == nil || o.StorageUtilization == nil {
+func (o *StoragePureHost) GetArrayOk() (*StoragePureArrayRelationship, bool) {
+	if o == nil || o.Array == nil {
 		return nil, false
 	}
-	return o.StorageUtilization, true
+	return o.Array, true
 }
 
-// HasStorageUtilization returns a boolean if a field has been set.
-func (o *StoragePureHost) HasStorageUtilization() bool {
-	if o != nil && o.StorageUtilization != nil {
+// HasArray returns a boolean if a field has been set.
+func (o *StoragePureHost) HasArray() bool {
+	if o != nil && o.Array != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageUtilization gets a reference to the given StorageHostUtilization and assigns it to the StorageUtilization field.
-func (o *StoragePureHost) SetStorageUtilization(v StorageHostUtilization) {
-	o.StorageUtilization = &v
+// SetArray gets a reference to the given StoragePureArrayRelationship and assigns it to the Array field.
+func (o *StoragePureHost) SetArray(v StoragePureArrayRelationship) {
+	o.Array = &v
 }
 
 // GetHostGroup returns the HostGroup field value if set, zero value otherwise.
@@ -206,19 +206,19 @@ func (o *StoragePureHost) SetRegisteredDevice(v AssetDeviceRegistrationRelations
 
 func (o StoragePureHost) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedStorageHost, errStorageHost := json.Marshal(o.StorageHost)
-	if errStorageHost != nil {
-		return []byte{}, errStorageHost
+	serializedStorageBaseHost, errStorageBaseHost := json.Marshal(o.StorageBaseHost)
+	if errStorageBaseHost != nil {
+		return []byte{}, errStorageBaseHost
 	}
-	errStorageHost = json.Unmarshal([]byte(serializedStorageHost), &toSerialize)
-	if errStorageHost != nil {
-		return []byte{}, errStorageHost
+	errStorageBaseHost = json.Unmarshal([]byte(serializedStorageBaseHost), &toSerialize)
+	if errStorageBaseHost != nil {
+		return []byte{}, errStorageBaseHost
 	}
 	if o.HostGroupName != nil {
 		toSerialize["HostGroupName"] = o.HostGroupName
 	}
-	if o.StorageUtilization != nil {
-		toSerialize["StorageUtilization"] = o.StorageUtilization
+	if o.Array != nil {
+		toSerialize["Array"] = o.Array
 	}
 	if o.HostGroup != nil {
 		toSerialize["HostGroup"] = o.HostGroup

@@ -18,19 +18,20 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**AlarmSummary** | Pointer to [**HyperflexAlarmSummary**](hyperflex.AlarmSummary.md) |  | [optional] 
 **CapacityRunway** | Pointer to **int64** | The number of days remaining before the cluster&#39;s storage utilization reaches the recommended capacity limit of 76%. Default value is math.MaxInt32 to indicate that the capacity runway is \&quot;Unknown\&quot; for a cluster that is not connected or with not sufficient data. | [optional] [readonly] 
 **ClusterName** | Pointer to **string** | The name of this HyperFlex cluster. | [optional] [readonly] 
 **ClusterType** | Pointer to **int64** | The storage type of this cluster (All Flash or Hybrid). | [optional] [readonly] 
 **ClusterUuid** | Pointer to **string** | The unique identifier for this HyperFlex cluster. | [optional] [readonly] 
 **ComputeNodeCount** | Pointer to **int64** | The number of compute nodes that belong to this cluster. | [optional] [readonly] 
 **ConvergedNodeCount** | Pointer to **int64** | The number of converged nodes that belong to this cluster. | [optional] [readonly] 
-**DeploymentType** | Pointer to **string** | The deployment type of the HyperFlex cluster. The cluster can have one of the following configurations: 1. Datacenter: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes on a single site. 2. Stretched Cluster: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes distributed across multiple sites. 3. Edge: The HyperFlex cluster consists of 2-4 standalone nodes. If the cluster is running a HyperFlex Data Platform version less than 4.0 or if the deployment type cannot be determined, the deployment type is set as &#39;NA&#39; (not available). | [optional] [readonly] [default to "NA"]
+**DeploymentType** | Pointer to **string** | The deployment type of the HyperFlex cluster. The cluster can have one of the following configurations: 1. Datacenter: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes on a single site. 2. Stretched Cluster: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes distributed across multiple sites. 3. Edge: The HyperFlex cluster consists of 2-4 standalone nodes. If the cluster is running a HyperFlex Data Platform version less than 4.0 or if the deployment type cannot be determined, the deployment type is set as &#39;NA&#39; (not available). * &#x60;NA&#x60; - The deployment type of the HyperFlex cluster is not available. * &#x60;Datacenter&#x60; - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes on the same site. * &#x60;Stretched Cluster&#x60; - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes across different sites. * &#x60;Edge&#x60; - The deployment type of a HyperFlex cluster consisting of 2-4 standalone nodes. | [optional] [readonly] [default to "NA"]
 **DeviceId** | Pointer to **string** | The unique identifier of the device registration that represents this HyperFlex cluster&#39;s connection to Intersight. | [optional] [readonly] 
 **FltAggr** | Pointer to **int64** | The number of yellow (warning) and red (critical) alarms stored as an aggregate. The first 16 bits indicate the number of red alarms, and the last 16 bits contain the number of yellow alarms. | [optional] [readonly] 
 **HxVersion** | Pointer to **string** | The HyperFlex Data Platform version of this cluster. | [optional] [readonly] 
 **HxdpBuildVersion** | Pointer to **string** | The version and build number of the HyperFlex Data Platform for this cluster. After a cluster upgrade, this version string will be updated on the next inventory cycle to reflect the newly installed version. | [optional] [readonly] 
-**HypervisorType** | Pointer to **string** | The type of hypervisor running on this cluster. | [optional] [readonly] [default to "ESXi"]
+**HypervisorType** | Pointer to **string** | The type of hypervisor running on this cluster. * &#x60;ESXi&#x60; - ESXi hypervisor as specified by the user. * &#x60;HYPERV&#x60; - Hyperv hypervisor as specified by the user. * &#x60;KVM&#x60; - KVM hypervisor as specified by the user. | [optional] [readonly] [default to "ESXi"]
 **HypervisorVersion** | Pointer to **string** | The version of hypervisor running on this cluster. | [optional] [readonly] 
 **Summary** | Pointer to [**HyperflexSummary**](hyperflex.Summary.md) |  | [optional] 
 **UtilizationPercentage** | Pointer to **float32** | The storage utilization percentage is computed based on total capacity and current capacity utilization. | [optional] [readonly] 
@@ -350,6 +351,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *HyperflexClusterRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *HyperflexClusterRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *HyperflexClusterRelationship) GetParent() MoBaseMoRelationship`
@@ -400,6 +411,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *HyperflexClusterRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *HyperflexClusterRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *HyperflexClusterRelationship) GetDisplayNames() map[string][]string`
@@ -435,6 +456,31 @@ HasDisplayNames returns a boolean if a field has been set.
 `func (o *HyperflexClusterRelationship) UnsetDisplayNames()`
 
 UnsetDisplayNames ensures that no value is present for DisplayNames, not even an explicit nil
+### GetAlarmSummary
+
+`func (o *HyperflexClusterRelationship) GetAlarmSummary() HyperflexAlarmSummary`
+
+GetAlarmSummary returns the AlarmSummary field if non-nil, zero value otherwise.
+
+### GetAlarmSummaryOk
+
+`func (o *HyperflexClusterRelationship) GetAlarmSummaryOk() (*HyperflexAlarmSummary, bool)`
+
+GetAlarmSummaryOk returns a tuple with the AlarmSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlarmSummary
+
+`func (o *HyperflexClusterRelationship) SetAlarmSummary(v HyperflexAlarmSummary)`
+
+SetAlarmSummary sets AlarmSummary field to given value.
+
+### HasAlarmSummary
+
+`func (o *HyperflexClusterRelationship) HasAlarmSummary() bool`
+
+HasAlarmSummary returns a boolean if a field has been set.
+
 ### GetCapacityRunway
 
 `func (o *HyperflexClusterRelationship) GetCapacityRunway() int64`
@@ -885,6 +931,16 @@ SetAlarm sets Alarm field to given value.
 
 HasAlarm returns a boolean if a field has been set.
 
+### SetAlarmNil
+
+`func (o *HyperflexClusterRelationship) SetAlarmNil(b bool)`
+
+ SetAlarmNil sets the value for Alarm to be an explicit nil
+
+### UnsetAlarm
+`func (o *HyperflexClusterRelationship) UnsetAlarm()`
+
+UnsetAlarm ensures that no value is present for Alarm, not even an explicit nil
 ### GetHealth
 
 `func (o *HyperflexClusterRelationship) GetHealth() HyperflexHealthRelationship`
@@ -935,6 +991,16 @@ SetNodes sets Nodes field to given value.
 
 HasNodes returns a boolean if a field has been set.
 
+### SetNodesNil
+
+`func (o *HyperflexClusterRelationship) SetNodesNil(b bool)`
+
+ SetNodesNil sets the value for Nodes to be an explicit nil
+
+### UnsetNodes
+`func (o *HyperflexClusterRelationship) UnsetNodes()`
+
+UnsetNodes ensures that no value is present for Nodes, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *HyperflexClusterRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

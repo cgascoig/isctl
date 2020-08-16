@@ -8,9 +8,11 @@ Name | Type | Description | Notes
 **Constraints** | Pointer to [**WorkflowTaskConstraints**](workflow.TaskConstraints.md) |  | [optional] 
 **Description** | Pointer to **string** | A detailed description about the batch APIs. | [optional] 
 **Name** | Pointer to **string** | Name for the batch API task. | [optional] 
-**Outcomes** | Pointer to **map[string]interface{}** | All the possible outcomes of this task are captured here. Outcomes property is a collection property of type workflow.Outcome objects. The outcomes can be mapped to the message to be shown. The outcomes are evaluated in the order they are given. At the end of the outcomes list, an catchall success/fail outcome can be added with condition as &#39;true&#39;. This is an optional property and if not specified the task will be marked as success. | [optional] 
-**Output** | Pointer to **map[string]interface{}** | Intersight Orchestrator allows the extraction of required values from API responses using the API response grammar. These extracted values can be mapped to task output parameters defined in task definition. The mapping of API output parameters to the task output parameters is provided as JSON in this property. | [optional] 
+**Outcomes** | Pointer to **interface{}** | All the possible outcomes of this task are captured here. Outcomes property is a collection property of type workflow.Outcome objects. The outcomes can be mapped to the message to be shown. The outcomes are evaluated in the order they are given. At the end of the outcomes list, an catchall success/fail outcome can be added with condition as &#39;true&#39;. This is an optional property and if not specified the task will be marked as success. | [optional] 
+**Output** | Pointer to **interface{}** | Intersight Orchestrator allows the extraction of required values from API responses using the API response grammar. These extracted values can be mapped to task output parameters defined in task definition. The mapping of API output parameters to the task output parameters is provided as JSON in this property. | [optional] 
+**RetryFromFailedApi** | Pointer to **bool** | When an execution of a nth API in the Batch fails, Retry from falied API flag indicates if the execution should start from the nth API or the first API during task retry. By default the value is set to false. | [optional] 
 **SkipOnCondition** | Pointer to **string** | The skip expression, if provided, allows the batch API executor to skip the task execution when the given expression evaluates to true. The expression is given as such a golang template that has to be evaluated to a final content true/false. The expression is an optional and in case not provided, the API will always be executed. | [optional] 
+**ErrorResponseHandler** | Pointer to [**WorkflowErrorResponseHandlerRelationship**](workflow.ErrorResponseHandler.Relationship.md) |  | [optional] 
 **TaskDefinition** | Pointer to [**WorkflowTaskDefinitionRelationship**](workflow.TaskDefinition.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -134,20 +136,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetOutcomes
 
-`func (o *WorkflowBatchApiExecutorAllOf) GetOutcomes() map[string]interface{}`
+`func (o *WorkflowBatchApiExecutorAllOf) GetOutcomes() interface{}`
 
 GetOutcomes returns the Outcomes field if non-nil, zero value otherwise.
 
 ### GetOutcomesOk
 
-`func (o *WorkflowBatchApiExecutorAllOf) GetOutcomesOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowBatchApiExecutorAllOf) GetOutcomesOk() (*interface{}, bool)`
 
 GetOutcomesOk returns a tuple with the Outcomes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutcomes
 
-`func (o *WorkflowBatchApiExecutorAllOf) SetOutcomes(v map[string]interface{})`
+`func (o *WorkflowBatchApiExecutorAllOf) SetOutcomes(v interface{})`
 
 SetOutcomes sets Outcomes field to given value.
 
@@ -157,22 +159,32 @@ SetOutcomes sets Outcomes field to given value.
 
 HasOutcomes returns a boolean if a field has been set.
 
+### SetOutcomesNil
+
+`func (o *WorkflowBatchApiExecutorAllOf) SetOutcomesNil(b bool)`
+
+ SetOutcomesNil sets the value for Outcomes to be an explicit nil
+
+### UnsetOutcomes
+`func (o *WorkflowBatchApiExecutorAllOf) UnsetOutcomes()`
+
+UnsetOutcomes ensures that no value is present for Outcomes, not even an explicit nil
 ### GetOutput
 
-`func (o *WorkflowBatchApiExecutorAllOf) GetOutput() map[string]interface{}`
+`func (o *WorkflowBatchApiExecutorAllOf) GetOutput() interface{}`
 
 GetOutput returns the Output field if non-nil, zero value otherwise.
 
 ### GetOutputOk
 
-`func (o *WorkflowBatchApiExecutorAllOf) GetOutputOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowBatchApiExecutorAllOf) GetOutputOk() (*interface{}, bool)`
 
 GetOutputOk returns a tuple with the Output field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutput
 
-`func (o *WorkflowBatchApiExecutorAllOf) SetOutput(v map[string]interface{})`
+`func (o *WorkflowBatchApiExecutorAllOf) SetOutput(v interface{})`
 
 SetOutput sets Output field to given value.
 
@@ -181,6 +193,41 @@ SetOutput sets Output field to given value.
 `func (o *WorkflowBatchApiExecutorAllOf) HasOutput() bool`
 
 HasOutput returns a boolean if a field has been set.
+
+### SetOutputNil
+
+`func (o *WorkflowBatchApiExecutorAllOf) SetOutputNil(b bool)`
+
+ SetOutputNil sets the value for Output to be an explicit nil
+
+### UnsetOutput
+`func (o *WorkflowBatchApiExecutorAllOf) UnsetOutput()`
+
+UnsetOutput ensures that no value is present for Output, not even an explicit nil
+### GetRetryFromFailedApi
+
+`func (o *WorkflowBatchApiExecutorAllOf) GetRetryFromFailedApi() bool`
+
+GetRetryFromFailedApi returns the RetryFromFailedApi field if non-nil, zero value otherwise.
+
+### GetRetryFromFailedApiOk
+
+`func (o *WorkflowBatchApiExecutorAllOf) GetRetryFromFailedApiOk() (*bool, bool)`
+
+GetRetryFromFailedApiOk returns a tuple with the RetryFromFailedApi field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRetryFromFailedApi
+
+`func (o *WorkflowBatchApiExecutorAllOf) SetRetryFromFailedApi(v bool)`
+
+SetRetryFromFailedApi sets RetryFromFailedApi field to given value.
+
+### HasRetryFromFailedApi
+
+`func (o *WorkflowBatchApiExecutorAllOf) HasRetryFromFailedApi() bool`
+
+HasRetryFromFailedApi returns a boolean if a field has been set.
 
 ### GetSkipOnCondition
 
@@ -206,6 +253,31 @@ SetSkipOnCondition sets SkipOnCondition field to given value.
 `func (o *WorkflowBatchApiExecutorAllOf) HasSkipOnCondition() bool`
 
 HasSkipOnCondition returns a boolean if a field has been set.
+
+### GetErrorResponseHandler
+
+`func (o *WorkflowBatchApiExecutorAllOf) GetErrorResponseHandler() WorkflowErrorResponseHandlerRelationship`
+
+GetErrorResponseHandler returns the ErrorResponseHandler field if non-nil, zero value otherwise.
+
+### GetErrorResponseHandlerOk
+
+`func (o *WorkflowBatchApiExecutorAllOf) GetErrorResponseHandlerOk() (*WorkflowErrorResponseHandlerRelationship, bool)`
+
+GetErrorResponseHandlerOk returns a tuple with the ErrorResponseHandler field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorResponseHandler
+
+`func (o *WorkflowBatchApiExecutorAllOf) SetErrorResponseHandler(v WorkflowErrorResponseHandlerRelationship)`
+
+SetErrorResponseHandler sets ErrorResponseHandler field to given value.
+
+### HasErrorResponseHandler
+
+`func (o *WorkflowBatchApiExecutorAllOf) HasErrorResponseHandler() bool`
+
+HasErrorResponseHandler returns a boolean if a field has been set.
 
 ### GetTaskDefinition
 

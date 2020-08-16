@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -16,13 +16,15 @@ import (
 	"encoding/json"
 )
 
-// VnicFcQosPolicy A Fibre Channel Quality of Service (QoS) policy assigns a system class to the outgoing traffic for a vHBA. This system class determines the quality of service for the outgoing traffic. For certain adapters you can also specify additional controls like burst and rate on the outgoing traffic.
+// VnicFcQosPolicy A Fibre Channel Quality of Service (QoS) policy assigns a system class to the outgoing traffic for a vHBA. This system class determines the quality of service for the outgoing traffic. For certain adapters additional controls can also be specified like burst and rate on the outgoing traffic.
 type VnicFcQosPolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
 	// Class of Service to be associated to the traffic on the virtual interface.
 	Cos *int64 `json:"Cos,omitempty" yaml:"Cos,omitempty"`
 	// The maximum size of the Fibre Channel frame payload bytes that the virtual interface supports.
 	MaxDataFieldSize *int64 `json:"MaxDataFieldSize,omitempty" yaml:"MaxDataFieldSize,omitempty"`
+	// The priortity matching the System QoS specified in the fabric profile. * `Best Effort` - QoS Priority for Best-effort traffic. * `FC` - QoS Priority for FC traffic. * `Platinum` - QoS Priority for Platinum traffic. * `Gold` - QoS Priority for Gold traffic. * `Silver` - QoS Priority for Silver traffic. * `Bronze` - QoS Priority for Bronze traffic.
+	Priority *string `json:"Priority,omitempty" yaml:"Priority,omitempty"`
 	// The value in Mbps to use for limiting the data rate on the virtual interface. Setting this to zero will turn rate limiting off.
 	RateLimit    *int64                                `json:"RateLimit,omitempty" yaml:"RateLimit,omitempty"`
 	Organization *OrganizationOrganizationRelationship `json:"Organization,omitempty" yaml:"Organization,omitempty"`
@@ -34,6 +36,8 @@ type VnicFcQosPolicy struct {
 // will change when the set of required properties is changed
 func NewVnicFcQosPolicy() *VnicFcQosPolicy {
 	this := VnicFcQosPolicy{}
+	var priority string = "Best Effort"
+	this.Priority = &priority
 	return &this
 }
 
@@ -42,6 +46,8 @@ func NewVnicFcQosPolicy() *VnicFcQosPolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewVnicFcQosPolicyWithDefaults() *VnicFcQosPolicy {
 	this := VnicFcQosPolicy{}
+	var priority string = "Best Effort"
+	this.Priority = &priority
 	return &this
 }
 
@@ -107,6 +113,38 @@ func (o *VnicFcQosPolicy) HasMaxDataFieldSize() bool {
 // SetMaxDataFieldSize gets a reference to the given int64 and assigns it to the MaxDataFieldSize field.
 func (o *VnicFcQosPolicy) SetMaxDataFieldSize(v int64) {
 	o.MaxDataFieldSize = &v
+}
+
+// GetPriority returns the Priority field value if set, zero value otherwise.
+func (o *VnicFcQosPolicy) GetPriority() string {
+	if o == nil || o.Priority == nil {
+		var ret string
+		return ret
+	}
+	return *o.Priority
+}
+
+// GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicFcQosPolicy) GetPriorityOk() (*string, bool) {
+	if o == nil || o.Priority == nil {
+		return nil, false
+	}
+	return o.Priority, true
+}
+
+// HasPriority returns a boolean if a field has been set.
+func (o *VnicFcQosPolicy) HasPriority() bool {
+	if o != nil && o.Priority != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPriority gets a reference to the given string and assigns it to the Priority field.
+func (o *VnicFcQosPolicy) SetPriority(v string) {
+	o.Priority = &v
 }
 
 // GetRateLimit returns the RateLimit field value if set, zero value otherwise.
@@ -188,6 +226,9 @@ func (o VnicFcQosPolicy) MarshalJSON() ([]byte, error) {
 	}
 	if o.MaxDataFieldSize != nil {
 		toSerialize["MaxDataFieldSize"] = o.MaxDataFieldSize
+	}
+	if o.Priority != nil {
+		toSerialize["Priority"] = o.Priority
 	}
 	if o.RateLimit != nil {
 		toSerialize["RateLimit"] = o.RateLimit

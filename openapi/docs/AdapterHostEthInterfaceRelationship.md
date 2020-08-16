@@ -18,28 +18,27 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
-**Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
-**Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
-**Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**AdminState** | Pointer to **string** |  | [optional] [readonly] 
-**EpDn** | Pointer to **string** |  | [optional] [readonly] 
-**HostEthInterfaceId** | Pointer to **int64** |  | [optional] [readonly] 
-**InterfaceType** | Pointer to **string** |  | [optional] [readonly] 
-**MacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**OriginalMacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**PciAddr** | Pointer to **string** |  | [optional] [readonly] 
-**PeerDn** | Pointer to **string** |  | [optional] [readonly] 
-**VirtualizationPreference** | Pointer to **string** |  | [optional] [readonly] 
-**VnicDn** | Pointer to **string** |  | [optional] [readonly] 
+**OperState** | Pointer to **string** | Operational state of an Interface. | [optional] 
+**AcknowledgedPeerInterface** | Pointer to [**EtherPhysicalPortBaseRelationship**](ether.PhysicalPortBase.Relationship.md) |  | [optional] 
+**PeerInterface** | Pointer to [**EtherPhysicalPortBaseRelationship**](ether.PhysicalPortBase.Relationship.md) |  | [optional] 
+**AdminState** | Pointer to **string** | Admin state of the Host Ethernet Interface. | [optional] [readonly] 
+**EpDn** | Pointer to **string** | The Endpoint Config Dn of the Host Ethernet Interface. | [optional] [readonly] 
+**HostEthInterfaceId** | Pointer to **int64** | Unique Identifier for an Host Ethernet Interface within the adapter object. | [optional] [readonly] 
+**InterfaceType** | Pointer to **string** | Type of External Ethernet Interface. | [optional] [readonly] 
+**MacAddress** | Pointer to **string** | Mac address of the Host Ethernet Interface. | [optional] [readonly] 
+**Name** | Pointer to **string** | Name of Host Ethernet Interface. | [optional] [readonly] 
+**Operability** | Pointer to **string** | Operability status of Host Ethernet Channel Interface. | [optional] [readonly] 
+**OriginalMacAddress** | Pointer to **string** | The factory default Mac address of the Host Ethernet Interface. | [optional] [readonly] 
+**PciAddr** | Pointer to **string** | The PCI address of the Host Ethernet Interface. | [optional] [readonly] 
+**PeerDn** | Pointer to **string** | The distinguished name of the peer endpoint connected to the Host Ethernet interface. | [optional] [readonly] 
+**VirtualizationPreference** | Pointer to **string** | Virtualization Preference of the Host Ethernet Interface indicating if virtualization is enabled or not. | [optional] [readonly] 
+**VnicDn** | Pointer to **string** | The Virtual Ethernet Interface DN connected to the Host Ethernet Interface. | [optional] [readonly] 
 **AdapterUnit** | Pointer to [**AdapterUnitRelationship**](adapter.Unit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -351,6 +350,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *AdapterHostEthInterfaceRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *AdapterHostEthInterfaceRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *AdapterHostEthInterfaceRelationship) GetParent() MoBaseMoRelationship`
@@ -401,6 +410,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *AdapterHostEthInterfaceRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *AdapterHostEthInterfaceRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *AdapterHostEthInterfaceRelationship) GetDisplayNames() map[string][]string`
@@ -511,105 +530,80 @@ SetRn sets Rn field to given value.
 
 HasRn returns a boolean if a field has been set.
 
-### GetModel
+### GetOperState
 
-`func (o *AdapterHostEthInterfaceRelationship) GetModel() string`
+`func (o *AdapterHostEthInterfaceRelationship) GetOperState() string`
 
-GetModel returns the Model field if non-nil, zero value otherwise.
+GetOperState returns the OperState field if non-nil, zero value otherwise.
 
-### GetModelOk
+### GetOperStateOk
 
-`func (o *AdapterHostEthInterfaceRelationship) GetModelOk() (*string, bool)`
+`func (o *AdapterHostEthInterfaceRelationship) GetOperStateOk() (*string, bool)`
 
-GetModelOk returns a tuple with the Model field if it's non-nil, zero value otherwise
+GetOperStateOk returns a tuple with the OperState field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetModel
+### SetOperState
 
-`func (o *AdapterHostEthInterfaceRelationship) SetModel(v string)`
+`func (o *AdapterHostEthInterfaceRelationship) SetOperState(v string)`
 
-SetModel sets Model field to given value.
+SetOperState sets OperState field to given value.
 
-### HasModel
+### HasOperState
 
-`func (o *AdapterHostEthInterfaceRelationship) HasModel() bool`
+`func (o *AdapterHostEthInterfaceRelationship) HasOperState() bool`
 
-HasModel returns a boolean if a field has been set.
+HasOperState returns a boolean if a field has been set.
 
-### GetRevision
+### GetAcknowledgedPeerInterface
 
-`func (o *AdapterHostEthInterfaceRelationship) GetRevision() string`
+`func (o *AdapterHostEthInterfaceRelationship) GetAcknowledgedPeerInterface() EtherPhysicalPortBaseRelationship`
 
-GetRevision returns the Revision field if non-nil, zero value otherwise.
+GetAcknowledgedPeerInterface returns the AcknowledgedPeerInterface field if non-nil, zero value otherwise.
 
-### GetRevisionOk
+### GetAcknowledgedPeerInterfaceOk
 
-`func (o *AdapterHostEthInterfaceRelationship) GetRevisionOk() (*string, bool)`
+`func (o *AdapterHostEthInterfaceRelationship) GetAcknowledgedPeerInterfaceOk() (*EtherPhysicalPortBaseRelationship, bool)`
 
-GetRevisionOk returns a tuple with the Revision field if it's non-nil, zero value otherwise
+GetAcknowledgedPeerInterfaceOk returns a tuple with the AcknowledgedPeerInterface field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRevision
+### SetAcknowledgedPeerInterface
 
-`func (o *AdapterHostEthInterfaceRelationship) SetRevision(v string)`
+`func (o *AdapterHostEthInterfaceRelationship) SetAcknowledgedPeerInterface(v EtherPhysicalPortBaseRelationship)`
 
-SetRevision sets Revision field to given value.
+SetAcknowledgedPeerInterface sets AcknowledgedPeerInterface field to given value.
 
-### HasRevision
+### HasAcknowledgedPeerInterface
 
-`func (o *AdapterHostEthInterfaceRelationship) HasRevision() bool`
+`func (o *AdapterHostEthInterfaceRelationship) HasAcknowledgedPeerInterface() bool`
 
-HasRevision returns a boolean if a field has been set.
+HasAcknowledgedPeerInterface returns a boolean if a field has been set.
 
-### GetSerial
+### GetPeerInterface
 
-`func (o *AdapterHostEthInterfaceRelationship) GetSerial() string`
+`func (o *AdapterHostEthInterfaceRelationship) GetPeerInterface() EtherPhysicalPortBaseRelationship`
 
-GetSerial returns the Serial field if non-nil, zero value otherwise.
+GetPeerInterface returns the PeerInterface field if non-nil, zero value otherwise.
 
-### GetSerialOk
+### GetPeerInterfaceOk
 
-`func (o *AdapterHostEthInterfaceRelationship) GetSerialOk() (*string, bool)`
+`func (o *AdapterHostEthInterfaceRelationship) GetPeerInterfaceOk() (*EtherPhysicalPortBaseRelationship, bool)`
 
-GetSerialOk returns a tuple with the Serial field if it's non-nil, zero value otherwise
+GetPeerInterfaceOk returns a tuple with the PeerInterface field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSerial
+### SetPeerInterface
 
-`func (o *AdapterHostEthInterfaceRelationship) SetSerial(v string)`
+`func (o *AdapterHostEthInterfaceRelationship) SetPeerInterface(v EtherPhysicalPortBaseRelationship)`
 
-SetSerial sets Serial field to given value.
+SetPeerInterface sets PeerInterface field to given value.
 
-### HasSerial
+### HasPeerInterface
 
-`func (o *AdapterHostEthInterfaceRelationship) HasSerial() bool`
+`func (o *AdapterHostEthInterfaceRelationship) HasPeerInterface() bool`
 
-HasSerial returns a boolean if a field has been set.
-
-### GetVendor
-
-`func (o *AdapterHostEthInterfaceRelationship) GetVendor() string`
-
-GetVendor returns the Vendor field if non-nil, zero value otherwise.
-
-### GetVendorOk
-
-`func (o *AdapterHostEthInterfaceRelationship) GetVendorOk() (*string, bool)`
-
-GetVendorOk returns a tuple with the Vendor field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVendor
-
-`func (o *AdapterHostEthInterfaceRelationship) SetVendor(v string)`
-
-SetVendor sets Vendor field to given value.
-
-### HasVendor
-
-`func (o *AdapterHostEthInterfaceRelationship) HasVendor() bool`
-
-HasVendor returns a boolean if a field has been set.
+HasPeerInterface returns a boolean if a field has been set.
 
 ### GetAdminState
 
@@ -760,31 +754,6 @@ SetName sets Name field to given value.
 `func (o *AdapterHostEthInterfaceRelationship) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
-### GetOperState
-
-`func (o *AdapterHostEthInterfaceRelationship) GetOperState() string`
-
-GetOperState returns the OperState field if non-nil, zero value otherwise.
-
-### GetOperStateOk
-
-`func (o *AdapterHostEthInterfaceRelationship) GetOperStateOk() (*string, bool)`
-
-GetOperStateOk returns a tuple with the OperState field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOperState
-
-`func (o *AdapterHostEthInterfaceRelationship) SetOperState(v string)`
-
-SetOperState sets OperState field to given value.
-
-### HasOperState
-
-`func (o *AdapterHostEthInterfaceRelationship) HasOperState() bool`
-
-HasOperState returns a boolean if a field has been set.
 
 ### GetOperability
 
@@ -960,6 +929,31 @@ SetAdapterUnit sets AdapterUnit field to given value.
 `func (o *AdapterHostEthInterfaceRelationship) HasAdapterUnit() bool`
 
 HasAdapterUnit returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *AdapterHostEthInterfaceRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *AdapterHostEthInterfaceRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *AdapterHostEthInterfaceRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *AdapterHostEthInterfaceRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

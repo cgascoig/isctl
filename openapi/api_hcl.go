@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -82,7 +82,7 @@ func (r apiCreateHclCompatibilityStatusRequest) Execute() (HclCompatibilityStatu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/CompatibilityStatuses"
+	localVarPath := localBasePath + "/api/v1/hcl/CompatibilityStatuses"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -254,7 +254,7 @@ func (r apiCreateHclHyperflexSoftwareCompatibilityInfoRequest) Execute() (HclHyp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/HyperflexSoftwareCompatibilityInfos"
+	localVarPath := localBasePath + "/api/v1/hcl/HyperflexSoftwareCompatibilityInfos"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -426,7 +426,7 @@ func (r apiCreateHclSupportedDriverNameRequest) Execute() (HclSupportedDriverNam
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/SupportedDriverNames"
+	localVarPath := localBasePath + "/api/v1/hcl/SupportedDriverNames"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -582,7 +582,7 @@ func (r apiDeleteHclHyperflexSoftwareCompatibilityInfoRequest) Execute() (*_neth
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -719,7 +719,7 @@ func (r apiGetHclDriverImageByMoidRequest) Execute() (HclDriverImage, *_nethttp.
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/DriverImages/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/DriverImages/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -928,7 +928,7 @@ func (r apiGetHclDriverImageListRequest) Execute() (HclDriverImageResponse, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/DriverImages"
+	localVarPath := localBasePath + "/api/v1/hcl/DriverImages"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1106,7 +1106,7 @@ func (r apiGetHclExemptedCatalogByMoidRequest) Execute() (HclExemptedCatalog, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/ExemptedCatalogs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/ExemptedCatalogs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1315,7 +1315,7 @@ func (r apiGetHclExemptedCatalogListRequest) Execute() (HclExemptedCatalogRespon
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/ExemptedCatalogs"
+	localVarPath := localBasePath + "/api/v1/hcl/ExemptedCatalogs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1493,7 +1493,7 @@ func (r apiGetHclHyperflexSoftwareCompatibilityInfoByMoidRequest) Execute() (Hcl
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1702,7 +1702,7 @@ func (r apiGetHclHyperflexSoftwareCompatibilityInfoListRequest) Execute() (HclHy
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/HyperflexSoftwareCompatibilityInfos"
+	localVarPath := localBasePath + "/api/v1/hcl/HyperflexSoftwareCompatibilityInfos"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1880,7 +1880,7 @@ func (r apiGetHclOperatingSystemByMoidRequest) Execute() (HclOperatingSystem, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/OperatingSystems/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/OperatingSystems/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2089,7 +2089,7 @@ func (r apiGetHclOperatingSystemListRequest) Execute() (HclOperatingSystemRespon
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/OperatingSystems"
+	localVarPath := localBasePath + "/api/v1/hcl/OperatingSystems"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2267,7 +2267,7 @@ func (r apiGetHclOperatingSystemVendorByMoidRequest) Execute() (HclOperatingSyst
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/OperatingSystemVendors/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/OperatingSystemVendors/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2476,7 +2476,7 @@ func (r apiGetHclOperatingSystemVendorListRequest) Execute() (HclOperatingSystem
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/OperatingSystemVendors"
+	localVarPath := localBasePath + "/api/v1/hcl/OperatingSystemVendors"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2654,7 +2654,7 @@ func (r apiGetHclServiceStatusByMoidRequest) Execute() (HclServiceStatus, *_neth
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/ServiceStatuses/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/ServiceStatuses/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2863,7 +2863,7 @@ func (r apiGetHclServiceStatusListRequest) Execute() (HclServiceStatusResponse, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/ServiceStatuses"
+	localVarPath := localBasePath + "/api/v1/hcl/ServiceStatuses"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3053,7 +3053,7 @@ func (r apiPatchHclHyperflexSoftwareCompatibilityInfoRequest) Execute() (HclHype
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3220,7 +3220,7 @@ func (r apiUpdateHclHyperflexSoftwareCompatibilityInfoRequest) Execute() (HclHyp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

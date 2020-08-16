@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -26,13 +26,22 @@ type VnicFcIf struct {
 	// Enables retention of LUN ID associations in memory until they are manually cleared.
 	PersistentBindings *bool                  `json:"PersistentBindings,omitempty" yaml:"PersistentBindings,omitempty"`
 	Placement          *VnicPlacementSettings `json:"Placement,omitempty" yaml:"Placement,omitempty"`
-	// VHBA Type configuration for SAN Connectivity Policy. This configuration is supported only on Cisco VIC 14XX series and higher series of adapters.
-	Type                  *string                                `json:"Type,omitempty" yaml:"Type,omitempty"`
-	FcAdapterPolicy       *VnicFcAdapterPolicyRelationship       `json:"FcAdapterPolicy,omitempty" yaml:"FcAdapterPolicy,omitempty"`
-	FcNetworkPolicy       *VnicFcNetworkPolicyRelationship       `json:"FcNetworkPolicy,omitempty" yaml:"FcNetworkPolicy,omitempty"`
-	FcQosPolicy           *VnicFcQosPolicyRelationship           `json:"FcQosPolicy,omitempty" yaml:"FcQosPolicy,omitempty"`
-	Organization          *OrganizationOrganizationRelationship  `json:"Organization,omitempty" yaml:"Organization,omitempty"`
-	SanConnectivityPolicy *VnicSanConnectivityPolicyRelationship `json:"SanConnectivityPolicy,omitempty" yaml:"SanConnectivityPolicy,omitempty"`
+	// VHBA Type configuration for SAN Connectivity Policy. This configuration is supported only on Cisco VIC 14XX series and higher series of adapters. * `fc-initiator` - The default value set for vHBA Type Configuration. Fc-initiator specifies vHBA as a consumer of storage. Enables SCSI commands to transfer data and status information between host and target storage systems. * `fc-nvme-initiator` - Fc-nvme-initiator specifies vHBA as a consumer of storage. Enables NVMe-based message commands to transfer data and status information between host and target storage systems. * `fc-nvme-target` - Fc-nvme-target specifies vHBA as a provider of storage volumes to initiators. Enables NVMe-based message commands to transfer data and status information between host and target storage systems. Currently tech-preview, only enabled with an asynchronous driver. * `fc-target` - Fc-target specifies vHBA as a provider of storage volumes to initiators. Enables SCSI commands to transfer data and status information between host and target storage systems. fc-target is enabled only with an asynchronous driver.
+	Type *string `json:"Type,omitempty" yaml:"Type,omitempty"`
+	// This should be the same as the channel number of the vfc created on switch in order to set up the data path. The property is applicable only for FI attached servers where a vfc is created on the switch for every vHBA.
+	VifId *int64 `json:"VifId,omitempty" yaml:"VifId,omitempty"`
+	// The WWPN address that is assigned to the vhba based on the wwn pool that has been assigned to the SAN Connectivity Policy.
+	Wwpn                  *string                                  `json:"Wwpn,omitempty" yaml:"Wwpn,omitempty"`
+	FcAdapterPolicy       *VnicFcAdapterPolicyRelationship         `json:"FcAdapterPolicy,omitempty" yaml:"FcAdapterPolicy,omitempty"`
+	FcNetworkPolicy       *VnicFcNetworkPolicyRelationship         `json:"FcNetworkPolicy,omitempty" yaml:"FcNetworkPolicy,omitempty"`
+	FcQosPolicy           *VnicFcQosPolicyRelationship             `json:"FcQosPolicy,omitempty" yaml:"FcQosPolicy,omitempty"`
+	Profile               *PolicyAbstractConfigProfileRelationship `json:"Profile,omitempty" yaml:"Profile,omitempty"`
+	SanConnectivityPolicy *VnicSanConnectivityPolicyRelationship   `json:"SanConnectivityPolicy,omitempty" yaml:"SanConnectivityPolicy,omitempty"`
+	ScpVhba               *VnicFcIfRelationship                    `json:"ScpVhba,omitempty" yaml:"ScpVhba,omitempty"`
+	// An array of relationships to vnicFcIf resources.
+	SpVhbas   []VnicFcIfRelationship   `json:"SpVhbas,omitempty" yaml:"SpVhbas,omitempty"`
+	WwpnLease *FcpoolLeaseRelationship `json:"WwpnLease,omitempty" yaml:"WwpnLease,omitempty"`
+	WwpnPool  *FcpoolPoolRelationship  `json:"WwpnPool,omitempty" yaml:"WwpnPool,omitempty"`
 }
 
 // NewVnicFcIf instantiates a new VnicFcIf object
@@ -216,6 +225,70 @@ func (o *VnicFcIf) SetType(v string) {
 	o.Type = &v
 }
 
+// GetVifId returns the VifId field value if set, zero value otherwise.
+func (o *VnicFcIf) GetVifId() int64 {
+	if o == nil || o.VifId == nil {
+		var ret int64
+		return ret
+	}
+	return *o.VifId
+}
+
+// GetVifIdOk returns a tuple with the VifId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicFcIf) GetVifIdOk() (*int64, bool) {
+	if o == nil || o.VifId == nil {
+		return nil, false
+	}
+	return o.VifId, true
+}
+
+// HasVifId returns a boolean if a field has been set.
+func (o *VnicFcIf) HasVifId() bool {
+	if o != nil && o.VifId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVifId gets a reference to the given int64 and assigns it to the VifId field.
+func (o *VnicFcIf) SetVifId(v int64) {
+	o.VifId = &v
+}
+
+// GetWwpn returns the Wwpn field value if set, zero value otherwise.
+func (o *VnicFcIf) GetWwpn() string {
+	if o == nil || o.Wwpn == nil {
+		var ret string
+		return ret
+	}
+	return *o.Wwpn
+}
+
+// GetWwpnOk returns a tuple with the Wwpn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicFcIf) GetWwpnOk() (*string, bool) {
+	if o == nil || o.Wwpn == nil {
+		return nil, false
+	}
+	return o.Wwpn, true
+}
+
+// HasWwpn returns a boolean if a field has been set.
+func (o *VnicFcIf) HasWwpn() bool {
+	if o != nil && o.Wwpn != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWwpn gets a reference to the given string and assigns it to the Wwpn field.
+func (o *VnicFcIf) SetWwpn(v string) {
+	o.Wwpn = &v
+}
+
 // GetFcAdapterPolicy returns the FcAdapterPolicy field value if set, zero value otherwise.
 func (o *VnicFcIf) GetFcAdapterPolicy() VnicFcAdapterPolicyRelationship {
 	if o == nil || o.FcAdapterPolicy == nil {
@@ -312,36 +385,36 @@ func (o *VnicFcIf) SetFcQosPolicy(v VnicFcQosPolicyRelationship) {
 	o.FcQosPolicy = &v
 }
 
-// GetOrganization returns the Organization field value if set, zero value otherwise.
-func (o *VnicFcIf) GetOrganization() OrganizationOrganizationRelationship {
-	if o == nil || o.Organization == nil {
-		var ret OrganizationOrganizationRelationship
+// GetProfile returns the Profile field value if set, zero value otherwise.
+func (o *VnicFcIf) GetProfile() PolicyAbstractConfigProfileRelationship {
+	if o == nil || o.Profile == nil {
+		var ret PolicyAbstractConfigProfileRelationship
 		return ret
 	}
-	return *o.Organization
+	return *o.Profile
 }
 
-// GetOrganizationOk returns a tuple with the Organization field value if set, nil otherwise
+// GetProfileOk returns a tuple with the Profile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VnicFcIf) GetOrganizationOk() (*OrganizationOrganizationRelationship, bool) {
-	if o == nil || o.Organization == nil {
+func (o *VnicFcIf) GetProfileOk() (*PolicyAbstractConfigProfileRelationship, bool) {
+	if o == nil || o.Profile == nil {
 		return nil, false
 	}
-	return o.Organization, true
+	return o.Profile, true
 }
 
-// HasOrganization returns a boolean if a field has been set.
-func (o *VnicFcIf) HasOrganization() bool {
-	if o != nil && o.Organization != nil {
+// HasProfile returns a boolean if a field has been set.
+func (o *VnicFcIf) HasProfile() bool {
+	if o != nil && o.Profile != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetOrganization gets a reference to the given OrganizationOrganizationRelationship and assigns it to the Organization field.
-func (o *VnicFcIf) SetOrganization(v OrganizationOrganizationRelationship) {
-	o.Organization = &v
+// SetProfile gets a reference to the given PolicyAbstractConfigProfileRelationship and assigns it to the Profile field.
+func (o *VnicFcIf) SetProfile(v PolicyAbstractConfigProfileRelationship) {
+	o.Profile = &v
 }
 
 // GetSanConnectivityPolicy returns the SanConnectivityPolicy field value if set, zero value otherwise.
@@ -376,6 +449,135 @@ func (o *VnicFcIf) SetSanConnectivityPolicy(v VnicSanConnectivityPolicyRelations
 	o.SanConnectivityPolicy = &v
 }
 
+// GetScpVhba returns the ScpVhba field value if set, zero value otherwise.
+func (o *VnicFcIf) GetScpVhba() VnicFcIfRelationship {
+	if o == nil || o.ScpVhba == nil {
+		var ret VnicFcIfRelationship
+		return ret
+	}
+	return *o.ScpVhba
+}
+
+// GetScpVhbaOk returns a tuple with the ScpVhba field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicFcIf) GetScpVhbaOk() (*VnicFcIfRelationship, bool) {
+	if o == nil || o.ScpVhba == nil {
+		return nil, false
+	}
+	return o.ScpVhba, true
+}
+
+// HasScpVhba returns a boolean if a field has been set.
+func (o *VnicFcIf) HasScpVhba() bool {
+	if o != nil && o.ScpVhba != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetScpVhba gets a reference to the given VnicFcIfRelationship and assigns it to the ScpVhba field.
+func (o *VnicFcIf) SetScpVhba(v VnicFcIfRelationship) {
+	o.ScpVhba = &v
+}
+
+// GetSpVhbas returns the SpVhbas field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnicFcIf) GetSpVhbas() []VnicFcIfRelationship {
+	if o == nil {
+		var ret []VnicFcIfRelationship
+		return ret
+	}
+	return o.SpVhbas
+}
+
+// GetSpVhbasOk returns a tuple with the SpVhbas field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnicFcIf) GetSpVhbasOk() (*[]VnicFcIfRelationship, bool) {
+	if o == nil || o.SpVhbas == nil {
+		return nil, false
+	}
+	return &o.SpVhbas, true
+}
+
+// HasSpVhbas returns a boolean if a field has been set.
+func (o *VnicFcIf) HasSpVhbas() bool {
+	if o != nil && o.SpVhbas != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSpVhbas gets a reference to the given []VnicFcIfRelationship and assigns it to the SpVhbas field.
+func (o *VnicFcIf) SetSpVhbas(v []VnicFcIfRelationship) {
+	o.SpVhbas = v
+}
+
+// GetWwpnLease returns the WwpnLease field value if set, zero value otherwise.
+func (o *VnicFcIf) GetWwpnLease() FcpoolLeaseRelationship {
+	if o == nil || o.WwpnLease == nil {
+		var ret FcpoolLeaseRelationship
+		return ret
+	}
+	return *o.WwpnLease
+}
+
+// GetWwpnLeaseOk returns a tuple with the WwpnLease field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicFcIf) GetWwpnLeaseOk() (*FcpoolLeaseRelationship, bool) {
+	if o == nil || o.WwpnLease == nil {
+		return nil, false
+	}
+	return o.WwpnLease, true
+}
+
+// HasWwpnLease returns a boolean if a field has been set.
+func (o *VnicFcIf) HasWwpnLease() bool {
+	if o != nil && o.WwpnLease != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWwpnLease gets a reference to the given FcpoolLeaseRelationship and assigns it to the WwpnLease field.
+func (o *VnicFcIf) SetWwpnLease(v FcpoolLeaseRelationship) {
+	o.WwpnLease = &v
+}
+
+// GetWwpnPool returns the WwpnPool field value if set, zero value otherwise.
+func (o *VnicFcIf) GetWwpnPool() FcpoolPoolRelationship {
+	if o == nil || o.WwpnPool == nil {
+		var ret FcpoolPoolRelationship
+		return ret
+	}
+	return *o.WwpnPool
+}
+
+// GetWwpnPoolOk returns a tuple with the WwpnPool field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicFcIf) GetWwpnPoolOk() (*FcpoolPoolRelationship, bool) {
+	if o == nil || o.WwpnPool == nil {
+		return nil, false
+	}
+	return o.WwpnPool, true
+}
+
+// HasWwpnPool returns a boolean if a field has been set.
+func (o *VnicFcIf) HasWwpnPool() bool {
+	if o != nil && o.WwpnPool != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetWwpnPool gets a reference to the given FcpoolPoolRelationship and assigns it to the WwpnPool field.
+func (o *VnicFcIf) SetWwpnPool(v FcpoolPoolRelationship) {
+	o.WwpnPool = &v
+}
+
 func (o VnicFcIf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	serializedMoBaseMo, errMoBaseMo := json.Marshal(o.MoBaseMo)
@@ -401,6 +603,12 @@ func (o VnicFcIf) MarshalJSON() ([]byte, error) {
 	if o.Type != nil {
 		toSerialize["Type"] = o.Type
 	}
+	if o.VifId != nil {
+		toSerialize["VifId"] = o.VifId
+	}
+	if o.Wwpn != nil {
+		toSerialize["Wwpn"] = o.Wwpn
+	}
 	if o.FcAdapterPolicy != nil {
 		toSerialize["FcAdapterPolicy"] = o.FcAdapterPolicy
 	}
@@ -410,11 +618,23 @@ func (o VnicFcIf) MarshalJSON() ([]byte, error) {
 	if o.FcQosPolicy != nil {
 		toSerialize["FcQosPolicy"] = o.FcQosPolicy
 	}
-	if o.Organization != nil {
-		toSerialize["Organization"] = o.Organization
+	if o.Profile != nil {
+		toSerialize["Profile"] = o.Profile
 	}
 	if o.SanConnectivityPolicy != nil {
 		toSerialize["SanConnectivityPolicy"] = o.SanConnectivityPolicy
+	}
+	if o.ScpVhba != nil {
+		toSerialize["ScpVhba"] = o.ScpVhba
+	}
+	if o.SpVhbas != nil {
+		toSerialize["SpVhbas"] = o.SpVhbas
+	}
+	if o.WwpnLease != nil {
+		toSerialize["WwpnLease"] = o.WwpnLease
+	}
+	if o.WwpnPool != nil {
+		toSerialize["WwpnPool"] = o.WwpnPool
 	}
 	return json.Marshal(toSerialize)
 }

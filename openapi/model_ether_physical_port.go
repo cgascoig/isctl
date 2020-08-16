@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,14 +18,21 @@ import (
 
 // EtherPhysicalPort Physical ethernet port present on a FI.
 type EtherPhysicalPort struct {
-	PortPhysical `yaml:"PortPhysical,inline"`
-	MacAddress   *string `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
-	// PeerDn for ethernet physical port.
-	PeerDn           *string                              `json:"PeerDn,omitempty" yaml:"PeerDn,omitempty"`
-	TransceiverType  *string                              `json:"TransceiverType,omitempty" yaml:"TransceiverType,omitempty"`
-	PortGroup        *PortGroupRelationship               `json:"PortGroup,omitempty" yaml:"PortGroup,omitempty"`
-	PortSubGroup     *PortSubGroupRelationship            `json:"PortSubGroup,omitempty" yaml:"PortSubGroup,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	EtherPhysicalPortBase `yaml:"EtherPhysicalPortBase,inline"`
+	// Administratively configured speed for this port.
+	AdminSpeed *string `json:"AdminSpeed,omitempty" yaml:"AdminSpeed,omitempty"`
+	// Administratively configured state (enabled/disabled) for this port.
+	AdminState *string `json:"AdminState,omitempty" yaml:"AdminState,omitempty"`
+	// Breakout port member in the Fabric Interconnect.
+	AggregatePortId *int64 `json:"AggregatePortId,omitempty" yaml:"AggregatePortId,omitempty"`
+	// The number of days this port's license has been in Grace Period for.
+	LicenseGrace *string `json:"LicenseGrace,omitempty" yaml:"LicenseGrace,omitempty"`
+	// The state of the port's licensing.
+	LicenseState        *string                              `json:"LicenseState,omitempty" yaml:"LicenseState,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	PortGroup           *PortGroupRelationship               `json:"PortGroup,omitempty" yaml:"PortGroup,omitempty"`
+	PortSubGroup        *PortSubGroupRelationship            `json:"PortSubGroup,omitempty" yaml:"PortSubGroup,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewEtherPhysicalPort instantiates a new EtherPhysicalPort object
@@ -45,100 +52,196 @@ func NewEtherPhysicalPortWithDefaults() *EtherPhysicalPort {
 	return &this
 }
 
-// GetMacAddress returns the MacAddress field value if set, zero value otherwise.
-func (o *EtherPhysicalPort) GetMacAddress() string {
-	if o == nil || o.MacAddress == nil {
+// GetAdminSpeed returns the AdminSpeed field value if set, zero value otherwise.
+func (o *EtherPhysicalPort) GetAdminSpeed() string {
+	if o == nil || o.AdminSpeed == nil {
 		var ret string
 		return ret
 	}
-	return *o.MacAddress
+	return *o.AdminSpeed
 }
 
-// GetMacAddressOk returns a tuple with the MacAddress field value if set, nil otherwise
+// GetAdminSpeedOk returns a tuple with the AdminSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EtherPhysicalPort) GetMacAddressOk() (*string, bool) {
-	if o == nil || o.MacAddress == nil {
+func (o *EtherPhysicalPort) GetAdminSpeedOk() (*string, bool) {
+	if o == nil || o.AdminSpeed == nil {
 		return nil, false
 	}
-	return o.MacAddress, true
+	return o.AdminSpeed, true
 }
 
-// HasMacAddress returns a boolean if a field has been set.
-func (o *EtherPhysicalPort) HasMacAddress() bool {
-	if o != nil && o.MacAddress != nil {
+// HasAdminSpeed returns a boolean if a field has been set.
+func (o *EtherPhysicalPort) HasAdminSpeed() bool {
+	if o != nil && o.AdminSpeed != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetMacAddress gets a reference to the given string and assigns it to the MacAddress field.
-func (o *EtherPhysicalPort) SetMacAddress(v string) {
-	o.MacAddress = &v
+// SetAdminSpeed gets a reference to the given string and assigns it to the AdminSpeed field.
+func (o *EtherPhysicalPort) SetAdminSpeed(v string) {
+	o.AdminSpeed = &v
 }
 
-// GetPeerDn returns the PeerDn field value if set, zero value otherwise.
-func (o *EtherPhysicalPort) GetPeerDn() string {
-	if o == nil || o.PeerDn == nil {
+// GetAdminState returns the AdminState field value if set, zero value otherwise.
+func (o *EtherPhysicalPort) GetAdminState() string {
+	if o == nil || o.AdminState == nil {
 		var ret string
 		return ret
 	}
-	return *o.PeerDn
+	return *o.AdminState
 }
 
-// GetPeerDnOk returns a tuple with the PeerDn field value if set, nil otherwise
+// GetAdminStateOk returns a tuple with the AdminState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EtherPhysicalPort) GetPeerDnOk() (*string, bool) {
-	if o == nil || o.PeerDn == nil {
+func (o *EtherPhysicalPort) GetAdminStateOk() (*string, bool) {
+	if o == nil || o.AdminState == nil {
 		return nil, false
 	}
-	return o.PeerDn, true
+	return o.AdminState, true
 }
 
-// HasPeerDn returns a boolean if a field has been set.
-func (o *EtherPhysicalPort) HasPeerDn() bool {
-	if o != nil && o.PeerDn != nil {
+// HasAdminState returns a boolean if a field has been set.
+func (o *EtherPhysicalPort) HasAdminState() bool {
+	if o != nil && o.AdminState != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetPeerDn gets a reference to the given string and assigns it to the PeerDn field.
-func (o *EtherPhysicalPort) SetPeerDn(v string) {
-	o.PeerDn = &v
+// SetAdminState gets a reference to the given string and assigns it to the AdminState field.
+func (o *EtherPhysicalPort) SetAdminState(v string) {
+	o.AdminState = &v
 }
 
-// GetTransceiverType returns the TransceiverType field value if set, zero value otherwise.
-func (o *EtherPhysicalPort) GetTransceiverType() string {
-	if o == nil || o.TransceiverType == nil {
-		var ret string
+// GetAggregatePortId returns the AggregatePortId field value if set, zero value otherwise.
+func (o *EtherPhysicalPort) GetAggregatePortId() int64 {
+	if o == nil || o.AggregatePortId == nil {
+		var ret int64
 		return ret
 	}
-	return *o.TransceiverType
+	return *o.AggregatePortId
 }
 
-// GetTransceiverTypeOk returns a tuple with the TransceiverType field value if set, nil otherwise
+// GetAggregatePortIdOk returns a tuple with the AggregatePortId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EtherPhysicalPort) GetTransceiverTypeOk() (*string, bool) {
-	if o == nil || o.TransceiverType == nil {
+func (o *EtherPhysicalPort) GetAggregatePortIdOk() (*int64, bool) {
+	if o == nil || o.AggregatePortId == nil {
 		return nil, false
 	}
-	return o.TransceiverType, true
+	return o.AggregatePortId, true
 }
 
-// HasTransceiverType returns a boolean if a field has been set.
-func (o *EtherPhysicalPort) HasTransceiverType() bool {
-	if o != nil && o.TransceiverType != nil {
+// HasAggregatePortId returns a boolean if a field has been set.
+func (o *EtherPhysicalPort) HasAggregatePortId() bool {
+	if o != nil && o.AggregatePortId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetTransceiverType gets a reference to the given string and assigns it to the TransceiverType field.
-func (o *EtherPhysicalPort) SetTransceiverType(v string) {
-	o.TransceiverType = &v
+// SetAggregatePortId gets a reference to the given int64 and assigns it to the AggregatePortId field.
+func (o *EtherPhysicalPort) SetAggregatePortId(v int64) {
+	o.AggregatePortId = &v
+}
+
+// GetLicenseGrace returns the LicenseGrace field value if set, zero value otherwise.
+func (o *EtherPhysicalPort) GetLicenseGrace() string {
+	if o == nil || o.LicenseGrace == nil {
+		var ret string
+		return ret
+	}
+	return *o.LicenseGrace
+}
+
+// GetLicenseGraceOk returns a tuple with the LicenseGrace field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EtherPhysicalPort) GetLicenseGraceOk() (*string, bool) {
+	if o == nil || o.LicenseGrace == nil {
+		return nil, false
+	}
+	return o.LicenseGrace, true
+}
+
+// HasLicenseGrace returns a boolean if a field has been set.
+func (o *EtherPhysicalPort) HasLicenseGrace() bool {
+	if o != nil && o.LicenseGrace != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLicenseGrace gets a reference to the given string and assigns it to the LicenseGrace field.
+func (o *EtherPhysicalPort) SetLicenseGrace(v string) {
+	o.LicenseGrace = &v
+}
+
+// GetLicenseState returns the LicenseState field value if set, zero value otherwise.
+func (o *EtherPhysicalPort) GetLicenseState() string {
+	if o == nil || o.LicenseState == nil {
+		var ret string
+		return ret
+	}
+	return *o.LicenseState
+}
+
+// GetLicenseStateOk returns a tuple with the LicenseState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EtherPhysicalPort) GetLicenseStateOk() (*string, bool) {
+	if o == nil || o.LicenseState == nil {
+		return nil, false
+	}
+	return o.LicenseState, true
+}
+
+// HasLicenseState returns a boolean if a field has been set.
+func (o *EtherPhysicalPort) HasLicenseState() bool {
+	if o != nil && o.LicenseState != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLicenseState gets a reference to the given string and assigns it to the LicenseState field.
+func (o *EtherPhysicalPort) SetLicenseState(v string) {
+	o.LicenseState = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *EtherPhysicalPort) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EtherPhysicalPort) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *EtherPhysicalPort) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *EtherPhysicalPort) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetPortGroup returns the PortGroup field value if set, zero value otherwise.
@@ -239,22 +342,31 @@ func (o *EtherPhysicalPort) SetRegisteredDevice(v AssetDeviceRegistrationRelatio
 
 func (o EtherPhysicalPort) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedPortPhysical, errPortPhysical := json.Marshal(o.PortPhysical)
-	if errPortPhysical != nil {
-		return []byte{}, errPortPhysical
+	serializedEtherPhysicalPortBase, errEtherPhysicalPortBase := json.Marshal(o.EtherPhysicalPortBase)
+	if errEtherPhysicalPortBase != nil {
+		return []byte{}, errEtherPhysicalPortBase
 	}
-	errPortPhysical = json.Unmarshal([]byte(serializedPortPhysical), &toSerialize)
-	if errPortPhysical != nil {
-		return []byte{}, errPortPhysical
+	errEtherPhysicalPortBase = json.Unmarshal([]byte(serializedEtherPhysicalPortBase), &toSerialize)
+	if errEtherPhysicalPortBase != nil {
+		return []byte{}, errEtherPhysicalPortBase
 	}
-	if o.MacAddress != nil {
-		toSerialize["MacAddress"] = o.MacAddress
+	if o.AdminSpeed != nil {
+		toSerialize["AdminSpeed"] = o.AdminSpeed
 	}
-	if o.PeerDn != nil {
-		toSerialize["PeerDn"] = o.PeerDn
+	if o.AdminState != nil {
+		toSerialize["AdminState"] = o.AdminState
 	}
-	if o.TransceiverType != nil {
-		toSerialize["TransceiverType"] = o.TransceiverType
+	if o.AggregatePortId != nil {
+		toSerialize["AggregatePortId"] = o.AggregatePortId
+	}
+	if o.LicenseGrace != nil {
+		toSerialize["LicenseGrace"] = o.LicenseGrace
+	}
+	if o.LicenseState != nil {
+		toSerialize["LicenseState"] = o.LicenseState
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.PortGroup != nil {
 		toSerialize["PortGroup"] = o.PortGroup

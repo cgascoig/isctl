@@ -18,32 +18,33 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**BlockSize** | Pointer to **string** |  | [optional] 
-**Capacity** | Pointer to **string** |  | [optional] 
-**Controller** | Pointer to **string** |  | [optional] 
-**DrivesEnabled** | Pointer to **string** |  | [optional] 
-**Health** | Pointer to **string** |  | [optional] 
-**ManufacturerDate** | Pointer to **string** |  | [optional] 
-**ManufacturerId** | Pointer to **string** |  | [optional] 
-**OemId** | Pointer to **string** |  | [optional] 
-**PartitionCount** | Pointer to **string** |  | [optional] 
-**PdStatus** | Pointer to **string** |  | [optional] 
-**PhysicalDrive** | Pointer to **string** |  | [optional] 
-**ProductName** | Pointer to **string** |  | [optional] 
-**ProductRevision** | Pointer to **string** |  | [optional] 
-**ReadErrorCount** | Pointer to **string** |  | [optional] 
-**ReadErrorThreshold** | Pointer to **string** |  | [optional] 
-**WriteEnabled** | Pointer to **string** |  | [optional] 
-**WriteErrorCount** | Pointer to **string** |  | [optional] 
-**WriteErrorThreshold** | Pointer to **string** |  | [optional] 
+**BlockSize** | Pointer to **string** | Block size of the FlexUtil Physical drive. | [optional] 
+**Capacity** | Pointer to **string** | Capacity of the FlexUtil Physical drive. | [optional] 
+**Controller** | Pointer to **string** | Type of the Physical Drive Controller. | [optional] 
+**DrivesEnabled** | Pointer to **string** | The number of drives enabled in the FlexUtil Physical Drive. | [optional] 
+**Health** | Pointer to **string** | Health of the FlexUtil Physical drive. | [optional] 
+**ManufacturerDate** | Pointer to **string** | Manufacturing date of the FlexUtil Physical Drive. | [optional] 
+**ManufacturerId** | Pointer to **string** | Manufacturer identity of the FlexUtil Physical Drive. | [optional] 
+**OemId** | Pointer to **string** | The OEM Identifier of the FlexUtil physical drive. | [optional] 
+**PartitionCount** | Pointer to **string** | The number of partitions present on the FlexUtil Physical Drive. | [optional] 
+**PdStatus** | Pointer to **string** | Status of the FlexUtil Physical Drive. | [optional] 
+**PhysicalDrive** | Pointer to **string** | The type of physical drive. Example - microSD. | [optional] 
+**ProductName** | Pointer to **string** | Product name of the FlexUtil Physical Drive. | [optional] 
+**ProductRevision** | Pointer to **string** | Product revision of the FlexUtil Physical Drive. | [optional] 
+**ReadErrorCount** | Pointer to **string** | Read error count of the FlexUtil Physical Drive. | [optional] 
+**ReadErrorThreshold** | Pointer to **string** | Read error threshold for FlexUtil Physical Drive. | [optional] 
+**WriteEnabled** | Pointer to **string** | Write access state of the FlexUtil Physical Drive. | [optional] 
+**WriteErrorCount** | Pointer to **string** | Write error count of the FlexUtil Physical Drive. | [optional] 
+**WriteErrorThreshold** | Pointer to **string** | Write error threshold for FlexUtil Physical Drive. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageFlexUtilController** | Pointer to [**StorageFlexUtilControllerRelationship**](storage.FlexUtilController.Relationship.md) |  | [optional] 
 
@@ -356,6 +357,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StorageFlexUtilPhysicalDriveRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StorageFlexUtilPhysicalDriveRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StorageFlexUtilPhysicalDriveRelationship) GetParent() MoBaseMoRelationship`
@@ -406,6 +417,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StorageFlexUtilPhysicalDriveRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StorageFlexUtilPhysicalDriveRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StorageFlexUtilPhysicalDriveRelationship) GetDisplayNames() map[string][]string`
@@ -1065,6 +1086,31 @@ SetWriteErrorThreshold sets WriteErrorThreshold field to given value.
 `func (o *StorageFlexUtilPhysicalDriveRelationship) HasWriteErrorThreshold() bool`
 
 HasWriteErrorThreshold returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilPhysicalDriveRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageFlexUtilPhysicalDriveRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilPhysicalDriveRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageFlexUtilPhysicalDriveRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

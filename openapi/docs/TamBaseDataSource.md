@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Name is used to unique identify and refer a given data source in an alert definition. | [optional] 
-**Type** | Pointer to **string** | Type of data source (for e.g. TextFsmTempalate based, Intersight API based etc.). | [optional] [default to "nxos"]
+**Type** | Pointer to **string** | Type of data source (for e.g. TextFsmTempalate based, Intersight API based etc.). * &#x60;nxos&#x60; - Collector type for this data collection is NXOS. * &#x60;intersightApi&#x60; - Collector type for this data collection is Intersight APIs. | [optional] [default to "nxos"]
 
 ## Methods
 

@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceId** | Pointer to **string** | Moid of the UCSD device connector&#39;s asset.DeviceRegistration. | [optional] [readonly] 
-**Guid** | Pointer to **string** | Unique ID of UCSD getting registerd with Intersight. | [optional] [readonly] 
-**HostName** | Pointer to **string** | The UCSD host name. | [optional] [readonly] 
-**Ip** | Pointer to **string** | The UCSD IP address. | [optional] [readonly] 
+**DeviceId** | Pointer to **string** | Moid of the UCS Director device connector&#39;s asset.DeviceRegistration. | [optional] [readonly] 
+**Guid** | Pointer to **string** | Unique ID of UCS Director getting registerd with Intersight. | [optional] [readonly] 
+**HostName** | Pointer to **string** | The UCS Director hostname for management. | [optional] [readonly] 
+**Ip** | Pointer to **string** | The UCS Director IP address for management. | [optional] [readonly] 
 **LastBackup** | Pointer to [**time.Time**](time.Time.md) | Last successful backup created for this UCS Director appliance if backup is configured. | [optional] [readonly] 
-**NodeType** | Pointer to **string** | NodeType specifies if UCSD is deployed in Stand-alone or Multi Node. | [optional] [readonly] 
-**ProductName** | Pointer to **string** | The UCSD product name. | [optional] [readonly] 
-**ProductVendor** | Pointer to **string** | The UCSD product vendor. | [optional] [readonly] 
-**ProductVersion** | Pointer to **string** | The UCSD product/platform version. | [optional] [readonly] 
-**Status** | Pointer to **string** | The UCSD status. Possible values are Active, Inactive, Unknown. | [optional] [readonly] 
+**NodeType** | Pointer to **string** | NodeType specifies if UCS Director is deployed in Stand-alone or Multi Node. | [optional] [readonly] 
+**ProductName** | Pointer to **string** | The UCS Director product name. | [optional] [readonly] 
+**ProductVendor** | Pointer to **string** | The UCS Director product vendor. | [optional] [readonly] 
+**ProductVersion** | Pointer to **string** | The UCS Director product/platform version. | [optional] [readonly] 
+**Status** | Pointer to **string** | The UCS Director status. Possible values are Active, Inactive, Unknown. | [optional] [readonly] 
 **ConnectorPack** | Pointer to [**[]IaasConnectorPackRelationship**](iaas.ConnectorPack.Relationship.md) | An array of relationships to iaasConnectorPack resources. | [optional] [readonly] 
 **DeviceStatus** | Pointer to [**[]IaasDeviceStatusRelationship**](iaas.DeviceStatus.Relationship.md) | An array of relationships to iaasDeviceStatus resources. | [optional] [readonly] 
 **LicenseInfo** | Pointer to [**IaasLicenseInfoRelationship**](iaas.LicenseInfo.Relationship.md) |  | [optional] 
@@ -315,6 +315,16 @@ SetConnectorPack sets ConnectorPack field to given value.
 
 HasConnectorPack returns a boolean if a field has been set.
 
+### SetConnectorPackNil
+
+`func (o *IaasUcsdInfo) SetConnectorPackNil(b bool)`
+
+ SetConnectorPackNil sets the value for ConnectorPack to be an explicit nil
+
+### UnsetConnectorPack
+`func (o *IaasUcsdInfo) UnsetConnectorPack()`
+
+UnsetConnectorPack ensures that no value is present for ConnectorPack, not even an explicit nil
 ### GetDeviceStatus
 
 `func (o *IaasUcsdInfo) GetDeviceStatus() []IaasDeviceStatusRelationship`
@@ -340,6 +350,16 @@ SetDeviceStatus sets DeviceStatus field to given value.
 
 HasDeviceStatus returns a boolean if a field has been set.
 
+### SetDeviceStatusNil
+
+`func (o *IaasUcsdInfo) SetDeviceStatusNil(b bool)`
+
+ SetDeviceStatusNil sets the value for DeviceStatus to be an explicit nil
+
+### UnsetDeviceStatus
+`func (o *IaasUcsdInfo) UnsetDeviceStatus()`
+
+UnsetDeviceStatus ensures that no value is present for DeviceStatus, not even an explicit nil
 ### GetLicenseInfo
 
 `func (o *IaasUcsdInfo) GetLicenseInfo() IaasLicenseInfoRelationship`
@@ -390,6 +410,16 @@ SetMostRunTasks sets MostRunTasks field to given value.
 
 HasMostRunTasks returns a boolean if a field has been set.
 
+### SetMostRunTasksNil
+
+`func (o *IaasUcsdInfo) SetMostRunTasksNil(b bool)`
+
+ SetMostRunTasksNil sets the value for MostRunTasks to be an explicit nil
+
+### UnsetMostRunTasks
+`func (o *IaasUcsdInfo) UnsetMostRunTasks()`
+
+UnsetMostRunTasks ensures that no value is present for MostRunTasks, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *IaasUcsdInfo) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

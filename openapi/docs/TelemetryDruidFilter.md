@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | The filter type. | 
 **ExtractionFn** | Pointer to **map[string]interface{}** | All filters except the \&quot;spatial\&quot; filter support extraction functions. An extraction function is defined by setting the \&quot;extractionFn\&quot; field on a filter. See Extraction function for more details on extraction functions. If specified, the extraction function will be used to transform input values before the filter is applied. The example below shows a selector filter combined with an extraction function. This filter will transform input values according to the values defined in the lookup map; transformed values will then be matched with the string \&quot;bar_1\&quot;. | [optional] 
-**Dimensions** | Pointer to [**[]TelemetryDruidDimensionSpec**](telemetry.DruidDimensionSpec.md) | A list of DimensionSpecs, making it possible to apply an extraction function if needed. | 
 **Dimension** | Pointer to **string** | null | 
+**Value** | Pointer to **string** | The value of a dimension. | 
+**Dimensions** | Pointer to [**[]TelemetryDruidDimensionSpec**](telemetry.DruidDimensionSpec.md) | A list of DimensionSpecs, making it possible to apply an extraction function if needed. | 
 **Pattern** | Pointer to **string** | null | 
 **Fields** | Pointer to [**[]TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | 
 **Field** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidFilter
 
-`func NewTelemetryDruidFilter(type_ string, dimensions []TelemetryDruidDimensionSpec, dimension string, pattern string, fields []TelemetryDruidFilter, field TelemetryDruidFilter, ) *TelemetryDruidFilter`
+`func NewTelemetryDruidFilter(type_ string, dimension string, value string, dimensions []TelemetryDruidDimensionSpec, pattern string, fields []TelemetryDruidFilter, field TelemetryDruidFilter, ) *TelemetryDruidFilter`
 
 NewTelemetryDruidFilter instantiates a new TelemetryDruidFilter object
 This constructor will assign default values to properties that have it defined,
@@ -76,26 +77,6 @@ SetExtractionFn sets ExtractionFn field to given value.
 
 HasExtractionFn returns a boolean if a field has been set.
 
-### GetDimensions
-
-`func (o *TelemetryDruidFilter) GetDimensions() []TelemetryDruidDimensionSpec`
-
-GetDimensions returns the Dimensions field if non-nil, zero value otherwise.
-
-### GetDimensionsOk
-
-`func (o *TelemetryDruidFilter) GetDimensionsOk() (*[]TelemetryDruidDimensionSpec, bool)`
-
-GetDimensionsOk returns a tuple with the Dimensions field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDimensions
-
-`func (o *TelemetryDruidFilter) SetDimensions(v []TelemetryDruidDimensionSpec)`
-
-SetDimensions sets Dimensions field to given value.
-
-
 ### GetDimension
 
 `func (o *TelemetryDruidFilter) GetDimension() string`
@@ -114,6 +95,46 @@ and a boolean to check if the value has been set.
 `func (o *TelemetryDruidFilter) SetDimension(v string)`
 
 SetDimension sets Dimension field to given value.
+
+
+### GetValue
+
+`func (o *TelemetryDruidFilter) GetValue() string`
+
+GetValue returns the Value field if non-nil, zero value otherwise.
+
+### GetValueOk
+
+`func (o *TelemetryDruidFilter) GetValueOk() (*string, bool)`
+
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValue
+
+`func (o *TelemetryDruidFilter) SetValue(v string)`
+
+SetValue sets Value field to given value.
+
+
+### GetDimensions
+
+`func (o *TelemetryDruidFilter) GetDimensions() []TelemetryDruidDimensionSpec`
+
+GetDimensions returns the Dimensions field if non-nil, zero value otherwise.
+
+### GetDimensionsOk
+
+`func (o *TelemetryDruidFilter) GetDimensionsOk() (*[]TelemetryDruidDimensionSpec, bool)`
+
+GetDimensionsOk returns a tuple with the Dimensions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDimensions
+
+`func (o *TelemetryDruidFilter) SetDimensions(v []TelemetryDruidDimensionSpec)`
+
+SetDimensions sets Dimensions field to given value.
 
 
 ### GetPattern

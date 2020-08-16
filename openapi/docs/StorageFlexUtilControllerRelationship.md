@@ -18,17 +18,18 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
-**ControllerName** | Pointer to **string** |  | [optional] 
-**ControllerStatus** | Pointer to **string** |  | [optional] 
-**FfControllerId** | Pointer to **string** |  | [optional] 
-**InternalState** | Pointer to **string** |  | [optional] 
+**ControllerName** | Pointer to **string** | Name of the Flex Util Controller. | [optional] 
+**ControllerStatus** | Pointer to **string** | The current status of the controller. | [optional] 
+**FfControllerId** | Pointer to **string** | Identifier for the Storage Flex Util Controller. | [optional] 
+**InternalState** | Pointer to **string** | The internal state of the controller. | [optional] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
 **FlexUtilPhysicalDrives** | Pointer to [**[]StorageFlexUtilPhysicalDriveRelationship**](storage.FlexUtilPhysicalDrive.Relationship.md) | An array of relationships to storageFlexUtilPhysicalDrive resources. | [optional] [readonly] 
 **FlexUtilVirtualDrives** | Pointer to [**[]StorageFlexUtilVirtualDriveRelationship**](storage.FlexUtilVirtualDrive.Relationship.md) | An array of relationships to storageFlexUtilVirtualDrive resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -340,6 +341,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StorageFlexUtilControllerRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StorageFlexUtilControllerRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StorageFlexUtilControllerRelationship) GetParent() MoBaseMoRelationship`
@@ -390,6 +401,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StorageFlexUtilControllerRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StorageFlexUtilControllerRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StorageFlexUtilControllerRelationship) GetDisplayNames() map[string][]string`
@@ -650,6 +671,16 @@ SetFlexUtilPhysicalDrives sets FlexUtilPhysicalDrives field to given value.
 
 HasFlexUtilPhysicalDrives returns a boolean if a field has been set.
 
+### SetFlexUtilPhysicalDrivesNil
+
+`func (o *StorageFlexUtilControllerRelationship) SetFlexUtilPhysicalDrivesNil(b bool)`
+
+ SetFlexUtilPhysicalDrivesNil sets the value for FlexUtilPhysicalDrives to be an explicit nil
+
+### UnsetFlexUtilPhysicalDrives
+`func (o *StorageFlexUtilControllerRelationship) UnsetFlexUtilPhysicalDrives()`
+
+UnsetFlexUtilPhysicalDrives ensures that no value is present for FlexUtilPhysicalDrives, not even an explicit nil
 ### GetFlexUtilVirtualDrives
 
 `func (o *StorageFlexUtilControllerRelationship) GetFlexUtilVirtualDrives() []StorageFlexUtilVirtualDriveRelationship`
@@ -674,6 +705,41 @@ SetFlexUtilVirtualDrives sets FlexUtilVirtualDrives field to given value.
 `func (o *StorageFlexUtilControllerRelationship) HasFlexUtilVirtualDrives() bool`
 
 HasFlexUtilVirtualDrives returns a boolean if a field has been set.
+
+### SetFlexUtilVirtualDrivesNil
+
+`func (o *StorageFlexUtilControllerRelationship) SetFlexUtilVirtualDrivesNil(b bool)`
+
+ SetFlexUtilVirtualDrivesNil sets the value for FlexUtilVirtualDrives to be an explicit nil
+
+### UnsetFlexUtilVirtualDrives
+`func (o *StorageFlexUtilControllerRelationship) UnsetFlexUtilVirtualDrives()`
+
+UnsetFlexUtilVirtualDrives ensures that no value is present for FlexUtilVirtualDrives, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilControllerRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageFlexUtilControllerRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilControllerRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageFlexUtilControllerRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

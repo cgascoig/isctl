@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **ClientIpAddress** | Pointer to **string** | IP address from which the user last logged in to Intersight. | [optional] [readonly] 
 **Email** | Pointer to **string** | Email of the user. Users are added to Intersight using the email configured in the IdP. | [optional] 
 **FirstName** | Pointer to **string** | First name of the user. This field is populated from the IdP attributes received after authentication. | [optional] [readonly] 
@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Name as configured in the IdP. | [optional] [readonly] 
 **UserIdOrEmail** | Pointer to **string** | UserID or email as configured in the IdP. | [optional] 
 **UserType** | Pointer to **string** | Type of the User. If a user is added manually by specifying the email address, or has logged in using groups, based on the IdP attributes received during authentication. If added manually, the user type will be static, otherwise dynamic. | [optional] [readonly] 
+**UserUniqueIdentifier** | Pointer to **string** | Unique id of the user used by the identity provider to store the user. | [optional] [readonly] 
 **ApiKeys** | Pointer to [**[]IamApiKeyRelationship**](iam.ApiKey.Relationship.md) | An array of relationships to iamApiKey resources. | [optional] [readonly] 
 **AppRegistrations** | Pointer to [**[]IamAppRegistrationRelationship**](iam.AppRegistration.Relationship.md) | An array of relationships to iamAppRegistration resources. | [optional] [readonly] 
 **Idp** | Pointer to [**IamIdpRelationship**](iam.Idp.Relationship.md) |  | [optional] 
@@ -345,6 +346,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *IamUserRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *IamUserRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *IamUserRelationship) GetParent() MoBaseMoRelationship`
@@ -395,6 +406,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *IamUserRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *IamUserRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *IamUserRelationship) GetDisplayNames() map[string][]string`
@@ -630,6 +651,31 @@ SetUserType sets UserType field to given value.
 
 HasUserType returns a boolean if a field has been set.
 
+### GetUserUniqueIdentifier
+
+`func (o *IamUserRelationship) GetUserUniqueIdentifier() string`
+
+GetUserUniqueIdentifier returns the UserUniqueIdentifier field if non-nil, zero value otherwise.
+
+### GetUserUniqueIdentifierOk
+
+`func (o *IamUserRelationship) GetUserUniqueIdentifierOk() (*string, bool)`
+
+GetUserUniqueIdentifierOk returns a tuple with the UserUniqueIdentifier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserUniqueIdentifier
+
+`func (o *IamUserRelationship) SetUserUniqueIdentifier(v string)`
+
+SetUserUniqueIdentifier sets UserUniqueIdentifier field to given value.
+
+### HasUserUniqueIdentifier
+
+`func (o *IamUserRelationship) HasUserUniqueIdentifier() bool`
+
+HasUserUniqueIdentifier returns a boolean if a field has been set.
+
 ### GetApiKeys
 
 `func (o *IamUserRelationship) GetApiKeys() []IamApiKeyRelationship`
@@ -655,6 +701,16 @@ SetApiKeys sets ApiKeys field to given value.
 
 HasApiKeys returns a boolean if a field has been set.
 
+### SetApiKeysNil
+
+`func (o *IamUserRelationship) SetApiKeysNil(b bool)`
+
+ SetApiKeysNil sets the value for ApiKeys to be an explicit nil
+
+### UnsetApiKeys
+`func (o *IamUserRelationship) UnsetApiKeys()`
+
+UnsetApiKeys ensures that no value is present for ApiKeys, not even an explicit nil
 ### GetAppRegistrations
 
 `func (o *IamUserRelationship) GetAppRegistrations() []IamAppRegistrationRelationship`
@@ -680,6 +736,16 @@ SetAppRegistrations sets AppRegistrations field to given value.
 
 HasAppRegistrations returns a boolean if a field has been set.
 
+### SetAppRegistrationsNil
+
+`func (o *IamUserRelationship) SetAppRegistrationsNil(b bool)`
+
+ SetAppRegistrationsNil sets the value for AppRegistrations to be an explicit nil
+
+### UnsetAppRegistrations
+`func (o *IamUserRelationship) UnsetAppRegistrations()`
+
+UnsetAppRegistrations ensures that no value is present for AppRegistrations, not even an explicit nil
 ### GetIdp
 
 `func (o *IamUserRelationship) GetIdp() IamIdpRelationship`
@@ -780,6 +846,16 @@ SetOauthTokens sets OauthTokens field to given value.
 
 HasOauthTokens returns a boolean if a field has been set.
 
+### SetOauthTokensNil
+
+`func (o *IamUserRelationship) SetOauthTokensNil(b bool)`
+
+ SetOauthTokensNil sets the value for OauthTokens to be an explicit nil
+
+### UnsetOauthTokens
+`func (o *IamUserRelationship) UnsetOauthTokens()`
+
+UnsetOauthTokens ensures that no value is present for OauthTokens, not even an explicit nil
 ### GetPermissions
 
 `func (o *IamUserRelationship) GetPermissions() []IamPermissionRelationship`
@@ -805,6 +881,16 @@ SetPermissions sets Permissions field to given value.
 
 HasPermissions returns a boolean if a field has been set.
 
+### SetPermissionsNil
+
+`func (o *IamUserRelationship) SetPermissionsNil(b bool)`
+
+ SetPermissionsNil sets the value for Permissions to be an explicit nil
+
+### UnsetPermissions
+`func (o *IamUserRelationship) UnsetPermissions()`
+
+UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
 ### GetSessions
 
 `func (o *IamUserRelationship) GetSessions() []IamSessionRelationship`
@@ -830,6 +916,16 @@ SetSessions sets Sessions field to given value.
 
 HasSessions returns a boolean if a field has been set.
 
+### SetSessionsNil
+
+`func (o *IamUserRelationship) SetSessionsNil(b bool)`
+
+ SetSessionsNil sets the value for Sessions to be an explicit nil
+
+### UnsetSessions
+`func (o *IamUserRelationship) UnsetSessions()`
+
+UnsetSessions ensures that no value is present for Sessions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

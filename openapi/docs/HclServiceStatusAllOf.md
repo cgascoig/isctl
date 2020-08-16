@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Identity** | Pointer to **string** | A field to uniquely identify the document with the status. | [optional] 
 **LastHclDataModifiedTime** | Pointer to [**time.Time**](time.Time.md) | The timestamp of the last modified record in the HCL tool database. Used to query and get updated records. | [optional] 
 **LastImportedDataChecksum** | Pointer to **string** | Checksum of the data dump used as the base for delta updates. | [optional] 
-**Status** | Pointer to **string** | Status of the service indicatating if the service is up or under maintenance due to data update. | [optional] [default to "Unknown"]
+**Status** | Pointer to **string** | Status of the service indicatating if the service is up or under maintenance due to data update. * &#x60;Unknown&#x60; - Default service status. Indicates that the full import of data has failed during service startup. * &#x60;Initializing&#x60; - The service starts or restarts. * &#x60;DataRefreshing&#x60; - Full import of data is in progress. * &#x60;Active&#x60; - The data import is successful and service is ready to serve API requests. | [optional] [default to "Unknown"]
 
 ## Methods
 

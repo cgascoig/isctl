@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | Pointer to **string** | The dimension spec type. | 
 **Metric** | Pointer to **string** | The name of the metric to sort topN results. | 
 
 ## Methods
 
 ### NewTelemetryDruidNumericTopNMetricSpec
 
-`func NewTelemetryDruidNumericTopNMetricSpec(metric string, ) *TelemetryDruidNumericTopNMetricSpec`
+`func NewTelemetryDruidNumericTopNMetricSpec(type_ string, metric string, ) *TelemetryDruidNumericTopNMetricSpec`
 
 NewTelemetryDruidNumericTopNMetricSpec instantiates a new TelemetryDruidNumericTopNMetricSpec object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +25,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidNumericTopNMetricSpecWithDefaults instantiates a new TelemetryDruidNumericTopNMetricSpec object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *TelemetryDruidNumericTopNMetricSpec) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TelemetryDruidNumericTopNMetricSpec) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TelemetryDruidNumericTopNMetricSpec) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetMetric
 

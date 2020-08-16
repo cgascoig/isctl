@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **BuildType** | Pointer to **string** | Build type of the Intersight Appliance setup (e.g. release or debug). | [optional] [readonly] 
 **Capabilities** | Pointer to [**[]ApplianceKeyValuePair**](appliance.KeyValuePair.md) |  | [optional] 
 **CloudUrl** | Pointer to **string** | URL of the Intersight to which this Intersight Appliance is connected to. | [optional] [readonly] 
+**DeploymentMode** | Pointer to **string** | Indicates where Intersight Appliance is installed in air-gapped or connected mode. In connected mode, Intersight Appliance is claimed by Intesight SaaS. In air-gapped mode, Intersight Appliance does not connect to any Cisco services. * &#x60;Connected&#x60; - In connected mode, Intersight Appliance connects to Intersight SaaS and other cisco.com services. * &#x60;Private&#x60; - In private mode, Intersight Appliance does not connect to Intersight SaaS or any cisco.com services. | [optional] [readonly] [default to "Connected"]
 **EndTime** | Pointer to [**time.Time**](time.Time.md) | End date of the Intersight Appliance&#39;s initial setup. | [optional] [readonly] 
 **SetupStates** | Pointer to **[]string** |  | [optional] 
 **StartTime** | Pointer to [**time.Time**](time.Time.md) | Start date of the Intersight Appliance&#39;s initial setup. | [optional] [readonly] 
@@ -105,6 +106,31 @@ SetCloudUrl sets CloudUrl field to given value.
 `func (o *ApplianceSetupInfo) HasCloudUrl() bool`
 
 HasCloudUrl returns a boolean if a field has been set.
+
+### GetDeploymentMode
+
+`func (o *ApplianceSetupInfo) GetDeploymentMode() string`
+
+GetDeploymentMode returns the DeploymentMode field if non-nil, zero value otherwise.
+
+### GetDeploymentModeOk
+
+`func (o *ApplianceSetupInfo) GetDeploymentModeOk() (*string, bool)`
+
+GetDeploymentModeOk returns a tuple with the DeploymentMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentMode
+
+`func (o *ApplianceSetupInfo) SetDeploymentMode(v string)`
+
+SetDeploymentMode sets DeploymentMode field to given value.
+
+### HasDeploymentMode
+
+`func (o *ApplianceSetupInfo) HasDeploymentMode() bool`
+
+HasDeploymentMode returns a boolean if a field has been set.
 
 ### GetEndTime
 

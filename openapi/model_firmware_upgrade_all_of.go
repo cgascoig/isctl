@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,14 +18,9 @@ import (
 
 // FirmwareUpgradeAllOf Definition of the list of properties defined in 'firmware.Upgrade', excluding properties defined in parent classes.
 type FirmwareUpgradeAllOf struct {
-	DirectDownload *FirmwareDirectDownload `json:"DirectDownload,omitempty" yaml:"DirectDownload,omitempty"`
-	NetworkShare   *FirmwareNetworkShare   `json:"NetworkShare,omitempty" yaml:"NetworkShare,omitempty"`
-	// Desired upgrade mode to choose either direct download based upgrade or network share upgrade.
-	UpgradeType   *string                              `json:"UpgradeType,omitempty" yaml:"UpgradeType,omitempty"`
-	Device        *AssetDeviceRegistrationRelationship `json:"Device,omitempty" yaml:"Device,omitempty"`
-	Distributable *FirmwareDistributableRelationship   `json:"Distributable,omitempty" yaml:"Distributable,omitempty"`
-	Server        *ComputeRackUnitRelationship         `json:"Server,omitempty" yaml:"Server,omitempty"`
-	UpgradeStatus *FirmwareUpgradeStatusRelationship   `json:"UpgradeStatus,omitempty" yaml:"UpgradeStatus,omitempty"`
+	ExcludeComponentList *[]string                            `json:"ExcludeComponentList,omitempty" yaml:"ExcludeComponentList,omitempty"`
+	Device               *AssetDeviceRegistrationRelationship `json:"Device,omitempty" yaml:"Device,omitempty"`
+	Server               *ComputePhysicalRelationship         `json:"Server,omitempty" yaml:"Server,omitempty"`
 }
 
 // NewFirmwareUpgradeAllOf instantiates a new FirmwareUpgradeAllOf object
@@ -34,8 +29,6 @@ type FirmwareUpgradeAllOf struct {
 // will change when the set of required properties is changed
 func NewFirmwareUpgradeAllOf() *FirmwareUpgradeAllOf {
 	this := FirmwareUpgradeAllOf{}
-	var upgradeType string = "direct_upgrade"
-	this.UpgradeType = &upgradeType
 	return &this
 }
 
@@ -44,105 +37,39 @@ func NewFirmwareUpgradeAllOf() *FirmwareUpgradeAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewFirmwareUpgradeAllOfWithDefaults() *FirmwareUpgradeAllOf {
 	this := FirmwareUpgradeAllOf{}
-	var upgradeType string = "direct_upgrade"
-	this.UpgradeType = &upgradeType
 	return &this
 }
 
-// GetDirectDownload returns the DirectDownload field value if set, zero value otherwise.
-func (o *FirmwareUpgradeAllOf) GetDirectDownload() FirmwareDirectDownload {
-	if o == nil || o.DirectDownload == nil {
-		var ret FirmwareDirectDownload
+// GetExcludeComponentList returns the ExcludeComponentList field value if set, zero value otherwise.
+func (o *FirmwareUpgradeAllOf) GetExcludeComponentList() []string {
+	if o == nil || o.ExcludeComponentList == nil {
+		var ret []string
 		return ret
 	}
-	return *o.DirectDownload
+	return *o.ExcludeComponentList
 }
 
-// GetDirectDownloadOk returns a tuple with the DirectDownload field value if set, nil otherwise
+// GetExcludeComponentListOk returns a tuple with the ExcludeComponentList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeAllOf) GetDirectDownloadOk() (*FirmwareDirectDownload, bool) {
-	if o == nil || o.DirectDownload == nil {
+func (o *FirmwareUpgradeAllOf) GetExcludeComponentListOk() (*[]string, bool) {
+	if o == nil || o.ExcludeComponentList == nil {
 		return nil, false
 	}
-	return o.DirectDownload, true
+	return o.ExcludeComponentList, true
 }
 
-// HasDirectDownload returns a boolean if a field has been set.
-func (o *FirmwareUpgradeAllOf) HasDirectDownload() bool {
-	if o != nil && o.DirectDownload != nil {
+// HasExcludeComponentList returns a boolean if a field has been set.
+func (o *FirmwareUpgradeAllOf) HasExcludeComponentList() bool {
+	if o != nil && o.ExcludeComponentList != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetDirectDownload gets a reference to the given FirmwareDirectDownload and assigns it to the DirectDownload field.
-func (o *FirmwareUpgradeAllOf) SetDirectDownload(v FirmwareDirectDownload) {
-	o.DirectDownload = &v
-}
-
-// GetNetworkShare returns the NetworkShare field value if set, zero value otherwise.
-func (o *FirmwareUpgradeAllOf) GetNetworkShare() FirmwareNetworkShare {
-	if o == nil || o.NetworkShare == nil {
-		var ret FirmwareNetworkShare
-		return ret
-	}
-	return *o.NetworkShare
-}
-
-// GetNetworkShareOk returns a tuple with the NetworkShare field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeAllOf) GetNetworkShareOk() (*FirmwareNetworkShare, bool) {
-	if o == nil || o.NetworkShare == nil {
-		return nil, false
-	}
-	return o.NetworkShare, true
-}
-
-// HasNetworkShare returns a boolean if a field has been set.
-func (o *FirmwareUpgradeAllOf) HasNetworkShare() bool {
-	if o != nil && o.NetworkShare != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetNetworkShare gets a reference to the given FirmwareNetworkShare and assigns it to the NetworkShare field.
-func (o *FirmwareUpgradeAllOf) SetNetworkShare(v FirmwareNetworkShare) {
-	o.NetworkShare = &v
-}
-
-// GetUpgradeType returns the UpgradeType field value if set, zero value otherwise.
-func (o *FirmwareUpgradeAllOf) GetUpgradeType() string {
-	if o == nil || o.UpgradeType == nil {
-		var ret string
-		return ret
-	}
-	return *o.UpgradeType
-}
-
-// GetUpgradeTypeOk returns a tuple with the UpgradeType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeAllOf) GetUpgradeTypeOk() (*string, bool) {
-	if o == nil || o.UpgradeType == nil {
-		return nil, false
-	}
-	return o.UpgradeType, true
-}
-
-// HasUpgradeType returns a boolean if a field has been set.
-func (o *FirmwareUpgradeAllOf) HasUpgradeType() bool {
-	if o != nil && o.UpgradeType != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetUpgradeType gets a reference to the given string and assigns it to the UpgradeType field.
-func (o *FirmwareUpgradeAllOf) SetUpgradeType(v string) {
-	o.UpgradeType = &v
+// SetExcludeComponentList gets a reference to the given []string and assigns it to the ExcludeComponentList field.
+func (o *FirmwareUpgradeAllOf) SetExcludeComponentList(v []string) {
+	o.ExcludeComponentList = &v
 }
 
 // GetDevice returns the Device field value if set, zero value otherwise.
@@ -177,42 +104,10 @@ func (o *FirmwareUpgradeAllOf) SetDevice(v AssetDeviceRegistrationRelationship) 
 	o.Device = &v
 }
 
-// GetDistributable returns the Distributable field value if set, zero value otherwise.
-func (o *FirmwareUpgradeAllOf) GetDistributable() FirmwareDistributableRelationship {
-	if o == nil || o.Distributable == nil {
-		var ret FirmwareDistributableRelationship
-		return ret
-	}
-	return *o.Distributable
-}
-
-// GetDistributableOk returns a tuple with the Distributable field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeAllOf) GetDistributableOk() (*FirmwareDistributableRelationship, bool) {
-	if o == nil || o.Distributable == nil {
-		return nil, false
-	}
-	return o.Distributable, true
-}
-
-// HasDistributable returns a boolean if a field has been set.
-func (o *FirmwareUpgradeAllOf) HasDistributable() bool {
-	if o != nil && o.Distributable != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetDistributable gets a reference to the given FirmwareDistributableRelationship and assigns it to the Distributable field.
-func (o *FirmwareUpgradeAllOf) SetDistributable(v FirmwareDistributableRelationship) {
-	o.Distributable = &v
-}
-
 // GetServer returns the Server field value if set, zero value otherwise.
-func (o *FirmwareUpgradeAllOf) GetServer() ComputeRackUnitRelationship {
+func (o *FirmwareUpgradeAllOf) GetServer() ComputePhysicalRelationship {
 	if o == nil || o.Server == nil {
-		var ret ComputeRackUnitRelationship
+		var ret ComputePhysicalRelationship
 		return ret
 	}
 	return *o.Server
@@ -220,7 +115,7 @@ func (o *FirmwareUpgradeAllOf) GetServer() ComputeRackUnitRelationship {
 
 // GetServerOk returns a tuple with the Server field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeAllOf) GetServerOk() (*ComputeRackUnitRelationship, bool) {
+func (o *FirmwareUpgradeAllOf) GetServerOk() (*ComputePhysicalRelationship, bool) {
 	if o == nil || o.Server == nil {
 		return nil, false
 	}
@@ -236,65 +131,21 @@ func (o *FirmwareUpgradeAllOf) HasServer() bool {
 	return false
 }
 
-// SetServer gets a reference to the given ComputeRackUnitRelationship and assigns it to the Server field.
-func (o *FirmwareUpgradeAllOf) SetServer(v ComputeRackUnitRelationship) {
+// SetServer gets a reference to the given ComputePhysicalRelationship and assigns it to the Server field.
+func (o *FirmwareUpgradeAllOf) SetServer(v ComputePhysicalRelationship) {
 	o.Server = &v
-}
-
-// GetUpgradeStatus returns the UpgradeStatus field value if set, zero value otherwise.
-func (o *FirmwareUpgradeAllOf) GetUpgradeStatus() FirmwareUpgradeStatusRelationship {
-	if o == nil || o.UpgradeStatus == nil {
-		var ret FirmwareUpgradeStatusRelationship
-		return ret
-	}
-	return *o.UpgradeStatus
-}
-
-// GetUpgradeStatusOk returns a tuple with the UpgradeStatus field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FirmwareUpgradeAllOf) GetUpgradeStatusOk() (*FirmwareUpgradeStatusRelationship, bool) {
-	if o == nil || o.UpgradeStatus == nil {
-		return nil, false
-	}
-	return o.UpgradeStatus, true
-}
-
-// HasUpgradeStatus returns a boolean if a field has been set.
-func (o *FirmwareUpgradeAllOf) HasUpgradeStatus() bool {
-	if o != nil && o.UpgradeStatus != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetUpgradeStatus gets a reference to the given FirmwareUpgradeStatusRelationship and assigns it to the UpgradeStatus field.
-func (o *FirmwareUpgradeAllOf) SetUpgradeStatus(v FirmwareUpgradeStatusRelationship) {
-	o.UpgradeStatus = &v
 }
 
 func (o FirmwareUpgradeAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DirectDownload != nil {
-		toSerialize["DirectDownload"] = o.DirectDownload
-	}
-	if o.NetworkShare != nil {
-		toSerialize["NetworkShare"] = o.NetworkShare
-	}
-	if o.UpgradeType != nil {
-		toSerialize["UpgradeType"] = o.UpgradeType
+	if o.ExcludeComponentList != nil {
+		toSerialize["ExcludeComponentList"] = o.ExcludeComponentList
 	}
 	if o.Device != nil {
 		toSerialize["Device"] = o.Device
 	}
-	if o.Distributable != nil {
-		toSerialize["Distributable"] = o.Distributable
-	}
 	if o.Server != nil {
 		toSerialize["Server"] = o.Server
-	}
-	if o.UpgradeStatus != nil {
-		toSerialize["UpgradeStatus"] = o.UpgradeStatus
 	}
 	return json.Marshal(toSerialize)
 }

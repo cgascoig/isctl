@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **EndPointPrivileges** | Pointer to [**[]IamEndPointPrivilegeRelationship**](iam.EndPointPrivilege.Relationship.md) | An array of relationships to iamEndPointPrivilege resources. | [optional] [readonly] 
 **EndPointRoles** | Pointer to [**[]IamEndPointRoleRelationship**](iam.EndPointRole.Relationship.md) | An array of relationships to iamEndPointRole resources. | [optional] [readonly] 
 **Idp** | Pointer to [**IamIdpRelationship**](iam.Idp.Relationship.md) |  | [optional] 
@@ -336,6 +336,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *IamSystemRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *IamSystemRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *IamSystemRelationship) GetParent() MoBaseMoRelationship`
@@ -386,6 +396,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *IamSystemRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *IamSystemRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *IamSystemRelationship) GetDisplayNames() map[string][]string`
@@ -446,6 +466,16 @@ SetEndPointPrivileges sets EndPointPrivileges field to given value.
 
 HasEndPointPrivileges returns a boolean if a field has been set.
 
+### SetEndPointPrivilegesNil
+
+`func (o *IamSystemRelationship) SetEndPointPrivilegesNil(b bool)`
+
+ SetEndPointPrivilegesNil sets the value for EndPointPrivileges to be an explicit nil
+
+### UnsetEndPointPrivileges
+`func (o *IamSystemRelationship) UnsetEndPointPrivileges()`
+
+UnsetEndPointPrivileges ensures that no value is present for EndPointPrivileges, not even an explicit nil
 ### GetEndPointRoles
 
 `func (o *IamSystemRelationship) GetEndPointRoles() []IamEndPointRoleRelationship`
@@ -471,6 +501,16 @@ SetEndPointRoles sets EndPointRoles field to given value.
 
 HasEndPointRoles returns a boolean if a field has been set.
 
+### SetEndPointRolesNil
+
+`func (o *IamSystemRelationship) SetEndPointRolesNil(b bool)`
+
+ SetEndPointRolesNil sets the value for EndPointRoles to be an explicit nil
+
+### UnsetEndPointRoles
+`func (o *IamSystemRelationship) UnsetEndPointRoles()`
+
+UnsetEndPointRoles ensures that no value is present for EndPointRoles, not even an explicit nil
 ### GetIdp
 
 `func (o *IamSystemRelationship) GetIdp() IamIdpRelationship`
@@ -521,6 +561,16 @@ SetPrivilegeSets sets PrivilegeSets field to given value.
 
 HasPrivilegeSets returns a boolean if a field has been set.
 
+### SetPrivilegeSetsNil
+
+`func (o *IamSystemRelationship) SetPrivilegeSetsNil(b bool)`
+
+ SetPrivilegeSetsNil sets the value for PrivilegeSets to be an explicit nil
+
+### UnsetPrivilegeSets
+`func (o *IamSystemRelationship) UnsetPrivilegeSets()`
+
+UnsetPrivilegeSets ensures that no value is present for PrivilegeSets, not even an explicit nil
 ### GetPrivileges
 
 `func (o *IamSystemRelationship) GetPrivileges() []IamPrivilegeRelationship`
@@ -546,6 +596,16 @@ SetPrivileges sets Privileges field to given value.
 
 HasPrivileges returns a boolean if a field has been set.
 
+### SetPrivilegesNil
+
+`func (o *IamSystemRelationship) SetPrivilegesNil(b bool)`
+
+ SetPrivilegesNil sets the value for Privileges to be an explicit nil
+
+### UnsetPrivileges
+`func (o *IamSystemRelationship) UnsetPrivileges()`
+
+UnsetPrivileges ensures that no value is present for Privileges, not even an explicit nil
 ### GetRoles
 
 `func (o *IamSystemRelationship) GetRoles() []IamRoleRelationship`
@@ -571,6 +631,16 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
+### SetRolesNil
+
+`func (o *IamSystemRelationship) SetRolesNil(b bool)`
+
+ SetRolesNil sets the value for Roles to be an explicit nil
+
+### UnsetRoles
+`func (o *IamSystemRelationship) UnsetRoles()`
+
+UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 ### GetServiceProvider
 
 `func (o *IamSystemRelationship) GetServiceProvider() IamServiceProviderRelationship`

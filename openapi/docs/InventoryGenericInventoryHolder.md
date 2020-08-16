@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Endpoint** | Pointer to **string** |  | [optional] [readonly] 
+**Endpoint** | Pointer to **string** | The endpoint represented by this holder. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **GenericInventory** | Pointer to [**[]InventoryGenericInventoryRelationship**](inventory.GenericInventory.Relationship.md) | An array of relationships to inventoryGenericInventory resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -128,6 +129,41 @@ SetGenericInventory sets GenericInventory field to given value.
 `func (o *InventoryGenericInventoryHolder) HasGenericInventory() bool`
 
 HasGenericInventory returns a boolean if a field has been set.
+
+### SetGenericInventoryNil
+
+`func (o *InventoryGenericInventoryHolder) SetGenericInventoryNil(b bool)`
+
+ SetGenericInventoryNil sets the value for GenericInventory to be an explicit nil
+
+### UnsetGenericInventory
+`func (o *InventoryGenericInventoryHolder) UnsetGenericInventory()`
+
+UnsetGenericInventory ensures that no value is present for GenericInventory, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *InventoryGenericInventoryHolder) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *InventoryGenericInventoryHolder) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *InventoryGenericInventoryHolder) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *InventoryGenericInventoryHolder) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

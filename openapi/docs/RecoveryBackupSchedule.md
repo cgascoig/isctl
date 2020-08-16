@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExecutionTime** | Pointer to [**time.Time**](time.Time.md) | The time at which the backup is to be run on a given day. This is used when the frequency unit is daily. | [optional] 
-**FrequencyUnit** | Pointer to **string** | The frequency at which the backup schedule must run. | [optional] [default to "Daily"]
-**Hours** | Pointer to **int32** | The frequency, in hours, at which the backup schedule runs. | [optional] [default to 8]
+**FrequencyUnit** | Pointer to **string** | The frequency at which the backup schedule must run. * &#x60;Daily&#x60; - Allows the user to run the backup daily at a given time. * &#x60;Periodic&#x60; - Allows the user to run the backup after a certain number of hours. | [optional] [default to "Daily"]
+**Hours** | Pointer to **int32** | The frequency, in hours, at which the backup schedule runs. * &#x60;8&#x60; -  * &#x60;4&#x60; -  * &#x60;12&#x60; -  * &#x60;16&#x60; -  * &#x60;20&#x60; - | [optional] [default to 8]
 
 ## Methods
 

@@ -18,19 +18,23 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Component** | Pointer to **string** | Kind of the firmware - boot-booloader/system/kernel. | [optional] [readonly] 
 **PackageVersion** | Pointer to **string** | Package version which the firmware belongs to. | [optional] [readonly] 
-**Type** | Pointer to **string** | Type of the firmware. | [optional] [readonly] 
-**Version** | Pointer to **string** | Version of the firmware. | [optional] [readonly] 
+**Type** | Pointer to **string** | The type of the firmware. | [optional] [readonly] 
+**Version** | Pointer to **string** | The version of the firmware. | [optional] [readonly] 
 **BiosUnit** | Pointer to [**BiosUnitRelationship**](bios.Unit.Relationship.md) |  | [optional] 
+**GraphicsCard** | Pointer to [**GraphicsCardRelationship**](graphics.Card.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **NetworkElements** | Pointer to [**[]NetworkElementRelationship**](network.Element.Relationship.md) | An array of relationships to networkElement resources. | [optional] 
+**PciSwitch** | Pointer to [**PciSwitchRelationship**](pci.Switch.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StorageController** | Pointer to [**StorageControllerRelationship**](storage.Controller.Relationship.md) |  | [optional] 
+**StorageFlexFlashController** | Pointer to [**StorageFlexFlashControllerRelationship**](storage.FlexFlashController.Relationship.md) |  | [optional] 
 **StoragePhysicalDisk** | Pointer to [**StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -342,6 +346,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *FirmwareRunningFirmwareRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *FirmwareRunningFirmwareRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *FirmwareRunningFirmwareRelationship) GetParent() MoBaseMoRelationship`
@@ -392,6 +406,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *FirmwareRunningFirmwareRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *FirmwareRunningFirmwareRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *FirmwareRunningFirmwareRelationship) GetDisplayNames() map[string][]string`
@@ -627,6 +651,56 @@ SetBiosUnit sets BiosUnit field to given value.
 
 HasBiosUnit returns a boolean if a field has been set.
 
+### GetGraphicsCard
+
+`func (o *FirmwareRunningFirmwareRelationship) GetGraphicsCard() GraphicsCardRelationship`
+
+GetGraphicsCard returns the GraphicsCard field if non-nil, zero value otherwise.
+
+### GetGraphicsCardOk
+
+`func (o *FirmwareRunningFirmwareRelationship) GetGraphicsCardOk() (*GraphicsCardRelationship, bool)`
+
+GetGraphicsCardOk returns a tuple with the GraphicsCard field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGraphicsCard
+
+`func (o *FirmwareRunningFirmwareRelationship) SetGraphicsCard(v GraphicsCardRelationship)`
+
+SetGraphicsCard sets GraphicsCard field to given value.
+
+### HasGraphicsCard
+
+`func (o *FirmwareRunningFirmwareRelationship) HasGraphicsCard() bool`
+
+HasGraphicsCard returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *FirmwareRunningFirmwareRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *FirmwareRunningFirmwareRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *FirmwareRunningFirmwareRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *FirmwareRunningFirmwareRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetManagementController
 
 `func (o *FirmwareRunningFirmwareRelationship) GetManagementController() ManagementControllerRelationship`
@@ -677,6 +751,41 @@ SetNetworkElements sets NetworkElements field to given value.
 
 HasNetworkElements returns a boolean if a field has been set.
 
+### SetNetworkElementsNil
+
+`func (o *FirmwareRunningFirmwareRelationship) SetNetworkElementsNil(b bool)`
+
+ SetNetworkElementsNil sets the value for NetworkElements to be an explicit nil
+
+### UnsetNetworkElements
+`func (o *FirmwareRunningFirmwareRelationship) UnsetNetworkElements()`
+
+UnsetNetworkElements ensures that no value is present for NetworkElements, not even an explicit nil
+### GetPciSwitch
+
+`func (o *FirmwareRunningFirmwareRelationship) GetPciSwitch() PciSwitchRelationship`
+
+GetPciSwitch returns the PciSwitch field if non-nil, zero value otherwise.
+
+### GetPciSwitchOk
+
+`func (o *FirmwareRunningFirmwareRelationship) GetPciSwitchOk() (*PciSwitchRelationship, bool)`
+
+GetPciSwitchOk returns a tuple with the PciSwitch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPciSwitch
+
+`func (o *FirmwareRunningFirmwareRelationship) SetPciSwitch(v PciSwitchRelationship)`
+
+SetPciSwitch sets PciSwitch field to given value.
+
+### HasPciSwitch
+
+`func (o *FirmwareRunningFirmwareRelationship) HasPciSwitch() bool`
+
+HasPciSwitch returns a boolean if a field has been set.
+
 ### GetRegisteredDevice
 
 `func (o *FirmwareRunningFirmwareRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -726,6 +835,31 @@ SetStorageController sets StorageController field to given value.
 `func (o *FirmwareRunningFirmwareRelationship) HasStorageController() bool`
 
 HasStorageController returns a boolean if a field has been set.
+
+### GetStorageFlexFlashController
+
+`func (o *FirmwareRunningFirmwareRelationship) GetStorageFlexFlashController() StorageFlexFlashControllerRelationship`
+
+GetStorageFlexFlashController returns the StorageFlexFlashController field if non-nil, zero value otherwise.
+
+### GetStorageFlexFlashControllerOk
+
+`func (o *FirmwareRunningFirmwareRelationship) GetStorageFlexFlashControllerOk() (*StorageFlexFlashControllerRelationship, bool)`
+
+GetStorageFlexFlashControllerOk returns a tuple with the StorageFlexFlashController field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageFlexFlashController
+
+`func (o *FirmwareRunningFirmwareRelationship) SetStorageFlexFlashController(v StorageFlexFlashControllerRelationship)`
+
+SetStorageFlexFlashController sets StorageFlexFlashController field to given value.
+
+### HasStorageFlexFlashController
+
+`func (o *FirmwareRunningFirmwareRelationship) HasStorageFlexFlashController() bool`
+
+HasStorageFlexFlashController returns a boolean if a field has been set.
 
 ### GetStoragePhysicalDisk
 

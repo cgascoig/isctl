@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessPrivileges** | Pointer to [**[]MetaAccessPrivilege**](meta.AccessPrivilege.md) |  | [optional] 
 **AncestorClasses** | Pointer to **[]string** |  | [optional] 
+**DisplayNameMetas** | Pointer to [**[]MetaDisplayNameDefinition**](meta.DisplayNameDefinition.md) |  | [optional] 
 **IsConcrete** | Pointer to **bool** | Boolean flag to specify whether the meta class is a concrete class or not. | [optional] [readonly] 
-**MetaType** | Pointer to **string** | Indicates whether the meta class is a complex type or managed object. | [optional] [readonly] [default to "ManagedObject"]
+**MetaType** | Pointer to **string** | Indicates whether the meta class is a complex type or managed object. * &#x60;ManagedObject&#x60; - The meta.Definition object describes a managed object. * &#x60;ComplexType&#x60; - The meta.Definition object describes a nested complex type within a managed object. | [optional] [readonly] [default to "ManagedObject"]
 **Name** | Pointer to **string** | The fully-qualified class name of the Managed Object or complex type. For example, \&quot;compute:Blade\&quot; where the Managed Object is \&quot;Blade\&quot; and the package is &#39;compute&#39;. | [optional] [readonly] 
 **Namespace** | Pointer to **string** | The namespace of the meta. | [optional] [readonly] 
 **ParentClass** | Pointer to **string** | The fully-qualified name of the parent metaclass in the class inheritance hierarchy. | [optional] [readonly] 
@@ -86,6 +87,31 @@ SetAncestorClasses sets AncestorClasses field to given value.
 `func (o *MetaDefinitionAllOf) HasAncestorClasses() bool`
 
 HasAncestorClasses returns a boolean if a field has been set.
+
+### GetDisplayNameMetas
+
+`func (o *MetaDefinitionAllOf) GetDisplayNameMetas() []MetaDisplayNameDefinition`
+
+GetDisplayNameMetas returns the DisplayNameMetas field if non-nil, zero value otherwise.
+
+### GetDisplayNameMetasOk
+
+`func (o *MetaDefinitionAllOf) GetDisplayNameMetasOk() (*[]MetaDisplayNameDefinition, bool)`
+
+GetDisplayNameMetasOk returns a tuple with the DisplayNameMetas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayNameMetas
+
+`func (o *MetaDefinitionAllOf) SetDisplayNameMetas(v []MetaDisplayNameDefinition)`
+
+SetDisplayNameMetas sets DisplayNameMetas field to given value.
+
+### HasDisplayNameMetas
+
+`func (o *MetaDefinitionAllOf) HasDisplayNameMetas() bool`
+
+HasDisplayNameMetas returns a boolean if a field has been set.
 
 ### GetIsConcrete
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdminState** | Pointer to **bool** | Enable or disable Auto Support. | [optional] 
-**ServiceTicketReceipient** | Pointer to **string** | The email address recipient for support tickets. | [optional] 
+**ServiceTicketReceipient** | Pointer to **string** | The recipient email address for support tickets. | [optional] 
 **ClusterProfiles** | Pointer to [**[]HyperflexClusterProfileRelationship**](hyperflex.ClusterProfile.Relationship.md) | An array of relationships to hyperflexClusterProfile resources. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 
@@ -103,6 +103,16 @@ SetClusterProfiles sets ClusterProfiles field to given value.
 
 HasClusterProfiles returns a boolean if a field has been set.
 
+### SetClusterProfilesNil
+
+`func (o *HyperflexAutoSupportPolicy) SetClusterProfilesNil(b bool)`
+
+ SetClusterProfilesNil sets the value for ClusterProfiles to be an explicit nil
+
+### UnsetClusterProfiles
+`func (o *HyperflexAutoSupportPolicy) UnsetClusterProfiles()`
+
+UnsetClusterProfiles ensures that no value is present for ClusterProfiles, not even an explicit nil
 ### GetOrganization
 
 `func (o *HyperflexAutoSupportPolicy) GetOrganization() OrganizationOrganizationRelationship`

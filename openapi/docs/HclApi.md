@@ -1,27 +1,27 @@
 # \HclApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateHclCompatibilityStatus**](HclApi.md#CreateHclCompatibilityStatus) | **Post** /hcl/CompatibilityStatuses | Create a &#39;hcl.CompatibilityStatus&#39; resource.
-[**CreateHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#CreateHclHyperflexSoftwareCompatibilityInfo) | **Post** /hcl/HyperflexSoftwareCompatibilityInfos | Create a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
-[**CreateHclSupportedDriverName**](HclApi.md#CreateHclSupportedDriverName) | **Post** /hcl/SupportedDriverNames | Create a &#39;hcl.SupportedDriverName&#39; resource.
-[**DeleteHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#DeleteHclHyperflexSoftwareCompatibilityInfo) | **Delete** /hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Delete a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
-[**GetHclDriverImageByMoid**](HclApi.md#GetHclDriverImageByMoid) | **Get** /hcl/DriverImages/{Moid} | Read a &#39;hcl.DriverImage&#39; resource.
-[**GetHclDriverImageList**](HclApi.md#GetHclDriverImageList) | **Get** /hcl/DriverImages | Read a &#39;hcl.DriverImage&#39; resource.
-[**GetHclExemptedCatalogByMoid**](HclApi.md#GetHclExemptedCatalogByMoid) | **Get** /hcl/ExemptedCatalogs/{Moid} | Read a &#39;hcl.ExemptedCatalog&#39; resource.
-[**GetHclExemptedCatalogList**](HclApi.md#GetHclExemptedCatalogList) | **Get** /hcl/ExemptedCatalogs | Read a &#39;hcl.ExemptedCatalog&#39; resource.
-[**GetHclHyperflexSoftwareCompatibilityInfoByMoid**](HclApi.md#GetHclHyperflexSoftwareCompatibilityInfoByMoid) | **Get** /hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Read a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
-[**GetHclHyperflexSoftwareCompatibilityInfoList**](HclApi.md#GetHclHyperflexSoftwareCompatibilityInfoList) | **Get** /hcl/HyperflexSoftwareCompatibilityInfos | Read a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
-[**GetHclOperatingSystemByMoid**](HclApi.md#GetHclOperatingSystemByMoid) | **Get** /hcl/OperatingSystems/{Moid} | Read a &#39;hcl.OperatingSystem&#39; resource.
-[**GetHclOperatingSystemList**](HclApi.md#GetHclOperatingSystemList) | **Get** /hcl/OperatingSystems | Read a &#39;hcl.OperatingSystem&#39; resource.
-[**GetHclOperatingSystemVendorByMoid**](HclApi.md#GetHclOperatingSystemVendorByMoid) | **Get** /hcl/OperatingSystemVendors/{Moid} | Read a &#39;hcl.OperatingSystemVendor&#39; resource.
-[**GetHclOperatingSystemVendorList**](HclApi.md#GetHclOperatingSystemVendorList) | **Get** /hcl/OperatingSystemVendors | Read a &#39;hcl.OperatingSystemVendor&#39; resource.
-[**GetHclServiceStatusByMoid**](HclApi.md#GetHclServiceStatusByMoid) | **Get** /hcl/ServiceStatuses/{Moid} | Read a &#39;hcl.ServiceStatus&#39; resource.
-[**GetHclServiceStatusList**](HclApi.md#GetHclServiceStatusList) | **Get** /hcl/ServiceStatuses | Read a &#39;hcl.ServiceStatus&#39; resource.
-[**PatchHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#PatchHclHyperflexSoftwareCompatibilityInfo) | **Patch** /hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Update a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
-[**UpdateHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#UpdateHclHyperflexSoftwareCompatibilityInfo) | **Post** /hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Update a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
+[**CreateHclCompatibilityStatus**](HclApi.md#CreateHclCompatibilityStatus) | **Post** /api/v1/hcl/CompatibilityStatuses | Create a &#39;hcl.CompatibilityStatus&#39; resource.
+[**CreateHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#CreateHclHyperflexSoftwareCompatibilityInfo) | **Post** /api/v1/hcl/HyperflexSoftwareCompatibilityInfos | Create a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
+[**CreateHclSupportedDriverName**](HclApi.md#CreateHclSupportedDriverName) | **Post** /api/v1/hcl/SupportedDriverNames | Create a &#39;hcl.SupportedDriverName&#39; resource.
+[**DeleteHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#DeleteHclHyperflexSoftwareCompatibilityInfo) | **Delete** /api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Delete a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
+[**GetHclDriverImageByMoid**](HclApi.md#GetHclDriverImageByMoid) | **Get** /api/v1/hcl/DriverImages/{Moid} | Read a &#39;hcl.DriverImage&#39; resource.
+[**GetHclDriverImageList**](HclApi.md#GetHclDriverImageList) | **Get** /api/v1/hcl/DriverImages | Read a &#39;hcl.DriverImage&#39; resource.
+[**GetHclExemptedCatalogByMoid**](HclApi.md#GetHclExemptedCatalogByMoid) | **Get** /api/v1/hcl/ExemptedCatalogs/{Moid} | Read a &#39;hcl.ExemptedCatalog&#39; resource.
+[**GetHclExemptedCatalogList**](HclApi.md#GetHclExemptedCatalogList) | **Get** /api/v1/hcl/ExemptedCatalogs | Read a &#39;hcl.ExemptedCatalog&#39; resource.
+[**GetHclHyperflexSoftwareCompatibilityInfoByMoid**](HclApi.md#GetHclHyperflexSoftwareCompatibilityInfoByMoid) | **Get** /api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Read a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
+[**GetHclHyperflexSoftwareCompatibilityInfoList**](HclApi.md#GetHclHyperflexSoftwareCompatibilityInfoList) | **Get** /api/v1/hcl/HyperflexSoftwareCompatibilityInfos | Read a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
+[**GetHclOperatingSystemByMoid**](HclApi.md#GetHclOperatingSystemByMoid) | **Get** /api/v1/hcl/OperatingSystems/{Moid} | Read a &#39;hcl.OperatingSystem&#39; resource.
+[**GetHclOperatingSystemList**](HclApi.md#GetHclOperatingSystemList) | **Get** /api/v1/hcl/OperatingSystems | Read a &#39;hcl.OperatingSystem&#39; resource.
+[**GetHclOperatingSystemVendorByMoid**](HclApi.md#GetHclOperatingSystemVendorByMoid) | **Get** /api/v1/hcl/OperatingSystemVendors/{Moid} | Read a &#39;hcl.OperatingSystemVendor&#39; resource.
+[**GetHclOperatingSystemVendorList**](HclApi.md#GetHclOperatingSystemVendorList) | **Get** /api/v1/hcl/OperatingSystemVendors | Read a &#39;hcl.OperatingSystemVendor&#39; resource.
+[**GetHclServiceStatusByMoid**](HclApi.md#GetHclServiceStatusByMoid) | **Get** /api/v1/hcl/ServiceStatuses/{Moid} | Read a &#39;hcl.ServiceStatus&#39; resource.
+[**GetHclServiceStatusList**](HclApi.md#GetHclServiceStatusList) | **Get** /api/v1/hcl/ServiceStatuses | Read a &#39;hcl.ServiceStatus&#39; resource.
+[**PatchHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#PatchHclHyperflexSoftwareCompatibilityInfo) | **Patch** /api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Update a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
+[**UpdateHclHyperflexSoftwareCompatibilityInfo**](HclApi.md#UpdateHclHyperflexSoftwareCompatibilityInfo) | **Post** /api/v1/hcl/HyperflexSoftwareCompatibilityInfos/{Moid} | Update a &#39;hcl.HyperflexSoftwareCompatibilityInfo&#39; resource.
 
 
 

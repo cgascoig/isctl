@@ -18,18 +18,16 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**HypervisorType** | Pointer to **string** | Identifies the broad type of the underlying hypervisor. | [optional] [default to "Unknown"]
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**HypervisorType** | Pointer to **string** | Identifies the broad type of the underlying hypervisor. * &#x60;Unknown&#x60; - The type of the hypervisor is unknown. * &#x60;ESXi&#x60; - A Vmware ESXi hypervisor of any version. * &#x60;HXAP&#x60; - A Cisco HyperFlex Application Platform hypervisor. | [optional] [default to "Unknown"]
 **Identity** | Pointer to **string** | The internally generated identity of this cluster. This entity is not manipulated by users. It aids in uniquely identifying the cluster object. In case of VMware, this is a MOR (managed object reference). | [optional] [readonly] 
 **MemoryCapacity** | Pointer to [**VirtualizationMemoryCapacity**](virtualization.MemoryCapacity.md) |  | [optional] 
 **Name** | Pointer to **string** | The user-provided name for this cluster to facilitate identification. | [optional] [readonly] 
 **ProcessorCapacity** | Pointer to [**VirtualizationComputeCapacity**](virtualization.ComputeCapacity.md) |  | [optional] 
-**Status** | Pointer to **string** | Cluster health status as reported by the hypervisor platform. | [optional] [readonly] [default to "Unknown"]
+**Status** | Pointer to **string** | Cluster health status as reported by the hypervisor platform. * &#x60;Unknown&#x60; - Entity status is unknown. * &#x60;Degraded&#x60; - State is degraded, and might impact normal operation of the entity. * &#x60;Critical&#x60; - Entity is in a critical state, impacting operations. * &#x60;Ok&#x60; - Entity status is in a stable state, operating normally. | [optional] [readonly] [default to "Unknown"]
 **TotalCores** | Pointer to **int64** | Total number of CPU cores in this cluster. It is a cumulative number across all hosts in the cluster. | [optional] 
 **DatastoreCount** | Pointer to **int64** | Count of all datastores associated with this cluster. | [optional] 
 **Datacenter** | Pointer to [**VirtualizationVmwareDatacenterRelationship**](virtualization.VmwareDatacenter.Relationship.md) |  | [optional] 
-**Hosts** | Pointer to [**[]VirtualizationVmwareHostRelationship**](virtualization.VmwareHost.Relationship.md) | An array of relationships to virtualizationVmwareHost resources. | [optional] 
 
 ## Methods
 
@@ -340,6 +338,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *VirtualizationVmwareClusterRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *VirtualizationVmwareClusterRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *VirtualizationVmwareClusterRelationship) GetParent() MoBaseMoRelationship`
@@ -390,6 +398,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *VirtualizationVmwareClusterRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *VirtualizationVmwareClusterRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *VirtualizationVmwareClusterRelationship) GetDisplayNames() map[string][]string`
@@ -425,31 +443,6 @@ HasDisplayNames returns a boolean if a field has been set.
 `func (o *VirtualizationVmwareClusterRelationship) UnsetDisplayNames()`
 
 UnsetDisplayNames ensures that no value is present for DisplayNames, not even an explicit nil
-### GetRegisteredDevice
-
-`func (o *VirtualizationVmwareClusterRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
-
-GetRegisteredDevice returns the RegisteredDevice field if non-nil, zero value otherwise.
-
-### GetRegisteredDeviceOk
-
-`func (o *VirtualizationVmwareClusterRelationship) GetRegisteredDeviceOk() (*AssetDeviceRegistrationRelationship, bool)`
-
-GetRegisteredDeviceOk returns a tuple with the RegisteredDevice field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRegisteredDevice
-
-`func (o *VirtualizationVmwareClusterRelationship) SetRegisteredDevice(v AssetDeviceRegistrationRelationship)`
-
-SetRegisteredDevice sets RegisteredDevice field to given value.
-
-### HasRegisteredDevice
-
-`func (o *VirtualizationVmwareClusterRelationship) HasRegisteredDevice() bool`
-
-HasRegisteredDevice returns a boolean if a field has been set.
-
 ### GetHypervisorType
 
 `func (o *VirtualizationVmwareClusterRelationship) GetHypervisorType() string`
@@ -674,31 +667,6 @@ SetDatacenter sets Datacenter field to given value.
 `func (o *VirtualizationVmwareClusterRelationship) HasDatacenter() bool`
 
 HasDatacenter returns a boolean if a field has been set.
-
-### GetHosts
-
-`func (o *VirtualizationVmwareClusterRelationship) GetHosts() []VirtualizationVmwareHostRelationship`
-
-GetHosts returns the Hosts field if non-nil, zero value otherwise.
-
-### GetHostsOk
-
-`func (o *VirtualizationVmwareClusterRelationship) GetHostsOk() (*[]VirtualizationVmwareHostRelationship, bool)`
-
-GetHostsOk returns a tuple with the Hosts field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHosts
-
-`func (o *VirtualizationVmwareClusterRelationship) SetHosts(v []VirtualizationVmwareHostRelationship)`
-
-SetHosts sets Hosts field to given value.
-
-### HasHosts
-
-`func (o *VirtualizationVmwareClusterRelationship) HasHosts() bool`
-
-HasHosts returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

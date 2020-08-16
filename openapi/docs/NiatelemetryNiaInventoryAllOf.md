@@ -4,19 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Cpu** | Pointer to **float32** | CPU usage of device being inventoried. | [optional] 
-**CrashResetLogs** | Pointer to **string** | Last crash reset reason of device being inventoried. | [optional] 
-**DeviceName** | Pointer to **string** | Name of device being inventoried. | [optional] 
-**DeviceType** | Pointer to **string** | Type of device being inventoried. | [optional] 
+**Cpu** | Pointer to **float32** | CPU usage of device being inventoried. This determines the percentage of CPU resources used. | [optional] 
+**CrashResetLogs** | Pointer to **string** | Last crash reset reason of device being inventoried. This determines the last reason for a device&#39;s restart due to crash of the system. | [optional] 
+**DeviceName** | Pointer to **string** | Name of device being inventoried. The name the user assigns to the device is inventoried here. | [optional] 
+**DeviceType** | Pointer to **string** | Type of device being inventoried. This determines whether the device is a controller, leaf or spine. | [optional] 
 **Disk** | Pointer to [**NiatelemetryDiskinfo**](niatelemetry.Diskinfo.md) |  | [optional] 
-**LogInTime** | Pointer to **string** | Last log in time device being inventoried. | [optional] 
-**LogOutTime** | Pointer to **string** | Last log out time of device being inventoried. | [optional] 
-**Memory** | Pointer to **int64** | Memory usage of device being inventoried. | [optional] 
-**RecordType** | Pointer to **string** | Type of record DCNM / APIC / SE. | [optional] 
-**RecordVersion** | Pointer to **string** | Version of record being pushed. | [optional] 
-**Serial** | Pointer to **string** | Serial number of device being invetoried. | [optional] 
-**SoftwareDownload** | Pointer to **string** | Last software downloaded of device being inventoried. | [optional] 
-**Version** | Pointer to **string** | Software version of device being inventoried. | [optional] 
+**FexCount** | Pointer to **int64** | Scale of fabric extendors utilized. | [optional] 
+**LogInTime** | Pointer to **string** | Last log in time device being inventoried. This determines the last login time on the device. | [optional] 
+**LogOutTime** | Pointer to **string** | Last log out time of device being inventoried. This determines the last logout time on the device. | [optional] 
+**MacSecCount** | Pointer to **int64** | Number of Macsec configured interfaces on a TOR. | [optional] 
+**MacSecFabCount** | Pointer to **int64** | Number of Macsec configured interfaces on a Spine. | [optional] 
+**MacsecTotalCount** | Pointer to **int64** | Number of total Macsec configured interfaces for all nodes. | [optional] 
+**Memory** | Pointer to **int64** | Memory usage of device being inventoried. This determines the percentage of memory resources used. | [optional] 
+**RecordType** | Pointer to **string** | Type of record DCNM / APIC / SE. This determines the type of platform where inventory was collected. | [optional] 
+**RecordVersion** | Pointer to **string** | Version of record being pushed. This determines what was the API version for data available from the device. | [optional] 
+**RoutePrefixCount** | Pointer to **int64** | Total nuumber of v4 and v6 routes per node. | [optional] 
+**RoutePrefixV4Count** | Pointer to **int64** | Scale of v4 routes per node. | [optional] 
+**RoutePrefixV6Count** | Pointer to **int64** | Scale of v6 routes per node. | [optional] 
+**Serial** | Pointer to **string** | Serial number of device being invetoried. The serial number is unique per device and will be used as the key. | [optional] 
+**SoftwareDownload** | Pointer to **string** | Last software downloaded of device being inventoried. This determines if software download API was used. | [optional] 
+**Version** | Pointer to **string** | Software version of device being inventoried. The various software version values for each device are available on cisco.com. | [optional] 
 **LicenseState** | Pointer to [**NiatelemetryNiaLicenseStateRelationship**](niatelemetry.NiaLicenseState.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -164,6 +171,31 @@ SetDisk sets Disk field to given value.
 
 HasDisk returns a boolean if a field has been set.
 
+### GetFexCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetFexCount() int64`
+
+GetFexCount returns the FexCount field if non-nil, zero value otherwise.
+
+### GetFexCountOk
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetFexCountOk() (*int64, bool)`
+
+GetFexCountOk returns a tuple with the FexCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFexCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) SetFexCount(v int64)`
+
+SetFexCount sets FexCount field to given value.
+
+### HasFexCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) HasFexCount() bool`
+
+HasFexCount returns a boolean if a field has been set.
+
 ### GetLogInTime
 
 `func (o *NiatelemetryNiaInventoryAllOf) GetLogInTime() string`
@@ -213,6 +245,81 @@ SetLogOutTime sets LogOutTime field to given value.
 `func (o *NiatelemetryNiaInventoryAllOf) HasLogOutTime() bool`
 
 HasLogOutTime returns a boolean if a field has been set.
+
+### GetMacSecCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetMacSecCount() int64`
+
+GetMacSecCount returns the MacSecCount field if non-nil, zero value otherwise.
+
+### GetMacSecCountOk
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetMacSecCountOk() (*int64, bool)`
+
+GetMacSecCountOk returns a tuple with the MacSecCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMacSecCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) SetMacSecCount(v int64)`
+
+SetMacSecCount sets MacSecCount field to given value.
+
+### HasMacSecCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) HasMacSecCount() bool`
+
+HasMacSecCount returns a boolean if a field has been set.
+
+### GetMacSecFabCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetMacSecFabCount() int64`
+
+GetMacSecFabCount returns the MacSecFabCount field if non-nil, zero value otherwise.
+
+### GetMacSecFabCountOk
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetMacSecFabCountOk() (*int64, bool)`
+
+GetMacSecFabCountOk returns a tuple with the MacSecFabCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMacSecFabCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) SetMacSecFabCount(v int64)`
+
+SetMacSecFabCount sets MacSecFabCount field to given value.
+
+### HasMacSecFabCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) HasMacSecFabCount() bool`
+
+HasMacSecFabCount returns a boolean if a field has been set.
+
+### GetMacsecTotalCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetMacsecTotalCount() int64`
+
+GetMacsecTotalCount returns the MacsecTotalCount field if non-nil, zero value otherwise.
+
+### GetMacsecTotalCountOk
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetMacsecTotalCountOk() (*int64, bool)`
+
+GetMacsecTotalCountOk returns a tuple with the MacsecTotalCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMacsecTotalCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) SetMacsecTotalCount(v int64)`
+
+SetMacsecTotalCount sets MacsecTotalCount field to given value.
+
+### HasMacsecTotalCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) HasMacsecTotalCount() bool`
+
+HasMacsecTotalCount returns a boolean if a field has been set.
 
 ### GetMemory
 
@@ -288,6 +395,81 @@ SetRecordVersion sets RecordVersion field to given value.
 `func (o *NiatelemetryNiaInventoryAllOf) HasRecordVersion() bool`
 
 HasRecordVersion returns a boolean if a field has been set.
+
+### GetRoutePrefixCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetRoutePrefixCount() int64`
+
+GetRoutePrefixCount returns the RoutePrefixCount field if non-nil, zero value otherwise.
+
+### GetRoutePrefixCountOk
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetRoutePrefixCountOk() (*int64, bool)`
+
+GetRoutePrefixCountOk returns a tuple with the RoutePrefixCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoutePrefixCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) SetRoutePrefixCount(v int64)`
+
+SetRoutePrefixCount sets RoutePrefixCount field to given value.
+
+### HasRoutePrefixCount
+
+`func (o *NiatelemetryNiaInventoryAllOf) HasRoutePrefixCount() bool`
+
+HasRoutePrefixCount returns a boolean if a field has been set.
+
+### GetRoutePrefixV4Count
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetRoutePrefixV4Count() int64`
+
+GetRoutePrefixV4Count returns the RoutePrefixV4Count field if non-nil, zero value otherwise.
+
+### GetRoutePrefixV4CountOk
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetRoutePrefixV4CountOk() (*int64, bool)`
+
+GetRoutePrefixV4CountOk returns a tuple with the RoutePrefixV4Count field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoutePrefixV4Count
+
+`func (o *NiatelemetryNiaInventoryAllOf) SetRoutePrefixV4Count(v int64)`
+
+SetRoutePrefixV4Count sets RoutePrefixV4Count field to given value.
+
+### HasRoutePrefixV4Count
+
+`func (o *NiatelemetryNiaInventoryAllOf) HasRoutePrefixV4Count() bool`
+
+HasRoutePrefixV4Count returns a boolean if a field has been set.
+
+### GetRoutePrefixV6Count
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetRoutePrefixV6Count() int64`
+
+GetRoutePrefixV6Count returns the RoutePrefixV6Count field if non-nil, zero value otherwise.
+
+### GetRoutePrefixV6CountOk
+
+`func (o *NiatelemetryNiaInventoryAllOf) GetRoutePrefixV6CountOk() (*int64, bool)`
+
+GetRoutePrefixV6CountOk returns a tuple with the RoutePrefixV6Count field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoutePrefixV6Count
+
+`func (o *NiatelemetryNiaInventoryAllOf) SetRoutePrefixV6Count(v int64)`
+
+SetRoutePrefixV6Count sets RoutePrefixV6Count field to given value.
+
+### HasRoutePrefixV6Count
+
+`func (o *NiatelemetryNiaInventoryAllOf) HasRoutePrefixV6Count() bool`
+
+HasRoutePrefixV6Count returns a boolean if a field has been set.
 
 ### GetSerial
 

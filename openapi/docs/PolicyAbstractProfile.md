@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** | Description of the profile. | [optional] 
 **Name** | Pointer to **string** | Name of the concrete profile. | [optional] 
-**Type** | Pointer to **string** | Defines the type of the profile. Accepted value is instance. | [optional] [default to "instance"]
+**Type** | Pointer to **string** | Defines the type of the profile. Accepted value is instance. * &#x60;instance&#x60; - The profile defines the configuration for a specific instance of a target. | [optional] [default to "instance"]
 **SrcTemplate** | Pointer to [**PolicyAbstractProfileRelationship**](policy.AbstractProfile.Relationship.md) |  | [optional] 
 
 ## Methods

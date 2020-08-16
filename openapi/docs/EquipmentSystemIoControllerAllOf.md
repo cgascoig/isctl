@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **PartNumber** | Pointer to **string** | Part Number identifier for the IO module. | [optional] [readonly] 
 **Pid** | Pointer to **string** | This field identifies the Product ID for systemIOController. | [optional] [readonly] 
 **SystemIoControllerId** | Pointer to **int64** | This represents system I/O Controller identifier. | [optional] [readonly] 
+**Cmc** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **SharedIoModule** | Pointer to [**EquipmentSharedIoModuleRelationship**](equipment.SharedIoModule.Relationship.md) |  | [optional] 
 
@@ -261,6 +263,31 @@ SetSystemIoControllerId sets SystemIoControllerId field to given value.
 
 HasSystemIoControllerId returns a boolean if a field has been set.
 
+### GetCmc
+
+`func (o *EquipmentSystemIoControllerAllOf) GetCmc() ManagementControllerRelationship`
+
+GetCmc returns the Cmc field if non-nil, zero value otherwise.
+
+### GetCmcOk
+
+`func (o *EquipmentSystemIoControllerAllOf) GetCmcOk() (*ManagementControllerRelationship, bool)`
+
+GetCmcOk returns a tuple with the Cmc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCmc
+
+`func (o *EquipmentSystemIoControllerAllOf) SetCmc(v ManagementControllerRelationship)`
+
+SetCmc sets Cmc field to given value.
+
+### HasCmc
+
+`func (o *EquipmentSystemIoControllerAllOf) HasCmc() bool`
+
+HasCmc returns a boolean if a field has been set.
+
 ### GetEquipmentChassis
 
 `func (o *EquipmentSystemIoControllerAllOf) GetEquipmentChassis() EquipmentChassisRelationship`
@@ -285,6 +312,31 @@ SetEquipmentChassis sets EquipmentChassis field to given value.
 `func (o *EquipmentSystemIoControllerAllOf) HasEquipmentChassis() bool`
 
 HasEquipmentChassis returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentSystemIoControllerAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentSystemIoControllerAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentSystemIoControllerAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentSystemIoControllerAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

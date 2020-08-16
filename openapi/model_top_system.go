@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -23,17 +23,20 @@ type TopSystem struct {
 	Ipv4Address *string `json:"Ipv4Address,omitempty" yaml:"Ipv4Address,omitempty"`
 	// The IPv6 address of system.
 	Ipv6Address *string `json:"Ipv6Address,omitempty" yaml:"Ipv6Address,omitempty"`
-	Mode        *string `json:"Mode,omitempty" yaml:"Mode,omitempty"`
-	Name        *string `json:"Name,omitempty" yaml:"Name,omitempty"`
+	// The current mode of the system.
+	Mode *string `json:"Mode,omitempty" yaml:"Mode,omitempty"`
+	// The admin configured name of the system.
+	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
 	// The operational timezone of the system, empty indicates no timezone has been set specifically.
 	TimeZone *string `json:"TimeZone,omitempty" yaml:"TimeZone,omitempty"`
 	// An array of relationships to computeBlade resources.
-	ComputeBlades *[]ComputeBladeRelationship `json:"ComputeBlades,omitempty" yaml:"ComputeBlades,omitempty"`
+	ComputeBlades []ComputeBladeRelationship `json:"ComputeBlades,omitempty" yaml:"ComputeBlades,omitempty"`
 	// An array of relationships to computeRackUnit resources.
-	ComputeRackUnits     *[]ComputeRackUnitRelationship    `json:"ComputeRackUnits,omitempty" yaml:"ComputeRackUnits,omitempty"`
+	ComputeRackUnits     []ComputeRackUnitRelationship     `json:"ComputeRackUnits,omitempty" yaml:"ComputeRackUnits,omitempty"`
+	InventoryDeviceInfo  *InventoryDeviceInfoRelationship  `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	ManagementController *ManagementControllerRelationship `json:"ManagementController,omitempty" yaml:"ManagementController,omitempty"`
 	// An array of relationships to networkElement resources.
-	NetworkElements  *[]NetworkElementRelationship        `json:"NetworkElements,omitempty" yaml:"NetworkElements,omitempty"`
+	NetworkElements  []NetworkElementRelationship         `json:"NetworkElements,omitempty" yaml:"NetworkElements,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
@@ -214,22 +217,23 @@ func (o *TopSystem) SetTimeZone(v string) {
 	o.TimeZone = &v
 }
 
-// GetComputeBlades returns the ComputeBlades field value if set, zero value otherwise.
+// GetComputeBlades returns the ComputeBlades field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TopSystem) GetComputeBlades() []ComputeBladeRelationship {
-	if o == nil || o.ComputeBlades == nil {
+	if o == nil {
 		var ret []ComputeBladeRelationship
 		return ret
 	}
-	return *o.ComputeBlades
+	return o.ComputeBlades
 }
 
 // GetComputeBladesOk returns a tuple with the ComputeBlades field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TopSystem) GetComputeBladesOk() (*[]ComputeBladeRelationship, bool) {
 	if o == nil || o.ComputeBlades == nil {
 		return nil, false
 	}
-	return o.ComputeBlades, true
+	return &o.ComputeBlades, true
 }
 
 // HasComputeBlades returns a boolean if a field has been set.
@@ -243,25 +247,26 @@ func (o *TopSystem) HasComputeBlades() bool {
 
 // SetComputeBlades gets a reference to the given []ComputeBladeRelationship and assigns it to the ComputeBlades field.
 func (o *TopSystem) SetComputeBlades(v []ComputeBladeRelationship) {
-	o.ComputeBlades = &v
+	o.ComputeBlades = v
 }
 
-// GetComputeRackUnits returns the ComputeRackUnits field value if set, zero value otherwise.
+// GetComputeRackUnits returns the ComputeRackUnits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TopSystem) GetComputeRackUnits() []ComputeRackUnitRelationship {
-	if o == nil || o.ComputeRackUnits == nil {
+	if o == nil {
 		var ret []ComputeRackUnitRelationship
 		return ret
 	}
-	return *o.ComputeRackUnits
+	return o.ComputeRackUnits
 }
 
 // GetComputeRackUnitsOk returns a tuple with the ComputeRackUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TopSystem) GetComputeRackUnitsOk() (*[]ComputeRackUnitRelationship, bool) {
 	if o == nil || o.ComputeRackUnits == nil {
 		return nil, false
 	}
-	return o.ComputeRackUnits, true
+	return &o.ComputeRackUnits, true
 }
 
 // HasComputeRackUnits returns a boolean if a field has been set.
@@ -275,7 +280,39 @@ func (o *TopSystem) HasComputeRackUnits() bool {
 
 // SetComputeRackUnits gets a reference to the given []ComputeRackUnitRelationship and assigns it to the ComputeRackUnits field.
 func (o *TopSystem) SetComputeRackUnits(v []ComputeRackUnitRelationship) {
-	o.ComputeRackUnits = &v
+	o.ComputeRackUnits = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *TopSystem) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TopSystem) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *TopSystem) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *TopSystem) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetManagementController returns the ManagementController field value if set, zero value otherwise.
@@ -310,22 +347,23 @@ func (o *TopSystem) SetManagementController(v ManagementControllerRelationship) 
 	o.ManagementController = &v
 }
 
-// GetNetworkElements returns the NetworkElements field value if set, zero value otherwise.
+// GetNetworkElements returns the NetworkElements field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TopSystem) GetNetworkElements() []NetworkElementRelationship {
-	if o == nil || o.NetworkElements == nil {
+	if o == nil {
 		var ret []NetworkElementRelationship
 		return ret
 	}
-	return *o.NetworkElements
+	return o.NetworkElements
 }
 
 // GetNetworkElementsOk returns a tuple with the NetworkElements field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TopSystem) GetNetworkElementsOk() (*[]NetworkElementRelationship, bool) {
 	if o == nil || o.NetworkElements == nil {
 		return nil, false
 	}
-	return o.NetworkElements, true
+	return &o.NetworkElements, true
 }
 
 // HasNetworkElements returns a boolean if a field has been set.
@@ -339,7 +377,7 @@ func (o *TopSystem) HasNetworkElements() bool {
 
 // SetNetworkElements gets a reference to the given []NetworkElementRelationship and assigns it to the NetworkElements field.
 func (o *TopSystem) SetNetworkElements(v []NetworkElementRelationship) {
-	o.NetworkElements = &v
+	o.NetworkElements = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -404,6 +442,9 @@ func (o TopSystem) MarshalJSON() ([]byte, error) {
 	}
 	if o.ComputeRackUnits != nil {
 		toSerialize["ComputeRackUnits"] = o.ComputeRackUnits
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.ManagementController != nil {
 		toSerialize["ManagementController"] = o.ManagementController

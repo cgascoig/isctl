@@ -180,6 +180,16 @@ SetDistributions sets Distributions field to given value.
 
 HasDistributions returns a boolean if a field has been set.
 
+### SetDistributionsNil
+
+`func (o *OsConfigurationFileAllOf) SetDistributionsNil(b bool)`
+
+ SetDistributionsNil sets the value for Distributions to be an explicit nil
+
+### UnsetDistributions
+`func (o *OsConfigurationFileAllOf) UnsetDistributions()`
+
+UnsetDistributions ensures that no value is present for Distributions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

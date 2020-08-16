@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**GrandTotal** | Pointer to **bool** | Druid can include an extra \&quot;grand totals\&quot; row as the last row of a timeseries result set. To enable this, set \&quot;grandTotal\&quot; to true. The grand totals row will appear as the last row in the result array, and will have no timestamp. It will be the last row even if the query is run in \&quot;descending\&quot; mode. Post-aggregations in the grand totals row will be computed based upon the grand total aggregations. | [optional] 
+**SkipEmptyBuckets** | Pointer to **bool** | Timeseries queries normally fill empty interior time buckets with zeroes. Time buckets that lie completely outside the data interval are not zero-filled. You can disable all zero-filling with this flag. In this mode, the data point for empty buckets are omitted from the results. | [optional] 
 **Timeout** | Pointer to **int32** | Query timeout in milliseconds, beyond which unfinished queries will be cancelled. 0 timeout means no timeout. | [optional] 
 **Priority** | Pointer to **int32** | Query Priority. Queries with higher priority get precedence for computational resources. | [optional] 
 **QueryId** | Pointer to **string** | Unique identifier given to this query. If a query ID is set or known, this can be used to cancel the query. | [optional] 
@@ -41,6 +43,56 @@ will change when the set of required properties is changed
 NewTelemetryDruidQueryContextWithDefaults instantiates a new TelemetryDruidQueryContext object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetGrandTotal
+
+`func (o *TelemetryDruidQueryContext) GetGrandTotal() bool`
+
+GetGrandTotal returns the GrandTotal field if non-nil, zero value otherwise.
+
+### GetGrandTotalOk
+
+`func (o *TelemetryDruidQueryContext) GetGrandTotalOk() (*bool, bool)`
+
+GetGrandTotalOk returns a tuple with the GrandTotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGrandTotal
+
+`func (o *TelemetryDruidQueryContext) SetGrandTotal(v bool)`
+
+SetGrandTotal sets GrandTotal field to given value.
+
+### HasGrandTotal
+
+`func (o *TelemetryDruidQueryContext) HasGrandTotal() bool`
+
+HasGrandTotal returns a boolean if a field has been set.
+
+### GetSkipEmptyBuckets
+
+`func (o *TelemetryDruidQueryContext) GetSkipEmptyBuckets() bool`
+
+GetSkipEmptyBuckets returns the SkipEmptyBuckets field if non-nil, zero value otherwise.
+
+### GetSkipEmptyBucketsOk
+
+`func (o *TelemetryDruidQueryContext) GetSkipEmptyBucketsOk() (*bool, bool)`
+
+GetSkipEmptyBucketsOk returns a tuple with the SkipEmptyBuckets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSkipEmptyBuckets
+
+`func (o *TelemetryDruidQueryContext) SetSkipEmptyBuckets(v bool)`
+
+SetSkipEmptyBuckets sets SkipEmptyBuckets field to given value.
+
+### HasSkipEmptyBuckets
+
+`func (o *TelemetryDruidQueryContext) HasSkipEmptyBuckets() bool`
+
+HasSkipEmptyBuckets returns a boolean if a field has been set.
 
 ### GetTimeout
 

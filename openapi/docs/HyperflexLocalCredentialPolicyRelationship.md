@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Description of the policy. | [optional] 
 **Name** | Pointer to **string** | Name of the concrete policy. | [optional] 
 **FactoryHypervisorPassword** | Pointer to **bool** | Indicates if Hypervisor password is the factory set default password. For HyperFlex Data Platform versions 3.0 or higher, enable this if the default password was not changed on the Hypervisor. It is required to supply a new custom Hypervisor password that will be applied to the Hypervisor during deployment. For HyperFlex Data Platform versions prior to 3.0 release, this setting has no effect and the default password will be used for initial install. The Hypervisor password should be changed after deployment. | [optional] 
@@ -339,6 +339,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *HyperflexLocalCredentialPolicyRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *HyperflexLocalCredentialPolicyRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *HyperflexLocalCredentialPolicyRelationship) GetParent() MoBaseMoRelationship`
@@ -389,6 +399,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *HyperflexLocalCredentialPolicyRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *HyperflexLocalCredentialPolicyRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *HyperflexLocalCredentialPolicyRelationship) GetDisplayNames() map[string][]string`
@@ -649,6 +669,16 @@ SetClusterProfiles sets ClusterProfiles field to given value.
 
 HasClusterProfiles returns a boolean if a field has been set.
 
+### SetClusterProfilesNil
+
+`func (o *HyperflexLocalCredentialPolicyRelationship) SetClusterProfilesNil(b bool)`
+
+ SetClusterProfilesNil sets the value for ClusterProfiles to be an explicit nil
+
+### UnsetClusterProfiles
+`func (o *HyperflexLocalCredentialPolicyRelationship) UnsetClusterProfiles()`
+
+UnsetClusterProfiles ensures that no value is present for ClusterProfiles, not even an explicit nil
 ### GetOrganization
 
 `func (o *HyperflexLocalCredentialPolicyRelationship) GetOrganization() OrganizationOrganizationRelationship`

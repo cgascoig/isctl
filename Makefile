@@ -27,9 +27,15 @@ clean:
 > rm -Rf openapi build
 .PHONY: clean
 
+# Go unit tests
 test: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
 > $(GO_CMD) test -v $(GO_MODULE)/cmd
 .PHONY: test
+
+# Run functional tests using BATS. These require bats, jq installed and working API keys so only run on dev workstation, not CI
+functional-test: build/isctl
+> bats tests
+.PHONY: functional-test
 
 openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
 > mkdir -p $(@D)

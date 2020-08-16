@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActualUsed** | Pointer to **int64** | Number of licenses actually used for this feature. | [optional] [readonly] 
-**Label** | Pointer to **string** | License Label. | [optional] [readonly] 
+**Label** | Pointer to **string** | License label of UCSD license. | [optional] [readonly] 
 **LicensedLimit** | Pointer to **string** | License limit for this license feature. | [optional] [readonly] 
-**Sku** | Pointer to **string** | SKU for the license. | [optional] [readonly] 
+**Sku** | Pointer to **string** | SKU for the UCSD license. | [optional] [readonly] 
 
 ## Methods
 

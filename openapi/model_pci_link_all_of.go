@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,20 +18,21 @@ import (
 
 // PciLinkAllOf Definition of the list of properties defined in 'pci.Link', excluding properties defined in parent classes.
 type PciLinkAllOf struct {
-	// It shows the name of the pci device.
+	// The name of the PCI device.
 	Adapter *string `json:"Adapter,omitempty" yaml:"Adapter,omitempty"`
-	// It shows the upstream link speed for device.
+	// The upstream link speed of the PCI device.
 	LinkSpeed *string `json:"LinkSpeed,omitempty" yaml:"LinkSpeed,omitempty"`
-	// It shows the upstream link status for device.
+	// The upstream link status of the PCI device.
 	LinkStatus *string `json:"LinkStatus,omitempty" yaml:"LinkStatus,omitempty"`
-	// It shows the upstream link width for device.
+	// The upstream link width of the PCI device.
 	LinkWidth *string `json:"LinkWidth,omitempty" yaml:"LinkWidth,omitempty"`
-	// It shows pci slot name for the pci device.
+	// The slot name of the PCI device.
 	PciSlot *string `json:"PciSlot,omitempty" yaml:"PciSlot,omitempty"`
-	// It shows the health information for pci device.
-	SlotStatus       *string                              `json:"SlotStatus,omitempty" yaml:"SlotStatus,omitempty"`
-	PciSwitch        *PciSwitchRelationship               `json:"PciSwitch,omitempty" yaml:"PciSwitch,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// The health information of the PCI device.
+	SlotStatus          *string                              `json:"SlotStatus,omitempty" yaml:"SlotStatus,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	PciSwitch           *PciSwitchRelationship               `json:"PciSwitch,omitempty" yaml:"PciSwitch,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewPciLinkAllOf instantiates a new PciLinkAllOf object
@@ -243,6 +244,38 @@ func (o *PciLinkAllOf) SetSlotStatus(v string) {
 	o.SlotStatus = &v
 }
 
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *PciLinkAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PciLinkAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *PciLinkAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *PciLinkAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
 // GetPciSwitch returns the PciSwitch field value if set, zero value otherwise.
 func (o *PciLinkAllOf) GetPciSwitch() PciSwitchRelationship {
 	if o == nil || o.PciSwitch == nil {
@@ -326,6 +359,9 @@ func (o PciLinkAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.SlotStatus != nil {
 		toSerialize["SlotStatus"] = o.SlotStatus
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.PciSwitch != nil {
 		toSerialize["PciSwitch"] = o.PciSwitch

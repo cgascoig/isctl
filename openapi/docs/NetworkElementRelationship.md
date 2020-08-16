@@ -18,20 +18,28 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
+**AdminEvacState** | Pointer to **string** | Administratively configured state of Fabric Evacuation feature, for this switch. | [optional] [readonly] 
 **AdminInbandInterfaceState** | Pointer to **string** | The administrative state of the network Element inband management interface. | [optional] [readonly] 
-**FaultSummary** | Pointer to **int64** |  | [optional] 
+**AlarmSummary** | Pointer to [**ComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
+**AvailableMemory** | Pointer to **string** | Available memory (un-used) on this switch platform. | [optional] [readonly] 
+**EthernetMode** | Pointer to **string** | The user configured Ethernet operational mode for this switch (End-Host or Switching). | [optional] [readonly] 
+**FaultSummary** | Pointer to **int64** | The fault summary of the network Element out-of-band management interface. | [optional] 
+**FcMode** | Pointer to **string** | The user configured FC operational mode for this switch (End-Host or Switching). | [optional] [readonly] 
 **InbandIpAddress** | Pointer to **string** | The IP address of the network Element inband management interface. | [optional] [readonly] 
 **InbandIpGateway** | Pointer to **string** | The default gateway of the network Element inband management interface. | [optional] [readonly] 
 **InbandIpMask** | Pointer to **string** | The network mask of the network Element inband management interface. | [optional] [readonly] 
 **InbandVlan** | Pointer to **int64** | The VLAN ID of the network Element inband management interface. | [optional] [readonly] 
+**ManagementMode** | Pointer to **string** | The management mode of the fabric interconnect. * &#x60;IntersightStandalone&#x60; - Intersight Standalone mode of operation. * &#x60;UCSM&#x60; - Unified Computing System Manager mode of operation. * &#x60;Intersight&#x60; - Intersight managed mode of operation. | [optional] [default to "IntersightStandalone"]
+**OperEvacState** | Pointer to **string** | Operational state of the Fabric Evacuation feature, for this switch. | [optional] [readonly] 
+**Operability** | Pointer to **string** | The switch&#39;s current overall operational/health state. | [optional] [readonly] 
 **OutOfBandIpAddress** | Pointer to **string** | The IP address of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandIpGateway** | Pointer to **string** | The default gateway of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandIpMask** | Pointer to **string** | The network mask of the network Element out-of-band management interface. | [optional] [readonly] 
@@ -43,12 +51,18 @@ Name | Type | Description | Notes
 **OutOfBandIpv6Prefix** | Pointer to **string** | The network mask of the network Element out-of-band management interface. | [optional] 
 **OutOfBandMac** | Pointer to **string** | The MAC address of the network Element out-of-band management interface. | [optional] [readonly] 
 **SwitchId** | Pointer to **string** | The Switch Id of the network Element. | [optional] [readonly] 
+**TotalMemory** | Pointer to **int64** | Total available memory on this switch platform. | [optional] [readonly] 
 **Cards** | Pointer to [**[]EquipmentSwitchCardRelationship**](equipment.SwitchCard.Relationship.md) | An array of relationships to equipmentSwitchCard resources. | [optional] [readonly] 
 **Fanmodules** | Pointer to [**[]EquipmentFanModuleRelationship**](equipment.FanModule.Relationship.md) | An array of relationships to equipmentFanModule resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementContoller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **ManagementEntity** | Pointer to [**ManagementEntityRelationship**](management.Entity.Relationship.md) |  | [optional] 
+**NetworkFcZoneInfo** | Pointer to [**NetworkFcZoneInfoRelationship**](network.FcZoneInfo.Relationship.md) |  | [optional] 
+**NetworkVlanPortInfo** | Pointer to [**NetworkVlanPortInfoRelationship**](network.VlanPortInfo.Relationship.md) |  | [optional] 
+**PortMacBindings** | Pointer to [**[]PortMacBindingRelationship**](port.MacBinding.Relationship.md) | An array of relationships to portMacBinding resources. | [optional] 
 **Psus** | Pointer to [**[]EquipmentPsuRelationship**](equipment.Psu.Relationship.md) | An array of relationships to equipmentPsu resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**StorageItems** | Pointer to [**[]StorageItemRelationship**](storage.Item.Relationship.md) | An array of relationships to storageItem resources. | [optional] [readonly] 
 **TopSystem** | Pointer to [**TopSystemRelationship**](top.System.Relationship.md) |  | [optional] 
 **UcsmRunningFirmware** | Pointer to [**FirmwareRunningFirmwareRelationship**](firmware.RunningFirmware.Relationship.md) |  | [optional] 
 
@@ -361,6 +375,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *NetworkElementRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *NetworkElementRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *NetworkElementRelationship) GetParent() MoBaseMoRelationship`
@@ -411,6 +435,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *NetworkElementRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *NetworkElementRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *NetworkElementRelationship) GetDisplayNames() map[string][]string`
@@ -621,6 +655,31 @@ SetVendor sets Vendor field to given value.
 
 HasVendor returns a boolean if a field has been set.
 
+### GetAdminEvacState
+
+`func (o *NetworkElementRelationship) GetAdminEvacState() string`
+
+GetAdminEvacState returns the AdminEvacState field if non-nil, zero value otherwise.
+
+### GetAdminEvacStateOk
+
+`func (o *NetworkElementRelationship) GetAdminEvacStateOk() (*string, bool)`
+
+GetAdminEvacStateOk returns a tuple with the AdminEvacState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminEvacState
+
+`func (o *NetworkElementRelationship) SetAdminEvacState(v string)`
+
+SetAdminEvacState sets AdminEvacState field to given value.
+
+### HasAdminEvacState
+
+`func (o *NetworkElementRelationship) HasAdminEvacState() bool`
+
+HasAdminEvacState returns a boolean if a field has been set.
+
 ### GetAdminInbandInterfaceState
 
 `func (o *NetworkElementRelationship) GetAdminInbandInterfaceState() string`
@@ -646,6 +705,81 @@ SetAdminInbandInterfaceState sets AdminInbandInterfaceState field to given value
 
 HasAdminInbandInterfaceState returns a boolean if a field has been set.
 
+### GetAlarmSummary
+
+`func (o *NetworkElementRelationship) GetAlarmSummary() ComputeAlarmSummary`
+
+GetAlarmSummary returns the AlarmSummary field if non-nil, zero value otherwise.
+
+### GetAlarmSummaryOk
+
+`func (o *NetworkElementRelationship) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool)`
+
+GetAlarmSummaryOk returns a tuple with the AlarmSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlarmSummary
+
+`func (o *NetworkElementRelationship) SetAlarmSummary(v ComputeAlarmSummary)`
+
+SetAlarmSummary sets AlarmSummary field to given value.
+
+### HasAlarmSummary
+
+`func (o *NetworkElementRelationship) HasAlarmSummary() bool`
+
+HasAlarmSummary returns a boolean if a field has been set.
+
+### GetAvailableMemory
+
+`func (o *NetworkElementRelationship) GetAvailableMemory() string`
+
+GetAvailableMemory returns the AvailableMemory field if non-nil, zero value otherwise.
+
+### GetAvailableMemoryOk
+
+`func (o *NetworkElementRelationship) GetAvailableMemoryOk() (*string, bool)`
+
+GetAvailableMemoryOk returns a tuple with the AvailableMemory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableMemory
+
+`func (o *NetworkElementRelationship) SetAvailableMemory(v string)`
+
+SetAvailableMemory sets AvailableMemory field to given value.
+
+### HasAvailableMemory
+
+`func (o *NetworkElementRelationship) HasAvailableMemory() bool`
+
+HasAvailableMemory returns a boolean if a field has been set.
+
+### GetEthernetMode
+
+`func (o *NetworkElementRelationship) GetEthernetMode() string`
+
+GetEthernetMode returns the EthernetMode field if non-nil, zero value otherwise.
+
+### GetEthernetModeOk
+
+`func (o *NetworkElementRelationship) GetEthernetModeOk() (*string, bool)`
+
+GetEthernetModeOk returns a tuple with the EthernetMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEthernetMode
+
+`func (o *NetworkElementRelationship) SetEthernetMode(v string)`
+
+SetEthernetMode sets EthernetMode field to given value.
+
+### HasEthernetMode
+
+`func (o *NetworkElementRelationship) HasEthernetMode() bool`
+
+HasEthernetMode returns a boolean if a field has been set.
+
 ### GetFaultSummary
 
 `func (o *NetworkElementRelationship) GetFaultSummary() int64`
@@ -670,6 +804,31 @@ SetFaultSummary sets FaultSummary field to given value.
 `func (o *NetworkElementRelationship) HasFaultSummary() bool`
 
 HasFaultSummary returns a boolean if a field has been set.
+
+### GetFcMode
+
+`func (o *NetworkElementRelationship) GetFcMode() string`
+
+GetFcMode returns the FcMode field if non-nil, zero value otherwise.
+
+### GetFcModeOk
+
+`func (o *NetworkElementRelationship) GetFcModeOk() (*string, bool)`
+
+GetFcModeOk returns a tuple with the FcMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFcMode
+
+`func (o *NetworkElementRelationship) SetFcMode(v string)`
+
+SetFcMode sets FcMode field to given value.
+
+### HasFcMode
+
+`func (o *NetworkElementRelationship) HasFcMode() bool`
+
+HasFcMode returns a boolean if a field has been set.
 
 ### GetInbandIpAddress
 
@@ -770,6 +929,81 @@ SetInbandVlan sets InbandVlan field to given value.
 `func (o *NetworkElementRelationship) HasInbandVlan() bool`
 
 HasInbandVlan returns a boolean if a field has been set.
+
+### GetManagementMode
+
+`func (o *NetworkElementRelationship) GetManagementMode() string`
+
+GetManagementMode returns the ManagementMode field if non-nil, zero value otherwise.
+
+### GetManagementModeOk
+
+`func (o *NetworkElementRelationship) GetManagementModeOk() (*string, bool)`
+
+GetManagementModeOk returns a tuple with the ManagementMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagementMode
+
+`func (o *NetworkElementRelationship) SetManagementMode(v string)`
+
+SetManagementMode sets ManagementMode field to given value.
+
+### HasManagementMode
+
+`func (o *NetworkElementRelationship) HasManagementMode() bool`
+
+HasManagementMode returns a boolean if a field has been set.
+
+### GetOperEvacState
+
+`func (o *NetworkElementRelationship) GetOperEvacState() string`
+
+GetOperEvacState returns the OperEvacState field if non-nil, zero value otherwise.
+
+### GetOperEvacStateOk
+
+`func (o *NetworkElementRelationship) GetOperEvacStateOk() (*string, bool)`
+
+GetOperEvacStateOk returns a tuple with the OperEvacState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperEvacState
+
+`func (o *NetworkElementRelationship) SetOperEvacState(v string)`
+
+SetOperEvacState sets OperEvacState field to given value.
+
+### HasOperEvacState
+
+`func (o *NetworkElementRelationship) HasOperEvacState() bool`
+
+HasOperEvacState returns a boolean if a field has been set.
+
+### GetOperability
+
+`func (o *NetworkElementRelationship) GetOperability() string`
+
+GetOperability returns the Operability field if non-nil, zero value otherwise.
+
+### GetOperabilityOk
+
+`func (o *NetworkElementRelationship) GetOperabilityOk() (*string, bool)`
+
+GetOperabilityOk returns a tuple with the Operability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperability
+
+`func (o *NetworkElementRelationship) SetOperability(v string)`
+
+SetOperability sets Operability field to given value.
+
+### HasOperability
+
+`func (o *NetworkElementRelationship) HasOperability() bool`
+
+HasOperability returns a boolean if a field has been set.
 
 ### GetOutOfBandIpAddress
 
@@ -1046,6 +1280,31 @@ SetSwitchId sets SwitchId field to given value.
 
 HasSwitchId returns a boolean if a field has been set.
 
+### GetTotalMemory
+
+`func (o *NetworkElementRelationship) GetTotalMemory() int64`
+
+GetTotalMemory returns the TotalMemory field if non-nil, zero value otherwise.
+
+### GetTotalMemoryOk
+
+`func (o *NetworkElementRelationship) GetTotalMemoryOk() (*int64, bool)`
+
+GetTotalMemoryOk returns a tuple with the TotalMemory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalMemory
+
+`func (o *NetworkElementRelationship) SetTotalMemory(v int64)`
+
+SetTotalMemory sets TotalMemory field to given value.
+
+### HasTotalMemory
+
+`func (o *NetworkElementRelationship) HasTotalMemory() bool`
+
+HasTotalMemory returns a boolean if a field has been set.
+
 ### GetCards
 
 `func (o *NetworkElementRelationship) GetCards() []EquipmentSwitchCardRelationship`
@@ -1071,6 +1330,16 @@ SetCards sets Cards field to given value.
 
 HasCards returns a boolean if a field has been set.
 
+### SetCardsNil
+
+`func (o *NetworkElementRelationship) SetCardsNil(b bool)`
+
+ SetCardsNil sets the value for Cards to be an explicit nil
+
+### UnsetCards
+`func (o *NetworkElementRelationship) UnsetCards()`
+
+UnsetCards ensures that no value is present for Cards, not even an explicit nil
 ### GetFanmodules
 
 `func (o *NetworkElementRelationship) GetFanmodules() []EquipmentFanModuleRelationship`
@@ -1095,6 +1364,41 @@ SetFanmodules sets Fanmodules field to given value.
 `func (o *NetworkElementRelationship) HasFanmodules() bool`
 
 HasFanmodules returns a boolean if a field has been set.
+
+### SetFanmodulesNil
+
+`func (o *NetworkElementRelationship) SetFanmodulesNil(b bool)`
+
+ SetFanmodulesNil sets the value for Fanmodules to be an explicit nil
+
+### UnsetFanmodules
+`func (o *NetworkElementRelationship) UnsetFanmodules()`
+
+UnsetFanmodules ensures that no value is present for Fanmodules, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *NetworkElementRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *NetworkElementRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *NetworkElementRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *NetworkElementRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetManagementContoller
 
@@ -1146,6 +1450,91 @@ SetManagementEntity sets ManagementEntity field to given value.
 
 HasManagementEntity returns a boolean if a field has been set.
 
+### GetNetworkFcZoneInfo
+
+`func (o *NetworkElementRelationship) GetNetworkFcZoneInfo() NetworkFcZoneInfoRelationship`
+
+GetNetworkFcZoneInfo returns the NetworkFcZoneInfo field if non-nil, zero value otherwise.
+
+### GetNetworkFcZoneInfoOk
+
+`func (o *NetworkElementRelationship) GetNetworkFcZoneInfoOk() (*NetworkFcZoneInfoRelationship, bool)`
+
+GetNetworkFcZoneInfoOk returns a tuple with the NetworkFcZoneInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkFcZoneInfo
+
+`func (o *NetworkElementRelationship) SetNetworkFcZoneInfo(v NetworkFcZoneInfoRelationship)`
+
+SetNetworkFcZoneInfo sets NetworkFcZoneInfo field to given value.
+
+### HasNetworkFcZoneInfo
+
+`func (o *NetworkElementRelationship) HasNetworkFcZoneInfo() bool`
+
+HasNetworkFcZoneInfo returns a boolean if a field has been set.
+
+### GetNetworkVlanPortInfo
+
+`func (o *NetworkElementRelationship) GetNetworkVlanPortInfo() NetworkVlanPortInfoRelationship`
+
+GetNetworkVlanPortInfo returns the NetworkVlanPortInfo field if non-nil, zero value otherwise.
+
+### GetNetworkVlanPortInfoOk
+
+`func (o *NetworkElementRelationship) GetNetworkVlanPortInfoOk() (*NetworkVlanPortInfoRelationship, bool)`
+
+GetNetworkVlanPortInfoOk returns a tuple with the NetworkVlanPortInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkVlanPortInfo
+
+`func (o *NetworkElementRelationship) SetNetworkVlanPortInfo(v NetworkVlanPortInfoRelationship)`
+
+SetNetworkVlanPortInfo sets NetworkVlanPortInfo field to given value.
+
+### HasNetworkVlanPortInfo
+
+`func (o *NetworkElementRelationship) HasNetworkVlanPortInfo() bool`
+
+HasNetworkVlanPortInfo returns a boolean if a field has been set.
+
+### GetPortMacBindings
+
+`func (o *NetworkElementRelationship) GetPortMacBindings() []PortMacBindingRelationship`
+
+GetPortMacBindings returns the PortMacBindings field if non-nil, zero value otherwise.
+
+### GetPortMacBindingsOk
+
+`func (o *NetworkElementRelationship) GetPortMacBindingsOk() (*[]PortMacBindingRelationship, bool)`
+
+GetPortMacBindingsOk returns a tuple with the PortMacBindings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortMacBindings
+
+`func (o *NetworkElementRelationship) SetPortMacBindings(v []PortMacBindingRelationship)`
+
+SetPortMacBindings sets PortMacBindings field to given value.
+
+### HasPortMacBindings
+
+`func (o *NetworkElementRelationship) HasPortMacBindings() bool`
+
+HasPortMacBindings returns a boolean if a field has been set.
+
+### SetPortMacBindingsNil
+
+`func (o *NetworkElementRelationship) SetPortMacBindingsNil(b bool)`
+
+ SetPortMacBindingsNil sets the value for PortMacBindings to be an explicit nil
+
+### UnsetPortMacBindings
+`func (o *NetworkElementRelationship) UnsetPortMacBindings()`
+
+UnsetPortMacBindings ensures that no value is present for PortMacBindings, not even an explicit nil
 ### GetPsus
 
 `func (o *NetworkElementRelationship) GetPsus() []EquipmentPsuRelationship`
@@ -1171,6 +1560,16 @@ SetPsus sets Psus field to given value.
 
 HasPsus returns a boolean if a field has been set.
 
+### SetPsusNil
+
+`func (o *NetworkElementRelationship) SetPsusNil(b bool)`
+
+ SetPsusNil sets the value for Psus to be an explicit nil
+
+### UnsetPsus
+`func (o *NetworkElementRelationship) UnsetPsus()`
+
+UnsetPsus ensures that no value is present for Psus, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *NetworkElementRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -1196,6 +1595,41 @@ SetRegisteredDevice sets RegisteredDevice field to given value.
 
 HasRegisteredDevice returns a boolean if a field has been set.
 
+### GetStorageItems
+
+`func (o *NetworkElementRelationship) GetStorageItems() []StorageItemRelationship`
+
+GetStorageItems returns the StorageItems field if non-nil, zero value otherwise.
+
+### GetStorageItemsOk
+
+`func (o *NetworkElementRelationship) GetStorageItemsOk() (*[]StorageItemRelationship, bool)`
+
+GetStorageItemsOk returns a tuple with the StorageItems field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageItems
+
+`func (o *NetworkElementRelationship) SetStorageItems(v []StorageItemRelationship)`
+
+SetStorageItems sets StorageItems field to given value.
+
+### HasStorageItems
+
+`func (o *NetworkElementRelationship) HasStorageItems() bool`
+
+HasStorageItems returns a boolean if a field has been set.
+
+### SetStorageItemsNil
+
+`func (o *NetworkElementRelationship) SetStorageItemsNil(b bool)`
+
+ SetStorageItemsNil sets the value for StorageItems to be an explicit nil
+
+### UnsetStorageItems
+`func (o *NetworkElementRelationship) UnsetStorageItems()`
+
+UnsetStorageItems ensures that no value is present for StorageItems, not even an explicit nil
 ### GetTopSystem
 
 `func (o *NetworkElementRelationship) GetTopSystem() TopSystemRelationship`

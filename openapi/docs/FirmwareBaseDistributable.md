@@ -5,15 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BundleType** | Pointer to **string** | The bundle type of the image, as published on cisco.com. | [optional] [readonly] 
+**ComponentMeta** | Pointer to [**[]FirmwareComponentMeta**](firmware.ComponentMeta.md) |  | [optional] 
 **Guid** | Pointer to **string** | The unique identifier for an image in a Cisco repository. | [optional] [readonly] 
 **Mdfid** | Pointer to **string** | The mdfid of the image provided by cisco.com. | [optional] 
-**Model** | Pointer to **string** | The endpoint model for which this firmware image is applicable. | [optional] [readonly] 
+**Model** | Pointer to **string** | The endpoint model for which this firmware image is applicable. | [optional] 
 **PlatformType** | Pointer to **string** | The platform type of the image. | [optional] [readonly] 
 **RecommendedBuild** | Pointer to **string** | The build which is recommended by Cisco. | [optional] 
 **ReleaseNotesUrl** | Pointer to **string** | The url for the release notes of this image. | [optional] 
 **SoftwareTypeId** | Pointer to **string** | The software type id provided by cisco.com. | [optional] [readonly] 
 **SupportedModels** | Pointer to **[]string** |  | [optional] 
 **Vendor** | Pointer to **string** | The vendor or publisher of this file. | [optional] 
+**DistributableMetas** | Pointer to [**[]FirmwareDistributableMetaRelationship**](firmware.DistributableMeta.Relationship.md) | An array of relationships to firmwareDistributableMeta resources. | [optional] 
+**Release** | Pointer to [**SoftwarerepositoryReleaseRelationship**](softwarerepository.Release.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -58,6 +61,31 @@ SetBundleType sets BundleType field to given value.
 `func (o *FirmwareBaseDistributable) HasBundleType() bool`
 
 HasBundleType returns a boolean if a field has been set.
+
+### GetComponentMeta
+
+`func (o *FirmwareBaseDistributable) GetComponentMeta() []FirmwareComponentMeta`
+
+GetComponentMeta returns the ComponentMeta field if non-nil, zero value otherwise.
+
+### GetComponentMetaOk
+
+`func (o *FirmwareBaseDistributable) GetComponentMetaOk() (*[]FirmwareComponentMeta, bool)`
+
+GetComponentMetaOk returns a tuple with the ComponentMeta field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComponentMeta
+
+`func (o *FirmwareBaseDistributable) SetComponentMeta(v []FirmwareComponentMeta)`
+
+SetComponentMeta sets ComponentMeta field to given value.
+
+### HasComponentMeta
+
+`func (o *FirmwareBaseDistributable) HasComponentMeta() bool`
+
+HasComponentMeta returns a boolean if a field has been set.
 
 ### GetGuid
 
@@ -283,6 +311,66 @@ SetVendor sets Vendor field to given value.
 `func (o *FirmwareBaseDistributable) HasVendor() bool`
 
 HasVendor returns a boolean if a field has been set.
+
+### GetDistributableMetas
+
+`func (o *FirmwareBaseDistributable) GetDistributableMetas() []FirmwareDistributableMetaRelationship`
+
+GetDistributableMetas returns the DistributableMetas field if non-nil, zero value otherwise.
+
+### GetDistributableMetasOk
+
+`func (o *FirmwareBaseDistributable) GetDistributableMetasOk() (*[]FirmwareDistributableMetaRelationship, bool)`
+
+GetDistributableMetasOk returns a tuple with the DistributableMetas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistributableMetas
+
+`func (o *FirmwareBaseDistributable) SetDistributableMetas(v []FirmwareDistributableMetaRelationship)`
+
+SetDistributableMetas sets DistributableMetas field to given value.
+
+### HasDistributableMetas
+
+`func (o *FirmwareBaseDistributable) HasDistributableMetas() bool`
+
+HasDistributableMetas returns a boolean if a field has been set.
+
+### SetDistributableMetasNil
+
+`func (o *FirmwareBaseDistributable) SetDistributableMetasNil(b bool)`
+
+ SetDistributableMetasNil sets the value for DistributableMetas to be an explicit nil
+
+### UnsetDistributableMetas
+`func (o *FirmwareBaseDistributable) UnsetDistributableMetas()`
+
+UnsetDistributableMetas ensures that no value is present for DistributableMetas, not even an explicit nil
+### GetRelease
+
+`func (o *FirmwareBaseDistributable) GetRelease() SoftwarerepositoryReleaseRelationship`
+
+GetRelease returns the Release field if non-nil, zero value otherwise.
+
+### GetReleaseOk
+
+`func (o *FirmwareBaseDistributable) GetReleaseOk() (*SoftwarerepositoryReleaseRelationship, bool)`
+
+GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelease
+
+`func (o *FirmwareBaseDistributable) SetRelease(v SoftwarerepositoryReleaseRelationship)`
+
+SetRelease sets Release field to given value.
+
+### HasRelease
+
+`func (o *FirmwareBaseDistributable) HasRelease() bool`
+
+HasRelease returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | Pointer to **interface{}** | An i18n message that can be translated in multiple languages to support internationalization. type: string | [optional] 
-**Severity** | Pointer to **string** | The severity of the Task or Workflow message warning/error/info etc. | [optional] [default to "Info"]
+**Message** | Pointer to **string** | An i18n message that can be translated in multiple languages to support internationalization. | [optional] 
+**Severity** | Pointer to **string** | The severity of the Task or Workflow message warning/error/info etc. * &#x60;Info&#x60; - The enum represents the log level to be used to convey info message. * &#x60;Warning&#x60; - The enum represents the log level to be used to convey warning message. * &#x60;Debug&#x60; - The enum represents the log level to be used to convey debug message. * &#x60;Error&#x60; - The enum represents the log level to be used to convey error message. | [optional] [default to "Info"]
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMessage
 
-`func (o *WorkflowMessageAllOf) GetMessage() interface{}`
+`func (o *WorkflowMessageAllOf) GetMessage() string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *WorkflowMessageAllOf) GetMessageOk() (*interface{}, bool)`
+`func (o *WorkflowMessageAllOf) GetMessageOk() (*string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *WorkflowMessageAllOf) SetMessage(v interface{})`
+`func (o *WorkflowMessageAllOf) SetMessage(v string)`
 
 SetMessage sets Message field to given value.
 
@@ -51,16 +51,6 @@ SetMessage sets Message field to given value.
 
 HasMessage returns a boolean if a field has been set.
 
-### SetMessageNil
-
-`func (o *WorkflowMessageAllOf) SetMessageNil(b bool)`
-
- SetMessageNil sets the value for Message to be an explicit nil
-
-### UnsetMessage
-`func (o *WorkflowMessageAllOf) UnsetMessage()`
-
-UnsetMessage ensures that no value is present for Message, not even an explicit nil
 ### GetSeverity
 
 `func (o *WorkflowMessageAllOf) GetSeverity() string`

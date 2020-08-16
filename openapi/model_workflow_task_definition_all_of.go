@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -23,11 +23,11 @@ type WorkflowTaskDefinitionAllOf struct {
 	// The task definition description to describe what this task will do when executed.
 	Description        *string                     `json:"Description,omitempty" yaml:"Description,omitempty"`
 	InternalProperties *WorkflowInternalProperties `json:"InternalProperties,omitempty" yaml:"InternalProperties,omitempty"`
-	// A user friendly short name to identify the task definition.
+	// A user friendly short name to identify the task definition. Label can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ), single quote ('), or an underscore (_).
 	Label *string `json:"Label,omitempty" yaml:"Label,omitempty"`
-	// License entitlement required to run this task. It is determined by license requirement of features.
+	// License entitlement required to run this task. It is determined by license requirement of features. * `Base` - Base as a License type. It is default license type. * `Essential` - Essential as a License type. * `Standard` - Standard as a License type. * `Advantage` - Advantage as a License type. * `Premier` - Premier as a License type.
 	LicenseEntitlement *string `json:"LicenseEntitlement,omitempty" yaml:"LicenseEntitlement,omitempty"`
-	// The name of the task definition. The name should follow this convention <Verb or Action><Category><Vendor><Product><Noun or object> Verb or Action is a required portion of the name and this must be part of the pre-approved verb list. Category is an optional field and this will refer to the broad category of the task referring to the type of resource or endpoint. If there is no specific category then use \"Generic\" if required. Vendor is an optional field and this will refer to the specific vendor this task applies to. If the task is generic and not tied to a vendor, then do not specify anything. Product is an optional field, this will contain the vendor product and model when desired. Noun or object is a required field and  this will contain the noun or object on which the action is being performed. Examples SendEmail  - This is a task in Generic category for sending email. NewStorageVolume - This is a vendor agnostic task under Storage device category for creating a new volume.
+	// The name of the task definition. The name should follow this convention <Verb or Action><Category><Vendor><Product><Noun or object> Verb or Action is a required portion of the name and this must be part of the pre-approved verb list. Category is an optional field and this will refer to the broad category of the task referring to the type of resource or endpoint. If there is no specific category then use \"Generic\" if required. Vendor is an optional field and this will refer to the specific vendor this task applies to. If the task is generic and not tied to a vendor, then do not specify anything. Product is an optional field, this will contain the vendor product and model when desired. Noun or object is a required field and  this will contain the noun or object on which the action is being performed. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), or an underscore (_). Examples SendEmail  - This is a task in Generic category for sending email. NewStorageVolume - This is a vendor agnostic task under Storage device category for creating a new volume.
 	Name       *string             `json:"Name,omitempty" yaml:"Name,omitempty"`
 	Properties *WorkflowProperties `json:"Properties,omitempty" yaml:"Properties,omitempty"`
 	// If set to true, the task requires access to secure properties and uses an encyption token associated with a workflow moid to encrypt or decrypt the secure properties.
@@ -36,8 +36,8 @@ type WorkflowTaskDefinitionAllOf struct {
 	Version *int64                       `json:"Version,omitempty" yaml:"Version,omitempty"`
 	Catalog *WorkflowCatalogRelationship `json:"Catalog,omitempty" yaml:"Catalog,omitempty"`
 	// An array of relationships to workflowTaskDefinition resources.
-	ImplementedTasks *[]WorkflowTaskDefinitionRelationship `json:"ImplementedTasks,omitempty" yaml:"ImplementedTasks,omitempty"`
-	InterfaceTask    *WorkflowTaskDefinitionRelationship   `json:"InterfaceTask,omitempty" yaml:"InterfaceTask,omitempty"`
+	ImplementedTasks []WorkflowTaskDefinitionRelationship `json:"ImplementedTasks,omitempty" yaml:"ImplementedTasks,omitempty"`
+	InterfaceTask    *WorkflowTaskDefinitionRelationship  `json:"InterfaceTask,omitempty" yaml:"InterfaceTask,omitempty"`
 }
 
 // NewWorkflowTaskDefinitionAllOf instantiates a new WorkflowTaskDefinitionAllOf object
@@ -381,22 +381,23 @@ func (o *WorkflowTaskDefinitionAllOf) SetCatalog(v WorkflowCatalogRelationship) 
 	o.Catalog = &v
 }
 
-// GetImplementedTasks returns the ImplementedTasks field value if set, zero value otherwise.
+// GetImplementedTasks returns the ImplementedTasks field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkflowTaskDefinitionAllOf) GetImplementedTasks() []WorkflowTaskDefinitionRelationship {
-	if o == nil || o.ImplementedTasks == nil {
+	if o == nil {
 		var ret []WorkflowTaskDefinitionRelationship
 		return ret
 	}
-	return *o.ImplementedTasks
+	return o.ImplementedTasks
 }
 
 // GetImplementedTasksOk returns a tuple with the ImplementedTasks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkflowTaskDefinitionAllOf) GetImplementedTasksOk() (*[]WorkflowTaskDefinitionRelationship, bool) {
 	if o == nil || o.ImplementedTasks == nil {
 		return nil, false
 	}
-	return o.ImplementedTasks, true
+	return &o.ImplementedTasks, true
 }
 
 // HasImplementedTasks returns a boolean if a field has been set.
@@ -410,7 +411,7 @@ func (o *WorkflowTaskDefinitionAllOf) HasImplementedTasks() bool {
 
 // SetImplementedTasks gets a reference to the given []WorkflowTaskDefinitionRelationship and assigns it to the ImplementedTasks field.
 func (o *WorkflowTaskDefinitionAllOf) SetImplementedTasks(v []WorkflowTaskDefinitionRelationship) {
-	o.ImplementedTasks = &v
+	o.ImplementedTasks = v
 }
 
 // GetInterfaceTask returns the InterfaceTask field value if set, zero value otherwise.

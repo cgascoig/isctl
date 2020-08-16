@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,6 +18,10 @@ import (
 
 // TelemetryDruidQueryContext The query context is used for various query configuration parameters. Can be used to modify query behavior, including grand totals and zero-filling.
 type TelemetryDruidQueryContext struct {
+	// Druid can include an extra \"grand totals\" row as the last row of a timeseries result set. To enable this, set \"grandTotal\" to true. The grand totals row will appear as the last row in the result array, and will have no timestamp. It will be the last row even if the query is run in \"descending\" mode. Post-aggregations in the grand totals row will be computed based upon the grand total aggregations.
+	GrandTotal *bool `json:"grandTotal,omitempty" yaml:"grandTotal,omitempty"`
+	// Timeseries queries normally fill empty interior time buckets with zeroes. Time buckets that lie completely outside the data interval are not zero-filled. You can disable all zero-filling with this flag. In this mode, the data point for empty buckets are omitted from the results.
+	SkipEmptyBuckets *bool `json:"skipEmptyBuckets,omitempty" yaml:"skipEmptyBuckets,omitempty"`
 	// Query timeout in milliseconds, beyond which unfinished queries will be cancelled. 0 timeout means no timeout.
 	Timeout *int32 `json:"timeout,omitempty" yaml:"timeout,omitempty"`
 	// Query Priority. Queries with higher priority get precedence for computational resources.
@@ -71,6 +75,70 @@ func NewTelemetryDruidQueryContext() *TelemetryDruidQueryContext {
 func NewTelemetryDruidQueryContextWithDefaults() *TelemetryDruidQueryContext {
 	this := TelemetryDruidQueryContext{}
 	return &this
+}
+
+// GetGrandTotal returns the GrandTotal field value if set, zero value otherwise.
+func (o *TelemetryDruidQueryContext) GetGrandTotal() bool {
+	if o == nil || o.GrandTotal == nil {
+		var ret bool
+		return ret
+	}
+	return *o.GrandTotal
+}
+
+// GetGrandTotalOk returns a tuple with the GrandTotal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TelemetryDruidQueryContext) GetGrandTotalOk() (*bool, bool) {
+	if o == nil || o.GrandTotal == nil {
+		return nil, false
+	}
+	return o.GrandTotal, true
+}
+
+// HasGrandTotal returns a boolean if a field has been set.
+func (o *TelemetryDruidQueryContext) HasGrandTotal() bool {
+	if o != nil && o.GrandTotal != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGrandTotal gets a reference to the given bool and assigns it to the GrandTotal field.
+func (o *TelemetryDruidQueryContext) SetGrandTotal(v bool) {
+	o.GrandTotal = &v
+}
+
+// GetSkipEmptyBuckets returns the SkipEmptyBuckets field value if set, zero value otherwise.
+func (o *TelemetryDruidQueryContext) GetSkipEmptyBuckets() bool {
+	if o == nil || o.SkipEmptyBuckets == nil {
+		var ret bool
+		return ret
+	}
+	return *o.SkipEmptyBuckets
+}
+
+// GetSkipEmptyBucketsOk returns a tuple with the SkipEmptyBuckets field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TelemetryDruidQueryContext) GetSkipEmptyBucketsOk() (*bool, bool) {
+	if o == nil || o.SkipEmptyBuckets == nil {
+		return nil, false
+	}
+	return o.SkipEmptyBuckets, true
+}
+
+// HasSkipEmptyBuckets returns a boolean if a field has been set.
+func (o *TelemetryDruidQueryContext) HasSkipEmptyBuckets() bool {
+	if o != nil && o.SkipEmptyBuckets != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipEmptyBuckets gets a reference to the given bool and assigns it to the SkipEmptyBuckets field.
+func (o *TelemetryDruidQueryContext) SetSkipEmptyBuckets(v bool) {
+	o.SkipEmptyBuckets = &v
 }
 
 // GetTimeout returns the Timeout field value if set, zero value otherwise.
@@ -651,6 +719,12 @@ func (o *TelemetryDruidQueryContext) SetParallelMergeSmallBatchRows(v int32) {
 
 func (o TelemetryDruidQueryContext) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.GrandTotal != nil {
+		toSerialize["grandTotal"] = o.GrandTotal
+	}
+	if o.SkipEmptyBuckets != nil {
+		toSerialize["skipEmptyBuckets"] = o.SkipEmptyBuckets
+	}
 	if o.Timeout != nil {
 		toSerialize["timeout"] = o.Timeout
 	}

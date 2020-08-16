@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | The description for the workflow. | [optional] 
 **InputParameters** | Pointer to **[]string** |  | [optional] 
 **Name** | Pointer to **string** | The name given to the workflow. | [optional] 
-**OutputParameters** | Pointer to **map[string]interface{}** | The workflow output parameters. | [optional] 
+**OutputParameters** | Pointer to **interface{}** | The workflow output parameters. | [optional] 
 **Retryable** | Pointer to **bool** | When true, this workflow can be retried for 2 weeks since the last modification of the workflow. | [optional] 
 **SchemaVersion** | Pointer to **int64** | The Conductor schema version that decides what attribute can be supported. | [optional] 
 **Src** | Pointer to **string** | The src is workflow owner service. | [optional] 
-**Tasks** | Pointer to **map[string]interface{}** | The tasks contained inside of the workflow. | [optional] 
-**Type** | Pointer to **string** | The type of workflow definition. | [optional] [default to "SystemDefined"]
+**Tasks** | Pointer to **interface{}** | The tasks contained inside of the workflow. | [optional] 
+**Type** | Pointer to **string** | The type of workflow definition. * &#x60;SystemDefined&#x60; - System defined workflow definition. * &#x60;UserDefined&#x60; - User defined workflow definition. * &#x60;Dynamic&#x60; - Dynamically defined workflow definition. | [optional] [default to "SystemDefined"]
 **Version** | Pointer to **int64** | The version for the workflow so we can support multiple versions for the same workflow name. | [optional] 
 **WaitOnDuplicate** | Pointer to **bool** | Parameter decides if workflows will wait for a duplicate to finish before starting a new one. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
@@ -113,20 +113,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetOutputParameters
 
-`func (o *WorkflowWorkflowMeta) GetOutputParameters() map[string]interface{}`
+`func (o *WorkflowWorkflowMeta) GetOutputParameters() interface{}`
 
 GetOutputParameters returns the OutputParameters field if non-nil, zero value otherwise.
 
 ### GetOutputParametersOk
 
-`func (o *WorkflowWorkflowMeta) GetOutputParametersOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowWorkflowMeta) GetOutputParametersOk() (*interface{}, bool)`
 
 GetOutputParametersOk returns a tuple with the OutputParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutputParameters
 
-`func (o *WorkflowWorkflowMeta) SetOutputParameters(v map[string]interface{})`
+`func (o *WorkflowWorkflowMeta) SetOutputParameters(v interface{})`
 
 SetOutputParameters sets OutputParameters field to given value.
 
@@ -136,6 +136,16 @@ SetOutputParameters sets OutputParameters field to given value.
 
 HasOutputParameters returns a boolean if a field has been set.
 
+### SetOutputParametersNil
+
+`func (o *WorkflowWorkflowMeta) SetOutputParametersNil(b bool)`
+
+ SetOutputParametersNil sets the value for OutputParameters to be an explicit nil
+
+### UnsetOutputParameters
+`func (o *WorkflowWorkflowMeta) UnsetOutputParameters()`
+
+UnsetOutputParameters ensures that no value is present for OutputParameters, not even an explicit nil
 ### GetRetryable
 
 `func (o *WorkflowWorkflowMeta) GetRetryable() bool`
@@ -213,20 +223,20 @@ HasSrc returns a boolean if a field has been set.
 
 ### GetTasks
 
-`func (o *WorkflowWorkflowMeta) GetTasks() map[string]interface{}`
+`func (o *WorkflowWorkflowMeta) GetTasks() interface{}`
 
 GetTasks returns the Tasks field if non-nil, zero value otherwise.
 
 ### GetTasksOk
 
-`func (o *WorkflowWorkflowMeta) GetTasksOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowWorkflowMeta) GetTasksOk() (*interface{}, bool)`
 
 GetTasksOk returns a tuple with the Tasks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTasks
 
-`func (o *WorkflowWorkflowMeta) SetTasks(v map[string]interface{})`
+`func (o *WorkflowWorkflowMeta) SetTasks(v interface{})`
 
 SetTasks sets Tasks field to given value.
 
@@ -236,6 +246,16 @@ SetTasks sets Tasks field to given value.
 
 HasTasks returns a boolean if a field has been set.
 
+### SetTasksNil
+
+`func (o *WorkflowWorkflowMeta) SetTasksNil(b bool)`
+
+ SetTasksNil sets the value for Tasks to be an explicit nil
+
+### UnsetTasks
+`func (o *WorkflowWorkflowMeta) UnsetTasks()`
+
+UnsetTasks ensures that no value is present for Tasks, not even an explicit nil
 ### GetType
 
 `func (o *WorkflowWorkflowMeta) GetType() string`

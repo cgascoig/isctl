@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Goals** | Pointer to [**[]MemoryPersistentMemoryGoal**](memory.PersistentMemoryGoal.md) |  | [optional] 
 **LocalSecurity** | Pointer to [**MemoryPersistentMemoryLocalSecurity**](memory.PersistentMemoryLocalSecurity.md) |  | [optional] 
 **LogicalNamespaces** | Pointer to [**[]MemoryPersistentMemoryLogicalNamespace**](memory.PersistentMemoryLogicalNamespace.md) |  | [optional] 
-**ManagementMode** | Pointer to **string** | Management Mode of the policy. This can be either Configured from Intersight or Configured from Operating System. | [optional] [default to "configured-from-intersight"]
+**ManagementMode** | Pointer to **string** | Management Mode of the policy. This can be either Configured from Intersight or Configured from Operating System. * &#x60;configured-from-intersight&#x60; - The Persistent Memory Modules are configured from Intersight thorugh Persistent Memory policy. * &#x60;configured-from-operating-system&#x60; - The Persistent Memory Modules are configured from operating system thorugh OS tools. | [optional] [default to "configured-from-intersight"]
 **RetainNamespaces** | Pointer to **bool** | Persistent Memory Namespaces to be retained or not. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 **Profiles** | Pointer to [**[]PolicyAbstractConfigProfileRelationship**](policy.AbstractConfigProfile.Relationship.md) | An array of relationships to policyAbstractConfigProfile resources. | [optional] 
@@ -206,6 +206,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *MemoryPersistentMemoryPolicyAllOf) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *MemoryPersistentMemoryPolicyAllOf) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

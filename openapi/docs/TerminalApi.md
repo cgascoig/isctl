@@ -1,11 +1,11 @@
 # \TerminalApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetTerminalAuditLogByMoid**](TerminalApi.md#GetTerminalAuditLogByMoid) | **Get** /terminal/AuditLogs/{Moid} | Read a &#39;terminal.AuditLog&#39; resource.
-[**GetTerminalAuditLogList**](TerminalApi.md#GetTerminalAuditLogList) | **Get** /terminal/AuditLogs | Read a &#39;terminal.AuditLog&#39; resource.
+[**GetTerminalAuditLogByMoid**](TerminalApi.md#GetTerminalAuditLogByMoid) | **Get** /api/v1/terminal/AuditLogs/{Moid} | Read a &#39;terminal.AuditLog&#39; resource.
+[**GetTerminalAuditLogList**](TerminalApi.md#GetTerminalAuditLogList) | **Get** /api/v1/terminal/AuditLogs | Read a &#39;terminal.AuditLog&#39; resource.
 
 
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Accessible** | Pointer to **bool** | Shows if this datastore is accessible. | [optional] 
 **MaintenanceMode** | Pointer to **bool** | Indicates if the datastore is in maintenance mode. Will be set to True, when in maintenance mode. | [optional] 
 **MultipleHostAccess** | Pointer to **bool** | Indicates if this datastore is connected to multiple hosts. | [optional] 
-**Status** | Pointer to **string** | Datastore health status, as reported by the hypervisor platform. | [optional] [default to "Unknown"]
+**Status** | Pointer to **string** | Datastore health status, as reported by the hypervisor platform. * &#x60;Unknown&#x60; - Entity status is unknown. * &#x60;Degraded&#x60; - State is degraded, and might impact normal operation of the entity. * &#x60;Critical&#x60; - Entity is in a critical state, impacting operations. * &#x60;Ok&#x60; - Entity status is in a stable state, operating normally. | [optional] [default to "Unknown"]
 **ThinProvisioningSupported** | Pointer to **bool** | Indicates if this datastore supports thin provisioning for files. | [optional] 
 **UnCommitted** | Pointer to **int64** | Space uncommitted in this datastore in bytes. | [optional] 
 **Url** | Pointer to **string** | The URL to access this datastore (example - &#39;ds:///vmfs/volumes/562a4e8a-0eeb5372-dd61-78baf9cb9afa/&#39;). | [optional] 
@@ -284,6 +284,16 @@ SetHosts sets Hosts field to given value.
 
 HasHosts returns a boolean if a field has been set.
 
+### SetHostsNil
+
+`func (o *VirtualizationVmwareDatastoreAllOf) SetHostsNil(b bool)`
+
+ SetHostsNil sets the value for Hosts to be an explicit nil
+
+### UnsetHosts
+`func (o *VirtualizationVmwareDatastoreAllOf) UnsetHosts()`
+
+UnsetHosts ensures that no value is present for Hosts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

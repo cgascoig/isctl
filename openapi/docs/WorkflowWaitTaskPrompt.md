@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | Description that give more details about what it means to pick this prompt option for the wait task. | [optional] 
 **Label** | Pointer to **string** | User friendly label for the prompt. This label will be shown to the user as one of available options for the wait task. | [optional] 
 **Name** | Pointer to **string** | Name for the wait prompt. | [optional] 
-**TaskStatus** | Pointer to **string** | Task status for the wait task when this prompt option is selected. | [optional] [default to "Scheduled"]
+**TaskStatus** | Pointer to **string** | Task status for the wait task when this prompt option is selected. * &#x60;Scheduled&#x60; - The enum represents the status when task is in scheduled state. * &#x60;InProgress&#x60; - The enum represents the status when task is in-progress state. * &#x60;NoOp&#x60; - The enum represents the status when task is a noop. * &#x60;Timeout&#x60; - The enum represents the status when task has timed out. * &#x60;Completed&#x60; - The enum represents the status when task has completed. * &#x60;Failed&#x60; - The enum represents the status when task has failed. | [optional] [default to "Scheduled"]
 
 ## Methods
 

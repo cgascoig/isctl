@@ -4,10 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Color** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
+**Color** | Pointer to **string** | Color of the locatorled available on an equipment. | [optional] [readonly] 
+**OperState** | Pointer to **string** | Identifies the operational state of locatorled. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
+**EquipmentFex** | Pointer to [**EquipmentFexRelationship**](equipment.Fex.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **StoragePhysicalDisk** | Pointer to [**StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) |  | [optional] 
 
@@ -129,6 +132,81 @@ SetComputeRackUnit sets ComputeRackUnit field to given value.
 `func (o *EquipmentLocatorLedAllOf) HasComputeRackUnit() bool`
 
 HasComputeRackUnit returns a boolean if a field has been set.
+
+### GetEquipmentChassis
+
+`func (o *EquipmentLocatorLedAllOf) GetEquipmentChassis() EquipmentChassisRelationship`
+
+GetEquipmentChassis returns the EquipmentChassis field if non-nil, zero value otherwise.
+
+### GetEquipmentChassisOk
+
+`func (o *EquipmentLocatorLedAllOf) GetEquipmentChassisOk() (*EquipmentChassisRelationship, bool)`
+
+GetEquipmentChassisOk returns a tuple with the EquipmentChassis field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentChassis
+
+`func (o *EquipmentLocatorLedAllOf) SetEquipmentChassis(v EquipmentChassisRelationship)`
+
+SetEquipmentChassis sets EquipmentChassis field to given value.
+
+### HasEquipmentChassis
+
+`func (o *EquipmentLocatorLedAllOf) HasEquipmentChassis() bool`
+
+HasEquipmentChassis returns a boolean if a field has been set.
+
+### GetEquipmentFex
+
+`func (o *EquipmentLocatorLedAllOf) GetEquipmentFex() EquipmentFexRelationship`
+
+GetEquipmentFex returns the EquipmentFex field if non-nil, zero value otherwise.
+
+### GetEquipmentFexOk
+
+`func (o *EquipmentLocatorLedAllOf) GetEquipmentFexOk() (*EquipmentFexRelationship, bool)`
+
+GetEquipmentFexOk returns a tuple with the EquipmentFex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentFex
+
+`func (o *EquipmentLocatorLedAllOf) SetEquipmentFex(v EquipmentFexRelationship)`
+
+SetEquipmentFex sets EquipmentFex field to given value.
+
+### HasEquipmentFex
+
+`func (o *EquipmentLocatorLedAllOf) HasEquipmentFex() bool`
+
+HasEquipmentFex returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentLocatorLedAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentLocatorLedAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentLocatorLedAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentLocatorLedAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

@@ -18,12 +18,12 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Short description about the host group. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the host group in storage array. | [optional] [readonly] 
-**StorageArray** | Pointer to [**StorageGenericArrayRelationship**](storage.GenericArray.Relationship.md) |  | [optional] 
+**StorageUtilization** | Pointer to [**StorageBaseCapacity**](storage.BaseCapacity.md) |  | [optional] 
 **HostNames** | Pointer to **[]string** |  | [optional] 
-**StorageUtilization** | Pointer to [**StorageHostUtilization**](storage.HostUtilization.md) |  | [optional] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
 **Hosts** | Pointer to [**[]StoragePureHostRelationship**](storage.PureHost.Relationship.md) | An array of relationships to storagePureHost resources. | [optional] [readonly] 
 **ProtectionGroup** | Pointer to [**StoragePureProtectionGroupRelationship**](storage.PureProtectionGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -337,6 +337,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StoragePureHostGroupRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StoragePureHostGroupRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StoragePureHostGroupRelationship) GetParent() MoBaseMoRelationship`
@@ -387,6 +397,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StoragePureHostGroupRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StoragePureHostGroupRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StoragePureHostGroupRelationship) GetDisplayNames() map[string][]string`
@@ -472,30 +492,30 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetStorageArray
+### GetStorageUtilization
 
-`func (o *StoragePureHostGroupRelationship) GetStorageArray() StorageGenericArrayRelationship`
+`func (o *StoragePureHostGroupRelationship) GetStorageUtilization() StorageBaseCapacity`
 
-GetStorageArray returns the StorageArray field if non-nil, zero value otherwise.
+GetStorageUtilization returns the StorageUtilization field if non-nil, zero value otherwise.
 
-### GetStorageArrayOk
+### GetStorageUtilizationOk
 
-`func (o *StoragePureHostGroupRelationship) GetStorageArrayOk() (*StorageGenericArrayRelationship, bool)`
+`func (o *StoragePureHostGroupRelationship) GetStorageUtilizationOk() (*StorageBaseCapacity, bool)`
 
-GetStorageArrayOk returns a tuple with the StorageArray field if it's non-nil, zero value otherwise
+GetStorageUtilizationOk returns a tuple with the StorageUtilization field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStorageArray
+### SetStorageUtilization
 
-`func (o *StoragePureHostGroupRelationship) SetStorageArray(v StorageGenericArrayRelationship)`
+`func (o *StoragePureHostGroupRelationship) SetStorageUtilization(v StorageBaseCapacity)`
 
-SetStorageArray sets StorageArray field to given value.
+SetStorageUtilization sets StorageUtilization field to given value.
 
-### HasStorageArray
+### HasStorageUtilization
 
-`func (o *StoragePureHostGroupRelationship) HasStorageArray() bool`
+`func (o *StoragePureHostGroupRelationship) HasStorageUtilization() bool`
 
-HasStorageArray returns a boolean if a field has been set.
+HasStorageUtilization returns a boolean if a field has been set.
 
 ### GetHostNames
 
@@ -522,30 +542,30 @@ SetHostNames sets HostNames field to given value.
 
 HasHostNames returns a boolean if a field has been set.
 
-### GetStorageUtilization
+### GetArray
 
-`func (o *StoragePureHostGroupRelationship) GetStorageUtilization() StorageHostUtilization`
+`func (o *StoragePureHostGroupRelationship) GetArray() StoragePureArrayRelationship`
 
-GetStorageUtilization returns the StorageUtilization field if non-nil, zero value otherwise.
+GetArray returns the Array field if non-nil, zero value otherwise.
 
-### GetStorageUtilizationOk
+### GetArrayOk
 
-`func (o *StoragePureHostGroupRelationship) GetStorageUtilizationOk() (*StorageHostUtilization, bool)`
+`func (o *StoragePureHostGroupRelationship) GetArrayOk() (*StoragePureArrayRelationship, bool)`
 
-GetStorageUtilizationOk returns a tuple with the StorageUtilization field if it's non-nil, zero value otherwise
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStorageUtilization
+### SetArray
 
-`func (o *StoragePureHostGroupRelationship) SetStorageUtilization(v StorageHostUtilization)`
+`func (o *StoragePureHostGroupRelationship) SetArray(v StoragePureArrayRelationship)`
 
-SetStorageUtilization sets StorageUtilization field to given value.
+SetArray sets Array field to given value.
 
-### HasStorageUtilization
+### HasArray
 
-`func (o *StoragePureHostGroupRelationship) HasStorageUtilization() bool`
+`func (o *StoragePureHostGroupRelationship) HasArray() bool`
 
-HasStorageUtilization returns a boolean if a field has been set.
+HasArray returns a boolean if a field has been set.
 
 ### GetHosts
 
@@ -572,6 +592,16 @@ SetHosts sets Hosts field to given value.
 
 HasHosts returns a boolean if a field has been set.
 
+### SetHostsNil
+
+`func (o *StoragePureHostGroupRelationship) SetHostsNil(b bool)`
+
+ SetHostsNil sets the value for Hosts to be an explicit nil
+
+### UnsetHosts
+`func (o *StoragePureHostGroupRelationship) UnsetHosts()`
+
+UnsetHosts ensures that no value is present for Hosts, not even an explicit nil
 ### GetProtectionGroup
 
 `func (o *StoragePureHostGroupRelationship) GetProtectionGroup() StoragePureProtectionGroupRelationship`

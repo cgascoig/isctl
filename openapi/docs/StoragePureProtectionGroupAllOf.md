@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int64** | Overall size of all snapshots in the protection group, represented in bytes. | [optional] 
 **Source** | Pointer to **string** | Name of PureStorage array name on which the protection group is created. | [optional] [readonly] 
 **Targets** | Pointer to **[]string** |  | [optional] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
 **HostGroups** | Pointer to [**[]StoragePureHostGroupRelationship**](storage.PureHostGroup.Relationship.md) | An array of relationships to storagePureHostGroup resources. | [optional] [readonly] 
 **Hosts** | Pointer to [**[]StoragePureHostRelationship**](storage.PureHost.Relationship.md) | An array of relationships to storagePureHost resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -106,6 +107,31 @@ SetTargets sets Targets field to given value.
 
 HasTargets returns a boolean if a field has been set.
 
+### GetArray
+
+`func (o *StoragePureProtectionGroupAllOf) GetArray() StoragePureArrayRelationship`
+
+GetArray returns the Array field if non-nil, zero value otherwise.
+
+### GetArrayOk
+
+`func (o *StoragePureProtectionGroupAllOf) GetArrayOk() (*StoragePureArrayRelationship, bool)`
+
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArray
+
+`func (o *StoragePureProtectionGroupAllOf) SetArray(v StoragePureArrayRelationship)`
+
+SetArray sets Array field to given value.
+
+### HasArray
+
+`func (o *StoragePureProtectionGroupAllOf) HasArray() bool`
+
+HasArray returns a boolean if a field has been set.
+
 ### GetHostGroups
 
 `func (o *StoragePureProtectionGroupAllOf) GetHostGroups() []StoragePureHostGroupRelationship`
@@ -131,6 +157,16 @@ SetHostGroups sets HostGroups field to given value.
 
 HasHostGroups returns a boolean if a field has been set.
 
+### SetHostGroupsNil
+
+`func (o *StoragePureProtectionGroupAllOf) SetHostGroupsNil(b bool)`
+
+ SetHostGroupsNil sets the value for HostGroups to be an explicit nil
+
+### UnsetHostGroups
+`func (o *StoragePureProtectionGroupAllOf) UnsetHostGroups()`
+
+UnsetHostGroups ensures that no value is present for HostGroups, not even an explicit nil
 ### GetHosts
 
 `func (o *StoragePureProtectionGroupAllOf) GetHosts() []StoragePureHostRelationship`
@@ -156,6 +192,16 @@ SetHosts sets Hosts field to given value.
 
 HasHosts returns a boolean if a field has been set.
 
+### SetHostsNil
+
+`func (o *StoragePureProtectionGroupAllOf) SetHostsNil(b bool)`
+
+ SetHostsNil sets the value for Hosts to be an explicit nil
+
+### UnsetHosts
+`func (o *StoragePureProtectionGroupAllOf) UnsetHosts()`
+
+UnsetHosts ensures that no value is present for Hosts, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *StoragePureProtectionGroupAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -206,6 +252,16 @@ SetVolumes sets Volumes field to given value.
 
 HasVolumes returns a boolean if a field has been set.
 
+### SetVolumesNil
+
+`func (o *StoragePureProtectionGroupAllOf) SetVolumesNil(b bool)`
+
+ SetVolumesNil sets the value for Volumes to be an explicit nil
+
+### UnsetVolumes
+`func (o *StoragePureProtectionGroupAllOf) UnsetVolumes()`
+
+UnsetVolumes ensures that no value is present for Volumes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

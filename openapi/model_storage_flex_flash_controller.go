@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,17 +18,22 @@ import (
 
 // StorageFlexFlashController Storage Flex Flash Controller.
 type StorageFlexFlashController struct {
-	EquipmentBase   `yaml:"EquipmentBase,inline"`
-	ControllerState *string                   `json:"ControllerState,omitempty" yaml:"ControllerState,omitempty"`
-	FfControllerId  *string                   `json:"FfControllerId,omitempty" yaml:"FfControllerId,omitempty"`
-	ComputeBoard    *ComputeBoardRelationship `json:"ComputeBoard,omitempty" yaml:"ComputeBoard,omitempty"`
+	EquipmentBase `yaml:"EquipmentBase,inline"`
+	// State of the Flex Flash Storage Controller.
+	ControllerState *string `json:"ControllerState,omitempty" yaml:"ControllerState,omitempty"`
+	// Identifier for the Flex Flash Storage Controller.
+	FfControllerId *string                   `json:"FfControllerId,omitempty" yaml:"FfControllerId,omitempty"`
+	ComputeBoard   *ComputeBoardRelationship `json:"ComputeBoard,omitempty" yaml:"ComputeBoard,omitempty"`
 	// An array of relationships to storageFlexFlashControllerProps resources.
-	FlexFlashControllerProps *[]StorageFlexFlashControllerPropsRelationship `json:"FlexFlashControllerProps,omitempty" yaml:"FlexFlashControllerProps,omitempty"`
+	FlexFlashControllerProps []StorageFlexFlashControllerPropsRelationship `json:"FlexFlashControllerProps,omitempty" yaml:"FlexFlashControllerProps,omitempty"`
 	// An array of relationships to storageFlexFlashPhysicalDrive resources.
-	FlexFlashPhysicalDrives *[]StorageFlexFlashPhysicalDriveRelationship `json:"FlexFlashPhysicalDrives,omitempty" yaml:"FlexFlashPhysicalDrives,omitempty"`
+	FlexFlashPhysicalDrives []StorageFlexFlashPhysicalDriveRelationship `json:"FlexFlashPhysicalDrives,omitempty" yaml:"FlexFlashPhysicalDrives,omitempty"`
 	// An array of relationships to storageFlexFlashVirtualDrive resources.
-	FlexFlashVirtualDrives *[]StorageFlexFlashVirtualDriveRelationship `json:"FlexFlashVirtualDrives,omitempty" yaml:"FlexFlashVirtualDrives,omitempty"`
-	RegisteredDevice       *AssetDeviceRegistrationRelationship        `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	FlexFlashVirtualDrives []StorageFlexFlashVirtualDriveRelationship `json:"FlexFlashVirtualDrives,omitempty" yaml:"FlexFlashVirtualDrives,omitempty"`
+	InventoryDeviceInfo    *InventoryDeviceInfoRelationship           `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	RegisteredDevice       *AssetDeviceRegistrationRelationship       `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// An array of relationships to firmwareRunningFirmware resources.
+	RunningFirmware []FirmwareRunningFirmwareRelationship `json:"RunningFirmware,omitempty" yaml:"RunningFirmware,omitempty"`
 }
 
 // NewStorageFlexFlashController instantiates a new StorageFlexFlashController object
@@ -144,22 +149,23 @@ func (o *StorageFlexFlashController) SetComputeBoard(v ComputeBoardRelationship)
 	o.ComputeBoard = &v
 }
 
-// GetFlexFlashControllerProps returns the FlexFlashControllerProps field value if set, zero value otherwise.
+// GetFlexFlashControllerProps returns the FlexFlashControllerProps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageFlexFlashController) GetFlexFlashControllerProps() []StorageFlexFlashControllerPropsRelationship {
-	if o == nil || o.FlexFlashControllerProps == nil {
+	if o == nil {
 		var ret []StorageFlexFlashControllerPropsRelationship
 		return ret
 	}
-	return *o.FlexFlashControllerProps
+	return o.FlexFlashControllerProps
 }
 
 // GetFlexFlashControllerPropsOk returns a tuple with the FlexFlashControllerProps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageFlexFlashController) GetFlexFlashControllerPropsOk() (*[]StorageFlexFlashControllerPropsRelationship, bool) {
 	if o == nil || o.FlexFlashControllerProps == nil {
 		return nil, false
 	}
-	return o.FlexFlashControllerProps, true
+	return &o.FlexFlashControllerProps, true
 }
 
 // HasFlexFlashControllerProps returns a boolean if a field has been set.
@@ -173,25 +179,26 @@ func (o *StorageFlexFlashController) HasFlexFlashControllerProps() bool {
 
 // SetFlexFlashControllerProps gets a reference to the given []StorageFlexFlashControllerPropsRelationship and assigns it to the FlexFlashControllerProps field.
 func (o *StorageFlexFlashController) SetFlexFlashControllerProps(v []StorageFlexFlashControllerPropsRelationship) {
-	o.FlexFlashControllerProps = &v
+	o.FlexFlashControllerProps = v
 }
 
-// GetFlexFlashPhysicalDrives returns the FlexFlashPhysicalDrives field value if set, zero value otherwise.
+// GetFlexFlashPhysicalDrives returns the FlexFlashPhysicalDrives field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageFlexFlashController) GetFlexFlashPhysicalDrives() []StorageFlexFlashPhysicalDriveRelationship {
-	if o == nil || o.FlexFlashPhysicalDrives == nil {
+	if o == nil {
 		var ret []StorageFlexFlashPhysicalDriveRelationship
 		return ret
 	}
-	return *o.FlexFlashPhysicalDrives
+	return o.FlexFlashPhysicalDrives
 }
 
 // GetFlexFlashPhysicalDrivesOk returns a tuple with the FlexFlashPhysicalDrives field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageFlexFlashController) GetFlexFlashPhysicalDrivesOk() (*[]StorageFlexFlashPhysicalDriveRelationship, bool) {
 	if o == nil || o.FlexFlashPhysicalDrives == nil {
 		return nil, false
 	}
-	return o.FlexFlashPhysicalDrives, true
+	return &o.FlexFlashPhysicalDrives, true
 }
 
 // HasFlexFlashPhysicalDrives returns a boolean if a field has been set.
@@ -205,25 +212,26 @@ func (o *StorageFlexFlashController) HasFlexFlashPhysicalDrives() bool {
 
 // SetFlexFlashPhysicalDrives gets a reference to the given []StorageFlexFlashPhysicalDriveRelationship and assigns it to the FlexFlashPhysicalDrives field.
 func (o *StorageFlexFlashController) SetFlexFlashPhysicalDrives(v []StorageFlexFlashPhysicalDriveRelationship) {
-	o.FlexFlashPhysicalDrives = &v
+	o.FlexFlashPhysicalDrives = v
 }
 
-// GetFlexFlashVirtualDrives returns the FlexFlashVirtualDrives field value if set, zero value otherwise.
+// GetFlexFlashVirtualDrives returns the FlexFlashVirtualDrives field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageFlexFlashController) GetFlexFlashVirtualDrives() []StorageFlexFlashVirtualDriveRelationship {
-	if o == nil || o.FlexFlashVirtualDrives == nil {
+	if o == nil {
 		var ret []StorageFlexFlashVirtualDriveRelationship
 		return ret
 	}
-	return *o.FlexFlashVirtualDrives
+	return o.FlexFlashVirtualDrives
 }
 
 // GetFlexFlashVirtualDrivesOk returns a tuple with the FlexFlashVirtualDrives field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageFlexFlashController) GetFlexFlashVirtualDrivesOk() (*[]StorageFlexFlashVirtualDriveRelationship, bool) {
 	if o == nil || o.FlexFlashVirtualDrives == nil {
 		return nil, false
 	}
-	return o.FlexFlashVirtualDrives, true
+	return &o.FlexFlashVirtualDrives, true
 }
 
 // HasFlexFlashVirtualDrives returns a boolean if a field has been set.
@@ -237,7 +245,39 @@ func (o *StorageFlexFlashController) HasFlexFlashVirtualDrives() bool {
 
 // SetFlexFlashVirtualDrives gets a reference to the given []StorageFlexFlashVirtualDriveRelationship and assigns it to the FlexFlashVirtualDrives field.
 func (o *StorageFlexFlashController) SetFlexFlashVirtualDrives(v []StorageFlexFlashVirtualDriveRelationship) {
-	o.FlexFlashVirtualDrives = &v
+	o.FlexFlashVirtualDrives = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *StorageFlexFlashController) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageFlexFlashController) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *StorageFlexFlashController) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *StorageFlexFlashController) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -272,6 +312,39 @@ func (o *StorageFlexFlashController) SetRegisteredDevice(v AssetDeviceRegistrati
 	o.RegisteredDevice = &v
 }
 
+// GetRunningFirmware returns the RunningFirmware field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StorageFlexFlashController) GetRunningFirmware() []FirmwareRunningFirmwareRelationship {
+	if o == nil {
+		var ret []FirmwareRunningFirmwareRelationship
+		return ret
+	}
+	return o.RunningFirmware
+}
+
+// GetRunningFirmwareOk returns a tuple with the RunningFirmware field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StorageFlexFlashController) GetRunningFirmwareOk() (*[]FirmwareRunningFirmwareRelationship, bool) {
+	if o == nil || o.RunningFirmware == nil {
+		return nil, false
+	}
+	return &o.RunningFirmware, true
+}
+
+// HasRunningFirmware returns a boolean if a field has been set.
+func (o *StorageFlexFlashController) HasRunningFirmware() bool {
+	if o != nil && o.RunningFirmware != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRunningFirmware gets a reference to the given []FirmwareRunningFirmwareRelationship and assigns it to the RunningFirmware field.
+func (o *StorageFlexFlashController) SetRunningFirmware(v []FirmwareRunningFirmwareRelationship) {
+	o.RunningFirmware = v
+}
+
 func (o StorageFlexFlashController) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	serializedEquipmentBase, errEquipmentBase := json.Marshal(o.EquipmentBase)
@@ -300,8 +373,14 @@ func (o StorageFlexFlashController) MarshalJSON() ([]byte, error) {
 	if o.FlexFlashVirtualDrives != nil {
 		toSerialize["FlexFlashVirtualDrives"] = o.FlexFlashVirtualDrives
 	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
+	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice
+	}
+	if o.RunningFirmware != nil {
+		toSerialize["RunningFirmware"] = o.RunningFirmware
 	}
 	return json.Marshal(toSerialize)
 }

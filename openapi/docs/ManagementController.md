@@ -8,6 +8,10 @@ Name | Type | Description | Notes
 **AdapterUnit** | Pointer to [**AdapterUnitRelationship**](adapter.Unit.Relationship.md) |  | [optional] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**EquipmentIoCardBase** | Pointer to [**EquipmentIoCardBaseRelationship**](equipment.IoCardBase.Relationship.md) |  | [optional] 
+**EquipmentSharedIoModule** | Pointer to [**EquipmentSharedIoModuleRelationship**](equipment.SharedIoModule.Relationship.md) |  | [optional] 
+**EquipmentSystemIoController** | Pointer to [**EquipmentSystemIoControllerRelationship**](equipment.SystemIoController.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementInterfaces** | Pointer to [**[]ManagementInterfaceRelationship**](management.Interface.Relationship.md) | An array of relationships to managementInterface resources. | [optional] [readonly] 
 **NetworkElement** | Pointer to [**NetworkElementRelationship**](network.Element.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -134,6 +138,106 @@ SetComputeRackUnit sets ComputeRackUnit field to given value.
 
 HasComputeRackUnit returns a boolean if a field has been set.
 
+### GetEquipmentIoCardBase
+
+`func (o *ManagementController) GetEquipmentIoCardBase() EquipmentIoCardBaseRelationship`
+
+GetEquipmentIoCardBase returns the EquipmentIoCardBase field if non-nil, zero value otherwise.
+
+### GetEquipmentIoCardBaseOk
+
+`func (o *ManagementController) GetEquipmentIoCardBaseOk() (*EquipmentIoCardBaseRelationship, bool)`
+
+GetEquipmentIoCardBaseOk returns a tuple with the EquipmentIoCardBase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentIoCardBase
+
+`func (o *ManagementController) SetEquipmentIoCardBase(v EquipmentIoCardBaseRelationship)`
+
+SetEquipmentIoCardBase sets EquipmentIoCardBase field to given value.
+
+### HasEquipmentIoCardBase
+
+`func (o *ManagementController) HasEquipmentIoCardBase() bool`
+
+HasEquipmentIoCardBase returns a boolean if a field has been set.
+
+### GetEquipmentSharedIoModule
+
+`func (o *ManagementController) GetEquipmentSharedIoModule() EquipmentSharedIoModuleRelationship`
+
+GetEquipmentSharedIoModule returns the EquipmentSharedIoModule field if non-nil, zero value otherwise.
+
+### GetEquipmentSharedIoModuleOk
+
+`func (o *ManagementController) GetEquipmentSharedIoModuleOk() (*EquipmentSharedIoModuleRelationship, bool)`
+
+GetEquipmentSharedIoModuleOk returns a tuple with the EquipmentSharedIoModule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentSharedIoModule
+
+`func (o *ManagementController) SetEquipmentSharedIoModule(v EquipmentSharedIoModuleRelationship)`
+
+SetEquipmentSharedIoModule sets EquipmentSharedIoModule field to given value.
+
+### HasEquipmentSharedIoModule
+
+`func (o *ManagementController) HasEquipmentSharedIoModule() bool`
+
+HasEquipmentSharedIoModule returns a boolean if a field has been set.
+
+### GetEquipmentSystemIoController
+
+`func (o *ManagementController) GetEquipmentSystemIoController() EquipmentSystemIoControllerRelationship`
+
+GetEquipmentSystemIoController returns the EquipmentSystemIoController field if non-nil, zero value otherwise.
+
+### GetEquipmentSystemIoControllerOk
+
+`func (o *ManagementController) GetEquipmentSystemIoControllerOk() (*EquipmentSystemIoControllerRelationship, bool)`
+
+GetEquipmentSystemIoControllerOk returns a tuple with the EquipmentSystemIoController field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentSystemIoController
+
+`func (o *ManagementController) SetEquipmentSystemIoController(v EquipmentSystemIoControllerRelationship)`
+
+SetEquipmentSystemIoController sets EquipmentSystemIoController field to given value.
+
+### HasEquipmentSystemIoController
+
+`func (o *ManagementController) HasEquipmentSystemIoController() bool`
+
+HasEquipmentSystemIoController returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *ManagementController) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ManagementController) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ManagementController) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ManagementController) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetManagementInterfaces
 
 `func (o *ManagementController) GetManagementInterfaces() []ManagementInterfaceRelationship`
@@ -159,6 +263,16 @@ SetManagementInterfaces sets ManagementInterfaces field to given value.
 
 HasManagementInterfaces returns a boolean if a field has been set.
 
+### SetManagementInterfacesNil
+
+`func (o *ManagementController) SetManagementInterfacesNil(b bool)`
+
+ SetManagementInterfacesNil sets the value for ManagementInterfaces to be an explicit nil
+
+### UnsetManagementInterfaces
+`func (o *ManagementController) UnsetManagementInterfaces()`
+
+UnsetManagementInterfaces ensures that no value is present for ManagementInterfaces, not even an explicit nil
 ### GetNetworkElement
 
 `func (o *ManagementController) GetNetworkElement() NetworkElementRelationship`
@@ -234,6 +348,16 @@ SetRunningFirmware sets RunningFirmware field to given value.
 
 HasRunningFirmware returns a boolean if a field has been set.
 
+### SetRunningFirmwareNil
+
+`func (o *ManagementController) SetRunningFirmwareNil(b bool)`
+
+ SetRunningFirmwareNil sets the value for RunningFirmware to be an explicit nil
+
+### UnsetRunningFirmware
+`func (o *ManagementController) UnsetRunningFirmware()`
+
+UnsetRunningFirmware ensures that no value is present for RunningFirmware, not even an explicit nil
 ### GetStorageSasExpander
 
 `func (o *ManagementController) GetStorageSasExpander() StorageSasExpanderRelationship`

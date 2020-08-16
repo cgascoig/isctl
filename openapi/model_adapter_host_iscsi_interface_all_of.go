@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,17 +18,27 @@ import (
 
 // AdapterHostIscsiInterfaceAllOf Definition of the list of properties defined in 'adapter.HostIscsiInterface', excluding properties defined in parent classes.
 type AdapterHostIscsiInterfaceAllOf struct {
-	AdminState           *string                              `json:"AdminState,omitempty" yaml:"AdminState,omitempty"`
-	EpDn                 *string                              `json:"EpDn,omitempty" yaml:"EpDn,omitempty"`
-	HostIscsiInterfaceId *int64                               `json:"HostIscsiInterfaceId,omitempty" yaml:"HostIscsiInterfaceId,omitempty"`
-	HostVisible          *string                              `json:"HostVisible,omitempty" yaml:"HostVisible,omitempty"`
-	MacAddress           *string                              `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
-	Name                 *string                              `json:"Name,omitempty" yaml:"Name,omitempty"`
-	OperState            *string                              `json:"OperState,omitempty" yaml:"OperState,omitempty"`
-	Operability          *string                              `json:"Operability,omitempty" yaml:"Operability,omitempty"`
-	PeerDn               *string                              `json:"PeerDn,omitempty" yaml:"PeerDn,omitempty"`
-	AdapterUnit          *AdapterUnitRelationship             `json:"AdapterUnit,omitempty" yaml:"AdapterUnit,omitempty"`
-	RegisteredDevice     *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// Admin Configured State of Host ISCSI Interface.
+	AdminState *string `json:"AdminState,omitempty" yaml:"AdminState,omitempty"`
+	// The Endpoint Config Dn of the Host ISCSI Interface.
+	EpDn *string `json:"EpDn,omitempty" yaml:"EpDn,omitempty"`
+	// Identifier of the Host ISCSI Interface.
+	HostIscsiInterfaceId *int64 `json:"HostIscsiInterfaceId,omitempty" yaml:"HostIscsiInterfaceId,omitempty"`
+	// The visibility of the Host to the endpoint.
+	HostVisible *string `json:"HostVisible,omitempty" yaml:"HostVisible,omitempty"`
+	// MAC address of Host ISCSI Interface.
+	MacAddress *string `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
+	// Name of the Host ISCSI Interface.
+	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
+	// Operational State of Host ISCSI Interface.
+	OperState *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
+	// Operability status of Host ISCSI Interface.
+	Operability *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
+	// PeerPort Dn of Host ISCSI Interface.
+	PeerDn              *string                              `json:"PeerDn,omitempty" yaml:"PeerDn,omitempty"`
+	AdapterUnit         *AdapterUnitRelationship             `json:"AdapterUnit,omitempty" yaml:"AdapterUnit,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewAdapterHostIscsiInterfaceAllOf instantiates a new AdapterHostIscsiInterfaceAllOf object
@@ -368,6 +378,38 @@ func (o *AdapterHostIscsiInterfaceAllOf) SetAdapterUnit(v AdapterUnitRelationshi
 	o.AdapterUnit = &v
 }
 
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *AdapterHostIscsiInterfaceAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdapterHostIscsiInterfaceAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *AdapterHostIscsiInterfaceAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *AdapterHostIscsiInterfaceAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
 func (o *AdapterHostIscsiInterfaceAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship {
 	if o == nil || o.RegisteredDevice == nil {
@@ -431,6 +473,9 @@ func (o AdapterHostIscsiInterfaceAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.AdapterUnit != nil {
 		toSerialize["AdapterUnit"] = o.AdapterUnit
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice

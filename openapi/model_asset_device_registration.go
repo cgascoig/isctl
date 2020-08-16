@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -28,13 +28,13 @@ type AssetDeviceRegistration struct {
 	ClaimedTime     *time.Time `json:"ClaimedTime,omitempty" yaml:"ClaimedTime,omitempty"`
 	DeviceHostname  *[]string  `json:"DeviceHostname,omitempty" yaml:"DeviceHostname,omitempty"`
 	DeviceIpAddress *[]string  `json:"DeviceIpAddress,omitempty" yaml:"DeviceIpAddress,omitempty"`
-	// Indicates if the platform is an actual device or an emulated device for testing, demos, etc. Permitted values are [Normal, Emulator, ContainerEmulator].
+	// Indicates if the platform is an actual device or an emulated device for testing, demos, etc. Permitted values are [Normal, Emulator, ContainerEmulator]. * `` - The device reported an empty or unrecognized executionMode. * `Normal` - The device connector is running in normal mode, i.e. it is not a simulation. * `Emulator` - The device connector is running in simulation mode inside an emulated device. * `ContainerEmulator` - The device connector is running in simulation mode inside a containerized emulated device.
 	ExecutionMode   *string                         `json:"ExecutionMode,omitempty" yaml:"ExecutionMode,omitempty"`
 	ParentSignature *AssetParentConnectionSignature `json:"ParentSignature,omitempty" yaml:"ParentSignature,omitempty"`
 	Pid             *[]string                       `json:"Pid,omitempty" yaml:"Pid,omitempty"`
-	// The platform type on which device connector is executing.
+	// The platform type on which device connector is executing. * `` - The device reported an empty or unrecognized platform type. * `APIC` - An Application Policy Infrastructure Controller cluster. * `DCNM` - A Data Center Network Manager instance. Data Center Network Manager (DCNM) is the network management platform for all NX-OS-enabled deployments, spanning new fabric architectures, IP Fabric for Media, and storage networking deployments for the Cisco Nexus-powered data center. * `UCSFI` - A UCS Fabric Interconnect in HA or standalone mode, which is being managed by UCS Manager (UCSM). * `UCSFIISM` - A UCS Fabric Interconnect in HA or standalone mode, managed directly by Intersight. * `IMC` - A standalone UCS Server Integrated Management Controller. * `IMCM4` - A standalone UCS M4 Server. * `IMCM5` - A standalone UCS M5 server. * `UCSIOM` - An UCS Chassis IO module. * `HX` - A HyperFlex storage controller. * `HyperFlexAP` - A HyperFlex Application Platform. * `UCSD` - A UCS Director virtual appliance. Cisco UCS Director automates, orchestrates, and manages Cisco and third-party hardware. * `IntersightAppliance` - Intersight on-premise appliance. * `PureStorageFlashArray` - A Pure Storage FlashArray device. * `NetAppOntap` - A NetApp ONTAP storage system. * `EmcScaleIo` - An EMC ScaleIO storage system. * `EmcVmax` - An EMC VMAX storage system. * `EmcVplex` - An EMC VPLEX storage system. * `EmcXtremIo` - An EMC XtremIO storage system. * `VmwareVcenter` - A VMware vCenter device that manages Virtual Machines. * `MicrosoftHyperV` - A Microsoft HyperV system that manages Virtual Machines. * `AppDynamics` - An AppDynamics controller that monitors applications. * `Dynatrace` - A Dynatrace controller that monitors applications. * `MicrosoftSqlServer` - A Microsoft SQL database server. * `Kubernetes` - A Kubernetes cluster that runs containerized applications. * `MicrosoftAzure` - A Microsoft Azure target. * `ServiceEngine` - Cisco Application Services Engine. Cisco Application Services Engine is a platform to deploy and manage applications. * `IMCBlade` - An Intersight managed UCS Blade Server.
 	PlatformType *string `json:"PlatformType,omitempty" yaml:"PlatformType,omitempty"`
-	// The device connector's public key used by the cloud to authenticate a connection from the device connector. The public key is used to verify that the signature a device connector sends on connect has been signed by the connector's private key stored on the device's filesystem. Must be a PEM encoded RSA public key string.
+	// The device connector's public key used by Intersight to authenticate a connection from the device connector. The public key is used to verify that the signature a device connector sends on connect has been signed by the connector's private key stored on the device's filesystem. Must be a PEM encoded RSA public key string.
 	PublicAccessKey *string `json:"PublicAccessKey,omitempty" yaml:"PublicAccessKey,omitempty"`
 	// Flag reported by devices to indicate an administrator of the device has disabled management operations of the device connector and only monitoring is permitted.
 	ReadOnly *bool     `json:"ReadOnly,omitempty" yaml:"ReadOnly,omitempty"`
@@ -44,7 +44,7 @@ type AssetDeviceRegistration struct {
 	Account       *IamAccountRelationship `json:"Account,omitempty" yaml:"Account,omitempty"`
 	ClaimedByUser *IamUserRelationship    `json:"ClaimedByUser,omitempty" yaml:"ClaimedByUser,omitempty"`
 	// An array of relationships to assetClusterMember resources.
-	ClusterMembers      *[]AssetClusterMemberRelationship     `json:"ClusterMembers,omitempty" yaml:"ClusterMembers,omitempty"`
+	ClusterMembers      []AssetClusterMemberRelationship      `json:"ClusterMembers,omitempty" yaml:"ClusterMembers,omitempty"`
 	DeviceClaim         *AssetDeviceClaimRelationship         `json:"DeviceClaim,omitempty" yaml:"DeviceClaim,omitempty"`
 	DeviceConfiguration *AssetDeviceConfigurationRelationship `json:"DeviceConfiguration,omitempty" yaml:"DeviceConfiguration,omitempty"`
 	DomainGroup         *IamDomainGroupRelationship           `json:"DomainGroup,omitempty" yaml:"DomainGroup,omitempty"`
@@ -556,22 +556,23 @@ func (o *AssetDeviceRegistration) SetClaimedByUser(v IamUserRelationship) {
 	o.ClaimedByUser = &v
 }
 
-// GetClusterMembers returns the ClusterMembers field value if set, zero value otherwise.
+// GetClusterMembers returns the ClusterMembers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AssetDeviceRegistration) GetClusterMembers() []AssetClusterMemberRelationship {
-	if o == nil || o.ClusterMembers == nil {
+	if o == nil {
 		var ret []AssetClusterMemberRelationship
 		return ret
 	}
-	return *o.ClusterMembers
+	return o.ClusterMembers
 }
 
 // GetClusterMembersOk returns a tuple with the ClusterMembers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetDeviceRegistration) GetClusterMembersOk() (*[]AssetClusterMemberRelationship, bool) {
 	if o == nil || o.ClusterMembers == nil {
 		return nil, false
 	}
-	return o.ClusterMembers, true
+	return &o.ClusterMembers, true
 }
 
 // HasClusterMembers returns a boolean if a field has been set.
@@ -585,7 +586,7 @@ func (o *AssetDeviceRegistration) HasClusterMembers() bool {
 
 // SetClusterMembers gets a reference to the given []AssetClusterMemberRelationship and assigns it to the ClusterMembers field.
 func (o *AssetDeviceRegistration) SetClusterMembers(v []AssetClusterMemberRelationship) {
-	o.ClusterMembers = &v
+	o.ClusterMembers = v
 }
 
 // GetDeviceClaim returns the DeviceClaim field value if set, zero value otherwise.

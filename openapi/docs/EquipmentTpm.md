@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActivationStatus** | Pointer to **string** |  | [optional] [readonly] 
-**AdminState** | Pointer to **string** |  | [optional] [readonly] 
+**ActivationStatus** | Pointer to **string** | Identifies the activation status of the TPM. | [optional] [readonly] 
+**AdminState** | Pointer to **string** | Identifies the admin configured state of the TPM. | [optional] [readonly] 
 **Ownership** | Pointer to **string** | Identifies the ownership information of the TPM. | [optional] [readonly] 
 **Presence** | Pointer to **string** | Identifies the presence of the trusted platform module. | [optional] [readonly] 
-**TpmId** | Pointer to **int64** |  | [optional] [readonly] 
-**Version** | Pointer to **string** |  | [optional] [readonly] 
+**TpmId** | Pointer to **int64** | Enter  the ID of the trusted platform module. | [optional] [readonly] 
+**Version** | Pointer to **string** | Identifies the revision of the Trusted Platform Module. | [optional] [readonly] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -206,6 +207,31 @@ SetComputeBoard sets ComputeBoard field to given value.
 `func (o *EquipmentTpm) HasComputeBoard() bool`
 
 HasComputeBoard returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentTpm) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentTpm) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentTpm) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentTpm) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

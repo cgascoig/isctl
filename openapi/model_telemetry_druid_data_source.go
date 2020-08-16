@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,11 +19,29 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
-// TelemetryDruidDataSource - A Druid data source.
+// TelemetryDruidDataSource - A data source is the Apache Druid equivalent of a database table. However, a query can also masquerade as a data source, providing subquery-like functionality. Query data sources are currently supported only by GroupBy queries.
 type TelemetryDruidDataSource struct {
-	TelemetryDruidQueryDataSource *TelemetryDruidQueryDataSource
-	TelemetryDruidTableDataSource *TelemetryDruidTableDataSource
-	TelemetryDruidUnionDataSource *TelemetryDruidUnionDataSource
+	TelemetryDruidInlineDataSource *TelemetryDruidInlineDataSource
+	TelemetryDruidJoinDataSource   *TelemetryDruidJoinDataSource
+	TelemetryDruidLookupDataSource *TelemetryDruidLookupDataSource
+	TelemetryDruidQueryDataSource  *TelemetryDruidQueryDataSource
+	TelemetryDruidTableDataSource  *TelemetryDruidTableDataSource
+	TelemetryDruidUnionDataSource  *TelemetryDruidUnionDataSource
+}
+
+// TelemetryDruidInlineDataSourceAsTelemetryDruidDataSource is a convenience function that returns TelemetryDruidInlineDataSource wrapped in TelemetryDruidDataSource
+func TelemetryDruidInlineDataSourceAsTelemetryDruidDataSource(v *TelemetryDruidInlineDataSource) TelemetryDruidDataSource {
+	return TelemetryDruidDataSource{TelemetryDruidInlineDataSource: v}
+}
+
+// TelemetryDruidJoinDataSourceAsTelemetryDruidDataSource is a convenience function that returns TelemetryDruidJoinDataSource wrapped in TelemetryDruidDataSource
+func TelemetryDruidJoinDataSourceAsTelemetryDruidDataSource(v *TelemetryDruidJoinDataSource) TelemetryDruidDataSource {
+	return TelemetryDruidDataSource{TelemetryDruidJoinDataSource: v}
+}
+
+// TelemetryDruidLookupDataSourceAsTelemetryDruidDataSource is a convenience function that returns TelemetryDruidLookupDataSource wrapped in TelemetryDruidDataSource
+func TelemetryDruidLookupDataSourceAsTelemetryDruidDataSource(v *TelemetryDruidLookupDataSource) TelemetryDruidDataSource {
+	return TelemetryDruidDataSource{TelemetryDruidLookupDataSource: v}
 }
 
 // TelemetryDruidQueryDataSourceAsTelemetryDruidDataSource is a convenience function that returns TelemetryDruidQueryDataSource wrapped in TelemetryDruidDataSource
@@ -52,6 +70,22 @@ func (dst *TelemetryDruidDataSource) UnmarshalJSON(data []byte) error {
 	}
 	if v, ok := unmarshaled["type"]; ok {
 		switch v {
+		case "join":
+			var result *TelemetryDruidJoinDataSource = &TelemetryDruidJoinDataSource{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidJoinDataSource = result
+			return nil
+		case "lookup":
+			var result *TelemetryDruidLookupDataSource = &TelemetryDruidLookupDataSource{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidLookupDataSource = result
+			return nil
 		case "query":
 			var result *TelemetryDruidQueryDataSource = &TelemetryDruidQueryDataSource{}
 			err = json.Unmarshal(data, result)
@@ -60,6 +94,14 @@ func (dst *TelemetryDruidDataSource) UnmarshalJSON(data []byte) error {
 			}
 			dst.TelemetryDruidQueryDataSource = result
 			return nil
+		case "scan":
+			var result *TelemetryDruidInlineDataSource = &TelemetryDruidInlineDataSource{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidInlineDataSource = result
+			return nil
 		case "table":
 			var result *TelemetryDruidTableDataSource = &TelemetryDruidTableDataSource{}
 			err = json.Unmarshal(data, result)
@@ -67,6 +109,30 @@ func (dst *TelemetryDruidDataSource) UnmarshalJSON(data []byte) error {
 				return err
 			}
 			dst.TelemetryDruidTableDataSource = result
+			return nil
+		case "telemetry.DruidInlineDataSource":
+			var result *TelemetryDruidInlineDataSource = &TelemetryDruidInlineDataSource{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidInlineDataSource = result
+			return nil
+		case "telemetry.DruidJoinDataSource":
+			var result *TelemetryDruidJoinDataSource = &TelemetryDruidJoinDataSource{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidJoinDataSource = result
+			return nil
+		case "telemetry.DruidLookupDataSource":
+			var result *TelemetryDruidLookupDataSource = &TelemetryDruidLookupDataSource{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidLookupDataSource = result
 			return nil
 		case "telemetry.DruidQueryDataSource":
 			var result *TelemetryDruidQueryDataSource = &TelemetryDruidQueryDataSource{}
@@ -111,6 +177,18 @@ func (dst *TelemetryDruidDataSource) UnmarshalJSON(data []byte) error {
 
 // Marshl data from the first non-nil pointers in the struct to JSON
 func (src *TelemetryDruidDataSource) MarshalJSON() ([]byte, error) {
+	if src.TelemetryDruidInlineDataSource != nil {
+		return json.Marshal(&src.TelemetryDruidInlineDataSource)
+	}
+
+	if src.TelemetryDruidJoinDataSource != nil {
+		return json.Marshal(&src.TelemetryDruidJoinDataSource)
+	}
+
+	if src.TelemetryDruidLookupDataSource != nil {
+		return json.Marshal(&src.TelemetryDruidLookupDataSource)
+	}
+
 	if src.TelemetryDruidQueryDataSource != nil {
 		return json.Marshal(&src.TelemetryDruidQueryDataSource)
 	}
@@ -128,6 +206,18 @@ func (src *TelemetryDruidDataSource) MarshalJSON() ([]byte, error) {
 
 // Marshl data from the first non-nil pointers in the struct to YAML
 func (src *TelemetryDruidDataSource) MarshalYAML() ([]byte, error) {
+	if src.TelemetryDruidInlineDataSource != nil {
+		return yaml.Marshal(&src.TelemetryDruidInlineDataSource)
+	}
+
+	if src.TelemetryDruidJoinDataSource != nil {
+		return yaml.Marshal(&src.TelemetryDruidJoinDataSource)
+	}
+
+	if src.TelemetryDruidLookupDataSource != nil {
+		return yaml.Marshal(&src.TelemetryDruidLookupDataSource)
+	}
+
 	if src.TelemetryDruidQueryDataSource != nil {
 		return yaml.Marshal(&src.TelemetryDruidQueryDataSource)
 	}
@@ -145,6 +235,18 @@ func (src *TelemetryDruidDataSource) MarshalYAML() ([]byte, error) {
 
 // Get the actual instance
 func (obj *TelemetryDruidDataSource) GetActualInstance() interface{} {
+	if obj.TelemetryDruidInlineDataSource != nil {
+		return obj.TelemetryDruidInlineDataSource
+	}
+
+	if obj.TelemetryDruidJoinDataSource != nil {
+		return obj.TelemetryDruidJoinDataSource
+	}
+
+	if obj.TelemetryDruidLookupDataSource != nil {
+		return obj.TelemetryDruidLookupDataSource
+	}
+
 	if obj.TelemetryDruidQueryDataSource != nil {
 		return obj.TelemetryDruidQueryDataSource
 	}

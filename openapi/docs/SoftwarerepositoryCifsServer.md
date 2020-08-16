@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **FileLocation** | Pointer to **string** | The location to the image file. The accepted format is IP-or-hostname/folder1/folder2/.../imageFile. | [optional] 
 **IsPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;password&#39; property has been set. | [optional] [readonly] 
 **MountOption** | Pointer to **string** | For CIFS, leave the field blank or enter one or more comma seperated options from the following. For Example, \&quot; \&quot; , \&quot; soft \&quot; , \&quot; soft , nounix \&quot; . * soft. * nounix. * noserviceino. * guest. * USERNAME&#x3D;VALUE. * PASSWORD&#x3D;VALUE. * sec&#x3D;VALUE (VALUE could be None, Ntlm, Ntlmi, Ntlmssp, Ntlmsspi, Ntlmv2, Ntlmv2i). | [optional] 
-**Password** | Pointer to **string** | Password configured on the file server. | [optional] 
+**Password** | Pointer to **string** | Password configured on the CIFS server. | [optional] 
 **RemoteFile** | Pointer to **string** | Filename of the image in the CIFS server. For example:ucs-c220m5-huu-3.1.2c.iso. | [optional] [readonly] 
 **RemoteIp** | Pointer to **string** | Hostname or IP Address of the CIFS server. | [optional] [readonly] 
 **RemoteShare** | Pointer to **string** | Remote directory where the image is present. For example:/share/subfolder. | [optional] [readonly] 

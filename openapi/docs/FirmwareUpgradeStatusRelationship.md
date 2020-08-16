@@ -18,17 +18,21 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **DownloadError** | Pointer to **string** | The error message from the endpoint during the download. | [optional] 
+**DownloadMessage** | Pointer to **string** | The message from the endpoint during the download. | [optional] 
 **DownloadPercentage** | Pointer to **int64** | The percentage of the image downloaded in the endpoint. | [optional] 
+**DownloadProgress** | Pointer to **int64** | The download progress of the file represented as a percentage between 0% and 100%. If progress reporting is not possible a value of -1 is sent. | [optional] 
+**DownloadRetries** | Pointer to **int64** | The number of retries the plugin attempted before succeeding or failing the download. | [optional] 
 **DownloadStage** | Pointer to **string** | The image download stages. Example:downloading, flashing. | [optional] 
-**DownloadStatus** | Pointer to **string** | The download status of the image in the endpoint. | [optional] 
-**EpPowerStatus** | Pointer to **string** | The server power status after the upgrade request is submitted in the endpoint. | [optional] [default to "none"]
+**EpPowerStatus** | Pointer to **string** | The server power status after the upgrade request is submitted in the endpoint. * &#x60;none&#x60; - Server power status is none. * &#x60;powered on&#x60; - Server power status is powered on. * &#x60;powered off&#x60; - Server power status is powered off. | [optional] [default to "none"]
 **OverallError** | Pointer to **string** | The reason for the operation failure. | [optional] 
 **OverallPercentage** | Pointer to **int64** | The overall percentage of the operation. | [optional] 
-**Overallstatus** | Pointer to **string** | The overall status of the operation. | [optional] [default to "none"]
-**PendingType** | Pointer to **string** | Pending reason for the upgrade waiting. | [optional] [default to "none"]
-**Upgrade** | Pointer to [**FirmwareUpgradeRelationship**](firmware.Upgrade.Relationship.md) |  | [optional] 
+**Overallstatus** | Pointer to **string** | The overall status of the operation. * &#x60;none&#x60; - Upgrade stage is no upgrade stage. * &#x60;started&#x60; - Upgrade stage is started. * &#x60;prepare initiating&#x60; - Upgrade configuration is being prepared. * &#x60;prepare initiated&#x60; - Upgrade configuration is initiated. * &#x60;prepared&#x60; - Upgrade configuration is prepared. * &#x60;download initiating&#x60; - Upgrade stage is download initiating. * &#x60;download initiated&#x60; - Upgrade stage is download initiated. * &#x60;downloading&#x60; - Upgrade stage is downloading. * &#x60;downloaded&#x60; - Upgrade stage is downloaded. * &#x60;upgrade initiating on fabric A&#x60; - Upgrade stage is in upgrade initiating when upgrade is being started in endopint. * &#x60;upgrade initiated on fabric A&#x60; - Upgrade stage is in upgrade initiated when the upgrade has started in endpoint. * &#x60;upgrading fabric A&#x60; - Upgrade stage is in upgrading when the upgrade requires reboot to complete. * &#x60;rebooting fabric A&#x60; - Upgrade is in rebooting when the endpoint is being rebooted. * &#x60;upgraded fabric A&#x60; - Upgrade stage is in upgraded when the corresponding endpoint has completed. * &#x60;upgrade initiating on fabric B&#x60; - Upgrade stage is in upgrade initiating when upgrade is being started in endopint. * &#x60;upgrade initiated on fabric B&#x60; - Upgrade stage is in upgrade initiated when upgrade has started in endpoint. * &#x60;upgrading fabric B&#x60; - Upgrade stage is in upgrading when the upgrade requires reboot to complete. * &#x60;rebooting fabric B&#x60; - Upgrade is in rebooting when the endpoint is being rebooted. * &#x60;upgraded fabric B&#x60; - Upgrade stage is in upgraded when the corresponding endpoint has completed. * &#x60;upgrade initiating&#x60; - Upgrade stage is upgrade initiating. * &#x60;upgrade initiated&#x60; - Upgrade stage is upgrade initiated. * &#x60;upgrading&#x60; - Upgrade stage is upgrading. * &#x60;oob images staging&#x60; - Out-of-band component images staging. * &#x60;oob images staged&#x60; - Out-of-band component images staged. * &#x60;rebooting&#x60; - Upgrade is rebooting the endpoint. * &#x60;upgraded&#x60; - Upgrade stage is upgraded. * &#x60;success&#x60; - Upgrade stage is success. * &#x60;failed&#x60; - Upgrade stage is upgrade failed. * &#x60;terminated&#x60; - Upgrade stage is terminated. * &#x60;pending&#x60; - Upgrade stage is pending. * &#x60;ReadyForCache&#x60; - The image is ready to be cached into the Intersight Appliance. * &#x60;Caching&#x60; - The image will be cached into Intersight Appliance or an endpoint cache. * &#x60;Cached&#x60; - The image has been cached into the Intersight Appliance or endpoint cache. * &#x60;CachingFailed&#x60; - The image caching into the Intersight Appliance failed or endpoint cache. | [optional] [default to "none"]
+**PendingType** | Pointer to **string** | Pending reason for the upgrade waiting. * &#x60;none&#x60; - Upgrade pending reason is none. * &#x60;pending for next reboot&#x60; - Upgrade pending reason is pending for next reboot. | [optional] [default to "none"]
+**Sha256checksum** | Pointer to **string** | The sha256checksum of the downloaded file as calculated by the download plugin after successfully downloading a file. | [optional] 
+**Upgrade** | Pointer to [**FirmwareUpgradeBaseRelationship**](firmware.UpgradeBase.Relationship.md) |  | [optional] 
+**Workflow** | Pointer to [**WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -339,6 +343,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *FirmwareUpgradeStatusRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *FirmwareUpgradeStatusRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *FirmwareUpgradeStatusRelationship) GetParent() MoBaseMoRelationship`
@@ -389,6 +403,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *FirmwareUpgradeStatusRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *FirmwareUpgradeStatusRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *FirmwareUpgradeStatusRelationship) GetDisplayNames() map[string][]string`
@@ -449,6 +473,31 @@ SetDownloadError sets DownloadError field to given value.
 
 HasDownloadError returns a boolean if a field has been set.
 
+### GetDownloadMessage
+
+`func (o *FirmwareUpgradeStatusRelationship) GetDownloadMessage() string`
+
+GetDownloadMessage returns the DownloadMessage field if non-nil, zero value otherwise.
+
+### GetDownloadMessageOk
+
+`func (o *FirmwareUpgradeStatusRelationship) GetDownloadMessageOk() (*string, bool)`
+
+GetDownloadMessageOk returns a tuple with the DownloadMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDownloadMessage
+
+`func (o *FirmwareUpgradeStatusRelationship) SetDownloadMessage(v string)`
+
+SetDownloadMessage sets DownloadMessage field to given value.
+
+### HasDownloadMessage
+
+`func (o *FirmwareUpgradeStatusRelationship) HasDownloadMessage() bool`
+
+HasDownloadMessage returns a boolean if a field has been set.
+
 ### GetDownloadPercentage
 
 `func (o *FirmwareUpgradeStatusRelationship) GetDownloadPercentage() int64`
@@ -474,6 +523,56 @@ SetDownloadPercentage sets DownloadPercentage field to given value.
 
 HasDownloadPercentage returns a boolean if a field has been set.
 
+### GetDownloadProgress
+
+`func (o *FirmwareUpgradeStatusRelationship) GetDownloadProgress() int64`
+
+GetDownloadProgress returns the DownloadProgress field if non-nil, zero value otherwise.
+
+### GetDownloadProgressOk
+
+`func (o *FirmwareUpgradeStatusRelationship) GetDownloadProgressOk() (*int64, bool)`
+
+GetDownloadProgressOk returns a tuple with the DownloadProgress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDownloadProgress
+
+`func (o *FirmwareUpgradeStatusRelationship) SetDownloadProgress(v int64)`
+
+SetDownloadProgress sets DownloadProgress field to given value.
+
+### HasDownloadProgress
+
+`func (o *FirmwareUpgradeStatusRelationship) HasDownloadProgress() bool`
+
+HasDownloadProgress returns a boolean if a field has been set.
+
+### GetDownloadRetries
+
+`func (o *FirmwareUpgradeStatusRelationship) GetDownloadRetries() int64`
+
+GetDownloadRetries returns the DownloadRetries field if non-nil, zero value otherwise.
+
+### GetDownloadRetriesOk
+
+`func (o *FirmwareUpgradeStatusRelationship) GetDownloadRetriesOk() (*int64, bool)`
+
+GetDownloadRetriesOk returns a tuple with the DownloadRetries field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDownloadRetries
+
+`func (o *FirmwareUpgradeStatusRelationship) SetDownloadRetries(v int64)`
+
+SetDownloadRetries sets DownloadRetries field to given value.
+
+### HasDownloadRetries
+
+`func (o *FirmwareUpgradeStatusRelationship) HasDownloadRetries() bool`
+
+HasDownloadRetries returns a boolean if a field has been set.
+
 ### GetDownloadStage
 
 `func (o *FirmwareUpgradeStatusRelationship) GetDownloadStage() string`
@@ -498,31 +597,6 @@ SetDownloadStage sets DownloadStage field to given value.
 `func (o *FirmwareUpgradeStatusRelationship) HasDownloadStage() bool`
 
 HasDownloadStage returns a boolean if a field has been set.
-
-### GetDownloadStatus
-
-`func (o *FirmwareUpgradeStatusRelationship) GetDownloadStatus() string`
-
-GetDownloadStatus returns the DownloadStatus field if non-nil, zero value otherwise.
-
-### GetDownloadStatusOk
-
-`func (o *FirmwareUpgradeStatusRelationship) GetDownloadStatusOk() (*string, bool)`
-
-GetDownloadStatusOk returns a tuple with the DownloadStatus field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDownloadStatus
-
-`func (o *FirmwareUpgradeStatusRelationship) SetDownloadStatus(v string)`
-
-SetDownloadStatus sets DownloadStatus field to given value.
-
-### HasDownloadStatus
-
-`func (o *FirmwareUpgradeStatusRelationship) HasDownloadStatus() bool`
-
-HasDownloadStatus returns a boolean if a field has been set.
 
 ### GetEpPowerStatus
 
@@ -649,22 +723,47 @@ SetPendingType sets PendingType field to given value.
 
 HasPendingType returns a boolean if a field has been set.
 
+### GetSha256checksum
+
+`func (o *FirmwareUpgradeStatusRelationship) GetSha256checksum() string`
+
+GetSha256checksum returns the Sha256checksum field if non-nil, zero value otherwise.
+
+### GetSha256checksumOk
+
+`func (o *FirmwareUpgradeStatusRelationship) GetSha256checksumOk() (*string, bool)`
+
+GetSha256checksumOk returns a tuple with the Sha256checksum field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSha256checksum
+
+`func (o *FirmwareUpgradeStatusRelationship) SetSha256checksum(v string)`
+
+SetSha256checksum sets Sha256checksum field to given value.
+
+### HasSha256checksum
+
+`func (o *FirmwareUpgradeStatusRelationship) HasSha256checksum() bool`
+
+HasSha256checksum returns a boolean if a field has been set.
+
 ### GetUpgrade
 
-`func (o *FirmwareUpgradeStatusRelationship) GetUpgrade() FirmwareUpgradeRelationship`
+`func (o *FirmwareUpgradeStatusRelationship) GetUpgrade() FirmwareUpgradeBaseRelationship`
 
 GetUpgrade returns the Upgrade field if non-nil, zero value otherwise.
 
 ### GetUpgradeOk
 
-`func (o *FirmwareUpgradeStatusRelationship) GetUpgradeOk() (*FirmwareUpgradeRelationship, bool)`
+`func (o *FirmwareUpgradeStatusRelationship) GetUpgradeOk() (*FirmwareUpgradeBaseRelationship, bool)`
 
 GetUpgradeOk returns a tuple with the Upgrade field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpgrade
 
-`func (o *FirmwareUpgradeStatusRelationship) SetUpgrade(v FirmwareUpgradeRelationship)`
+`func (o *FirmwareUpgradeStatusRelationship) SetUpgrade(v FirmwareUpgradeBaseRelationship)`
 
 SetUpgrade sets Upgrade field to given value.
 
@@ -673,6 +772,31 @@ SetUpgrade sets Upgrade field to given value.
 `func (o *FirmwareUpgradeStatusRelationship) HasUpgrade() bool`
 
 HasUpgrade returns a boolean if a field has been set.
+
+### GetWorkflow
+
+`func (o *FirmwareUpgradeStatusRelationship) GetWorkflow() WorkflowWorkflowInfoRelationship`
+
+GetWorkflow returns the Workflow field if non-nil, zero value otherwise.
+
+### GetWorkflowOk
+
+`func (o *FirmwareUpgradeStatusRelationship) GetWorkflowOk() (*WorkflowWorkflowInfoRelationship, bool)`
+
+GetWorkflowOk returns a tuple with the Workflow field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkflow
+
+`func (o *FirmwareUpgradeStatusRelationship) SetWorkflow(v WorkflowWorkflowInfoRelationship)`
+
+SetWorkflow sets Workflow field to given value.
+
+### HasWorkflow
+
+`func (o *FirmwareUpgradeStatusRelationship) HasWorkflow() bool`
+
+HasWorkflow returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,18 +19,32 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
-// TelemetryDruidAggregator - A Druid aggregator.
+// TelemetryDruidAggregator - struct for TelemetryDruidAggregator
 type TelemetryDruidAggregator struct {
+	TelemetryDruidAnyAggregator             *TelemetryDruidAnyAggregator
 	TelemetryDruidCountAggregator           *TelemetryDruidCountAggregator
+	TelemetryDruidFilteredAggregator        *TelemetryDruidFilteredAggregator
 	TelemetryDruidFirstLastAggregator       *TelemetryDruidFirstLastAggregator
 	TelemetryDruidMinMaxAggregator          *TelemetryDruidMinMaxAggregator
+	TelemetryDruidStringAnyAggregator       *TelemetryDruidStringAnyAggregator
 	TelemetryDruidStringFirstLastAggregator *TelemetryDruidStringFirstLastAggregator
 	TelemetryDruidSumAggregator             *TelemetryDruidSumAggregator
+	TelemetryDruidThetaSketchAggregator     *TelemetryDruidThetaSketchAggregator
+}
+
+// TelemetryDruidAnyAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidAnyAggregator wrapped in TelemetryDruidAggregator
+func TelemetryDruidAnyAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidAnyAggregator) TelemetryDruidAggregator {
+	return TelemetryDruidAggregator{TelemetryDruidAnyAggregator: v}
 }
 
 // TelemetryDruidCountAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidCountAggregator wrapped in TelemetryDruidAggregator
 func TelemetryDruidCountAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidCountAggregator) TelemetryDruidAggregator {
 	return TelemetryDruidAggregator{TelemetryDruidCountAggregator: v}
+}
+
+// TelemetryDruidFilteredAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidFilteredAggregator wrapped in TelemetryDruidAggregator
+func TelemetryDruidFilteredAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidFilteredAggregator) TelemetryDruidAggregator {
+	return TelemetryDruidAggregator{TelemetryDruidFilteredAggregator: v}
 }
 
 // TelemetryDruidFirstLastAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidFirstLastAggregator wrapped in TelemetryDruidAggregator
@@ -43,6 +57,11 @@ func TelemetryDruidMinMaxAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidM
 	return TelemetryDruidAggregator{TelemetryDruidMinMaxAggregator: v}
 }
 
+// TelemetryDruidStringAnyAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidStringAnyAggregator wrapped in TelemetryDruidAggregator
+func TelemetryDruidStringAnyAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidStringAnyAggregator) TelemetryDruidAggregator {
+	return TelemetryDruidAggregator{TelemetryDruidStringAnyAggregator: v}
+}
+
 // TelemetryDruidStringFirstLastAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidStringFirstLastAggregator wrapped in TelemetryDruidAggregator
 func TelemetryDruidStringFirstLastAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidStringFirstLastAggregator) TelemetryDruidAggregator {
 	return TelemetryDruidAggregator{TelemetryDruidStringFirstLastAggregator: v}
@@ -51,6 +70,11 @@ func TelemetryDruidStringFirstLastAggregatorAsTelemetryDruidAggregator(v *Teleme
 // TelemetryDruidSumAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidSumAggregator wrapped in TelemetryDruidAggregator
 func TelemetryDruidSumAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidSumAggregator) TelemetryDruidAggregator {
 	return TelemetryDruidAggregator{TelemetryDruidSumAggregator: v}
+}
+
+// TelemetryDruidThetaSketchAggregatorAsTelemetryDruidAggregator is a convenience function that returns TelemetryDruidThetaSketchAggregator wrapped in TelemetryDruidAggregator
+func TelemetryDruidThetaSketchAggregatorAsTelemetryDruidAggregator(v *TelemetryDruidThetaSketchAggregator) TelemetryDruidAggregator {
+	return TelemetryDruidAggregator{TelemetryDruidThetaSketchAggregator: v}
 }
 
 // Unmarshl JSON data into one of the pointers in the struct
@@ -71,6 +95,14 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 				return err
 			}
 			dst.TelemetryDruidCountAggregator = result
+			return nil
+		case "doubleAny":
+			var result *TelemetryDruidAnyAggregator = &TelemetryDruidAnyAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidAnyAggregator = result
 			return nil
 		case "doubleFirst":
 			var result *TelemetryDruidFirstLastAggregator = &TelemetryDruidFirstLastAggregator{}
@@ -112,6 +144,22 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 			}
 			dst.TelemetryDruidSumAggregator = result
 			return nil
+		case "filtered":
+			var result *TelemetryDruidFilteredAggregator = &TelemetryDruidFilteredAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidFilteredAggregator = result
+			return nil
+		case "floatAny":
+			var result *TelemetryDruidAnyAggregator = &TelemetryDruidAnyAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidAnyAggregator = result
+			return nil
 		case "floatFirst":
 			var result *TelemetryDruidFirstLastAggregator = &TelemetryDruidFirstLastAggregator{}
 			err = json.Unmarshal(data, result)
@@ -151,6 +199,14 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 				return err
 			}
 			dst.TelemetryDruidSumAggregator = result
+			return nil
+		case "longAny":
+			var result *TelemetryDruidAnyAggregator = &TelemetryDruidAnyAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidAnyAggregator = result
 			return nil
 		case "longFirst":
 			var result *TelemetryDruidFirstLastAggregator = &TelemetryDruidFirstLastAggregator{}
@@ -192,6 +248,14 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 			}
 			dst.TelemetryDruidSumAggregator = result
 			return nil
+		case "stringAny":
+			var result *TelemetryDruidStringAnyAggregator = &TelemetryDruidStringAnyAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidStringAnyAggregator = result
+			return nil
 		case "stringFirst":
 			var result *TelemetryDruidStringFirstLastAggregator = &TelemetryDruidStringFirstLastAggregator{}
 			err = json.Unmarshal(data, result)
@@ -208,6 +272,14 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 			}
 			dst.TelemetryDruidStringFirstLastAggregator = result
 			return nil
+		case "telemetry.DruidAnyAggregator":
+			var result *TelemetryDruidAnyAggregator = &TelemetryDruidAnyAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidAnyAggregator = result
+			return nil
 		case "telemetry.DruidCountAggregator":
 			var result *TelemetryDruidCountAggregator = &TelemetryDruidCountAggregator{}
 			err = json.Unmarshal(data, result)
@@ -215,6 +287,14 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 				return err
 			}
 			dst.TelemetryDruidCountAggregator = result
+			return nil
+		case "telemetry.DruidFilteredAggregator":
+			var result *TelemetryDruidFilteredAggregator = &TelemetryDruidFilteredAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidFilteredAggregator = result
 			return nil
 		case "telemetry.DruidFirstLastAggregator":
 			var result *TelemetryDruidFirstLastAggregator = &TelemetryDruidFirstLastAggregator{}
@@ -232,6 +312,14 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 			}
 			dst.TelemetryDruidMinMaxAggregator = result
 			return nil
+		case "telemetry.DruidStringAnyAggregator":
+			var result *TelemetryDruidStringAnyAggregator = &TelemetryDruidStringAnyAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidStringAnyAggregator = result
+			return nil
 		case "telemetry.DruidStringFirstLastAggregator":
 			var result *TelemetryDruidStringFirstLastAggregator = &TelemetryDruidStringFirstLastAggregator{}
 			err = json.Unmarshal(data, result)
@@ -248,6 +336,22 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 			}
 			dst.TelemetryDruidSumAggregator = result
 			return nil
+		case "telemetry.DruidThetaSketchAggregator":
+			var result *TelemetryDruidThetaSketchAggregator = &TelemetryDruidThetaSketchAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidThetaSketchAggregator = result
+			return nil
+		case "thetaSketch":
+			var result *TelemetryDruidThetaSketchAggregator = &TelemetryDruidThetaSketchAggregator{}
+			err = json.Unmarshal(data, result)
+			if err != nil {
+				return err
+			}
+			dst.TelemetryDruidThetaSketchAggregator = result
+			return nil
 		default:
 			return fmt.Errorf("No oneOf model has 'type' equal to %s", v)
 		}
@@ -259,8 +363,16 @@ func (dst *TelemetryDruidAggregator) UnmarshalJSON(data []byte) error {
 
 // Marshl data from the first non-nil pointers in the struct to JSON
 func (src *TelemetryDruidAggregator) MarshalJSON() ([]byte, error) {
+	if src.TelemetryDruidAnyAggregator != nil {
+		return json.Marshal(&src.TelemetryDruidAnyAggregator)
+	}
+
 	if src.TelemetryDruidCountAggregator != nil {
 		return json.Marshal(&src.TelemetryDruidCountAggregator)
+	}
+
+	if src.TelemetryDruidFilteredAggregator != nil {
+		return json.Marshal(&src.TelemetryDruidFilteredAggregator)
 	}
 
 	if src.TelemetryDruidFirstLastAggregator != nil {
@@ -271,6 +383,10 @@ func (src *TelemetryDruidAggregator) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.TelemetryDruidMinMaxAggregator)
 	}
 
+	if src.TelemetryDruidStringAnyAggregator != nil {
+		return json.Marshal(&src.TelemetryDruidStringAnyAggregator)
+	}
+
 	if src.TelemetryDruidStringFirstLastAggregator != nil {
 		return json.Marshal(&src.TelemetryDruidStringFirstLastAggregator)
 	}
@@ -279,13 +395,25 @@ func (src *TelemetryDruidAggregator) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.TelemetryDruidSumAggregator)
 	}
 
+	if src.TelemetryDruidThetaSketchAggregator != nil {
+		return json.Marshal(&src.TelemetryDruidThetaSketchAggregator)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
 // Marshl data from the first non-nil pointers in the struct to YAML
 func (src *TelemetryDruidAggregator) MarshalYAML() ([]byte, error) {
+	if src.TelemetryDruidAnyAggregator != nil {
+		return yaml.Marshal(&src.TelemetryDruidAnyAggregator)
+	}
+
 	if src.TelemetryDruidCountAggregator != nil {
 		return yaml.Marshal(&src.TelemetryDruidCountAggregator)
+	}
+
+	if src.TelemetryDruidFilteredAggregator != nil {
+		return yaml.Marshal(&src.TelemetryDruidFilteredAggregator)
 	}
 
 	if src.TelemetryDruidFirstLastAggregator != nil {
@@ -296,6 +424,10 @@ func (src *TelemetryDruidAggregator) MarshalYAML() ([]byte, error) {
 		return yaml.Marshal(&src.TelemetryDruidMinMaxAggregator)
 	}
 
+	if src.TelemetryDruidStringAnyAggregator != nil {
+		return yaml.Marshal(&src.TelemetryDruidStringAnyAggregator)
+	}
+
 	if src.TelemetryDruidStringFirstLastAggregator != nil {
 		return yaml.Marshal(&src.TelemetryDruidStringFirstLastAggregator)
 	}
@@ -304,13 +436,25 @@ func (src *TelemetryDruidAggregator) MarshalYAML() ([]byte, error) {
 		return yaml.Marshal(&src.TelemetryDruidSumAggregator)
 	}
 
+	if src.TelemetryDruidThetaSketchAggregator != nil {
+		return yaml.Marshal(&src.TelemetryDruidThetaSketchAggregator)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
 // Get the actual instance
 func (obj *TelemetryDruidAggregator) GetActualInstance() interface{} {
+	if obj.TelemetryDruidAnyAggregator != nil {
+		return obj.TelemetryDruidAnyAggregator
+	}
+
 	if obj.TelemetryDruidCountAggregator != nil {
 		return obj.TelemetryDruidCountAggregator
+	}
+
+	if obj.TelemetryDruidFilteredAggregator != nil {
+		return obj.TelemetryDruidFilteredAggregator
 	}
 
 	if obj.TelemetryDruidFirstLastAggregator != nil {
@@ -321,12 +465,20 @@ func (obj *TelemetryDruidAggregator) GetActualInstance() interface{} {
 		return obj.TelemetryDruidMinMaxAggregator
 	}
 
+	if obj.TelemetryDruidStringAnyAggregator != nil {
+		return obj.TelemetryDruidStringAnyAggregator
+	}
+
 	if obj.TelemetryDruidStringFirstLastAggregator != nil {
 		return obj.TelemetryDruidStringFirstLastAggregator
 	}
 
 	if obj.TelemetryDruidSumAggregator != nil {
 		return obj.TelemetryDruidSumAggregator
+	}
+
+	if obj.TelemetryDruidThetaSketchAggregator != nil {
+		return obj.TelemetryDruidThetaSketchAggregator
 	}
 
 	// all schemas are nil

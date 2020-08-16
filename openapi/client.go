@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the Cisco Intersight API v1.0.9-1628
+// APIClient manages communication with the Cisco Intersight API v1.0.9-2110
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -51,6 +51,8 @@ type APIClient struct {
 	// API Services
 
 	AaaApi *AaaApiService
+
+	AccessApi *AccessApiService
 
 	AdapterApi *AdapterApiService
 
@@ -62,9 +64,15 @@ type APIClient struct {
 
 	BootApi *BootApiService
 
+	CapabilityApi *CapabilityApiService
+
 	ComputeApi *ComputeApiService
 
 	CondApi *CondApiService
+
+	ConfigApi *ConfigApiService
+
+	ConnectorpackApi *ConnectorpackApiService
 
 	DeviceconnectorApi *DeviceconnectorApiService
 
@@ -74,9 +82,13 @@ type APIClient struct {
 
 	ExternalsiteApi *ExternalsiteApiService
 
+	FabricApi *FabricApiService
+
 	FaultApi *FaultApiService
 
 	FcApi *FcApiService
+
+	FcpoolApi *FcpoolApiService
 
 	FeedbackApi *FeedbackApiService
 
@@ -94,17 +106,19 @@ type APIClient struct {
 
 	IamApi *IamApiService
 
-	InfraApi *InfraApiService
-
 	InventoryApi *InventoryApiService
 
 	IpmioverlanApi *IpmioverlanApiService
+
+	IppoolApi *IppoolApiService
 
 	KvmApi *KvmApiService
 
 	LicenseApi *LicenseApiService
 
 	LsApi *LsApiService
+
+	MacpoolApi *MacpoolApiService
 
 	ManagementApi *ManagementApiService
 
@@ -166,6 +180,8 @@ type APIClient struct {
 
 	TaskApi *TaskApiService
 
+	TechsupportmanagementApi *TechsupportmanagementApiService
+
 	TelemetryApi *TelemetryApiService
 
 	TerminalApi *TerminalApiService
@@ -174,11 +190,15 @@ type APIClient struct {
 
 	UcsdApi *UcsdApiService
 
+	UuidpoolApi *UuidpoolApiService
+
 	VirtualizationApi *VirtualizationApiService
 
 	VmediaApi *VmediaApiService
 
 	VnicApi *VnicApiService
+
+	VrfApi *VrfApiService
 
 	WorkflowApi *WorkflowApiService
 }
@@ -200,19 +220,25 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AaaApi = (*AaaApiService)(&c.common)
+	c.AccessApi = (*AccessApiService)(&c.common)
 	c.AdapterApi = (*AdapterApiService)(&c.common)
 	c.ApplianceApi = (*ApplianceApiService)(&c.common)
 	c.AssetApi = (*AssetApiService)(&c.common)
 	c.BiosApi = (*BiosApiService)(&c.common)
 	c.BootApi = (*BootApiService)(&c.common)
+	c.CapabilityApi = (*CapabilityApiService)(&c.common)
 	c.ComputeApi = (*ComputeApiService)(&c.common)
 	c.CondApi = (*CondApiService)(&c.common)
+	c.ConfigApi = (*ConfigApiService)(&c.common)
+	c.ConnectorpackApi = (*ConnectorpackApiService)(&c.common)
 	c.DeviceconnectorApi = (*DeviceconnectorApiService)(&c.common)
 	c.EquipmentApi = (*EquipmentApiService)(&c.common)
 	c.EtherApi = (*EtherApiService)(&c.common)
 	c.ExternalsiteApi = (*ExternalsiteApiService)(&c.common)
+	c.FabricApi = (*FabricApiService)(&c.common)
 	c.FaultApi = (*FaultApiService)(&c.common)
 	c.FcApi = (*FcApiService)(&c.common)
+	c.FcpoolApi = (*FcpoolApiService)(&c.common)
 	c.FeedbackApi = (*FeedbackApiService)(&c.common)
 	c.FirmwareApi = (*FirmwareApiService)(&c.common)
 	c.ForecastApi = (*ForecastApiService)(&c.common)
@@ -221,12 +247,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.HyperflexApi = (*HyperflexApiService)(&c.common)
 	c.IaasApi = (*IaasApiService)(&c.common)
 	c.IamApi = (*IamApiService)(&c.common)
-	c.InfraApi = (*InfraApiService)(&c.common)
 	c.InventoryApi = (*InventoryApiService)(&c.common)
 	c.IpmioverlanApi = (*IpmioverlanApiService)(&c.common)
+	c.IppoolApi = (*IppoolApiService)(&c.common)
 	c.KvmApi = (*KvmApiService)(&c.common)
 	c.LicenseApi = (*LicenseApiService)(&c.common)
 	c.LsApi = (*LsApiService)(&c.common)
+	c.MacpoolApi = (*MacpoolApiService)(&c.common)
 	c.ManagementApi = (*ManagementApiService)(&c.common)
 	c.MemoryApi = (*MemoryApiService)(&c.common)
 	c.MetaApi = (*MetaApiService)(&c.common)
@@ -257,13 +284,16 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SyslogApi = (*SyslogApiService)(&c.common)
 	c.TamApi = (*TamApiService)(&c.common)
 	c.TaskApi = (*TaskApiService)(&c.common)
+	c.TechsupportmanagementApi = (*TechsupportmanagementApiService)(&c.common)
 	c.TelemetryApi = (*TelemetryApiService)(&c.common)
 	c.TerminalApi = (*TerminalApiService)(&c.common)
 	c.TopApi = (*TopApiService)(&c.common)
 	c.UcsdApi = (*UcsdApiService)(&c.common)
+	c.UuidpoolApi = (*UuidpoolApiService)(&c.common)
 	c.VirtualizationApi = (*VirtualizationApiService)(&c.common)
 	c.VmediaApi = (*VmediaApiService)(&c.common)
 	c.VnicApi = (*VnicApiService)(&c.common)
+	c.VrfApi = (*VrfApiService)(&c.common)
 	c.WorkflowApi = (*WorkflowApiService)(&c.common)
 
 	return c

@@ -53,6 +53,16 @@ SetEndPointRoles sets EndPointRoles field to given value.
 
 HasEndPointRoles returns a boolean if a field has been set.
 
+### SetEndPointRolesNil
+
+`func (o *IamResourceRoles) SetEndPointRolesNil(b bool)`
+
+ SetEndPointRolesNil sets the value for EndPointRoles to be an explicit nil
+
+### UnsetEndPointRoles
+`func (o *IamResourceRoles) UnsetEndPointRoles()`
+
+UnsetEndPointRoles ensures that no value is present for EndPointRoles, not even an explicit nil
 ### GetPermission
 
 `func (o *IamResourceRoles) GetPermission() IamPermissionRelationship`
@@ -128,6 +138,16 @@ SetRoles sets Roles field to given value.
 
 HasRoles returns a boolean if a field has been set.
 
+### SetRolesNil
+
+`func (o *IamResourceRoles) SetRolesNil(b bool)`
+
+ SetRolesNil sets the value for Roles to be an explicit nil
+
+### UnsetRoles
+`func (o *IamResourceRoles) UnsetRoles()`
+
+UnsetRoles ensures that no value is present for Roles, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

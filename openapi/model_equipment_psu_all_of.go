@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -20,7 +20,8 @@ import (
 type EquipmentPsuAllOf struct {
 	// This field is to provide description for the power supply unit.
 	Description *string `json:"Description,omitempty" yaml:"Description,omitempty"`
-	OperState   *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
+	// This field identifies the psu operational state.
+	OperState *string `json:"OperState,omitempty" yaml:"OperState,omitempty"`
 	// This field identifies the Part Number for this Power Supply Unit.
 	PartNumber *string `json:"PartNumber,omitempty" yaml:"PartNumber,omitempty"`
 	// This field identifies the Product ID for the Power Supply.
@@ -29,7 +30,8 @@ type EquipmentPsuAllOf struct {
 	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
 	// This field identifies the Firmware Version of the Power Supply.
 	PsuFwVersion *string `json:"PsuFwVersion,omitempty" yaml:"PsuFwVersion,omitempty"`
-	PsuId        *int64  `json:"PsuId,omitempty" yaml:"PsuId,omitempty"`
+	// This represents power supply unit identifier in chassis/server.
+	PsuId *int64 `json:"PsuId,omitempty" yaml:"PsuId,omitempty"`
 	// This field identifies the input source for the Power Supply.
 	PsuInputSrc *string `json:"PsuInputSrc,omitempty" yaml:"PsuInputSrc,omitempty"`
 	// This field identifies the type of the Power Supply.
@@ -44,7 +46,9 @@ type EquipmentPsuAllOf struct {
 	Voltage                *string                              `json:"Voltage,omitempty" yaml:"Voltage,omitempty"`
 	ComputeRackUnit        *ComputeRackUnitRelationship         `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
 	EquipmentChassis       *EquipmentChassisRelationship        `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
+	EquipmentFex           *EquipmentFexRelationship            `json:"EquipmentFex,omitempty" yaml:"EquipmentFex,omitempty"`
 	EquipmentRackEnclosure *EquipmentRackEnclosureRelationship  `json:"EquipmentRackEnclosure,omitempty" yaml:"EquipmentRackEnclosure,omitempty"`
+	InventoryDeviceInfo    *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	NetworkElement         *NetworkElementRelationship          `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
 	RegisteredDevice       *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
@@ -546,6 +550,38 @@ func (o *EquipmentPsuAllOf) SetEquipmentChassis(v EquipmentChassisRelationship) 
 	o.EquipmentChassis = &v
 }
 
+// GetEquipmentFex returns the EquipmentFex field value if set, zero value otherwise.
+func (o *EquipmentPsuAllOf) GetEquipmentFex() EquipmentFexRelationship {
+	if o == nil || o.EquipmentFex == nil {
+		var ret EquipmentFexRelationship
+		return ret
+	}
+	return *o.EquipmentFex
+}
+
+// GetEquipmentFexOk returns a tuple with the EquipmentFex field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentPsuAllOf) GetEquipmentFexOk() (*EquipmentFexRelationship, bool) {
+	if o == nil || o.EquipmentFex == nil {
+		return nil, false
+	}
+	return o.EquipmentFex, true
+}
+
+// HasEquipmentFex returns a boolean if a field has been set.
+func (o *EquipmentPsuAllOf) HasEquipmentFex() bool {
+	if o != nil && o.EquipmentFex != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEquipmentFex gets a reference to the given EquipmentFexRelationship and assigns it to the EquipmentFex field.
+func (o *EquipmentPsuAllOf) SetEquipmentFex(v EquipmentFexRelationship) {
+	o.EquipmentFex = &v
+}
+
 // GetEquipmentRackEnclosure returns the EquipmentRackEnclosure field value if set, zero value otherwise.
 func (o *EquipmentPsuAllOf) GetEquipmentRackEnclosure() EquipmentRackEnclosureRelationship {
 	if o == nil || o.EquipmentRackEnclosure == nil {
@@ -576,6 +612,38 @@ func (o *EquipmentPsuAllOf) HasEquipmentRackEnclosure() bool {
 // SetEquipmentRackEnclosure gets a reference to the given EquipmentRackEnclosureRelationship and assigns it to the EquipmentRackEnclosure field.
 func (o *EquipmentPsuAllOf) SetEquipmentRackEnclosure(v EquipmentRackEnclosureRelationship) {
 	o.EquipmentRackEnclosure = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *EquipmentPsuAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentPsuAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *EquipmentPsuAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *EquipmentPsuAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetNetworkElement returns the NetworkElement field value if set, zero value otherwise.
@@ -689,8 +757,14 @@ func (o EquipmentPsuAllOf) MarshalJSON() ([]byte, error) {
 	if o.EquipmentChassis != nil {
 		toSerialize["EquipmentChassis"] = o.EquipmentChassis
 	}
+	if o.EquipmentFex != nil {
+		toSerialize["EquipmentFex"] = o.EquipmentFex
+	}
 	if o.EquipmentRackEnclosure != nil {
 		toSerialize["EquipmentRackEnclosure"] = o.EquipmentRackEnclosure
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.NetworkElement != nil {
 		toSerialize["NetworkElement"] = o.NetworkElement

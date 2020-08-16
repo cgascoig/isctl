@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **DailyLimit** | Pointer to **int64** | Total number of snapshots per day to be available on target above and over the specified retention time. PureStorage FlashArray maintains all created snapshot until retention period. Daily limit is applied only on the snapshots once retention time is expired. In case of, daily limit is less than the number of snapshot available on source, system select snapshots evenly spaced out throughout the day. | [optional] [readonly] 
 **ReplicationBlackoutIntervals** | Pointer to [**[]StoragePureReplicationBlackout**](storage.PureReplicationBlackout.md) |  | [optional] 
 **SnapshotExpiryTime** | Pointer to **string** | Duration to keep the daily limit snapshots on target array. StorageArray deletes the snapshots permanently from the targets beyond this period. | [optional] [readonly] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
+**ProtectionGroup** | Pointer to [**StoragePureProtectionGroupRelationship**](storage.PureProtectionGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -102,6 +104,56 @@ SetSnapshotExpiryTime sets SnapshotExpiryTime field to given value.
 `func (o *StoragePureReplicationSchedule) HasSnapshotExpiryTime() bool`
 
 HasSnapshotExpiryTime returns a boolean if a field has been set.
+
+### GetArray
+
+`func (o *StoragePureReplicationSchedule) GetArray() StoragePureArrayRelationship`
+
+GetArray returns the Array field if non-nil, zero value otherwise.
+
+### GetArrayOk
+
+`func (o *StoragePureReplicationSchedule) GetArrayOk() (*StoragePureArrayRelationship, bool)`
+
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArray
+
+`func (o *StoragePureReplicationSchedule) SetArray(v StoragePureArrayRelationship)`
+
+SetArray sets Array field to given value.
+
+### HasArray
+
+`func (o *StoragePureReplicationSchedule) HasArray() bool`
+
+HasArray returns a boolean if a field has been set.
+
+### GetProtectionGroup
+
+`func (o *StoragePureReplicationSchedule) GetProtectionGroup() StoragePureProtectionGroupRelationship`
+
+GetProtectionGroup returns the ProtectionGroup field if non-nil, zero value otherwise.
+
+### GetProtectionGroupOk
+
+`func (o *StoragePureReplicationSchedule) GetProtectionGroupOk() (*StoragePureProtectionGroupRelationship, bool)`
+
+GetProtectionGroupOk returns a tuple with the ProtectionGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProtectionGroup
+
+`func (o *StoragePureReplicationSchedule) SetProtectionGroup(v StoragePureProtectionGroupRelationship)`
+
+SetProtectionGroup sets ProtectionGroup field to given value.
+
+### HasProtectionGroup
+
+`func (o *StoragePureReplicationSchedule) HasProtectionGroup() bool`
+
+HasProtectionGroup returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -25,7 +25,8 @@ type StorageEnclosureDisk struct {
 	DiskId *string `json:"DiskId,omitempty" yaml:"DiskId,omitempty"`
 	// This field identifies the current disk configuration applied in the physical disk.
 	DiskState *string `json:"DiskState,omitempty" yaml:"DiskState,omitempty"`
-	Health    *string `json:"Health,omitempty" yaml:"Health,omitempty"`
+	// The current health state of the enclosure disk.
+	Health *string `json:"Health,omitempty" yaml:"Health,omitempty"`
 	// The number of blocks present on the physical disk.
 	NumBlocks *string `json:"NumBlocks,omitempty" yaml:"NumBlocks,omitempty"`
 	// This field identifies the Product ID for physicalDisk.
@@ -35,10 +36,11 @@ type StorageEnclosureDisk struct {
 	// This field identifies the SAS address assigned to the disk SAS port-2.
 	SasAddress2 *string `json:"SasAddress2,omitempty" yaml:"SasAddress2,omitempty"`
 	// The size of the physical disk in MB.
-	Size             *string                              `json:"Size,omitempty" yaml:"Size,omitempty"`
-	PhysicalDisk     *StoragePhysicalDiskRelationship     `json:"PhysicalDisk,omitempty" yaml:"PhysicalDisk,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
-	StorageEnclosure *StorageEnclosureRelationship        `json:"StorageEnclosure,omitempty" yaml:"StorageEnclosure,omitempty"`
+	Size                *string                              `json:"Size,omitempty" yaml:"Size,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	PhysicalDisk        *StoragePhysicalDiskRelationship     `json:"PhysicalDisk,omitempty" yaml:"PhysicalDisk,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	StorageEnclosure    *StorageEnclosureRelationship        `json:"StorageEnclosure,omitempty" yaml:"StorageEnclosure,omitempty"`
 }
 
 // NewStorageEnclosureDisk instantiates a new StorageEnclosureDisk object
@@ -346,6 +348,38 @@ func (o *StorageEnclosureDisk) SetSize(v string) {
 	o.Size = &v
 }
 
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *StorageEnclosureDisk) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageEnclosureDisk) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *StorageEnclosureDisk) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *StorageEnclosureDisk) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
 // GetPhysicalDisk returns the PhysicalDisk field value if set, zero value otherwise.
 func (o *StorageEnclosureDisk) GetPhysicalDisk() StoragePhysicalDiskRelationship {
 	if o == nil || o.PhysicalDisk == nil {
@@ -478,6 +512,9 @@ func (o StorageEnclosureDisk) MarshalJSON() ([]byte, error) {
 	}
 	if o.Size != nil {
 		toSerialize["Size"] = o.Size
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.PhysicalDisk != nil {
 		toSerialize["PhysicalDisk"] = o.PhysicalDisk

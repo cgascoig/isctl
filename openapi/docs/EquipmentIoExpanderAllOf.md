@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **OperState** | Pointer to **string** | Identifies the operational state of I/O expander. | [optional] [readonly] 
 **Presence** | Pointer to **string** | Identifies the availability of I/O expander. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -102,6 +103,31 @@ SetComputeBlade sets ComputeBlade field to given value.
 `func (o *EquipmentIoExpanderAllOf) HasComputeBlade() bool`
 
 HasComputeBlade returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentIoExpanderAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentIoExpanderAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentIoExpanderAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentIoExpanderAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

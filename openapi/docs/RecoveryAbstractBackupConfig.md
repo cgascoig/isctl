@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileNamePrefix** | Pointer to **string** | The file name for the backup image. This name is added as a prefix in the name for the backup image. A unique file name for the backup image is created along with a timestamp. For example: prefix-1572431305418. | [optional] 
 **IsPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;password&#39; property has been set. | [optional] [readonly] 
-**LocationType** | Pointer to **string** | Specifies whether the backup will be stored locally or remotely. | [optional] [default to "Network Share"]
-**Password** | Pointer to **string** | Backup server password. | [optional] 
+**LocationType** | Pointer to **string** | Specifies whether the backup will be stored locally or remotely. * &#x60;Network Share&#x60; - The backup is stored remotely on a separate server. * &#x60;Local Storage&#x60; - The backup is stored locally on the endpoint. | [optional] [default to "Network Share"]
+**Password** | Pointer to **string** | Password of Backup server. | [optional] 
 **Path** | Pointer to **string** | The file system path where the backup images must be stored. Include the IP address/hostname of the network share location and the complete file system path. For example: 172.29.109.234/var/backups/. | [optional] 
-**Protocol** | Pointer to **string** | Protocol for transferring the backup image to the network share location. | [optional] [default to "SCP"]
+**Protocol** | Pointer to **string** | Protocol for transferring the backup image to the network share location. * &#x60;SCP&#x60; - Secure Copy Protocol (SCP) to access the file server. * &#x60;SFTP&#x60; - SSH File Transfer Protocol (SFTP) to access file server. * &#x60;FTP&#x60; - File Transfer Protocol (FTP) to access file server. | [optional] [default to "SCP"]
 **RetentionCount** | Pointer to **int64** | Number of backup copies maintained on the local or remote server. When the created backup files exceed this number, the initial backup files are overwritten in a sequential manner. | [optional] 
 **UserName** | Pointer to **string** | Backup server user name. | [optional] 
 

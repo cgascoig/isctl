@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,47 +19,69 @@ import (
 // StoragePhysicalDisk Physical Disk on a server.
 type StoragePhysicalDisk struct {
 	EquipmentBase `yaml:"EquipmentBase,inline"`
-	// The block size of the physical disk.
-	BlockSize               *string `json:"BlockSize,omitempty" yaml:"BlockSize,omitempty"`
-	Bootable                *string `json:"Bootable,omitempty" yaml:"Bootable,omitempty"`
+	// The block size of the physical disk in bytes.
+	BlockSize *string `json:"BlockSize,omitempty" yaml:"BlockSize,omitempty"`
+	// This field identifies the disk drive as bootable if set to true.
+	Bootable *string `json:"Bootable,omitempty" yaml:"Bootable,omitempty"`
+	// The current configuration checkpoint of the physical disk.
 	ConfigurationCheckpoint *string `json:"ConfigurationCheckpoint,omitempty" yaml:"ConfigurationCheckpoint,omitempty"`
-	ConfigurationState      *string `json:"ConfigurationState,omitempty" yaml:"ConfigurationState,omitempty"`
-	DiscoveredPath          *string `json:"DiscoveredPath,omitempty" yaml:"DiscoveredPath,omitempty"`
-	DiskId                  *string `json:"DiskId,omitempty" yaml:"DiskId,omitempty"`
+	// The current configuration state of the physical disk.
+	ConfigurationState *string `json:"ConfigurationState,omitempty" yaml:"ConfigurationState,omitempty"`
+	// The discovered path of the physical disk.
+	DiscoveredPath *string `json:"DiscoveredPath,omitempty" yaml:"DiscoveredPath,omitempty"`
+	// This field identifies the ID assigned to physical disks.
+	DiskId *string `json:"DiskId,omitempty" yaml:"DiskId,omitempty"`
 	// This field identifies the health of the disk.
-	DiskState     *string `json:"DiskState,omitempty" yaml:"DiskState,omitempty"`
+	DiskState *string `json:"DiskState,omitempty" yaml:"DiskState,omitempty"`
+	// This field identifies the disk firmware running in the disk.
 	DriveFirmware *string `json:"DriveFirmware,omitempty" yaml:"DriveFirmware,omitempty"`
 	// The drive state as reported by the controller.
 	DriveState *string `json:"DriveState,omitempty" yaml:"DriveState,omitempty"`
+	// Full-Disk Encryption capability parameter of the physical disk.
 	FdeCapable *string `json:"FdeCapable,omitempty" yaml:"FdeCapable,omitempty"`
+	// Type of hotspare configured on the physical disk.
+	HotSpareType *string `json:"HotSpareType,omitempty" yaml:"HotSpareType,omitempty"`
 	// The speed of the link between the drive and the controller.
 	LinkSpeed *string `json:"LinkSpeed,omitempty" yaml:"LinkSpeed,omitempty"`
+	// The current link state of the physical disk.
 	LinkState *string `json:"LinkState,omitempty" yaml:"LinkState,omitempty"`
 	// The number of blocks present on the physical disk.
-	NumBlocks           *string `json:"NumBlocks,omitempty" yaml:"NumBlocks,omitempty"`
-	OperPowerState      *string `json:"OperPowerState,omitempty" yaml:"OperPowerState,omitempty"`
+	NumBlocks *string `json:"NumBlocks,omitempty" yaml:"NumBlocks,omitempty"`
+	// Operational power of the physical disk.
+	OperPowerState *string `json:"OperPowerState,omitempty" yaml:"OperPowerState,omitempty"`
+	// This reason for the operational status of the disk.
 	OperQualifierReason *string `json:"OperQualifierReason,omitempty" yaml:"OperQualifierReason,omitempty"`
-	Operability         *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
-	PhysicalBlockSize   *string `json:"PhysicalBlockSize,omitempty" yaml:"PhysicalBlockSize,omitempty"`
+	// This field identifies the disk operability of the disk.
+	Operability *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
+	// The block size of the installed physical disk.
+	PhysicalBlockSize *string `json:"PhysicalBlockSize,omitempty" yaml:"PhysicalBlockSize,omitempty"`
 	// This field identifies the Product ID for physicalDisk.
-	Pid      *string `json:"Pid,omitempty" yaml:"Pid,omitempty"`
+	Pid *string `json:"Pid,omitempty" yaml:"Pid,omitempty"`
+	// The presence state of the physical disk.
 	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
+	// This field identifies the disk protocol used for communication.
 	Protocol *string `json:"Protocol,omitempty" yaml:"Protocol,omitempty"`
-	RawSize  *string `json:"RawSize,omitempty" yaml:"RawSize,omitempty"`
+	// The raw size of the physical disk in MB.
+	RawSize *string `json:"RawSize,omitempty" yaml:"RawSize,omitempty"`
 	// This field identifies whether the disk is encrypted.
-	Secured     *string                          `json:"Secured,omitempty" yaml:"Secured,omitempty"`
-	Size        *string                          `json:"Size,omitempty" yaml:"Size,omitempty"`
-	Thermal     *string                          `json:"Thermal,omitempty" yaml:"Thermal,omitempty"`
-	Type        *string                          `json:"Type,omitempty" yaml:"Type,omitempty"`
-	VariantType *string                          `json:"VariantType,omitempty" yaml:"VariantType,omitempty"`
-	LocatorLed  *EquipmentLocatorLedRelationship `json:"LocatorLed,omitempty" yaml:"LocatorLed,omitempty"`
+	Secured *string `json:"Secured,omitempty" yaml:"Secured,omitempty"`
+	// The size of the physical disk in MB.
+	Size *string `json:"Size,omitempty" yaml:"Size,omitempty"`
+	// Thermal state of the physical disk.
+	Thermal *string `json:"Thermal,omitempty" yaml:"Thermal,omitempty"`
+	// This field identifies the type of the physical disk.
+	Type *string `json:"Type,omitempty" yaml:"Type,omitempty"`
+	// The variant type of the physical disk.
+	VariantType         *string                          `json:"VariantType,omitempty" yaml:"VariantType,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	LocatorLed          *EquipmentLocatorLedRelationship `json:"LocatorLed,omitempty" yaml:"LocatorLed,omitempty"`
 	// An array of relationships to storagePhysicalDiskExtension resources.
-	PhysicalDiskExtensions *[]StoragePhysicalDiskExtensionRelationship `json:"PhysicalDiskExtensions,omitempty" yaml:"PhysicalDiskExtensions,omitempty"`
-	RegisteredDevice       *AssetDeviceRegistrationRelationship        `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	PhysicalDiskExtensions []StoragePhysicalDiskExtensionRelationship `json:"PhysicalDiskExtensions,omitempty" yaml:"PhysicalDiskExtensions,omitempty"`
+	RegisteredDevice       *AssetDeviceRegistrationRelationship       `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 	// An array of relationships to firmwareRunningFirmware resources.
-	RunningFirmware *[]FirmwareRunningFirmwareRelationship `json:"RunningFirmware,omitempty" yaml:"RunningFirmware,omitempty"`
+	RunningFirmware []FirmwareRunningFirmwareRelationship `json:"RunningFirmware,omitempty" yaml:"RunningFirmware,omitempty"`
 	// An array of relationships to storageSasPort resources.
-	SasPorts          *[]StorageSasPortRelationship  `json:"SasPorts,omitempty" yaml:"SasPorts,omitempty"`
+	SasPorts          []StorageSasPortRelationship   `json:"SasPorts,omitempty" yaml:"SasPorts,omitempty"`
 	StorageController *StorageControllerRelationship `json:"StorageController,omitempty" yaml:"StorageController,omitempty"`
 	StorageEnclosure  *StorageEnclosureRelationship  `json:"StorageEnclosure,omitempty" yaml:"StorageEnclosure,omitempty"`
 }
@@ -399,6 +421,38 @@ func (o *StoragePhysicalDisk) HasFdeCapable() bool {
 // SetFdeCapable gets a reference to the given string and assigns it to the FdeCapable field.
 func (o *StoragePhysicalDisk) SetFdeCapable(v string) {
 	o.FdeCapable = &v
+}
+
+// GetHotSpareType returns the HotSpareType field value if set, zero value otherwise.
+func (o *StoragePhysicalDisk) GetHotSpareType() string {
+	if o == nil || o.HotSpareType == nil {
+		var ret string
+		return ret
+	}
+	return *o.HotSpareType
+}
+
+// GetHotSpareTypeOk returns a tuple with the HotSpareType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePhysicalDisk) GetHotSpareTypeOk() (*string, bool) {
+	if o == nil || o.HotSpareType == nil {
+		return nil, false
+	}
+	return o.HotSpareType, true
+}
+
+// HasHotSpareType returns a boolean if a field has been set.
+func (o *StoragePhysicalDisk) HasHotSpareType() bool {
+	if o != nil && o.HotSpareType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHotSpareType gets a reference to the given string and assigns it to the HotSpareType field.
+func (o *StoragePhysicalDisk) SetHotSpareType(v string) {
+	o.HotSpareType = &v
 }
 
 // GetLinkSpeed returns the LinkSpeed field value if set, zero value otherwise.
@@ -913,6 +967,38 @@ func (o *StoragePhysicalDisk) SetVariantType(v string) {
 	o.VariantType = &v
 }
 
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *StoragePhysicalDisk) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePhysicalDisk) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *StoragePhysicalDisk) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *StoragePhysicalDisk) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
 // GetLocatorLed returns the LocatorLed field value if set, zero value otherwise.
 func (o *StoragePhysicalDisk) GetLocatorLed() EquipmentLocatorLedRelationship {
 	if o == nil || o.LocatorLed == nil {
@@ -945,22 +1031,23 @@ func (o *StoragePhysicalDisk) SetLocatorLed(v EquipmentLocatorLedRelationship) {
 	o.LocatorLed = &v
 }
 
-// GetPhysicalDiskExtensions returns the PhysicalDiskExtensions field value if set, zero value otherwise.
+// GetPhysicalDiskExtensions returns the PhysicalDiskExtensions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoragePhysicalDisk) GetPhysicalDiskExtensions() []StoragePhysicalDiskExtensionRelationship {
-	if o == nil || o.PhysicalDiskExtensions == nil {
+	if o == nil {
 		var ret []StoragePhysicalDiskExtensionRelationship
 		return ret
 	}
-	return *o.PhysicalDiskExtensions
+	return o.PhysicalDiskExtensions
 }
 
 // GetPhysicalDiskExtensionsOk returns a tuple with the PhysicalDiskExtensions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoragePhysicalDisk) GetPhysicalDiskExtensionsOk() (*[]StoragePhysicalDiskExtensionRelationship, bool) {
 	if o == nil || o.PhysicalDiskExtensions == nil {
 		return nil, false
 	}
-	return o.PhysicalDiskExtensions, true
+	return &o.PhysicalDiskExtensions, true
 }
 
 // HasPhysicalDiskExtensions returns a boolean if a field has been set.
@@ -974,7 +1061,7 @@ func (o *StoragePhysicalDisk) HasPhysicalDiskExtensions() bool {
 
 // SetPhysicalDiskExtensions gets a reference to the given []StoragePhysicalDiskExtensionRelationship and assigns it to the PhysicalDiskExtensions field.
 func (o *StoragePhysicalDisk) SetPhysicalDiskExtensions(v []StoragePhysicalDiskExtensionRelationship) {
-	o.PhysicalDiskExtensions = &v
+	o.PhysicalDiskExtensions = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -1009,22 +1096,23 @@ func (o *StoragePhysicalDisk) SetRegisteredDevice(v AssetDeviceRegistrationRelat
 	o.RegisteredDevice = &v
 }
 
-// GetRunningFirmware returns the RunningFirmware field value if set, zero value otherwise.
+// GetRunningFirmware returns the RunningFirmware field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoragePhysicalDisk) GetRunningFirmware() []FirmwareRunningFirmwareRelationship {
-	if o == nil || o.RunningFirmware == nil {
+	if o == nil {
 		var ret []FirmwareRunningFirmwareRelationship
 		return ret
 	}
-	return *o.RunningFirmware
+	return o.RunningFirmware
 }
 
 // GetRunningFirmwareOk returns a tuple with the RunningFirmware field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoragePhysicalDisk) GetRunningFirmwareOk() (*[]FirmwareRunningFirmwareRelationship, bool) {
 	if o == nil || o.RunningFirmware == nil {
 		return nil, false
 	}
-	return o.RunningFirmware, true
+	return &o.RunningFirmware, true
 }
 
 // HasRunningFirmware returns a boolean if a field has been set.
@@ -1038,25 +1126,26 @@ func (o *StoragePhysicalDisk) HasRunningFirmware() bool {
 
 // SetRunningFirmware gets a reference to the given []FirmwareRunningFirmwareRelationship and assigns it to the RunningFirmware field.
 func (o *StoragePhysicalDisk) SetRunningFirmware(v []FirmwareRunningFirmwareRelationship) {
-	o.RunningFirmware = &v
+	o.RunningFirmware = v
 }
 
-// GetSasPorts returns the SasPorts field value if set, zero value otherwise.
+// GetSasPorts returns the SasPorts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoragePhysicalDisk) GetSasPorts() []StorageSasPortRelationship {
-	if o == nil || o.SasPorts == nil {
+	if o == nil {
 		var ret []StorageSasPortRelationship
 		return ret
 	}
-	return *o.SasPorts
+	return o.SasPorts
 }
 
 // GetSasPortsOk returns a tuple with the SasPorts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoragePhysicalDisk) GetSasPortsOk() (*[]StorageSasPortRelationship, bool) {
 	if o == nil || o.SasPorts == nil {
 		return nil, false
 	}
-	return o.SasPorts, true
+	return &o.SasPorts, true
 }
 
 // HasSasPorts returns a boolean if a field has been set.
@@ -1070,7 +1159,7 @@ func (o *StoragePhysicalDisk) HasSasPorts() bool {
 
 // SetSasPorts gets a reference to the given []StorageSasPortRelationship and assigns it to the SasPorts field.
 func (o *StoragePhysicalDisk) SetSasPorts(v []StorageSasPortRelationship) {
-	o.SasPorts = &v
+	o.SasPorts = v
 }
 
 // GetStorageController returns the StorageController field value if set, zero value otherwise.
@@ -1177,6 +1266,9 @@ func (o StoragePhysicalDisk) MarshalJSON() ([]byte, error) {
 	if o.FdeCapable != nil {
 		toSerialize["FdeCapable"] = o.FdeCapable
 	}
+	if o.HotSpareType != nil {
+		toSerialize["HotSpareType"] = o.HotSpareType
+	}
 	if o.LinkSpeed != nil {
 		toSerialize["LinkSpeed"] = o.LinkSpeed
 	}
@@ -1224,6 +1316,9 @@ func (o StoragePhysicalDisk) MarshalJSON() ([]byte, error) {
 	}
 	if o.VariantType != nil {
 		toSerialize["VariantType"] = o.VariantType
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.LocatorLed != nil {
 		toSerialize["LocatorLed"] = o.LocatorLed

@@ -18,11 +18,11 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | User provided description about the file. Cisco provided description for image inventoried from a Cisco repository. | [optional] 
 **DownloadCount** | Pointer to **int64** | The number of times this file has been downloaded from the local repository. It is used by the repository monitoring process to determine the files that are to be evicted from the cache. | [optional] [readonly] 
-**ImportAction** | Pointer to **string** | The action to be performed on the imported file. If &#39;PreCache&#39; is set, the image will be cached in Appliance. Applicable in Intersight appliance deployment. If &#39;Evict&#39; is set, the cached file will be removed. Applicable in Intersight appliance deployment. If &#39;GeneratePreSignedUploadUrl&#39; is set, generates pre signed URL (s) for the file to be imported into the repository. Applicable for local machine source. The URL (s) will be populated under LocalMachine file server. If &#39;CompleteImportProcess&#39; is set, the ImportState is marked as &#39;Imported&#39;. Applicable for local machine source. If &#39;Cancel&#39; is set, the ImportState is marked as &#39;Failed&#39;. Applicable for local machine source. | [optional] [default to "None"]
-**ImportState** | Pointer to **string** | The state  of this file in the repository or Appliance. The importState is updated during the import operation and as part of the repository monitoring process. | [optional] [readonly] [default to "ReadyForImport"]
+**ImportAction** | Pointer to **string** | The action to be performed on the imported file. If &#39;PreCache&#39; is set, the image will be cached in Appliance. Applicable in Intersight appliance deployment. If &#39;Evict&#39; is set, the cached file will be removed. Applicable in Intersight appliance deployment. If &#39;GeneratePreSignedUploadUrl&#39; is set, generates pre signed URL (s) for the file to be imported into the repository. Applicable for local machine source. The URL (s) will be populated under LocalMachine file server. If &#39;CompleteImportProcess&#39; is set, the ImportState is marked as &#39;Imported&#39;. Applicable for local machine source. If &#39;Cancel&#39; is set, the ImportState is marked as &#39;Failed&#39;. Applicable for local machine source. * &#x60;None&#x60; - No action should be taken on the imported file. * &#x60;GeneratePreSignedUploadUrl&#x60; - Generate pre signed URL of file for importing into the repository. * &#x60;GeneratePreSignedDownloadUrl&#x60; - Generate pre signed URL of file in the repository to download. * &#x60;CompleteImportProcess&#x60; - Mark that the import process of the file into the repository is complete. * &#x60;MarkImportFailed&#x60; - Mark to indicate that the import process of the file into the repository failed. * &#x60;PreCache&#x60; - Cache the file into the Intersight Appliance. * &#x60;Cancel&#x60; - The cancel import process for the file into the repository. * &#x60;Extract&#x60; - The action to extract the file in the external repository. * &#x60;Evict&#x60; - Evict the cached file from the Intersight Appliance. | [optional] [default to "None"]
+**ImportState** | Pointer to **string** | The state  of this file in the repository or Appliance. The importState is updated during the import operation and as part of the repository monitoring process. * &#x60;ReadyForImport&#x60; - The image is ready to be imported into the repository. * &#x60;Importing&#x60; - The image is being imported into the repository. * &#x60;Imported&#x60; - The image has been extracted and imported into the repository. * &#x60;PendingExtraction&#x60; - Indicates that the image has been imported but not extracted in the repository. * &#x60;Extracting&#x60; - Indicates that the image is being extracted into the repository. * &#x60;Extracted&#x60; - Indicates that the image has been extracted into the repository. * &#x60;Failed&#x60; - The image import from an external source to the repository has failed. * &#x60;MetaOnly&#x60; - The image is present in an external repository. * &#x60;ReadyForCache&#x60; - The image is ready to be cached into the Intersight Appliance. * &#x60;Caching&#x60; - Indicates that the image is being cached into the Intersight Appliance or endpoint cache. * &#x60;Cached&#x60; - Indicates that the image has been cached into the Intersight Appliance or endpoint cache. * &#x60;CachingFailed&#x60; - Indicates that the image caching into the Intersight Appliance failed or endpoint cache. * &#x60;Corrupted&#x60; - Indicates that the image in the local repository (or endpoint cache) has been corrupted after it was cached. * &#x60;Evicted&#x60; - Indicates that the image has been evicted from the Intersight Appliance (or endpoint cache) to reclaim storage space. | [optional] [readonly] [default to "ReadyForImport"]
 **ImportedTime** | Pointer to [**time.Time**](time.Time.md) | The time at which this image or file was imported/cached into the repositry. if the &#39;ImportState&#39; is &#39;Imported&#39;, the time at which this image or file was imported. if the &#39;ImportState&#39; is &#39;Cached&#39;, the time at which this image or file was cached. | [optional] [readonly] 
 **LastAccessTime** | Pointer to [**time.Time**](time.Time.md) | The time at which this file was last downloaded from the local repository. It is used by the repository monitoring process to determine the files that are to be evicted from the cache. | [optional] [readonly] 
 **Md5sum** | Pointer to **string** | The md5sum checksum of the file. This information is available for all Cisco distributed images and files imported to the local repository. | [optional] 
@@ -34,15 +34,18 @@ Name | Type | Description | Notes
 **Source** | Pointer to [**SoftwarerepositoryFileServer**](softwarerepository.FileServer.md) |  | [optional] 
 **Version** | Pointer to **string** | Vendor provided version for the file. | [optional] 
 **BundleType** | Pointer to **string** | The bundle type of the image, as published on cisco.com. | [optional] [readonly] 
+**ComponentMeta** | Pointer to [**[]FirmwareComponentMeta**](firmware.ComponentMeta.md) |  | [optional] 
 **Guid** | Pointer to **string** | The unique identifier for an image in a Cisco repository. | [optional] [readonly] 
 **Mdfid** | Pointer to **string** | The mdfid of the image provided by cisco.com. | [optional] 
-**Model** | Pointer to **string** | The endpoint model for which this firmware image is applicable. | [optional] [readonly] 
+**Model** | Pointer to **string** | The endpoint model for which this firmware image is applicable. | [optional] 
 **PlatformType** | Pointer to **string** | The platform type of the image. | [optional] [readonly] 
 **RecommendedBuild** | Pointer to **string** | The build which is recommended by Cisco. | [optional] 
 **ReleaseNotesUrl** | Pointer to **string** | The url for the release notes of this image. | [optional] 
 **SoftwareTypeId** | Pointer to **string** | The software type id provided by cisco.com. | [optional] [readonly] 
 **SupportedModels** | Pointer to **[]string** |  | [optional] 
 **Vendor** | Pointer to **string** | The vendor or publisher of this file. | [optional] 
+**DistributableMetas** | Pointer to [**[]FirmwareDistributableMetaRelationship**](firmware.DistributableMeta.Relationship.md) | An array of relationships to firmwareDistributableMeta resources. | [optional] 
+**Release** | Pointer to [**SoftwarerepositoryReleaseRelationship**](softwarerepository.Release.Relationship.md) |  | [optional] 
 **Catalog** | Pointer to [**SoftwarerepositoryCatalogRelationship**](softwarerepository.Catalog.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -354,6 +357,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetParent() MoBaseMoRelationship`
@@ -404,6 +417,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetDisplayNames() map[string][]string`
@@ -814,6 +837,31 @@ SetBundleType sets BundleType field to given value.
 
 HasBundleType returns a boolean if a field has been set.
 
+### GetComponentMeta
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetComponentMeta() []FirmwareComponentMeta`
+
+GetComponentMeta returns the ComponentMeta field if non-nil, zero value otherwise.
+
+### GetComponentMetaOk
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetComponentMetaOk() (*[]FirmwareComponentMeta, bool)`
+
+GetComponentMetaOk returns a tuple with the ComponentMeta field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComponentMeta
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) SetComponentMeta(v []FirmwareComponentMeta)`
+
+SetComponentMeta sets ComponentMeta field to given value.
+
+### HasComponentMeta
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) HasComponentMeta() bool`
+
+HasComponentMeta returns a boolean if a field has been set.
+
 ### GetGuid
 
 `func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetGuid() string`
@@ -1038,6 +1086,66 @@ SetVendor sets Vendor field to given value.
 `func (o *FirmwareServerConfigurationUtilityDistributableRelationship) HasVendor() bool`
 
 HasVendor returns a boolean if a field has been set.
+
+### GetDistributableMetas
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetDistributableMetas() []FirmwareDistributableMetaRelationship`
+
+GetDistributableMetas returns the DistributableMetas field if non-nil, zero value otherwise.
+
+### GetDistributableMetasOk
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetDistributableMetasOk() (*[]FirmwareDistributableMetaRelationship, bool)`
+
+GetDistributableMetasOk returns a tuple with the DistributableMetas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistributableMetas
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) SetDistributableMetas(v []FirmwareDistributableMetaRelationship)`
+
+SetDistributableMetas sets DistributableMetas field to given value.
+
+### HasDistributableMetas
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) HasDistributableMetas() bool`
+
+HasDistributableMetas returns a boolean if a field has been set.
+
+### SetDistributableMetasNil
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) SetDistributableMetasNil(b bool)`
+
+ SetDistributableMetasNil sets the value for DistributableMetas to be an explicit nil
+
+### UnsetDistributableMetas
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) UnsetDistributableMetas()`
+
+UnsetDistributableMetas ensures that no value is present for DistributableMetas, not even an explicit nil
+### GetRelease
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetRelease() SoftwarerepositoryReleaseRelationship`
+
+GetRelease returns the Release field if non-nil, zero value otherwise.
+
+### GetReleaseOk
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) GetReleaseOk() (*SoftwarerepositoryReleaseRelationship, bool)`
+
+GetReleaseOk returns a tuple with the Release field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelease
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) SetRelease(v SoftwarerepositoryReleaseRelationship)`
+
+SetRelease sets Release field to given value.
+
+### HasRelease
+
+`func (o *FirmwareServerConfigurationUtilityDistributableRelationship) HasRelease() bool`
+
+HasRelease returns a boolean if a field has been set.
 
 ### GetCatalog
 

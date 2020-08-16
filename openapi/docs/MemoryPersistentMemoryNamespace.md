@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Mode** | Pointer to **string** | Mode of the Persistent Memory Namespace. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the Persistent Memory Namespace. | [optional] [readonly] 
 **Uuid** | Pointer to **string** | UUID of the Persistent Memory Namespace. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **MemoryPersistentMemoryRegion** | Pointer to [**MemoryPersistentMemoryRegionRelationship**](memory.PersistentMemoryRegion.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -181,6 +182,31 @@ SetUuid sets Uuid field to given value.
 `func (o *MemoryPersistentMemoryNamespace) HasUuid() bool`
 
 HasUuid returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryNamespace) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *MemoryPersistentMemoryNamespace) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryNamespace) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *MemoryPersistentMemoryNamespace) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetMemoryPersistentMemoryRegion
 

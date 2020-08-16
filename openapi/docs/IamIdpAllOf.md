@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **IdpEntityId** | Pointer to **string** | The Entity ID of the IdP. In SAML, the entity ID uniquely identifies the IdP or Service Provider. | [optional] [readonly] 
 **Metadata** | Pointer to **string** | SAML metadata of the IdP. | [optional] 
 **Name** | Pointer to **string** | The name of the Identity Provider, for example Cisco, Okta, or OneID. | [optional] 
-**Type** | Pointer to **string** | Authentication protocol used by the IdP. | [optional] [default to "saml"]
+**Type** | Pointer to **string** | Authentication protocol used by the IdP. * &#x60;saml&#x60; - Use SAML as the authentication protocol for sign-on. * &#x60;oidc&#x60; - Open ID connect to be used as an authentication protocol for sign-on. * &#x60;local&#x60; - The local authentication method to be used for sign-on. Local type is set to default for the Intersight Appliance IdP. | [optional] [default to "saml"]
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
 **LdapPolicy** | Pointer to [**IamLdapPolicyRelationship**](iam.LdapPolicy.Relationship.md) |  | [optional] 
 **System** | Pointer to [**IamSystemRelationship**](iam.System.Relationship.md) |  | [optional] 
@@ -260,6 +260,16 @@ SetUserPreferences sets UserPreferences field to given value.
 
 HasUserPreferences returns a boolean if a field has been set.
 
+### SetUserPreferencesNil
+
+`func (o *IamIdpAllOf) SetUserPreferencesNil(b bool)`
+
+ SetUserPreferencesNil sets the value for UserPreferences to be an explicit nil
+
+### UnsetUserPreferences
+`func (o *IamIdpAllOf) UnsetUserPreferences()`
+
+UnsetUserPreferences ensures that no value is present for UserPreferences, not even an explicit nil
 ### GetUsergroups
 
 `func (o *IamIdpAllOf) GetUsergroups() []IamUserGroupRelationship`
@@ -285,6 +295,16 @@ SetUsergroups sets Usergroups field to given value.
 
 HasUsergroups returns a boolean if a field has been set.
 
+### SetUsergroupsNil
+
+`func (o *IamIdpAllOf) SetUsergroupsNil(b bool)`
+
+ SetUsergroupsNil sets the value for Usergroups to be an explicit nil
+
+### UnsetUsergroups
+`func (o *IamIdpAllOf) UnsetUsergroups()`
+
+UnsetUsergroups ensures that no value is present for Usergroups, not even an explicit nil
 ### GetUsers
 
 `func (o *IamIdpAllOf) GetUsers() []IamUserRelationship`
@@ -310,6 +330,16 @@ SetUsers sets Users field to given value.
 
 HasUsers returns a boolean if a field has been set.
 
+### SetUsersNil
+
+`func (o *IamIdpAllOf) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *IamIdpAllOf) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

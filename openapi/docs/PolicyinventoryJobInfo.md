@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExecutionStatus** | Pointer to **string** | Execution status of the inventory job. | [optional] [readonly] [default to "Scheduled"]
+**ExecutionStatus** | Pointer to **string** | Execution status of the inventory job. * &#x60;Scheduled&#x60; - Inventory job is marked as scheduled. * &#x60;Completed&#x60; - Inventory job is marked as completed. * &#x60;Error&#x60; - Inventory job has errored out. | [optional] [readonly] [default to "Scheduled"]
 **LastScheduledTime** | Pointer to [**time.Time**](time.Time.md) | Last scheduled time of the inventory job. | [optional] [readonly] 
 **PolicyId** | Pointer to **string** | Policy ID for the inventory job. | [optional] [readonly] 
 **PolicyName** | Pointer to **string** | Policy name for the inventory job. | [optional] [readonly] 

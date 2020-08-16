@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -31,13 +31,13 @@ type LicenseAccountLicenseDataAllOf struct {
 	AuthNextTime *string `json:"AuthNextTime,omitempty" yaml:"AuthNextTime,omitempty"`
 	// Account license data category name.
 	Category *string `json:"Category,omitempty" yaml:"Category,omitempty"`
-	// Default license tier set by user.
+	// Default license tier set by user. * `Base` - Base as a License type. It is default license type. * `Essential` - Essential as a License type. * `Standard` - Standard as a License type. * `Advantage` - Advantage as a License type. * `Premier` - Premier as a License type.
 	DefaultLicenseType *string `json:"DefaultLicenseType,omitempty" yaml:"DefaultLicenseType,omitempty"`
 	// The detailed error message when there is any error related to license sync of this account.
 	ErrorDesc *string `json:"ErrorDesc,omitempty" yaml:"ErrorDesc,omitempty"`
 	// Account license data group name.
 	Group *string `json:"Group,omitempty" yaml:"Group,omitempty"`
-	// The highest license tier which is in compliant of this account.
+	// The highest license tier which is in compliant of this account. * `Base` - Base as a License type. It is default license type. * `Essential` - Essential as a License type. * `Standard` - Standard as a License type. * `Advantage` - Advantage as a License type. * `Premier` - Premier as a License type.
 	HighestCompliantLicenseTier *string `json:"HighestCompliantLicenseTier,omitempty" yaml:"HighestCompliantLicenseTier,omitempty"`
 	// Specifies last sync time with SA.
 	LastSync *time.Time `json:"LastSync,omitempty" yaml:"LastSync,omitempty"`
@@ -66,7 +66,7 @@ type LicenseAccountLicenseDataAllOf struct {
 	Account        *IamAccountRelationship        `json:"Account,omitempty" yaml:"Account,omitempty"`
 	CustomerOp     *LicenseCustomerOpRelationship `json:"CustomerOp,omitempty" yaml:"CustomerOp,omitempty"`
 	// An array of relationships to licenseLicenseInfo resources.
-	Licenseinfos      *[]LicenseLicenseInfoRelationship     `json:"Licenseinfos,omitempty" yaml:"Licenseinfos,omitempty"`
+	Licenseinfos      []LicenseLicenseInfoRelationship      `json:"Licenseinfos,omitempty" yaml:"Licenseinfos,omitempty"`
 	SmartlicenseToken *LicenseSmartlicenseTokenRelationship `json:"SmartlicenseToken,omitempty" yaml:"SmartlicenseToken,omitempty"`
 }
 
@@ -863,22 +863,23 @@ func (o *LicenseAccountLicenseDataAllOf) SetCustomerOp(v LicenseCustomerOpRelati
 	o.CustomerOp = &v
 }
 
-// GetLicenseinfos returns the Licenseinfos field value if set, zero value otherwise.
+// GetLicenseinfos returns the Licenseinfos field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LicenseAccountLicenseDataAllOf) GetLicenseinfos() []LicenseLicenseInfoRelationship {
-	if o == nil || o.Licenseinfos == nil {
+	if o == nil {
 		var ret []LicenseLicenseInfoRelationship
 		return ret
 	}
-	return *o.Licenseinfos
+	return o.Licenseinfos
 }
 
 // GetLicenseinfosOk returns a tuple with the Licenseinfos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LicenseAccountLicenseDataAllOf) GetLicenseinfosOk() (*[]LicenseLicenseInfoRelationship, bool) {
 	if o == nil || o.Licenseinfos == nil {
 		return nil, false
 	}
-	return o.Licenseinfos, true
+	return &o.Licenseinfos, true
 }
 
 // HasLicenseinfos returns a boolean if a field has been set.
@@ -892,7 +893,7 @@ func (o *LicenseAccountLicenseDataAllOf) HasLicenseinfos() bool {
 
 // SetLicenseinfos gets a reference to the given []LicenseLicenseInfoRelationship and assigns it to the Licenseinfos field.
 func (o *LicenseAccountLicenseDataAllOf) SetLicenseinfos(v []LicenseLicenseInfoRelationship) {
-	o.Licenseinfos = &v
+	o.Licenseinfos = v
 }
 
 // GetSmartlicenseToken returns the SmartlicenseToken field value if set, zero value otherwise.

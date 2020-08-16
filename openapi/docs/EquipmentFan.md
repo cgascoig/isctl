@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **FanId** | Pointer to **int64** | This field acts as the identifier for this particular Fan, within the Fabric Interconnect. | [optional] [readonly] 
 **FanModuleId** | Pointer to **int64** | This field is used to identify the Fan Module to which this Fan belongs. | [optional] [readonly] 
 **ModuleId** | Pointer to **int64** | Fan module Identifier for the fan. | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
+**OperState** | Pointer to **string** | This field is used to indicate this fan unit&#39;s operational state. | [optional] [readonly] 
 **PartNumber** | Pointer to **string** | This field identifies the Part Number for this Fan Unit. | [optional] [readonly] 
 **Pid** | Pointer to **string** | This field identifies the Product ID for the fans. | [optional] [readonly] 
 **Presence** | Pointer to **string** | This field is used to indicate this fan unit&#39;s presence. | [optional] [readonly] 
@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **TrayId** | Pointer to **int64** | Tray identifier for the fan module. | [optional] [readonly] 
 **Vid** | Pointer to **string** | This field identifies the Vendor ID for this Fan Unit. | [optional] [readonly] 
 **EquipmentFanModule** | Pointer to [**EquipmentFanModuleRelationship**](equipment.FanModule.Relationship.md) |  | [optional] 
+**EquipmentFex** | Pointer to [**EquipmentFexRelationship**](equipment.Fex.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -336,6 +338,56 @@ SetEquipmentFanModule sets EquipmentFanModule field to given value.
 `func (o *EquipmentFan) HasEquipmentFanModule() bool`
 
 HasEquipmentFanModule returns a boolean if a field has been set.
+
+### GetEquipmentFex
+
+`func (o *EquipmentFan) GetEquipmentFex() EquipmentFexRelationship`
+
+GetEquipmentFex returns the EquipmentFex field if non-nil, zero value otherwise.
+
+### GetEquipmentFexOk
+
+`func (o *EquipmentFan) GetEquipmentFexOk() (*EquipmentFexRelationship, bool)`
+
+GetEquipmentFexOk returns a tuple with the EquipmentFex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEquipmentFex
+
+`func (o *EquipmentFan) SetEquipmentFex(v EquipmentFexRelationship)`
+
+SetEquipmentFex sets EquipmentFex field to given value.
+
+### HasEquipmentFex
+
+`func (o *EquipmentFan) HasEquipmentFex() bool`
+
+HasEquipmentFex returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentFan) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentFan) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentFan) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentFan) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

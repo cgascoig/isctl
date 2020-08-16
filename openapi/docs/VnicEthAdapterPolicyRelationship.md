@@ -18,19 +18,22 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Description of the policy. | [optional] 
 **Name** | Pointer to **string** | Name of the concrete policy. | [optional] 
 **AdvancedFilter** | Pointer to **bool** | Enables advanced filtering on the interface. | [optional] 
 **ArfsSettings** | Pointer to [**VnicArfsSettings**](vnic.ArfsSettings.md) |  | [optional] 
 **CompletionQueueSettings** | Pointer to [**VnicCompletionQueueSettings**](vnic.CompletionQueueSettings.md) |  | [optional] 
+**InterruptScaling** | Pointer to **bool** | Enables Interrupt Scaling on the interface. | [optional] 
 **InterruptSettings** | Pointer to [**VnicEthInterruptSettings**](vnic.EthInterruptSettings.md) |  | [optional] 
 **NvgreSettings** | Pointer to [**VnicNvgreSettings**](vnic.NvgreSettings.md) |  | [optional] 
 **RoceSettings** | Pointer to [**VnicRoceSettings**](vnic.RoceSettings.md) |  | [optional] 
+**RssHashSettings** | Pointer to [**VnicRssHashSettings**](vnic.RssHashSettings.md) |  | [optional] 
 **RssSettings** | Pointer to **bool** | Receive Side Scaling allows the incoming traffic to be spread across multiple CPU cores. | [optional] 
 **RxQueueSettings** | Pointer to [**VnicEthRxQueueSettings**](vnic.EthRxQueueSettings.md) |  | [optional] 
 **TcpOffloadSettings** | Pointer to [**VnicTcpOffloadSettings**](vnic.TcpOffloadSettings.md) |  | [optional] 
 **TxQueueSettings** | Pointer to [**VnicEthTxQueueSettings**](vnic.EthTxQueueSettings.md) |  | [optional] 
+**UplinkFailbackTimeout** | Pointer to **int64** | Uplink Failback Timeout in seconds when uplink failover is enabled for a vNIC. After a vNIC has started using its secondary interface, this setting controls how long the primary interface must be available before the system resumes using the primary interface for the vNIC. | [optional] 
 **VxlanSettings** | Pointer to [**VnicVxlanSettings**](vnic.VxlanSettings.md) |  | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 
@@ -343,6 +346,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *VnicEthAdapterPolicyRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *VnicEthAdapterPolicyRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *VnicEthAdapterPolicyRelationship) GetParent() MoBaseMoRelationship`
@@ -393,6 +406,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *VnicEthAdapterPolicyRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *VnicEthAdapterPolicyRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *VnicEthAdapterPolicyRelationship) GetDisplayNames() map[string][]string`
@@ -553,6 +576,31 @@ SetCompletionQueueSettings sets CompletionQueueSettings field to given value.
 
 HasCompletionQueueSettings returns a boolean if a field has been set.
 
+### GetInterruptScaling
+
+`func (o *VnicEthAdapterPolicyRelationship) GetInterruptScaling() bool`
+
+GetInterruptScaling returns the InterruptScaling field if non-nil, zero value otherwise.
+
+### GetInterruptScalingOk
+
+`func (o *VnicEthAdapterPolicyRelationship) GetInterruptScalingOk() (*bool, bool)`
+
+GetInterruptScalingOk returns a tuple with the InterruptScaling field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterruptScaling
+
+`func (o *VnicEthAdapterPolicyRelationship) SetInterruptScaling(v bool)`
+
+SetInterruptScaling sets InterruptScaling field to given value.
+
+### HasInterruptScaling
+
+`func (o *VnicEthAdapterPolicyRelationship) HasInterruptScaling() bool`
+
+HasInterruptScaling returns a boolean if a field has been set.
+
 ### GetInterruptSettings
 
 `func (o *VnicEthAdapterPolicyRelationship) GetInterruptSettings() VnicEthInterruptSettings`
@@ -627,6 +675,31 @@ SetRoceSettings sets RoceSettings field to given value.
 `func (o *VnicEthAdapterPolicyRelationship) HasRoceSettings() bool`
 
 HasRoceSettings returns a boolean if a field has been set.
+
+### GetRssHashSettings
+
+`func (o *VnicEthAdapterPolicyRelationship) GetRssHashSettings() VnicRssHashSettings`
+
+GetRssHashSettings returns the RssHashSettings field if non-nil, zero value otherwise.
+
+### GetRssHashSettingsOk
+
+`func (o *VnicEthAdapterPolicyRelationship) GetRssHashSettingsOk() (*VnicRssHashSettings, bool)`
+
+GetRssHashSettingsOk returns a tuple with the RssHashSettings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRssHashSettings
+
+`func (o *VnicEthAdapterPolicyRelationship) SetRssHashSettings(v VnicRssHashSettings)`
+
+SetRssHashSettings sets RssHashSettings field to given value.
+
+### HasRssHashSettings
+
+`func (o *VnicEthAdapterPolicyRelationship) HasRssHashSettings() bool`
+
+HasRssHashSettings returns a boolean if a field has been set.
 
 ### GetRssSettings
 
@@ -727,6 +800,31 @@ SetTxQueueSettings sets TxQueueSettings field to given value.
 `func (o *VnicEthAdapterPolicyRelationship) HasTxQueueSettings() bool`
 
 HasTxQueueSettings returns a boolean if a field has been set.
+
+### GetUplinkFailbackTimeout
+
+`func (o *VnicEthAdapterPolicyRelationship) GetUplinkFailbackTimeout() int64`
+
+GetUplinkFailbackTimeout returns the UplinkFailbackTimeout field if non-nil, zero value otherwise.
+
+### GetUplinkFailbackTimeoutOk
+
+`func (o *VnicEthAdapterPolicyRelationship) GetUplinkFailbackTimeoutOk() (*int64, bool)`
+
+GetUplinkFailbackTimeoutOk returns a tuple with the UplinkFailbackTimeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUplinkFailbackTimeout
+
+`func (o *VnicEthAdapterPolicyRelationship) SetUplinkFailbackTimeout(v int64)`
+
+SetUplinkFailbackTimeout sets UplinkFailbackTimeout field to given value.
+
+### HasUplinkFailbackTimeout
+
+`func (o *VnicEthAdapterPolicyRelationship) HasUplinkFailbackTimeout() bool`
+
+HasUplinkFailbackTimeout returns a boolean if a field has been set.
 
 ### GetVxlanSettings
 

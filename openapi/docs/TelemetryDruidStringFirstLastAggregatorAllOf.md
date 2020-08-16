@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Output name for the minimum/maximum timestamp value. | 
 **FieldName** | Pointer to **string** | Name of the metric column. | 
-**MaxStringBytes** | Pointer to **int32** | null | [default to 1024]
+**MaxStringBytes** | Pointer to **int32** | null | [optional] [default to 1024]
 
 ## Methods
 
 ### NewTelemetryDruidStringFirstLastAggregatorAllOf
 
-`func NewTelemetryDruidStringFirstLastAggregatorAllOf(name string, fieldName string, maxStringBytes int32, ) *TelemetryDruidStringFirstLastAggregatorAllOf`
+`func NewTelemetryDruidStringFirstLastAggregatorAllOf(name string, fieldName string, ) *TelemetryDruidStringFirstLastAggregatorAllOf`
 
 NewTelemetryDruidStringFirstLastAggregatorAllOf instantiates a new TelemetryDruidStringFirstLastAggregatorAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +86,11 @@ and a boolean to check if the value has been set.
 
 SetMaxStringBytes sets MaxStringBytes field to given value.
 
+### HasMaxStringBytes
+
+`func (o *TelemetryDruidStringFirstLastAggregatorAllOf) HasMaxStringBytes() bool`
+
+HasMaxStringBytes returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

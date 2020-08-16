@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,9 +19,19 @@ import (
 // NetworkElement A Unified Computing Systems (UCS) Fabric Interconnect.
 type NetworkElement struct {
 	EquipmentBase `yaml:"EquipmentBase,inline"`
+	// Administratively configured state of Fabric Evacuation feature, for this switch.
+	AdminEvacState *string `json:"AdminEvacState,omitempty" yaml:"AdminEvacState,omitempty"`
 	// The administrative state of the network Element inband management interface.
-	AdminInbandInterfaceState *string `json:"AdminInbandInterfaceState,omitempty" yaml:"AdminInbandInterfaceState,omitempty"`
-	FaultSummary              *int64  `json:"FaultSummary,omitempty" yaml:"FaultSummary,omitempty"`
+	AdminInbandInterfaceState *string              `json:"AdminInbandInterfaceState,omitempty" yaml:"AdminInbandInterfaceState,omitempty"`
+	AlarmSummary              *ComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
+	// Available memory (un-used) on this switch platform.
+	AvailableMemory *string `json:"AvailableMemory,omitempty" yaml:"AvailableMemory,omitempty"`
+	// The user configured Ethernet operational mode for this switch (End-Host or Switching).
+	EthernetMode *string `json:"EthernetMode,omitempty" yaml:"EthernetMode,omitempty"`
+	// The fault summary of the network Element out-of-band management interface.
+	FaultSummary *int64 `json:"FaultSummary,omitempty" yaml:"FaultSummary,omitempty"`
+	// The user configured FC operational mode for this switch (End-Host or Switching).
+	FcMode *string `json:"FcMode,omitempty" yaml:"FcMode,omitempty"`
 	// The IP address of the network Element inband management interface.
 	InbandIpAddress *string `json:"InbandIpAddress,omitempty" yaml:"InbandIpAddress,omitempty"`
 	// The default gateway of the network Element inband management interface.
@@ -30,6 +40,12 @@ type NetworkElement struct {
 	InbandIpMask *string `json:"InbandIpMask,omitempty" yaml:"InbandIpMask,omitempty"`
 	// The VLAN ID of the network Element inband management interface.
 	InbandVlan *int64 `json:"InbandVlan,omitempty" yaml:"InbandVlan,omitempty"`
+	// The management mode of the fabric interconnect. * `IntersightStandalone` - Intersight Standalone mode of operation. * `UCSM` - Unified Computing System Manager mode of operation. * `Intersight` - Intersight managed mode of operation.
+	ManagementMode *string `json:"ManagementMode,omitempty" yaml:"ManagementMode,omitempty"`
+	// Operational state of the Fabric Evacuation feature, for this switch.
+	OperEvacState *string `json:"OperEvacState,omitempty" yaml:"OperEvacState,omitempty"`
+	// The switch's current overall operational/health state.
+	Operability *string `json:"Operability,omitempty" yaml:"Operability,omitempty"`
 	// The IP address of the network Element out-of-band management interface.
 	OutOfBandIpAddress *string `json:"OutOfBandIpAddress,omitempty" yaml:"OutOfBandIpAddress,omitempty"`
 	// The default gateway of the network Element out-of-band management interface.
@@ -52,15 +68,24 @@ type NetworkElement struct {
 	OutOfBandMac *string `json:"OutOfBandMac,omitempty" yaml:"OutOfBandMac,omitempty"`
 	// The Switch Id of the network Element.
 	SwitchId *string `json:"SwitchId,omitempty" yaml:"SwitchId,omitempty"`
+	// Total available memory on this switch platform.
+	TotalMemory *int64 `json:"TotalMemory,omitempty" yaml:"TotalMemory,omitempty"`
 	// An array of relationships to equipmentSwitchCard resources.
-	Cards *[]EquipmentSwitchCardRelationship `json:"Cards,omitempty" yaml:"Cards,omitempty"`
+	Cards []EquipmentSwitchCardRelationship `json:"Cards,omitempty" yaml:"Cards,omitempty"`
 	// An array of relationships to equipmentFanModule resources.
-	Fanmodules          *[]EquipmentFanModuleRelationship `json:"Fanmodules,omitempty" yaml:"Fanmodules,omitempty"`
+	Fanmodules          []EquipmentFanModuleRelationship  `json:"Fanmodules,omitempty" yaml:"Fanmodules,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship  `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	ManagementContoller *ManagementControllerRelationship `json:"ManagementContoller,omitempty" yaml:"ManagementContoller,omitempty"`
 	ManagementEntity    *ManagementEntityRelationship     `json:"ManagementEntity,omitempty" yaml:"ManagementEntity,omitempty"`
+	NetworkFcZoneInfo   *NetworkFcZoneInfoRelationship    `json:"NetworkFcZoneInfo,omitempty" yaml:"NetworkFcZoneInfo,omitempty"`
+	NetworkVlanPortInfo *NetworkVlanPortInfoRelationship  `json:"NetworkVlanPortInfo,omitempty" yaml:"NetworkVlanPortInfo,omitempty"`
+	// An array of relationships to portMacBinding resources.
+	PortMacBindings []PortMacBindingRelationship `json:"PortMacBindings,omitempty" yaml:"PortMacBindings,omitempty"`
 	// An array of relationships to equipmentPsu resources.
-	Psus                *[]EquipmentPsuRelationship          `json:"Psus,omitempty" yaml:"Psus,omitempty"`
-	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	Psus             []EquipmentPsuRelationship           `json:"Psus,omitempty" yaml:"Psus,omitempty"`
+	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// An array of relationships to storageItem resources.
+	StorageItems        []StorageItemRelationship            `json:"StorageItems,omitempty" yaml:"StorageItems,omitempty"`
 	TopSystem           *TopSystemRelationship               `json:"TopSystem,omitempty" yaml:"TopSystem,omitempty"`
 	UcsmRunningFirmware *FirmwareRunningFirmwareRelationship `json:"UcsmRunningFirmware,omitempty" yaml:"UcsmRunningFirmware,omitempty"`
 }
@@ -71,6 +96,8 @@ type NetworkElement struct {
 // will change when the set of required properties is changed
 func NewNetworkElement() *NetworkElement {
 	this := NetworkElement{}
+	var managementMode string = "IntersightStandalone"
+	this.ManagementMode = &managementMode
 	return &this
 }
 
@@ -79,7 +106,41 @@ func NewNetworkElement() *NetworkElement {
 // but it doesn't guarantee that properties required by API are set
 func NewNetworkElementWithDefaults() *NetworkElement {
 	this := NetworkElement{}
+	var managementMode string = "IntersightStandalone"
+	this.ManagementMode = &managementMode
 	return &this
+}
+
+// GetAdminEvacState returns the AdminEvacState field value if set, zero value otherwise.
+func (o *NetworkElement) GetAdminEvacState() string {
+	if o == nil || o.AdminEvacState == nil {
+		var ret string
+		return ret
+	}
+	return *o.AdminEvacState
+}
+
+// GetAdminEvacStateOk returns a tuple with the AdminEvacState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetAdminEvacStateOk() (*string, bool) {
+	if o == nil || o.AdminEvacState == nil {
+		return nil, false
+	}
+	return o.AdminEvacState, true
+}
+
+// HasAdminEvacState returns a boolean if a field has been set.
+func (o *NetworkElement) HasAdminEvacState() bool {
+	if o != nil && o.AdminEvacState != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAdminEvacState gets a reference to the given string and assigns it to the AdminEvacState field.
+func (o *NetworkElement) SetAdminEvacState(v string) {
+	o.AdminEvacState = &v
 }
 
 // GetAdminInbandInterfaceState returns the AdminInbandInterfaceState field value if set, zero value otherwise.
@@ -114,6 +175,102 @@ func (o *NetworkElement) SetAdminInbandInterfaceState(v string) {
 	o.AdminInbandInterfaceState = &v
 }
 
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+func (o *NetworkElement) GetAlarmSummary() ComputeAlarmSummary {
+	if o == nil || o.AlarmSummary == nil {
+		var ret ComputeAlarmSummary
+		return ret
+	}
+	return *o.AlarmSummary
+}
+
+// GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool) {
+	if o == nil || o.AlarmSummary == nil {
+		return nil, false
+	}
+	return o.AlarmSummary, true
+}
+
+// HasAlarmSummary returns a boolean if a field has been set.
+func (o *NetworkElement) HasAlarmSummary() bool {
+	if o != nil && o.AlarmSummary != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAlarmSummary gets a reference to the given ComputeAlarmSummary and assigns it to the AlarmSummary field.
+func (o *NetworkElement) SetAlarmSummary(v ComputeAlarmSummary) {
+	o.AlarmSummary = &v
+}
+
+// GetAvailableMemory returns the AvailableMemory field value if set, zero value otherwise.
+func (o *NetworkElement) GetAvailableMemory() string {
+	if o == nil || o.AvailableMemory == nil {
+		var ret string
+		return ret
+	}
+	return *o.AvailableMemory
+}
+
+// GetAvailableMemoryOk returns a tuple with the AvailableMemory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetAvailableMemoryOk() (*string, bool) {
+	if o == nil || o.AvailableMemory == nil {
+		return nil, false
+	}
+	return o.AvailableMemory, true
+}
+
+// HasAvailableMemory returns a boolean if a field has been set.
+func (o *NetworkElement) HasAvailableMemory() bool {
+	if o != nil && o.AvailableMemory != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailableMemory gets a reference to the given string and assigns it to the AvailableMemory field.
+func (o *NetworkElement) SetAvailableMemory(v string) {
+	o.AvailableMemory = &v
+}
+
+// GetEthernetMode returns the EthernetMode field value if set, zero value otherwise.
+func (o *NetworkElement) GetEthernetMode() string {
+	if o == nil || o.EthernetMode == nil {
+		var ret string
+		return ret
+	}
+	return *o.EthernetMode
+}
+
+// GetEthernetModeOk returns a tuple with the EthernetMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetEthernetModeOk() (*string, bool) {
+	if o == nil || o.EthernetMode == nil {
+		return nil, false
+	}
+	return o.EthernetMode, true
+}
+
+// HasEthernetMode returns a boolean if a field has been set.
+func (o *NetworkElement) HasEthernetMode() bool {
+	if o != nil && o.EthernetMode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEthernetMode gets a reference to the given string and assigns it to the EthernetMode field.
+func (o *NetworkElement) SetEthernetMode(v string) {
+	o.EthernetMode = &v
+}
+
 // GetFaultSummary returns the FaultSummary field value if set, zero value otherwise.
 func (o *NetworkElement) GetFaultSummary() int64 {
 	if o == nil || o.FaultSummary == nil {
@@ -144,6 +301,38 @@ func (o *NetworkElement) HasFaultSummary() bool {
 // SetFaultSummary gets a reference to the given int64 and assigns it to the FaultSummary field.
 func (o *NetworkElement) SetFaultSummary(v int64) {
 	o.FaultSummary = &v
+}
+
+// GetFcMode returns the FcMode field value if set, zero value otherwise.
+func (o *NetworkElement) GetFcMode() string {
+	if o == nil || o.FcMode == nil {
+		var ret string
+		return ret
+	}
+	return *o.FcMode
+}
+
+// GetFcModeOk returns a tuple with the FcMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetFcModeOk() (*string, bool) {
+	if o == nil || o.FcMode == nil {
+		return nil, false
+	}
+	return o.FcMode, true
+}
+
+// HasFcMode returns a boolean if a field has been set.
+func (o *NetworkElement) HasFcMode() bool {
+	if o != nil && o.FcMode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFcMode gets a reference to the given string and assigns it to the FcMode field.
+func (o *NetworkElement) SetFcMode(v string) {
+	o.FcMode = &v
 }
 
 // GetInbandIpAddress returns the InbandIpAddress field value if set, zero value otherwise.
@@ -272,6 +461,102 @@ func (o *NetworkElement) HasInbandVlan() bool {
 // SetInbandVlan gets a reference to the given int64 and assigns it to the InbandVlan field.
 func (o *NetworkElement) SetInbandVlan(v int64) {
 	o.InbandVlan = &v
+}
+
+// GetManagementMode returns the ManagementMode field value if set, zero value otherwise.
+func (o *NetworkElement) GetManagementMode() string {
+	if o == nil || o.ManagementMode == nil {
+		var ret string
+		return ret
+	}
+	return *o.ManagementMode
+}
+
+// GetManagementModeOk returns a tuple with the ManagementMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetManagementModeOk() (*string, bool) {
+	if o == nil || o.ManagementMode == nil {
+		return nil, false
+	}
+	return o.ManagementMode, true
+}
+
+// HasManagementMode returns a boolean if a field has been set.
+func (o *NetworkElement) HasManagementMode() bool {
+	if o != nil && o.ManagementMode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetManagementMode gets a reference to the given string and assigns it to the ManagementMode field.
+func (o *NetworkElement) SetManagementMode(v string) {
+	o.ManagementMode = &v
+}
+
+// GetOperEvacState returns the OperEvacState field value if set, zero value otherwise.
+func (o *NetworkElement) GetOperEvacState() string {
+	if o == nil || o.OperEvacState == nil {
+		var ret string
+		return ret
+	}
+	return *o.OperEvacState
+}
+
+// GetOperEvacStateOk returns a tuple with the OperEvacState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetOperEvacStateOk() (*string, bool) {
+	if o == nil || o.OperEvacState == nil {
+		return nil, false
+	}
+	return o.OperEvacState, true
+}
+
+// HasOperEvacState returns a boolean if a field has been set.
+func (o *NetworkElement) HasOperEvacState() bool {
+	if o != nil && o.OperEvacState != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOperEvacState gets a reference to the given string and assigns it to the OperEvacState field.
+func (o *NetworkElement) SetOperEvacState(v string) {
+	o.OperEvacState = &v
+}
+
+// GetOperability returns the Operability field value if set, zero value otherwise.
+func (o *NetworkElement) GetOperability() string {
+	if o == nil || o.Operability == nil {
+		var ret string
+		return ret
+	}
+	return *o.Operability
+}
+
+// GetOperabilityOk returns a tuple with the Operability field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetOperabilityOk() (*string, bool) {
+	if o == nil || o.Operability == nil {
+		return nil, false
+	}
+	return o.Operability, true
+}
+
+// HasOperability returns a boolean if a field has been set.
+func (o *NetworkElement) HasOperability() bool {
+	if o != nil && o.Operability != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOperability gets a reference to the given string and assigns it to the Operability field.
+func (o *NetworkElement) SetOperability(v string) {
+	o.Operability = &v
 }
 
 // GetOutOfBandIpAddress returns the OutOfBandIpAddress field value if set, zero value otherwise.
@@ -626,22 +911,55 @@ func (o *NetworkElement) SetSwitchId(v string) {
 	o.SwitchId = &v
 }
 
-// GetCards returns the Cards field value if set, zero value otherwise.
+// GetTotalMemory returns the TotalMemory field value if set, zero value otherwise.
+func (o *NetworkElement) GetTotalMemory() int64 {
+	if o == nil || o.TotalMemory == nil {
+		var ret int64
+		return ret
+	}
+	return *o.TotalMemory
+}
+
+// GetTotalMemoryOk returns a tuple with the TotalMemory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetTotalMemoryOk() (*int64, bool) {
+	if o == nil || o.TotalMemory == nil {
+		return nil, false
+	}
+	return o.TotalMemory, true
+}
+
+// HasTotalMemory returns a boolean if a field has been set.
+func (o *NetworkElement) HasTotalMemory() bool {
+	if o != nil && o.TotalMemory != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalMemory gets a reference to the given int64 and assigns it to the TotalMemory field.
+func (o *NetworkElement) SetTotalMemory(v int64) {
+	o.TotalMemory = &v
+}
+
+// GetCards returns the Cards field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkElement) GetCards() []EquipmentSwitchCardRelationship {
-	if o == nil || o.Cards == nil {
+	if o == nil {
 		var ret []EquipmentSwitchCardRelationship
 		return ret
 	}
-	return *o.Cards
+	return o.Cards
 }
 
 // GetCardsOk returns a tuple with the Cards field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkElement) GetCardsOk() (*[]EquipmentSwitchCardRelationship, bool) {
 	if o == nil || o.Cards == nil {
 		return nil, false
 	}
-	return o.Cards, true
+	return &o.Cards, true
 }
 
 // HasCards returns a boolean if a field has been set.
@@ -655,25 +973,26 @@ func (o *NetworkElement) HasCards() bool {
 
 // SetCards gets a reference to the given []EquipmentSwitchCardRelationship and assigns it to the Cards field.
 func (o *NetworkElement) SetCards(v []EquipmentSwitchCardRelationship) {
-	o.Cards = &v
+	o.Cards = v
 }
 
-// GetFanmodules returns the Fanmodules field value if set, zero value otherwise.
+// GetFanmodules returns the Fanmodules field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkElement) GetFanmodules() []EquipmentFanModuleRelationship {
-	if o == nil || o.Fanmodules == nil {
+	if o == nil {
 		var ret []EquipmentFanModuleRelationship
 		return ret
 	}
-	return *o.Fanmodules
+	return o.Fanmodules
 }
 
 // GetFanmodulesOk returns a tuple with the Fanmodules field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkElement) GetFanmodulesOk() (*[]EquipmentFanModuleRelationship, bool) {
 	if o == nil || o.Fanmodules == nil {
 		return nil, false
 	}
-	return o.Fanmodules, true
+	return &o.Fanmodules, true
 }
 
 // HasFanmodules returns a boolean if a field has been set.
@@ -687,7 +1006,39 @@ func (o *NetworkElement) HasFanmodules() bool {
 
 // SetFanmodules gets a reference to the given []EquipmentFanModuleRelationship and assigns it to the Fanmodules field.
 func (o *NetworkElement) SetFanmodules(v []EquipmentFanModuleRelationship) {
-	o.Fanmodules = &v
+	o.Fanmodules = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *NetworkElement) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *NetworkElement) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *NetworkElement) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetManagementContoller returns the ManagementContoller field value if set, zero value otherwise.
@@ -754,22 +1105,120 @@ func (o *NetworkElement) SetManagementEntity(v ManagementEntityRelationship) {
 	o.ManagementEntity = &v
 }
 
-// GetPsus returns the Psus field value if set, zero value otherwise.
+// GetNetworkFcZoneInfo returns the NetworkFcZoneInfo field value if set, zero value otherwise.
+func (o *NetworkElement) GetNetworkFcZoneInfo() NetworkFcZoneInfoRelationship {
+	if o == nil || o.NetworkFcZoneInfo == nil {
+		var ret NetworkFcZoneInfoRelationship
+		return ret
+	}
+	return *o.NetworkFcZoneInfo
+}
+
+// GetNetworkFcZoneInfoOk returns a tuple with the NetworkFcZoneInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetNetworkFcZoneInfoOk() (*NetworkFcZoneInfoRelationship, bool) {
+	if o == nil || o.NetworkFcZoneInfo == nil {
+		return nil, false
+	}
+	return o.NetworkFcZoneInfo, true
+}
+
+// HasNetworkFcZoneInfo returns a boolean if a field has been set.
+func (o *NetworkElement) HasNetworkFcZoneInfo() bool {
+	if o != nil && o.NetworkFcZoneInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkFcZoneInfo gets a reference to the given NetworkFcZoneInfoRelationship and assigns it to the NetworkFcZoneInfo field.
+func (o *NetworkElement) SetNetworkFcZoneInfo(v NetworkFcZoneInfoRelationship) {
+	o.NetworkFcZoneInfo = &v
+}
+
+// GetNetworkVlanPortInfo returns the NetworkVlanPortInfo field value if set, zero value otherwise.
+func (o *NetworkElement) GetNetworkVlanPortInfo() NetworkVlanPortInfoRelationship {
+	if o == nil || o.NetworkVlanPortInfo == nil {
+		var ret NetworkVlanPortInfoRelationship
+		return ret
+	}
+	return *o.NetworkVlanPortInfo
+}
+
+// GetNetworkVlanPortInfoOk returns a tuple with the NetworkVlanPortInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetNetworkVlanPortInfoOk() (*NetworkVlanPortInfoRelationship, bool) {
+	if o == nil || o.NetworkVlanPortInfo == nil {
+		return nil, false
+	}
+	return o.NetworkVlanPortInfo, true
+}
+
+// HasNetworkVlanPortInfo returns a boolean if a field has been set.
+func (o *NetworkElement) HasNetworkVlanPortInfo() bool {
+	if o != nil && o.NetworkVlanPortInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkVlanPortInfo gets a reference to the given NetworkVlanPortInfoRelationship and assigns it to the NetworkVlanPortInfo field.
+func (o *NetworkElement) SetNetworkVlanPortInfo(v NetworkVlanPortInfoRelationship) {
+	o.NetworkVlanPortInfo = &v
+}
+
+// GetPortMacBindings returns the PortMacBindings field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NetworkElement) GetPortMacBindings() []PortMacBindingRelationship {
+	if o == nil {
+		var ret []PortMacBindingRelationship
+		return ret
+	}
+	return o.PortMacBindings
+}
+
+// GetPortMacBindingsOk returns a tuple with the PortMacBindings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NetworkElement) GetPortMacBindingsOk() (*[]PortMacBindingRelationship, bool) {
+	if o == nil || o.PortMacBindings == nil {
+		return nil, false
+	}
+	return &o.PortMacBindings, true
+}
+
+// HasPortMacBindings returns a boolean if a field has been set.
+func (o *NetworkElement) HasPortMacBindings() bool {
+	if o != nil && o.PortMacBindings != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPortMacBindings gets a reference to the given []PortMacBindingRelationship and assigns it to the PortMacBindings field.
+func (o *NetworkElement) SetPortMacBindings(v []PortMacBindingRelationship) {
+	o.PortMacBindings = v
+}
+
+// GetPsus returns the Psus field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkElement) GetPsus() []EquipmentPsuRelationship {
-	if o == nil || o.Psus == nil {
+	if o == nil {
 		var ret []EquipmentPsuRelationship
 		return ret
 	}
-	return *o.Psus
+	return o.Psus
 }
 
 // GetPsusOk returns a tuple with the Psus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkElement) GetPsusOk() (*[]EquipmentPsuRelationship, bool) {
 	if o == nil || o.Psus == nil {
 		return nil, false
 	}
-	return o.Psus, true
+	return &o.Psus, true
 }
 
 // HasPsus returns a boolean if a field has been set.
@@ -783,7 +1232,7 @@ func (o *NetworkElement) HasPsus() bool {
 
 // SetPsus gets a reference to the given []EquipmentPsuRelationship and assigns it to the Psus field.
 func (o *NetworkElement) SetPsus(v []EquipmentPsuRelationship) {
-	o.Psus = &v
+	o.Psus = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -816,6 +1265,39 @@ func (o *NetworkElement) HasRegisteredDevice() bool {
 // SetRegisteredDevice gets a reference to the given AssetDeviceRegistrationRelationship and assigns it to the RegisteredDevice field.
 func (o *NetworkElement) SetRegisteredDevice(v AssetDeviceRegistrationRelationship) {
 	o.RegisteredDevice = &v
+}
+
+// GetStorageItems returns the StorageItems field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NetworkElement) GetStorageItems() []StorageItemRelationship {
+	if o == nil {
+		var ret []StorageItemRelationship
+		return ret
+	}
+	return o.StorageItems
+}
+
+// GetStorageItemsOk returns a tuple with the StorageItems field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NetworkElement) GetStorageItemsOk() (*[]StorageItemRelationship, bool) {
+	if o == nil || o.StorageItems == nil {
+		return nil, false
+	}
+	return &o.StorageItems, true
+}
+
+// HasStorageItems returns a boolean if a field has been set.
+func (o *NetworkElement) HasStorageItems() bool {
+	if o != nil && o.StorageItems != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageItems gets a reference to the given []StorageItemRelationship and assigns it to the StorageItems field.
+func (o *NetworkElement) SetStorageItems(v []StorageItemRelationship) {
+	o.StorageItems = v
 }
 
 // GetTopSystem returns the TopSystem field value if set, zero value otherwise.
@@ -892,11 +1374,26 @@ func (o NetworkElement) MarshalJSON() ([]byte, error) {
 	if errEquipmentBase != nil {
 		return []byte{}, errEquipmentBase
 	}
+	if o.AdminEvacState != nil {
+		toSerialize["AdminEvacState"] = o.AdminEvacState
+	}
 	if o.AdminInbandInterfaceState != nil {
 		toSerialize["AdminInbandInterfaceState"] = o.AdminInbandInterfaceState
 	}
+	if o.AlarmSummary != nil {
+		toSerialize["AlarmSummary"] = o.AlarmSummary
+	}
+	if o.AvailableMemory != nil {
+		toSerialize["AvailableMemory"] = o.AvailableMemory
+	}
+	if o.EthernetMode != nil {
+		toSerialize["EthernetMode"] = o.EthernetMode
+	}
 	if o.FaultSummary != nil {
 		toSerialize["FaultSummary"] = o.FaultSummary
+	}
+	if o.FcMode != nil {
+		toSerialize["FcMode"] = o.FcMode
 	}
 	if o.InbandIpAddress != nil {
 		toSerialize["InbandIpAddress"] = o.InbandIpAddress
@@ -909,6 +1406,15 @@ func (o NetworkElement) MarshalJSON() ([]byte, error) {
 	}
 	if o.InbandVlan != nil {
 		toSerialize["InbandVlan"] = o.InbandVlan
+	}
+	if o.ManagementMode != nil {
+		toSerialize["ManagementMode"] = o.ManagementMode
+	}
+	if o.OperEvacState != nil {
+		toSerialize["OperEvacState"] = o.OperEvacState
+	}
+	if o.Operability != nil {
+		toSerialize["Operability"] = o.Operability
 	}
 	if o.OutOfBandIpAddress != nil {
 		toSerialize["OutOfBandIpAddress"] = o.OutOfBandIpAddress
@@ -943,11 +1449,17 @@ func (o NetworkElement) MarshalJSON() ([]byte, error) {
 	if o.SwitchId != nil {
 		toSerialize["SwitchId"] = o.SwitchId
 	}
+	if o.TotalMemory != nil {
+		toSerialize["TotalMemory"] = o.TotalMemory
+	}
 	if o.Cards != nil {
 		toSerialize["Cards"] = o.Cards
 	}
 	if o.Fanmodules != nil {
 		toSerialize["Fanmodules"] = o.Fanmodules
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.ManagementContoller != nil {
 		toSerialize["ManagementContoller"] = o.ManagementContoller
@@ -955,11 +1467,23 @@ func (o NetworkElement) MarshalJSON() ([]byte, error) {
 	if o.ManagementEntity != nil {
 		toSerialize["ManagementEntity"] = o.ManagementEntity
 	}
+	if o.NetworkFcZoneInfo != nil {
+		toSerialize["NetworkFcZoneInfo"] = o.NetworkFcZoneInfo
+	}
+	if o.NetworkVlanPortInfo != nil {
+		toSerialize["NetworkVlanPortInfo"] = o.NetworkVlanPortInfo
+	}
+	if o.PortMacBindings != nil {
+		toSerialize["PortMacBindings"] = o.PortMacBindings
+	}
 	if o.Psus != nil {
 		toSerialize["Psus"] = o.Psus
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice
+	}
+	if o.StorageItems != nil {
+		toSerialize["StorageItems"] = o.StorageItems
 	}
 	if o.TopSystem != nil {
 		toSerialize["TopSystem"] = o.TopSystem

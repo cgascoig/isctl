@@ -18,17 +18,23 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the virtual fibre channel interface. | [optional] 
 **Order** | Pointer to **int64** | The order in which the virtual interface is brought up. The order assigned to an interface should be unique for all the Ethernet and Fibre-Channel interfaces on each PCI link on a VIC adapter. The maximum value of PCI order is limited by the number of virtual interfaces (Ethernet and Fibre-Channel) on each PCI link on a VIC adapter. All VIC adapters have a single PCI link except VIC 1385 which has two. | [optional] 
 **PersistentBindings** | Pointer to **bool** | Enables retention of LUN ID associations in memory until they are manually cleared. | [optional] 
 **Placement** | Pointer to [**VnicPlacementSettings**](vnic.PlacementSettings.md) |  | [optional] 
-**Type** | Pointer to **string** | VHBA Type configuration for SAN Connectivity Policy. This configuration is supported only on Cisco VIC 14XX series and higher series of adapters. | [optional] [default to "fc-initiator"]
+**Type** | Pointer to **string** | VHBA Type configuration for SAN Connectivity Policy. This configuration is supported only on Cisco VIC 14XX series and higher series of adapters. * &#x60;fc-initiator&#x60; - The default value set for vHBA Type Configuration. Fc-initiator specifies vHBA as a consumer of storage. Enables SCSI commands to transfer data and status information between host and target storage systems. * &#x60;fc-nvme-initiator&#x60; - Fc-nvme-initiator specifies vHBA as a consumer of storage. Enables NVMe-based message commands to transfer data and status information between host and target storage systems. * &#x60;fc-nvme-target&#x60; - Fc-nvme-target specifies vHBA as a provider of storage volumes to initiators. Enables NVMe-based message commands to transfer data and status information between host and target storage systems. Currently tech-preview, only enabled with an asynchronous driver. * &#x60;fc-target&#x60; - Fc-target specifies vHBA as a provider of storage volumes to initiators. Enables SCSI commands to transfer data and status information between host and target storage systems. fc-target is enabled only with an asynchronous driver. | [optional] [default to "fc-initiator"]
+**VifId** | Pointer to **int64** | This should be the same as the channel number of the vfc created on switch in order to set up the data path. The property is applicable only for FI attached servers where a vfc is created on the switch for every vHBA. | [optional] [readonly] 
+**Wwpn** | Pointer to **string** | The WWPN address that is assigned to the vhba based on the wwn pool that has been assigned to the SAN Connectivity Policy. | [optional] [readonly] 
 **FcAdapterPolicy** | Pointer to [**VnicFcAdapterPolicyRelationship**](vnic.FcAdapterPolicy.Relationship.md) |  | [optional] 
 **FcNetworkPolicy** | Pointer to [**VnicFcNetworkPolicyRelationship**](vnic.FcNetworkPolicy.Relationship.md) |  | [optional] 
 **FcQosPolicy** | Pointer to [**VnicFcQosPolicyRelationship**](vnic.FcQosPolicy.Relationship.md) |  | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**Profile** | Pointer to [**PolicyAbstractConfigProfileRelationship**](policy.AbstractConfigProfile.Relationship.md) |  | [optional] 
 **SanConnectivityPolicy** | Pointer to [**VnicSanConnectivityPolicyRelationship**](vnic.SanConnectivityPolicy.Relationship.md) |  | [optional] 
+**ScpVhba** | Pointer to [**VnicFcIfRelationship**](vnic.FcIf.Relationship.md) |  | [optional] 
+**SpVhbas** | Pointer to [**[]VnicFcIfRelationship**](vnic.FcIf.Relationship.md) | An array of relationships to vnicFcIf resources. | [optional] 
+**WwpnLease** | Pointer to [**FcpoolLeaseRelationship**](fcpool.Lease.Relationship.md) |  | [optional] 
+**WwpnPool** | Pointer to [**FcpoolPoolRelationship**](fcpool.Pool.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -339,6 +345,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *VnicFcIfRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *VnicFcIfRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *VnicFcIfRelationship) GetParent() MoBaseMoRelationship`
@@ -389,6 +405,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *VnicFcIfRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *VnicFcIfRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *VnicFcIfRelationship) GetDisplayNames() map[string][]string`
@@ -549,6 +575,56 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetVifId
+
+`func (o *VnicFcIfRelationship) GetVifId() int64`
+
+GetVifId returns the VifId field if non-nil, zero value otherwise.
+
+### GetVifIdOk
+
+`func (o *VnicFcIfRelationship) GetVifIdOk() (*int64, bool)`
+
+GetVifIdOk returns a tuple with the VifId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVifId
+
+`func (o *VnicFcIfRelationship) SetVifId(v int64)`
+
+SetVifId sets VifId field to given value.
+
+### HasVifId
+
+`func (o *VnicFcIfRelationship) HasVifId() bool`
+
+HasVifId returns a boolean if a field has been set.
+
+### GetWwpn
+
+`func (o *VnicFcIfRelationship) GetWwpn() string`
+
+GetWwpn returns the Wwpn field if non-nil, zero value otherwise.
+
+### GetWwpnOk
+
+`func (o *VnicFcIfRelationship) GetWwpnOk() (*string, bool)`
+
+GetWwpnOk returns a tuple with the Wwpn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWwpn
+
+`func (o *VnicFcIfRelationship) SetWwpn(v string)`
+
+SetWwpn sets Wwpn field to given value.
+
+### HasWwpn
+
+`func (o *VnicFcIfRelationship) HasWwpn() bool`
+
+HasWwpn returns a boolean if a field has been set.
+
 ### GetFcAdapterPolicy
 
 `func (o *VnicFcIfRelationship) GetFcAdapterPolicy() VnicFcAdapterPolicyRelationship`
@@ -624,30 +700,30 @@ SetFcQosPolicy sets FcQosPolicy field to given value.
 
 HasFcQosPolicy returns a boolean if a field has been set.
 
-### GetOrganization
+### GetProfile
 
-`func (o *VnicFcIfRelationship) GetOrganization() OrganizationOrganizationRelationship`
+`func (o *VnicFcIfRelationship) GetProfile() PolicyAbstractConfigProfileRelationship`
 
-GetOrganization returns the Organization field if non-nil, zero value otherwise.
+GetProfile returns the Profile field if non-nil, zero value otherwise.
 
-### GetOrganizationOk
+### GetProfileOk
 
-`func (o *VnicFcIfRelationship) GetOrganizationOk() (*OrganizationOrganizationRelationship, bool)`
+`func (o *VnicFcIfRelationship) GetProfileOk() (*PolicyAbstractConfigProfileRelationship, bool)`
 
-GetOrganizationOk returns a tuple with the Organization field if it's non-nil, zero value otherwise
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganization
+### SetProfile
 
-`func (o *VnicFcIfRelationship) SetOrganization(v OrganizationOrganizationRelationship)`
+`func (o *VnicFcIfRelationship) SetProfile(v PolicyAbstractConfigProfileRelationship)`
 
-SetOrganization sets Organization field to given value.
+SetProfile sets Profile field to given value.
 
-### HasOrganization
+### HasProfile
 
-`func (o *VnicFcIfRelationship) HasOrganization() bool`
+`func (o *VnicFcIfRelationship) HasProfile() bool`
 
-HasOrganization returns a boolean if a field has been set.
+HasProfile returns a boolean if a field has been set.
 
 ### GetSanConnectivityPolicy
 
@@ -673,6 +749,116 @@ SetSanConnectivityPolicy sets SanConnectivityPolicy field to given value.
 `func (o *VnicFcIfRelationship) HasSanConnectivityPolicy() bool`
 
 HasSanConnectivityPolicy returns a boolean if a field has been set.
+
+### GetScpVhba
+
+`func (o *VnicFcIfRelationship) GetScpVhba() VnicFcIfRelationship`
+
+GetScpVhba returns the ScpVhba field if non-nil, zero value otherwise.
+
+### GetScpVhbaOk
+
+`func (o *VnicFcIfRelationship) GetScpVhbaOk() (*VnicFcIfRelationship, bool)`
+
+GetScpVhbaOk returns a tuple with the ScpVhba field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScpVhba
+
+`func (o *VnicFcIfRelationship) SetScpVhba(v VnicFcIfRelationship)`
+
+SetScpVhba sets ScpVhba field to given value.
+
+### HasScpVhba
+
+`func (o *VnicFcIfRelationship) HasScpVhba() bool`
+
+HasScpVhba returns a boolean if a field has been set.
+
+### GetSpVhbas
+
+`func (o *VnicFcIfRelationship) GetSpVhbas() []VnicFcIfRelationship`
+
+GetSpVhbas returns the SpVhbas field if non-nil, zero value otherwise.
+
+### GetSpVhbasOk
+
+`func (o *VnicFcIfRelationship) GetSpVhbasOk() (*[]VnicFcIfRelationship, bool)`
+
+GetSpVhbasOk returns a tuple with the SpVhbas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpVhbas
+
+`func (o *VnicFcIfRelationship) SetSpVhbas(v []VnicFcIfRelationship)`
+
+SetSpVhbas sets SpVhbas field to given value.
+
+### HasSpVhbas
+
+`func (o *VnicFcIfRelationship) HasSpVhbas() bool`
+
+HasSpVhbas returns a boolean if a field has been set.
+
+### SetSpVhbasNil
+
+`func (o *VnicFcIfRelationship) SetSpVhbasNil(b bool)`
+
+ SetSpVhbasNil sets the value for SpVhbas to be an explicit nil
+
+### UnsetSpVhbas
+`func (o *VnicFcIfRelationship) UnsetSpVhbas()`
+
+UnsetSpVhbas ensures that no value is present for SpVhbas, not even an explicit nil
+### GetWwpnLease
+
+`func (o *VnicFcIfRelationship) GetWwpnLease() FcpoolLeaseRelationship`
+
+GetWwpnLease returns the WwpnLease field if non-nil, zero value otherwise.
+
+### GetWwpnLeaseOk
+
+`func (o *VnicFcIfRelationship) GetWwpnLeaseOk() (*FcpoolLeaseRelationship, bool)`
+
+GetWwpnLeaseOk returns a tuple with the WwpnLease field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWwpnLease
+
+`func (o *VnicFcIfRelationship) SetWwpnLease(v FcpoolLeaseRelationship)`
+
+SetWwpnLease sets WwpnLease field to given value.
+
+### HasWwpnLease
+
+`func (o *VnicFcIfRelationship) HasWwpnLease() bool`
+
+HasWwpnLease returns a boolean if a field has been set.
+
+### GetWwpnPool
+
+`func (o *VnicFcIfRelationship) GetWwpnPool() FcpoolPoolRelationship`
+
+GetWwpnPool returns the WwpnPool field if non-nil, zero value otherwise.
+
+### GetWwpnPoolOk
+
+`func (o *VnicFcIfRelationship) GetWwpnPoolOk() (*FcpoolPoolRelationship, bool)`
+
+GetWwpnPoolOk returns a tuple with the WwpnPool field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWwpnPool
+
+`func (o *VnicFcIfRelationship) SetWwpnPool(v FcpoolPoolRelationship)`
+
+SetWwpnPool sets WwpnPool field to given value.
+
+### HasWwpnPool
+
+`func (o *VnicFcIfRelationship) HasWwpnPool() bool`
+
+HasWwpnPool returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

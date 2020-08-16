@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**QueryType** | Pointer to **string** | null | 
 **DataSource** | Pointer to [**TelemetryDruidDataSource**](telemetry.DruidDataSource.md) |  | 
 **Bound** | Pointer to **string** | Optional, set to maxTime or minTime to return only the latest or earliest timestamp. Default to returning both if not set. | [optional] 
 **Filter** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | [optional] 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidTimeBoundaryRequest
 
-`func NewTelemetryDruidTimeBoundaryRequest(dataSource TelemetryDruidDataSource, ) *TelemetryDruidTimeBoundaryRequest`
+`func NewTelemetryDruidTimeBoundaryRequest(queryType string, dataSource TelemetryDruidDataSource, ) *TelemetryDruidTimeBoundaryRequest`
 
 NewTelemetryDruidTimeBoundaryRequest instantiates a new TelemetryDruidTimeBoundaryRequest object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidTimeBoundaryRequestWithDefaults instantiates a new TelemetryDruidTimeBoundaryRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetQueryType
+
+`func (o *TelemetryDruidTimeBoundaryRequest) GetQueryType() string`
+
+GetQueryType returns the QueryType field if non-nil, zero value otherwise.
+
+### GetQueryTypeOk
+
+`func (o *TelemetryDruidTimeBoundaryRequest) GetQueryTypeOk() (*string, bool)`
+
+GetQueryTypeOk returns a tuple with the QueryType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueryType
+
+`func (o *TelemetryDruidTimeBoundaryRequest) SetQueryType(v string)`
+
+SetQueryType sets QueryType field to given value.
+
 
 ### GetDataSource
 

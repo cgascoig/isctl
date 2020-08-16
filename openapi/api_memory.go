@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -82,7 +82,7 @@ func (r apiCreateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryPolicies"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -238,7 +238,7 @@ func (r apiDeleteMemoryPersistentMemoryPolicyRequest) Execute() (*_nethttp.Respo
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -375,7 +375,7 @@ func (r apiGetMemoryArrayByMoidRequest) Execute() (MemoryArray, *_nethttp.Respon
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Arrays/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/Arrays/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -584,7 +584,7 @@ func (r apiGetMemoryArrayListRequest) Execute() (MemoryArrayResponse, *_nethttp.
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Arrays"
+	localVarPath := localBasePath + "/api/v1/memory/Arrays"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -762,7 +762,7 @@ func (r apiGetMemoryPersistentMemoryConfigResultByMoidRequest) Execute() (Memory
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigResults/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigResults/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -971,7 +971,7 @@ func (r apiGetMemoryPersistentMemoryConfigResultListRequest) Execute() (MemoryPe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigResults"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigResults"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1149,7 +1149,7 @@ func (r apiGetMemoryPersistentMemoryConfigurationByMoidRequest) Execute() (Memor
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigurations/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigurations/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1358,7 +1358,7 @@ func (r apiGetMemoryPersistentMemoryConfigurationListRequest) Execute() (MemoryP
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigurations"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigurations"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1536,7 +1536,7 @@ func (r apiGetMemoryPersistentMemoryNamespaceByMoidRequest) Execute() (MemoryPer
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaces/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaces/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1682,7 +1682,7 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultByMoidRequest) Execute(
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaceConfigResults/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaceConfigResults/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1891,7 +1891,7 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultListRequest) Execute() 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaceConfigResults"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaceConfigResults"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2132,7 +2132,7 @@ func (r apiGetMemoryPersistentMemoryNamespaceListRequest) Execute() (MemoryPersi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaces"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaces"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2310,7 +2310,7 @@ func (r apiGetMemoryPersistentMemoryPolicyByMoidRequest) Execute() (MemoryPersis
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2519,7 +2519,7 @@ func (r apiGetMemoryPersistentMemoryPolicyListRequest) Execute() (MemoryPersiste
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryPolicies"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2697,7 +2697,7 @@ func (r apiGetMemoryPersistentMemoryRegionByMoidRequest) Execute() (MemoryPersis
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryRegions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryRegions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2906,7 +2906,7 @@ func (r apiGetMemoryPersistentMemoryRegionListRequest) Execute() (MemoryPersiste
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryRegions"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryRegions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3084,7 +3084,7 @@ func (r apiGetMemoryPersistentMemoryUnitByMoidRequest) Execute() (MemoryPersiste
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryUnits/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryUnits/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3293,7 +3293,7 @@ func (r apiGetMemoryPersistentMemoryUnitListRequest) Execute() (MemoryPersistent
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryUnits"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryUnits"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3471,7 +3471,7 @@ func (r apiGetMemoryUnitByMoidRequest) Execute() (MemoryUnit, *_nethttp.Response
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Units/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/Units/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3680,7 +3680,7 @@ func (r apiGetMemoryUnitListRequest) Execute() (MemoryUnitResponse, *_nethttp.Re
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Units"
+	localVarPath := localBasePath + "/api/v1/memory/Units"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3870,7 +3870,7 @@ func (r apiPatchMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Arrays/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/Arrays/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4037,7 +4037,7 @@ func (r apiPatchMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPers
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigResults/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigResults/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4204,7 +4204,7 @@ func (r apiPatchMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPer
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigurations/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigurations/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4371,7 +4371,7 @@ func (r apiPatchMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersist
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaces/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaces/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4538,7 +4538,7 @@ func (r apiPatchMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (M
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaceConfigResults/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaceConfigResults/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4705,7 +4705,7 @@ func (r apiPatchMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersistent
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4872,7 +4872,7 @@ func (r apiPatchMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersistent
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryRegions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryRegions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5039,7 +5039,7 @@ func (r apiPatchMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentMe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryUnits/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryUnits/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5206,7 +5206,7 @@ func (r apiPatchMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, er
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Units/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/Units/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5373,7 +5373,7 @@ func (r apiUpdateMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response,
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Arrays/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/Arrays/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5540,7 +5540,7 @@ func (r apiUpdateMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPer
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigResults/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigResults/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5707,7 +5707,7 @@ func (r apiUpdateMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryConfigurations/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryConfigurations/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5874,7 +5874,7 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersis
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaces/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaces/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6041,7 +6041,7 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryNamespaceConfigResults/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryNamespaceConfigResults/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6208,7 +6208,7 @@ func (r apiUpdateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6375,7 +6375,7 @@ func (r apiUpdateMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersisten
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryRegions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryRegions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6542,7 +6542,7 @@ func (r apiUpdateMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentM
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/PersistentMemoryUnits/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/PersistentMemoryUnits/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6709,7 +6709,7 @@ func (r apiUpdateMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, e
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/memory/Units/{Moid}"
+	localVarPath := localBasePath + "/api/v1/memory/Units/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

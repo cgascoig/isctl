@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -20,7 +20,7 @@ import (
 // WorkflowWorkflowInfo Contains information for a workflow execution which is a runtime instance of workflow.
 type WorkflowWorkflowInfo struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
-	// The action of the workflow such as start, cancel, retry, pause.
+	// The action of the workflow such as start, cancel, retry, pause. * `None` - No action is set, this is the default value for action field. * `Create` - Create a new instance of the workflow but it does not start the execution of the workflow. Use the Start action to start execution of the workflow. * `Start` - Start a new execution of the workflow. * `Pause` - Pause the workflow, this can only be issued on workflows that are in running state. * `Resume` - Resume the workflow which was previously paused through pause action on the workflow. * `Retry` - Retry the workflow that has previously reached a final state and has the retryable property set to true on the workflow. A running or waiting workflow cannot be retried. If the property retryFromTaskName is also passed along with this action, the workflow will be started from that specific task, otherwise the workflow will be restarted. The task name must be one of the tasks that completed or failed in the previous run, you cannot retry a workflow from a task which wasn't run in the previous iteration. * `RetryFailed` - Retry the workflow that has failed. A running or waiting workflow or a workflow that completed successfully cannot be retried. Only the tasks that failed in the previous run will be retried and the rest of workflow will be run. This action does not restart the workflow and also does not support retrying from a specific task. * `Cancel` - Cancel the workflow that is in running or waiting state.
 	Action *string `json:"Action,omitempty" yaml:"Action,omitempty"`
 	// The time when the workflow info will be removed from database.
 	CleanupTime *time.Time `json:"CleanupTime,omitempty" yaml:"CleanupTime,omitempty"`
@@ -29,12 +29,12 @@ type WorkflowWorkflowInfo struct {
 	// The duration in hours after which the workflow info for failed, terminated or timed out workflow will be removed from database.
 	FailedWorkflowCleanupDuration *int64 `json:"FailedWorkflowCleanupDuration,omitempty" yaml:"FailedWorkflowCleanupDuration,omitempty"`
 	// All the given inputs for the workflow.
-	Input *map[string]interface{} `json:"Input,omitempty" yaml:"Input,omitempty"`
+	Input interface{} `json:"Input,omitempty" yaml:"Input,omitempty"`
 	// A workflow instance Id which is the unique identified for the workflow execution.
 	InstId *string `json:"InstId,omitempty" yaml:"InstId,omitempty"`
 	// Denotes if this workflow is internal and should be hidden from user view of running workflows.
 	Internal *bool `json:"Internal,omitempty" yaml:"Internal,omitempty"`
-	// The last action that was issued on the workflow is saved in this field.
+	// The last action that was issued on the workflow is saved in this field. * `None` - No action is set, this is the default value for action field. * `Create` - Create a new instance of the workflow but it does not start the execution of the workflow. Use the Start action to start execution of the workflow. * `Start` - Start a new execution of the workflow. * `Pause` - Pause the workflow, this can only be issued on workflows that are in running state. * `Resume` - Resume the workflow which was previously paused through pause action on the workflow. * `Retry` - Retry the workflow that has previously reached a final state and has the retryable property set to true on the workflow. A running or waiting workflow cannot be retried. If the property retryFromTaskName is also passed along with this action, the workflow will be started from that specific task, otherwise the workflow will be restarted. The task name must be one of the tasks that completed or failed in the previous run, you cannot retry a workflow from a task which wasn't run in the previous iteration. * `RetryFailed` - Retry the workflow that has failed. A running or waiting workflow or a workflow that completed successfully cannot be retried. Only the tasks that failed in the previous run will be retried and the rest of workflow will be run. This action does not restart the workflow and also does not support retrying from a specific task. * `Cancel` - Cancel the workflow that is in running or waiting state.
 	LastAction *string            `json:"LastAction,omitempty" yaml:"LastAction,omitempty"`
 	Message    *[]WorkflowMessage `json:"Message,omitempty" yaml:"Message,omitempty"`
 	// Version of the workflow metadata for which this workflow execution was started.
@@ -42,7 +42,9 @@ type WorkflowWorkflowInfo struct {
 	// A name of the workflow execution instance.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
 	// All the generated outputs for the workflow.
-	Output *map[string]interface{} `json:"Output,omitempty" yaml:"Output,omitempty"`
+	Output interface{} `json:"Output,omitempty" yaml:"Output,omitempty"`
+	// Denotes the reason workflow is in paused status. * `None` - Pause reason is none, which indicates there is no reason for the pause state. * `TaskWithWarning` - Pause reason indicates the workflow is in this state due to a task that has a status as completed with warnings.
+	PauseReason *string `json:"PauseReason,omitempty" yaml:"PauseReason,omitempty"`
 	// This field indicates percentage of workflow task execution.
 	Progress   *float32                        `json:"Progress,omitempty" yaml:"Progress,omitempty"`
 	Properties *WorkflowWorkflowInfoProperties `json:"Properties,omitempty" yaml:"Properties,omitempty"`
@@ -62,23 +64,23 @@ type WorkflowWorkflowInfo struct {
 	Type *string `json:"Type,omitempty" yaml:"Type,omitempty"`
 	// The user identifier which indicates the user that started this workflow.
 	UserId *string `json:"UserId,omitempty" yaml:"UserId,omitempty"`
-	// Denotes the reason workflow is in waiting status.
-	WaitReason *string `json:"WaitReason,omitempty" yaml:"WaitReason,omitempty"`
-	// The workflow context which contains initiator and target information.
-	WorkflowCtx *map[string]interface{} `json:"WorkflowCtx,omitempty" yaml:"WorkflowCtx,omitempty"`
-	// The type of workflow meta. Derived from the workflow meta that is used to launch this workflow instance.
+	// Denotes the reason workflow is in waiting status. * `None` - Wait reason is none, which indicates there is no reason for the waiting state. * `GatherTasks` - Wait reason is gathering tasks, which indicates the workflow is in this state in order to gather tasks. * `Duplicate` - Wait reason is duplicate, which indicates the workflow is a duplicate of current running workflow. * `RateLimit` - Wait reason is rate limit, which indicates the workflow is rate limited by account/instance level throttling threshold. * `WaitTask` - Wait reason when there are one or more wait tasks in the workflow which are yet to receive a task status update. * `PendingRetryFailed` - Wait reason when the workflow is pending a RetryFailed action.
+	WaitReason  *string              `json:"WaitReason,omitempty" yaml:"WaitReason,omitempty"`
+	WorkflowCtx *WorkflowWorkflowCtx `json:"WorkflowCtx,omitempty" yaml:"WorkflowCtx,omitempty"`
+	// The type of workflow meta. Derived from the workflow meta that is used to launch this workflow instance. * `SystemDefined` - System defined workflow definition. * `UserDefined` - User defined workflow definition. * `Dynamic` - Dynamically defined workflow definition.
 	WorkflowMetaType *string `json:"WorkflowMetaType,omitempty" yaml:"WorkflowMetaType,omitempty"`
 	// Total number of workflow tasks in this workflow.
 	WorkflowTaskCount          *int64                                          `json:"WorkflowTaskCount,omitempty" yaml:"WorkflowTaskCount,omitempty"`
 	Var0ClusterProfile         *HyperflexClusterProfileRelationship            `json:"_0_ClusterProfile,omitempty" yaml:"_0_ClusterProfile,omitempty"`
-	Var1Profile                *ServerProfileRelationship                      `json:"_1_Profile,omitempty" yaml:"_1_Profile,omitempty"`
+	Var1SwitchProfile          *FabricSwitchProfileRelationship                `json:"_1_SwitchProfile,omitempty" yaml:"_1_SwitchProfile,omitempty"`
 	Account                    *IamAccountRelationship                         `json:"Account,omitempty" yaml:"Account,omitempty"`
+	AssociatedObject           *MoBaseMoRelationship                           `json:"AssociatedObject,omitempty" yaml:"AssociatedObject,omitempty"`
 	Organization               *OrganizationOrganizationRelationship           `json:"Organization,omitempty" yaml:"Organization,omitempty"`
 	ParentTaskInfo             *WorkflowTaskInfoRelationship                   `json:"ParentTaskInfo,omitempty" yaml:"ParentTaskInfo,omitempty"`
 	PendingDynamicWorkflowInfo *WorkflowPendingDynamicWorkflowInfoRelationship `json:"PendingDynamicWorkflowInfo,omitempty" yaml:"PendingDynamicWorkflowInfo,omitempty"`
 	Permission                 *IamPermissionRelationship                      `json:"Permission,omitempty" yaml:"Permission,omitempty"`
 	// An array of relationships to workflowTaskInfo resources.
-	TaskInfos          *[]WorkflowTaskInfoRelationship         `json:"TaskInfos,omitempty" yaml:"TaskInfos,omitempty"`
+	TaskInfos          []WorkflowTaskInfoRelationship          `json:"TaskInfos,omitempty" yaml:"TaskInfos,omitempty"`
 	WorkflowDefinition *WorkflowWorkflowDefinitionRelationship `json:"WorkflowDefinition,omitempty" yaml:"WorkflowDefinition,omitempty"`
 }
 
@@ -92,6 +94,8 @@ func NewWorkflowWorkflowInfo() *WorkflowWorkflowInfo {
 	this.Action = &action
 	var lastAction string = "None"
 	this.LastAction = &lastAction
+	var pauseReason string = "None"
+	this.PauseReason = &pauseReason
 	var waitReason string = "None"
 	this.WaitReason = &waitReason
 	var workflowMetaType string = "SystemDefined"
@@ -108,6 +112,8 @@ func NewWorkflowWorkflowInfoWithDefaults() *WorkflowWorkflowInfo {
 	this.Action = &action
 	var lastAction string = "None"
 	this.LastAction = &lastAction
+	var pauseReason string = "None"
+	this.PauseReason = &pauseReason
 	var waitReason string = "None"
 	this.WaitReason = &waitReason
 	var workflowMetaType string = "SystemDefined"
@@ -243,22 +249,23 @@ func (o *WorkflowWorkflowInfo) SetFailedWorkflowCleanupDuration(v int64) {
 	o.FailedWorkflowCleanupDuration = &v
 }
 
-// GetInput returns the Input field value if set, zero value otherwise.
-func (o *WorkflowWorkflowInfo) GetInput() map[string]interface{} {
-	if o == nil || o.Input == nil {
-		var ret map[string]interface{}
+// GetInput returns the Input field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowWorkflowInfo) GetInput() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Input
+	return o.Input
 }
 
 // GetInputOk returns a tuple with the Input field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowWorkflowInfo) GetInputOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowWorkflowInfo) GetInputOk() (*interface{}, bool) {
 	if o == nil || o.Input == nil {
 		return nil, false
 	}
-	return o.Input, true
+	return &o.Input, true
 }
 
 // HasInput returns a boolean if a field has been set.
@@ -270,9 +277,9 @@ func (o *WorkflowWorkflowInfo) HasInput() bool {
 	return false
 }
 
-// SetInput gets a reference to the given map[string]interface{} and assigns it to the Input field.
-func (o *WorkflowWorkflowInfo) SetInput(v map[string]interface{}) {
-	o.Input = &v
+// SetInput gets a reference to the given interface{} and assigns it to the Input field.
+func (o *WorkflowWorkflowInfo) SetInput(v interface{}) {
+	o.Input = v
 }
 
 // GetInstId returns the InstId field value if set, zero value otherwise.
@@ -467,22 +474,23 @@ func (o *WorkflowWorkflowInfo) SetName(v string) {
 	o.Name = &v
 }
 
-// GetOutput returns the Output field value if set, zero value otherwise.
-func (o *WorkflowWorkflowInfo) GetOutput() map[string]interface{} {
-	if o == nil || o.Output == nil {
-		var ret map[string]interface{}
+// GetOutput returns the Output field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowWorkflowInfo) GetOutput() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Output
+	return o.Output
 }
 
 // GetOutputOk returns a tuple with the Output field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowWorkflowInfo) GetOutputOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowWorkflowInfo) GetOutputOk() (*interface{}, bool) {
 	if o == nil || o.Output == nil {
 		return nil, false
 	}
-	return o.Output, true
+	return &o.Output, true
 }
 
 // HasOutput returns a boolean if a field has been set.
@@ -494,9 +502,41 @@ func (o *WorkflowWorkflowInfo) HasOutput() bool {
 	return false
 }
 
-// SetOutput gets a reference to the given map[string]interface{} and assigns it to the Output field.
-func (o *WorkflowWorkflowInfo) SetOutput(v map[string]interface{}) {
-	o.Output = &v
+// SetOutput gets a reference to the given interface{} and assigns it to the Output field.
+func (o *WorkflowWorkflowInfo) SetOutput(v interface{}) {
+	o.Output = v
+}
+
+// GetPauseReason returns the PauseReason field value if set, zero value otherwise.
+func (o *WorkflowWorkflowInfo) GetPauseReason() string {
+	if o == nil || o.PauseReason == nil {
+		var ret string
+		return ret
+	}
+	return *o.PauseReason
+}
+
+// GetPauseReasonOk returns a tuple with the PauseReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowWorkflowInfo) GetPauseReasonOk() (*string, bool) {
+	if o == nil || o.PauseReason == nil {
+		return nil, false
+	}
+	return o.PauseReason, true
+}
+
+// HasPauseReason returns a boolean if a field has been set.
+func (o *WorkflowWorkflowInfo) HasPauseReason() bool {
+	if o != nil && o.PauseReason != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPauseReason gets a reference to the given string and assigns it to the PauseReason field.
+func (o *WorkflowWorkflowInfo) SetPauseReason(v string) {
+	o.PauseReason = &v
 }
 
 // GetProgress returns the Progress field value if set, zero value otherwise.
@@ -852,9 +892,9 @@ func (o *WorkflowWorkflowInfo) SetWaitReason(v string) {
 }
 
 // GetWorkflowCtx returns the WorkflowCtx field value if set, zero value otherwise.
-func (o *WorkflowWorkflowInfo) GetWorkflowCtx() map[string]interface{} {
+func (o *WorkflowWorkflowInfo) GetWorkflowCtx() WorkflowWorkflowCtx {
 	if o == nil || o.WorkflowCtx == nil {
-		var ret map[string]interface{}
+		var ret WorkflowWorkflowCtx
 		return ret
 	}
 	return *o.WorkflowCtx
@@ -862,7 +902,7 @@ func (o *WorkflowWorkflowInfo) GetWorkflowCtx() map[string]interface{} {
 
 // GetWorkflowCtxOk returns a tuple with the WorkflowCtx field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowWorkflowInfo) GetWorkflowCtxOk() (*map[string]interface{}, bool) {
+func (o *WorkflowWorkflowInfo) GetWorkflowCtxOk() (*WorkflowWorkflowCtx, bool) {
 	if o == nil || o.WorkflowCtx == nil {
 		return nil, false
 	}
@@ -878,8 +918,8 @@ func (o *WorkflowWorkflowInfo) HasWorkflowCtx() bool {
 	return false
 }
 
-// SetWorkflowCtx gets a reference to the given map[string]interface{} and assigns it to the WorkflowCtx field.
-func (o *WorkflowWorkflowInfo) SetWorkflowCtx(v map[string]interface{}) {
+// SetWorkflowCtx gets a reference to the given WorkflowWorkflowCtx and assigns it to the WorkflowCtx field.
+func (o *WorkflowWorkflowInfo) SetWorkflowCtx(v WorkflowWorkflowCtx) {
 	o.WorkflowCtx = &v
 }
 
@@ -979,36 +1019,36 @@ func (o *WorkflowWorkflowInfo) SetVar0ClusterProfile(v HyperflexClusterProfileRe
 	o.Var0ClusterProfile = &v
 }
 
-// GetVar1Profile returns the Var1Profile field value if set, zero value otherwise.
-func (o *WorkflowWorkflowInfo) GetVar1Profile() ServerProfileRelationship {
-	if o == nil || o.Var1Profile == nil {
-		var ret ServerProfileRelationship
+// GetVar1SwitchProfile returns the Var1SwitchProfile field value if set, zero value otherwise.
+func (o *WorkflowWorkflowInfo) GetVar1SwitchProfile() FabricSwitchProfileRelationship {
+	if o == nil || o.Var1SwitchProfile == nil {
+		var ret FabricSwitchProfileRelationship
 		return ret
 	}
-	return *o.Var1Profile
+	return *o.Var1SwitchProfile
 }
 
-// GetVar1ProfileOk returns a tuple with the Var1Profile field value if set, nil otherwise
+// GetVar1SwitchProfileOk returns a tuple with the Var1SwitchProfile field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowWorkflowInfo) GetVar1ProfileOk() (*ServerProfileRelationship, bool) {
-	if o == nil || o.Var1Profile == nil {
+func (o *WorkflowWorkflowInfo) GetVar1SwitchProfileOk() (*FabricSwitchProfileRelationship, bool) {
+	if o == nil || o.Var1SwitchProfile == nil {
 		return nil, false
 	}
-	return o.Var1Profile, true
+	return o.Var1SwitchProfile, true
 }
 
-// HasVar1Profile returns a boolean if a field has been set.
-func (o *WorkflowWorkflowInfo) HasVar1Profile() bool {
-	if o != nil && o.Var1Profile != nil {
+// HasVar1SwitchProfile returns a boolean if a field has been set.
+func (o *WorkflowWorkflowInfo) HasVar1SwitchProfile() bool {
+	if o != nil && o.Var1SwitchProfile != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetVar1Profile gets a reference to the given ServerProfileRelationship and assigns it to the Var1Profile field.
-func (o *WorkflowWorkflowInfo) SetVar1Profile(v ServerProfileRelationship) {
-	o.Var1Profile = &v
+// SetVar1SwitchProfile gets a reference to the given FabricSwitchProfileRelationship and assigns it to the Var1SwitchProfile field.
+func (o *WorkflowWorkflowInfo) SetVar1SwitchProfile(v FabricSwitchProfileRelationship) {
+	o.Var1SwitchProfile = &v
 }
 
 // GetAccount returns the Account field value if set, zero value otherwise.
@@ -1041,6 +1081,38 @@ func (o *WorkflowWorkflowInfo) HasAccount() bool {
 // SetAccount gets a reference to the given IamAccountRelationship and assigns it to the Account field.
 func (o *WorkflowWorkflowInfo) SetAccount(v IamAccountRelationship) {
 	o.Account = &v
+}
+
+// GetAssociatedObject returns the AssociatedObject field value if set, zero value otherwise.
+func (o *WorkflowWorkflowInfo) GetAssociatedObject() MoBaseMoRelationship {
+	if o == nil || o.AssociatedObject == nil {
+		var ret MoBaseMoRelationship
+		return ret
+	}
+	return *o.AssociatedObject
+}
+
+// GetAssociatedObjectOk returns a tuple with the AssociatedObject field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowWorkflowInfo) GetAssociatedObjectOk() (*MoBaseMoRelationship, bool) {
+	if o == nil || o.AssociatedObject == nil {
+		return nil, false
+	}
+	return o.AssociatedObject, true
+}
+
+// HasAssociatedObject returns a boolean if a field has been set.
+func (o *WorkflowWorkflowInfo) HasAssociatedObject() bool {
+	if o != nil && o.AssociatedObject != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAssociatedObject gets a reference to the given MoBaseMoRelationship and assigns it to the AssociatedObject field.
+func (o *WorkflowWorkflowInfo) SetAssociatedObject(v MoBaseMoRelationship) {
+	o.AssociatedObject = &v
 }
 
 // GetOrganization returns the Organization field value if set, zero value otherwise.
@@ -1171,22 +1243,23 @@ func (o *WorkflowWorkflowInfo) SetPermission(v IamPermissionRelationship) {
 	o.Permission = &v
 }
 
-// GetTaskInfos returns the TaskInfos field value if set, zero value otherwise.
+// GetTaskInfos returns the TaskInfos field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkflowWorkflowInfo) GetTaskInfos() []WorkflowTaskInfoRelationship {
-	if o == nil || o.TaskInfos == nil {
+	if o == nil {
 		var ret []WorkflowTaskInfoRelationship
 		return ret
 	}
-	return *o.TaskInfos
+	return o.TaskInfos
 }
 
 // GetTaskInfosOk returns a tuple with the TaskInfos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkflowWorkflowInfo) GetTaskInfosOk() (*[]WorkflowTaskInfoRelationship, bool) {
 	if o == nil || o.TaskInfos == nil {
 		return nil, false
 	}
-	return o.TaskInfos, true
+	return &o.TaskInfos, true
 }
 
 // HasTaskInfos returns a boolean if a field has been set.
@@ -1200,7 +1273,7 @@ func (o *WorkflowWorkflowInfo) HasTaskInfos() bool {
 
 // SetTaskInfos gets a reference to the given []WorkflowTaskInfoRelationship and assigns it to the TaskInfos field.
 func (o *WorkflowWorkflowInfo) SetTaskInfos(v []WorkflowTaskInfoRelationship) {
-	o.TaskInfos = &v
+	o.TaskInfos = v
 }
 
 // GetWorkflowDefinition returns the WorkflowDefinition field value if set, zero value otherwise.
@@ -1281,6 +1354,9 @@ func (o WorkflowWorkflowInfo) MarshalJSON() ([]byte, error) {
 	if o.Output != nil {
 		toSerialize["Output"] = o.Output
 	}
+	if o.PauseReason != nil {
+		toSerialize["PauseReason"] = o.PauseReason
+	}
 	if o.Progress != nil {
 		toSerialize["Progress"] = o.Progress
 	}
@@ -1326,11 +1402,14 @@ func (o WorkflowWorkflowInfo) MarshalJSON() ([]byte, error) {
 	if o.Var0ClusterProfile != nil {
 		toSerialize["_0_ClusterProfile"] = o.Var0ClusterProfile
 	}
-	if o.Var1Profile != nil {
-		toSerialize["_1_Profile"] = o.Var1Profile
+	if o.Var1SwitchProfile != nil {
+		toSerialize["_1_SwitchProfile"] = o.Var1SwitchProfile
 	}
 	if o.Account != nil {
 		toSerialize["Account"] = o.Account
+	}
+	if o.AssociatedObject != nil {
+		toSerialize["AssociatedObject"] = o.AssociatedObject
 	}
 	if o.Organization != nil {
 		toSerialize["Organization"] = o.Organization

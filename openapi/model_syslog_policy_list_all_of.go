@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -21,7 +21,7 @@ type SyslogPolicyListAllOf struct {
 	// The total number of 'syslog.Policy' resources matching the request, accross all pages. The 'Count' attribute is included when the HTTP GET request includes the '$inlinecount' parameter.
 	Count *int32 `json:"Count,omitempty" yaml:"Count,omitempty"`
 	// The array of 'syslog.Policy' resources matching the request.
-	Results *[]SyslogPolicy `json:"Results,omitempty" yaml:"Results,omitempty"`
+	Results []SyslogPolicy `json:"Results,omitempty" yaml:"Results,omitempty"`
 }
 
 // NewSyslogPolicyListAllOf instantiates a new SyslogPolicyListAllOf object
@@ -73,22 +73,23 @@ func (o *SyslogPolicyListAllOf) SetCount(v int32) {
 	o.Count = &v
 }
 
-// GetResults returns the Results field value if set, zero value otherwise.
+// GetResults returns the Results field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SyslogPolicyListAllOf) GetResults() []SyslogPolicy {
-	if o == nil || o.Results == nil {
+	if o == nil {
 		var ret []SyslogPolicy
 		return ret
 	}
-	return *o.Results
+	return o.Results
 }
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SyslogPolicyListAllOf) GetResultsOk() (*[]SyslogPolicy, bool) {
 	if o == nil || o.Results == nil {
 		return nil, false
 	}
-	return o.Results, true
+	return &o.Results, true
 }
 
 // HasResults returns a boolean if a field has been set.
@@ -102,7 +103,7 @@ func (o *SyslogPolicyListAllOf) HasResults() bool {
 
 // SetResults gets a reference to the given []SyslogPolicy and assigns it to the Results field.
 func (o *SyslogPolicyListAllOf) SetResults(v []SyslogPolicy) {
-	o.Results = &v
+	o.Results = v
 }
 
 func (o SyslogPolicyListAllOf) MarshalJSON() ([]byte, error) {

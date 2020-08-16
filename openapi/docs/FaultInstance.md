@@ -4,21 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Acknowledged** | Pointer to **string** |  | [optional] [readonly] 
-**AffectedDn** | Pointer to **string** |  | [optional] [readonly] 
+**Acknowledged** | Pointer to **string** | The user acknowledgement state of the fault. | [optional] [readonly] 
+**AffectedDn** | Pointer to **string** | The Distinguished Name of the Managed object which was affected. | [optional] [readonly] 
 **AffectedMoId** | Pointer to **string** | Managed object Id which was affected. | [optional] [readonly] 
 **AffectedMoType** | Pointer to **string** | Managed object type which was affected. | [optional] [readonly] 
-**AncestorMoId** | Pointer to **string** |  | [optional] [readonly] 
-**AncestorMoType** | Pointer to **string** |  | [optional] [readonly] 
-**Code** | Pointer to **string** |  | [optional] [readonly] 
-**CreationTime** | Pointer to **string** |  | [optional] [readonly] 
-**Description** | Pointer to **string** | Short summary of the fault found. | [optional] [readonly] 
-**LastTransitionTime** | Pointer to **string** |  | [optional] [readonly] 
-**NumOccurrences** | Pointer to **int64** |  | [optional] [readonly] 
-**OriginalSeverity** | Pointer to **string** |  | [optional] [readonly] 
-**PreviousSeverity** | Pointer to **string** |  | [optional] [readonly] 
-**Rule** | Pointer to **string** |  | [optional] [readonly] 
+**AncestorMoId** | Pointer to **string** | Object Id of the parent of the Managed object which was affected. | [optional] [readonly] 
+**AncestorMoType** | Pointer to **string** | Object type of the parent of the Managed object which was affected. | [optional] [readonly] 
+**Code** | Pointer to **string** | Numerical fault code of the fault found. | [optional] [readonly] 
+**CreationTime** | Pointer to **string** | The time of creation of the fault instance. | [optional] [readonly] 
+**Description** | Pointer to **string** | Detailed message of the fault. | [optional] [readonly] 
+**LastTransitionTime** | Pointer to **string** | Last transition time of the fault. | [optional] [readonly] 
+**NumOccurrences** | Pointer to **int64** | The number of times this fault has occured. | [optional] [readonly] 
+**OriginalSeverity** | Pointer to **string** | Current Severity of the fault found. | [optional] [readonly] 
+**PreviousSeverity** | Pointer to **string** | The Severity of the fault prior to user update. | [optional] [readonly] 
+**Rule** | Pointer to **string** | The rule that is responsible for generation of the fault. | [optional] [readonly] 
 **Severity** | Pointer to **string** | Severity of the fault found. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -414,6 +415,31 @@ SetSeverity sets Severity field to given value.
 `func (o *FaultInstance) HasSeverity() bool`
 
 HasSeverity returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *FaultInstance) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *FaultInstance) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *FaultInstance) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *FaultInstance) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

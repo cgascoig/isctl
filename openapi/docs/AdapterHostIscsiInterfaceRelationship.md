@@ -18,24 +18,25 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**AdminState** | Pointer to **string** |  | [optional] [readonly] 
-**EpDn** | Pointer to **string** |  | [optional] [readonly] 
-**HostIscsiInterfaceId** | Pointer to **int64** |  | [optional] [readonly] 
-**HostVisible** | Pointer to **string** |  | [optional] [readonly] 
-**MacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**PeerDn** | Pointer to **string** |  | [optional] [readonly] 
+**AdminState** | Pointer to **string** | Admin Configured State of Host ISCSI Interface. | [optional] [readonly] 
+**EpDn** | Pointer to **string** | The Endpoint Config Dn of the Host ISCSI Interface. | [optional] [readonly] 
+**HostIscsiInterfaceId** | Pointer to **int64** | Identifier of the Host ISCSI Interface. | [optional] [readonly] 
+**HostVisible** | Pointer to **string** | The visibility of the Host to the endpoint. | [optional] [readonly] 
+**MacAddress** | Pointer to **string** | MAC address of Host ISCSI Interface. | [optional] [readonly] 
+**Name** | Pointer to **string** | Name of the Host ISCSI Interface. | [optional] [readonly] 
+**OperState** | Pointer to **string** | Operational State of Host ISCSI Interface. | [optional] [readonly] 
+**Operability** | Pointer to **string** | Operability status of Host ISCSI Interface. | [optional] [readonly] 
+**PeerDn** | Pointer to **string** | PeerPort Dn of Host ISCSI Interface. | [optional] [readonly] 
 **AdapterUnit** | Pointer to [**AdapterUnitRelationship**](adapter.Unit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -347,6 +348,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *AdapterHostIscsiInterfaceRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *AdapterHostIscsiInterfaceRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *AdapterHostIscsiInterfaceRelationship) GetParent() MoBaseMoRelationship`
@@ -397,6 +408,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *AdapterHostIscsiInterfaceRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *AdapterHostIscsiInterfaceRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *AdapterHostIscsiInterfaceRelationship) GetDisplayNames() map[string][]string`
@@ -856,6 +877,31 @@ SetAdapterUnit sets AdapterUnit field to given value.
 `func (o *AdapterHostIscsiInterfaceRelationship) HasAdapterUnit() bool`
 
 HasAdapterUnit returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *AdapterHostIscsiInterfaceRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *AdapterHostIscsiInterfaceRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *AdapterHostIscsiInterfaceRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *AdapterHostIscsiInterfaceRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

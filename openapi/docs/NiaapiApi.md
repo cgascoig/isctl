@@ -1,39 +1,39 @@
 # \NiaapiApi
 
-All URIs are relative to *https://intersight.com/api/v1*
+All URIs are relative to *https://intersight.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetNiaapiApicCcoPostByMoid**](NiaapiApi.md#GetNiaapiApicCcoPostByMoid) | **Get** /niaapi/ApicCcoPosts/{Moid} | Read a &#39;niaapi.ApicCcoPost&#39; resource.
-[**GetNiaapiApicCcoPostList**](NiaapiApi.md#GetNiaapiApicCcoPostList) | **Get** /niaapi/ApicCcoPosts | Read a &#39;niaapi.ApicCcoPost&#39; resource.
-[**GetNiaapiApicFieldNoticeByMoid**](NiaapiApi.md#GetNiaapiApicFieldNoticeByMoid) | **Get** /niaapi/ApicFieldNotices/{Moid} | Read a &#39;niaapi.ApicFieldNotice&#39; resource.
-[**GetNiaapiApicFieldNoticeList**](NiaapiApi.md#GetNiaapiApicFieldNoticeList) | **Get** /niaapi/ApicFieldNotices | Read a &#39;niaapi.ApicFieldNotice&#39; resource.
-[**GetNiaapiApicHweolByMoid**](NiaapiApi.md#GetNiaapiApicHweolByMoid) | **Get** /niaapi/ApicHweols/{Moid} | Read a &#39;niaapi.ApicHweol&#39; resource.
-[**GetNiaapiApicHweolList**](NiaapiApi.md#GetNiaapiApicHweolList) | **Get** /niaapi/ApicHweols | Read a &#39;niaapi.ApicHweol&#39; resource.
-[**GetNiaapiApicLatestMaintainedReleaseByMoid**](NiaapiApi.md#GetNiaapiApicLatestMaintainedReleaseByMoid) | **Get** /niaapi/ApicLatestMaintainedReleases/{Moid} | Read a &#39;niaapi.ApicLatestMaintainedRelease&#39; resource.
-[**GetNiaapiApicLatestMaintainedReleaseList**](NiaapiApi.md#GetNiaapiApicLatestMaintainedReleaseList) | **Get** /niaapi/ApicLatestMaintainedReleases | Read a &#39;niaapi.ApicLatestMaintainedRelease&#39; resource.
-[**GetNiaapiApicReleaseRecommendByMoid**](NiaapiApi.md#GetNiaapiApicReleaseRecommendByMoid) | **Get** /niaapi/ApicReleaseRecommends/{Moid} | Read a &#39;niaapi.ApicReleaseRecommend&#39; resource.
-[**GetNiaapiApicReleaseRecommendList**](NiaapiApi.md#GetNiaapiApicReleaseRecommendList) | **Get** /niaapi/ApicReleaseRecommends | Read a &#39;niaapi.ApicReleaseRecommend&#39; resource.
-[**GetNiaapiApicSweolByMoid**](NiaapiApi.md#GetNiaapiApicSweolByMoid) | **Get** /niaapi/ApicSweols/{Moid} | Read a &#39;niaapi.ApicSweol&#39; resource.
-[**GetNiaapiApicSweolList**](NiaapiApi.md#GetNiaapiApicSweolList) | **Get** /niaapi/ApicSweols | Read a &#39;niaapi.ApicSweol&#39; resource.
-[**GetNiaapiDcnmCcoPostByMoid**](NiaapiApi.md#GetNiaapiDcnmCcoPostByMoid) | **Get** /niaapi/DcnmCcoPosts/{Moid} | Read a &#39;niaapi.DcnmCcoPost&#39; resource.
-[**GetNiaapiDcnmCcoPostList**](NiaapiApi.md#GetNiaapiDcnmCcoPostList) | **Get** /niaapi/DcnmCcoPosts | Read a &#39;niaapi.DcnmCcoPost&#39; resource.
-[**GetNiaapiDcnmFieldNoticeByMoid**](NiaapiApi.md#GetNiaapiDcnmFieldNoticeByMoid) | **Get** /niaapi/DcnmFieldNotices/{Moid} | Read a &#39;niaapi.DcnmFieldNotice&#39; resource.
-[**GetNiaapiDcnmFieldNoticeList**](NiaapiApi.md#GetNiaapiDcnmFieldNoticeList) | **Get** /niaapi/DcnmFieldNotices | Read a &#39;niaapi.DcnmFieldNotice&#39; resource.
-[**GetNiaapiDcnmHweolByMoid**](NiaapiApi.md#GetNiaapiDcnmHweolByMoid) | **Get** /niaapi/DcnmHweols/{Moid} | Read a &#39;niaapi.DcnmHweol&#39; resource.
-[**GetNiaapiDcnmHweolList**](NiaapiApi.md#GetNiaapiDcnmHweolList) | **Get** /niaapi/DcnmHweols | Read a &#39;niaapi.DcnmHweol&#39; resource.
-[**GetNiaapiDcnmLatestMaintainedReleaseByMoid**](NiaapiApi.md#GetNiaapiDcnmLatestMaintainedReleaseByMoid) | **Get** /niaapi/DcnmLatestMaintainedReleases/{Moid} | Read a &#39;niaapi.DcnmLatestMaintainedRelease&#39; resource.
-[**GetNiaapiDcnmLatestMaintainedReleaseList**](NiaapiApi.md#GetNiaapiDcnmLatestMaintainedReleaseList) | **Get** /niaapi/DcnmLatestMaintainedReleases | Read a &#39;niaapi.DcnmLatestMaintainedRelease&#39; resource.
-[**GetNiaapiDcnmReleaseRecommendByMoid**](NiaapiApi.md#GetNiaapiDcnmReleaseRecommendByMoid) | **Get** /niaapi/DcnmReleaseRecommends/{Moid} | Read a &#39;niaapi.DcnmReleaseRecommend&#39; resource.
-[**GetNiaapiDcnmReleaseRecommendList**](NiaapiApi.md#GetNiaapiDcnmReleaseRecommendList) | **Get** /niaapi/DcnmReleaseRecommends | Read a &#39;niaapi.DcnmReleaseRecommend&#39; resource.
-[**GetNiaapiDcnmSweolByMoid**](NiaapiApi.md#GetNiaapiDcnmSweolByMoid) | **Get** /niaapi/DcnmSweols/{Moid} | Read a &#39;niaapi.DcnmSweol&#39; resource.
-[**GetNiaapiDcnmSweolList**](NiaapiApi.md#GetNiaapiDcnmSweolList) | **Get** /niaapi/DcnmSweols | Read a &#39;niaapi.DcnmSweol&#39; resource.
-[**GetNiaapiFileDownloaderByMoid**](NiaapiApi.md#GetNiaapiFileDownloaderByMoid) | **Get** /niaapi/FileDownloaders/{Moid} | Read a &#39;niaapi.FileDownloader&#39; resource.
-[**GetNiaapiFileDownloaderList**](NiaapiApi.md#GetNiaapiFileDownloaderList) | **Get** /niaapi/FileDownloaders | Read a &#39;niaapi.FileDownloader&#39; resource.
-[**GetNiaapiNiaMetadataByMoid**](NiaapiApi.md#GetNiaapiNiaMetadataByMoid) | **Get** /niaapi/NiaMetadata/{Moid} | Read a &#39;niaapi.NiaMetadata&#39; resource.
-[**GetNiaapiNiaMetadataList**](NiaapiApi.md#GetNiaapiNiaMetadataList) | **Get** /niaapi/NiaMetadata | Read a &#39;niaapi.NiaMetadata&#39; resource.
-[**GetNiaapiVersionRegexByMoid**](NiaapiApi.md#GetNiaapiVersionRegexByMoid) | **Get** /niaapi/VersionRegexes/{Moid} | Read a &#39;niaapi.VersionRegex&#39; resource.
-[**GetNiaapiVersionRegexList**](NiaapiApi.md#GetNiaapiVersionRegexList) | **Get** /niaapi/VersionRegexes | Read a &#39;niaapi.VersionRegex&#39; resource.
+[**GetNiaapiApicCcoPostByMoid**](NiaapiApi.md#GetNiaapiApicCcoPostByMoid) | **Get** /api/v1/niaapi/ApicCcoPosts/{Moid} | Read a &#39;niaapi.ApicCcoPost&#39; resource.
+[**GetNiaapiApicCcoPostList**](NiaapiApi.md#GetNiaapiApicCcoPostList) | **Get** /api/v1/niaapi/ApicCcoPosts | Read a &#39;niaapi.ApicCcoPost&#39; resource.
+[**GetNiaapiApicFieldNoticeByMoid**](NiaapiApi.md#GetNiaapiApicFieldNoticeByMoid) | **Get** /api/v1/niaapi/ApicFieldNotices/{Moid} | Read a &#39;niaapi.ApicFieldNotice&#39; resource.
+[**GetNiaapiApicFieldNoticeList**](NiaapiApi.md#GetNiaapiApicFieldNoticeList) | **Get** /api/v1/niaapi/ApicFieldNotices | Read a &#39;niaapi.ApicFieldNotice&#39; resource.
+[**GetNiaapiApicHweolByMoid**](NiaapiApi.md#GetNiaapiApicHweolByMoid) | **Get** /api/v1/niaapi/ApicHweols/{Moid} | Read a &#39;niaapi.ApicHweol&#39; resource.
+[**GetNiaapiApicHweolList**](NiaapiApi.md#GetNiaapiApicHweolList) | **Get** /api/v1/niaapi/ApicHweols | Read a &#39;niaapi.ApicHweol&#39; resource.
+[**GetNiaapiApicLatestMaintainedReleaseByMoid**](NiaapiApi.md#GetNiaapiApicLatestMaintainedReleaseByMoid) | **Get** /api/v1/niaapi/ApicLatestMaintainedReleases/{Moid} | Read a &#39;niaapi.ApicLatestMaintainedRelease&#39; resource.
+[**GetNiaapiApicLatestMaintainedReleaseList**](NiaapiApi.md#GetNiaapiApicLatestMaintainedReleaseList) | **Get** /api/v1/niaapi/ApicLatestMaintainedReleases | Read a &#39;niaapi.ApicLatestMaintainedRelease&#39; resource.
+[**GetNiaapiApicReleaseRecommendByMoid**](NiaapiApi.md#GetNiaapiApicReleaseRecommendByMoid) | **Get** /api/v1/niaapi/ApicReleaseRecommends/{Moid} | Read a &#39;niaapi.ApicReleaseRecommend&#39; resource.
+[**GetNiaapiApicReleaseRecommendList**](NiaapiApi.md#GetNiaapiApicReleaseRecommendList) | **Get** /api/v1/niaapi/ApicReleaseRecommends | Read a &#39;niaapi.ApicReleaseRecommend&#39; resource.
+[**GetNiaapiApicSweolByMoid**](NiaapiApi.md#GetNiaapiApicSweolByMoid) | **Get** /api/v1/niaapi/ApicSweols/{Moid} | Read a &#39;niaapi.ApicSweol&#39; resource.
+[**GetNiaapiApicSweolList**](NiaapiApi.md#GetNiaapiApicSweolList) | **Get** /api/v1/niaapi/ApicSweols | Read a &#39;niaapi.ApicSweol&#39; resource.
+[**GetNiaapiDcnmCcoPostByMoid**](NiaapiApi.md#GetNiaapiDcnmCcoPostByMoid) | **Get** /api/v1/niaapi/DcnmCcoPosts/{Moid} | Read a &#39;niaapi.DcnmCcoPost&#39; resource.
+[**GetNiaapiDcnmCcoPostList**](NiaapiApi.md#GetNiaapiDcnmCcoPostList) | **Get** /api/v1/niaapi/DcnmCcoPosts | Read a &#39;niaapi.DcnmCcoPost&#39; resource.
+[**GetNiaapiDcnmFieldNoticeByMoid**](NiaapiApi.md#GetNiaapiDcnmFieldNoticeByMoid) | **Get** /api/v1/niaapi/DcnmFieldNotices/{Moid} | Read a &#39;niaapi.DcnmFieldNotice&#39; resource.
+[**GetNiaapiDcnmFieldNoticeList**](NiaapiApi.md#GetNiaapiDcnmFieldNoticeList) | **Get** /api/v1/niaapi/DcnmFieldNotices | Read a &#39;niaapi.DcnmFieldNotice&#39; resource.
+[**GetNiaapiDcnmHweolByMoid**](NiaapiApi.md#GetNiaapiDcnmHweolByMoid) | **Get** /api/v1/niaapi/DcnmHweols/{Moid} | Read a &#39;niaapi.DcnmHweol&#39; resource.
+[**GetNiaapiDcnmHweolList**](NiaapiApi.md#GetNiaapiDcnmHweolList) | **Get** /api/v1/niaapi/DcnmHweols | Read a &#39;niaapi.DcnmHweol&#39; resource.
+[**GetNiaapiDcnmLatestMaintainedReleaseByMoid**](NiaapiApi.md#GetNiaapiDcnmLatestMaintainedReleaseByMoid) | **Get** /api/v1/niaapi/DcnmLatestMaintainedReleases/{Moid} | Read a &#39;niaapi.DcnmLatestMaintainedRelease&#39; resource.
+[**GetNiaapiDcnmLatestMaintainedReleaseList**](NiaapiApi.md#GetNiaapiDcnmLatestMaintainedReleaseList) | **Get** /api/v1/niaapi/DcnmLatestMaintainedReleases | Read a &#39;niaapi.DcnmLatestMaintainedRelease&#39; resource.
+[**GetNiaapiDcnmReleaseRecommendByMoid**](NiaapiApi.md#GetNiaapiDcnmReleaseRecommendByMoid) | **Get** /api/v1/niaapi/DcnmReleaseRecommends/{Moid} | Read a &#39;niaapi.DcnmReleaseRecommend&#39; resource.
+[**GetNiaapiDcnmReleaseRecommendList**](NiaapiApi.md#GetNiaapiDcnmReleaseRecommendList) | **Get** /api/v1/niaapi/DcnmReleaseRecommends | Read a &#39;niaapi.DcnmReleaseRecommend&#39; resource.
+[**GetNiaapiDcnmSweolByMoid**](NiaapiApi.md#GetNiaapiDcnmSweolByMoid) | **Get** /api/v1/niaapi/DcnmSweols/{Moid} | Read a &#39;niaapi.DcnmSweol&#39; resource.
+[**GetNiaapiDcnmSweolList**](NiaapiApi.md#GetNiaapiDcnmSweolList) | **Get** /api/v1/niaapi/DcnmSweols | Read a &#39;niaapi.DcnmSweol&#39; resource.
+[**GetNiaapiFileDownloaderByMoid**](NiaapiApi.md#GetNiaapiFileDownloaderByMoid) | **Get** /api/v1/niaapi/FileDownloaders/{Moid} | Read a &#39;niaapi.FileDownloader&#39; resource.
+[**GetNiaapiFileDownloaderList**](NiaapiApi.md#GetNiaapiFileDownloaderList) | **Get** /api/v1/niaapi/FileDownloaders | Read a &#39;niaapi.FileDownloader&#39; resource.
+[**GetNiaapiNiaMetadataByMoid**](NiaapiApi.md#GetNiaapiNiaMetadataByMoid) | **Get** /api/v1/niaapi/NiaMetadata/{Moid} | Read a &#39;niaapi.NiaMetadata&#39; resource.
+[**GetNiaapiNiaMetadataList**](NiaapiApi.md#GetNiaapiNiaMetadataList) | **Get** /api/v1/niaapi/NiaMetadata | Read a &#39;niaapi.NiaMetadata&#39; resource.
+[**GetNiaapiVersionRegexByMoid**](NiaapiApi.md#GetNiaapiVersionRegexByMoid) | **Get** /api/v1/niaapi/VersionRegexes/{Moid} | Read a &#39;niaapi.VersionRegex&#39; resource.
+[**GetNiaapiVersionRegexList**](NiaapiApi.md#GetNiaapiVersionRegexList) | **Get** /api/v1/niaapi/VersionRegexes | Read a &#39;niaapi.VersionRegex&#39; resource.
 
 
 

@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | the type of granularity. | 
+**Duration** | Pointer to **int64** | The duration in milliseconds. | 
+**Origin** | Pointer to [**time.Time**](time.Time.md) | An optional value specifying when to start counting time buckets from. The default value is 1970-01-01T00:00:00Z. | [optional] 
 **Period** | Pointer to **string** | The period in ISO 8601 format. Examples are P2W, P3M, PT1H30M, PT0.750S. | 
 **TimeZone** | Pointer to **string** | An optional value specifying the time zone. Standard [IANA time zones](http://joda-time.sourceforge.net/timezones.html) are supported. | [optional] 
 
@@ -12,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidGranularity
 
-`func NewTelemetryDruidGranularity(type_ string, period string, ) *TelemetryDruidGranularity`
+`func NewTelemetryDruidGranularity(type_ string, duration int64, period string, ) *TelemetryDruidGranularity`
 
 NewTelemetryDruidGranularity instantiates a new TelemetryDruidGranularity object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +48,51 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+
+### GetDuration
+
+`func (o *TelemetryDruidGranularity) GetDuration() int64`
+
+GetDuration returns the Duration field if non-nil, zero value otherwise.
+
+### GetDurationOk
+
+`func (o *TelemetryDruidGranularity) GetDurationOk() (*int64, bool)`
+
+GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDuration
+
+`func (o *TelemetryDruidGranularity) SetDuration(v int64)`
+
+SetDuration sets Duration field to given value.
+
+
+### GetOrigin
+
+`func (o *TelemetryDruidGranularity) GetOrigin() time.Time`
+
+GetOrigin returns the Origin field if non-nil, zero value otherwise.
+
+### GetOriginOk
+
+`func (o *TelemetryDruidGranularity) GetOriginOk() (*time.Time, bool)`
+
+GetOriginOk returns a tuple with the Origin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrigin
+
+`func (o *TelemetryDruidGranularity) SetOrigin(v time.Time)`
+
+SetOrigin sets Origin field to given value.
+
+### HasOrigin
+
+`func (o *TelemetryDruidGranularity) HasOrigin() bool`
+
+HasOrigin returns a boolean if a field has been set.
 
 ### GetPeriod
 

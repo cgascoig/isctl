@@ -154,6 +154,16 @@ SetSubConfigs sets SubConfigs field to given value.
 
 HasSubConfigs returns a boolean if a field has been set.
 
+### SetSubConfigsNil
+
+`func (o *ApplianceDataExportPolicyAllOf) SetSubConfigsNil(b bool)`
+
+ SetSubConfigsNil sets the value for SubConfigs to be an explicit nil
+
+### UnsetSubConfigs
+`func (o *ApplianceDataExportPolicyAllOf) UnsetSubConfigs()`
+
+UnsetSubConfigs ensures that no value is present for SubConfigs, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

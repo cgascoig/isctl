@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | This specifies the type of the partition. Allowed values are OS, Utility. | [optional] [default to "OS"]
+**Type** | Pointer to **string** | This specifies the type of the partition. Allowed values are OS, Utility. * &#x60;OS&#x60; - This partition contains virtual drives where user can install operating system. * &#x60;Utility&#x60; - This partition contains virtual drives for utilities such as SCU, HUU, Drivers and Diagnostics. | [optional] [default to "OS"]
 **VirtualDrives** | Pointer to [**[]SdcardVirtualDrive**](sdcard.VirtualDrive.md) |  | [optional] 
 
 ## Methods

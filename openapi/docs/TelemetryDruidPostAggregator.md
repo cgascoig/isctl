@@ -6,9 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | The post-aggregator type. | 
 **Name** | Pointer to **string** | Output name for the post-aggregator. | [optional] 
+**Fn** | Pointer to **string** | null | [optional] 
+**Fields** | Pointer to **[]string** | array of fieldAccess type post aggregators to access the thetaSketch aggregators or thetaSketchSetOp type post aggregators to allow arbitrary combination of set operations. | [optional] 
+**Ordering** | Pointer to **string** | Arithmetic post-aggregators may specify an ordering, which defines the order of resulting values when sorting results. This can be useful for topN queries for instance. If no ordering (or null) is specified, the default floating point ordering is used. numericFirst ordering always returns finite values first, followed by NaN, and infinite values last. | [optional] 
 **FieldName** | Pointer to **string** | The name field value of the hyperUnique aggregator. | [optional] 
 **Value** | Pointer to **float64** | The numerical value. | [optional] 
-**Fields** | Pointer to **string** | the fields that are used to compute the greatest or least value. | [optional] 
+**Field** | Pointer to **string** | Post aggregator of type fieldAccess that refers to a thetaSketch aggregator or that of type thetaSketchSetOp. | [optional] 
+**Func** | Pointer to **string** |  | [optional] 
+**Size** | Pointer to **int32** | must be max of size from sketches in fields input. | [optional] [default to 16384]
 
 ## Methods
 
@@ -74,6 +79,81 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### GetFn
+
+`func (o *TelemetryDruidPostAggregator) GetFn() string`
+
+GetFn returns the Fn field if non-nil, zero value otherwise.
+
+### GetFnOk
+
+`func (o *TelemetryDruidPostAggregator) GetFnOk() (*string, bool)`
+
+GetFnOk returns a tuple with the Fn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFn
+
+`func (o *TelemetryDruidPostAggregator) SetFn(v string)`
+
+SetFn sets Fn field to given value.
+
+### HasFn
+
+`func (o *TelemetryDruidPostAggregator) HasFn() bool`
+
+HasFn returns a boolean if a field has been set.
+
+### GetFields
+
+`func (o *TelemetryDruidPostAggregator) GetFields() []string`
+
+GetFields returns the Fields field if non-nil, zero value otherwise.
+
+### GetFieldsOk
+
+`func (o *TelemetryDruidPostAggregator) GetFieldsOk() (*[]string, bool)`
+
+GetFieldsOk returns a tuple with the Fields field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFields
+
+`func (o *TelemetryDruidPostAggregator) SetFields(v []string)`
+
+SetFields sets Fields field to given value.
+
+### HasFields
+
+`func (o *TelemetryDruidPostAggregator) HasFields() bool`
+
+HasFields returns a boolean if a field has been set.
+
+### GetOrdering
+
+`func (o *TelemetryDruidPostAggregator) GetOrdering() string`
+
+GetOrdering returns the Ordering field if non-nil, zero value otherwise.
+
+### GetOrderingOk
+
+`func (o *TelemetryDruidPostAggregator) GetOrderingOk() (*string, bool)`
+
+GetOrderingOk returns a tuple with the Ordering field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrdering
+
+`func (o *TelemetryDruidPostAggregator) SetOrdering(v string)`
+
+SetOrdering sets Ordering field to given value.
+
+### HasOrdering
+
+`func (o *TelemetryDruidPostAggregator) HasOrdering() bool`
+
+HasOrdering returns a boolean if a field has been set.
+
 ### GetFieldName
 
 `func (o *TelemetryDruidPostAggregator) GetFieldName() string`
@@ -124,30 +204,80 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
-### GetFields
+### GetField
 
-`func (o *TelemetryDruidPostAggregator) GetFields() string`
+`func (o *TelemetryDruidPostAggregator) GetField() string`
 
-GetFields returns the Fields field if non-nil, zero value otherwise.
+GetField returns the Field field if non-nil, zero value otherwise.
 
-### GetFieldsOk
+### GetFieldOk
 
-`func (o *TelemetryDruidPostAggregator) GetFieldsOk() (*string, bool)`
+`func (o *TelemetryDruidPostAggregator) GetFieldOk() (*string, bool)`
 
-GetFieldsOk returns a tuple with the Fields field if it's non-nil, zero value otherwise
+GetFieldOk returns a tuple with the Field field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFields
+### SetField
 
-`func (o *TelemetryDruidPostAggregator) SetFields(v string)`
+`func (o *TelemetryDruidPostAggregator) SetField(v string)`
 
-SetFields sets Fields field to given value.
+SetField sets Field field to given value.
 
-### HasFields
+### HasField
 
-`func (o *TelemetryDruidPostAggregator) HasFields() bool`
+`func (o *TelemetryDruidPostAggregator) HasField() bool`
 
-HasFields returns a boolean if a field has been set.
+HasField returns a boolean if a field has been set.
+
+### GetFunc
+
+`func (o *TelemetryDruidPostAggregator) GetFunc() string`
+
+GetFunc returns the Func field if non-nil, zero value otherwise.
+
+### GetFuncOk
+
+`func (o *TelemetryDruidPostAggregator) GetFuncOk() (*string, bool)`
+
+GetFuncOk returns a tuple with the Func field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFunc
+
+`func (o *TelemetryDruidPostAggregator) SetFunc(v string)`
+
+SetFunc sets Func field to given value.
+
+### HasFunc
+
+`func (o *TelemetryDruidPostAggregator) HasFunc() bool`
+
+HasFunc returns a boolean if a field has been set.
+
+### GetSize
+
+`func (o *TelemetryDruidPostAggregator) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *TelemetryDruidPostAggregator) GetSizeOk() (*int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *TelemetryDruidPostAggregator) SetSize(v int32)`
+
+SetSize sets Size field to given value.
+
+### HasSize
+
+`func (o *TelemetryDruidPostAggregator) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,15 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **QueryType** | Pointer to **string** | null | 
 **DataSource** | Pointer to [**TelemetryDruidDataSource**](telemetry.DruidDataSource.md) |  | 
+**Descending** | Pointer to **bool** | Whether to make descending ordered result. Default is false(ascending). | [optional] 
 **Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. If an interval is not specified, the query will use a default interval that spans a configurable period before the end time of the most recent segment. | 
 **Granularity** | Pointer to [**TelemetryDruidGranularity**](telemetry.DruidGranularity.md) |  | 
 **Filter** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | [optional] 
-**Aggregations** | Pointer to [**TelemetryDruidAggregator**](telemetry.DruidAggregator.md) |  | [optional] 
-**PostAggregations** | Pointer to [**TelemetryDruidPostAggregator**](telemetry.DruidPostAggregator.md) |  | [optional] 
+**Aggregations** | Pointer to [**[]TelemetryDruidAggregator**](telemetry.DruidAggregator.md) | Aggregation functions are used to summarize data in buckets. Summarization functions include counting rows, calculating the min/max/sum of metrics and retrieving the first/last value of metrics for each bucket. Additional summarization functions are available with extensions. If no aggregator is provided, the results will be empty for each bucket. | [optional] 
+**PostAggregations** | Pointer to [**[]TelemetryDruidPostAggregator**](telemetry.DruidPostAggregator.md) | Post-aggregations are specifications of processing that should happen on aggregated values as they come out of Apache Druid. If you include a post aggregation as part of a query, make sure to include all aggregators the post-aggregator requires. | [optional] 
+**Limit** | Pointer to **int32** | How many rows to return. If not specified, all rows will be returned. | [optional] 
+**Context** | Pointer to [**TelemetryDruidQueryContext**](telemetry.DruidQueryContext.md) |  | [optional] 
 **Dimension** | Pointer to [**TelemetryDruidDimensionSpec**](telemetry.DruidDimensionSpec.md) |  | 
 **Threshold** | Pointer to **int32** | An integer defining the N in the topN (i.e. how many results you want in the top list). | 
 **Metric** | Pointer to [**TelemetryDruidTopNMetricSpec**](telemetry.DruidTopNMetricSpec.md) |  | 
-**Context** | Pointer to [**TelemetryDruidQueryContext**](telemetry.DruidQueryContext.md) |  | [optional] 
 **Dimensions** | Pointer to [**[]TelemetryDruidDimensionSpec**](telemetry.DruidDimensionSpec.md) | A JSON list of dimensions to do the groupBy over; or see DimensionSpec for ways to extract dimensions.. | 
 **LimitSpec** | Pointer to [**TelemetryDruidDefaultLimitSpec**](telemetry.DruidDefaultLimitSpec.md) |  | [optional] 
 **Having** | Pointer to [**TelemetryDruidHavingFilter**](telemetry.DruidHavingFilter.md) |  | [optional] 
@@ -22,7 +24,6 @@ Name | Type | Description | Notes
 **ResultFormat** | Pointer to **string** | How the results are represented, list, compactedList or valueVector. Currently only list and compactedList are supported. | [optional] [default to "list"]
 **Columns** | Pointer to **[]string** | A String array of dimensions and metrics to scan. If left empty, all dimensions and metrics are returned. | [optional] 
 **BatchSize** | Pointer to **int32** | The maximum number of rows buffered before being returned to the client. | [optional] [default to 20480]
-**Limit** | Pointer to **int32** | How many rows to return. If not specified, all rows will be returned. | [optional] 
 **Order** | Pointer to **string** | The ordering of returned rows based on timestamp. \&quot;ascending\&quot;, \&quot;descending\&quot;, and \&quot;none\&quot; (default) are supported. Currently, \&quot;ascending\&quot; and \&quot;descending\&quot; are only supported for queries where the __time column is included in the columns field and the requirements outlined in the time ordering section are met. | [optional] [default to "none"]
 **Legacy** | Pointer to **bool** | Return results consistent with the legacy \&quot;scan-query\&quot; contrib extension. Defaults to the value set by druid.query.scan.legacy, which in turn defaults to false. | [optional] [default to false]
 **Bound** | Pointer to **string** | Optional, set to maxTime or minTime to return only the latest or earliest timestamp. Default to returning both if not set. | [optional] 
@@ -89,6 +90,31 @@ and a boolean to check if the value has been set.
 
 SetDataSource sets DataSource field to given value.
 
+
+### GetDescending
+
+`func (o *TelemetryDruidAggregateRequest) GetDescending() bool`
+
+GetDescending returns the Descending field if non-nil, zero value otherwise.
+
+### GetDescendingOk
+
+`func (o *TelemetryDruidAggregateRequest) GetDescendingOk() (*bool, bool)`
+
+GetDescendingOk returns a tuple with the Descending field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescending
+
+`func (o *TelemetryDruidAggregateRequest) SetDescending(v bool)`
+
+SetDescending sets Descending field to given value.
+
+### HasDescending
+
+`func (o *TelemetryDruidAggregateRequest) HasDescending() bool`
+
+HasDescending returns a boolean if a field has been set.
 
 ### GetIntervals
 
@@ -157,20 +183,20 @@ HasFilter returns a boolean if a field has been set.
 
 ### GetAggregations
 
-`func (o *TelemetryDruidAggregateRequest) GetAggregations() TelemetryDruidAggregator`
+`func (o *TelemetryDruidAggregateRequest) GetAggregations() []TelemetryDruidAggregator`
 
 GetAggregations returns the Aggregations field if non-nil, zero value otherwise.
 
 ### GetAggregationsOk
 
-`func (o *TelemetryDruidAggregateRequest) GetAggregationsOk() (*TelemetryDruidAggregator, bool)`
+`func (o *TelemetryDruidAggregateRequest) GetAggregationsOk() (*[]TelemetryDruidAggregator, bool)`
 
 GetAggregationsOk returns a tuple with the Aggregations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAggregations
 
-`func (o *TelemetryDruidAggregateRequest) SetAggregations(v TelemetryDruidAggregator)`
+`func (o *TelemetryDruidAggregateRequest) SetAggregations(v []TelemetryDruidAggregator)`
 
 SetAggregations sets Aggregations field to given value.
 
@@ -182,20 +208,20 @@ HasAggregations returns a boolean if a field has been set.
 
 ### GetPostAggregations
 
-`func (o *TelemetryDruidAggregateRequest) GetPostAggregations() TelemetryDruidPostAggregator`
+`func (o *TelemetryDruidAggregateRequest) GetPostAggregations() []TelemetryDruidPostAggregator`
 
 GetPostAggregations returns the PostAggregations field if non-nil, zero value otherwise.
 
 ### GetPostAggregationsOk
 
-`func (o *TelemetryDruidAggregateRequest) GetPostAggregationsOk() (*TelemetryDruidPostAggregator, bool)`
+`func (o *TelemetryDruidAggregateRequest) GetPostAggregationsOk() (*[]TelemetryDruidPostAggregator, bool)`
 
 GetPostAggregationsOk returns a tuple with the PostAggregations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPostAggregations
 
-`func (o *TelemetryDruidAggregateRequest) SetPostAggregations(v TelemetryDruidPostAggregator)`
+`func (o *TelemetryDruidAggregateRequest) SetPostAggregations(v []TelemetryDruidPostAggregator)`
 
 SetPostAggregations sets PostAggregations field to given value.
 
@@ -204,6 +230,56 @@ SetPostAggregations sets PostAggregations field to given value.
 `func (o *TelemetryDruidAggregateRequest) HasPostAggregations() bool`
 
 HasPostAggregations returns a boolean if a field has been set.
+
+### GetLimit
+
+`func (o *TelemetryDruidAggregateRequest) GetLimit() int32`
+
+GetLimit returns the Limit field if non-nil, zero value otherwise.
+
+### GetLimitOk
+
+`func (o *TelemetryDruidAggregateRequest) GetLimitOk() (*int32, bool)`
+
+GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLimit
+
+`func (o *TelemetryDruidAggregateRequest) SetLimit(v int32)`
+
+SetLimit sets Limit field to given value.
+
+### HasLimit
+
+`func (o *TelemetryDruidAggregateRequest) HasLimit() bool`
+
+HasLimit returns a boolean if a field has been set.
+
+### GetContext
+
+`func (o *TelemetryDruidAggregateRequest) GetContext() TelemetryDruidQueryContext`
+
+GetContext returns the Context field if non-nil, zero value otherwise.
+
+### GetContextOk
+
+`func (o *TelemetryDruidAggregateRequest) GetContextOk() (*TelemetryDruidQueryContext, bool)`
+
+GetContextOk returns a tuple with the Context field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContext
+
+`func (o *TelemetryDruidAggregateRequest) SetContext(v TelemetryDruidQueryContext)`
+
+SetContext sets Context field to given value.
+
+### HasContext
+
+`func (o *TelemetryDruidAggregateRequest) HasContext() bool`
+
+HasContext returns a boolean if a field has been set.
 
 ### GetDimension
 
@@ -264,31 +340,6 @@ and a boolean to check if the value has been set.
 
 SetMetric sets Metric field to given value.
 
-
-### GetContext
-
-`func (o *TelemetryDruidAggregateRequest) GetContext() TelemetryDruidQueryContext`
-
-GetContext returns the Context field if non-nil, zero value otherwise.
-
-### GetContextOk
-
-`func (o *TelemetryDruidAggregateRequest) GetContextOk() (*TelemetryDruidQueryContext, bool)`
-
-GetContextOk returns a tuple with the Context field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetContext
-
-`func (o *TelemetryDruidAggregateRequest) SetContext(v TelemetryDruidQueryContext)`
-
-SetContext sets Context field to given value.
-
-### HasContext
-
-`func (o *TelemetryDruidAggregateRequest) HasContext() bool`
-
-HasContext returns a boolean if a field has been set.
 
 ### GetDimensions
 
@@ -459,31 +510,6 @@ SetBatchSize sets BatchSize field to given value.
 `func (o *TelemetryDruidAggregateRequest) HasBatchSize() bool`
 
 HasBatchSize returns a boolean if a field has been set.
-
-### GetLimit
-
-`func (o *TelemetryDruidAggregateRequest) GetLimit() int32`
-
-GetLimit returns the Limit field if non-nil, zero value otherwise.
-
-### GetLimitOk
-
-`func (o *TelemetryDruidAggregateRequest) GetLimitOk() (*int32, bool)`
-
-GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLimit
-
-`func (o *TelemetryDruidAggregateRequest) SetLimit(v int32)`
-
-SetLimit sets Limit field to given value.
-
-### HasLimit
-
-`func (o *TelemetryDruidAggregateRequest) HasLimit() bool`
-
-HasLimit returns a boolean if a field has been set.
 
 ### GetOrder
 

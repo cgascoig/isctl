@@ -18,14 +18,14 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Short description about the host. | [optional] [readonly] 
-**Initiators** | Pointer to [**[]StorageInitiator**](storage.Initiator.md) |  | [optional] 
+**Initiators** | Pointer to [**[]StorageBaseInitiator**](storage.BaseInitiator.md) |  | [optional] 
 **Name** | Pointer to **string** | Name of the host in storage array. | [optional] [readonly] 
 **OsType** | Pointer to **string** | Operating system running on the host. | [optional] [readonly] 
-**StorageArray** | Pointer to [**StorageGenericArrayRelationship**](storage.GenericArray.Relationship.md) |  | [optional] 
+**StorageUtilization** | Pointer to [**StorageBaseCapacity**](storage.BaseCapacity.md) |  | [optional] 
 **HostGroupName** | Pointer to **string** | Name of host group where the host belongs to. Empty if host is not part of any HostGroup. | [optional] [readonly] 
-**StorageUtilization** | Pointer to [**StorageHostUtilization**](storage.HostUtilization.md) |  | [optional] 
+**Array** | Pointer to [**StoragePureArrayRelationship**](storage.PureArray.Relationship.md) |  | [optional] 
 **HostGroup** | Pointer to [**StoragePureHostGroupRelationship**](storage.PureHostGroup.Relationship.md) |  | [optional] 
 **ProtectionGroup** | Pointer to [**StoragePureProtectionGroupRelationship**](storage.PureProtectionGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -339,6 +339,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StoragePureHostRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StoragePureHostRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StoragePureHostRelationship) GetParent() MoBaseMoRelationship`
@@ -389,6 +399,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StoragePureHostRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StoragePureHostRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StoragePureHostRelationship) GetDisplayNames() map[string][]string`
@@ -451,20 +471,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetInitiators
 
-`func (o *StoragePureHostRelationship) GetInitiators() []StorageInitiator`
+`func (o *StoragePureHostRelationship) GetInitiators() []StorageBaseInitiator`
 
 GetInitiators returns the Initiators field if non-nil, zero value otherwise.
 
 ### GetInitiatorsOk
 
-`func (o *StoragePureHostRelationship) GetInitiatorsOk() (*[]StorageInitiator, bool)`
+`func (o *StoragePureHostRelationship) GetInitiatorsOk() (*[]StorageBaseInitiator, bool)`
 
 GetInitiatorsOk returns a tuple with the Initiators field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInitiators
 
-`func (o *StoragePureHostRelationship) SetInitiators(v []StorageInitiator)`
+`func (o *StoragePureHostRelationship) SetInitiators(v []StorageBaseInitiator)`
 
 SetInitiators sets Initiators field to given value.
 
@@ -524,30 +544,30 @@ SetOsType sets OsType field to given value.
 
 HasOsType returns a boolean if a field has been set.
 
-### GetStorageArray
+### GetStorageUtilization
 
-`func (o *StoragePureHostRelationship) GetStorageArray() StorageGenericArrayRelationship`
+`func (o *StoragePureHostRelationship) GetStorageUtilization() StorageBaseCapacity`
 
-GetStorageArray returns the StorageArray field if non-nil, zero value otherwise.
+GetStorageUtilization returns the StorageUtilization field if non-nil, zero value otherwise.
 
-### GetStorageArrayOk
+### GetStorageUtilizationOk
 
-`func (o *StoragePureHostRelationship) GetStorageArrayOk() (*StorageGenericArrayRelationship, bool)`
+`func (o *StoragePureHostRelationship) GetStorageUtilizationOk() (*StorageBaseCapacity, bool)`
 
-GetStorageArrayOk returns a tuple with the StorageArray field if it's non-nil, zero value otherwise
+GetStorageUtilizationOk returns a tuple with the StorageUtilization field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStorageArray
+### SetStorageUtilization
 
-`func (o *StoragePureHostRelationship) SetStorageArray(v StorageGenericArrayRelationship)`
+`func (o *StoragePureHostRelationship) SetStorageUtilization(v StorageBaseCapacity)`
 
-SetStorageArray sets StorageArray field to given value.
+SetStorageUtilization sets StorageUtilization field to given value.
 
-### HasStorageArray
+### HasStorageUtilization
 
-`func (o *StoragePureHostRelationship) HasStorageArray() bool`
+`func (o *StoragePureHostRelationship) HasStorageUtilization() bool`
 
-HasStorageArray returns a boolean if a field has been set.
+HasStorageUtilization returns a boolean if a field has been set.
 
 ### GetHostGroupName
 
@@ -574,30 +594,30 @@ SetHostGroupName sets HostGroupName field to given value.
 
 HasHostGroupName returns a boolean if a field has been set.
 
-### GetStorageUtilization
+### GetArray
 
-`func (o *StoragePureHostRelationship) GetStorageUtilization() StorageHostUtilization`
+`func (o *StoragePureHostRelationship) GetArray() StoragePureArrayRelationship`
 
-GetStorageUtilization returns the StorageUtilization field if non-nil, zero value otherwise.
+GetArray returns the Array field if non-nil, zero value otherwise.
 
-### GetStorageUtilizationOk
+### GetArrayOk
 
-`func (o *StoragePureHostRelationship) GetStorageUtilizationOk() (*StorageHostUtilization, bool)`
+`func (o *StoragePureHostRelationship) GetArrayOk() (*StoragePureArrayRelationship, bool)`
 
-GetStorageUtilizationOk returns a tuple with the StorageUtilization field if it's non-nil, zero value otherwise
+GetArrayOk returns a tuple with the Array field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStorageUtilization
+### SetArray
 
-`func (o *StoragePureHostRelationship) SetStorageUtilization(v StorageHostUtilization)`
+`func (o *StoragePureHostRelationship) SetArray(v StoragePureArrayRelationship)`
 
-SetStorageUtilization sets StorageUtilization field to given value.
+SetArray sets Array field to given value.
 
-### HasStorageUtilization
+### HasArray
 
-`func (o *StoragePureHostRelationship) HasStorageUtilization() bool`
+`func (o *StoragePureHostRelationship) HasArray() bool`
 
-HasStorageUtilization returns a boolean if a field has been set.
+HasArray returns a boolean if a field has been set.
 
 ### GetHostGroup
 

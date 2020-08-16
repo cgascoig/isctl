@@ -18,9 +18,10 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Description of the policy. | [optional] 
 **Name** | Pointer to **string** | Name of the concrete policy. | [optional] 
+**TargetPlatform** | Pointer to **string** | The platform for which the server profile is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight. * &#x60;Standalone&#x60; - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected. * &#x60;FIAttached&#x60; - Servers which are connected to a Fabric Interconnect that is managed by Intersight. | [optional] [default to "Standalone"]
 **VlanSettings** | Pointer to [**VnicVlanSettings**](vnic.VlanSettings.md) |  | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 
@@ -333,6 +334,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *VnicEthNetworkPolicyRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *VnicEthNetworkPolicyRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *VnicEthNetworkPolicyRelationship) GetParent() MoBaseMoRelationship`
@@ -383,6 +394,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *VnicEthNetworkPolicyRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *VnicEthNetworkPolicyRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *VnicEthNetworkPolicyRelationship) GetDisplayNames() map[string][]string`
@@ -467,6 +488,31 @@ SetName sets Name field to given value.
 `func (o *VnicEthNetworkPolicyRelationship) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetTargetPlatform
+
+`func (o *VnicEthNetworkPolicyRelationship) GetTargetPlatform() string`
+
+GetTargetPlatform returns the TargetPlatform field if non-nil, zero value otherwise.
+
+### GetTargetPlatformOk
+
+`func (o *VnicEthNetworkPolicyRelationship) GetTargetPlatformOk() (*string, bool)`
+
+GetTargetPlatformOk returns a tuple with the TargetPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetPlatform
+
+`func (o *VnicEthNetworkPolicyRelationship) SetTargetPlatform(v string)`
+
+SetTargetPlatform sets TargetPlatform field to given value.
+
+### HasTargetPlatform
+
+`func (o *VnicEthNetworkPolicyRelationship) HasTargetPlatform() bool`
+
+HasTargetPlatform returns a boolean if a field has been set.
 
 ### GetVlanSettings
 

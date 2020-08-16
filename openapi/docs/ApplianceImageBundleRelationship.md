@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **AnsiblePackages** | Pointer to [**[]OnpremImagePackage**](onprem.ImagePackage.md) |  | [optional] 
 **AutoUpgrade** | Pointer to **bool** | Indicates that the software upgrade was automatically initiated by the Intersight Appliance. | [optional] [readonly] 
 **DcPackages** | Pointer to [**[]OnpremImagePackage**](onprem.ImagePackage.md) |  | [optional] 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **InitPackages** | Pointer to [**[]OnpremImagePackage**](onprem.ImagePackage.md) |  | [optional] 
 **Name** | Pointer to **string** | Name of the software upgrade bundle. | [optional] [readonly] 
 **Notes** | Pointer to **string** | Detailed description of the software upgrade bundle. | [optional] [readonly] 
-**Priority** | Pointer to **string** | Software upgrade manifest&#39;s upgrade priority. The upgrade service supports two priorities, Normal and Critical. Normal priority is used for regular software upgrades, and the upgrade service uses the Upgrade Policy to compute upgrade start time. Critical priority is used for the critical software security patches, and the upgrade service ignores the Upgrade Policy when it computes the upgrade start time. | [optional] [readonly] [default to "Normal"]
+**Priority** | Pointer to **string** | Software upgrade manifest&#39;s upgrade priority. The upgrade service supports two priorities, Normal and Critical. Normal priority is used for regular software upgrades, and the upgrade service uses the Upgrade Policy to compute upgrade start time. Critical priority is used for the critical software security patches, and the upgrade service ignores the Upgrade Policy when it computes the upgrade start time. * &#x60;Normal&#x60; - Normal upgrade priority is used for all the software upgrades except for the critical security updates. The upgrade service of Intersight Appliance uses the Software Upgrade Policy settings to start the upgrade process. * &#x60;Critical&#x60; - Critical upgrade priority is used for critical updates such as security patches. The upgrade service of the Intersight Appliance starts the upgrade as specified by the upgrade properties in the software manifest file. The upgrade service will not use the settings specified in the Software Upgrade Policy. | [optional] [readonly] [default to "Normal"]
 **ReleaseTime** | Pointer to [**time.Time**](time.Time.md) | Software upgrade manifest&#39;s release date and time. | [optional] [readonly] 
 **ServicePackages** | Pointer to [**[]OnpremImagePackage**](onprem.ImagePackage.md) |  | [optional] 
 **StatusMessage** | Pointer to **string** | Status message set during the manifest processing. | [optional] [readonly] 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **UpgradeEndTime** | Pointer to [**time.Time**](time.Time.md) | End date of the software upgrade process. | [optional] [readonly] 
 **UpgradeGracePeriod** | Pointer to **int64** | Grace period in seconds before the automatic upgrade is initiated. The upgrade service uses the grace period to compute the upgrade start time when it receives an upgrade notfication from the Intersight. If there is an Upgrade Policy configured for the Intersight Appliance, then the upgrade service uses the policy to compute the upgrade start time. However, the upgrade start time cannot not exceed the limit enforced by the grace period. | [optional] [readonly] 
 **UpgradeImpactDuration** | Pointer to **int64** | Duration (in minutes) for which services will be disrupted. | [optional] [readonly] 
-**UpgradeImpactEnum** | Pointer to **string** | UpgradeImpactEnum is used to indicate the kind of impact the upgrade has on currently running services on the appliance. | [optional] [readonly] [default to "None"]
+**UpgradeImpactEnum** | Pointer to **string** | UpgradeImpactEnum is used to indicate the kind of impact the upgrade has on currently running services on the appliance. * &#x60;None&#x60; - The upgrade has no effect on the system. * &#x60;Disruptive&#x60; - The services will not be functional during the upgrade. * &#x60;Disruptive-reboot&#x60; - The upgrade needs a reboot. | [optional] [readonly] [default to "None"]
 **UpgradeStartTime** | Pointer to [**time.Time**](time.Time.md) | Start date of the software upgrade process. | [optional] [readonly] 
 **Version** | Pointer to **string** | Software upgrade manifest&#39;s version. | [optional] [readonly] 
 
@@ -353,6 +353,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *ApplianceImageBundleRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *ApplianceImageBundleRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *ApplianceImageBundleRelationship) GetParent() MoBaseMoRelationship`
@@ -403,6 +413,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *ApplianceImageBundleRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *ApplianceImageBundleRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *ApplianceImageBundleRelationship) GetDisplayNames() map[string][]string`

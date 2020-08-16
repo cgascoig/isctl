@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,23 +18,31 @@ import (
 
 // StorageEnclosure Storage Enclosure for physical disks.
 type StorageEnclosure struct {
-	EquipmentBase   `yaml:"EquipmentBase,inline"`
-	ChassisId       *int64                       `json:"ChassisId,omitempty" yaml:"ChassisId,omitempty"`
-	Description     *string                      `json:"Description,omitempty" yaml:"Description,omitempty"`
-	EnclosureId     *int64                       `json:"EnclosureId,omitempty" yaml:"EnclosureId,omitempty"`
-	NumSlots        *int64                       `json:"NumSlots,omitempty" yaml:"NumSlots,omitempty"`
-	Presence        *string                      `json:"Presence,omitempty" yaml:"Presence,omitempty"`
-	ServerId        *int64                       `json:"ServerId,omitempty" yaml:"ServerId,omitempty"`
+	EquipmentBase `yaml:"EquipmentBase,inline"`
+	// This represent the chassis-ID that houses the storage enclosure.
+	ChassisId *int64 `json:"ChassisId,omitempty" yaml:"ChassisId,omitempty"`
+	// This represnets the description for the storage enclosure.
+	Description *string `json:"Description,omitempty" yaml:"Description,omitempty"`
+	// This represnets the Identifier for the storage enclosure.
+	EnclosureId *int64 `json:"EnclosureId,omitempty" yaml:"EnclosureId,omitempty"`
+	// This represent the number of slots present in storage enclosure.
+	NumSlots *int64 `json:"NumSlots,omitempty" yaml:"NumSlots,omitempty"`
+	// This represent the availability of storage enclosure.
+	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
+	// This represent the server-ID that houses the storage enclosure.
+	ServerId *int64 `json:"ServerId,omitempty" yaml:"ServerId,omitempty"`
+	// This represent the type of storage enclosure.
 	Type            *string                      `json:"Type,omitempty" yaml:"Type,omitempty"`
 	ComputeBlade    *ComputeBladeRelationship    `json:"ComputeBlade,omitempty" yaml:"ComputeBlade,omitempty"`
 	ComputeRackUnit *ComputeRackUnitRelationship `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
 	// An array of relationships to storageEnclosureDiskSlotEp resources.
-	EnclosureDiskSlots *[]StorageEnclosureDiskSlotEpRelationship `json:"EnclosureDiskSlots,omitempty" yaml:"EnclosureDiskSlots,omitempty"`
+	EnclosureDiskSlots []StorageEnclosureDiskSlotEpRelationship `json:"EnclosureDiskSlots,omitempty" yaml:"EnclosureDiskSlots,omitempty"`
 	// An array of relationships to storageEnclosureDisk resources.
-	EnclosureDisks   *[]StorageEnclosureDiskRelationship `json:"EnclosureDisks,omitempty" yaml:"EnclosureDisks,omitempty"`
-	EquipmentChassis *EquipmentChassisRelationship       `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
+	EnclosureDisks      []StorageEnclosureDiskRelationship `json:"EnclosureDisks,omitempty" yaml:"EnclosureDisks,omitempty"`
+	EquipmentChassis    *EquipmentChassisRelationship      `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship   `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to storagePhysicalDisk resources.
-	PhysicalDisks    *[]StoragePhysicalDiskRelationship   `json:"PhysicalDisks,omitempty" yaml:"PhysicalDisks,omitempty"`
+	PhysicalDisks    []StoragePhysicalDiskRelationship    `json:"PhysicalDisks,omitempty" yaml:"PhysicalDisks,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
@@ -343,22 +351,23 @@ func (o *StorageEnclosure) SetComputeRackUnit(v ComputeRackUnitRelationship) {
 	o.ComputeRackUnit = &v
 }
 
-// GetEnclosureDiskSlots returns the EnclosureDiskSlots field value if set, zero value otherwise.
+// GetEnclosureDiskSlots returns the EnclosureDiskSlots field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageEnclosure) GetEnclosureDiskSlots() []StorageEnclosureDiskSlotEpRelationship {
-	if o == nil || o.EnclosureDiskSlots == nil {
+	if o == nil {
 		var ret []StorageEnclosureDiskSlotEpRelationship
 		return ret
 	}
-	return *o.EnclosureDiskSlots
+	return o.EnclosureDiskSlots
 }
 
 // GetEnclosureDiskSlotsOk returns a tuple with the EnclosureDiskSlots field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageEnclosure) GetEnclosureDiskSlotsOk() (*[]StorageEnclosureDiskSlotEpRelationship, bool) {
 	if o == nil || o.EnclosureDiskSlots == nil {
 		return nil, false
 	}
-	return o.EnclosureDiskSlots, true
+	return &o.EnclosureDiskSlots, true
 }
 
 // HasEnclosureDiskSlots returns a boolean if a field has been set.
@@ -372,25 +381,26 @@ func (o *StorageEnclosure) HasEnclosureDiskSlots() bool {
 
 // SetEnclosureDiskSlots gets a reference to the given []StorageEnclosureDiskSlotEpRelationship and assigns it to the EnclosureDiskSlots field.
 func (o *StorageEnclosure) SetEnclosureDiskSlots(v []StorageEnclosureDiskSlotEpRelationship) {
-	o.EnclosureDiskSlots = &v
+	o.EnclosureDiskSlots = v
 }
 
-// GetEnclosureDisks returns the EnclosureDisks field value if set, zero value otherwise.
+// GetEnclosureDisks returns the EnclosureDisks field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageEnclosure) GetEnclosureDisks() []StorageEnclosureDiskRelationship {
-	if o == nil || o.EnclosureDisks == nil {
+	if o == nil {
 		var ret []StorageEnclosureDiskRelationship
 		return ret
 	}
-	return *o.EnclosureDisks
+	return o.EnclosureDisks
 }
 
 // GetEnclosureDisksOk returns a tuple with the EnclosureDisks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageEnclosure) GetEnclosureDisksOk() (*[]StorageEnclosureDiskRelationship, bool) {
 	if o == nil || o.EnclosureDisks == nil {
 		return nil, false
 	}
-	return o.EnclosureDisks, true
+	return &o.EnclosureDisks, true
 }
 
 // HasEnclosureDisks returns a boolean if a field has been set.
@@ -404,7 +414,7 @@ func (o *StorageEnclosure) HasEnclosureDisks() bool {
 
 // SetEnclosureDisks gets a reference to the given []StorageEnclosureDiskRelationship and assigns it to the EnclosureDisks field.
 func (o *StorageEnclosure) SetEnclosureDisks(v []StorageEnclosureDiskRelationship) {
-	o.EnclosureDisks = &v
+	o.EnclosureDisks = v
 }
 
 // GetEquipmentChassis returns the EquipmentChassis field value if set, zero value otherwise.
@@ -439,22 +449,55 @@ func (o *StorageEnclosure) SetEquipmentChassis(v EquipmentChassisRelationship) {
 	o.EquipmentChassis = &v
 }
 
-// GetPhysicalDisks returns the PhysicalDisks field value if set, zero value otherwise.
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *StorageEnclosure) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageEnclosure) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *StorageEnclosure) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *StorageEnclosure) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetPhysicalDisks returns the PhysicalDisks field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageEnclosure) GetPhysicalDisks() []StoragePhysicalDiskRelationship {
-	if o == nil || o.PhysicalDisks == nil {
+	if o == nil {
 		var ret []StoragePhysicalDiskRelationship
 		return ret
 	}
-	return *o.PhysicalDisks
+	return o.PhysicalDisks
 }
 
 // GetPhysicalDisksOk returns a tuple with the PhysicalDisks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StorageEnclosure) GetPhysicalDisksOk() (*[]StoragePhysicalDiskRelationship, bool) {
 	if o == nil || o.PhysicalDisks == nil {
 		return nil, false
 	}
-	return o.PhysicalDisks, true
+	return &o.PhysicalDisks, true
 }
 
 // HasPhysicalDisks returns a boolean if a field has been set.
@@ -468,7 +511,7 @@ func (o *StorageEnclosure) HasPhysicalDisks() bool {
 
 // SetPhysicalDisks gets a reference to the given []StoragePhysicalDiskRelationship and assigns it to the PhysicalDisks field.
 func (o *StorageEnclosure) SetPhysicalDisks(v []StoragePhysicalDiskRelationship) {
-	o.PhysicalDisks = &v
+	o.PhysicalDisks = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -548,6 +591,9 @@ func (o StorageEnclosure) MarshalJSON() ([]byte, error) {
 	}
 	if o.EquipmentChassis != nil {
 		toSerialize["EquipmentChassis"] = o.EquipmentChassis
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.PhysicalDisks != nil {
 		toSerialize["PhysicalDisks"] = o.PhysicalDisks

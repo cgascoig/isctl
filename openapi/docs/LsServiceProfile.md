@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ConfigState** | Pointer to **string** | Configuration state of the service profile. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the UCS Manager service profile. | [optional] [readonly] 
 **OperState** | Pointer to **string** | Operational state of the service profile. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -180,6 +181,31 @@ SetOperState sets OperState field to given value.
 `func (o *LsServiceProfile) HasOperState() bool`
 
 HasOperState returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *LsServiceProfile) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *LsServiceProfile) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *LsServiceProfile) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *LsServiceProfile) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

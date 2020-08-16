@@ -18,14 +18,14 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
 **Description** | Pointer to **string** | Description of the policy. | [optional] 
 **Name** | Pointer to **string** | Name of the concrete policy. | [optional] 
 **BaseProperties** | Pointer to [**IamLdapBaseProperties**](iam.LdapBaseProperties.md) |  | [optional] 
 **DnsParameters** | Pointer to [**IamLdapDnsParameters**](iam.LdapDnsParameters.md) |  | [optional] 
 **EnableDns** | Pointer to **bool** | Enables DNS to access LDAP servers. | [optional] 
 **Enabled** | Pointer to **bool** | LDAP server performs authentication. | [optional] 
-**UserSearchPrecedence** | Pointer to **string** | Search precedence between local user database and LDAP user database. | [optional] [default to "LocalUserDb"]
+**UserSearchPrecedence** | Pointer to **string** | Search precedence between local user database and LDAP user database. * &#x60;LocalUserDb&#x60; - Precedence is given to local user database while searching. * &#x60;LDAPUserDb&#x60; - Precedence is given to LADP user database while searching. | [optional] [default to "LocalUserDb"]
 **Var0Idp** | Pointer to [**IamIdpRelationship**](iam.Idp.Relationship.md) |  | [optional] 
 **ApplianceAccount** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
 **Groups** | Pointer to [**[]IamLdapGroupRelationship**](iam.LdapGroup.Relationship.md) | An array of relationships to iamLdapGroup resources. | [optional] 
@@ -342,6 +342,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *IamLdapPolicyRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *IamLdapPolicyRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *IamLdapPolicyRelationship) GetParent() MoBaseMoRelationship`
@@ -392,6 +402,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *IamLdapPolicyRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *IamLdapPolicyRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *IamLdapPolicyRelationship) GetDisplayNames() map[string][]string`
@@ -677,6 +697,16 @@ SetGroups sets Groups field to given value.
 
 HasGroups returns a boolean if a field has been set.
 
+### SetGroupsNil
+
+`func (o *IamLdapPolicyRelationship) SetGroupsNil(b bool)`
+
+ SetGroupsNil sets the value for Groups to be an explicit nil
+
+### UnsetGroups
+`func (o *IamLdapPolicyRelationship) UnsetGroups()`
+
+UnsetGroups ensures that no value is present for Groups, not even an explicit nil
 ### GetOrganization
 
 `func (o *IamLdapPolicyRelationship) GetOrganization() OrganizationOrganizationRelationship`
@@ -727,6 +757,16 @@ SetProfiles sets Profiles field to given value.
 
 HasProfiles returns a boolean if a field has been set.
 
+### SetProfilesNil
+
+`func (o *IamLdapPolicyRelationship) SetProfilesNil(b bool)`
+
+ SetProfilesNil sets the value for Profiles to be an explicit nil
+
+### UnsetProfiles
+`func (o *IamLdapPolicyRelationship) UnsetProfiles()`
+
+UnsetProfiles ensures that no value is present for Profiles, not even an explicit nil
 ### GetProviders
 
 `func (o *IamLdapPolicyRelationship) GetProviders() []IamLdapProviderRelationship`
@@ -752,6 +792,16 @@ SetProviders sets Providers field to given value.
 
 HasProviders returns a boolean if a field has been set.
 
+### SetProvidersNil
+
+`func (o *IamLdapPolicyRelationship) SetProvidersNil(b bool)`
+
+ SetProvidersNil sets the value for Providers to be an explicit nil
+
+### UnsetProviders
+`func (o *IamLdapPolicyRelationship) UnsetProviders()`
+
+UnsetProviders ensures that no value is present for Providers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

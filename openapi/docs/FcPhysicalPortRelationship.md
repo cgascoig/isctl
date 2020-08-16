@@ -18,16 +18,30 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Role** | Pointer to **string** |  | [optional] [readonly] 
+**OperState** | Pointer to **string** | Operational state of this port (enabled/disabled). | [optional] [readonly] 
+**OperStateQual** | Pointer to **string** | Reason for this port&#39;s Operational state. | [optional] [readonly] 
+**PortId** | Pointer to **int64** | Switch physical port identifier. | [optional] [readonly] 
+**Role** | Pointer to **string** | The role assigned to this port. | [optional] [readonly] 
+**SlotId** | Pointer to **int64** | Switch expansion slot module identifier. | [optional] [readonly] 
+**SwitchId** | Pointer to **string** | Switch Identifier that is local to a cluster. | [optional] [readonly] 
+**AdminSpeed** | Pointer to **string** | Administrator configured Speed applied on the port. | [optional] [readonly] 
+**AdminState** | Pointer to **string** | Administratively configured state (enabled/disabled) for this port. | [optional] [readonly] 
+**B2bCredit** | Pointer to **int64** | Buffer to Buffer credits of FC port. | [optional] [readonly] 
+**MaxSpeed** | Pointer to **string** | Maximum Speed with which the port operates. | [optional] [readonly] 
+**Mode** | Pointer to **string** | Mode information N_proxy, F or E associated to the Fibre Channel port. | [optional] [readonly] 
+**OperSpeed** | Pointer to **string** | Operational Speed with which the port operates. | [optional] [readonly] 
 **PeerDn** | Pointer to **string** | PeerDn for fibre channel physical port. | [optional] [readonly] 
-**TransceiverType** | Pointer to **string** |  | [optional] [readonly] 
-**Wwn** | Pointer to **string** |  | [optional] [readonly] 
+**PortChannelId** | Pointer to **int64** | Port channel id of FC port channel created on FI switch. | [optional] [readonly] 
+**TransceiverType** | Pointer to **string** | Transceiver type of a Fibre Channel port. | [optional] [readonly] 
+**Vsan** | Pointer to **int64** | Virtual San that is associated to the port. | [optional] [readonly] 
+**Wwn** | Pointer to **string** | World Wide Name of a Fibre Channel port. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PortGroup** | Pointer to [**PortGroupRelationship**](port.Group.Relationship.md) |  | [optional] 
+**PortSubGroup** | Pointer to [**PortSubGroupRelationship**](port.SubGroup.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -339,6 +353,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *FcPhysicalPortRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *FcPhysicalPortRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *FcPhysicalPortRelationship) GetParent() MoBaseMoRelationship`
@@ -389,6 +413,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *FcPhysicalPortRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *FcPhysicalPortRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *FcPhysicalPortRelationship) GetDisplayNames() map[string][]string`
@@ -524,6 +558,56 @@ SetOperState sets OperState field to given value.
 
 HasOperState returns a boolean if a field has been set.
 
+### GetOperStateQual
+
+`func (o *FcPhysicalPortRelationship) GetOperStateQual() string`
+
+GetOperStateQual returns the OperStateQual field if non-nil, zero value otherwise.
+
+### GetOperStateQualOk
+
+`func (o *FcPhysicalPortRelationship) GetOperStateQualOk() (*string, bool)`
+
+GetOperStateQualOk returns a tuple with the OperStateQual field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperStateQual
+
+`func (o *FcPhysicalPortRelationship) SetOperStateQual(v string)`
+
+SetOperStateQual sets OperStateQual field to given value.
+
+### HasOperStateQual
+
+`func (o *FcPhysicalPortRelationship) HasOperStateQual() bool`
+
+HasOperStateQual returns a boolean if a field has been set.
+
+### GetPortId
+
+`func (o *FcPhysicalPortRelationship) GetPortId() int64`
+
+GetPortId returns the PortId field if non-nil, zero value otherwise.
+
+### GetPortIdOk
+
+`func (o *FcPhysicalPortRelationship) GetPortIdOk() (*int64, bool)`
+
+GetPortIdOk returns a tuple with the PortId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortId
+
+`func (o *FcPhysicalPortRelationship) SetPortId(v int64)`
+
+SetPortId sets PortId field to given value.
+
+### HasPortId
+
+`func (o *FcPhysicalPortRelationship) HasPortId() bool`
+
+HasPortId returns a boolean if a field has been set.
+
 ### GetRole
 
 `func (o *FcPhysicalPortRelationship) GetRole() string`
@@ -548,6 +632,206 @@ SetRole sets Role field to given value.
 `func (o *FcPhysicalPortRelationship) HasRole() bool`
 
 HasRole returns a boolean if a field has been set.
+
+### GetSlotId
+
+`func (o *FcPhysicalPortRelationship) GetSlotId() int64`
+
+GetSlotId returns the SlotId field if non-nil, zero value otherwise.
+
+### GetSlotIdOk
+
+`func (o *FcPhysicalPortRelationship) GetSlotIdOk() (*int64, bool)`
+
+GetSlotIdOk returns a tuple with the SlotId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSlotId
+
+`func (o *FcPhysicalPortRelationship) SetSlotId(v int64)`
+
+SetSlotId sets SlotId field to given value.
+
+### HasSlotId
+
+`func (o *FcPhysicalPortRelationship) HasSlotId() bool`
+
+HasSlotId returns a boolean if a field has been set.
+
+### GetSwitchId
+
+`func (o *FcPhysicalPortRelationship) GetSwitchId() string`
+
+GetSwitchId returns the SwitchId field if non-nil, zero value otherwise.
+
+### GetSwitchIdOk
+
+`func (o *FcPhysicalPortRelationship) GetSwitchIdOk() (*string, bool)`
+
+GetSwitchIdOk returns a tuple with the SwitchId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSwitchId
+
+`func (o *FcPhysicalPortRelationship) SetSwitchId(v string)`
+
+SetSwitchId sets SwitchId field to given value.
+
+### HasSwitchId
+
+`func (o *FcPhysicalPortRelationship) HasSwitchId() bool`
+
+HasSwitchId returns a boolean if a field has been set.
+
+### GetAdminSpeed
+
+`func (o *FcPhysicalPortRelationship) GetAdminSpeed() string`
+
+GetAdminSpeed returns the AdminSpeed field if non-nil, zero value otherwise.
+
+### GetAdminSpeedOk
+
+`func (o *FcPhysicalPortRelationship) GetAdminSpeedOk() (*string, bool)`
+
+GetAdminSpeedOk returns a tuple with the AdminSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminSpeed
+
+`func (o *FcPhysicalPortRelationship) SetAdminSpeed(v string)`
+
+SetAdminSpeed sets AdminSpeed field to given value.
+
+### HasAdminSpeed
+
+`func (o *FcPhysicalPortRelationship) HasAdminSpeed() bool`
+
+HasAdminSpeed returns a boolean if a field has been set.
+
+### GetAdminState
+
+`func (o *FcPhysicalPortRelationship) GetAdminState() string`
+
+GetAdminState returns the AdminState field if non-nil, zero value otherwise.
+
+### GetAdminStateOk
+
+`func (o *FcPhysicalPortRelationship) GetAdminStateOk() (*string, bool)`
+
+GetAdminStateOk returns a tuple with the AdminState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminState
+
+`func (o *FcPhysicalPortRelationship) SetAdminState(v string)`
+
+SetAdminState sets AdminState field to given value.
+
+### HasAdminState
+
+`func (o *FcPhysicalPortRelationship) HasAdminState() bool`
+
+HasAdminState returns a boolean if a field has been set.
+
+### GetB2bCredit
+
+`func (o *FcPhysicalPortRelationship) GetB2bCredit() int64`
+
+GetB2bCredit returns the B2bCredit field if non-nil, zero value otherwise.
+
+### GetB2bCreditOk
+
+`func (o *FcPhysicalPortRelationship) GetB2bCreditOk() (*int64, bool)`
+
+GetB2bCreditOk returns a tuple with the B2bCredit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetB2bCredit
+
+`func (o *FcPhysicalPortRelationship) SetB2bCredit(v int64)`
+
+SetB2bCredit sets B2bCredit field to given value.
+
+### HasB2bCredit
+
+`func (o *FcPhysicalPortRelationship) HasB2bCredit() bool`
+
+HasB2bCredit returns a boolean if a field has been set.
+
+### GetMaxSpeed
+
+`func (o *FcPhysicalPortRelationship) GetMaxSpeed() string`
+
+GetMaxSpeed returns the MaxSpeed field if non-nil, zero value otherwise.
+
+### GetMaxSpeedOk
+
+`func (o *FcPhysicalPortRelationship) GetMaxSpeedOk() (*string, bool)`
+
+GetMaxSpeedOk returns a tuple with the MaxSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxSpeed
+
+`func (o *FcPhysicalPortRelationship) SetMaxSpeed(v string)`
+
+SetMaxSpeed sets MaxSpeed field to given value.
+
+### HasMaxSpeed
+
+`func (o *FcPhysicalPortRelationship) HasMaxSpeed() bool`
+
+HasMaxSpeed returns a boolean if a field has been set.
+
+### GetMode
+
+`func (o *FcPhysicalPortRelationship) GetMode() string`
+
+GetMode returns the Mode field if non-nil, zero value otherwise.
+
+### GetModeOk
+
+`func (o *FcPhysicalPortRelationship) GetModeOk() (*string, bool)`
+
+GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMode
+
+`func (o *FcPhysicalPortRelationship) SetMode(v string)`
+
+SetMode sets Mode field to given value.
+
+### HasMode
+
+`func (o *FcPhysicalPortRelationship) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
+
+### GetOperSpeed
+
+`func (o *FcPhysicalPortRelationship) GetOperSpeed() string`
+
+GetOperSpeed returns the OperSpeed field if non-nil, zero value otherwise.
+
+### GetOperSpeedOk
+
+`func (o *FcPhysicalPortRelationship) GetOperSpeedOk() (*string, bool)`
+
+GetOperSpeedOk returns a tuple with the OperSpeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperSpeed
+
+`func (o *FcPhysicalPortRelationship) SetOperSpeed(v string)`
+
+SetOperSpeed sets OperSpeed field to given value.
+
+### HasOperSpeed
+
+`func (o *FcPhysicalPortRelationship) HasOperSpeed() bool`
+
+HasOperSpeed returns a boolean if a field has been set.
 
 ### GetPeerDn
 
@@ -574,6 +858,31 @@ SetPeerDn sets PeerDn field to given value.
 
 HasPeerDn returns a boolean if a field has been set.
 
+### GetPortChannelId
+
+`func (o *FcPhysicalPortRelationship) GetPortChannelId() int64`
+
+GetPortChannelId returns the PortChannelId field if non-nil, zero value otherwise.
+
+### GetPortChannelIdOk
+
+`func (o *FcPhysicalPortRelationship) GetPortChannelIdOk() (*int64, bool)`
+
+GetPortChannelIdOk returns a tuple with the PortChannelId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortChannelId
+
+`func (o *FcPhysicalPortRelationship) SetPortChannelId(v int64)`
+
+SetPortChannelId sets PortChannelId field to given value.
+
+### HasPortChannelId
+
+`func (o *FcPhysicalPortRelationship) HasPortChannelId() bool`
+
+HasPortChannelId returns a boolean if a field has been set.
+
 ### GetTransceiverType
 
 `func (o *FcPhysicalPortRelationship) GetTransceiverType() string`
@@ -598,6 +907,31 @@ SetTransceiverType sets TransceiverType field to given value.
 `func (o *FcPhysicalPortRelationship) HasTransceiverType() bool`
 
 HasTransceiverType returns a boolean if a field has been set.
+
+### GetVsan
+
+`func (o *FcPhysicalPortRelationship) GetVsan() int64`
+
+GetVsan returns the Vsan field if non-nil, zero value otherwise.
+
+### GetVsanOk
+
+`func (o *FcPhysicalPortRelationship) GetVsanOk() (*int64, bool)`
+
+GetVsanOk returns a tuple with the Vsan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVsan
+
+`func (o *FcPhysicalPortRelationship) SetVsan(v int64)`
+
+SetVsan sets Vsan field to given value.
+
+### HasVsan
+
+`func (o *FcPhysicalPortRelationship) HasVsan() bool`
+
+HasVsan returns a boolean if a field has been set.
 
 ### GetWwn
 
@@ -624,6 +958,31 @@ SetWwn sets Wwn field to given value.
 
 HasWwn returns a boolean if a field has been set.
 
+### GetInventoryDeviceInfo
+
+`func (o *FcPhysicalPortRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *FcPhysicalPortRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *FcPhysicalPortRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *FcPhysicalPortRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetPortGroup
 
 `func (o *FcPhysicalPortRelationship) GetPortGroup() PortGroupRelationship`
@@ -648,6 +1007,31 @@ SetPortGroup sets PortGroup field to given value.
 `func (o *FcPhysicalPortRelationship) HasPortGroup() bool`
 
 HasPortGroup returns a boolean if a field has been set.
+
+### GetPortSubGroup
+
+`func (o *FcPhysicalPortRelationship) GetPortSubGroup() PortSubGroupRelationship`
+
+GetPortSubGroup returns the PortSubGroup field if non-nil, zero value otherwise.
+
+### GetPortSubGroupOk
+
+`func (o *FcPhysicalPortRelationship) GetPortSubGroupOk() (*PortSubGroupRelationship, bool)`
+
+GetPortSubGroupOk returns a tuple with the PortSubGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortSubGroup
+
+`func (o *FcPhysicalPortRelationship) SetPortSubGroup(v PortSubGroupRelationship)`
+
+SetPortSubGroup sets PortSubGroup field to given value.
+
+### HasPortSubGroup
+
+`func (o *FcPhysicalPortRelationship) HasPortSubGroup() bool`
+
+HasPortSubGroup returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

@@ -18,17 +18,17 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**Input** | Pointer to **map[string]interface{}** | The inputs of the workflow. | [optional] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**Input** | Pointer to **interface{}** | The inputs of the workflow. | [optional] 
 **Name** | Pointer to **string** | A name for the pending dynamic workflow. | [optional] 
 **PendingServices** | Pointer to **[]string** |  | [optional] 
 **Src** | Pointer to **string** | The src is workflow owner service. | [optional] 
-**Status** | Pointer to **string** | The current status of the PendingDynamicWorkflowInfo. | [optional] [default to "GatheringTasks"]
+**Status** | Pointer to **string** | The current status of the PendingDynamicWorkflowInfo. * &#x60;GatheringTasks&#x60; - Dynamic workflow is gathering tasks before workflow can start execution. * &#x60;Waiting&#x60; - Dynamic workflow is in waiting state and not yet started execution. | [optional] [default to "GatheringTasks"]
 **WaitOnDuplicate** | Pointer to **bool** | When set to true workflow engine will wait for a duplicate to finish before starting a new one. | [optional] 
 **WorkflowActionTaskLists** | Pointer to [**[]WorkflowDynamicWorkflowActionTaskList**](workflow.DynamicWorkflowActionTaskList.md) |  | [optional] 
-**WorkflowCtx** | Pointer to **map[string]interface{}** | The workflow&#39;s workflow context which contains initiator and target information. | [optional] 
+**WorkflowCtx** | Pointer to [**WorkflowWorkflowCtx**](workflow.WorkflowCtx.md) |  | [optional] 
 **WorkflowKey** | Pointer to **string** | This key contains workflow, initiator and target name. Workflow engine uses the key to do workflow dedup. | [optional] 
-**WorkflowMeta** | Pointer to **map[string]interface{}** | The metadata of the workflow. | [optional] 
+**WorkflowMeta** | Pointer to **interface{}** | The metadata of the workflow. | [optional] 
 **WorkflowInfo** | Pointer to [**WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -340,6 +340,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetParent() MoBaseMoRelationship`
@@ -390,6 +400,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetDisplayNames() map[string][]string`
@@ -427,20 +447,20 @@ HasDisplayNames returns a boolean if a field has been set.
 UnsetDisplayNames ensures that no value is present for DisplayNames, not even an explicit nil
 ### GetInput
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetInput() map[string]interface{}`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetInput() interface{}`
 
 GetInput returns the Input field if non-nil, zero value otherwise.
 
 ### GetInputOk
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetInputOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetInputOk() (*interface{}, bool)`
 
 GetInputOk returns a tuple with the Input field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInput
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetInput(v map[string]interface{})`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetInput(v interface{})`
 
 SetInput sets Input field to given value.
 
@@ -450,6 +470,16 @@ SetInput sets Input field to given value.
 
 HasInput returns a boolean if a field has been set.
 
+### SetInputNil
+
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetInputNil(b bool)`
+
+ SetInputNil sets the value for Input to be an explicit nil
+
+### UnsetInput
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) UnsetInput()`
+
+UnsetInput ensures that no value is present for Input, not even an explicit nil
 ### GetName
 
 `func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetName() string`
@@ -602,20 +632,20 @@ HasWorkflowActionTaskLists returns a boolean if a field has been set.
 
 ### GetWorkflowCtx
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowCtx() map[string]interface{}`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowCtx() WorkflowWorkflowCtx`
 
 GetWorkflowCtx returns the WorkflowCtx field if non-nil, zero value otherwise.
 
 ### GetWorkflowCtxOk
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowCtxOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowCtxOk() (*WorkflowWorkflowCtx, bool)`
 
 GetWorkflowCtxOk returns a tuple with the WorkflowCtx field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkflowCtx
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetWorkflowCtx(v map[string]interface{})`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetWorkflowCtx(v WorkflowWorkflowCtx)`
 
 SetWorkflowCtx sets WorkflowCtx field to given value.
 
@@ -652,20 +682,20 @@ HasWorkflowKey returns a boolean if a field has been set.
 
 ### GetWorkflowMeta
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowMeta() map[string]interface{}`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowMeta() interface{}`
 
 GetWorkflowMeta returns the WorkflowMeta field if non-nil, zero value otherwise.
 
 ### GetWorkflowMetaOk
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowMetaOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowMetaOk() (*interface{}, bool)`
 
 GetWorkflowMetaOk returns a tuple with the WorkflowMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkflowMeta
 
-`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetWorkflowMeta(v map[string]interface{})`
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetWorkflowMeta(v interface{})`
 
 SetWorkflowMeta sets WorkflowMeta field to given value.
 
@@ -675,6 +705,16 @@ SetWorkflowMeta sets WorkflowMeta field to given value.
 
 HasWorkflowMeta returns a boolean if a field has been set.
 
+### SetWorkflowMetaNil
+
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) SetWorkflowMetaNil(b bool)`
+
+ SetWorkflowMetaNil sets the value for WorkflowMeta to be an explicit nil
+
+### UnsetWorkflowMeta
+`func (o *WorkflowPendingDynamicWorkflowInfoRelationship) UnsetWorkflowMeta()`
+
+UnsetWorkflowMeta ensures that no value is present for WorkflowMeta, not even an explicit nil
 ### GetWorkflowInfo
 
 `func (o *WorkflowPendingDynamicWorkflowInfoRelationship) GetWorkflowInfo() WorkflowWorkflowInfoRelationship`

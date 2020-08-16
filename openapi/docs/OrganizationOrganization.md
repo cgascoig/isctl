@@ -128,6 +128,16 @@ SetResourceGroups sets ResourceGroups field to given value.
 
 HasResourceGroups returns a boolean if a field has been set.
 
+### SetResourceGroupsNil
+
+`func (o *OrganizationOrganization) SetResourceGroupsNil(b bool)`
+
+ SetResourceGroupsNil sets the value for ResourceGroups to be an explicit nil
+
+### UnsetResourceGroups
+`func (o *OrganizationOrganization) UnsetResourceGroups()`
+
+UnsetResourceGroups ensures that no value is present for ResourceGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

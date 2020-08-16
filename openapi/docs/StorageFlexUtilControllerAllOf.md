@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ControllerName** | Pointer to **string** |  | [optional] 
-**ControllerStatus** | Pointer to **string** |  | [optional] 
-**FfControllerId** | Pointer to **string** |  | [optional] 
-**InternalState** | Pointer to **string** |  | [optional] 
+**ControllerName** | Pointer to **string** | Name of the Flex Util Controller. | [optional] 
+**ControllerStatus** | Pointer to **string** | The current status of the controller. | [optional] 
+**FfControllerId** | Pointer to **string** | Identifier for the Storage Flex Util Controller. | [optional] 
+**InternalState** | Pointer to **string** | The internal state of the controller. | [optional] 
 **ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
 **FlexUtilPhysicalDrives** | Pointer to [**[]StorageFlexUtilPhysicalDriveRelationship**](storage.FlexUtilPhysicalDrive.Relationship.md) | An array of relationships to storageFlexUtilPhysicalDrive resources. | [optional] [readonly] 
 **FlexUtilVirtualDrives** | Pointer to [**[]StorageFlexUtilVirtualDriveRelationship**](storage.FlexUtilVirtualDrive.Relationship.md) | An array of relationships to storageFlexUtilVirtualDrive resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -182,6 +183,16 @@ SetFlexUtilPhysicalDrives sets FlexUtilPhysicalDrives field to given value.
 
 HasFlexUtilPhysicalDrives returns a boolean if a field has been set.
 
+### SetFlexUtilPhysicalDrivesNil
+
+`func (o *StorageFlexUtilControllerAllOf) SetFlexUtilPhysicalDrivesNil(b bool)`
+
+ SetFlexUtilPhysicalDrivesNil sets the value for FlexUtilPhysicalDrives to be an explicit nil
+
+### UnsetFlexUtilPhysicalDrives
+`func (o *StorageFlexUtilControllerAllOf) UnsetFlexUtilPhysicalDrives()`
+
+UnsetFlexUtilPhysicalDrives ensures that no value is present for FlexUtilPhysicalDrives, not even an explicit nil
 ### GetFlexUtilVirtualDrives
 
 `func (o *StorageFlexUtilControllerAllOf) GetFlexUtilVirtualDrives() []StorageFlexUtilVirtualDriveRelationship`
@@ -206,6 +217,41 @@ SetFlexUtilVirtualDrives sets FlexUtilVirtualDrives field to given value.
 `func (o *StorageFlexUtilControllerAllOf) HasFlexUtilVirtualDrives() bool`
 
 HasFlexUtilVirtualDrives returns a boolean if a field has been set.
+
+### SetFlexUtilVirtualDrivesNil
+
+`func (o *StorageFlexUtilControllerAllOf) SetFlexUtilVirtualDrivesNil(b bool)`
+
+ SetFlexUtilVirtualDrivesNil sets the value for FlexUtilVirtualDrives to be an explicit nil
+
+### UnsetFlexUtilVirtualDrives
+`func (o *StorageFlexUtilControllerAllOf) UnsetFlexUtilVirtualDrives()`
+
+UnsetFlexUtilVirtualDrives ensures that no value is present for FlexUtilVirtualDrives, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilControllerAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageFlexUtilControllerAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageFlexUtilControllerAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageFlexUtilControllerAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

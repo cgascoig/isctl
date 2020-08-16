@@ -18,12 +18,14 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
-**Transport** | Pointer to **string** |  | [optional] [readonly] 
+**Transport** | Pointer to **string** | Type of port sub-group. Values are Eth or Fc. | [optional] [readonly] 
 **EthernetPorts** | Pointer to [**[]EtherPhysicalPortRelationship**](ether.PhysicalPort.Relationship.md) | An array of relationships to etherPhysicalPort resources. | [optional] [readonly] 
+**FcPorts** | Pointer to [**[]FcPhysicalPortRelationship**](fc.PhysicalPort.Relationship.md) | An array of relationships to fcPhysicalPort resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PortGroup** | Pointer to [**PortGroupRelationship**](port.Group.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -336,6 +338,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *PortSubGroupRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *PortSubGroupRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *PortSubGroupRelationship) GetParent() MoBaseMoRelationship`
@@ -386,6 +398,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *PortSubGroupRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *PortSubGroupRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *PortSubGroupRelationship) GetDisplayNames() map[string][]string`
@@ -545,6 +567,76 @@ SetEthernetPorts sets EthernetPorts field to given value.
 `func (o *PortSubGroupRelationship) HasEthernetPorts() bool`
 
 HasEthernetPorts returns a boolean if a field has been set.
+
+### SetEthernetPortsNil
+
+`func (o *PortSubGroupRelationship) SetEthernetPortsNil(b bool)`
+
+ SetEthernetPortsNil sets the value for EthernetPorts to be an explicit nil
+
+### UnsetEthernetPorts
+`func (o *PortSubGroupRelationship) UnsetEthernetPorts()`
+
+UnsetEthernetPorts ensures that no value is present for EthernetPorts, not even an explicit nil
+### GetFcPorts
+
+`func (o *PortSubGroupRelationship) GetFcPorts() []FcPhysicalPortRelationship`
+
+GetFcPorts returns the FcPorts field if non-nil, zero value otherwise.
+
+### GetFcPortsOk
+
+`func (o *PortSubGroupRelationship) GetFcPortsOk() (*[]FcPhysicalPortRelationship, bool)`
+
+GetFcPortsOk returns a tuple with the FcPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFcPorts
+
+`func (o *PortSubGroupRelationship) SetFcPorts(v []FcPhysicalPortRelationship)`
+
+SetFcPorts sets FcPorts field to given value.
+
+### HasFcPorts
+
+`func (o *PortSubGroupRelationship) HasFcPorts() bool`
+
+HasFcPorts returns a boolean if a field has been set.
+
+### SetFcPortsNil
+
+`func (o *PortSubGroupRelationship) SetFcPortsNil(b bool)`
+
+ SetFcPortsNil sets the value for FcPorts to be an explicit nil
+
+### UnsetFcPorts
+`func (o *PortSubGroupRelationship) UnsetFcPorts()`
+
+UnsetFcPorts ensures that no value is present for FcPorts, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *PortSubGroupRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *PortSubGroupRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *PortSubGroupRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *PortSubGroupRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPortGroup
 

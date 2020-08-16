@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,18 +18,30 @@ import (
 
 // AdapterExtEthInterface Physical port of a virtual interface card.
 type AdapterExtEthInterface struct {
-	EquipmentBase `yaml:"EquipmentBase,inline"`
-	// The administrative state of the physical port.
-	AdminState        *string `json:"AdminState,omitempty" yaml:"AdminState,omitempty"`
-	EpDn              *string `json:"EpDn,omitempty" yaml:"EpDn,omitempty"`
+	PortInterfaceBase `yaml:"PortInterfaceBase,inline"`
+	// Admin configured state of an External Ethernet Interface.
+	AdminState *string `json:"AdminState,omitempty" yaml:"AdminState,omitempty"`
+	// Endpoint Config DN of an External Ethernet Interface.
+	EpDn *string `json:"EpDn,omitempty" yaml:"EpDn,omitempty"`
+	// Unique Identifier for an External Ethernet Interface within the adapter object.
 	ExtEthInterfaceId *string `json:"ExtEthInterfaceId,omitempty" yaml:"ExtEthInterfaceId,omitempty"`
-	InterfaceType     *string `json:"InterfaceType,omitempty" yaml:"InterfaceType,omitempty"`
-	MacAddress        *string `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
-	// The operational state of the physical port.
-	OperState        *string                              `json:"OperState,omitempty" yaml:"OperState,omitempty"`
-	PeerDn           *string                              `json:"PeerDn,omitempty" yaml:"PeerDn,omitempty"`
-	AdapterUnit      *AdapterUnitRelationship             `json:"AdapterUnit,omitempty" yaml:"AdapterUnit,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// Type of an External Ethernet Interface.
+	InterfaceType *string `json:"InterfaceType,omitempty" yaml:"InterfaceType,omitempty"`
+	// MAC address of an External Ethernet Interface.
+	MacAddress *string `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
+	// Peer Aggregate Port Id attached to an External Ethernet Interface.
+	PeerAggrPortId *int64 `json:"PeerAggrPortId,omitempty" yaml:"PeerAggrPortId,omitempty"`
+	// DN of peer end-point attached to an External Ethernet Interface.
+	PeerDn *string `json:"PeerDn,omitempty" yaml:"PeerDn,omitempty"`
+	// Peer Port Id attached to an External Ethernet Interface.
+	PeerPortId *int64 `json:"PeerPortId,omitempty" yaml:"PeerPortId,omitempty"`
+	// Peer Slot Id attached to an External Ethernet Interface.
+	PeerSlotId *int64 `json:"PeerSlotId,omitempty" yaml:"PeerSlotId,omitempty"`
+	// SwitchId attached to an External Ethernet Interface.
+	SwitchId            *string                              `json:"SwitchId,omitempty" yaml:"SwitchId,omitempty"`
+	AdapterUnit         *AdapterUnitRelationship             `json:"AdapterUnit,omitempty" yaml:"AdapterUnit,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewAdapterExtEthInterface instantiates a new AdapterExtEthInterface object
@@ -209,36 +221,36 @@ func (o *AdapterExtEthInterface) SetMacAddress(v string) {
 	o.MacAddress = &v
 }
 
-// GetOperState returns the OperState field value if set, zero value otherwise.
-func (o *AdapterExtEthInterface) GetOperState() string {
-	if o == nil || o.OperState == nil {
-		var ret string
+// GetPeerAggrPortId returns the PeerAggrPortId field value if set, zero value otherwise.
+func (o *AdapterExtEthInterface) GetPeerAggrPortId() int64 {
+	if o == nil || o.PeerAggrPortId == nil {
+		var ret int64
 		return ret
 	}
-	return *o.OperState
+	return *o.PeerAggrPortId
 }
 
-// GetOperStateOk returns a tuple with the OperState field value if set, nil otherwise
+// GetPeerAggrPortIdOk returns a tuple with the PeerAggrPortId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdapterExtEthInterface) GetOperStateOk() (*string, bool) {
-	if o == nil || o.OperState == nil {
+func (o *AdapterExtEthInterface) GetPeerAggrPortIdOk() (*int64, bool) {
+	if o == nil || o.PeerAggrPortId == nil {
 		return nil, false
 	}
-	return o.OperState, true
+	return o.PeerAggrPortId, true
 }
 
-// HasOperState returns a boolean if a field has been set.
-func (o *AdapterExtEthInterface) HasOperState() bool {
-	if o != nil && o.OperState != nil {
+// HasPeerAggrPortId returns a boolean if a field has been set.
+func (o *AdapterExtEthInterface) HasPeerAggrPortId() bool {
+	if o != nil && o.PeerAggrPortId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetOperState gets a reference to the given string and assigns it to the OperState field.
-func (o *AdapterExtEthInterface) SetOperState(v string) {
-	o.OperState = &v
+// SetPeerAggrPortId gets a reference to the given int64 and assigns it to the PeerAggrPortId field.
+func (o *AdapterExtEthInterface) SetPeerAggrPortId(v int64) {
+	o.PeerAggrPortId = &v
 }
 
 // GetPeerDn returns the PeerDn field value if set, zero value otherwise.
@@ -273,6 +285,102 @@ func (o *AdapterExtEthInterface) SetPeerDn(v string) {
 	o.PeerDn = &v
 }
 
+// GetPeerPortId returns the PeerPortId field value if set, zero value otherwise.
+func (o *AdapterExtEthInterface) GetPeerPortId() int64 {
+	if o == nil || o.PeerPortId == nil {
+		var ret int64
+		return ret
+	}
+	return *o.PeerPortId
+}
+
+// GetPeerPortIdOk returns a tuple with the PeerPortId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdapterExtEthInterface) GetPeerPortIdOk() (*int64, bool) {
+	if o == nil || o.PeerPortId == nil {
+		return nil, false
+	}
+	return o.PeerPortId, true
+}
+
+// HasPeerPortId returns a boolean if a field has been set.
+func (o *AdapterExtEthInterface) HasPeerPortId() bool {
+	if o != nil && o.PeerPortId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPeerPortId gets a reference to the given int64 and assigns it to the PeerPortId field.
+func (o *AdapterExtEthInterface) SetPeerPortId(v int64) {
+	o.PeerPortId = &v
+}
+
+// GetPeerSlotId returns the PeerSlotId field value if set, zero value otherwise.
+func (o *AdapterExtEthInterface) GetPeerSlotId() int64 {
+	if o == nil || o.PeerSlotId == nil {
+		var ret int64
+		return ret
+	}
+	return *o.PeerSlotId
+}
+
+// GetPeerSlotIdOk returns a tuple with the PeerSlotId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdapterExtEthInterface) GetPeerSlotIdOk() (*int64, bool) {
+	if o == nil || o.PeerSlotId == nil {
+		return nil, false
+	}
+	return o.PeerSlotId, true
+}
+
+// HasPeerSlotId returns a boolean if a field has been set.
+func (o *AdapterExtEthInterface) HasPeerSlotId() bool {
+	if o != nil && o.PeerSlotId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPeerSlotId gets a reference to the given int64 and assigns it to the PeerSlotId field.
+func (o *AdapterExtEthInterface) SetPeerSlotId(v int64) {
+	o.PeerSlotId = &v
+}
+
+// GetSwitchId returns the SwitchId field value if set, zero value otherwise.
+func (o *AdapterExtEthInterface) GetSwitchId() string {
+	if o == nil || o.SwitchId == nil {
+		var ret string
+		return ret
+	}
+	return *o.SwitchId
+}
+
+// GetSwitchIdOk returns a tuple with the SwitchId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdapterExtEthInterface) GetSwitchIdOk() (*string, bool) {
+	if o == nil || o.SwitchId == nil {
+		return nil, false
+	}
+	return o.SwitchId, true
+}
+
+// HasSwitchId returns a boolean if a field has been set.
+func (o *AdapterExtEthInterface) HasSwitchId() bool {
+	if o != nil && o.SwitchId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSwitchId gets a reference to the given string and assigns it to the SwitchId field.
+func (o *AdapterExtEthInterface) SetSwitchId(v string) {
+	o.SwitchId = &v
+}
+
 // GetAdapterUnit returns the AdapterUnit field value if set, zero value otherwise.
 func (o *AdapterExtEthInterface) GetAdapterUnit() AdapterUnitRelationship {
 	if o == nil || o.AdapterUnit == nil {
@@ -303,6 +411,38 @@ func (o *AdapterExtEthInterface) HasAdapterUnit() bool {
 // SetAdapterUnit gets a reference to the given AdapterUnitRelationship and assigns it to the AdapterUnit field.
 func (o *AdapterExtEthInterface) SetAdapterUnit(v AdapterUnitRelationship) {
 	o.AdapterUnit = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *AdapterExtEthInterface) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdapterExtEthInterface) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *AdapterExtEthInterface) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *AdapterExtEthInterface) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -339,13 +479,13 @@ func (o *AdapterExtEthInterface) SetRegisteredDevice(v AssetDeviceRegistrationRe
 
 func (o AdapterExtEthInterface) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedEquipmentBase, errEquipmentBase := json.Marshal(o.EquipmentBase)
-	if errEquipmentBase != nil {
-		return []byte{}, errEquipmentBase
+	serializedPortInterfaceBase, errPortInterfaceBase := json.Marshal(o.PortInterfaceBase)
+	if errPortInterfaceBase != nil {
+		return []byte{}, errPortInterfaceBase
 	}
-	errEquipmentBase = json.Unmarshal([]byte(serializedEquipmentBase), &toSerialize)
-	if errEquipmentBase != nil {
-		return []byte{}, errEquipmentBase
+	errPortInterfaceBase = json.Unmarshal([]byte(serializedPortInterfaceBase), &toSerialize)
+	if errPortInterfaceBase != nil {
+		return []byte{}, errPortInterfaceBase
 	}
 	if o.AdminState != nil {
 		toSerialize["AdminState"] = o.AdminState
@@ -362,14 +502,26 @@ func (o AdapterExtEthInterface) MarshalJSON() ([]byte, error) {
 	if o.MacAddress != nil {
 		toSerialize["MacAddress"] = o.MacAddress
 	}
-	if o.OperState != nil {
-		toSerialize["OperState"] = o.OperState
+	if o.PeerAggrPortId != nil {
+		toSerialize["PeerAggrPortId"] = o.PeerAggrPortId
 	}
 	if o.PeerDn != nil {
 		toSerialize["PeerDn"] = o.PeerDn
 	}
+	if o.PeerPortId != nil {
+		toSerialize["PeerPortId"] = o.PeerPortId
+	}
+	if o.PeerSlotId != nil {
+		toSerialize["PeerSlotId"] = o.PeerSlotId
+	}
+	if o.SwitchId != nil {
+		toSerialize["SwitchId"] = o.SwitchId
+	}
 	if o.AdapterUnit != nil {
 		toSerialize["AdapterUnit"] = o.AdapterUnit
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice

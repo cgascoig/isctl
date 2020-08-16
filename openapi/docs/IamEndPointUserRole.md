@@ -156,6 +156,16 @@ SetEndPointRole sets EndPointRole field to given value.
 
 HasEndPointRole returns a boolean if a field has been set.
 
+### SetEndPointRoleNil
+
+`func (o *IamEndPointUserRole) SetEndPointRoleNil(b bool)`
+
+ SetEndPointRoleNil sets the value for EndPointRole to be an explicit nil
+
+### UnsetEndPointRole
+`func (o *IamEndPointUserRole) UnsetEndPointRole()`
+
+UnsetEndPointRole ensures that no value is present for EndPointRole, not even an explicit nil
 ### GetEndPointUser
 
 `func (o *IamEndPointUserRole) GetEndPointUser() IamEndPointUserRelationship`

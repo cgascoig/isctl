@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Filename** | Pointer to **string** | Backup filename to backup or restore. | [optional] 
-**Protocol** | Pointer to **string** | Communication protocol used by the file server (e.g. scp or sftp). | [optional] [default to "scp"]
+**Protocol** | Pointer to **string** | Communication protocol used by the file server (e.g. scp or sftp). * &#x60;scp&#x60; - Secure Copy Protocol (SCP) to access the file server. * &#x60;sftp&#x60; - SSH File Transfer Protocol (SFTP) to access file server. | [optional] [default to "scp"]
 **RemoteHost** | Pointer to **string** | Hostname of the remote file server. | [optional] 
 **RemotePath** | Pointer to **string** | File server directory to copy the file. | [optional] 
 **RemotePort** | Pointer to **int64** | Remote TCP port on the file server (e.g. 22 for scp). | [optional] 

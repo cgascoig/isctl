@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **HddFailuresTolerable** | Pointer to **int64** |  | [optional] [readonly] 
 **Messages** | Pointer to **[]string** |  | [optional] 
-**MessagesIterator** | Pointer to **map[string]interface{}** |  | [optional] [readonly] 
+**MessagesIterator** | Pointer to **interface{}** |  | [optional] [readonly] 
 **MessagesSize** | Pointer to **int64** |  | [optional] [readonly] 
 **NodeFailuresTolerable** | Pointer to **int64** |  | [optional] [readonly] 
 **SsdFailuresTolerable** | Pointer to **int64** |  | [optional] [readonly] 
@@ -83,20 +83,20 @@ HasMessages returns a boolean if a field has been set.
 
 ### GetMessagesIterator
 
-`func (o *HyperflexStPlatformClusterResiliencyInfo) GetMessagesIterator() map[string]interface{}`
+`func (o *HyperflexStPlatformClusterResiliencyInfo) GetMessagesIterator() interface{}`
 
 GetMessagesIterator returns the MessagesIterator field if non-nil, zero value otherwise.
 
 ### GetMessagesIteratorOk
 
-`func (o *HyperflexStPlatformClusterResiliencyInfo) GetMessagesIteratorOk() (*map[string]interface{}, bool)`
+`func (o *HyperflexStPlatformClusterResiliencyInfo) GetMessagesIteratorOk() (*interface{}, bool)`
 
 GetMessagesIteratorOk returns a tuple with the MessagesIterator field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessagesIterator
 
-`func (o *HyperflexStPlatformClusterResiliencyInfo) SetMessagesIterator(v map[string]interface{})`
+`func (o *HyperflexStPlatformClusterResiliencyInfo) SetMessagesIterator(v interface{})`
 
 SetMessagesIterator sets MessagesIterator field to given value.
 
@@ -106,6 +106,16 @@ SetMessagesIterator sets MessagesIterator field to given value.
 
 HasMessagesIterator returns a boolean if a field has been set.
 
+### SetMessagesIteratorNil
+
+`func (o *HyperflexStPlatformClusterResiliencyInfo) SetMessagesIteratorNil(b bool)`
+
+ SetMessagesIteratorNil sets the value for MessagesIterator to be an explicit nil
+
+### UnsetMessagesIterator
+`func (o *HyperflexStPlatformClusterResiliencyInfo) UnsetMessagesIterator()`
+
+UnsetMessagesIterator ensures that no value is present for MessagesIterator, not even an explicit nil
 ### GetMessagesSize
 
 `func (o *HyperflexStPlatformClusterResiliencyInfo) GetMessagesSize() int64`

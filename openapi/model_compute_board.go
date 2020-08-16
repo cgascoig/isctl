@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,8 +18,10 @@ import (
 
 // ComputeBoard Mother board of a server.
 type ComputeBoard struct {
-	EquipmentBase     `yaml:"EquipmentBase,inline"`
-	BoardId           *int64  `json:"BoardId,omitempty" yaml:"BoardId,omitempty"`
+	EquipmentBase `yaml:"EquipmentBase,inline"`
+	// The identity of the motherboard.
+	BoardId *int64 `json:"BoardId,omitempty" yaml:"BoardId,omitempty"`
+	// The type of central processing unit on the mother board.
 	CpuTypeController *string `json:"CpuTypeController,omitempty" yaml:"CpuTypeController,omitempty"`
 	// Current power state of the mother board of the server.
 	OperPowerState *string `json:"OperPowerState,omitempty" yaml:"OperPowerState,omitempty"`
@@ -28,27 +30,28 @@ type ComputeBoard struct {
 	ComputeBlade    *ComputeBladeRelationship    `json:"ComputeBlade,omitempty" yaml:"ComputeBlade,omitempty"`
 	ComputeRackUnit *ComputeRackUnitRelationship `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
 	// An array of relationships to equipmentTpm resources.
-	EquipmentTpms *[]EquipmentTpmRelationship `json:"EquipmentTpms,omitempty" yaml:"EquipmentTpms,omitempty"`
+	EquipmentTpms []EquipmentTpmRelationship `json:"EquipmentTpms,omitempty" yaml:"EquipmentTpms,omitempty"`
 	// An array of relationships to graphicsCard resources.
-	GraphicsCards *[]GraphicsCardRelationship `json:"GraphicsCards,omitempty" yaml:"GraphicsCards,omitempty"`
+	GraphicsCards       []GraphicsCardRelationship       `json:"GraphicsCards,omitempty" yaml:"GraphicsCards,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to memoryArray resources.
-	MemoryArrays *[]MemoryArrayRelationship `json:"MemoryArrays,omitempty" yaml:"MemoryArrays,omitempty"`
+	MemoryArrays []MemoryArrayRelationship `json:"MemoryArrays,omitempty" yaml:"MemoryArrays,omitempty"`
 	// An array of relationships to pciCoprocessorCard resources.
-	PciCoprocessorCards *[]PciCoprocessorCardRelationship `json:"PciCoprocessorCards,omitempty" yaml:"PciCoprocessorCards,omitempty"`
+	PciCoprocessorCards []PciCoprocessorCardRelationship `json:"PciCoprocessorCards,omitempty" yaml:"PciCoprocessorCards,omitempty"`
 	// An array of relationships to pciSwitch resources.
-	PciSwitch                     *[]PciSwitchRelationship                         `json:"PciSwitch,omitempty" yaml:"PciSwitch,omitempty"`
+	PciSwitch                     []PciSwitchRelationship                          `json:"PciSwitch,omitempty" yaml:"PciSwitch,omitempty"`
 	PersistentMemoryConfiguration *MemoryPersistentMemoryConfigurationRelationship `json:"PersistentMemoryConfiguration,omitempty" yaml:"PersistentMemoryConfiguration,omitempty"`
 	// An array of relationships to processorUnit resources.
-	Processors       *[]ProcessorUnitRelationship         `json:"Processors,omitempty" yaml:"Processors,omitempty"`
+	Processors       []ProcessorUnitRelationship          `json:"Processors,omitempty" yaml:"Processors,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 	// An array of relationships to securityUnit resources.
-	SecurityUnits *[]SecurityUnitRelationship `json:"SecurityUnits,omitempty" yaml:"SecurityUnits,omitempty"`
+	SecurityUnits []SecurityUnitRelationship `json:"SecurityUnits,omitempty" yaml:"SecurityUnits,omitempty"`
 	// An array of relationships to storageController resources.
-	StorageControllers *[]StorageControllerRelationship `json:"StorageControllers,omitempty" yaml:"StorageControllers,omitempty"`
+	StorageControllers []StorageControllerRelationship `json:"StorageControllers,omitempty" yaml:"StorageControllers,omitempty"`
 	// An array of relationships to storageFlexFlashController resources.
-	StorageFlexFlashControllers *[]StorageFlexFlashControllerRelationship `json:"StorageFlexFlashControllers,omitempty" yaml:"StorageFlexFlashControllers,omitempty"`
+	StorageFlexFlashControllers []StorageFlexFlashControllerRelationship `json:"StorageFlexFlashControllers,omitempty" yaml:"StorageFlexFlashControllers,omitempty"`
 	// An array of relationships to storageFlexUtilController resources.
-	StorageFlexUtilControllers *[]StorageFlexUtilControllerRelationship `json:"StorageFlexUtilControllers,omitempty" yaml:"StorageFlexUtilControllers,omitempty"`
+	StorageFlexUtilControllers []StorageFlexUtilControllerRelationship `json:"StorageFlexUtilControllers,omitempty" yaml:"StorageFlexUtilControllers,omitempty"`
 }
 
 // NewComputeBoard instantiates a new ComputeBoard object
@@ -260,22 +263,23 @@ func (o *ComputeBoard) SetComputeRackUnit(v ComputeRackUnitRelationship) {
 	o.ComputeRackUnit = &v
 }
 
-// GetEquipmentTpms returns the EquipmentTpms field value if set, zero value otherwise.
+// GetEquipmentTpms returns the EquipmentTpms field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetEquipmentTpms() []EquipmentTpmRelationship {
-	if o == nil || o.EquipmentTpms == nil {
+	if o == nil {
 		var ret []EquipmentTpmRelationship
 		return ret
 	}
-	return *o.EquipmentTpms
+	return o.EquipmentTpms
 }
 
 // GetEquipmentTpmsOk returns a tuple with the EquipmentTpms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetEquipmentTpmsOk() (*[]EquipmentTpmRelationship, bool) {
 	if o == nil || o.EquipmentTpms == nil {
 		return nil, false
 	}
-	return o.EquipmentTpms, true
+	return &o.EquipmentTpms, true
 }
 
 // HasEquipmentTpms returns a boolean if a field has been set.
@@ -289,25 +293,26 @@ func (o *ComputeBoard) HasEquipmentTpms() bool {
 
 // SetEquipmentTpms gets a reference to the given []EquipmentTpmRelationship and assigns it to the EquipmentTpms field.
 func (o *ComputeBoard) SetEquipmentTpms(v []EquipmentTpmRelationship) {
-	o.EquipmentTpms = &v
+	o.EquipmentTpms = v
 }
 
-// GetGraphicsCards returns the GraphicsCards field value if set, zero value otherwise.
+// GetGraphicsCards returns the GraphicsCards field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetGraphicsCards() []GraphicsCardRelationship {
-	if o == nil || o.GraphicsCards == nil {
+	if o == nil {
 		var ret []GraphicsCardRelationship
 		return ret
 	}
-	return *o.GraphicsCards
+	return o.GraphicsCards
 }
 
 // GetGraphicsCardsOk returns a tuple with the GraphicsCards field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetGraphicsCardsOk() (*[]GraphicsCardRelationship, bool) {
 	if o == nil || o.GraphicsCards == nil {
 		return nil, false
 	}
-	return o.GraphicsCards, true
+	return &o.GraphicsCards, true
 }
 
 // HasGraphicsCards returns a boolean if a field has been set.
@@ -321,25 +326,58 @@ func (o *ComputeBoard) HasGraphicsCards() bool {
 
 // SetGraphicsCards gets a reference to the given []GraphicsCardRelationship and assigns it to the GraphicsCards field.
 func (o *ComputeBoard) SetGraphicsCards(v []GraphicsCardRelationship) {
-	o.GraphicsCards = &v
+	o.GraphicsCards = v
 }
 
-// GetMemoryArrays returns the MemoryArrays field value if set, zero value otherwise.
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *ComputeBoard) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeBoard) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *ComputeBoard) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *ComputeBoard) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetMemoryArrays returns the MemoryArrays field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetMemoryArrays() []MemoryArrayRelationship {
-	if o == nil || o.MemoryArrays == nil {
+	if o == nil {
 		var ret []MemoryArrayRelationship
 		return ret
 	}
-	return *o.MemoryArrays
+	return o.MemoryArrays
 }
 
 // GetMemoryArraysOk returns a tuple with the MemoryArrays field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetMemoryArraysOk() (*[]MemoryArrayRelationship, bool) {
 	if o == nil || o.MemoryArrays == nil {
 		return nil, false
 	}
-	return o.MemoryArrays, true
+	return &o.MemoryArrays, true
 }
 
 // HasMemoryArrays returns a boolean if a field has been set.
@@ -353,25 +391,26 @@ func (o *ComputeBoard) HasMemoryArrays() bool {
 
 // SetMemoryArrays gets a reference to the given []MemoryArrayRelationship and assigns it to the MemoryArrays field.
 func (o *ComputeBoard) SetMemoryArrays(v []MemoryArrayRelationship) {
-	o.MemoryArrays = &v
+	o.MemoryArrays = v
 }
 
-// GetPciCoprocessorCards returns the PciCoprocessorCards field value if set, zero value otherwise.
+// GetPciCoprocessorCards returns the PciCoprocessorCards field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetPciCoprocessorCards() []PciCoprocessorCardRelationship {
-	if o == nil || o.PciCoprocessorCards == nil {
+	if o == nil {
 		var ret []PciCoprocessorCardRelationship
 		return ret
 	}
-	return *o.PciCoprocessorCards
+	return o.PciCoprocessorCards
 }
 
 // GetPciCoprocessorCardsOk returns a tuple with the PciCoprocessorCards field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetPciCoprocessorCardsOk() (*[]PciCoprocessorCardRelationship, bool) {
 	if o == nil || o.PciCoprocessorCards == nil {
 		return nil, false
 	}
-	return o.PciCoprocessorCards, true
+	return &o.PciCoprocessorCards, true
 }
 
 // HasPciCoprocessorCards returns a boolean if a field has been set.
@@ -385,25 +424,26 @@ func (o *ComputeBoard) HasPciCoprocessorCards() bool {
 
 // SetPciCoprocessorCards gets a reference to the given []PciCoprocessorCardRelationship and assigns it to the PciCoprocessorCards field.
 func (o *ComputeBoard) SetPciCoprocessorCards(v []PciCoprocessorCardRelationship) {
-	o.PciCoprocessorCards = &v
+	o.PciCoprocessorCards = v
 }
 
-// GetPciSwitch returns the PciSwitch field value if set, zero value otherwise.
+// GetPciSwitch returns the PciSwitch field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetPciSwitch() []PciSwitchRelationship {
-	if o == nil || o.PciSwitch == nil {
+	if o == nil {
 		var ret []PciSwitchRelationship
 		return ret
 	}
-	return *o.PciSwitch
+	return o.PciSwitch
 }
 
 // GetPciSwitchOk returns a tuple with the PciSwitch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetPciSwitchOk() (*[]PciSwitchRelationship, bool) {
 	if o == nil || o.PciSwitch == nil {
 		return nil, false
 	}
-	return o.PciSwitch, true
+	return &o.PciSwitch, true
 }
 
 // HasPciSwitch returns a boolean if a field has been set.
@@ -417,7 +457,7 @@ func (o *ComputeBoard) HasPciSwitch() bool {
 
 // SetPciSwitch gets a reference to the given []PciSwitchRelationship and assigns it to the PciSwitch field.
 func (o *ComputeBoard) SetPciSwitch(v []PciSwitchRelationship) {
-	o.PciSwitch = &v
+	o.PciSwitch = v
 }
 
 // GetPersistentMemoryConfiguration returns the PersistentMemoryConfiguration field value if set, zero value otherwise.
@@ -452,22 +492,23 @@ func (o *ComputeBoard) SetPersistentMemoryConfiguration(v MemoryPersistentMemory
 	o.PersistentMemoryConfiguration = &v
 }
 
-// GetProcessors returns the Processors field value if set, zero value otherwise.
+// GetProcessors returns the Processors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetProcessors() []ProcessorUnitRelationship {
-	if o == nil || o.Processors == nil {
+	if o == nil {
 		var ret []ProcessorUnitRelationship
 		return ret
 	}
-	return *o.Processors
+	return o.Processors
 }
 
 // GetProcessorsOk returns a tuple with the Processors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetProcessorsOk() (*[]ProcessorUnitRelationship, bool) {
 	if o == nil || o.Processors == nil {
 		return nil, false
 	}
-	return o.Processors, true
+	return &o.Processors, true
 }
 
 // HasProcessors returns a boolean if a field has been set.
@@ -481,7 +522,7 @@ func (o *ComputeBoard) HasProcessors() bool {
 
 // SetProcessors gets a reference to the given []ProcessorUnitRelationship and assigns it to the Processors field.
 func (o *ComputeBoard) SetProcessors(v []ProcessorUnitRelationship) {
-	o.Processors = &v
+	o.Processors = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -516,22 +557,23 @@ func (o *ComputeBoard) SetRegisteredDevice(v AssetDeviceRegistrationRelationship
 	o.RegisteredDevice = &v
 }
 
-// GetSecurityUnits returns the SecurityUnits field value if set, zero value otherwise.
+// GetSecurityUnits returns the SecurityUnits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetSecurityUnits() []SecurityUnitRelationship {
-	if o == nil || o.SecurityUnits == nil {
+	if o == nil {
 		var ret []SecurityUnitRelationship
 		return ret
 	}
-	return *o.SecurityUnits
+	return o.SecurityUnits
 }
 
 // GetSecurityUnitsOk returns a tuple with the SecurityUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetSecurityUnitsOk() (*[]SecurityUnitRelationship, bool) {
 	if o == nil || o.SecurityUnits == nil {
 		return nil, false
 	}
-	return o.SecurityUnits, true
+	return &o.SecurityUnits, true
 }
 
 // HasSecurityUnits returns a boolean if a field has been set.
@@ -545,25 +587,26 @@ func (o *ComputeBoard) HasSecurityUnits() bool {
 
 // SetSecurityUnits gets a reference to the given []SecurityUnitRelationship and assigns it to the SecurityUnits field.
 func (o *ComputeBoard) SetSecurityUnits(v []SecurityUnitRelationship) {
-	o.SecurityUnits = &v
+	o.SecurityUnits = v
 }
 
-// GetStorageControllers returns the StorageControllers field value if set, zero value otherwise.
+// GetStorageControllers returns the StorageControllers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetStorageControllers() []StorageControllerRelationship {
-	if o == nil || o.StorageControllers == nil {
+	if o == nil {
 		var ret []StorageControllerRelationship
 		return ret
 	}
-	return *o.StorageControllers
+	return o.StorageControllers
 }
 
 // GetStorageControllersOk returns a tuple with the StorageControllers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetStorageControllersOk() (*[]StorageControllerRelationship, bool) {
 	if o == nil || o.StorageControllers == nil {
 		return nil, false
 	}
-	return o.StorageControllers, true
+	return &o.StorageControllers, true
 }
 
 // HasStorageControllers returns a boolean if a field has been set.
@@ -577,25 +620,26 @@ func (o *ComputeBoard) HasStorageControllers() bool {
 
 // SetStorageControllers gets a reference to the given []StorageControllerRelationship and assigns it to the StorageControllers field.
 func (o *ComputeBoard) SetStorageControllers(v []StorageControllerRelationship) {
-	o.StorageControllers = &v
+	o.StorageControllers = v
 }
 
-// GetStorageFlexFlashControllers returns the StorageFlexFlashControllers field value if set, zero value otherwise.
+// GetStorageFlexFlashControllers returns the StorageFlexFlashControllers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetStorageFlexFlashControllers() []StorageFlexFlashControllerRelationship {
-	if o == nil || o.StorageFlexFlashControllers == nil {
+	if o == nil {
 		var ret []StorageFlexFlashControllerRelationship
 		return ret
 	}
-	return *o.StorageFlexFlashControllers
+	return o.StorageFlexFlashControllers
 }
 
 // GetStorageFlexFlashControllersOk returns a tuple with the StorageFlexFlashControllers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetStorageFlexFlashControllersOk() (*[]StorageFlexFlashControllerRelationship, bool) {
 	if o == nil || o.StorageFlexFlashControllers == nil {
 		return nil, false
 	}
-	return o.StorageFlexFlashControllers, true
+	return &o.StorageFlexFlashControllers, true
 }
 
 // HasStorageFlexFlashControllers returns a boolean if a field has been set.
@@ -609,25 +653,26 @@ func (o *ComputeBoard) HasStorageFlexFlashControllers() bool {
 
 // SetStorageFlexFlashControllers gets a reference to the given []StorageFlexFlashControllerRelationship and assigns it to the StorageFlexFlashControllers field.
 func (o *ComputeBoard) SetStorageFlexFlashControllers(v []StorageFlexFlashControllerRelationship) {
-	o.StorageFlexFlashControllers = &v
+	o.StorageFlexFlashControllers = v
 }
 
-// GetStorageFlexUtilControllers returns the StorageFlexUtilControllers field value if set, zero value otherwise.
+// GetStorageFlexUtilControllers returns the StorageFlexUtilControllers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBoard) GetStorageFlexUtilControllers() []StorageFlexUtilControllerRelationship {
-	if o == nil || o.StorageFlexUtilControllers == nil {
+	if o == nil {
 		var ret []StorageFlexUtilControllerRelationship
 		return ret
 	}
-	return *o.StorageFlexUtilControllers
+	return o.StorageFlexUtilControllers
 }
 
 // GetStorageFlexUtilControllersOk returns a tuple with the StorageFlexUtilControllers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeBoard) GetStorageFlexUtilControllersOk() (*[]StorageFlexUtilControllerRelationship, bool) {
 	if o == nil || o.StorageFlexUtilControllers == nil {
 		return nil, false
 	}
-	return o.StorageFlexUtilControllers, true
+	return &o.StorageFlexUtilControllers, true
 }
 
 // HasStorageFlexUtilControllers returns a boolean if a field has been set.
@@ -641,7 +686,7 @@ func (o *ComputeBoard) HasStorageFlexUtilControllers() bool {
 
 // SetStorageFlexUtilControllers gets a reference to the given []StorageFlexUtilControllerRelationship and assigns it to the StorageFlexUtilControllers field.
 func (o *ComputeBoard) SetStorageFlexUtilControllers(v []StorageFlexUtilControllerRelationship) {
-	o.StorageFlexUtilControllers = &v
+	o.StorageFlexUtilControllers = v
 }
 
 func (o ComputeBoard) MarshalJSON() ([]byte, error) {
@@ -677,6 +722,9 @@ func (o ComputeBoard) MarshalJSON() ([]byte, error) {
 	}
 	if o.GraphicsCards != nil {
 		toSerialize["GraphicsCards"] = o.GraphicsCards
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.MemoryArrays != nil {
 		toSerialize["MemoryArrays"] = o.MemoryArrays

@@ -18,20 +18,26 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**Description** | Pointer to **string** |  | [optional] [readonly] 
-**NumPorts** | Pointer to **int64** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**SlotId** | Pointer to **int64** |  | [optional] [readonly] 
-**State** | Pointer to **string** |  | [optional] [readonly] 
+**Description** | Pointer to **string** | Detailed description of this switch hardware. | [optional] [readonly] 
+**NumPorts** | Pointer to **int64** | Number of ports present in this switch hardware. | [optional] [readonly] 
+**OutOfBandIpAddress** | Pointer to **string** | Field specifies this Switch&#39;s Out-of-band IP address. | [optional] [readonly] 
+**OutOfBandIpGateway** | Pointer to **string** | Field specifies this Switch&#39;s default gateway for the out-of-band management interface. | [optional] [readonly] 
+**Presence** | Pointer to **string** | Presence for this switch hardware. | [optional] [readonly] 
+**SlotId** | Pointer to **int64** | Slot identifier of the local Switch slot Interface. | [optional] [readonly] 
+**State** | Pointer to **string** | Operational state of the switch hardware. | [optional] [readonly] 
+**SwitchId** | Pointer to **string** | Switch Identifier that is local to a cluster. | [optional] [readonly] 
+**FcPortChannels** | Pointer to [**[]FcPortChannelRelationship**](fc.PortChannel.Relationship.md) | An array of relationships to fcPortChannel resources. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **NetworkElement** | Pointer to [**NetworkElementRelationship**](network.Element.Relationship.md) |  | [optional] 
+**PortChannels** | Pointer to [**[]EtherPortChannelRelationship**](ether.PortChannel.Relationship.md) | An array of relationships to etherPortChannel resources. | [optional] 
 **PortGroups** | Pointer to [**[]PortGroupRelationship**](port.Group.Relationship.md) | An array of relationships to portGroup resources. | [optional] [readonly] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -344,6 +350,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *EquipmentSwitchCardRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *EquipmentSwitchCardRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *EquipmentSwitchCardRelationship) GetParent() MoBaseMoRelationship`
@@ -394,6 +410,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *EquipmentSwitchCardRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *EquipmentSwitchCardRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *EquipmentSwitchCardRelationship) GetDisplayNames() map[string][]string`
@@ -654,6 +680,56 @@ SetNumPorts sets NumPorts field to given value.
 
 HasNumPorts returns a boolean if a field has been set.
 
+### GetOutOfBandIpAddress
+
+`func (o *EquipmentSwitchCardRelationship) GetOutOfBandIpAddress() string`
+
+GetOutOfBandIpAddress returns the OutOfBandIpAddress field if non-nil, zero value otherwise.
+
+### GetOutOfBandIpAddressOk
+
+`func (o *EquipmentSwitchCardRelationship) GetOutOfBandIpAddressOk() (*string, bool)`
+
+GetOutOfBandIpAddressOk returns a tuple with the OutOfBandIpAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutOfBandIpAddress
+
+`func (o *EquipmentSwitchCardRelationship) SetOutOfBandIpAddress(v string)`
+
+SetOutOfBandIpAddress sets OutOfBandIpAddress field to given value.
+
+### HasOutOfBandIpAddress
+
+`func (o *EquipmentSwitchCardRelationship) HasOutOfBandIpAddress() bool`
+
+HasOutOfBandIpAddress returns a boolean if a field has been set.
+
+### GetOutOfBandIpGateway
+
+`func (o *EquipmentSwitchCardRelationship) GetOutOfBandIpGateway() string`
+
+GetOutOfBandIpGateway returns the OutOfBandIpGateway field if non-nil, zero value otherwise.
+
+### GetOutOfBandIpGatewayOk
+
+`func (o *EquipmentSwitchCardRelationship) GetOutOfBandIpGatewayOk() (*string, bool)`
+
+GetOutOfBandIpGatewayOk returns a tuple with the OutOfBandIpGateway field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutOfBandIpGateway
+
+`func (o *EquipmentSwitchCardRelationship) SetOutOfBandIpGateway(v string)`
+
+SetOutOfBandIpGateway sets OutOfBandIpGateway field to given value.
+
+### HasOutOfBandIpGateway
+
+`func (o *EquipmentSwitchCardRelationship) HasOutOfBandIpGateway() bool`
+
+HasOutOfBandIpGateway returns a boolean if a field has been set.
+
 ### GetPresence
 
 `func (o *EquipmentSwitchCardRelationship) GetPresence() string`
@@ -729,6 +805,91 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### GetSwitchId
+
+`func (o *EquipmentSwitchCardRelationship) GetSwitchId() string`
+
+GetSwitchId returns the SwitchId field if non-nil, zero value otherwise.
+
+### GetSwitchIdOk
+
+`func (o *EquipmentSwitchCardRelationship) GetSwitchIdOk() (*string, bool)`
+
+GetSwitchIdOk returns a tuple with the SwitchId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSwitchId
+
+`func (o *EquipmentSwitchCardRelationship) SetSwitchId(v string)`
+
+SetSwitchId sets SwitchId field to given value.
+
+### HasSwitchId
+
+`func (o *EquipmentSwitchCardRelationship) HasSwitchId() bool`
+
+HasSwitchId returns a boolean if a field has been set.
+
+### GetFcPortChannels
+
+`func (o *EquipmentSwitchCardRelationship) GetFcPortChannels() []FcPortChannelRelationship`
+
+GetFcPortChannels returns the FcPortChannels field if non-nil, zero value otherwise.
+
+### GetFcPortChannelsOk
+
+`func (o *EquipmentSwitchCardRelationship) GetFcPortChannelsOk() (*[]FcPortChannelRelationship, bool)`
+
+GetFcPortChannelsOk returns a tuple with the FcPortChannels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFcPortChannels
+
+`func (o *EquipmentSwitchCardRelationship) SetFcPortChannels(v []FcPortChannelRelationship)`
+
+SetFcPortChannels sets FcPortChannels field to given value.
+
+### HasFcPortChannels
+
+`func (o *EquipmentSwitchCardRelationship) HasFcPortChannels() bool`
+
+HasFcPortChannels returns a boolean if a field has been set.
+
+### SetFcPortChannelsNil
+
+`func (o *EquipmentSwitchCardRelationship) SetFcPortChannelsNil(b bool)`
+
+ SetFcPortChannelsNil sets the value for FcPortChannels to be an explicit nil
+
+### UnsetFcPortChannels
+`func (o *EquipmentSwitchCardRelationship) UnsetFcPortChannels()`
+
+UnsetFcPortChannels ensures that no value is present for FcPortChannels, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *EquipmentSwitchCardRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *EquipmentSwitchCardRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *EquipmentSwitchCardRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *EquipmentSwitchCardRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetNetworkElement
 
 `func (o *EquipmentSwitchCardRelationship) GetNetworkElement() NetworkElementRelationship`
@@ -754,6 +915,41 @@ SetNetworkElement sets NetworkElement field to given value.
 
 HasNetworkElement returns a boolean if a field has been set.
 
+### GetPortChannels
+
+`func (o *EquipmentSwitchCardRelationship) GetPortChannels() []EtherPortChannelRelationship`
+
+GetPortChannels returns the PortChannels field if non-nil, zero value otherwise.
+
+### GetPortChannelsOk
+
+`func (o *EquipmentSwitchCardRelationship) GetPortChannelsOk() (*[]EtherPortChannelRelationship, bool)`
+
+GetPortChannelsOk returns a tuple with the PortChannels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortChannels
+
+`func (o *EquipmentSwitchCardRelationship) SetPortChannels(v []EtherPortChannelRelationship)`
+
+SetPortChannels sets PortChannels field to given value.
+
+### HasPortChannels
+
+`func (o *EquipmentSwitchCardRelationship) HasPortChannels() bool`
+
+HasPortChannels returns a boolean if a field has been set.
+
+### SetPortChannelsNil
+
+`func (o *EquipmentSwitchCardRelationship) SetPortChannelsNil(b bool)`
+
+ SetPortChannelsNil sets the value for PortChannels to be an explicit nil
+
+### UnsetPortChannels
+`func (o *EquipmentSwitchCardRelationship) UnsetPortChannels()`
+
+UnsetPortChannels ensures that no value is present for PortChannels, not even an explicit nil
 ### GetPortGroups
 
 `func (o *EquipmentSwitchCardRelationship) GetPortGroups() []PortGroupRelationship`
@@ -779,6 +975,16 @@ SetPortGroups sets PortGroups field to given value.
 
 HasPortGroups returns a boolean if a field has been set.
 
+### SetPortGroupsNil
+
+`func (o *EquipmentSwitchCardRelationship) SetPortGroupsNil(b bool)`
+
+ SetPortGroupsNil sets the value for PortGroups to be an explicit nil
+
+### UnsetPortGroups
+`func (o *EquipmentSwitchCardRelationship) UnsetPortGroups()`
+
+UnsetPortGroups ensures that no value is present for PortGroups, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *EquipmentSwitchCardRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

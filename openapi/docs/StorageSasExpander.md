@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExpanderId** | Pointer to **int64** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**SasAddress** | Pointer to **string** |  | [optional] [readonly] 
+**ExpanderId** | Pointer to **int64** | Unique Identifier of the storage expander. | [optional] [readonly] 
+**Name** | Pointer to **string** | The name  of the installed storage expander. | [optional] 
+**OperState** | Pointer to **string** | The operational state of the storage expander. | [optional] [readonly] 
+**Operability** | Pointer to **string** | The operability status of the storage expander. | [optional] [readonly] 
+**Presence** | Pointer to **string** | The availability of the storage expander. | [optional] [readonly] 
+**SasAddress** | Pointer to **string** | The SAS address of the SAS expander. | [optional] [readonly] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
 **Controller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -183,6 +185,31 @@ SetSasAddress sets SasAddress field to given value.
 
 HasSasAddress returns a boolean if a field has been set.
 
+### GetComputeRackUnit
+
+`func (o *StorageSasExpander) GetComputeRackUnit() ComputeRackUnitRelationship`
+
+GetComputeRackUnit returns the ComputeRackUnit field if non-nil, zero value otherwise.
+
+### GetComputeRackUnitOk
+
+`func (o *StorageSasExpander) GetComputeRackUnitOk() (*ComputeRackUnitRelationship, bool)`
+
+GetComputeRackUnitOk returns a tuple with the ComputeRackUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComputeRackUnit
+
+`func (o *StorageSasExpander) SetComputeRackUnit(v ComputeRackUnitRelationship)`
+
+SetComputeRackUnit sets ComputeRackUnit field to given value.
+
+### HasComputeRackUnit
+
+`func (o *StorageSasExpander) HasComputeRackUnit() bool`
+
+HasComputeRackUnit returns a boolean if a field has been set.
+
 ### GetController
 
 `func (o *StorageSasExpander) GetController() ManagementControllerRelationship`
@@ -232,6 +259,31 @@ SetEquipmentChassis sets EquipmentChassis field to given value.
 `func (o *StorageSasExpander) HasEquipmentChassis() bool`
 
 HasEquipmentChassis returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StorageSasExpander) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StorageSasExpander) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StorageSasExpander) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StorageSasExpander) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ChassisId** | Pointer to **string** | The id of the chassis that the blade is located in. | [optional] [readonly] 
-**ScaledMode** | Pointer to **string** |  | [optional] [readonly] 
-**SlotId** | Pointer to **int64** |  | [optional] [readonly] 
+**ScaledMode** | Pointer to **string** | The mode of the server that determines it is scaled. | [optional] [readonly] 
+**SlotId** | Pointer to **int64** | The slot number in the chassis that the blade is located in. | [optional] [readonly] 
 **Adapters** | Pointer to [**[]AdapterUnitRelationship**](adapter.Unit.Relationship.md) | An array of relationships to adapterUnit resources. | [optional] [readonly] 
 **BiosUnits** | Pointer to [**[]BiosUnitRelationship**](bios.Unit.Relationship.md) | An array of relationships to biosUnit resources. | [optional] [readonly] 
 **Bmc** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
@@ -14,9 +14,14 @@ Name | Type | Description | Notes
 **EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
 **EquipmentIoExpanders** | Pointer to [**[]EquipmentIoExpanderRelationship**](equipment.IoExpander.Relationship.md) | An array of relationships to equipmentIoExpander resources. | [optional] [readonly] 
 **GenericInventoryHolders** | Pointer to [**[]InventoryGenericInventoryHolderRelationship**](inventory.GenericInventoryHolder.Relationship.md) | An array of relationships to inventoryGenericInventoryHolder resources. | [optional] [readonly] 
+**GraphicsCards** | Pointer to [**[]GraphicsCardRelationship**](graphics.Card.Relationship.md) | An array of relationships to graphicsCard resources. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](equipment.LocatorLed.Relationship.md) |  | [optional] 
+**MemoryArrays** | Pointer to [**[]MemoryArrayRelationship**](memory.Array.Relationship.md) | An array of relationships to memoryArray resources. | [optional] 
 **PciDevices** | Pointer to [**[]PciDeviceRelationship**](pci.Device.Relationship.md) | An array of relationships to pciDevice resources. | [optional] [readonly] 
+**Processors** | Pointer to [**[]ProcessorUnitRelationship**](processor.Unit.Relationship.md) | An array of relationships to processorUnit resources. | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**StorageControllers** | Pointer to [**[]StorageControllerRelationship**](storage.Controller.Relationship.md) | An array of relationships to storageController resources. | [optional] 
 **StorageEnclosures** | Pointer to [**[]StorageEnclosureRelationship**](storage.Enclosure.Relationship.md) | An array of relationships to storageEnclosure resources. | [optional] [readonly] 
 **TopSystem** | Pointer to [**TopSystemRelationship**](top.System.Relationship.md) |  | [optional] 
 
@@ -139,6 +144,16 @@ SetAdapters sets Adapters field to given value.
 
 HasAdapters returns a boolean if a field has been set.
 
+### SetAdaptersNil
+
+`func (o *ComputeBladeAllOf) SetAdaptersNil(b bool)`
+
+ SetAdaptersNil sets the value for Adapters to be an explicit nil
+
+### UnsetAdapters
+`func (o *ComputeBladeAllOf) UnsetAdapters()`
+
+UnsetAdapters ensures that no value is present for Adapters, not even an explicit nil
 ### GetBiosUnits
 
 `func (o *ComputeBladeAllOf) GetBiosUnits() []BiosUnitRelationship`
@@ -164,6 +179,16 @@ SetBiosUnits sets BiosUnits field to given value.
 
 HasBiosUnits returns a boolean if a field has been set.
 
+### SetBiosUnitsNil
+
+`func (o *ComputeBladeAllOf) SetBiosUnitsNil(b bool)`
+
+ SetBiosUnitsNil sets the value for BiosUnits to be an explicit nil
+
+### UnsetBiosUnits
+`func (o *ComputeBladeAllOf) UnsetBiosUnits()`
+
+UnsetBiosUnits ensures that no value is present for BiosUnits, not even an explicit nil
 ### GetBmc
 
 `func (o *ComputeBladeAllOf) GetBmc() ManagementControllerRelationship`
@@ -264,6 +289,16 @@ SetEquipmentIoExpanders sets EquipmentIoExpanders field to given value.
 
 HasEquipmentIoExpanders returns a boolean if a field has been set.
 
+### SetEquipmentIoExpandersNil
+
+`func (o *ComputeBladeAllOf) SetEquipmentIoExpandersNil(b bool)`
+
+ SetEquipmentIoExpandersNil sets the value for EquipmentIoExpanders to be an explicit nil
+
+### UnsetEquipmentIoExpanders
+`func (o *ComputeBladeAllOf) UnsetEquipmentIoExpanders()`
+
+UnsetEquipmentIoExpanders ensures that no value is present for EquipmentIoExpanders, not even an explicit nil
 ### GetGenericInventoryHolders
 
 `func (o *ComputeBladeAllOf) GetGenericInventoryHolders() []InventoryGenericInventoryHolderRelationship`
@@ -288,6 +323,76 @@ SetGenericInventoryHolders sets GenericInventoryHolders field to given value.
 `func (o *ComputeBladeAllOf) HasGenericInventoryHolders() bool`
 
 HasGenericInventoryHolders returns a boolean if a field has been set.
+
+### SetGenericInventoryHoldersNil
+
+`func (o *ComputeBladeAllOf) SetGenericInventoryHoldersNil(b bool)`
+
+ SetGenericInventoryHoldersNil sets the value for GenericInventoryHolders to be an explicit nil
+
+### UnsetGenericInventoryHolders
+`func (o *ComputeBladeAllOf) UnsetGenericInventoryHolders()`
+
+UnsetGenericInventoryHolders ensures that no value is present for GenericInventoryHolders, not even an explicit nil
+### GetGraphicsCards
+
+`func (o *ComputeBladeAllOf) GetGraphicsCards() []GraphicsCardRelationship`
+
+GetGraphicsCards returns the GraphicsCards field if non-nil, zero value otherwise.
+
+### GetGraphicsCardsOk
+
+`func (o *ComputeBladeAllOf) GetGraphicsCardsOk() (*[]GraphicsCardRelationship, bool)`
+
+GetGraphicsCardsOk returns a tuple with the GraphicsCards field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGraphicsCards
+
+`func (o *ComputeBladeAllOf) SetGraphicsCards(v []GraphicsCardRelationship)`
+
+SetGraphicsCards sets GraphicsCards field to given value.
+
+### HasGraphicsCards
+
+`func (o *ComputeBladeAllOf) HasGraphicsCards() bool`
+
+HasGraphicsCards returns a boolean if a field has been set.
+
+### SetGraphicsCardsNil
+
+`func (o *ComputeBladeAllOf) SetGraphicsCardsNil(b bool)`
+
+ SetGraphicsCardsNil sets the value for GraphicsCards to be an explicit nil
+
+### UnsetGraphicsCards
+`func (o *ComputeBladeAllOf) UnsetGraphicsCards()`
+
+UnsetGraphicsCards ensures that no value is present for GraphicsCards, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *ComputeBladeAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *ComputeBladeAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *ComputeBladeAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *ComputeBladeAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetLocatorLed
 
@@ -314,6 +419,41 @@ SetLocatorLed sets LocatorLed field to given value.
 
 HasLocatorLed returns a boolean if a field has been set.
 
+### GetMemoryArrays
+
+`func (o *ComputeBladeAllOf) GetMemoryArrays() []MemoryArrayRelationship`
+
+GetMemoryArrays returns the MemoryArrays field if non-nil, zero value otherwise.
+
+### GetMemoryArraysOk
+
+`func (o *ComputeBladeAllOf) GetMemoryArraysOk() (*[]MemoryArrayRelationship, bool)`
+
+GetMemoryArraysOk returns a tuple with the MemoryArrays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemoryArrays
+
+`func (o *ComputeBladeAllOf) SetMemoryArrays(v []MemoryArrayRelationship)`
+
+SetMemoryArrays sets MemoryArrays field to given value.
+
+### HasMemoryArrays
+
+`func (o *ComputeBladeAllOf) HasMemoryArrays() bool`
+
+HasMemoryArrays returns a boolean if a field has been set.
+
+### SetMemoryArraysNil
+
+`func (o *ComputeBladeAllOf) SetMemoryArraysNil(b bool)`
+
+ SetMemoryArraysNil sets the value for MemoryArrays to be an explicit nil
+
+### UnsetMemoryArrays
+`func (o *ComputeBladeAllOf) UnsetMemoryArrays()`
+
+UnsetMemoryArrays ensures that no value is present for MemoryArrays, not even an explicit nil
 ### GetPciDevices
 
 `func (o *ComputeBladeAllOf) GetPciDevices() []PciDeviceRelationship`
@@ -339,6 +479,51 @@ SetPciDevices sets PciDevices field to given value.
 
 HasPciDevices returns a boolean if a field has been set.
 
+### SetPciDevicesNil
+
+`func (o *ComputeBladeAllOf) SetPciDevicesNil(b bool)`
+
+ SetPciDevicesNil sets the value for PciDevices to be an explicit nil
+
+### UnsetPciDevices
+`func (o *ComputeBladeAllOf) UnsetPciDevices()`
+
+UnsetPciDevices ensures that no value is present for PciDevices, not even an explicit nil
+### GetProcessors
+
+`func (o *ComputeBladeAllOf) GetProcessors() []ProcessorUnitRelationship`
+
+GetProcessors returns the Processors field if non-nil, zero value otherwise.
+
+### GetProcessorsOk
+
+`func (o *ComputeBladeAllOf) GetProcessorsOk() (*[]ProcessorUnitRelationship, bool)`
+
+GetProcessorsOk returns a tuple with the Processors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProcessors
+
+`func (o *ComputeBladeAllOf) SetProcessors(v []ProcessorUnitRelationship)`
+
+SetProcessors sets Processors field to given value.
+
+### HasProcessors
+
+`func (o *ComputeBladeAllOf) HasProcessors() bool`
+
+HasProcessors returns a boolean if a field has been set.
+
+### SetProcessorsNil
+
+`func (o *ComputeBladeAllOf) SetProcessorsNil(b bool)`
+
+ SetProcessorsNil sets the value for Processors to be an explicit nil
+
+### UnsetProcessors
+`func (o *ComputeBladeAllOf) UnsetProcessors()`
+
+UnsetProcessors ensures that no value is present for Processors, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *ComputeBladeAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -364,6 +549,41 @@ SetRegisteredDevice sets RegisteredDevice field to given value.
 
 HasRegisteredDevice returns a boolean if a field has been set.
 
+### GetStorageControllers
+
+`func (o *ComputeBladeAllOf) GetStorageControllers() []StorageControllerRelationship`
+
+GetStorageControllers returns the StorageControllers field if non-nil, zero value otherwise.
+
+### GetStorageControllersOk
+
+`func (o *ComputeBladeAllOf) GetStorageControllersOk() (*[]StorageControllerRelationship, bool)`
+
+GetStorageControllersOk returns a tuple with the StorageControllers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageControllers
+
+`func (o *ComputeBladeAllOf) SetStorageControllers(v []StorageControllerRelationship)`
+
+SetStorageControllers sets StorageControllers field to given value.
+
+### HasStorageControllers
+
+`func (o *ComputeBladeAllOf) HasStorageControllers() bool`
+
+HasStorageControllers returns a boolean if a field has been set.
+
+### SetStorageControllersNil
+
+`func (o *ComputeBladeAllOf) SetStorageControllersNil(b bool)`
+
+ SetStorageControllersNil sets the value for StorageControllers to be an explicit nil
+
+### UnsetStorageControllers
+`func (o *ComputeBladeAllOf) UnsetStorageControllers()`
+
+UnsetStorageControllers ensures that no value is present for StorageControllers, not even an explicit nil
 ### GetStorageEnclosures
 
 `func (o *ComputeBladeAllOf) GetStorageEnclosures() []StorageEnclosureRelationship`
@@ -389,6 +609,16 @@ SetStorageEnclosures sets StorageEnclosures field to given value.
 
 HasStorageEnclosures returns a boolean if a field has been set.
 
+### SetStorageEnclosuresNil
+
+`func (o *ComputeBladeAllOf) SetStorageEnclosuresNil(b bool)`
+
+ SetStorageEnclosuresNil sets the value for StorageEnclosures to be an explicit nil
+
+### UnsetStorageEnclosures
+`func (o *ComputeBladeAllOf) UnsetStorageEnclosures()`
+
+UnsetStorageEnclosures ensures that no value is present for StorageEnclosures, not even an explicit nil
 ### GetTopSystem
 
 `func (o *ComputeBladeAllOf) GetTopSystem() TopSystemRelationship`

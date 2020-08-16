@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NumberOfBlocks** | Pointer to **string** |  | [optional] [readonly] 
-**PhysicalDrive** | Pointer to **string** |  | [optional] [readonly] 
-**Span** | Pointer to **string** |  | [optional] [readonly] 
-**StartingBlock** | Pointer to **string** |  | [optional] [readonly] 
-**State** | Pointer to **string** |  | [optional] [readonly] 
-**VirtualDrive** | Pointer to **string** |  | [optional] [readonly] 
+**NumberOfBlocks** | Pointer to **string** | The number of blocks that are a part of the virtual drive. | [optional] [readonly] 
+**PhysicalDrive** | Pointer to **string** | The physical disk for which the usage is reported. | [optional] [readonly] 
+**Span** | Pointer to **string** | The span of the physical disk. | [optional] [readonly] 
+**StartingBlock** | Pointer to **string** | The starting block id of the virtual drive within the physical drive. | [optional] [readonly] 
+**State** | Pointer to **string** | The current state of the physical disk usage. | [optional] [readonly] 
+**VirtualDrive** | Pointer to **string** | The virtual drive corresponding to the physical disk. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -180,6 +181,31 @@ SetVirtualDrive sets VirtualDrive field to given value.
 `func (o *StoragePhysicalDiskUsageAllOf) HasVirtualDrive() bool`
 
 HasVirtualDrive returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskUsageAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StoragePhysicalDiskUsageAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskUsageAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskUsageAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

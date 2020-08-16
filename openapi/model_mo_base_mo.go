@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -39,11 +39,11 @@ type MoBaseMo struct {
 	Tags           *[]MoTag          `json:"Tags,omitempty" yaml:"Tags,omitempty"`
 	VersionContext *MoVersionContext `json:"VersionContext,omitempty" yaml:"VersionContext,omitempty"`
 	// An array of relationships to moBaseMo resources.
-	Ancestors *[]MoBaseMoRelationship `json:"Ancestors,omitempty" yaml:"Ancestors,omitempty"`
-	Parent    *MoBaseMoRelationship   `json:"Parent,omitempty" yaml:"Parent,omitempty"`
+	Ancestors []MoBaseMoRelationship `json:"Ancestors,omitempty" yaml:"Ancestors,omitempty"`
+	Parent    *MoBaseMoRelationship  `json:"Parent,omitempty" yaml:"Parent,omitempty"`
 	// An array of relationships to moBaseMo resources.
-	PermissionResources *[]MoBaseMoRelationship `json:"PermissionResources,omitempty" yaml:"PermissionResources,omitempty"`
-	// a map of display names for a resource.
+	PermissionResources []MoBaseMoRelationship `json:"PermissionResources,omitempty" yaml:"PermissionResources,omitempty"`
+	// A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a 'Name' property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently 'short' and 'hierarchical'. The value is an array and clients should use the first element of the array.
 	DisplayNames map[string][]string `json:"DisplayNames,omitempty" yaml:"DisplayNames,omitempty"`
 }
 
@@ -402,22 +402,23 @@ func (o *MoBaseMo) SetVersionContext(v MoVersionContext) {
 	o.VersionContext = &v
 }
 
-// GetAncestors returns the Ancestors field value if set, zero value otherwise.
+// GetAncestors returns the Ancestors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MoBaseMo) GetAncestors() []MoBaseMoRelationship {
-	if o == nil || o.Ancestors == nil {
+	if o == nil {
 		var ret []MoBaseMoRelationship
 		return ret
 	}
-	return *o.Ancestors
+	return o.Ancestors
 }
 
 // GetAncestorsOk returns a tuple with the Ancestors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MoBaseMo) GetAncestorsOk() (*[]MoBaseMoRelationship, bool) {
 	if o == nil || o.Ancestors == nil {
 		return nil, false
 	}
-	return o.Ancestors, true
+	return &o.Ancestors, true
 }
 
 // HasAncestors returns a boolean if a field has been set.
@@ -431,7 +432,7 @@ func (o *MoBaseMo) HasAncestors() bool {
 
 // SetAncestors gets a reference to the given []MoBaseMoRelationship and assigns it to the Ancestors field.
 func (o *MoBaseMo) SetAncestors(v []MoBaseMoRelationship) {
-	o.Ancestors = &v
+	o.Ancestors = v
 }
 
 // GetParent returns the Parent field value if set, zero value otherwise.
@@ -466,22 +467,23 @@ func (o *MoBaseMo) SetParent(v MoBaseMoRelationship) {
 	o.Parent = &v
 }
 
-// GetPermissionResources returns the PermissionResources field value if set, zero value otherwise.
+// GetPermissionResources returns the PermissionResources field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MoBaseMo) GetPermissionResources() []MoBaseMoRelationship {
-	if o == nil || o.PermissionResources == nil {
+	if o == nil {
 		var ret []MoBaseMoRelationship
 		return ret
 	}
-	return *o.PermissionResources
+	return o.PermissionResources
 }
 
 // GetPermissionResourcesOk returns a tuple with the PermissionResources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MoBaseMo) GetPermissionResourcesOk() (*[]MoBaseMoRelationship, bool) {
 	if o == nil || o.PermissionResources == nil {
 		return nil, false
 	}
-	return o.PermissionResources, true
+	return &o.PermissionResources, true
 }
 
 // HasPermissionResources returns a boolean if a field has been set.
@@ -495,7 +497,7 @@ func (o *MoBaseMo) HasPermissionResources() bool {
 
 // SetPermissionResources gets a reference to the given []MoBaseMoRelationship and assigns it to the PermissionResources field.
 func (o *MoBaseMo) SetPermissionResources(v []MoBaseMoRelationship) {
-	o.PermissionResources = &v
+	o.PermissionResources = v
 }
 
 // GetDisplayNames returns the DisplayNames field value if set, zero value otherwise (both if not set or set to explicit null).

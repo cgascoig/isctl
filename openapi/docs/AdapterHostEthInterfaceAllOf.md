@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdminState** | Pointer to **string** |  | [optional] [readonly] 
-**EpDn** | Pointer to **string** |  | [optional] [readonly] 
-**HostEthInterfaceId** | Pointer to **int64** |  | [optional] [readonly] 
-**InterfaceType** | Pointer to **string** |  | [optional] [readonly] 
-**MacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
-**OperState** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**OriginalMacAddress** | Pointer to **string** |  | [optional] [readonly] 
-**PciAddr** | Pointer to **string** |  | [optional] [readonly] 
-**PeerDn** | Pointer to **string** |  | [optional] [readonly] 
-**VirtualizationPreference** | Pointer to **string** |  | [optional] [readonly] 
-**VnicDn** | Pointer to **string** |  | [optional] [readonly] 
+**AdminState** | Pointer to **string** | Admin state of the Host Ethernet Interface. | [optional] [readonly] 
+**EpDn** | Pointer to **string** | The Endpoint Config Dn of the Host Ethernet Interface. | [optional] [readonly] 
+**HostEthInterfaceId** | Pointer to **int64** | Unique Identifier for an Host Ethernet Interface within the adapter object. | [optional] [readonly] 
+**InterfaceType** | Pointer to **string** | Type of External Ethernet Interface. | [optional] [readonly] 
+**MacAddress** | Pointer to **string** | Mac address of the Host Ethernet Interface. | [optional] [readonly] 
+**Name** | Pointer to **string** | Name of Host Ethernet Interface. | [optional] [readonly] 
+**Operability** | Pointer to **string** | Operability status of Host Ethernet Channel Interface. | [optional] [readonly] 
+**OriginalMacAddress** | Pointer to **string** | The factory default Mac address of the Host Ethernet Interface. | [optional] [readonly] 
+**PciAddr** | Pointer to **string** | The PCI address of the Host Ethernet Interface. | [optional] [readonly] 
+**PeerDn** | Pointer to **string** | The distinguished name of the peer endpoint connected to the Host Ethernet interface. | [optional] [readonly] 
+**VirtualizationPreference** | Pointer to **string** | Virtualization Preference of the Host Ethernet Interface indicating if virtualization is enabled or not. | [optional] [readonly] 
+**VnicDn** | Pointer to **string** | The Virtual Ethernet Interface DN connected to the Host Ethernet Interface. | [optional] [readonly] 
 **AdapterUnit** | Pointer to [**AdapterUnitRelationship**](adapter.Unit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -188,31 +188,6 @@ SetName sets Name field to given value.
 `func (o *AdapterHostEthInterfaceAllOf) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
-### GetOperState
-
-`func (o *AdapterHostEthInterfaceAllOf) GetOperState() string`
-
-GetOperState returns the OperState field if non-nil, zero value otherwise.
-
-### GetOperStateOk
-
-`func (o *AdapterHostEthInterfaceAllOf) GetOperStateOk() (*string, bool)`
-
-GetOperStateOk returns a tuple with the OperState field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOperState
-
-`func (o *AdapterHostEthInterfaceAllOf) SetOperState(v string)`
-
-SetOperState sets OperState field to given value.
-
-### HasOperState
-
-`func (o *AdapterHostEthInterfaceAllOf) HasOperState() bool`
-
-HasOperState returns a boolean if a field has been set.
 
 ### GetOperability
 
@@ -388,6 +363,31 @@ SetAdapterUnit sets AdapterUnit field to given value.
 `func (o *AdapterHostEthInterfaceAllOf) HasAdapterUnit() bool`
 
 HasAdapterUnit returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *AdapterHostEthInterfaceAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *AdapterHostEthInterfaceAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *AdapterHostEthInterfaceAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *AdapterHostEthInterfaceAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

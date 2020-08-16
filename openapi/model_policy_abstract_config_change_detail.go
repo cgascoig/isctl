@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -21,12 +21,12 @@ type PolicyAbstractConfigChangeDetail struct {
 	MoBaseMo            `yaml:"MoBaseMo,inline"`
 	Changes             *[]string                  `json:"Changes,omitempty" yaml:"Changes,omitempty"`
 	ConfigChangeContext *PolicyConfigResultContext `json:"ConfigChangeContext,omitempty" yaml:"ConfigChangeContext,omitempty"`
-	// Config change flag to differentiate Pending-changes and Config-drift.
+	// Config change flag to differentiate Pending-changes and Config-drift. * `Pending-changes` - Config change flag represents changes are due to not deployed changes from Intersight. * `Drift-changes` - Config change flag represents changes are due to endpoint configuration changes.
 	ConfigChangeFlag *string   `json:"ConfigChangeFlag,omitempty" yaml:"ConfigChangeFlag,omitempty"`
 	Disruptions      *[]string `json:"Disruptions,omitempty" yaml:"Disruptions,omitempty"`
-	// Detailed description of the config change. type: string
-	Message interface{} `json:"Message,omitempty" yaml:"Message,omitempty"`
-	// Modification status of the mo in this config change.
+	// Detailed description of the config change.
+	Message *string `json:"Message,omitempty" yaml:"Message,omitempty"`
+	// Modification status of the mo in this config change. * `None` - The 'none' operation/state.Indicates a configuration profile has been deployed, and the desired configuration matches the actual device configuration. * `Created` - The 'create' operation/state.Indicates a configuration profile has been created and associated with a device, but the configuration specified in the profilehas not been applied yet. For example, this could happen when the user creates a server profile and has not deployed the profile yet. * `Modified` - The 'update' operation/state.Indicates some of the desired configuration changes specified in a profile have not been been applied to the associated device.This happens when the user has made changes to a profile and has not deployed the changes yet, or when the workflow to applythe configuration changes has not completed succesfully. * `Deleted` - The 'delete' operation/state.Indicates a configuration profile has been been disassociated from a device and the user has not undeployed these changes yet.
 	ModStatus *string `json:"ModStatus,omitempty" yaml:"ModStatus,omitempty"`
 }
 
@@ -183,23 +183,22 @@ func (o *PolicyAbstractConfigChangeDetail) SetDisruptions(v []string) {
 	o.Disruptions = &v
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PolicyAbstractConfigChangeDetail) GetMessage() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetMessage returns the Message field value if set, zero value otherwise.
+func (o *PolicyAbstractConfigChangeDetail) GetMessage() string {
+	if o == nil || o.Message == nil {
+		var ret string
 		return ret
 	}
-	return o.Message
+	return *o.Message
 }
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PolicyAbstractConfigChangeDetail) GetMessageOk() (*interface{}, bool) {
+func (o *PolicyAbstractConfigChangeDetail) GetMessageOk() (*string, bool) {
 	if o == nil || o.Message == nil {
 		return nil, false
 	}
-	return &o.Message, true
+	return o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
@@ -211,9 +210,9 @@ func (o *PolicyAbstractConfigChangeDetail) HasMessage() bool {
 	return false
 }
 
-// SetMessage gets a reference to the given interface{} and assigns it to the Message field.
-func (o *PolicyAbstractConfigChangeDetail) SetMessage(v interface{}) {
-	o.Message = v
+// SetMessage gets a reference to the given string and assigns it to the Message field.
+func (o *PolicyAbstractConfigChangeDetail) SetMessage(v string) {
+	o.Message = &v
 }
 
 // GetModStatus returns the ModStatus field value if set, zero value otherwise.

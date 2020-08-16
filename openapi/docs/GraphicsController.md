@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ControllerId** | Pointer to **int64** | It shows the id of graphics controller. | [optional] [readonly] 
-**PciAddr** | Pointer to **string** | It shows the pci address of graphics controller. | [optional] [readonly] 
-**PciSlot** | Pointer to **string** | It shows the pci slot inforamtion of graphics controller. | [optional] [readonly] 
+**ControllerId** | Pointer to **int64** | The id of the graphics controller. | [optional] [readonly] 
+**PciAddr** | Pointer to **string** | The PCI address of the graphics controller. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | The PCI slot information of the graphics controller. | [optional] [readonly] 
 **GraphicsCard** | Pointer to [**GraphicsCardRelationship**](graphics.Card.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -128,6 +129,31 @@ SetGraphicsCard sets GraphicsCard field to given value.
 `func (o *GraphicsController) HasGraphicsCard() bool`
 
 HasGraphicsCard returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *GraphicsController) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *GraphicsController) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *GraphicsController) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *GraphicsController) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

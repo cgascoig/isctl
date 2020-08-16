@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Transport** | Pointer to **string** |  | [optional] [readonly] 
+**Transport** | Pointer to **string** | Type of port group. Values are Eth or Fc. | [optional] [readonly] 
 **EquipmentSharedIoModule** | Pointer to [**EquipmentSharedIoModuleRelationship**](equipment.SharedIoModule.Relationship.md) |  | [optional] 
 **EquipmentSwitchCard** | Pointer to [**EquipmentSwitchCardRelationship**](equipment.SwitchCard.Relationship.md) |  | [optional] 
 **EthernetPorts** | Pointer to [**[]EtherPhysicalPortRelationship**](ether.PhysicalPort.Relationship.md) | An array of relationships to etherPhysicalPort resources. | [optional] [readonly] 
 **FcPorts** | Pointer to [**[]FcPhysicalPortRelationship**](fc.PhysicalPort.Relationship.md) | An array of relationships to fcPhysicalPort resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **SubGroups** | Pointer to [**[]PortSubGroupRelationship**](port.SubGroup.Relationship.md) | An array of relationships to portSubGroup resources. | [optional] [readonly] 
 
@@ -131,6 +132,16 @@ SetEthernetPorts sets EthernetPorts field to given value.
 
 HasEthernetPorts returns a boolean if a field has been set.
 
+### SetEthernetPortsNil
+
+`func (o *PortGroup) SetEthernetPortsNil(b bool)`
+
+ SetEthernetPortsNil sets the value for EthernetPorts to be an explicit nil
+
+### UnsetEthernetPorts
+`func (o *PortGroup) UnsetEthernetPorts()`
+
+UnsetEthernetPorts ensures that no value is present for EthernetPorts, not even an explicit nil
 ### GetFcPorts
 
 `func (o *PortGroup) GetFcPorts() []FcPhysicalPortRelationship`
@@ -155,6 +166,41 @@ SetFcPorts sets FcPorts field to given value.
 `func (o *PortGroup) HasFcPorts() bool`
 
 HasFcPorts returns a boolean if a field has been set.
+
+### SetFcPortsNil
+
+`func (o *PortGroup) SetFcPortsNil(b bool)`
+
+ SetFcPortsNil sets the value for FcPorts to be an explicit nil
+
+### UnsetFcPorts
+`func (o *PortGroup) UnsetFcPorts()`
+
+UnsetFcPorts ensures that no value is present for FcPorts, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *PortGroup) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *PortGroup) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *PortGroup) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *PortGroup) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 
@@ -206,6 +252,16 @@ SetSubGroups sets SubGroups field to given value.
 
 HasSubGroups returns a boolean if a field has been set.
 
+### SetSubGroupsNil
+
+`func (o *PortGroup) SetSubGroupsNil(b bool)`
+
+ SetSubGroupsNil sets the value for SubGroups to be an explicit nil
+
+### UnsetSubGroups
+`func (o *PortGroup) UnsetSubGroups()`
+
+UnsetSubGroups ensures that no value is present for SubGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

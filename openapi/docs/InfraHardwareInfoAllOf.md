@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CpuCores** | Pointer to **int64** | The number of CPU cores on this hardware platform. | [optional] 
-**CpuSpeed** | Pointer to **int64** | Speed of CPU in MHz, as reported by the hardware platform. | [optional] 
+**CpuCores** | Pointer to **int64** | The number of cpu cores on this hardware platform. | [optional] 
+**CpuSpeed** | Pointer to **int64** | Speed of cpu in MHz. Usually cpu speeds are reported for modern cpus in GHz but MHz makes it more precise. | [optional] 
 **MemorySize** | Pointer to **int64** | The amount of memory allocated (bytes) to this hardware platform. | [optional] 
 
 ## Methods

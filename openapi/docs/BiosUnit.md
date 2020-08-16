@@ -4,12 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InitSeq** | Pointer to **string** |  | [optional] [readonly] 
-**InitTs** | Pointer to **string** |  | [optional] [readonly] 
+**InitSeq** | Pointer to **string** | The initSeq of the equipment. | [optional] [readonly] 
+**InitTs** | Pointer to **string** | The initTs of the equipment. | [optional] [readonly] 
 **ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
 **ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 **RunningFirmware** | Pointer to [**[]FirmwareRunningFirmwareRelationship**](firmware.RunningFirmware.Relationship.md) | An array of relationships to firmwareRunningFirmware resources. | [optional] [readonly] 
+**SystemBootOrder** | Pointer to [**BiosSystemBootOrderRelationship**](bios.SystemBootOrder.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -130,6 +132,31 @@ SetComputeRackUnit sets ComputeRackUnit field to given value.
 
 HasComputeRackUnit returns a boolean if a field has been set.
 
+### GetInventoryDeviceInfo
+
+`func (o *BiosUnit) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *BiosUnit) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *BiosUnit) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *BiosUnit) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetRegisteredDevice
 
 `func (o *BiosUnit) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -179,6 +206,41 @@ SetRunningFirmware sets RunningFirmware field to given value.
 `func (o *BiosUnit) HasRunningFirmware() bool`
 
 HasRunningFirmware returns a boolean if a field has been set.
+
+### SetRunningFirmwareNil
+
+`func (o *BiosUnit) SetRunningFirmwareNil(b bool)`
+
+ SetRunningFirmwareNil sets the value for RunningFirmware to be an explicit nil
+
+### UnsetRunningFirmware
+`func (o *BiosUnit) UnsetRunningFirmware()`
+
+UnsetRunningFirmware ensures that no value is present for RunningFirmware, not even an explicit nil
+### GetSystemBootOrder
+
+`func (o *BiosUnit) GetSystemBootOrder() BiosSystemBootOrderRelationship`
+
+GetSystemBootOrder returns the SystemBootOrder field if non-nil, zero value otherwise.
+
+### GetSystemBootOrderOk
+
+`func (o *BiosUnit) GetSystemBootOrderOk() (*BiosSystemBootOrderRelationship, bool)`
+
+GetSystemBootOrderOk returns a tuple with the SystemBootOrder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSystemBootOrder
+
+`func (o *BiosUnit) SetSystemBootOrder(v BiosSystemBootOrderRelationship)`
+
+SetSystemBootOrder sets SystemBootOrder field to given value.
+
+### HasSystemBootOrder
+
+`func (o *BiosUnit) HasSystemBootOrder() bool`
+
+HasSystemBootOrder returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

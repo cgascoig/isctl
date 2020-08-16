@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | The name of this resource membership holder. | [optional] [readonly] 
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
-**Memberships** | Pointer to [**[]ResourceMembershipRelationship**](resource.Membership.Relationship.md) | An array of relationships to resourceMembership resources. | [optional] [readonly] 
 
 ## Methods
 
@@ -76,31 +75,6 @@ SetAccount sets Account field to given value.
 `func (o *ResourceMembershipHolderAllOf) HasAccount() bool`
 
 HasAccount returns a boolean if a field has been set.
-
-### GetMemberships
-
-`func (o *ResourceMembershipHolderAllOf) GetMemberships() []ResourceMembershipRelationship`
-
-GetMemberships returns the Memberships field if non-nil, zero value otherwise.
-
-### GetMembershipsOk
-
-`func (o *ResourceMembershipHolderAllOf) GetMembershipsOk() (*[]ResourceMembershipRelationship, bool)`
-
-GetMembershipsOk returns a tuple with the Memberships field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMemberships
-
-`func (o *ResourceMembershipHolderAllOf) SetMemberships(v []ResourceMembershipRelationship)`
-
-SetMemberships sets Memberships field to given value.
-
-### HasMemberships
-
-`func (o *ResourceMembershipHolderAllOf) HasMemberships() bool`
-
-HasMemberships returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

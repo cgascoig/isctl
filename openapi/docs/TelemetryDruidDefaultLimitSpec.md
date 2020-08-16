@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | Pointer to **string** | The limit spec type. | 
 **Limit** | Pointer to **int32** | How many rows to return. If not specified, all rows will be returned. | 
 **Columns** | Pointer to [**[]TelemetryDruidOrderByColumnSpec**](telemetry.DruidOrderByColumnSpec.md) | null | 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewTelemetryDruidDefaultLimitSpec
 
-`func NewTelemetryDruidDefaultLimitSpec(limit int32, columns []TelemetryDruidOrderByColumnSpec, ) *TelemetryDruidDefaultLimitSpec`
+`func NewTelemetryDruidDefaultLimitSpec(type_ string, limit int32, columns []TelemetryDruidOrderByColumnSpec, ) *TelemetryDruidDefaultLimitSpec`
 
 NewTelemetryDruidDefaultLimitSpec instantiates a new TelemetryDruidDefaultLimitSpec object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewTelemetryDruidDefaultLimitSpecWithDefaults instantiates a new TelemetryDruidDefaultLimitSpec object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetType
+
+`func (o *TelemetryDruidDefaultLimitSpec) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TelemetryDruidDefaultLimitSpec) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TelemetryDruidDefaultLimitSpec) SetType(v string)`
+
+SetType sets Type field to given value.
+
 
 ### GetLimit
 

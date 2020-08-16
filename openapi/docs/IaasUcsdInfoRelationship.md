@@ -18,17 +18,17 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceId** | Pointer to **string** | Moid of the UCSD device connector&#39;s asset.DeviceRegistration. | [optional] [readonly] 
-**Guid** | Pointer to **string** | Unique ID of UCSD getting registerd with Intersight. | [optional] [readonly] 
-**HostName** | Pointer to **string** | The UCSD host name. | [optional] [readonly] 
-**Ip** | Pointer to **string** | The UCSD IP address. | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceId** | Pointer to **string** | Moid of the UCS Director device connector&#39;s asset.DeviceRegistration. | [optional] [readonly] 
+**Guid** | Pointer to **string** | Unique ID of UCS Director getting registerd with Intersight. | [optional] [readonly] 
+**HostName** | Pointer to **string** | The UCS Director hostname for management. | [optional] [readonly] 
+**Ip** | Pointer to **string** | The UCS Director IP address for management. | [optional] [readonly] 
 **LastBackup** | Pointer to [**time.Time**](time.Time.md) | Last successful backup created for this UCS Director appliance if backup is configured. | [optional] [readonly] 
-**NodeType** | Pointer to **string** | NodeType specifies if UCSD is deployed in Stand-alone or Multi Node. | [optional] [readonly] 
-**ProductName** | Pointer to **string** | The UCSD product name. | [optional] [readonly] 
-**ProductVendor** | Pointer to **string** | The UCSD product vendor. | [optional] [readonly] 
-**ProductVersion** | Pointer to **string** | The UCSD product/platform version. | [optional] [readonly] 
-**Status** | Pointer to **string** | The UCSD status. Possible values are Active, Inactive, Unknown. | [optional] [readonly] 
+**NodeType** | Pointer to **string** | NodeType specifies if UCS Director is deployed in Stand-alone or Multi Node. | [optional] [readonly] 
+**ProductName** | Pointer to **string** | The UCS Director product name. | [optional] [readonly] 
+**ProductVendor** | Pointer to **string** | The UCS Director product vendor. | [optional] [readonly] 
+**ProductVersion** | Pointer to **string** | The UCS Director product/platform version. | [optional] [readonly] 
+**Status** | Pointer to **string** | The UCS Director status. Possible values are Active, Inactive, Unknown. | [optional] [readonly] 
 **ConnectorPack** | Pointer to [**[]IaasConnectorPackRelationship**](iaas.ConnectorPack.Relationship.md) | An array of relationships to iaasConnectorPack resources. | [optional] [readonly] 
 **DeviceStatus** | Pointer to [**[]IaasDeviceStatusRelationship**](iaas.DeviceStatus.Relationship.md) | An array of relationships to iaasDeviceStatus resources. | [optional] [readonly] 
 **LicenseInfo** | Pointer to [**IaasLicenseInfoRelationship**](iaas.LicenseInfo.Relationship.md) |  | [optional] 
@@ -345,6 +345,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *IaasUcsdInfoRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *IaasUcsdInfoRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *IaasUcsdInfoRelationship) GetParent() MoBaseMoRelationship`
@@ -395,6 +405,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *IaasUcsdInfoRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *IaasUcsdInfoRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *IaasUcsdInfoRelationship) GetDisplayNames() map[string][]string`
@@ -705,6 +725,16 @@ SetConnectorPack sets ConnectorPack field to given value.
 
 HasConnectorPack returns a boolean if a field has been set.
 
+### SetConnectorPackNil
+
+`func (o *IaasUcsdInfoRelationship) SetConnectorPackNil(b bool)`
+
+ SetConnectorPackNil sets the value for ConnectorPack to be an explicit nil
+
+### UnsetConnectorPack
+`func (o *IaasUcsdInfoRelationship) UnsetConnectorPack()`
+
+UnsetConnectorPack ensures that no value is present for ConnectorPack, not even an explicit nil
 ### GetDeviceStatus
 
 `func (o *IaasUcsdInfoRelationship) GetDeviceStatus() []IaasDeviceStatusRelationship`
@@ -730,6 +760,16 @@ SetDeviceStatus sets DeviceStatus field to given value.
 
 HasDeviceStatus returns a boolean if a field has been set.
 
+### SetDeviceStatusNil
+
+`func (o *IaasUcsdInfoRelationship) SetDeviceStatusNil(b bool)`
+
+ SetDeviceStatusNil sets the value for DeviceStatus to be an explicit nil
+
+### UnsetDeviceStatus
+`func (o *IaasUcsdInfoRelationship) UnsetDeviceStatus()`
+
+UnsetDeviceStatus ensures that no value is present for DeviceStatus, not even an explicit nil
 ### GetLicenseInfo
 
 `func (o *IaasUcsdInfoRelationship) GetLicenseInfo() IaasLicenseInfoRelationship`
@@ -780,6 +820,16 @@ SetMostRunTasks sets MostRunTasks field to given value.
 
 HasMostRunTasks returns a boolean if a field has been set.
 
+### SetMostRunTasksNil
+
+`func (o *IaasUcsdInfoRelationship) SetMostRunTasksNil(b bool)`
+
+ SetMostRunTasksNil sets the value for MostRunTasks to be an explicit nil
+
+### UnsetMostRunTasks
+`func (o *IaasUcsdInfoRelationship) UnsetMostRunTasks()`
+
+UnsetMostRunTasks ensures that no value is present for MostRunTasks, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *IaasUcsdInfoRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

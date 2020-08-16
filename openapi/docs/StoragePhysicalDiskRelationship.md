@@ -18,40 +18,42 @@ Name | Type | Description | Notes
 **Ancestors** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
 **Parent** | Pointer to [**MoBaseMoRelationship**](mo.BaseMo.Relationship.md) |  | [optional] 
 **PermissionResources** | Pointer to [**[]MoBaseMoRelationship**](mo.BaseMo.Relationship.md) | An array of relationships to moBaseMo resources. | [optional] [readonly] 
-**DisplayNames** | Pointer to [**map[string][]string**](array.md) | a map of display names for a resource. | [optional] [readonly] 
-**DeviceMoId** | Pointer to **string** |  | [optional] [readonly] 
+**DisplayNames** | Pointer to [**map[string][]string**](array.md) | A set of display names for the MO resource. These names are calculated based on other properties of the MO and potentially properties of Ancestor MOs. Displaynames are intended as a way to provide a normalized user appropriate name for an MO, especially for MOs which do not have a &#39;Name&#39; property, which is the case for much of the inventory discovered from managed targets. There are a limited number of keys, currently &#39;short&#39; and &#39;hierarchical&#39;. The value is an array and clients should use the first element of the array. | [optional] [readonly] 
+**DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Model** | Pointer to **string** | This field identifies the model of the given component. | [optional] [readonly] 
-**Revision** | Pointer to **string** |  | [optional] [readonly] 
+**Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**BlockSize** | Pointer to **string** | The block size of the physical disk. | [optional] [readonly] 
-**Bootable** | Pointer to **string** |  | [optional] [readonly] 
-**ConfigurationCheckpoint** | Pointer to **string** |  | [optional] [readonly] 
-**ConfigurationState** | Pointer to **string** |  | [optional] [readonly] 
-**DiscoveredPath** | Pointer to **string** |  | [optional] [readonly] 
-**DiskId** | Pointer to **string** |  | [optional] [readonly] 
+**BlockSize** | Pointer to **string** | The block size of the physical disk in bytes. | [optional] [readonly] 
+**Bootable** | Pointer to **string** | This field identifies the disk drive as bootable if set to true. | [optional] [readonly] 
+**ConfigurationCheckpoint** | Pointer to **string** | The current configuration checkpoint of the physical disk. | [optional] [readonly] 
+**ConfigurationState** | Pointer to **string** | The current configuration state of the physical disk. | [optional] [readonly] 
+**DiscoveredPath** | Pointer to **string** | The discovered path of the physical disk. | [optional] [readonly] 
+**DiskId** | Pointer to **string** | This field identifies the ID assigned to physical disks. | [optional] [readonly] 
 **DiskState** | Pointer to **string** | This field identifies the health of the disk. | [optional] [readonly] 
-**DriveFirmware** | Pointer to **string** |  | [optional] 
+**DriveFirmware** | Pointer to **string** | This field identifies the disk firmware running in the disk. | [optional] 
 **DriveState** | Pointer to **string** | The drive state as reported by the controller. | [optional] [readonly] 
-**FdeCapable** | Pointer to **string** |  | [optional] 
+**FdeCapable** | Pointer to **string** | Full-Disk Encryption capability parameter of the physical disk. | [optional] 
+**HotSpareType** | Pointer to **string** | Type of hotspare configured on the physical disk. | [optional] 
 **LinkSpeed** | Pointer to **string** | The speed of the link between the drive and the controller. | [optional] [readonly] 
-**LinkState** | Pointer to **string** |  | [optional] [readonly] 
+**LinkState** | Pointer to **string** | The current link state of the physical disk. | [optional] [readonly] 
 **NumBlocks** | Pointer to **string** | The number of blocks present on the physical disk. | [optional] [readonly] 
-**OperPowerState** | Pointer to **string** |  | [optional] [readonly] 
-**OperQualifierReason** | Pointer to **string** |  | [optional] [readonly] 
-**Operability** | Pointer to **string** |  | [optional] [readonly] 
-**PhysicalBlockSize** | Pointer to **string** |  | [optional] [readonly] 
+**OperPowerState** | Pointer to **string** | Operational power of the physical disk. | [optional] [readonly] 
+**OperQualifierReason** | Pointer to **string** | This reason for the operational status of the disk. | [optional] [readonly] 
+**Operability** | Pointer to **string** | This field identifies the disk operability of the disk. | [optional] [readonly] 
+**PhysicalBlockSize** | Pointer to **string** | The block size of the installed physical disk. | [optional] [readonly] 
 **Pid** | Pointer to **string** | This field identifies the Product ID for physicalDisk. | [optional] [readonly] 
-**Presence** | Pointer to **string** |  | [optional] [readonly] 
-**Protocol** | Pointer to **string** |  | [optional] [readonly] 
-**RawSize** | Pointer to **string** |  | [optional] [readonly] 
+**Presence** | Pointer to **string** | The presence state of the physical disk. | [optional] [readonly] 
+**Protocol** | Pointer to **string** | This field identifies the disk protocol used for communication. | [optional] [readonly] 
+**RawSize** | Pointer to **string** | The raw size of the physical disk in MB. | [optional] [readonly] 
 **Secured** | Pointer to **string** | This field identifies whether the disk is encrypted. | [optional] 
-**Size** | Pointer to **string** |  | [optional] [readonly] 
-**Thermal** | Pointer to **string** |  | [optional] [readonly] 
-**Type** | Pointer to **string** |  | [optional] [readonly] 
-**VariantType** | Pointer to **string** |  | [optional] [readonly] 
+**Size** | Pointer to **string** | The size of the physical disk in MB. | [optional] [readonly] 
+**Thermal** | Pointer to **string** | Thermal state of the physical disk. | [optional] [readonly] 
+**Type** | Pointer to **string** | This field identifies the type of the physical disk. | [optional] [readonly] 
+**VariantType** | Pointer to **string** | The variant type of the physical disk. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](equipment.LocatorLed.Relationship.md) |  | [optional] 
 **PhysicalDiskExtensions** | Pointer to [**[]StoragePhysicalDiskExtensionRelationship**](storage.PhysicalDiskExtension.Relationship.md) | An array of relationships to storagePhysicalDiskExtension resources. | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -369,6 +371,16 @@ SetAncestors sets Ancestors field to given value.
 
 HasAncestors returns a boolean if a field has been set.
 
+### SetAncestorsNil
+
+`func (o *StoragePhysicalDiskRelationship) SetAncestorsNil(b bool)`
+
+ SetAncestorsNil sets the value for Ancestors to be an explicit nil
+
+### UnsetAncestors
+`func (o *StoragePhysicalDiskRelationship) UnsetAncestors()`
+
+UnsetAncestors ensures that no value is present for Ancestors, not even an explicit nil
 ### GetParent
 
 `func (o *StoragePhysicalDiskRelationship) GetParent() MoBaseMoRelationship`
@@ -419,6 +431,16 @@ SetPermissionResources sets PermissionResources field to given value.
 
 HasPermissionResources returns a boolean if a field has been set.
 
+### SetPermissionResourcesNil
+
+`func (o *StoragePhysicalDiskRelationship) SetPermissionResourcesNil(b bool)`
+
+ SetPermissionResourcesNil sets the value for PermissionResources to be an explicit nil
+
+### UnsetPermissionResources
+`func (o *StoragePhysicalDiskRelationship) UnsetPermissionResources()`
+
+UnsetPermissionResources ensures that no value is present for PermissionResources, not even an explicit nil
 ### GetDisplayNames
 
 `func (o *StoragePhysicalDiskRelationship) GetDisplayNames() map[string][]string`
@@ -879,6 +901,31 @@ SetFdeCapable sets FdeCapable field to given value.
 
 HasFdeCapable returns a boolean if a field has been set.
 
+### GetHotSpareType
+
+`func (o *StoragePhysicalDiskRelationship) GetHotSpareType() string`
+
+GetHotSpareType returns the HotSpareType field if non-nil, zero value otherwise.
+
+### GetHotSpareTypeOk
+
+`func (o *StoragePhysicalDiskRelationship) GetHotSpareTypeOk() (*string, bool)`
+
+GetHotSpareTypeOk returns a tuple with the HotSpareType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHotSpareType
+
+`func (o *StoragePhysicalDiskRelationship) SetHotSpareType(v string)`
+
+SetHotSpareType sets HotSpareType field to given value.
+
+### HasHotSpareType
+
+`func (o *StoragePhysicalDiskRelationship) HasHotSpareType() bool`
+
+HasHotSpareType returns a boolean if a field has been set.
+
 ### GetLinkSpeed
 
 `func (o *StoragePhysicalDiskRelationship) GetLinkSpeed() string`
@@ -1279,6 +1326,31 @@ SetVariantType sets VariantType field to given value.
 
 HasVariantType returns a boolean if a field has been set.
 
+### GetInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskRelationship) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *StoragePhysicalDiskRelationship) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskRelationship) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *StoragePhysicalDiskRelationship) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
+
 ### GetLocatorLed
 
 `func (o *StoragePhysicalDiskRelationship) GetLocatorLed() EquipmentLocatorLedRelationship`
@@ -1329,6 +1401,16 @@ SetPhysicalDiskExtensions sets PhysicalDiskExtensions field to given value.
 
 HasPhysicalDiskExtensions returns a boolean if a field has been set.
 
+### SetPhysicalDiskExtensionsNil
+
+`func (o *StoragePhysicalDiskRelationship) SetPhysicalDiskExtensionsNil(b bool)`
+
+ SetPhysicalDiskExtensionsNil sets the value for PhysicalDiskExtensions to be an explicit nil
+
+### UnsetPhysicalDiskExtensions
+`func (o *StoragePhysicalDiskRelationship) UnsetPhysicalDiskExtensions()`
+
+UnsetPhysicalDiskExtensions ensures that no value is present for PhysicalDiskExtensions, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *StoragePhysicalDiskRelationship) GetRegisteredDevice() AssetDeviceRegistrationRelationship`
@@ -1379,6 +1461,16 @@ SetRunningFirmware sets RunningFirmware field to given value.
 
 HasRunningFirmware returns a boolean if a field has been set.
 
+### SetRunningFirmwareNil
+
+`func (o *StoragePhysicalDiskRelationship) SetRunningFirmwareNil(b bool)`
+
+ SetRunningFirmwareNil sets the value for RunningFirmware to be an explicit nil
+
+### UnsetRunningFirmware
+`func (o *StoragePhysicalDiskRelationship) UnsetRunningFirmware()`
+
+UnsetRunningFirmware ensures that no value is present for RunningFirmware, not even an explicit nil
 ### GetSasPorts
 
 `func (o *StoragePhysicalDiskRelationship) GetSasPorts() []StorageSasPortRelationship`
@@ -1404,6 +1496,16 @@ SetSasPorts sets SasPorts field to given value.
 
 HasSasPorts returns a boolean if a field has been set.
 
+### SetSasPortsNil
+
+`func (o *StoragePhysicalDiskRelationship) SetSasPortsNil(b bool)`
+
+ SetSasPortsNil sets the value for SasPorts to be an explicit nil
+
+### UnsetSasPorts
+`func (o *StoragePhysicalDiskRelationship) UnsetSasPorts()`
+
+UnsetSasPorts ensures that no value is present for SasPorts, not even an explicit nil
 ### GetStorageController
 
 `func (o *StoragePhysicalDiskRelationship) GetStorageController() StorageControllerRelationship`

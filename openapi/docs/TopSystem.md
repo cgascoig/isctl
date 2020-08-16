@@ -6,11 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ipv4Address** | Pointer to **string** | The IPv4 address of system. | [optional] [readonly] 
 **Ipv6Address** | Pointer to **string** | The IPv6 address of system. | [optional] [readonly] 
-**Mode** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] 
+**Mode** | Pointer to **string** | The current mode of the system. | [optional] [readonly] 
+**Name** | Pointer to **string** | The admin configured name of the system. | [optional] [readonly] 
 **TimeZone** | Pointer to **string** | The operational timezone of the system, empty indicates no timezone has been set specifically. | [optional] 
 **ComputeBlades** | Pointer to [**[]ComputeBladeRelationship**](compute.Blade.Relationship.md) | An array of relationships to computeBlade resources. | [optional] 
 **ComputeRackUnits** | Pointer to [**[]ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) | An array of relationships to computeRackUnit resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **ManagementController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
 **NetworkElements** | Pointer to [**[]NetworkElementRelationship**](network.Element.Relationship.md) | An array of relationships to networkElement resources. | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
@@ -184,6 +185,16 @@ SetComputeBlades sets ComputeBlades field to given value.
 
 HasComputeBlades returns a boolean if a field has been set.
 
+### SetComputeBladesNil
+
+`func (o *TopSystem) SetComputeBladesNil(b bool)`
+
+ SetComputeBladesNil sets the value for ComputeBlades to be an explicit nil
+
+### UnsetComputeBlades
+`func (o *TopSystem) UnsetComputeBlades()`
+
+UnsetComputeBlades ensures that no value is present for ComputeBlades, not even an explicit nil
 ### GetComputeRackUnits
 
 `func (o *TopSystem) GetComputeRackUnits() []ComputeRackUnitRelationship`
@@ -208,6 +219,41 @@ SetComputeRackUnits sets ComputeRackUnits field to given value.
 `func (o *TopSystem) HasComputeRackUnits() bool`
 
 HasComputeRackUnits returns a boolean if a field has been set.
+
+### SetComputeRackUnitsNil
+
+`func (o *TopSystem) SetComputeRackUnitsNil(b bool)`
+
+ SetComputeRackUnitsNil sets the value for ComputeRackUnits to be an explicit nil
+
+### UnsetComputeRackUnits
+`func (o *TopSystem) UnsetComputeRackUnits()`
+
+UnsetComputeRackUnits ensures that no value is present for ComputeRackUnits, not even an explicit nil
+### GetInventoryDeviceInfo
+
+`func (o *TopSystem) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *TopSystem) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *TopSystem) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *TopSystem) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetManagementController
 
@@ -259,6 +305,16 @@ SetNetworkElements sets NetworkElements field to given value.
 
 HasNetworkElements returns a boolean if a field has been set.
 
+### SetNetworkElementsNil
+
+`func (o *TopSystem) SetNetworkElementsNil(b bool)`
+
+ SetNetworkElementsNil sets the value for NetworkElements to be an explicit nil
+
+### UnsetNetworkElements
+`func (o *TopSystem) UnsetNetworkElements()`
+
+UnsetNetworkElements ensures that no value is present for NetworkElements, not even an explicit nil
 ### GetRegisteredDevice
 
 `func (o *TopSystem) GetRegisteredDevice() AssetDeviceRegistrationRelationship`

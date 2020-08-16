@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,10 +18,13 @@ import (
 
 // StoragePureVolumeSnapshot Volume snapshot entity in Pure protection group. Volume snapshots are created either on-demand or using scheduler. Snapshots are immutable and it cannot be connected to hosts or host groups, and therefore the data it contains cannot be read or written.
 type StoragePureVolumeSnapshot struct {
-	StorageSnapshot `yaml:"StorageSnapshot,inline"`
+	StorageBaseSnapshot `yaml:"StorageBaseSnapshot,inline"`
 	// Unique serial number of the snapshot allocated by the storage array.
-	Serial           *string                              `json:"Serial,omitempty" yaml:"Serial,omitempty"`
-	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	Serial                  *string                                         `json:"Serial,omitempty" yaml:"Serial,omitempty"`
+	Array                   *StoragePureArrayRelationship                   `json:"Array,omitempty" yaml:"Array,omitempty"`
+	ProtectionGroupSnapshot *StoragePureProtectionGroupSnapshotRelationship `json:"ProtectionGroupSnapshot,omitempty" yaml:"ProtectionGroupSnapshot,omitempty"`
+	RegisteredDevice        *AssetDeviceRegistrationRelationship            `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	Volume                  *StoragePureVolumeRelationship                  `json:"Volume,omitempty" yaml:"Volume,omitempty"`
 }
 
 // NewStoragePureVolumeSnapshot instantiates a new StoragePureVolumeSnapshot object
@@ -73,6 +76,70 @@ func (o *StoragePureVolumeSnapshot) SetSerial(v string) {
 	o.Serial = &v
 }
 
+// GetArray returns the Array field value if set, zero value otherwise.
+func (o *StoragePureVolumeSnapshot) GetArray() StoragePureArrayRelationship {
+	if o == nil || o.Array == nil {
+		var ret StoragePureArrayRelationship
+		return ret
+	}
+	return *o.Array
+}
+
+// GetArrayOk returns a tuple with the Array field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePureVolumeSnapshot) GetArrayOk() (*StoragePureArrayRelationship, bool) {
+	if o == nil || o.Array == nil {
+		return nil, false
+	}
+	return o.Array, true
+}
+
+// HasArray returns a boolean if a field has been set.
+func (o *StoragePureVolumeSnapshot) HasArray() bool {
+	if o != nil && o.Array != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetArray gets a reference to the given StoragePureArrayRelationship and assigns it to the Array field.
+func (o *StoragePureVolumeSnapshot) SetArray(v StoragePureArrayRelationship) {
+	o.Array = &v
+}
+
+// GetProtectionGroupSnapshot returns the ProtectionGroupSnapshot field value if set, zero value otherwise.
+func (o *StoragePureVolumeSnapshot) GetProtectionGroupSnapshot() StoragePureProtectionGroupSnapshotRelationship {
+	if o == nil || o.ProtectionGroupSnapshot == nil {
+		var ret StoragePureProtectionGroupSnapshotRelationship
+		return ret
+	}
+	return *o.ProtectionGroupSnapshot
+}
+
+// GetProtectionGroupSnapshotOk returns a tuple with the ProtectionGroupSnapshot field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePureVolumeSnapshot) GetProtectionGroupSnapshotOk() (*StoragePureProtectionGroupSnapshotRelationship, bool) {
+	if o == nil || o.ProtectionGroupSnapshot == nil {
+		return nil, false
+	}
+	return o.ProtectionGroupSnapshot, true
+}
+
+// HasProtectionGroupSnapshot returns a boolean if a field has been set.
+func (o *StoragePureVolumeSnapshot) HasProtectionGroupSnapshot() bool {
+	if o != nil && o.ProtectionGroupSnapshot != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProtectionGroupSnapshot gets a reference to the given StoragePureProtectionGroupSnapshotRelationship and assigns it to the ProtectionGroupSnapshot field.
+func (o *StoragePureVolumeSnapshot) SetProtectionGroupSnapshot(v StoragePureProtectionGroupSnapshotRelationship) {
+	o.ProtectionGroupSnapshot = &v
+}
+
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
 func (o *StoragePureVolumeSnapshot) GetRegisteredDevice() AssetDeviceRegistrationRelationship {
 	if o == nil || o.RegisteredDevice == nil {
@@ -105,21 +172,62 @@ func (o *StoragePureVolumeSnapshot) SetRegisteredDevice(v AssetDeviceRegistratio
 	o.RegisteredDevice = &v
 }
 
+// GetVolume returns the Volume field value if set, zero value otherwise.
+func (o *StoragePureVolumeSnapshot) GetVolume() StoragePureVolumeRelationship {
+	if o == nil || o.Volume == nil {
+		var ret StoragePureVolumeRelationship
+		return ret
+	}
+	return *o.Volume
+}
+
+// GetVolumeOk returns a tuple with the Volume field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StoragePureVolumeSnapshot) GetVolumeOk() (*StoragePureVolumeRelationship, bool) {
+	if o == nil || o.Volume == nil {
+		return nil, false
+	}
+	return o.Volume, true
+}
+
+// HasVolume returns a boolean if a field has been set.
+func (o *StoragePureVolumeSnapshot) HasVolume() bool {
+	if o != nil && o.Volume != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVolume gets a reference to the given StoragePureVolumeRelationship and assigns it to the Volume field.
+func (o *StoragePureVolumeSnapshot) SetVolume(v StoragePureVolumeRelationship) {
+	o.Volume = &v
+}
+
 func (o StoragePureVolumeSnapshot) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedStorageSnapshot, errStorageSnapshot := json.Marshal(o.StorageSnapshot)
-	if errStorageSnapshot != nil {
-		return []byte{}, errStorageSnapshot
+	serializedStorageBaseSnapshot, errStorageBaseSnapshot := json.Marshal(o.StorageBaseSnapshot)
+	if errStorageBaseSnapshot != nil {
+		return []byte{}, errStorageBaseSnapshot
 	}
-	errStorageSnapshot = json.Unmarshal([]byte(serializedStorageSnapshot), &toSerialize)
-	if errStorageSnapshot != nil {
-		return []byte{}, errStorageSnapshot
+	errStorageBaseSnapshot = json.Unmarshal([]byte(serializedStorageBaseSnapshot), &toSerialize)
+	if errStorageBaseSnapshot != nil {
+		return []byte{}, errStorageBaseSnapshot
 	}
 	if o.Serial != nil {
 		toSerialize["Serial"] = o.Serial
 	}
+	if o.Array != nil {
+		toSerialize["Array"] = o.Array
+	}
+	if o.ProtectionGroupSnapshot != nil {
+		toSerialize["ProtectionGroupSnapshot"] = o.ProtectionGroupSnapshot
+	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice
+	}
+	if o.Volume != nil {
+		toSerialize["Volume"] = o.Volume
 	}
 	return json.Marshal(toSerialize)
 }

@@ -132,6 +132,16 @@ SetHxdpVersions sets HxdpVersions field to given value.
 
 HasHxdpVersions returns a boolean if a field has been set.
 
+### SetHxdpVersionsNil
+
+`func (o *HyperflexAppCatalogAllOf) SetHxdpVersionsNil(b bool)`
+
+ SetHxdpVersionsNil sets the value for HxdpVersions to be an explicit nil
+
+### UnsetHxdpVersions
+`func (o *HyperflexAppCatalogAllOf) UnsetHxdpVersions()`
+
+UnsetHxdpVersions ensures that no value is present for HxdpVersions, not even an explicit nil
 ### GetHyperflexCapabilityInfos
 
 `func (o *HyperflexAppCatalogAllOf) GetHyperflexCapabilityInfos() []HyperflexCapabilityInfoRelationship`
@@ -157,6 +167,16 @@ SetHyperflexCapabilityInfos sets HyperflexCapabilityInfos field to given value.
 
 HasHyperflexCapabilityInfos returns a boolean if a field has been set.
 
+### SetHyperflexCapabilityInfosNil
+
+`func (o *HyperflexAppCatalogAllOf) SetHyperflexCapabilityInfosNil(b bool)`
+
+ SetHyperflexCapabilityInfosNil sets the value for HyperflexCapabilityInfos to be an explicit nil
+
+### UnsetHyperflexCapabilityInfos
+`func (o *HyperflexAppCatalogAllOf) UnsetHyperflexCapabilityInfos()`
+
+UnsetHyperflexCapabilityInfos ensures that no value is present for HyperflexCapabilityInfos, not even an explicit nil
 ### GetHyperflexSoftwareCompatibilityInfos
 
 `func (o *HyperflexAppCatalogAllOf) GetHyperflexSoftwareCompatibilityInfos() []HclHyperflexSoftwareCompatibilityInfoRelationship`
@@ -182,6 +202,16 @@ SetHyperflexSoftwareCompatibilityInfos sets HyperflexSoftwareCompatibilityInfos 
 
 HasHyperflexSoftwareCompatibilityInfos returns a boolean if a field has been set.
 
+### SetHyperflexSoftwareCompatibilityInfosNil
+
+`func (o *HyperflexAppCatalogAllOf) SetHyperflexSoftwareCompatibilityInfosNil(b bool)`
+
+ SetHyperflexSoftwareCompatibilityInfosNil sets the value for HyperflexSoftwareCompatibilityInfos to be an explicit nil
+
+### UnsetHyperflexSoftwareCompatibilityInfos
+`func (o *HyperflexAppCatalogAllOf) UnsetHyperflexSoftwareCompatibilityInfos()`
+
+UnsetHyperflexSoftwareCompatibilityInfos ensures that no value is present for HyperflexSoftwareCompatibilityInfos, not even an explicit nil
 ### GetServerFirmwareVersion
 
 `func (o *HyperflexAppCatalogAllOf) GetServerFirmwareVersion() HyperflexServerFirmwareVersionRelationship`

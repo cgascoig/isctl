@@ -5,11 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Body** | Pointer to **string** | The optional request body that is sent as part of this API request. The request body can contain a golang template that can be populated with task input parameters and previous API output parameters. | [optional] 
-**ContentType** | Pointer to **string** | Intersight Orchestrator, with the support of response parser specification, can extract the values from API responses and map them to task output parameters. The value extraction is supported for response content types XML and JSON. The type of the content that gets passed as payload and response in this API. | [optional] [default to "json"]
+**ContentType** | Pointer to **string** | Intersight Orchestrator, with the support of response parser specification, can extract the values from API responses and map them to task output parameters. The value extraction is supported for response content types XML and JSON. The type of the content that gets passed as payload and response in this API. * &#x60;json&#x60; - The type of content to be parsed, API response or device response, is inJSON format. * &#x60;xml&#x60; - The type of content to be parsed, API response or device response,is in XML format. * &#x60;text&#x60; - The type of content to be parsed, API response or device response, is inTEXT format. | [optional] [default to "json"]
 **Name** | Pointer to **string** | A reference name for this API request within the batch API request. This name shall be used to map the API output parameters to subsequent API input parameters within a batch API task. | [optional] 
-**Outcomes** | Pointer to **map[string]interface{}** | All the possible outcomes of this API are captured here. Outcomes property is a collection property of type workflow.Outcome objects. The outcomes can be mapped to the message to be shown. The outcomes are evaluated in the order they are given. At the end of the outcomes list, an catchall success/fail outcome can be added with condition as &#39;true&#39;. This is an optional property and if not specified the task will be marked as success. | [optional] 
+**Outcomes** | Pointer to **interface{}** | All the possible outcomes of this API are captured here. Outcomes property is a collection property of type workflow.Outcome objects. The outcomes can be mapped to the message to be shown. The outcomes are evaluated in the order they are given. At the end of the outcomes list, an catchall success/fail outcome can be added with condition as &#39;true&#39;. This is an optional property and if not specified the task will be marked as success. | [optional] 
 **ResponseSpec** | Pointer to [**ContentGrammar**](content.Grammar.md) |  | [optional] 
 **SkipOnCondition** | Pointer to **string** | The skip expression, if provided, allows the batch API executor to skip the api execution when the given expression evaluates to true. The expression is given as such a golang template that has to be evaluated to a final content true/false. The expression is an optional and in case not provided, the API will always be executed. | [optional] 
+**StartDelay** | Pointer to **int64** | The delay in seconds after which the API needs to be executed. By default, the given API is executed immediately. Specifying a start delay adds to the delay to execution. Start Delay is not supported for the first API in the Batch and cumulative delay of all the APIs in the Batch should not exceed the task time out. | [optional] 
 **Timeout** | Pointer to **int64** | The duration in seconds by which the API response is expected from the API target. If the end point does not respond for the API request within this timeout duration, the task will be marked as failed. | [optional] 
 
 ## Methods
@@ -108,20 +109,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetOutcomes
 
-`func (o *WorkflowApiAllOf) GetOutcomes() map[string]interface{}`
+`func (o *WorkflowApiAllOf) GetOutcomes() interface{}`
 
 GetOutcomes returns the Outcomes field if non-nil, zero value otherwise.
 
 ### GetOutcomesOk
 
-`func (o *WorkflowApiAllOf) GetOutcomesOk() (*map[string]interface{}, bool)`
+`func (o *WorkflowApiAllOf) GetOutcomesOk() (*interface{}, bool)`
 
 GetOutcomesOk returns a tuple with the Outcomes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutcomes
 
-`func (o *WorkflowApiAllOf) SetOutcomes(v map[string]interface{})`
+`func (o *WorkflowApiAllOf) SetOutcomes(v interface{})`
 
 SetOutcomes sets Outcomes field to given value.
 
@@ -131,6 +132,16 @@ SetOutcomes sets Outcomes field to given value.
 
 HasOutcomes returns a boolean if a field has been set.
 
+### SetOutcomesNil
+
+`func (o *WorkflowApiAllOf) SetOutcomesNil(b bool)`
+
+ SetOutcomesNil sets the value for Outcomes to be an explicit nil
+
+### UnsetOutcomes
+`func (o *WorkflowApiAllOf) UnsetOutcomes()`
+
+UnsetOutcomes ensures that no value is present for Outcomes, not even an explicit nil
 ### GetResponseSpec
 
 `func (o *WorkflowApiAllOf) GetResponseSpec() ContentGrammar`
@@ -180,6 +191,31 @@ SetSkipOnCondition sets SkipOnCondition field to given value.
 `func (o *WorkflowApiAllOf) HasSkipOnCondition() bool`
 
 HasSkipOnCondition returns a boolean if a field has been set.
+
+### GetStartDelay
+
+`func (o *WorkflowApiAllOf) GetStartDelay() int64`
+
+GetStartDelay returns the StartDelay field if non-nil, zero value otherwise.
+
+### GetStartDelayOk
+
+`func (o *WorkflowApiAllOf) GetStartDelayOk() (*int64, bool)`
+
+GetStartDelayOk returns a tuple with the StartDelay field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDelay
+
+`func (o *WorkflowApiAllOf) SetStartDelay(v int64)`
+
+SetStartDelay sets StartDelay field to given value.
+
+### HasStartDelay
+
+`func (o *WorkflowApiAllOf) HasStartDelay() bool`
+
+HasStartDelay returns a boolean if a field has been set.
 
 ### GetTimeout
 

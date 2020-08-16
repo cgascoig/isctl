@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Adapter** | Pointer to **string** | It shows the name of the pci device. | [optional] [readonly] 
-**LinkSpeed** | Pointer to **string** | It shows the upstream link speed for device. | [optional] [readonly] 
-**LinkStatus** | Pointer to **string** | It shows the upstream link status for device. | [optional] [readonly] 
-**LinkWidth** | Pointer to **string** | It shows the upstream link width for device. | [optional] [readonly] 
-**PciSlot** | Pointer to **string** | It shows pci slot name for the pci device. | [optional] [readonly] 
-**SlotStatus** | Pointer to **string** | It shows the health information for pci device. | [optional] [readonly] 
+**Adapter** | Pointer to **string** | The name of the PCI device. | [optional] [readonly] 
+**LinkSpeed** | Pointer to **string** | The upstream link speed of the PCI device. | [optional] [readonly] 
+**LinkStatus** | Pointer to **string** | The upstream link status of the PCI device. | [optional] [readonly] 
+**LinkWidth** | Pointer to **string** | The upstream link width of the PCI device. | [optional] [readonly] 
+**PciSlot** | Pointer to **string** | The slot name of the PCI device. | [optional] [readonly] 
+**SlotStatus** | Pointer to **string** | The health information of the PCI device. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **PciSwitch** | Pointer to [**PciSwitchRelationship**](pci.Switch.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -181,6 +182,31 @@ SetSlotStatus sets SlotStatus field to given value.
 `func (o *PciLinkAllOf) HasSlotStatus() bool`
 
 HasSlotStatus returns a boolean if a field has been set.
+
+### GetInventoryDeviceInfo
+
+`func (o *PciLinkAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship`
+
+GetInventoryDeviceInfo returns the InventoryDeviceInfo field if non-nil, zero value otherwise.
+
+### GetInventoryDeviceInfoOk
+
+`func (o *PciLinkAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool)`
+
+GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInventoryDeviceInfo
+
+`func (o *PciLinkAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship)`
+
+SetInventoryDeviceInfo sets InventoryDeviceInfo field to given value.
+
+### HasInventoryDeviceInfo
+
+`func (o *PciLinkAllOf) HasInventoryDeviceInfo() bool`
+
+HasInventoryDeviceInfo returns a boolean if a field has been set.
 
 ### GetPciSwitch
 

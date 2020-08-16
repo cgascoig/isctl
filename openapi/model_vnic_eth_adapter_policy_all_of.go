@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -22,16 +22,21 @@ type VnicEthAdapterPolicyAllOf struct {
 	AdvancedFilter          *bool                        `json:"AdvancedFilter,omitempty" yaml:"AdvancedFilter,omitempty"`
 	ArfsSettings            *VnicArfsSettings            `json:"ArfsSettings,omitempty" yaml:"ArfsSettings,omitempty"`
 	CompletionQueueSettings *VnicCompletionQueueSettings `json:"CompletionQueueSettings,omitempty" yaml:"CompletionQueueSettings,omitempty"`
-	InterruptSettings       *VnicEthInterruptSettings    `json:"InterruptSettings,omitempty" yaml:"InterruptSettings,omitempty"`
-	NvgreSettings           *VnicNvgreSettings           `json:"NvgreSettings,omitempty" yaml:"NvgreSettings,omitempty"`
-	RoceSettings            *VnicRoceSettings            `json:"RoceSettings,omitempty" yaml:"RoceSettings,omitempty"`
+	// Enables Interrupt Scaling on the interface.
+	InterruptScaling  *bool                     `json:"InterruptScaling,omitempty" yaml:"InterruptScaling,omitempty"`
+	InterruptSettings *VnicEthInterruptSettings `json:"InterruptSettings,omitempty" yaml:"InterruptSettings,omitempty"`
+	NvgreSettings     *VnicNvgreSettings        `json:"NvgreSettings,omitempty" yaml:"NvgreSettings,omitempty"`
+	RoceSettings      *VnicRoceSettings         `json:"RoceSettings,omitempty" yaml:"RoceSettings,omitempty"`
+	RssHashSettings   *VnicRssHashSettings      `json:"RssHashSettings,omitempty" yaml:"RssHashSettings,omitempty"`
 	// Receive Side Scaling allows the incoming traffic to be spread across multiple CPU cores.
-	RssSettings        *bool                                 `json:"RssSettings,omitempty" yaml:"RssSettings,omitempty"`
-	RxQueueSettings    *VnicEthRxQueueSettings               `json:"RxQueueSettings,omitempty" yaml:"RxQueueSettings,omitempty"`
-	TcpOffloadSettings *VnicTcpOffloadSettings               `json:"TcpOffloadSettings,omitempty" yaml:"TcpOffloadSettings,omitempty"`
-	TxQueueSettings    *VnicEthTxQueueSettings               `json:"TxQueueSettings,omitempty" yaml:"TxQueueSettings,omitempty"`
-	VxlanSettings      *VnicVxlanSettings                    `json:"VxlanSettings,omitempty" yaml:"VxlanSettings,omitempty"`
-	Organization       *OrganizationOrganizationRelationship `json:"Organization,omitempty" yaml:"Organization,omitempty"`
+	RssSettings        *bool                   `json:"RssSettings,omitempty" yaml:"RssSettings,omitempty"`
+	RxQueueSettings    *VnicEthRxQueueSettings `json:"RxQueueSettings,omitempty" yaml:"RxQueueSettings,omitempty"`
+	TcpOffloadSettings *VnicTcpOffloadSettings `json:"TcpOffloadSettings,omitempty" yaml:"TcpOffloadSettings,omitempty"`
+	TxQueueSettings    *VnicEthTxQueueSettings `json:"TxQueueSettings,omitempty" yaml:"TxQueueSettings,omitempty"`
+	// Uplink Failback Timeout in seconds when uplink failover is enabled for a vNIC. After a vNIC has started using its secondary interface, this setting controls how long the primary interface must be available before the system resumes using the primary interface for the vNIC.
+	UplinkFailbackTimeout *int64                                `json:"UplinkFailbackTimeout,omitempty" yaml:"UplinkFailbackTimeout,omitempty"`
+	VxlanSettings         *VnicVxlanSettings                    `json:"VxlanSettings,omitempty" yaml:"VxlanSettings,omitempty"`
+	Organization          *OrganizationOrganizationRelationship `json:"Organization,omitempty" yaml:"Organization,omitempty"`
 }
 
 // NewVnicEthAdapterPolicyAllOf instantiates a new VnicEthAdapterPolicyAllOf object
@@ -147,6 +152,38 @@ func (o *VnicEthAdapterPolicyAllOf) SetCompletionQueueSettings(v VnicCompletionQ
 	o.CompletionQueueSettings = &v
 }
 
+// GetInterruptScaling returns the InterruptScaling field value if set, zero value otherwise.
+func (o *VnicEthAdapterPolicyAllOf) GetInterruptScaling() bool {
+	if o == nil || o.InterruptScaling == nil {
+		var ret bool
+		return ret
+	}
+	return *o.InterruptScaling
+}
+
+// GetInterruptScalingOk returns a tuple with the InterruptScaling field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicEthAdapterPolicyAllOf) GetInterruptScalingOk() (*bool, bool) {
+	if o == nil || o.InterruptScaling == nil {
+		return nil, false
+	}
+	return o.InterruptScaling, true
+}
+
+// HasInterruptScaling returns a boolean if a field has been set.
+func (o *VnicEthAdapterPolicyAllOf) HasInterruptScaling() bool {
+	if o != nil && o.InterruptScaling != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInterruptScaling gets a reference to the given bool and assigns it to the InterruptScaling field.
+func (o *VnicEthAdapterPolicyAllOf) SetInterruptScaling(v bool) {
+	o.InterruptScaling = &v
+}
+
 // GetInterruptSettings returns the InterruptSettings field value if set, zero value otherwise.
 func (o *VnicEthAdapterPolicyAllOf) GetInterruptSettings() VnicEthInterruptSettings {
 	if o == nil || o.InterruptSettings == nil {
@@ -241,6 +278,38 @@ func (o *VnicEthAdapterPolicyAllOf) HasRoceSettings() bool {
 // SetRoceSettings gets a reference to the given VnicRoceSettings and assigns it to the RoceSettings field.
 func (o *VnicEthAdapterPolicyAllOf) SetRoceSettings(v VnicRoceSettings) {
 	o.RoceSettings = &v
+}
+
+// GetRssHashSettings returns the RssHashSettings field value if set, zero value otherwise.
+func (o *VnicEthAdapterPolicyAllOf) GetRssHashSettings() VnicRssHashSettings {
+	if o == nil || o.RssHashSettings == nil {
+		var ret VnicRssHashSettings
+		return ret
+	}
+	return *o.RssHashSettings
+}
+
+// GetRssHashSettingsOk returns a tuple with the RssHashSettings field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicEthAdapterPolicyAllOf) GetRssHashSettingsOk() (*VnicRssHashSettings, bool) {
+	if o == nil || o.RssHashSettings == nil {
+		return nil, false
+	}
+	return o.RssHashSettings, true
+}
+
+// HasRssHashSettings returns a boolean if a field has been set.
+func (o *VnicEthAdapterPolicyAllOf) HasRssHashSettings() bool {
+	if o != nil && o.RssHashSettings != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRssHashSettings gets a reference to the given VnicRssHashSettings and assigns it to the RssHashSettings field.
+func (o *VnicEthAdapterPolicyAllOf) SetRssHashSettings(v VnicRssHashSettings) {
+	o.RssHashSettings = &v
 }
 
 // GetRssSettings returns the RssSettings field value if set, zero value otherwise.
@@ -371,6 +440,38 @@ func (o *VnicEthAdapterPolicyAllOf) SetTxQueueSettings(v VnicEthTxQueueSettings)
 	o.TxQueueSettings = &v
 }
 
+// GetUplinkFailbackTimeout returns the UplinkFailbackTimeout field value if set, zero value otherwise.
+func (o *VnicEthAdapterPolicyAllOf) GetUplinkFailbackTimeout() int64 {
+	if o == nil || o.UplinkFailbackTimeout == nil {
+		var ret int64
+		return ret
+	}
+	return *o.UplinkFailbackTimeout
+}
+
+// GetUplinkFailbackTimeoutOk returns a tuple with the UplinkFailbackTimeout field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicEthAdapterPolicyAllOf) GetUplinkFailbackTimeoutOk() (*int64, bool) {
+	if o == nil || o.UplinkFailbackTimeout == nil {
+		return nil, false
+	}
+	return o.UplinkFailbackTimeout, true
+}
+
+// HasUplinkFailbackTimeout returns a boolean if a field has been set.
+func (o *VnicEthAdapterPolicyAllOf) HasUplinkFailbackTimeout() bool {
+	if o != nil && o.UplinkFailbackTimeout != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUplinkFailbackTimeout gets a reference to the given int64 and assigns it to the UplinkFailbackTimeout field.
+func (o *VnicEthAdapterPolicyAllOf) SetUplinkFailbackTimeout(v int64) {
+	o.UplinkFailbackTimeout = &v
+}
+
 // GetVxlanSettings returns the VxlanSettings field value if set, zero value otherwise.
 func (o *VnicEthAdapterPolicyAllOf) GetVxlanSettings() VnicVxlanSettings {
 	if o == nil || o.VxlanSettings == nil {
@@ -446,6 +547,9 @@ func (o VnicEthAdapterPolicyAllOf) MarshalJSON() ([]byte, error) {
 	if o.CompletionQueueSettings != nil {
 		toSerialize["CompletionQueueSettings"] = o.CompletionQueueSettings
 	}
+	if o.InterruptScaling != nil {
+		toSerialize["InterruptScaling"] = o.InterruptScaling
+	}
 	if o.InterruptSettings != nil {
 		toSerialize["InterruptSettings"] = o.InterruptSettings
 	}
@@ -454,6 +558,9 @@ func (o VnicEthAdapterPolicyAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.RoceSettings != nil {
 		toSerialize["RoceSettings"] = o.RoceSettings
+	}
+	if o.RssHashSettings != nil {
+		toSerialize["RssHashSettings"] = o.RssHashSettings
 	}
 	if o.RssSettings != nil {
 		toSerialize["RssSettings"] = o.RssSettings
@@ -466,6 +573,9 @@ func (o VnicEthAdapterPolicyAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.TxQueueSettings != nil {
 		toSerialize["TxQueueSettings"] = o.TxQueueSettings
+	}
+	if o.UplinkFailbackTimeout != nil {
+		toSerialize["UplinkFailbackTimeout"] = o.UplinkFailbackTimeout
 	}
 	if o.VxlanSettings != nil {
 		toSerialize["VxlanSettings"] = o.VxlanSettings

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Source** | Pointer to **string** | Source of the CDN. It can either be user specified or be the same as the vNIC name. | [optional] [default to "vnic"]
+**Source** | Pointer to **string** | Source of the CDN. It can either be user specified or be the same as the vNIC name. * &#x60;vnic&#x60; - Source of the CDN is the same as the vNIC name. * &#x60;user&#x60; - Source of the CDN is specified by the user. | [optional] [default to "vnic"]
 **Value** | Pointer to **string** | The CDN value entered in case of user defined mode. | [optional] 
 
 ## Methods

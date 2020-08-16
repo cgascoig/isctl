@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -19,23 +19,22 @@ import (
 // WorkflowPendingDynamicWorkflowInfoAllOf Definition of the list of properties defined in 'workflow.PendingDynamicWorkflowInfo', excluding properties defined in parent classes.
 type WorkflowPendingDynamicWorkflowInfoAllOf struct {
 	// The inputs of the workflow.
-	Input *map[string]interface{} `json:"Input,omitempty" yaml:"Input,omitempty"`
+	Input interface{} `json:"Input,omitempty" yaml:"Input,omitempty"`
 	// A name for the pending dynamic workflow.
 	Name            *string   `json:"Name,omitempty" yaml:"Name,omitempty"`
 	PendingServices *[]string `json:"PendingServices,omitempty" yaml:"PendingServices,omitempty"`
 	// The src is workflow owner service.
 	Src *string `json:"Src,omitempty" yaml:"Src,omitempty"`
-	// The current status of the PendingDynamicWorkflowInfo.
+	// The current status of the PendingDynamicWorkflowInfo. * `GatheringTasks` - Dynamic workflow is gathering tasks before workflow can start execution. * `Waiting` - Dynamic workflow is in waiting state and not yet started execution.
 	Status *string `json:"Status,omitempty" yaml:"Status,omitempty"`
 	// When set to true workflow engine will wait for a duplicate to finish before starting a new one.
 	WaitOnDuplicate         *bool                                    `json:"WaitOnDuplicate,omitempty" yaml:"WaitOnDuplicate,omitempty"`
 	WorkflowActionTaskLists *[]WorkflowDynamicWorkflowActionTaskList `json:"WorkflowActionTaskLists,omitempty" yaml:"WorkflowActionTaskLists,omitempty"`
-	// The workflow's workflow context which contains initiator and target information.
-	WorkflowCtx *map[string]interface{} `json:"WorkflowCtx,omitempty" yaml:"WorkflowCtx,omitempty"`
+	WorkflowCtx             *WorkflowWorkflowCtx                     `json:"WorkflowCtx,omitempty" yaml:"WorkflowCtx,omitempty"`
 	// This key contains workflow, initiator and target name. Workflow engine uses the key to do workflow dedup.
 	WorkflowKey *string `json:"WorkflowKey,omitempty" yaml:"WorkflowKey,omitempty"`
 	// The metadata of the workflow.
-	WorkflowMeta *map[string]interface{}           `json:"WorkflowMeta,omitempty" yaml:"WorkflowMeta,omitempty"`
+	WorkflowMeta interface{}                       `json:"WorkflowMeta,omitempty" yaml:"WorkflowMeta,omitempty"`
 	WorkflowInfo *WorkflowWorkflowInfoRelationship `json:"WorkflowInfo,omitempty" yaml:"WorkflowInfo,omitempty"`
 }
 
@@ -60,22 +59,23 @@ func NewWorkflowPendingDynamicWorkflowInfoAllOfWithDefaults() *WorkflowPendingDy
 	return &this
 }
 
-// GetInput returns the Input field value if set, zero value otherwise.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInput() map[string]interface{} {
-	if o == nil || o.Input == nil {
-		var ret map[string]interface{}
+// GetInput returns the Input field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInput() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Input
+	return o.Input
 }
 
 // GetInputOk returns a tuple with the Input field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInputOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetInputOk() (*interface{}, bool) {
 	if o == nil || o.Input == nil {
 		return nil, false
 	}
-	return o.Input, true
+	return &o.Input, true
 }
 
 // HasInput returns a boolean if a field has been set.
@@ -87,9 +87,9 @@ func (o *WorkflowPendingDynamicWorkflowInfoAllOf) HasInput() bool {
 	return false
 }
 
-// SetInput gets a reference to the given map[string]interface{} and assigns it to the Input field.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetInput(v map[string]interface{}) {
-	o.Input = &v
+// SetInput gets a reference to the given interface{} and assigns it to the Input field.
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetInput(v interface{}) {
+	o.Input = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -285,9 +285,9 @@ func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowActionTaskLists(v [
 }
 
 // GetWorkflowCtx returns the WorkflowCtx field value if set, zero value otherwise.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtx() map[string]interface{} {
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtx() WorkflowWorkflowCtx {
 	if o == nil || o.WorkflowCtx == nil {
-		var ret map[string]interface{}
+		var ret WorkflowWorkflowCtx
 		return ret
 	}
 	return *o.WorkflowCtx
@@ -295,7 +295,7 @@ func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtx() map[string]in
 
 // GetWorkflowCtxOk returns a tuple with the WorkflowCtx field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtxOk() (*map[string]interface{}, bool) {
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowCtxOk() (*WorkflowWorkflowCtx, bool) {
 	if o == nil || o.WorkflowCtx == nil {
 		return nil, false
 	}
@@ -311,8 +311,8 @@ func (o *WorkflowPendingDynamicWorkflowInfoAllOf) HasWorkflowCtx() bool {
 	return false
 }
 
-// SetWorkflowCtx gets a reference to the given map[string]interface{} and assigns it to the WorkflowCtx field.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowCtx(v map[string]interface{}) {
+// SetWorkflowCtx gets a reference to the given WorkflowWorkflowCtx and assigns it to the WorkflowCtx field.
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowCtx(v WorkflowWorkflowCtx) {
 	o.WorkflowCtx = &v
 }
 
@@ -348,22 +348,23 @@ func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowKey(v string) {
 	o.WorkflowKey = &v
 }
 
-// GetWorkflowMeta returns the WorkflowMeta field value if set, zero value otherwise.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMeta() map[string]interface{} {
-	if o == nil || o.WorkflowMeta == nil {
-		var ret map[string]interface{}
+// GetWorkflowMeta returns the WorkflowMeta field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMeta() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.WorkflowMeta
+	return o.WorkflowMeta
 }
 
 // GetWorkflowMetaOk returns a tuple with the WorkflowMeta field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMetaOk() (*map[string]interface{}, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) GetWorkflowMetaOk() (*interface{}, bool) {
 	if o == nil || o.WorkflowMeta == nil {
 		return nil, false
 	}
-	return o.WorkflowMeta, true
+	return &o.WorkflowMeta, true
 }
 
 // HasWorkflowMeta returns a boolean if a field has been set.
@@ -375,9 +376,9 @@ func (o *WorkflowPendingDynamicWorkflowInfoAllOf) HasWorkflowMeta() bool {
 	return false
 }
 
-// SetWorkflowMeta gets a reference to the given map[string]interface{} and assigns it to the WorkflowMeta field.
-func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowMeta(v map[string]interface{}) {
-	o.WorkflowMeta = &v
+// SetWorkflowMeta gets a reference to the given interface{} and assigns it to the WorkflowMeta field.
+func (o *WorkflowPendingDynamicWorkflowInfoAllOf) SetWorkflowMeta(v interface{}) {
+	o.WorkflowMeta = v
 }
 
 // GetWorkflowInfo returns the WorkflowInfo field value if set, zero value otherwise.

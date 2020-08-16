@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -82,7 +82,7 @@ func (r apiCreateHyperflexAppCatalogRequest) Execute() (HyperflexAppCatalog, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AppCatalogs"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AppCatalogs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -254,7 +254,7 @@ func (r apiCreateHyperflexAutoSupportPolicyRequest) Execute() (HyperflexAutoSupp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AutoSupportPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AutoSupportPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -426,7 +426,7 @@ func (r apiCreateHyperflexCapabilityInfoRequest) Execute() (HyperflexCapabilityI
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/CapabilityInfos"
+	localVarPath := localBasePath + "/api/v1/hyperflex/CapabilityInfos"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -598,7 +598,7 @@ func (r apiCreateHyperflexClusterNetworkPolicyRequest) Execute() (HyperflexClust
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterNetworkPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterNetworkPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -770,7 +770,7 @@ func (r apiCreateHyperflexClusterProfileRequest) Execute() (HyperflexClusterProf
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterProfiles"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterProfiles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -942,7 +942,7 @@ func (r apiCreateHyperflexClusterStoragePolicyRequest) Execute() (HyperflexClust
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterStoragePolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterStoragePolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1114,7 +1114,7 @@ func (r apiCreateHyperflexExtFcStoragePolicyRequest) Execute() (HyperflexExtFcSt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtFcStoragePolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtFcStoragePolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1286,7 +1286,7 @@ func (r apiCreateHyperflexExtIscsiStoragePolicyRequest) Execute() (HyperflexExtI
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtIscsiStoragePolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtIscsiStoragePolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1458,7 +1458,7 @@ func (r apiCreateHyperflexFeatureLimitExternalRequest) Execute() (HyperflexFeatu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitExternals"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitExternals"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1630,7 +1630,7 @@ func (r apiCreateHyperflexFeatureLimitInternalRequest) Execute() (HyperflexFeatu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitInternals"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitInternals"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1802,7 +1802,7 @@ func (r apiCreateHyperflexHxdpVersionRequest) Execute() (HyperflexHxdpVersion, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/HxdpVersions"
+	localVarPath := localBasePath + "/api/v1/hyperflex/HxdpVersions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1974,7 +1974,7 @@ func (r apiCreateHyperflexLocalCredentialPolicyRequest) Execute() (HyperflexLoca
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/LocalCredentialPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/LocalCredentialPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2146,7 +2146,7 @@ func (r apiCreateHyperflexNodeConfigPolicyRequest) Execute() (HyperflexNodeConfi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2318,7 +2318,7 @@ func (r apiCreateHyperflexNodeProfileRequest) Execute() (HyperflexNodeProfile, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeProfiles"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeProfiles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2490,7 +2490,7 @@ func (r apiCreateHyperflexProxySettingPolicyRequest) Execute() (HyperflexProxySe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ProxySettingPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ProxySettingPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2662,7 +2662,7 @@ func (r apiCreateHyperflexServerFirmwareVersionRequest) Execute() (HyperflexServ
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerFirmwareVersions"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerFirmwareVersions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2834,7 +2834,7 @@ func (r apiCreateHyperflexServerModelRequest) Execute() (HyperflexServerModel, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerModels"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerModels"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3006,7 +3006,7 @@ func (r apiCreateHyperflexSoftwareVersionPolicyRequest) Execute() (HyperflexSoft
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SoftwareVersionPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SoftwareVersionPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3178,7 +3178,7 @@ func (r apiCreateHyperflexSysConfigPolicyRequest) Execute() (HyperflexSysConfigP
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SysConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SysConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3350,7 +3350,7 @@ func (r apiCreateHyperflexUcsmConfigPolicyRequest) Execute() (HyperflexUcsmConfi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/UcsmConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/UcsmConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3522,7 +3522,7 @@ func (r apiCreateHyperflexVcenterConfigPolicyRequest) Execute() (HyperflexVcente
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/VcenterConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/VcenterConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3678,7 +3678,7 @@ func (r apiDeleteHyperflexAppCatalogRequest) Execute() (*_nethttp.Response, erro
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AppCatalogs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AppCatalogs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3814,7 +3814,7 @@ func (r apiDeleteHyperflexAutoSupportPolicyRequest) Execute() (*_nethttp.Respons
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AutoSupportPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AutoSupportPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3950,7 +3950,7 @@ func (r apiDeleteHyperflexCapabilityInfoRequest) Execute() (*_nethttp.Response, 
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/CapabilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/CapabilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4086,7 +4086,7 @@ func (r apiDeleteHyperflexClusterNetworkPolicyRequest) Execute() (*_nethttp.Resp
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4222,7 +4222,7 @@ func (r apiDeleteHyperflexClusterProfileRequest) Execute() (*_nethttp.Response, 
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4358,7 +4358,7 @@ func (r apiDeleteHyperflexClusterStoragePolicyRequest) Execute() (*_nethttp.Resp
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4494,7 +4494,7 @@ func (r apiDeleteHyperflexExtFcStoragePolicyRequest) Execute() (*_nethttp.Respon
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtFcStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtFcStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4630,7 +4630,7 @@ func (r apiDeleteHyperflexExtIscsiStoragePolicyRequest) Execute() (*_nethttp.Res
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtIscsiStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtIscsiStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4766,7 +4766,7 @@ func (r apiDeleteHyperflexFeatureLimitExternalRequest) Execute() (*_nethttp.Resp
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitExternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitExternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4902,7 +4902,7 @@ func (r apiDeleteHyperflexFeatureLimitInternalRequest) Execute() (*_nethttp.Resp
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitInternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitInternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5038,7 +5038,7 @@ func (r apiDeleteHyperflexHxdpVersionRequest) Execute() (*_nethttp.Response, err
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/HxdpVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/HxdpVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5174,7 +5174,7 @@ func (r apiDeleteHyperflexLocalCredentialPolicyRequest) Execute() (*_nethttp.Res
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/LocalCredentialPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/LocalCredentialPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5310,7 +5310,7 @@ func (r apiDeleteHyperflexNodeConfigPolicyRequest) Execute() (*_nethttp.Response
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5446,7 +5446,7 @@ func (r apiDeleteHyperflexNodeProfileRequest) Execute() (*_nethttp.Response, err
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5582,7 +5582,7 @@ func (r apiDeleteHyperflexProxySettingPolicyRequest) Execute() (*_nethttp.Respon
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ProxySettingPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ProxySettingPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5718,7 +5718,7 @@ func (r apiDeleteHyperflexServerFirmwareVersionRequest) Execute() (*_nethttp.Res
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerFirmwareVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerFirmwareVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5854,7 +5854,7 @@ func (r apiDeleteHyperflexServerModelRequest) Execute() (*_nethttp.Response, err
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerModels/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerModels/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -5990,7 +5990,7 @@ func (r apiDeleteHyperflexSoftwareVersionPolicyRequest) Execute() (*_nethttp.Res
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SoftwareVersionPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SoftwareVersionPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6126,7 +6126,7 @@ func (r apiDeleteHyperflexSysConfigPolicyRequest) Execute() (*_nethttp.Response,
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SysConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SysConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6262,7 +6262,7 @@ func (r apiDeleteHyperflexUcsmConfigPolicyRequest) Execute() (*_nethttp.Response
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/UcsmConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/UcsmConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6398,7 +6398,7 @@ func (r apiDeleteHyperflexVcenterConfigPolicyRequest) Execute() (*_nethttp.Respo
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/VcenterConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/VcenterConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6535,7 +6535,7 @@ func (r apiGetHyperflexAlarmByMoidRequest) Execute() (HyperflexAlarm, *_nethttp.
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Alarms/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Alarms/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6744,7 +6744,7 @@ func (r apiGetHyperflexAlarmListRequest) Execute() (HyperflexAlarmResponse, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Alarms"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Alarms"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -6922,7 +6922,7 @@ func (r apiGetHyperflexAppCatalogByMoidRequest) Execute() (HyperflexAppCatalog, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AppCatalogs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AppCatalogs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7131,7 +7131,7 @@ func (r apiGetHyperflexAppCatalogListRequest) Execute() (HyperflexAppCatalogResp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AppCatalogs"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AppCatalogs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -7309,7 +7309,7 @@ func (r apiGetHyperflexAutoSupportPolicyByMoidRequest) Execute() (HyperflexAutoS
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AutoSupportPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AutoSupportPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7518,7 +7518,7 @@ func (r apiGetHyperflexAutoSupportPolicyListRequest) Execute() (HyperflexAutoSup
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AutoSupportPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AutoSupportPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -7696,7 +7696,7 @@ func (r apiGetHyperflexCapabilityInfoByMoidRequest) Execute() (HyperflexCapabili
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/CapabilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/CapabilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -7905,7 +7905,7 @@ func (r apiGetHyperflexCapabilityInfoListRequest) Execute() (HyperflexCapability
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/CapabilityInfos"
+	localVarPath := localBasePath + "/api/v1/hyperflex/CapabilityInfos"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -8083,7 +8083,7 @@ func (r apiGetHyperflexClusterByMoidRequest) Execute() (HyperflexCluster, *_neth
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Clusters/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Clusters/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8292,7 +8292,7 @@ func (r apiGetHyperflexClusterListRequest) Execute() (HyperflexClusterResponse, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Clusters"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Clusters"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -8470,7 +8470,7 @@ func (r apiGetHyperflexClusterNetworkPolicyByMoidRequest) Execute() (HyperflexCl
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -8679,7 +8679,7 @@ func (r apiGetHyperflexClusterNetworkPolicyListRequest) Execute() (HyperflexClus
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterNetworkPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterNetworkPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -8857,7 +8857,7 @@ func (r apiGetHyperflexClusterProfileByMoidRequest) Execute() (HyperflexClusterP
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9066,7 +9066,7 @@ func (r apiGetHyperflexClusterProfileListRequest) Execute() (HyperflexClusterPro
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterProfiles"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterProfiles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -9244,7 +9244,7 @@ func (r apiGetHyperflexClusterStoragePolicyByMoidRequest) Execute() (HyperflexCl
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9453,7 +9453,7 @@ func (r apiGetHyperflexClusterStoragePolicyListRequest) Execute() (HyperflexClus
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterStoragePolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterStoragePolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -9631,7 +9631,7 @@ func (r apiGetHyperflexConfigResultByMoidRequest) Execute() (HyperflexConfigResu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ConfigResults/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ConfigResults/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9777,7 +9777,7 @@ func (r apiGetHyperflexConfigResultEntryByMoidRequest) Execute() (HyperflexConfi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ConfigResultEntries/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ConfigResultEntries/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -9986,7 +9986,7 @@ func (r apiGetHyperflexConfigResultEntryListRequest) Execute() (HyperflexConfigR
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ConfigResultEntries"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ConfigResultEntries"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -10227,7 +10227,7 @@ func (r apiGetHyperflexConfigResultListRequest) Execute() (HyperflexConfigResult
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ConfigResults"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ConfigResults"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -10405,7 +10405,7 @@ func (r apiGetHyperflexExtFcStoragePolicyByMoidRequest) Execute() (HyperflexExtF
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtFcStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtFcStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -10614,7 +10614,7 @@ func (r apiGetHyperflexExtFcStoragePolicyListRequest) Execute() (HyperflexExtFcS
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtFcStoragePolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtFcStoragePolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -10792,7 +10792,7 @@ func (r apiGetHyperflexExtIscsiStoragePolicyByMoidRequest) Execute() (HyperflexE
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtIscsiStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtIscsiStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -11001,7 +11001,7 @@ func (r apiGetHyperflexExtIscsiStoragePolicyListRequest) Execute() (HyperflexExt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtIscsiStoragePolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtIscsiStoragePolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -11179,7 +11179,7 @@ func (r apiGetHyperflexFeatureLimitExternalByMoidRequest) Execute() (HyperflexFe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitExternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitExternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -11388,7 +11388,7 @@ func (r apiGetHyperflexFeatureLimitExternalListRequest) Execute() (HyperflexFeat
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitExternals"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitExternals"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -11566,7 +11566,7 @@ func (r apiGetHyperflexFeatureLimitInternalByMoidRequest) Execute() (HyperflexFe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitInternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitInternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -11775,7 +11775,7 @@ func (r apiGetHyperflexFeatureLimitInternalListRequest) Execute() (HyperflexFeat
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitInternals"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitInternals"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -11953,7 +11953,7 @@ func (r apiGetHyperflexHealthByMoidRequest) Execute() (HyperflexHealth, *_nethtt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Healths/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Healths/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -12162,7 +12162,7 @@ func (r apiGetHyperflexHealthListRequest) Execute() (HyperflexHealthResponse, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Healths"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Healths"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -12340,7 +12340,7 @@ func (r apiGetHyperflexHxdpVersionByMoidRequest) Execute() (HyperflexHxdpVersion
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/HxdpVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/HxdpVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -12549,7 +12549,7 @@ func (r apiGetHyperflexHxdpVersionListRequest) Execute() (HyperflexHxdpVersionRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/HxdpVersions"
+	localVarPath := localBasePath + "/api/v1/hyperflex/HxdpVersions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -12727,7 +12727,7 @@ func (r apiGetHyperflexLocalCredentialPolicyByMoidRequest) Execute() (HyperflexL
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/LocalCredentialPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/LocalCredentialPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -12936,7 +12936,7 @@ func (r apiGetHyperflexLocalCredentialPolicyListRequest) Execute() (HyperflexLoc
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/LocalCredentialPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/LocalCredentialPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -13114,7 +13114,7 @@ func (r apiGetHyperflexNodeByMoidRequest) Execute() (HyperflexNode, *_nethttp.Re
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Nodes/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Nodes/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -13260,7 +13260,7 @@ func (r apiGetHyperflexNodeConfigPolicyByMoidRequest) Execute() (HyperflexNodeCo
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -13469,7 +13469,7 @@ func (r apiGetHyperflexNodeConfigPolicyListRequest) Execute() (HyperflexNodeConf
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -13710,7 +13710,7 @@ func (r apiGetHyperflexNodeListRequest) Execute() (HyperflexNodeResponse, *_neth
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Nodes"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Nodes"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -13888,7 +13888,7 @@ func (r apiGetHyperflexNodeProfileByMoidRequest) Execute() (HyperflexNodeProfile
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -14097,7 +14097,7 @@ func (r apiGetHyperflexNodeProfileListRequest) Execute() (HyperflexNodeProfileRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeProfiles"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeProfiles"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -14275,7 +14275,7 @@ func (r apiGetHyperflexProxySettingPolicyByMoidRequest) Execute() (HyperflexProx
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ProxySettingPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ProxySettingPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -14484,7 +14484,7 @@ func (r apiGetHyperflexProxySettingPolicyListRequest) Execute() (HyperflexProxyS
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ProxySettingPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ProxySettingPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -14662,7 +14662,7 @@ func (r apiGetHyperflexServerFirmwareVersionByMoidRequest) Execute() (HyperflexS
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerFirmwareVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerFirmwareVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -14871,7 +14871,7 @@ func (r apiGetHyperflexServerFirmwareVersionListRequest) Execute() (HyperflexSer
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerFirmwareVersions"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerFirmwareVersions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -15049,7 +15049,7 @@ func (r apiGetHyperflexServerModelByMoidRequest) Execute() (HyperflexServerModel
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerModels/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerModels/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -15258,7 +15258,7 @@ func (r apiGetHyperflexServerModelListRequest) Execute() (HyperflexServerModelRe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerModels"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerModels"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -15436,7 +15436,7 @@ func (r apiGetHyperflexSoftwareVersionPolicyByMoidRequest) Execute() (HyperflexS
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SoftwareVersionPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SoftwareVersionPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -15645,7 +15645,7 @@ func (r apiGetHyperflexSoftwareVersionPolicyListRequest) Execute() (HyperflexSof
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SoftwareVersionPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SoftwareVersionPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -15823,7 +15823,7 @@ func (r apiGetHyperflexSysConfigPolicyByMoidRequest) Execute() (HyperflexSysConf
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SysConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SysConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -16032,7 +16032,7 @@ func (r apiGetHyperflexSysConfigPolicyListRequest) Execute() (HyperflexSysConfig
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SysConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SysConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -16210,7 +16210,7 @@ func (r apiGetHyperflexUcsmConfigPolicyByMoidRequest) Execute() (HyperflexUcsmCo
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/UcsmConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/UcsmConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -16419,7 +16419,7 @@ func (r apiGetHyperflexUcsmConfigPolicyListRequest) Execute() (HyperflexUcsmConf
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/UcsmConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/UcsmConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -16597,7 +16597,7 @@ func (r apiGetHyperflexVcenterConfigPolicyByMoidRequest) Execute() (HyperflexVce
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/VcenterConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/VcenterConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -16806,7 +16806,7 @@ func (r apiGetHyperflexVcenterConfigPolicyListRequest) Execute() (HyperflexVcent
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/VcenterConfigPolicies"
+	localVarPath := localBasePath + "/api/v1/hyperflex/VcenterConfigPolicies"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -16996,7 +16996,7 @@ func (r apiPatchHyperflexAppCatalogRequest) Execute() (HyperflexAppCatalog, *_ne
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AppCatalogs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AppCatalogs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -17163,7 +17163,7 @@ func (r apiPatchHyperflexAutoSupportPolicyRequest) Execute() (HyperflexAutoSuppo
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AutoSupportPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AutoSupportPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -17330,7 +17330,7 @@ func (r apiPatchHyperflexCapabilityInfoRequest) Execute() (HyperflexCapabilityIn
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/CapabilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/CapabilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -17497,7 +17497,7 @@ func (r apiPatchHyperflexClusterRequest) Execute() (HyperflexCluster, *_nethttp.
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Clusters/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Clusters/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -17664,7 +17664,7 @@ func (r apiPatchHyperflexClusterNetworkPolicyRequest) Execute() (HyperflexCluste
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -17831,7 +17831,7 @@ func (r apiPatchHyperflexClusterProfileRequest) Execute() (HyperflexClusterProfi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -17998,7 +17998,7 @@ func (r apiPatchHyperflexClusterStoragePolicyRequest) Execute() (HyperflexCluste
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -18165,7 +18165,7 @@ func (r apiPatchHyperflexExtFcStoragePolicyRequest) Execute() (HyperflexExtFcSto
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtFcStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtFcStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -18332,7 +18332,7 @@ func (r apiPatchHyperflexExtIscsiStoragePolicyRequest) Execute() (HyperflexExtIs
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtIscsiStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtIscsiStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -18499,7 +18499,7 @@ func (r apiPatchHyperflexFeatureLimitExternalRequest) Execute() (HyperflexFeatur
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitExternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitExternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -18666,7 +18666,7 @@ func (r apiPatchHyperflexFeatureLimitInternalRequest) Execute() (HyperflexFeatur
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitInternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitInternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -18833,7 +18833,7 @@ func (r apiPatchHyperflexHxdpVersionRequest) Execute() (HyperflexHxdpVersion, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/HxdpVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/HxdpVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -19000,7 +19000,7 @@ func (r apiPatchHyperflexLocalCredentialPolicyRequest) Execute() (HyperflexLocal
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/LocalCredentialPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/LocalCredentialPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -19167,7 +19167,7 @@ func (r apiPatchHyperflexNodeConfigPolicyRequest) Execute() (HyperflexNodeConfig
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -19334,7 +19334,7 @@ func (r apiPatchHyperflexNodeProfileRequest) Execute() (HyperflexNodeProfile, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -19501,7 +19501,7 @@ func (r apiPatchHyperflexProxySettingPolicyRequest) Execute() (HyperflexProxySet
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ProxySettingPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ProxySettingPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -19668,7 +19668,7 @@ func (r apiPatchHyperflexServerFirmwareVersionRequest) Execute() (HyperflexServe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerFirmwareVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerFirmwareVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -19835,7 +19835,7 @@ func (r apiPatchHyperflexServerModelRequest) Execute() (HyperflexServerModel, *_
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerModels/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerModels/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -20002,7 +20002,7 @@ func (r apiPatchHyperflexSoftwareVersionPolicyRequest) Execute() (HyperflexSoftw
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SoftwareVersionPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SoftwareVersionPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -20169,7 +20169,7 @@ func (r apiPatchHyperflexSysConfigPolicyRequest) Execute() (HyperflexSysConfigPo
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SysConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SysConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -20336,7 +20336,7 @@ func (r apiPatchHyperflexUcsmConfigPolicyRequest) Execute() (HyperflexUcsmConfig
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/UcsmConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/UcsmConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -20503,7 +20503,7 @@ func (r apiPatchHyperflexVcenterConfigPolicyRequest) Execute() (HyperflexVcenter
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/VcenterConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/VcenterConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -20670,7 +20670,7 @@ func (r apiUpdateHyperflexAppCatalogRequest) Execute() (HyperflexAppCatalog, *_n
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AppCatalogs/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AppCatalogs/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -20837,7 +20837,7 @@ func (r apiUpdateHyperflexAutoSupportPolicyRequest) Execute() (HyperflexAutoSupp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/AutoSupportPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/AutoSupportPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -21004,7 +21004,7 @@ func (r apiUpdateHyperflexCapabilityInfoRequest) Execute() (HyperflexCapabilityI
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/CapabilityInfos/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/CapabilityInfos/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -21171,7 +21171,7 @@ func (r apiUpdateHyperflexClusterRequest) Execute() (HyperflexCluster, *_nethttp
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/Clusters/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/Clusters/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -21338,7 +21338,7 @@ func (r apiUpdateHyperflexClusterNetworkPolicyRequest) Execute() (HyperflexClust
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterNetworkPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterNetworkPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -21505,7 +21505,7 @@ func (r apiUpdateHyperflexClusterProfileRequest) Execute() (HyperflexClusterProf
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -21672,7 +21672,7 @@ func (r apiUpdateHyperflexClusterStoragePolicyRequest) Execute() (HyperflexClust
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ClusterStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ClusterStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -21839,7 +21839,7 @@ func (r apiUpdateHyperflexExtFcStoragePolicyRequest) Execute() (HyperflexExtFcSt
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtFcStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtFcStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -22006,7 +22006,7 @@ func (r apiUpdateHyperflexExtIscsiStoragePolicyRequest) Execute() (HyperflexExtI
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ExtIscsiStoragePolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ExtIscsiStoragePolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -22173,7 +22173,7 @@ func (r apiUpdateHyperflexFeatureLimitExternalRequest) Execute() (HyperflexFeatu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitExternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitExternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -22340,7 +22340,7 @@ func (r apiUpdateHyperflexFeatureLimitInternalRequest) Execute() (HyperflexFeatu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/FeatureLimitInternals/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/FeatureLimitInternals/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -22507,7 +22507,7 @@ func (r apiUpdateHyperflexHxdpVersionRequest) Execute() (HyperflexHxdpVersion, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/HxdpVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/HxdpVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -22674,7 +22674,7 @@ func (r apiUpdateHyperflexLocalCredentialPolicyRequest) Execute() (HyperflexLoca
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/LocalCredentialPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/LocalCredentialPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -22841,7 +22841,7 @@ func (r apiUpdateHyperflexNodeConfigPolicyRequest) Execute() (HyperflexNodeConfi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -23008,7 +23008,7 @@ func (r apiUpdateHyperflexNodeProfileRequest) Execute() (HyperflexNodeProfile, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/NodeProfiles/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/NodeProfiles/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -23175,7 +23175,7 @@ func (r apiUpdateHyperflexProxySettingPolicyRequest) Execute() (HyperflexProxySe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ProxySettingPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ProxySettingPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -23342,7 +23342,7 @@ func (r apiUpdateHyperflexServerFirmwareVersionRequest) Execute() (HyperflexServ
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerFirmwareVersions/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerFirmwareVersions/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -23509,7 +23509,7 @@ func (r apiUpdateHyperflexServerModelRequest) Execute() (HyperflexServerModel, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/ServerModels/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/ServerModels/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -23676,7 +23676,7 @@ func (r apiUpdateHyperflexSoftwareVersionPolicyRequest) Execute() (HyperflexSoft
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SoftwareVersionPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SoftwareVersionPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -23843,7 +23843,7 @@ func (r apiUpdateHyperflexSysConfigPolicyRequest) Execute() (HyperflexSysConfigP
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/SysConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/SysConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -24010,7 +24010,7 @@ func (r apiUpdateHyperflexUcsmConfigPolicyRequest) Execute() (HyperflexUcsmConfi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/UcsmConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/UcsmConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -24177,7 +24177,7 @@ func (r apiUpdateHyperflexVcenterConfigPolicyRequest) Execute() (HyperflexVcente
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/hyperflex/VcenterConfigPolicies/{Moid}"
+	localVarPath := localBasePath + "/api/v1/hyperflex/VcenterConfigPolicies/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

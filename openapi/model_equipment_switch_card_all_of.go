@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,14 +18,30 @@ import (
 
 // EquipmentSwitchCardAllOf Definition of the list of properties defined in 'equipment.SwitchCard', excluding properties defined in parent classes.
 type EquipmentSwitchCardAllOf struct {
-	Description    *string                     `json:"Description,omitempty" yaml:"Description,omitempty"`
-	NumPorts       *int64                      `json:"NumPorts,omitempty" yaml:"NumPorts,omitempty"`
-	Presence       *string                     `json:"Presence,omitempty" yaml:"Presence,omitempty"`
-	SlotId         *int64                      `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
-	State          *string                     `json:"State,omitempty" yaml:"State,omitempty"`
-	NetworkElement *NetworkElementRelationship `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
+	// Detailed description of this switch hardware.
+	Description *string `json:"Description,omitempty" yaml:"Description,omitempty"`
+	// Number of ports present in this switch hardware.
+	NumPorts *int64 `json:"NumPorts,omitempty" yaml:"NumPorts,omitempty"`
+	// Field specifies this Switch's Out-of-band IP address.
+	OutOfBandIpAddress *string `json:"OutOfBandIpAddress,omitempty" yaml:"OutOfBandIpAddress,omitempty"`
+	// Field specifies this Switch's default gateway for the out-of-band management interface.
+	OutOfBandIpGateway *string `json:"OutOfBandIpGateway,omitempty" yaml:"OutOfBandIpGateway,omitempty"`
+	// Presence for this switch hardware.
+	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
+	// Slot identifier of the local Switch slot Interface.
+	SlotId *int64 `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
+	// Operational state of the switch hardware.
+	State *string `json:"State,omitempty" yaml:"State,omitempty"`
+	// Switch Identifier that is local to a cluster.
+	SwitchId *string `json:"SwitchId,omitempty" yaml:"SwitchId,omitempty"`
+	// An array of relationships to fcPortChannel resources.
+	FcPortChannels      []FcPortChannelRelationship      `json:"FcPortChannels,omitempty" yaml:"FcPortChannels,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	NetworkElement      *NetworkElementRelationship      `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
+	// An array of relationships to etherPortChannel resources.
+	PortChannels []EtherPortChannelRelationship `json:"PortChannels,omitempty" yaml:"PortChannels,omitempty"`
 	// An array of relationships to portGroup resources.
-	PortGroups       *[]PortGroupRelationship             `json:"PortGroups,omitempty" yaml:"PortGroups,omitempty"`
+	PortGroups       []PortGroupRelationship              `json:"PortGroups,omitempty" yaml:"PortGroups,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
@@ -108,6 +124,70 @@ func (o *EquipmentSwitchCardAllOf) HasNumPorts() bool {
 // SetNumPorts gets a reference to the given int64 and assigns it to the NumPorts field.
 func (o *EquipmentSwitchCardAllOf) SetNumPorts(v int64) {
 	o.NumPorts = &v
+}
+
+// GetOutOfBandIpAddress returns the OutOfBandIpAddress field value if set, zero value otherwise.
+func (o *EquipmentSwitchCardAllOf) GetOutOfBandIpAddress() string {
+	if o == nil || o.OutOfBandIpAddress == nil {
+		var ret string
+		return ret
+	}
+	return *o.OutOfBandIpAddress
+}
+
+// GetOutOfBandIpAddressOk returns a tuple with the OutOfBandIpAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentSwitchCardAllOf) GetOutOfBandIpAddressOk() (*string, bool) {
+	if o == nil || o.OutOfBandIpAddress == nil {
+		return nil, false
+	}
+	return o.OutOfBandIpAddress, true
+}
+
+// HasOutOfBandIpAddress returns a boolean if a field has been set.
+func (o *EquipmentSwitchCardAllOf) HasOutOfBandIpAddress() bool {
+	if o != nil && o.OutOfBandIpAddress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOutOfBandIpAddress gets a reference to the given string and assigns it to the OutOfBandIpAddress field.
+func (o *EquipmentSwitchCardAllOf) SetOutOfBandIpAddress(v string) {
+	o.OutOfBandIpAddress = &v
+}
+
+// GetOutOfBandIpGateway returns the OutOfBandIpGateway field value if set, zero value otherwise.
+func (o *EquipmentSwitchCardAllOf) GetOutOfBandIpGateway() string {
+	if o == nil || o.OutOfBandIpGateway == nil {
+		var ret string
+		return ret
+	}
+	return *o.OutOfBandIpGateway
+}
+
+// GetOutOfBandIpGatewayOk returns a tuple with the OutOfBandIpGateway field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentSwitchCardAllOf) GetOutOfBandIpGatewayOk() (*string, bool) {
+	if o == nil || o.OutOfBandIpGateway == nil {
+		return nil, false
+	}
+	return o.OutOfBandIpGateway, true
+}
+
+// HasOutOfBandIpGateway returns a boolean if a field has been set.
+func (o *EquipmentSwitchCardAllOf) HasOutOfBandIpGateway() bool {
+	if o != nil && o.OutOfBandIpGateway != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOutOfBandIpGateway gets a reference to the given string and assigns it to the OutOfBandIpGateway field.
+func (o *EquipmentSwitchCardAllOf) SetOutOfBandIpGateway(v string) {
+	o.OutOfBandIpGateway = &v
 }
 
 // GetPresence returns the Presence field value if set, zero value otherwise.
@@ -206,6 +286,103 @@ func (o *EquipmentSwitchCardAllOf) SetState(v string) {
 	o.State = &v
 }
 
+// GetSwitchId returns the SwitchId field value if set, zero value otherwise.
+func (o *EquipmentSwitchCardAllOf) GetSwitchId() string {
+	if o == nil || o.SwitchId == nil {
+		var ret string
+		return ret
+	}
+	return *o.SwitchId
+}
+
+// GetSwitchIdOk returns a tuple with the SwitchId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentSwitchCardAllOf) GetSwitchIdOk() (*string, bool) {
+	if o == nil || o.SwitchId == nil {
+		return nil, false
+	}
+	return o.SwitchId, true
+}
+
+// HasSwitchId returns a boolean if a field has been set.
+func (o *EquipmentSwitchCardAllOf) HasSwitchId() bool {
+	if o != nil && o.SwitchId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSwitchId gets a reference to the given string and assigns it to the SwitchId field.
+func (o *EquipmentSwitchCardAllOf) SetSwitchId(v string) {
+	o.SwitchId = &v
+}
+
+// GetFcPortChannels returns the FcPortChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EquipmentSwitchCardAllOf) GetFcPortChannels() []FcPortChannelRelationship {
+	if o == nil {
+		var ret []FcPortChannelRelationship
+		return ret
+	}
+	return o.FcPortChannels
+}
+
+// GetFcPortChannelsOk returns a tuple with the FcPortChannels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EquipmentSwitchCardAllOf) GetFcPortChannelsOk() (*[]FcPortChannelRelationship, bool) {
+	if o == nil || o.FcPortChannels == nil {
+		return nil, false
+	}
+	return &o.FcPortChannels, true
+}
+
+// HasFcPortChannels returns a boolean if a field has been set.
+func (o *EquipmentSwitchCardAllOf) HasFcPortChannels() bool {
+	if o != nil && o.FcPortChannels != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFcPortChannels gets a reference to the given []FcPortChannelRelationship and assigns it to the FcPortChannels field.
+func (o *EquipmentSwitchCardAllOf) SetFcPortChannels(v []FcPortChannelRelationship) {
+	o.FcPortChannels = v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *EquipmentSwitchCardAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentSwitchCardAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *EquipmentSwitchCardAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *EquipmentSwitchCardAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
 // GetNetworkElement returns the NetworkElement field value if set, zero value otherwise.
 func (o *EquipmentSwitchCardAllOf) GetNetworkElement() NetworkElementRelationship {
 	if o == nil || o.NetworkElement == nil {
@@ -238,22 +415,56 @@ func (o *EquipmentSwitchCardAllOf) SetNetworkElement(v NetworkElementRelationshi
 	o.NetworkElement = &v
 }
 
-// GetPortGroups returns the PortGroups field value if set, zero value otherwise.
+// GetPortChannels returns the PortChannels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EquipmentSwitchCardAllOf) GetPortChannels() []EtherPortChannelRelationship {
+	if o == nil {
+		var ret []EtherPortChannelRelationship
+		return ret
+	}
+	return o.PortChannels
+}
+
+// GetPortChannelsOk returns a tuple with the PortChannels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EquipmentSwitchCardAllOf) GetPortChannelsOk() (*[]EtherPortChannelRelationship, bool) {
+	if o == nil || o.PortChannels == nil {
+		return nil, false
+	}
+	return &o.PortChannels, true
+}
+
+// HasPortChannels returns a boolean if a field has been set.
+func (o *EquipmentSwitchCardAllOf) HasPortChannels() bool {
+	if o != nil && o.PortChannels != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPortChannels gets a reference to the given []EtherPortChannelRelationship and assigns it to the PortChannels field.
+func (o *EquipmentSwitchCardAllOf) SetPortChannels(v []EtherPortChannelRelationship) {
+	o.PortChannels = v
+}
+
+// GetPortGroups returns the PortGroups field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EquipmentSwitchCardAllOf) GetPortGroups() []PortGroupRelationship {
-	if o == nil || o.PortGroups == nil {
+	if o == nil {
 		var ret []PortGroupRelationship
 		return ret
 	}
-	return *o.PortGroups
+	return o.PortGroups
 }
 
 // GetPortGroupsOk returns a tuple with the PortGroups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EquipmentSwitchCardAllOf) GetPortGroupsOk() (*[]PortGroupRelationship, bool) {
 	if o == nil || o.PortGroups == nil {
 		return nil, false
 	}
-	return o.PortGroups, true
+	return &o.PortGroups, true
 }
 
 // HasPortGroups returns a boolean if a field has been set.
@@ -267,7 +478,7 @@ func (o *EquipmentSwitchCardAllOf) HasPortGroups() bool {
 
 // SetPortGroups gets a reference to the given []PortGroupRelationship and assigns it to the PortGroups field.
 func (o *EquipmentSwitchCardAllOf) SetPortGroups(v []PortGroupRelationship) {
-	o.PortGroups = &v
+	o.PortGroups = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -310,6 +521,12 @@ func (o EquipmentSwitchCardAllOf) MarshalJSON() ([]byte, error) {
 	if o.NumPorts != nil {
 		toSerialize["NumPorts"] = o.NumPorts
 	}
+	if o.OutOfBandIpAddress != nil {
+		toSerialize["OutOfBandIpAddress"] = o.OutOfBandIpAddress
+	}
+	if o.OutOfBandIpGateway != nil {
+		toSerialize["OutOfBandIpGateway"] = o.OutOfBandIpGateway
+	}
 	if o.Presence != nil {
 		toSerialize["Presence"] = o.Presence
 	}
@@ -319,8 +536,20 @@ func (o EquipmentSwitchCardAllOf) MarshalJSON() ([]byte, error) {
 	if o.State != nil {
 		toSerialize["State"] = o.State
 	}
+	if o.SwitchId != nil {
+		toSerialize["SwitchId"] = o.SwitchId
+	}
+	if o.FcPortChannels != nil {
+		toSerialize["FcPortChannels"] = o.FcPortChannels
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
+	}
 	if o.NetworkElement != nil {
 		toSerialize["NetworkElement"] = o.NetworkElement
+	}
+	if o.PortChannels != nil {
+		toSerialize["PortChannels"] = o.PortChannels
 	}
 	if o.PortGroups != nil {
 		toSerialize["PortGroups"] = o.PortGroups

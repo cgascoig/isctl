@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,15 +18,7 @@ import (
 
 // StorageInitiator An initiator is the consumer of storage, typically a server with an adapter card in it called a Host Bus Adapter (HBA). The initiator \"initiates\" a connection over the fabric to one or more ports on storage system target ports.
 type StorageInitiator struct {
-	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
-	// IQN (iSCSI qualified name). Can be up to 255 characters long and has the format iqn.yyyy-mm.naming-authority:unique name.
-	Iqn *string `json:"Iqn,omitempty" yaml:"Iqn,omitempty"`
-	// Name of the initiator represented in the storage array.
-	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
-	// Initiator type, it can be FC or iSCSI.
-	Type *string `json:"Type,omitempty" yaml:"Type,omitempty"`
-	// World wide name, 128 bit address represented in hexadecimal notation. For example, 51:4f:0c:50:14:1f:af:01:51:4f:0c:51:14:1f:af:01.
-	Wwn *string `json:"Wwn,omitempty" yaml:"Wwn,omitempty"`
+	StorageBaseInitiator `yaml:"StorageBaseInitiator,inline"`
 }
 
 // NewStorageInitiator instantiates a new StorageInitiator object
@@ -35,8 +27,6 @@ type StorageInitiator struct {
 // will change when the set of required properties is changed
 func NewStorageInitiator() *StorageInitiator {
 	this := StorageInitiator{}
-	var type_ string = "FC"
-	this.Type = &type_
 	return &this
 }
 
@@ -45,160 +35,18 @@ func NewStorageInitiator() *StorageInitiator {
 // but it doesn't guarantee that properties required by API are set
 func NewStorageInitiatorWithDefaults() *StorageInitiator {
 	this := StorageInitiator{}
-	var type_ string = "FC"
-	this.Type = &type_
 	return &this
-}
-
-// GetIqn returns the Iqn field value if set, zero value otherwise.
-func (o *StorageInitiator) GetIqn() string {
-	if o == nil || o.Iqn == nil {
-		var ret string
-		return ret
-	}
-	return *o.Iqn
-}
-
-// GetIqnOk returns a tuple with the Iqn field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *StorageInitiator) GetIqnOk() (*string, bool) {
-	if o == nil || o.Iqn == nil {
-		return nil, false
-	}
-	return o.Iqn, true
-}
-
-// HasIqn returns a boolean if a field has been set.
-func (o *StorageInitiator) HasIqn() bool {
-	if o != nil && o.Iqn != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetIqn gets a reference to the given string and assigns it to the Iqn field.
-func (o *StorageInitiator) SetIqn(v string) {
-	o.Iqn = &v
-}
-
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *StorageInitiator) GetName() string {
-	if o == nil || o.Name == nil {
-		var ret string
-		return ret
-	}
-	return *o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *StorageInitiator) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
-		return nil, false
-	}
-	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *StorageInitiator) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *StorageInitiator) SetName(v string) {
-	o.Name = &v
-}
-
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *StorageInitiator) GetType() string {
-	if o == nil || o.Type == nil {
-		var ret string
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *StorageInitiator) GetTypeOk() (*string, bool) {
-	if o == nil || o.Type == nil {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *StorageInitiator) HasType() bool {
-	if o != nil && o.Type != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *StorageInitiator) SetType(v string) {
-	o.Type = &v
-}
-
-// GetWwn returns the Wwn field value if set, zero value otherwise.
-func (o *StorageInitiator) GetWwn() string {
-	if o == nil || o.Wwn == nil {
-		var ret string
-		return ret
-	}
-	return *o.Wwn
-}
-
-// GetWwnOk returns a tuple with the Wwn field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *StorageInitiator) GetWwnOk() (*string, bool) {
-	if o == nil || o.Wwn == nil {
-		return nil, false
-	}
-	return o.Wwn, true
-}
-
-// HasWwn returns a boolean if a field has been set.
-func (o *StorageInitiator) HasWwn() bool {
-	if o != nil && o.Wwn != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetWwn gets a reference to the given string and assigns it to the Wwn field.
-func (o *StorageInitiator) SetWwn(v string) {
-	o.Wwn = &v
 }
 
 func (o StorageInitiator) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	serializedMoBaseComplexType, errMoBaseComplexType := json.Marshal(o.MoBaseComplexType)
-	if errMoBaseComplexType != nil {
-		return []byte{}, errMoBaseComplexType
+	serializedStorageBaseInitiator, errStorageBaseInitiator := json.Marshal(o.StorageBaseInitiator)
+	if errStorageBaseInitiator != nil {
+		return []byte{}, errStorageBaseInitiator
 	}
-	errMoBaseComplexType = json.Unmarshal([]byte(serializedMoBaseComplexType), &toSerialize)
-	if errMoBaseComplexType != nil {
-		return []byte{}, errMoBaseComplexType
-	}
-	if o.Iqn != nil {
-		toSerialize["Iqn"] = o.Iqn
-	}
-	if o.Name != nil {
-		toSerialize["Name"] = o.Name
-	}
-	if o.Type != nil {
-		toSerialize["Type"] = o.Type
-	}
-	if o.Wwn != nil {
-		toSerialize["Wwn"] = o.Wwn
+	errStorageBaseInitiator = json.Unmarshal([]byte(serializedStorageBaseInitiator), &toSerialize)
+	if errStorageBaseInitiator != nil {
+		return []byte{}, errStorageBaseInitiator
 	}
 	return json.Marshal(toSerialize)
 }

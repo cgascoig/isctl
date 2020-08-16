@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | Pointer to **string** | Current state of the advisory for the owner. Indicates if the user is interested in getting updates for the advisory. | [optional] [default to "active"]
+**State** | Pointer to **string** | Current state of the advisory for the owner. Indicates if the user is interested in getting updates for the advisory. * &#x60;active&#x60; - Advisory is currently active and the user wants to receive updates for this advisory. * &#x60;acknowledged&#x60; - Advisory is seen and acknowledged by the user and she no longer wants to recieve updates. | [optional] [default to "active"]
 **Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
-**Advisory** | Pointer to [**TamAdvisoryRelationship**](tam.Advisory.Relationship.md) |  | [optional] 
+**Advisory** | Pointer to [**TamBaseAdvisoryRelationship**](tam.BaseAdvisory.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -79,20 +79,20 @@ HasAccount returns a boolean if a field has been set.
 
 ### GetAdvisory
 
-`func (o *TamAdvisoryInfoAllOf) GetAdvisory() TamAdvisoryRelationship`
+`func (o *TamAdvisoryInfoAllOf) GetAdvisory() TamBaseAdvisoryRelationship`
 
 GetAdvisory returns the Advisory field if non-nil, zero value otherwise.
 
 ### GetAdvisoryOk
 
-`func (o *TamAdvisoryInfoAllOf) GetAdvisoryOk() (*TamAdvisoryRelationship, bool)`
+`func (o *TamAdvisoryInfoAllOf) GetAdvisoryOk() (*TamBaseAdvisoryRelationship, bool)`
 
 GetAdvisoryOk returns a tuple with the Advisory field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdvisory
 
-`func (o *TamAdvisoryInfoAllOf) SetAdvisory(v TamAdvisoryRelationship)`
+`func (o *TamAdvisoryInfoAllOf) SetAdvisory(v TamBaseAdvisoryRelationship)`
 
 SetAdvisory sets Advisory field to given value.
 

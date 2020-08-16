@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LicenseExpirationDate** | Pointer to **string** | Licese expiration date. | [optional] [readonly] 
+**LicenseExpirationDate** | Pointer to **string** | UCS Director license expiration date. | [optional] [readonly] 
 **LicenseKeysInfo** | Pointer to [**[]IaasLicenseKeysInfo**](iaas.LicenseKeysInfo.md) |  | [optional] 
 **LicenseType** | Pointer to **string** | License type of UCSD whether it is EVAL/Permanent/Subscription.. | [optional] [readonly] 
 **LicenseUtilizationInfo** | Pointer to [**[]IaasLicenseUtilizationInfo**](iaas.LicenseUtilizationInfo.md) |  | [optional] 

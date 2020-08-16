@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | The catalog name. There will be one for system and one for each user account. | [optional] 
 **ConfigurationFiles** | Pointer to [**[]OsConfigurationFileRelationship**](os.ConfigurationFile.Relationship.md) | An array of relationships to osConfigurationFile resources. | [optional] 
+**Distributions** | Pointer to [**[]OsDistributionRelationship**](os.Distribution.Relationship.md) | An array of relationships to osDistribution resources. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
 
 ## Methods
@@ -77,6 +78,51 @@ SetConfigurationFiles sets ConfigurationFiles field to given value.
 
 HasConfigurationFiles returns a boolean if a field has been set.
 
+### SetConfigurationFilesNil
+
+`func (o *OsCatalog) SetConfigurationFilesNil(b bool)`
+
+ SetConfigurationFilesNil sets the value for ConfigurationFiles to be an explicit nil
+
+### UnsetConfigurationFiles
+`func (o *OsCatalog) UnsetConfigurationFiles()`
+
+UnsetConfigurationFiles ensures that no value is present for ConfigurationFiles, not even an explicit nil
+### GetDistributions
+
+`func (o *OsCatalog) GetDistributions() []OsDistributionRelationship`
+
+GetDistributions returns the Distributions field if non-nil, zero value otherwise.
+
+### GetDistributionsOk
+
+`func (o *OsCatalog) GetDistributionsOk() (*[]OsDistributionRelationship, bool)`
+
+GetDistributionsOk returns a tuple with the Distributions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistributions
+
+`func (o *OsCatalog) SetDistributions(v []OsDistributionRelationship)`
+
+SetDistributions sets Distributions field to given value.
+
+### HasDistributions
+
+`func (o *OsCatalog) HasDistributions() bool`
+
+HasDistributions returns a boolean if a field has been set.
+
+### SetDistributionsNil
+
+`func (o *OsCatalog) SetDistributionsNil(b bool)`
+
+ SetDistributionsNil sets the value for Distributions to be an explicit nil
+
+### UnsetDistributions
+`func (o *OsCatalog) UnsetDistributions()`
+
+UnsetDistributions ensures that no value is present for Distributions, not even an explicit nil
 ### GetOrganization
 
 `func (o *OsCatalog) GetOrganization() OrganizationOrganizationRelationship`

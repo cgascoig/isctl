@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **KvmIpRange** | Pointer to [**HyperflexIpAddrRange**](hyperflex.IpAddrRange.md) |  | [optional] 
 **MacPrefixRange** | Pointer to [**HyperflexMacAddrPrefixRange**](hyperflex.MacAddrPrefixRange.md) |  | [optional] 
 **MgmtVlan** | Pointer to [**HyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
-**UplinkSpeed** | Pointer to **string** | Link speed of the server adapter port to the upstream switch. When the policy is attached to a cluster profile with EDGE management platform, the uplink speed can be &#39;1G&#39; or &#39;10G+&#39;. Use &#39;10G+&#39; for link speeds of 10G or above. When the policy is attached to a cluster profile with Fabric Interconnect management platform, the uplink speed can be &#39;default&#39; only. | [optional] [default to "default"]
+**UplinkSpeed** | Pointer to **string** | Link speed of the server adapter port to the upstream switch. When the policy is attached to a cluster profile with EDGE management platform, the uplink speed can be &#39;1G&#39; or &#39;10G+&#39;. Use &#39;10G+&#39; for link speeds of 10G or above. When the policy is attached to a cluster profile with Fabric Interconnect management platform, the uplink speed can be &#39;default&#39; only. * &#x60;default&#x60; - Current default value set on the hardware platform. * &#x60;1G&#x60; - A link speed of 1 gigabit per second. * &#x60;10G&#x60; - A link speed of 10 gigabits per second or above. | [optional] [default to "default"]
 **VmMigrationVlan** | Pointer to [**HyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
 **VmNetworkVlans** | Pointer to [**[]HyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
 **ClusterProfiles** | Pointer to [**[]HyperflexClusterProfileRelationship**](hyperflex.ClusterProfile.Relationship.md) | An array of relationships to hyperflexClusterProfile resources. | [optional] 
@@ -233,6 +233,16 @@ SetClusterProfiles sets ClusterProfiles field to given value.
 
 HasClusterProfiles returns a boolean if a field has been set.
 
+### SetClusterProfilesNil
+
+`func (o *HyperflexClusterNetworkPolicy) SetClusterProfilesNil(b bool)`
+
+ SetClusterProfilesNil sets the value for ClusterProfiles to be an explicit nil
+
+### UnsetClusterProfiles
+`func (o *HyperflexClusterNetworkPolicy) UnsetClusterProfiles()`
+
+UnsetClusterProfiles ensures that no value is present for ClusterProfiles, not even an explicit nil
 ### GetOrganization
 
 `func (o *HyperflexClusterNetworkPolicy) GetOrganization() OrganizationOrganizationRelationship`

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -18,24 +18,31 @@ import (
 
 // MemoryArrayAllOf Definition of the list of properties defined in 'memory.Array', excluding properties defined in parent classes.
 type MemoryArrayAllOf struct {
-	// ID of the memory array on a server.
+	// The instance number of the memory array.
 	ArrayId *int64 `json:"ArrayId,omitempty" yaml:"ArrayId,omitempty"`
 	// ID of the CPU that access this memory array.
 	CpuId *int64 `json:"CpuId,omitempty" yaml:"CpuId,omitempty"`
 	// Current capacity of all the memory units on a server.
 	CurrentCapacity *string `json:"CurrentCapacity,omitempty" yaml:"CurrentCapacity,omitempty"`
+	// The primary hardware error detection or correction method supported by the memory array.
 	ErrorCorrection *string `json:"ErrorCorrection,omitempty" yaml:"ErrorCorrection,omitempty"`
 	// Maximum capacity of all the memory units on a server.
-	MaxCapacity    *string                   `json:"MaxCapacity,omitempty" yaml:"MaxCapacity,omitempty"`
-	MaxDevices     *string                   `json:"MaxDevices,omitempty" yaml:"MaxDevices,omitempty"`
-	OperPowerState *string                   `json:"OperPowerState,omitempty" yaml:"OperPowerState,omitempty"`
-	Presence       *string                   `json:"Presence,omitempty" yaml:"Presence,omitempty"`
-	ComputeBoard   *ComputeBoardRelationship `json:"ComputeBoard,omitempty" yaml:"ComputeBoard,omitempty"`
+	MaxCapacity *string `json:"MaxCapacity,omitempty" yaml:"MaxCapacity,omitempty"`
+	// The maximum number of slots or sockets available for memory devices in the memory array.
+	MaxDevices *string `json:"MaxDevices,omitempty" yaml:"MaxDevices,omitempty"`
+	// The power state indicator of the memory array.
+	OperPowerState *string `json:"OperPowerState,omitempty" yaml:"OperPowerState,omitempty"`
+	// The presence of atleast one memory device in the array. Valid values are 'equipped' and 'absent'.
+	Presence            *string                          `json:"Presence,omitempty" yaml:"Presence,omitempty"`
+	ComputeBlade        *ComputeBladeRelationship        `json:"ComputeBlade,omitempty" yaml:"ComputeBlade,omitempty"`
+	ComputeBoard        *ComputeBoardRelationship        `json:"ComputeBoard,omitempty" yaml:"ComputeBoard,omitempty"`
+	ComputeRackUnit     *ComputeRackUnitRelationship     `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
+	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to memoryPersistentMemoryUnit resources.
-	PersistentMemoryUnits *[]MemoryPersistentMemoryUnitRelationship `json:"PersistentMemoryUnits,omitempty" yaml:"PersistentMemoryUnits,omitempty"`
-	RegisteredDevice      *AssetDeviceRegistrationRelationship      `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	PersistentMemoryUnits []MemoryPersistentMemoryUnitRelationship `json:"PersistentMemoryUnits,omitempty" yaml:"PersistentMemoryUnits,omitempty"`
+	RegisteredDevice      *AssetDeviceRegistrationRelationship     `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 	// An array of relationships to memoryUnit resources.
-	Units *[]MemoryUnitRelationship `json:"Units,omitempty" yaml:"Units,omitempty"`
+	Units []MemoryUnitRelationship `json:"Units,omitempty" yaml:"Units,omitempty"`
 }
 
 // NewMemoryArrayAllOf instantiates a new MemoryArrayAllOf object
@@ -311,6 +318,38 @@ func (o *MemoryArrayAllOf) SetPresence(v string) {
 	o.Presence = &v
 }
 
+// GetComputeBlade returns the ComputeBlade field value if set, zero value otherwise.
+func (o *MemoryArrayAllOf) GetComputeBlade() ComputeBladeRelationship {
+	if o == nil || o.ComputeBlade == nil {
+		var ret ComputeBladeRelationship
+		return ret
+	}
+	return *o.ComputeBlade
+}
+
+// GetComputeBladeOk returns a tuple with the ComputeBlade field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MemoryArrayAllOf) GetComputeBladeOk() (*ComputeBladeRelationship, bool) {
+	if o == nil || o.ComputeBlade == nil {
+		return nil, false
+	}
+	return o.ComputeBlade, true
+}
+
+// HasComputeBlade returns a boolean if a field has been set.
+func (o *MemoryArrayAllOf) HasComputeBlade() bool {
+	if o != nil && o.ComputeBlade != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComputeBlade gets a reference to the given ComputeBladeRelationship and assigns it to the ComputeBlade field.
+func (o *MemoryArrayAllOf) SetComputeBlade(v ComputeBladeRelationship) {
+	o.ComputeBlade = &v
+}
+
 // GetComputeBoard returns the ComputeBoard field value if set, zero value otherwise.
 func (o *MemoryArrayAllOf) GetComputeBoard() ComputeBoardRelationship {
 	if o == nil || o.ComputeBoard == nil {
@@ -343,22 +382,87 @@ func (o *MemoryArrayAllOf) SetComputeBoard(v ComputeBoardRelationship) {
 	o.ComputeBoard = &v
 }
 
-// GetPersistentMemoryUnits returns the PersistentMemoryUnits field value if set, zero value otherwise.
+// GetComputeRackUnit returns the ComputeRackUnit field value if set, zero value otherwise.
+func (o *MemoryArrayAllOf) GetComputeRackUnit() ComputeRackUnitRelationship {
+	if o == nil || o.ComputeRackUnit == nil {
+		var ret ComputeRackUnitRelationship
+		return ret
+	}
+	return *o.ComputeRackUnit
+}
+
+// GetComputeRackUnitOk returns a tuple with the ComputeRackUnit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MemoryArrayAllOf) GetComputeRackUnitOk() (*ComputeRackUnitRelationship, bool) {
+	if o == nil || o.ComputeRackUnit == nil {
+		return nil, false
+	}
+	return o.ComputeRackUnit, true
+}
+
+// HasComputeRackUnit returns a boolean if a field has been set.
+func (o *MemoryArrayAllOf) HasComputeRackUnit() bool {
+	if o != nil && o.ComputeRackUnit != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComputeRackUnit gets a reference to the given ComputeRackUnitRelationship and assigns it to the ComputeRackUnit field.
+func (o *MemoryArrayAllOf) SetComputeRackUnit(v ComputeRackUnitRelationship) {
+	o.ComputeRackUnit = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *MemoryArrayAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MemoryArrayAllOf) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *MemoryArrayAllOf) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *MemoryArrayAllOf) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetPersistentMemoryUnits returns the PersistentMemoryUnits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MemoryArrayAllOf) GetPersistentMemoryUnits() []MemoryPersistentMemoryUnitRelationship {
-	if o == nil || o.PersistentMemoryUnits == nil {
+	if o == nil {
 		var ret []MemoryPersistentMemoryUnitRelationship
 		return ret
 	}
-	return *o.PersistentMemoryUnits
+	return o.PersistentMemoryUnits
 }
 
 // GetPersistentMemoryUnitsOk returns a tuple with the PersistentMemoryUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MemoryArrayAllOf) GetPersistentMemoryUnitsOk() (*[]MemoryPersistentMemoryUnitRelationship, bool) {
 	if o == nil || o.PersistentMemoryUnits == nil {
 		return nil, false
 	}
-	return o.PersistentMemoryUnits, true
+	return &o.PersistentMemoryUnits, true
 }
 
 // HasPersistentMemoryUnits returns a boolean if a field has been set.
@@ -372,7 +476,7 @@ func (o *MemoryArrayAllOf) HasPersistentMemoryUnits() bool {
 
 // SetPersistentMemoryUnits gets a reference to the given []MemoryPersistentMemoryUnitRelationship and assigns it to the PersistentMemoryUnits field.
 func (o *MemoryArrayAllOf) SetPersistentMemoryUnits(v []MemoryPersistentMemoryUnitRelationship) {
-	o.PersistentMemoryUnits = &v
+	o.PersistentMemoryUnits = v
 }
 
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
@@ -407,22 +511,23 @@ func (o *MemoryArrayAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRelation
 	o.RegisteredDevice = &v
 }
 
-// GetUnits returns the Units field value if set, zero value otherwise.
+// GetUnits returns the Units field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MemoryArrayAllOf) GetUnits() []MemoryUnitRelationship {
-	if o == nil || o.Units == nil {
+	if o == nil {
 		var ret []MemoryUnitRelationship
 		return ret
 	}
-	return *o.Units
+	return o.Units
 }
 
 // GetUnitsOk returns a tuple with the Units field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MemoryArrayAllOf) GetUnitsOk() (*[]MemoryUnitRelationship, bool) {
 	if o == nil || o.Units == nil {
 		return nil, false
 	}
-	return o.Units, true
+	return &o.Units, true
 }
 
 // HasUnits returns a boolean if a field has been set.
@@ -436,7 +541,7 @@ func (o *MemoryArrayAllOf) HasUnits() bool {
 
 // SetUnits gets a reference to the given []MemoryUnitRelationship and assigns it to the Units field.
 func (o *MemoryArrayAllOf) SetUnits(v []MemoryUnitRelationship) {
-	o.Units = &v
+	o.Units = v
 }
 
 func (o MemoryArrayAllOf) MarshalJSON() ([]byte, error) {
@@ -465,8 +570,17 @@ func (o MemoryArrayAllOf) MarshalJSON() ([]byte, error) {
 	if o.Presence != nil {
 		toSerialize["Presence"] = o.Presence
 	}
+	if o.ComputeBlade != nil {
+		toSerialize["ComputeBlade"] = o.ComputeBlade
+	}
 	if o.ComputeBoard != nil {
 		toSerialize["ComputeBoard"] = o.ComputeBoard
+	}
+	if o.ComputeRackUnit != nil {
+		toSerialize["ComputeRackUnit"] = o.ComputeRackUnit
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.PersistentMemoryUnits != nil {
 		toSerialize["PersistentMemoryUnits"] = o.PersistentMemoryUnits

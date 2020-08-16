@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -25,6 +25,8 @@ type ApplianceSetupInfo struct {
 	Capabilities *[]ApplianceKeyValuePair `json:"Capabilities,omitempty" yaml:"Capabilities,omitempty"`
 	// URL of the Intersight to which this Intersight Appliance is connected to.
 	CloudUrl *string `json:"CloudUrl,omitempty" yaml:"CloudUrl,omitempty"`
+	// Indicates where Intersight Appliance is installed in air-gapped or connected mode. In connected mode, Intersight Appliance is claimed by Intesight SaaS. In air-gapped mode, Intersight Appliance does not connect to any Cisco services. * `Connected` - In connected mode, Intersight Appliance connects to Intersight SaaS and other cisco.com services. * `Private` - In private mode, Intersight Appliance does not connect to Intersight SaaS or any cisco.com services.
+	DeploymentMode *string `json:"DeploymentMode,omitempty" yaml:"DeploymentMode,omitempty"`
 	// End date of the Intersight Appliance's initial setup.
 	EndTime     *time.Time `json:"EndTime,omitempty" yaml:"EndTime,omitempty"`
 	SetupStates *[]string  `json:"SetupStates,omitempty" yaml:"SetupStates,omitempty"`
@@ -39,6 +41,8 @@ type ApplianceSetupInfo struct {
 // will change when the set of required properties is changed
 func NewApplianceSetupInfo() *ApplianceSetupInfo {
 	this := ApplianceSetupInfo{}
+	var deploymentMode string = "Connected"
+	this.DeploymentMode = &deploymentMode
 	return &this
 }
 
@@ -47,6 +51,8 @@ func NewApplianceSetupInfo() *ApplianceSetupInfo {
 // but it doesn't guarantee that properties required by API are set
 func NewApplianceSetupInfoWithDefaults() *ApplianceSetupInfo {
 	this := ApplianceSetupInfo{}
+	var deploymentMode string = "Connected"
+	this.DeploymentMode = &deploymentMode
 	return &this
 }
 
@@ -144,6 +150,38 @@ func (o *ApplianceSetupInfo) HasCloudUrl() bool {
 // SetCloudUrl gets a reference to the given string and assigns it to the CloudUrl field.
 func (o *ApplianceSetupInfo) SetCloudUrl(v string) {
 	o.CloudUrl = &v
+}
+
+// GetDeploymentMode returns the DeploymentMode field value if set, zero value otherwise.
+func (o *ApplianceSetupInfo) GetDeploymentMode() string {
+	if o == nil || o.DeploymentMode == nil {
+		var ret string
+		return ret
+	}
+	return *o.DeploymentMode
+}
+
+// GetDeploymentModeOk returns a tuple with the DeploymentMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplianceSetupInfo) GetDeploymentModeOk() (*string, bool) {
+	if o == nil || o.DeploymentMode == nil {
+		return nil, false
+	}
+	return o.DeploymentMode, true
+}
+
+// HasDeploymentMode returns a boolean if a field has been set.
+func (o *ApplianceSetupInfo) HasDeploymentMode() bool {
+	if o != nil && o.DeploymentMode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDeploymentMode gets a reference to the given string and assigns it to the DeploymentMode field.
+func (o *ApplianceSetupInfo) SetDeploymentMode(v string) {
+	o.DeploymentMode = &v
 }
 
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
@@ -292,6 +330,9 @@ func (o ApplianceSetupInfo) MarshalJSON() ([]byte, error) {
 	}
 	if o.CloudUrl != nil {
 		toSerialize["CloudUrl"] = o.CloudUrl
+	}
+	if o.DeploymentMode != nil {
+		toSerialize["DeploymentMode"] = o.DeploymentMode
 	}
 	if o.EndTime != nil {
 		toSerialize["EndTime"] = o.EndTime

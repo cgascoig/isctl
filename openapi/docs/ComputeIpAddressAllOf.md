@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | Pointer to **string** |  | [optional] [readonly] 
-**Category** | Pointer to **string** |  | [optional] [readonly] [default to "Equipment"]
-**DefaultGateway** | Pointer to **string** | Gateway address of the KVM IP address. | [optional] [readonly] 
-**Dn** | Pointer to **string** |  | [optional] [readonly] 
-**HttpPort** | Pointer to **int64** |  | [optional] [readonly] 
-**HttpsPort** | Pointer to **int64** |  | [optional] [readonly] 
-**KvmPort** | Pointer to **int64** | Port number on which the KVM is running. | [optional] [readonly] 
-**Name** | Pointer to **string** |  | [optional] [readonly] [default to "Outband"]
-**Subnet** | Pointer to **string** | Subnet of the KVM IP address. | [optional] [readonly] 
-**Type** | Pointer to **string** |  | [optional] [readonly] [default to "MgmtInterface"]
+**Address** | Pointer to **string** | IP Address to be used for KVM. | [optional] [readonly] 
+**Category** | Pointer to **string** | Category of the Kvm IP Address. * &#x60;Equipment&#x60; - Ip Address assigned to an equipment. * &#x60;ServiceProfile&#x60; - Ip Address assigned to a Service Profile. | [optional] [readonly] [default to "Equipment"]
+**DefaultGateway** | Pointer to **string** | Default gateway property of KVM IP Address. | [optional] [readonly] 
+**Dn** | Pointer to **string** | The distinguished name for this managed object. | [optional] [readonly] 
+**HttpPort** | Pointer to **int64** | HTTP port of an IP Address. | [optional] [readonly] 
+**HttpsPort** | Pointer to **int64** | Secured HTTP port of an IP Address. | [optional] [readonly] 
+**KvmPort** | Pointer to **int64** | Port number on which the KVM is running and used for connecting to KVM console. | [optional] [readonly] 
+**KvmVlan** | Pointer to **int64** | VLAN Identifier of Inband IP Address. | [optional] [readonly] 
+**Name** | Pointer to **string** | Name to identify the KVM IP Address. * &#x60;Outband&#x60; - The user assigned Out of band IP Address. * &#x60;Inband&#x60; - The user assigned Inband IP Address. | [optional] [readonly] [default to "Outband"]
+**Subnet** | Pointer to **string** | Subnet detail of a KVM IP Address. | [optional] [readonly] 
+**Type** | Pointer to **string** | Type of the KVM IP Address. * &#x60;MgmtInterface&#x60; - Ip Address of a Management Interface. * &#x60;VnicIpV4StaticAddr&#x60; - Static Ipv4 Address of a Virtual Network Interface. * &#x60;VnicIpV4PooledAddr&#x60; - Ipv4 Address of a Virtual Network Interface from an address pool. * &#x60;VnicIpV4MgmtPooledAddr&#x60; - Ipv4 Address of a Virtual Network Interface from a Managed address pool. * &#x60;VnicIpV6StaticAddr&#x60; - Static Ipv6 Address of a Virtual Network Interface. * &#x60;VnicIpV6MgmtPooledAddr&#x60; - Ipv6 Address of a Virtual Network Interface from a Managed address pool. * &#x60;VnicIpV4ProfDerivedAddr&#x60; - Server Profile derived Ipv4 Address of a Virtual Network Interface. | [optional] [readonly] [default to "MgmtInterface"]
 
 ## Methods
 
@@ -208,6 +209,31 @@ SetKvmPort sets KvmPort field to given value.
 `func (o *ComputeIpAddressAllOf) HasKvmPort() bool`
 
 HasKvmPort returns a boolean if a field has been set.
+
+### GetKvmVlan
+
+`func (o *ComputeIpAddressAllOf) GetKvmVlan() int64`
+
+GetKvmVlan returns the KvmVlan field if non-nil, zero value otherwise.
+
+### GetKvmVlanOk
+
+`func (o *ComputeIpAddressAllOf) GetKvmVlanOk() (*int64, bool)`
+
+GetKvmVlanOk returns a tuple with the KvmVlan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKvmVlan
+
+`func (o *ComputeIpAddressAllOf) SetKvmVlan(v int64)`
+
+SetKvmVlan sets KvmVlan field to given value.
+
+### HasKvmVlan
+
+`func (o *ComputeIpAddressAllOf) HasKvmVlan() bool`
+
+HasKvmVlan returns a boolean if a field has been set.
 
 ### GetName
 

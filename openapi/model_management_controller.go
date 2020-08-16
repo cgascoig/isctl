@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-04-17T15:33:06-07:00.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
  *
- * API version: 1.0.9-1628
+ * API version: 1.0.9-2110
  * Contact: intersight@cisco.com
  */
 
@@ -20,18 +20,22 @@ import (
 type ManagementController struct {
 	InventoryBase `yaml:"InventoryBase,inline"`
 	// Model of the endpoint that houses the management controller.
-	Model           *string                      `json:"Model,omitempty" yaml:"Model,omitempty"`
-	AdapterUnit     *AdapterUnitRelationship     `json:"AdapterUnit,omitempty" yaml:"AdapterUnit,omitempty"`
-	ComputeBlade    *ComputeBladeRelationship    `json:"ComputeBlade,omitempty" yaml:"ComputeBlade,omitempty"`
-	ComputeRackUnit *ComputeRackUnitRelationship `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
+	Model                       *string                                  `json:"Model,omitempty" yaml:"Model,omitempty"`
+	AdapterUnit                 *AdapterUnitRelationship                 `json:"AdapterUnit,omitempty" yaml:"AdapterUnit,omitempty"`
+	ComputeBlade                *ComputeBladeRelationship                `json:"ComputeBlade,omitempty" yaml:"ComputeBlade,omitempty"`
+	ComputeRackUnit             *ComputeRackUnitRelationship             `json:"ComputeRackUnit,omitempty" yaml:"ComputeRackUnit,omitempty"`
+	EquipmentIoCardBase         *EquipmentIoCardBaseRelationship         `json:"EquipmentIoCardBase,omitempty" yaml:"EquipmentIoCardBase,omitempty"`
+	EquipmentSharedIoModule     *EquipmentSharedIoModuleRelationship     `json:"EquipmentSharedIoModule,omitempty" yaml:"EquipmentSharedIoModule,omitempty"`
+	EquipmentSystemIoController *EquipmentSystemIoControllerRelationship `json:"EquipmentSystemIoController,omitempty" yaml:"EquipmentSystemIoController,omitempty"`
+	InventoryDeviceInfo         *InventoryDeviceInfoRelationship         `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to managementInterface resources.
-	ManagementInterfaces *[]ManagementInterfaceRelationship   `json:"ManagementInterfaces,omitempty" yaml:"ManagementInterfaces,omitempty"`
+	ManagementInterfaces []ManagementInterfaceRelationship    `json:"ManagementInterfaces,omitempty" yaml:"ManagementInterfaces,omitempty"`
 	NetworkElement       *NetworkElementRelationship          `json:"NetworkElement,omitempty" yaml:"NetworkElement,omitempty"`
 	RegisteredDevice     *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 	// An array of relationships to firmwareRunningFirmware resources.
-	RunningFirmware    *[]FirmwareRunningFirmwareRelationship `json:"RunningFirmware,omitempty" yaml:"RunningFirmware,omitempty"`
-	StorageSasExpander *StorageSasExpanderRelationship        `json:"StorageSasExpander,omitempty" yaml:"StorageSasExpander,omitempty"`
-	TopSystem          *TopSystemRelationship                 `json:"TopSystem,omitempty" yaml:"TopSystem,omitempty"`
+	RunningFirmware    []FirmwareRunningFirmwareRelationship `json:"RunningFirmware,omitempty" yaml:"RunningFirmware,omitempty"`
+	StorageSasExpander *StorageSasExpanderRelationship       `json:"StorageSasExpander,omitempty" yaml:"StorageSasExpander,omitempty"`
+	TopSystem          *TopSystemRelationship                `json:"TopSystem,omitempty" yaml:"TopSystem,omitempty"`
 }
 
 // NewManagementController instantiates a new ManagementController object
@@ -179,22 +183,151 @@ func (o *ManagementController) SetComputeRackUnit(v ComputeRackUnitRelationship)
 	o.ComputeRackUnit = &v
 }
 
-// GetManagementInterfaces returns the ManagementInterfaces field value if set, zero value otherwise.
+// GetEquipmentIoCardBase returns the EquipmentIoCardBase field value if set, zero value otherwise.
+func (o *ManagementController) GetEquipmentIoCardBase() EquipmentIoCardBaseRelationship {
+	if o == nil || o.EquipmentIoCardBase == nil {
+		var ret EquipmentIoCardBaseRelationship
+		return ret
+	}
+	return *o.EquipmentIoCardBase
+}
+
+// GetEquipmentIoCardBaseOk returns a tuple with the EquipmentIoCardBase field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementController) GetEquipmentIoCardBaseOk() (*EquipmentIoCardBaseRelationship, bool) {
+	if o == nil || o.EquipmentIoCardBase == nil {
+		return nil, false
+	}
+	return o.EquipmentIoCardBase, true
+}
+
+// HasEquipmentIoCardBase returns a boolean if a field has been set.
+func (o *ManagementController) HasEquipmentIoCardBase() bool {
+	if o != nil && o.EquipmentIoCardBase != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEquipmentIoCardBase gets a reference to the given EquipmentIoCardBaseRelationship and assigns it to the EquipmentIoCardBase field.
+func (o *ManagementController) SetEquipmentIoCardBase(v EquipmentIoCardBaseRelationship) {
+	o.EquipmentIoCardBase = &v
+}
+
+// GetEquipmentSharedIoModule returns the EquipmentSharedIoModule field value if set, zero value otherwise.
+func (o *ManagementController) GetEquipmentSharedIoModule() EquipmentSharedIoModuleRelationship {
+	if o == nil || o.EquipmentSharedIoModule == nil {
+		var ret EquipmentSharedIoModuleRelationship
+		return ret
+	}
+	return *o.EquipmentSharedIoModule
+}
+
+// GetEquipmentSharedIoModuleOk returns a tuple with the EquipmentSharedIoModule field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementController) GetEquipmentSharedIoModuleOk() (*EquipmentSharedIoModuleRelationship, bool) {
+	if o == nil || o.EquipmentSharedIoModule == nil {
+		return nil, false
+	}
+	return o.EquipmentSharedIoModule, true
+}
+
+// HasEquipmentSharedIoModule returns a boolean if a field has been set.
+func (o *ManagementController) HasEquipmentSharedIoModule() bool {
+	if o != nil && o.EquipmentSharedIoModule != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEquipmentSharedIoModule gets a reference to the given EquipmentSharedIoModuleRelationship and assigns it to the EquipmentSharedIoModule field.
+func (o *ManagementController) SetEquipmentSharedIoModule(v EquipmentSharedIoModuleRelationship) {
+	o.EquipmentSharedIoModule = &v
+}
+
+// GetEquipmentSystemIoController returns the EquipmentSystemIoController field value if set, zero value otherwise.
+func (o *ManagementController) GetEquipmentSystemIoController() EquipmentSystemIoControllerRelationship {
+	if o == nil || o.EquipmentSystemIoController == nil {
+		var ret EquipmentSystemIoControllerRelationship
+		return ret
+	}
+	return *o.EquipmentSystemIoController
+}
+
+// GetEquipmentSystemIoControllerOk returns a tuple with the EquipmentSystemIoController field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementController) GetEquipmentSystemIoControllerOk() (*EquipmentSystemIoControllerRelationship, bool) {
+	if o == nil || o.EquipmentSystemIoController == nil {
+		return nil, false
+	}
+	return o.EquipmentSystemIoController, true
+}
+
+// HasEquipmentSystemIoController returns a boolean if a field has been set.
+func (o *ManagementController) HasEquipmentSystemIoController() bool {
+	if o != nil && o.EquipmentSystemIoController != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEquipmentSystemIoController gets a reference to the given EquipmentSystemIoControllerRelationship and assigns it to the EquipmentSystemIoController field.
+func (o *ManagementController) SetEquipmentSystemIoController(v EquipmentSystemIoControllerRelationship) {
+	o.EquipmentSystemIoController = &v
+}
+
+// GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
+func (o *ManagementController) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		var ret InventoryDeviceInfoRelationship
+		return ret
+	}
+	return *o.InventoryDeviceInfo
+}
+
+// GetInventoryDeviceInfoOk returns a tuple with the InventoryDeviceInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ManagementController) GetInventoryDeviceInfoOk() (*InventoryDeviceInfoRelationship, bool) {
+	if o == nil || o.InventoryDeviceInfo == nil {
+		return nil, false
+	}
+	return o.InventoryDeviceInfo, true
+}
+
+// HasInventoryDeviceInfo returns a boolean if a field has been set.
+func (o *ManagementController) HasInventoryDeviceInfo() bool {
+	if o != nil && o.InventoryDeviceInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInventoryDeviceInfo gets a reference to the given InventoryDeviceInfoRelationship and assigns it to the InventoryDeviceInfo field.
+func (o *ManagementController) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationship) {
+	o.InventoryDeviceInfo = &v
+}
+
+// GetManagementInterfaces returns the ManagementInterfaces field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagementController) GetManagementInterfaces() []ManagementInterfaceRelationship {
-	if o == nil || o.ManagementInterfaces == nil {
+	if o == nil {
 		var ret []ManagementInterfaceRelationship
 		return ret
 	}
-	return *o.ManagementInterfaces
+	return o.ManagementInterfaces
 }
 
 // GetManagementInterfacesOk returns a tuple with the ManagementInterfaces field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagementController) GetManagementInterfacesOk() (*[]ManagementInterfaceRelationship, bool) {
 	if o == nil || o.ManagementInterfaces == nil {
 		return nil, false
 	}
-	return o.ManagementInterfaces, true
+	return &o.ManagementInterfaces, true
 }
 
 // HasManagementInterfaces returns a boolean if a field has been set.
@@ -208,7 +341,7 @@ func (o *ManagementController) HasManagementInterfaces() bool {
 
 // SetManagementInterfaces gets a reference to the given []ManagementInterfaceRelationship and assigns it to the ManagementInterfaces field.
 func (o *ManagementController) SetManagementInterfaces(v []ManagementInterfaceRelationship) {
-	o.ManagementInterfaces = &v
+	o.ManagementInterfaces = v
 }
 
 // GetNetworkElement returns the NetworkElement field value if set, zero value otherwise.
@@ -275,22 +408,23 @@ func (o *ManagementController) SetRegisteredDevice(v AssetDeviceRegistrationRela
 	o.RegisteredDevice = &v
 }
 
-// GetRunningFirmware returns the RunningFirmware field value if set, zero value otherwise.
+// GetRunningFirmware returns the RunningFirmware field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ManagementController) GetRunningFirmware() []FirmwareRunningFirmwareRelationship {
-	if o == nil || o.RunningFirmware == nil {
+	if o == nil {
 		var ret []FirmwareRunningFirmwareRelationship
 		return ret
 	}
-	return *o.RunningFirmware
+	return o.RunningFirmware
 }
 
 // GetRunningFirmwareOk returns a tuple with the RunningFirmware field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ManagementController) GetRunningFirmwareOk() (*[]FirmwareRunningFirmwareRelationship, bool) {
 	if o == nil || o.RunningFirmware == nil {
 		return nil, false
 	}
-	return o.RunningFirmware, true
+	return &o.RunningFirmware, true
 }
 
 // HasRunningFirmware returns a boolean if a field has been set.
@@ -304,7 +438,7 @@ func (o *ManagementController) HasRunningFirmware() bool {
 
 // SetRunningFirmware gets a reference to the given []FirmwareRunningFirmwareRelationship and assigns it to the RunningFirmware field.
 func (o *ManagementController) SetRunningFirmware(v []FirmwareRunningFirmwareRelationship) {
-	o.RunningFirmware = &v
+	o.RunningFirmware = v
 }
 
 // GetStorageSasExpander returns the StorageSasExpander field value if set, zero value otherwise.
@@ -392,6 +526,18 @@ func (o ManagementController) MarshalJSON() ([]byte, error) {
 	}
 	if o.ComputeRackUnit != nil {
 		toSerialize["ComputeRackUnit"] = o.ComputeRackUnit
+	}
+	if o.EquipmentIoCardBase != nil {
+		toSerialize["EquipmentIoCardBase"] = o.EquipmentIoCardBase
+	}
+	if o.EquipmentSharedIoModule != nil {
+		toSerialize["EquipmentSharedIoModule"] = o.EquipmentSharedIoModule
+	}
+	if o.EquipmentSystemIoController != nil {
+		toSerialize["EquipmentSystemIoController"] = o.EquipmentSystemIoController
+	}
+	if o.InventoryDeviceInfo != nil {
+		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
 	if o.ManagementInterfaces != nil {
 		toSerialize["ManagementInterfaces"] = o.ManagementInterfaces
