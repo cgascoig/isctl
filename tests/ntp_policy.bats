@@ -20,7 +20,21 @@ TEST_NTP_POLICY_NAME=isctl-bats-test-ntp-policy-1
     [ "${MOID}" == "${MOID2}" ]
 }
 
-# TODO: Add update test
+@test "get NTP policy by name and check enabled by default" {
+    ENABLED=$( ./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json | jq -r .Enabled )
+    
+    [ "${ENABLED}" == "true" ]
+}
+
+@test "update NTP policy" {
+    # update the NTP policy with Enabled=False
+    ./build/isctl update ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
+
+    # Check Enabled=False
+    ENABLED=$( ./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json | jq -r .Enabled )
+
+    [ "${ENABLED}" == "false" ]
+}
 
 @test "delete NTP policy" {
     ./build/isctl delete ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid')
