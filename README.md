@@ -235,6 +235,20 @@ If you don't know the Moid, you can combine two commands together, for example t
 isctl delete ntp policy moid $(./build/isctl get ntp policy --name isctl-test-1 --jsonpath '$.Moid')
 ```
 
+## Updating resources
+
+Updating resources is also quite simple if you know the Moid. For example, if you want to set the `Enabled` attribute in an NTP policy to `False`:
+
+```
+isctl update ntp policy moid 123456789012345678901234 --Enabled=False
+```
+
+If you don't know the Moid, use the same technique as described for deletion:
+
+```
+isctl update ntp policy moid $(./build/isctl get ntp policy --name isctl-test-1 --jsonpath '$.Moid') --Enabled=False
+```
+
 # Development
 
 ## How is this built?

@@ -160,17 +160,17 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 			cliItem.Help = tokenHelp[i]
 		}
 
+		for _, param := range op.Params {
+			if param.IsPathParam {
+				cliItem = getOrCreateChildCliItem(cliItem, param.ParamName, true)
+			}
+		}
+
 		// Check if there is a body param
 		for _, param := range op.Params {
 			if param.IsBodyParam {
 				cliItem.BodyParamType = param.DataType
 				cliItem.BodyParamVars = getBodyParamVars(opData, param.DataType)
-			}
-		}
-
-		for _, param := range op.Params {
-			if param.IsPathParam {
-				cliItem = getOrCreateChildCliItem(cliItem, param.ParamName, true)
 			}
 		}
 
