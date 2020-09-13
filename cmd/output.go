@@ -242,7 +242,7 @@ func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{},
 
 }
 
-const defaultOutputMaxColumns int = 8
+const defaultOutputMaxColumns int = 10
 
 func printResultDefault(result interface{}) {
 	result = filterAttributes(result)
@@ -259,8 +259,9 @@ func printResultDefault(result interface{}) {
 		return
 	}
 
-	// Pretty rough but if the output will be very wide fall back to YAML formatting the output
-	if len(tableHeaders) > defaultOutputMaxColumns {
+	// Pretty rough but if the output will be very wide fall back to YAML formatting the output unless the output format is explicitly set to "table"
+	outputFormat := strings.ToLower(viper.GetString(keyOutputConfigKey))
+	if (len(tableHeaders) > defaultOutputMaxColumns) && outputFormat != "table" {
 		log.Println("Too many columns for table format, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.")
 		printResultYAML(result)
 		return
