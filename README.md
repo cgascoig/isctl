@@ -267,6 +267,6 @@ The `Makefile` is used for most of the post processing and building `isctl` for 
 git tag vX.Y.Z
 git push origin --tags
 
-# Create the release (using a specific go installation built from source until Go 1.15 is released)
-PATH=/Users/cgascoig/dev/gosrc/bin:$PATH goreleaser --rm-dist
+# Create the release
+goreleaser --rm-dist
 ```
