@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,11 @@ import (
 // AccessPolicy Policy to configure server management options via CIMC.
 type AccessPolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType  string                    `json:"ObjectType" yaml:"ObjectType"`
+	AddressType NullableAccessAddressType `json:"AddressType,omitempty" yaml:"AddressType,omitempty"`
 	// VLAN to be used for server access over Inband network.
 	InbandVlan   *int64                                `json:"InbandVlan,omitempty" yaml:"InbandVlan,omitempty"`
 	InbandIpPool *IppoolPoolRelationship               `json:"InbandIpPool,omitempty" yaml:"InbandIpPool,omitempty"`
@@ -32,8 +37,10 @@ type AccessPolicy struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccessPolicy() *AccessPolicy {
+func NewAccessPolicy(classId string, objectType string) *AccessPolicy {
 	this := AccessPolicy{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -42,7 +49,102 @@ func NewAccessPolicy() *AccessPolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewAccessPolicyWithDefaults() *AccessPolicy {
 	this := AccessPolicy{}
+	var classId string = "access.Policy"
+	this.ClassId = classId
+	var objectType string = "access.Policy"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *AccessPolicy) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *AccessPolicy) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *AccessPolicy) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *AccessPolicy) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *AccessPolicy) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *AccessPolicy) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetAddressType returns the AddressType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AccessPolicy) GetAddressType() AccessAddressType {
+	if o == nil || o.AddressType.Get() == nil {
+		var ret AccessAddressType
+		return ret
+	}
+	return *o.AddressType.Get()
+}
+
+// GetAddressTypeOk returns a tuple with the AddressType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AccessPolicy) GetAddressTypeOk() (*AccessAddressType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AddressType.Get(), o.AddressType.IsSet()
+}
+
+// HasAddressType returns a boolean if a field has been set.
+func (o *AccessPolicy) HasAddressType() bool {
+	if o != nil && o.AddressType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAddressType gets a reference to the given NullableAccessAddressType and assigns it to the AddressType field.
+func (o *AccessPolicy) SetAddressType(v AccessAddressType) {
+	o.AddressType.Set(&v)
+}
+
+// SetAddressTypeNil sets the value for AddressType to be an explicit nil
+func (o *AccessPolicy) SetAddressTypeNil() {
+	o.AddressType.Set(nil)
+}
+
+// UnsetAddressType ensures that no value is present for AddressType, not even an explicit nil
+func (o *AccessPolicy) UnsetAddressType() {
+	o.AddressType.Unset()
 }
 
 // GetInbandVlan returns the InbandVlan field value if set, zero value otherwise.
@@ -215,6 +317,15 @@ func (o AccessPolicy) MarshalJSON() ([]byte, error) {
 	errPolicyAbstractPolicy = json.Unmarshal([]byte(serializedPolicyAbstractPolicy), &toSerialize)
 	if errPolicyAbstractPolicy != nil {
 		return []byte{}, errPolicyAbstractPolicy
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
+	if o.AddressType.IsSet() {
+		toSerialize["AddressType"] = o.AddressType.Get()
 	}
 	if o.InbandVlan != nil {
 		toSerialize["InbandVlan"] = o.InbandVlan

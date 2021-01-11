@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -20,6 +20,10 @@ import (
 // ApplianceUpgradePolicy UpgradePolicy stores the Intersight Appliance's software upgrade policy. UpgradePolicy is a sinlgeton managed object. A default upgrade policy is created during the Intersight Appliance setup, and it is configured with an automatic upgrade policy. Automatic upgrade policy lets the system start software upgrade after a pre-defined number of seconds set in the software manifest. Scheduled upgrade policy lets the user start software upgrade at a specified schedule. However, scheduled time cannot be beyond the time limit enforced by the upgrade grace period set in the software manifest.
 type ApplianceUpgradePolicy struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Indicates if the upgrade service is set to automatically start the software upgrade or not. If autoUpgrade is true, then the value of the schedule field is ignored.
 	AutoUpgrade *bool `json:"AutoUpgrade,omitempty" yaml:"AutoUpgrade,omitempty"`
 	// If enabled, allows the user to define a blackout period during which the appliance will not be upgraded.
@@ -28,7 +32,7 @@ type ApplianceUpgradePolicy struct {
 	BlackoutEndDate *time.Time `json:"BlackoutEndDate,omitempty" yaml:"BlackoutEndDate,omitempty"`
 	// Start date of the black out period. The appliance will not be upgraded during this period.
 	BlackoutStartDate *time.Time              `json:"BlackoutStartDate,omitempty" yaml:"BlackoutStartDate,omitempty"`
-	Schedule          *OnpremSchedule         `json:"Schedule,omitempty" yaml:"Schedule,omitempty"`
+	Schedule          NullableOnpremSchedule  `json:"Schedule,omitempty" yaml:"Schedule,omitempty"`
 	Account           *IamAccountRelationship `json:"Account,omitempty" yaml:"Account,omitempty"`
 }
 
@@ -36,8 +40,10 @@ type ApplianceUpgradePolicy struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplianceUpgradePolicy() *ApplianceUpgradePolicy {
+func NewApplianceUpgradePolicy(classId string, objectType string) *ApplianceUpgradePolicy {
 	this := ApplianceUpgradePolicy{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -46,7 +52,59 @@ func NewApplianceUpgradePolicy() *ApplianceUpgradePolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewApplianceUpgradePolicyWithDefaults() *ApplianceUpgradePolicy {
 	this := ApplianceUpgradePolicy{}
+	var classId string = "appliance.UpgradePolicy"
+	this.ClassId = classId
+	var objectType string = "appliance.UpgradePolicy"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *ApplianceUpgradePolicy) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ApplianceUpgradePolicy) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ApplianceUpgradePolicy) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ApplianceUpgradePolicy) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ApplianceUpgradePolicy) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ApplianceUpgradePolicy) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAutoUpgrade returns the AutoUpgrade field value if set, zero value otherwise.
@@ -177,36 +235,47 @@ func (o *ApplianceUpgradePolicy) SetBlackoutStartDate(v time.Time) {
 	o.BlackoutStartDate = &v
 }
 
-// GetSchedule returns the Schedule field value if set, zero value otherwise.
+// GetSchedule returns the Schedule field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApplianceUpgradePolicy) GetSchedule() OnpremSchedule {
-	if o == nil || o.Schedule == nil {
+	if o == nil || o.Schedule.Get() == nil {
 		var ret OnpremSchedule
 		return ret
 	}
-	return *o.Schedule
+	return *o.Schedule.Get()
 }
 
 // GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplianceUpgradePolicy) GetScheduleOk() (*OnpremSchedule, bool) {
-	if o == nil || o.Schedule == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Schedule, true
+	return o.Schedule.Get(), o.Schedule.IsSet()
 }
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *ApplianceUpgradePolicy) HasSchedule() bool {
-	if o != nil && o.Schedule != nil {
+	if o != nil && o.Schedule.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSchedule gets a reference to the given OnpremSchedule and assigns it to the Schedule field.
+// SetSchedule gets a reference to the given NullableOnpremSchedule and assigns it to the Schedule field.
 func (o *ApplianceUpgradePolicy) SetSchedule(v OnpremSchedule) {
-	o.Schedule = &v
+	o.Schedule.Set(&v)
+}
+
+// SetScheduleNil sets the value for Schedule to be an explicit nil
+func (o *ApplianceUpgradePolicy) SetScheduleNil() {
+	o.Schedule.Set(nil)
+}
+
+// UnsetSchedule ensures that no value is present for Schedule, not even an explicit nil
+func (o *ApplianceUpgradePolicy) UnsetSchedule() {
+	o.Schedule.Unset()
 }
 
 // GetAccount returns the Account field value if set, zero value otherwise.
@@ -251,6 +320,12 @@ func (o ApplianceUpgradePolicy) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AutoUpgrade != nil {
 		toSerialize["AutoUpgrade"] = o.AutoUpgrade
 	}
@@ -263,8 +338,8 @@ func (o ApplianceUpgradePolicy) MarshalJSON() ([]byte, error) {
 	if o.BlackoutStartDate != nil {
 		toSerialize["BlackoutStartDate"] = o.BlackoutStartDate
 	}
-	if o.Schedule != nil {
-		toSerialize["Schedule"] = o.Schedule
+	if o.Schedule.IsSet() {
+		toSerialize["Schedule"] = o.Schedule.Get()
 	}
 	if o.Account != nil {
 		toSerialize["Account"] = o.Account

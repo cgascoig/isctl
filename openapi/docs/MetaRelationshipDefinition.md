@@ -4,18 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "meta.RelationshipDefinition"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "meta.RelationshipDefinition"]
 **ApiAccess** | Pointer to **string** | API access definition for this relationship. * &#x60;NoAccess&#x60; - The property is not accessible from the API. * &#x60;ReadOnly&#x60; - The value of the property is read-only.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa ReadOnly property. * &#x60;CreateOnly&#x60; - The value of the property can be set when the REST resource is created. It cannot be changed after object creation.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa CreateOnly property.CreateOnly properties are returned in the response body of HTTP GET requests. * &#x60;ReadWrite&#x60; - The property has read/write access. * &#x60;WriteOnly&#x60; - The value of the property can be set but it is never returned in the response body of supported HTTP methods.This settings is used for sensitive properties such as passwords. * &#x60;ReadOnCreate&#x60; - The value of the property is returned in the HTTP POST response body when the REST resource is created.The property is not writeable and cannot be queried through a GET request after the resource has been created. | [optional] [readonly] [default to "NoAccess"]
 **Collection** | Pointer to **bool** | Specifies whether the relationship is a collection. | [optional] [readonly] 
 **Export** | Pointer to **bool** | When turned off, the peer MO is not exported when the local MO is exported. | [optional] [readonly] 
 **ExportWithPeer** | Pointer to **bool** | When turned on, the local MO is exported when the peer is exported. | [optional] [readonly] 
 **Name** | Pointer to **string** | The name of the relationship. | [optional] [readonly] 
-**Type** | Pointer to **string** | Fully qualified type of the foreign managed object. | [optional] [readonly] 
+**PeerRelName** | Pointer to **string** | Name of relationship in peer managed object. | [optional] [readonly] 
+**Type** | Pointer to **string** | Fully qualified type of the peer managed object. | [optional] [readonly] 
 
 ## Methods
 
 ### NewMetaRelationshipDefinition
 
-`func NewMetaRelationshipDefinition() *MetaRelationshipDefinition`
+`func NewMetaRelationshipDefinition(classId string, objectType string, ) *MetaRelationshipDefinition`
 
 NewMetaRelationshipDefinition instantiates a new MetaRelationshipDefinition object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +32,46 @@ will change when the set of required properties is changed
 NewMetaRelationshipDefinitionWithDefaults instantiates a new MetaRelationshipDefinition object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *MetaRelationshipDefinition) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *MetaRelationshipDefinition) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *MetaRelationshipDefinition) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *MetaRelationshipDefinition) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *MetaRelationshipDefinition) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *MetaRelationshipDefinition) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetApiAccess
 
@@ -154,6 +197,31 @@ SetName sets Name field to given value.
 `func (o *MetaRelationshipDefinition) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetPeerRelName
+
+`func (o *MetaRelationshipDefinition) GetPeerRelName() string`
+
+GetPeerRelName returns the PeerRelName field if non-nil, zero value otherwise.
+
+### GetPeerRelNameOk
+
+`func (o *MetaRelationshipDefinition) GetPeerRelNameOk() (*string, bool)`
+
+GetPeerRelNameOk returns a tuple with the PeerRelName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeerRelName
+
+`func (o *MetaRelationshipDefinition) SetPeerRelName(v string)`
+
+SetPeerRelName sets PeerRelName field to given value.
+
+### HasPeerRelName
+
+`func (o *MetaRelationshipDefinition) HasPeerRelName() bool`
+
+HasPeerRelName returns a boolean if a field has been set.
 
 ### GetType
 

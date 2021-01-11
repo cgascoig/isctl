@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,14 +19,18 @@ import (
 // UcsdConnectorPack Information about the connector packs present in the backup file.
 type UcsdConnectorPack struct {
 	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// State of the connector pack whether it is enabled or disabled.
-	ConnectorFeature *string   `json:"ConnectorFeature,omitempty" yaml:"ConnectorFeature,omitempty"`
-	DependencyNames  *[]string `json:"DependencyNames,omitempty" yaml:"DependencyNames,omitempty"`
+	ConnectorFeature *string  `json:"ConnectorFeature,omitempty" yaml:"ConnectorFeature,omitempty"`
+	DependencyNames  []string `json:"DependencyNames,omitempty" yaml:"DependencyNames,omitempty"`
 	// Version of the connector pack that is last downloaded successfully to UCS Director.
 	DownloadedVersion *string `json:"DownloadedVersion,omitempty" yaml:"DownloadedVersion,omitempty"`
 	// Name of the connector pack running on the UCS Director.
-	Name     *string   `json:"Name,omitempty" yaml:"Name,omitempty"`
-	Services *[]string `json:"Services,omitempty" yaml:"Services,omitempty"`
+	Name     *string  `json:"Name,omitempty" yaml:"Name,omitempty"`
+	Services []string `json:"Services,omitempty" yaml:"Services,omitempty"`
 	// State of the connector pack whether it is enabled or disabled.
 	State *string `json:"State,omitempty" yaml:"State,omitempty"`
 	// Version of the connector pack.
@@ -37,8 +41,10 @@ type UcsdConnectorPack struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUcsdConnectorPack() *UcsdConnectorPack {
+func NewUcsdConnectorPack(classId string, objectType string) *UcsdConnectorPack {
 	this := UcsdConnectorPack{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -47,7 +53,59 @@ func NewUcsdConnectorPack() *UcsdConnectorPack {
 // but it doesn't guarantee that properties required by API are set
 func NewUcsdConnectorPackWithDefaults() *UcsdConnectorPack {
 	this := UcsdConnectorPack{}
+	var classId string = "ucsd.ConnectorPack"
+	this.ClassId = classId
+	var objectType string = "ucsd.ConnectorPack"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *UcsdConnectorPack) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *UcsdConnectorPack) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *UcsdConnectorPack) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *UcsdConnectorPack) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *UcsdConnectorPack) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *UcsdConnectorPack) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetConnectorFeature returns the ConnectorFeature field value if set, zero value otherwise.
@@ -82,22 +140,23 @@ func (o *UcsdConnectorPack) SetConnectorFeature(v string) {
 	o.ConnectorFeature = &v
 }
 
-// GetDependencyNames returns the DependencyNames field value if set, zero value otherwise.
+// GetDependencyNames returns the DependencyNames field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UcsdConnectorPack) GetDependencyNames() []string {
-	if o == nil || o.DependencyNames == nil {
+	if o == nil {
 		var ret []string
 		return ret
 	}
-	return *o.DependencyNames
+	return o.DependencyNames
 }
 
 // GetDependencyNamesOk returns a tuple with the DependencyNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UcsdConnectorPack) GetDependencyNamesOk() (*[]string, bool) {
 	if o == nil || o.DependencyNames == nil {
 		return nil, false
 	}
-	return o.DependencyNames, true
+	return &o.DependencyNames, true
 }
 
 // HasDependencyNames returns a boolean if a field has been set.
@@ -111,7 +170,7 @@ func (o *UcsdConnectorPack) HasDependencyNames() bool {
 
 // SetDependencyNames gets a reference to the given []string and assigns it to the DependencyNames field.
 func (o *UcsdConnectorPack) SetDependencyNames(v []string) {
-	o.DependencyNames = &v
+	o.DependencyNames = v
 }
 
 // GetDownloadedVersion returns the DownloadedVersion field value if set, zero value otherwise.
@@ -178,22 +237,23 @@ func (o *UcsdConnectorPack) SetName(v string) {
 	o.Name = &v
 }
 
-// GetServices returns the Services field value if set, zero value otherwise.
+// GetServices returns the Services field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UcsdConnectorPack) GetServices() []string {
-	if o == nil || o.Services == nil {
+	if o == nil {
 		var ret []string
 		return ret
 	}
-	return *o.Services
+	return o.Services
 }
 
 // GetServicesOk returns a tuple with the Services field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UcsdConnectorPack) GetServicesOk() (*[]string, bool) {
 	if o == nil || o.Services == nil {
 		return nil, false
 	}
-	return o.Services, true
+	return &o.Services, true
 }
 
 // HasServices returns a boolean if a field has been set.
@@ -207,7 +267,7 @@ func (o *UcsdConnectorPack) HasServices() bool {
 
 // SetServices gets a reference to the given []string and assigns it to the Services field.
 func (o *UcsdConnectorPack) SetServices(v []string) {
-	o.Services = &v
+	o.Services = v
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -283,6 +343,12 @@ func (o UcsdConnectorPack) MarshalJSON() ([]byte, error) {
 	errMoBaseComplexType = json.Unmarshal([]byte(serializedMoBaseComplexType), &toSerialize)
 	if errMoBaseComplexType != nil {
 		return []byte{}, errMoBaseComplexType
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.ConnectorFeature != nil {
 		toSerialize["ConnectorFeature"] = o.ConnectorFeature

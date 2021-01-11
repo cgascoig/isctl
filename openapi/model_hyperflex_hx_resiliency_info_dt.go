@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -16,24 +16,36 @@ import (
 	"encoding/json"
 )
 
-// HyperflexHxResiliencyInfoDt struct for HyperflexHxResiliencyInfoDt
+// HyperflexHxResiliencyInfoDt A representation of the data health status and ability of the cluster to tolerate failures.
 type HyperflexHxResiliencyInfoDt struct {
-	MoBaseComplexType     `yaml:"MoBaseComplexType,inline"`
-	DataReplicationFactor *string   `json:"DataReplicationFactor,omitempty" yaml:"DataReplicationFactor,omitempty"`
-	HddFailuresTolerable  *int64    `json:"HddFailuresTolerable,omitempty" yaml:"HddFailuresTolerable,omitempty"`
-	Messages              *[]string `json:"Messages,omitempty" yaml:"Messages,omitempty"`
-	NodeFailuresTolerable *int64    `json:"NodeFailuresTolerable,omitempty" yaml:"NodeFailuresTolerable,omitempty"`
-	PolicyCompliance      *string   `json:"PolicyCompliance,omitempty" yaml:"PolicyCompliance,omitempty"`
-	ResiliencyState       *string   `json:"ResiliencyState,omitempty" yaml:"ResiliencyState,omitempty"`
-	SsdFailuresTolerable  *int64    `json:"SsdFailuresTolerable,omitempty" yaml:"SsdFailuresTolerable,omitempty"`
+	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// The number of copies of data replicated by the cluster. * `ONE_COPY` - The HyperFlex cluster does not replicate data. * `TWO_COPIES` - The HyperFlex cluster keeps 2 copies of data. * `THREE_COPIES` - The HyperFlex cluster keeps 3 copies of data. * `FOUR_COPIES` - The HyperFlex cluster keeps 4 copies of data. * `SIX_COPIES` - The HyperFlex cluster keeps 6 copies of data.
+	DataReplicationFactor *string `json:"DataReplicationFactor,omitempty" yaml:"DataReplicationFactor,omitempty"`
+	// The number of persistent device disruptions the HyperFlex storage cluster can handle at this point in time.
+	HddFailuresTolerable *int64   `json:"HddFailuresTolerable,omitempty" yaml:"HddFailuresTolerable,omitempty"`
+	Messages             []string `json:"Messages,omitempty" yaml:"Messages,omitempty"`
+	// The number of node disruptions the HyperFlex storage cluster can handle at this point in time.
+	NodeFailuresTolerable *int64 `json:"NodeFailuresTolerable,omitempty" yaml:"NodeFailuresTolerable,omitempty"`
+	// The state of the storage cluster's compliance with the cluster access policy. * `UNKNOWN` - The HyperFlex cluster's compliance with the data replication policy could not be determined. * `COMPLIANT` - The HyperFlex cluster is compliant with the data replication policy and data is replicated to the configured replication factor. * `NON_COMPLIANT` - The HyperFlex cluster is not compliant with the data replication policy because some data is not replicated.
+	PolicyCompliance *string `json:"PolicyCompliance,omitempty" yaml:"PolicyCompliance,omitempty"`
+	// The resiliency state of the storage platform. The resiliency state is the storage cluster's current ability to maintain data. * `UNKNOWN` - The resiliency status of the HyperFlex cluster cannot be determined, or the cluster is transitioning into ONLINE state. * `HEALTHY` - The HyperFlex cluster is healthy. The cluster is able to perform IO operations and data is available. * `WARNING` - The HyperFlex cluster or data availability is adversely affected. This can happen if there are node or storage device failures beyond the tolerable failure threshold. * `OFFLINE` - The HyperFlex cluster is offline and not performing IO operations.
+	ResiliencyState *string `json:"ResiliencyState,omitempty" yaml:"ResiliencyState,omitempty"`
+	// The number of cache device disruptions the HyperFlex storage cluster can handle at this point in time.
+	SsdFailuresTolerable *int64 `json:"SsdFailuresTolerable,omitempty" yaml:"SsdFailuresTolerable,omitempty"`
 }
 
 // NewHyperflexHxResiliencyInfoDt instantiates a new HyperflexHxResiliencyInfoDt object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexHxResiliencyInfoDt() *HyperflexHxResiliencyInfoDt {
+func NewHyperflexHxResiliencyInfoDt(classId string, objectType string) *HyperflexHxResiliencyInfoDt {
 	this := HyperflexHxResiliencyInfoDt{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var dataReplicationFactor string = "ONE_COPY"
 	this.DataReplicationFactor = &dataReplicationFactor
 	var policyCompliance string = "UNKNOWN"
@@ -48,6 +60,10 @@ func NewHyperflexHxResiliencyInfoDt() *HyperflexHxResiliencyInfoDt {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexHxResiliencyInfoDtWithDefaults() *HyperflexHxResiliencyInfoDt {
 	this := HyperflexHxResiliencyInfoDt{}
+	var classId string = "hyperflex.HxResiliencyInfoDt"
+	this.ClassId = classId
+	var objectType string = "hyperflex.HxResiliencyInfoDt"
+	this.ObjectType = objectType
 	var dataReplicationFactor string = "ONE_COPY"
 	this.DataReplicationFactor = &dataReplicationFactor
 	var policyCompliance string = "UNKNOWN"
@@ -55,6 +71,54 @@ func NewHyperflexHxResiliencyInfoDtWithDefaults() *HyperflexHxResiliencyInfoDt {
 	var resiliencyState string = "UNKNOWN"
 	this.ResiliencyState = &resiliencyState
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexHxResiliencyInfoDt) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexHxResiliencyInfoDt) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexHxResiliencyInfoDt) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexHxResiliencyInfoDt) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexHxResiliencyInfoDt) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexHxResiliencyInfoDt) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetDataReplicationFactor returns the DataReplicationFactor field value if set, zero value otherwise.
@@ -121,22 +185,23 @@ func (o *HyperflexHxResiliencyInfoDt) SetHddFailuresTolerable(v int64) {
 	o.HddFailuresTolerable = &v
 }
 
-// GetMessages returns the Messages field value if set, zero value otherwise.
+// GetMessages returns the Messages field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexHxResiliencyInfoDt) GetMessages() []string {
-	if o == nil || o.Messages == nil {
+	if o == nil {
 		var ret []string
 		return ret
 	}
-	return *o.Messages
+	return o.Messages
 }
 
 // GetMessagesOk returns a tuple with the Messages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexHxResiliencyInfoDt) GetMessagesOk() (*[]string, bool) {
 	if o == nil || o.Messages == nil {
 		return nil, false
 	}
-	return o.Messages, true
+	return &o.Messages, true
 }
 
 // HasMessages returns a boolean if a field has been set.
@@ -150,7 +215,7 @@ func (o *HyperflexHxResiliencyInfoDt) HasMessages() bool {
 
 // SetMessages gets a reference to the given []string and assigns it to the Messages field.
 func (o *HyperflexHxResiliencyInfoDt) SetMessages(v []string) {
-	o.Messages = &v
+	o.Messages = v
 }
 
 // GetNodeFailuresTolerable returns the NodeFailuresTolerable field value if set, zero value otherwise.
@@ -290,6 +355,12 @@ func (o HyperflexHxResiliencyInfoDt) MarshalJSON() ([]byte, error) {
 	errMoBaseComplexType = json.Unmarshal([]byte(serializedMoBaseComplexType), &toSerialize)
 	if errMoBaseComplexType != nil {
 		return []byte{}, errMoBaseComplexType
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.DataReplicationFactor != nil {
 		toSerialize["DataReplicationFactor"] = o.DataReplicationFactor

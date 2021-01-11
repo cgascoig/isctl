@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,63 +18,53 @@ import (
 
 // CapabilitySwitchCapabilityAllOf Definition of the list of properties defined in 'capability.SwitchCapability', excluding properties defined in parent classes.
 type CapabilitySwitchCapabilityAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Default Fcoe VLAN associated with this switch.
 	DefaultFcoeVlan *int64 `json:"DefaultFcoeVlan,omitempty" yaml:"DefaultFcoeVlan,omitempty"`
 	// Dynamic VIFs support on this switch.
 	DynamicVifsSupported *bool `json:"DynamicVifsSupported,omitempty" yaml:"DynamicVifsSupported,omitempty"`
 	// Fan Modules support on this switch.
-	FanModulesSupported        *bool                  `json:"FanModulesSupported,omitempty" yaml:"FanModulesSupported,omitempty"`
-	FcEndHostModeReservedVsans *[]CapabilityPortRange `json:"FcEndHostModeReservedVsans,omitempty" yaml:"FcEndHostModeReservedVsans,omitempty"`
+	FanModulesSupported        *bool                 `json:"FanModulesSupported,omitempty" yaml:"FanModulesSupported,omitempty"`
+	FcEndHostModeReservedVsans []CapabilityPortRange `json:"FcEndHostModeReservedVsans,omitempty" yaml:"FcEndHostModeReservedVsans,omitempty"`
 	// Fc Uplink ports auto negotiation speed support on this switch.
 	FcUplinkPortsAutoNegotiationSupported *bool `json:"FcUplinkPortsAutoNegotiationSupported,omitempty" yaml:"FcUplinkPortsAutoNegotiationSupported,omitempty"`
 	// Locator Beacon LED support on this switch.
 	LocatorBeaconSupported *bool `json:"LocatorBeaconSupported,omitempty" yaml:"LocatorBeaconSupported,omitempty"`
-	// Maximum allowed Traffic Monitoring (SPAN) sessions on this switch.
-	MaxActiveSpanSessions *int64 `json:"MaxActiveSpanSessions,omitempty" yaml:"MaxActiveSpanSessions,omitempty"`
-	// Maximum allowed Ethernet Uplink Port-channel members for each Uplink Port-channel on this switch.
-	MaxEthernetPortChannelMembers *int64 `json:"MaxEthernetPortChannelMembers,omitempty" yaml:"MaxEthernetPortChannelMembers,omitempty"`
-	// Maximum allowed Ethernet Uplink Port-channels on this switch.
-	MaxEthernetPortChannels *int64 `json:"MaxEthernetPortChannels,omitempty" yaml:"MaxEthernetPortChannels,omitempty"`
-	// Maximum allowed Ethernet Uplink Ports on this switch.
-	MaxEthernetUplinkPorts *int64 `json:"MaxEthernetUplinkPorts,omitempty" yaml:"MaxEthernetUplinkPorts,omitempty"`
-	// Total maximum Fc and Fcoe Port-channels allowed on this switch.
-	MaxFcFcoePortChannels *int64 `json:"MaxFcFcoePortChannels,omitempty" yaml:"MaxFcFcoePortChannels,omitempty"`
-	// Maximum allowed FC Uplink Port-channel members for each FCoE Port-channel on this switch.
-	MaxFcPortChannelMembers *int64 `json:"MaxFcPortChannelMembers,omitempty" yaml:"MaxFcPortChannelMembers,omitempty"`
-	// Maximum allowed FCoE Uplink Port-channel members for each FCoE Port-channel on this switch.
-	MaxFcoePortChannelMembers *int64 `json:"MaxFcoePortChannelMembers,omitempty" yaml:"MaxFcoePortChannelMembers,omitempty"`
 	// Maximum allowed physical ports on this switch.
 	MaxPorts *int64 `json:"MaxPorts,omitempty" yaml:"MaxPorts,omitempty"`
 	// Maximum allowed physical slots on this switch.
-	MaxSlots *int64 `json:"MaxSlots,omitempty" yaml:"MaxSlots,omitempty"`
-	// Maximum number of Vsans supported on this switch.
-	MaxVsansSupported *int64 `json:"MaxVsansSupported,omitempty" yaml:"MaxVsansSupported,omitempty"`
-	// Minimum number of fans needed to be active/running on this switch.
-	MinActiveFans             *int64                 `json:"MinActiveFans,omitempty" yaml:"MinActiveFans,omitempty"`
-	PortsSupporting100gSpeed  *[]CapabilityPortRange `json:"PortsSupporting100gSpeed,omitempty" yaml:"PortsSupporting100gSpeed,omitempty"`
-	PortsSupporting10gSpeed   *[]CapabilityPortRange `json:"PortsSupporting10gSpeed,omitempty" yaml:"PortsSupporting10gSpeed,omitempty"`
-	PortsSupporting1gSpeed    *[]CapabilityPortRange `json:"PortsSupporting1gSpeed,omitempty" yaml:"PortsSupporting1gSpeed,omitempty"`
-	PortsSupporting25gSpeed   *[]CapabilityPortRange `json:"PortsSupporting25gSpeed,omitempty" yaml:"PortsSupporting25gSpeed,omitempty"`
-	PortsSupporting40gSpeed   *[]CapabilityPortRange `json:"PortsSupporting40gSpeed,omitempty" yaml:"PortsSupporting40gSpeed,omitempty"`
-	PortsSupportingBreakout   *[]CapabilityPortRange `json:"PortsSupportingBreakout,omitempty" yaml:"PortsSupportingBreakout,omitempty"`
-	PortsSupportingFcoe       *[]CapabilityPortRange `json:"PortsSupportingFcoe,omitempty" yaml:"PortsSupportingFcoe,omitempty"`
-	PortsSupportingServerRole *[]CapabilityPortRange `json:"PortsSupportingServerRole,omitempty" yaml:"PortsSupportingServerRole,omitempty"`
-	ReservedVsans             *[]CapabilityPortRange `json:"ReservedVsans,omitempty" yaml:"ReservedVsans,omitempty"`
+	MaxSlots                  *int64                                `json:"MaxSlots,omitempty" yaml:"MaxSlots,omitempty"`
+	NetworkLimits             NullableCapabilitySwitchNetworkLimits `json:"NetworkLimits,omitempty" yaml:"NetworkLimits,omitempty"`
+	PortsSupporting100gSpeed  []CapabilityPortRange                 `json:"PortsSupporting100gSpeed,omitempty" yaml:"PortsSupporting100gSpeed,omitempty"`
+	PortsSupporting10gSpeed   []CapabilityPortRange                 `json:"PortsSupporting10gSpeed,omitempty" yaml:"PortsSupporting10gSpeed,omitempty"`
+	PortsSupporting1gSpeed    []CapabilityPortRange                 `json:"PortsSupporting1gSpeed,omitempty" yaml:"PortsSupporting1gSpeed,omitempty"`
+	PortsSupporting25gSpeed   []CapabilityPortRange                 `json:"PortsSupporting25gSpeed,omitempty" yaml:"PortsSupporting25gSpeed,omitempty"`
+	PortsSupporting40gSpeed   []CapabilityPortRange                 `json:"PortsSupporting40gSpeed,omitempty" yaml:"PortsSupporting40gSpeed,omitempty"`
+	PortsSupportingBreakout   []CapabilityPortRange                 `json:"PortsSupportingBreakout,omitempty" yaml:"PortsSupportingBreakout,omitempty"`
+	PortsSupportingFcoe       []CapabilityPortRange                 `json:"PortsSupportingFcoe,omitempty" yaml:"PortsSupportingFcoe,omitempty"`
+	PortsSupportingServerRole []CapabilityPortRange                 `json:"PortsSupportingServerRole,omitempty" yaml:"PortsSupportingServerRole,omitempty"`
+	ReservedVsans             []CapabilityPortRange                 `json:"ReservedVsans,omitempty" yaml:"ReservedVsans,omitempty"`
 	// Sereno Adaptor with Netflow support on this switch.
-	SerenoNetflowSupported *bool                  `json:"SerenoNetflowSupported,omitempty" yaml:"SerenoNetflowSupported,omitempty"`
-	UnifiedPorts           *[]CapabilityPortRange `json:"UnifiedPorts,omitempty" yaml:"UnifiedPorts,omitempty"`
+	SerenoNetflowSupported    *bool                                 `json:"SerenoNetflowSupported,omitempty" yaml:"SerenoNetflowSupported,omitempty"`
+	StorageLimits             NullableCapabilitySwitchStorageLimits `json:"StorageLimits,omitempty" yaml:"StorageLimits,omitempty"`
+	SwitchingModeCapabilities []CapabilitySwitchingModeCapability   `json:"SwitchingModeCapabilities,omitempty" yaml:"SwitchingModeCapabilities,omitempty"`
+	SystemLimits              NullableCapabilitySwitchSystemLimits  `json:"SystemLimits,omitempty" yaml:"SystemLimits,omitempty"`
+	UnifiedPorts              []CapabilityPortRange                 `json:"UnifiedPorts,omitempty" yaml:"UnifiedPorts,omitempty"`
 	// The Slider rule for Unified ports on this switch.
 	UnifiedRule *string `json:"UnifiedRule,omitempty" yaml:"UnifiedRule,omitempty"`
-	// VP Compression support on this switch.
-	VpCompressionSupported *bool `json:"VpCompressionSupported,omitempty" yaml:"VpCompressionSupported,omitempty"`
 }
 
 // NewCapabilitySwitchCapabilityAllOf instantiates a new CapabilitySwitchCapabilityAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCapabilitySwitchCapabilityAllOf() *CapabilitySwitchCapabilityAllOf {
+func NewCapabilitySwitchCapabilityAllOf(classId string, objectType string) *CapabilitySwitchCapabilityAllOf {
 	this := CapabilitySwitchCapabilityAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -83,7 +73,59 @@ func NewCapabilitySwitchCapabilityAllOf() *CapabilitySwitchCapabilityAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewCapabilitySwitchCapabilityAllOfWithDefaults() *CapabilitySwitchCapabilityAllOf {
 	this := CapabilitySwitchCapabilityAllOf{}
+	var classId string = "capability.SwitchCapability"
+	this.ClassId = classId
+	var objectType string = "capability.SwitchCapability"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *CapabilitySwitchCapabilityAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *CapabilitySwitchCapabilityAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *CapabilitySwitchCapabilityAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *CapabilitySwitchCapabilityAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *CapabilitySwitchCapabilityAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *CapabilitySwitchCapabilityAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetDefaultFcoeVlan returns the DefaultFcoeVlan field value if set, zero value otherwise.
@@ -182,22 +224,23 @@ func (o *CapabilitySwitchCapabilityAllOf) SetFanModulesSupported(v bool) {
 	o.FanModulesSupported = &v
 }
 
-// GetFcEndHostModeReservedVsans returns the FcEndHostModeReservedVsans field value if set, zero value otherwise.
+// GetFcEndHostModeReservedVsans returns the FcEndHostModeReservedVsans field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetFcEndHostModeReservedVsans() []CapabilityPortRange {
-	if o == nil || o.FcEndHostModeReservedVsans == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.FcEndHostModeReservedVsans
+	return o.FcEndHostModeReservedVsans
 }
 
 // GetFcEndHostModeReservedVsansOk returns a tuple with the FcEndHostModeReservedVsans field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetFcEndHostModeReservedVsansOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.FcEndHostModeReservedVsans == nil {
 		return nil, false
 	}
-	return o.FcEndHostModeReservedVsans, true
+	return &o.FcEndHostModeReservedVsans, true
 }
 
 // HasFcEndHostModeReservedVsans returns a boolean if a field has been set.
@@ -211,7 +254,7 @@ func (o *CapabilitySwitchCapabilityAllOf) HasFcEndHostModeReservedVsans() bool {
 
 // SetFcEndHostModeReservedVsans gets a reference to the given []CapabilityPortRange and assigns it to the FcEndHostModeReservedVsans field.
 func (o *CapabilitySwitchCapabilityAllOf) SetFcEndHostModeReservedVsans(v []CapabilityPortRange) {
-	o.FcEndHostModeReservedVsans = &v
+	o.FcEndHostModeReservedVsans = v
 }
 
 // GetFcUplinkPortsAutoNegotiationSupported returns the FcUplinkPortsAutoNegotiationSupported field value if set, zero value otherwise.
@@ -278,230 +321,6 @@ func (o *CapabilitySwitchCapabilityAllOf) SetLocatorBeaconSupported(v bool) {
 	o.LocatorBeaconSupported = &v
 }
 
-// GetMaxActiveSpanSessions returns the MaxActiveSpanSessions field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxActiveSpanSessions() int64 {
-	if o == nil || o.MaxActiveSpanSessions == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MaxActiveSpanSessions
-}
-
-// GetMaxActiveSpanSessionsOk returns a tuple with the MaxActiveSpanSessions field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxActiveSpanSessionsOk() (*int64, bool) {
-	if o == nil || o.MaxActiveSpanSessions == nil {
-		return nil, false
-	}
-	return o.MaxActiveSpanSessions, true
-}
-
-// HasMaxActiveSpanSessions returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxActiveSpanSessions() bool {
-	if o != nil && o.MaxActiveSpanSessions != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxActiveSpanSessions gets a reference to the given int64 and assigns it to the MaxActiveSpanSessions field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxActiveSpanSessions(v int64) {
-	o.MaxActiveSpanSessions = &v
-}
-
-// GetMaxEthernetPortChannelMembers returns the MaxEthernetPortChannelMembers field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxEthernetPortChannelMembers() int64 {
-	if o == nil || o.MaxEthernetPortChannelMembers == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MaxEthernetPortChannelMembers
-}
-
-// GetMaxEthernetPortChannelMembersOk returns a tuple with the MaxEthernetPortChannelMembers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxEthernetPortChannelMembersOk() (*int64, bool) {
-	if o == nil || o.MaxEthernetPortChannelMembers == nil {
-		return nil, false
-	}
-	return o.MaxEthernetPortChannelMembers, true
-}
-
-// HasMaxEthernetPortChannelMembers returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxEthernetPortChannelMembers() bool {
-	if o != nil && o.MaxEthernetPortChannelMembers != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxEthernetPortChannelMembers gets a reference to the given int64 and assigns it to the MaxEthernetPortChannelMembers field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxEthernetPortChannelMembers(v int64) {
-	o.MaxEthernetPortChannelMembers = &v
-}
-
-// GetMaxEthernetPortChannels returns the MaxEthernetPortChannels field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxEthernetPortChannels() int64 {
-	if o == nil || o.MaxEthernetPortChannels == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MaxEthernetPortChannels
-}
-
-// GetMaxEthernetPortChannelsOk returns a tuple with the MaxEthernetPortChannels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxEthernetPortChannelsOk() (*int64, bool) {
-	if o == nil || o.MaxEthernetPortChannels == nil {
-		return nil, false
-	}
-	return o.MaxEthernetPortChannels, true
-}
-
-// HasMaxEthernetPortChannels returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxEthernetPortChannels() bool {
-	if o != nil && o.MaxEthernetPortChannels != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxEthernetPortChannels gets a reference to the given int64 and assigns it to the MaxEthernetPortChannels field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxEthernetPortChannels(v int64) {
-	o.MaxEthernetPortChannels = &v
-}
-
-// GetMaxEthernetUplinkPorts returns the MaxEthernetUplinkPorts field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxEthernetUplinkPorts() int64 {
-	if o == nil || o.MaxEthernetUplinkPorts == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MaxEthernetUplinkPorts
-}
-
-// GetMaxEthernetUplinkPortsOk returns a tuple with the MaxEthernetUplinkPorts field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxEthernetUplinkPortsOk() (*int64, bool) {
-	if o == nil || o.MaxEthernetUplinkPorts == nil {
-		return nil, false
-	}
-	return o.MaxEthernetUplinkPorts, true
-}
-
-// HasMaxEthernetUplinkPorts returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxEthernetUplinkPorts() bool {
-	if o != nil && o.MaxEthernetUplinkPorts != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxEthernetUplinkPorts gets a reference to the given int64 and assigns it to the MaxEthernetUplinkPorts field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxEthernetUplinkPorts(v int64) {
-	o.MaxEthernetUplinkPorts = &v
-}
-
-// GetMaxFcFcoePortChannels returns the MaxFcFcoePortChannels field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxFcFcoePortChannels() int64 {
-	if o == nil || o.MaxFcFcoePortChannels == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MaxFcFcoePortChannels
-}
-
-// GetMaxFcFcoePortChannelsOk returns a tuple with the MaxFcFcoePortChannels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxFcFcoePortChannelsOk() (*int64, bool) {
-	if o == nil || o.MaxFcFcoePortChannels == nil {
-		return nil, false
-	}
-	return o.MaxFcFcoePortChannels, true
-}
-
-// HasMaxFcFcoePortChannels returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxFcFcoePortChannels() bool {
-	if o != nil && o.MaxFcFcoePortChannels != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxFcFcoePortChannels gets a reference to the given int64 and assigns it to the MaxFcFcoePortChannels field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxFcFcoePortChannels(v int64) {
-	o.MaxFcFcoePortChannels = &v
-}
-
-// GetMaxFcPortChannelMembers returns the MaxFcPortChannelMembers field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxFcPortChannelMembers() int64 {
-	if o == nil || o.MaxFcPortChannelMembers == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MaxFcPortChannelMembers
-}
-
-// GetMaxFcPortChannelMembersOk returns a tuple with the MaxFcPortChannelMembers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxFcPortChannelMembersOk() (*int64, bool) {
-	if o == nil || o.MaxFcPortChannelMembers == nil {
-		return nil, false
-	}
-	return o.MaxFcPortChannelMembers, true
-}
-
-// HasMaxFcPortChannelMembers returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxFcPortChannelMembers() bool {
-	if o != nil && o.MaxFcPortChannelMembers != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxFcPortChannelMembers gets a reference to the given int64 and assigns it to the MaxFcPortChannelMembers field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxFcPortChannelMembers(v int64) {
-	o.MaxFcPortChannelMembers = &v
-}
-
-// GetMaxFcoePortChannelMembers returns the MaxFcoePortChannelMembers field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxFcoePortChannelMembers() int64 {
-	if o == nil || o.MaxFcoePortChannelMembers == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MaxFcoePortChannelMembers
-}
-
-// GetMaxFcoePortChannelMembersOk returns a tuple with the MaxFcoePortChannelMembers field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxFcoePortChannelMembersOk() (*int64, bool) {
-	if o == nil || o.MaxFcoePortChannelMembers == nil {
-		return nil, false
-	}
-	return o.MaxFcoePortChannelMembers, true
-}
-
-// HasMaxFcoePortChannelMembers returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxFcoePortChannelMembers() bool {
-	if o != nil && o.MaxFcoePortChannelMembers != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxFcoePortChannelMembers gets a reference to the given int64 and assigns it to the MaxFcoePortChannelMembers field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxFcoePortChannelMembers(v int64) {
-	o.MaxFcoePortChannelMembers = &v
-}
-
 // GetMaxPorts returns the MaxPorts field value if set, zero value otherwise.
 func (o *CapabilitySwitchCapabilityAllOf) GetMaxPorts() int64 {
 	if o == nil || o.MaxPorts == nil {
@@ -566,86 +385,66 @@ func (o *CapabilitySwitchCapabilityAllOf) SetMaxSlots(v int64) {
 	o.MaxSlots = &v
 }
 
-// GetMaxVsansSupported returns the MaxVsansSupported field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxVsansSupported() int64 {
-	if o == nil || o.MaxVsansSupported == nil {
-		var ret int64
+// GetNetworkLimits returns the NetworkLimits field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CapabilitySwitchCapabilityAllOf) GetNetworkLimits() CapabilitySwitchNetworkLimits {
+	if o == nil || o.NetworkLimits.Get() == nil {
+		var ret CapabilitySwitchNetworkLimits
 		return ret
 	}
-	return *o.MaxVsansSupported
+	return *o.NetworkLimits.Get()
 }
 
-// GetMaxVsansSupportedOk returns a tuple with the MaxVsansSupported field value if set, nil otherwise
+// GetNetworkLimitsOk returns a tuple with the NetworkLimits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMaxVsansSupportedOk() (*int64, bool) {
-	if o == nil || o.MaxVsansSupported == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CapabilitySwitchCapabilityAllOf) GetNetworkLimitsOk() (*CapabilitySwitchNetworkLimits, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxVsansSupported, true
+	return o.NetworkLimits.Get(), o.NetworkLimits.IsSet()
 }
 
-// HasMaxVsansSupported returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMaxVsansSupported() bool {
-	if o != nil && o.MaxVsansSupported != nil {
+// HasNetworkLimits returns a boolean if a field has been set.
+func (o *CapabilitySwitchCapabilityAllOf) HasNetworkLimits() bool {
+	if o != nil && o.NetworkLimits.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxVsansSupported gets a reference to the given int64 and assigns it to the MaxVsansSupported field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMaxVsansSupported(v int64) {
-	o.MaxVsansSupported = &v
+// SetNetworkLimits gets a reference to the given NullableCapabilitySwitchNetworkLimits and assigns it to the NetworkLimits field.
+func (o *CapabilitySwitchCapabilityAllOf) SetNetworkLimits(v CapabilitySwitchNetworkLimits) {
+	o.NetworkLimits.Set(&v)
 }
 
-// GetMinActiveFans returns the MinActiveFans field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetMinActiveFans() int64 {
-	if o == nil || o.MinActiveFans == nil {
-		var ret int64
-		return ret
-	}
-	return *o.MinActiveFans
+// SetNetworkLimitsNil sets the value for NetworkLimits to be an explicit nil
+func (o *CapabilitySwitchCapabilityAllOf) SetNetworkLimitsNil() {
+	o.NetworkLimits.Set(nil)
 }
 
-// GetMinActiveFansOk returns a tuple with the MinActiveFans field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetMinActiveFansOk() (*int64, bool) {
-	if o == nil || o.MinActiveFans == nil {
-		return nil, false
-	}
-	return o.MinActiveFans, true
+// UnsetNetworkLimits ensures that no value is present for NetworkLimits, not even an explicit nil
+func (o *CapabilitySwitchCapabilityAllOf) UnsetNetworkLimits() {
+	o.NetworkLimits.Unset()
 }
 
-// HasMinActiveFans returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasMinActiveFans() bool {
-	if o != nil && o.MinActiveFans != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMinActiveFans gets a reference to the given int64 and assigns it to the MinActiveFans field.
-func (o *CapabilitySwitchCapabilityAllOf) SetMinActiveFans(v int64) {
-	o.MinActiveFans = &v
-}
-
-// GetPortsSupporting100gSpeed returns the PortsSupporting100gSpeed field value if set, zero value otherwise.
+// GetPortsSupporting100gSpeed returns the PortsSupporting100gSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting100gSpeed() []CapabilityPortRange {
-	if o == nil || o.PortsSupporting100gSpeed == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupporting100gSpeed
+	return o.PortsSupporting100gSpeed
 }
 
 // GetPortsSupporting100gSpeedOk returns a tuple with the PortsSupporting100gSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting100gSpeedOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupporting100gSpeed == nil {
 		return nil, false
 	}
-	return o.PortsSupporting100gSpeed, true
+	return &o.PortsSupporting100gSpeed, true
 }
 
 // HasPortsSupporting100gSpeed returns a boolean if a field has been set.
@@ -659,25 +458,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupporting100gSpeed() bool {
 
 // SetPortsSupporting100gSpeed gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupporting100gSpeed field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupporting100gSpeed(v []CapabilityPortRange) {
-	o.PortsSupporting100gSpeed = &v
+	o.PortsSupporting100gSpeed = v
 }
 
-// GetPortsSupporting10gSpeed returns the PortsSupporting10gSpeed field value if set, zero value otherwise.
+// GetPortsSupporting10gSpeed returns the PortsSupporting10gSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting10gSpeed() []CapabilityPortRange {
-	if o == nil || o.PortsSupporting10gSpeed == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupporting10gSpeed
+	return o.PortsSupporting10gSpeed
 }
 
 // GetPortsSupporting10gSpeedOk returns a tuple with the PortsSupporting10gSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting10gSpeedOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupporting10gSpeed == nil {
 		return nil, false
 	}
-	return o.PortsSupporting10gSpeed, true
+	return &o.PortsSupporting10gSpeed, true
 }
 
 // HasPortsSupporting10gSpeed returns a boolean if a field has been set.
@@ -691,25 +491,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupporting10gSpeed() bool {
 
 // SetPortsSupporting10gSpeed gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupporting10gSpeed field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupporting10gSpeed(v []CapabilityPortRange) {
-	o.PortsSupporting10gSpeed = &v
+	o.PortsSupporting10gSpeed = v
 }
 
-// GetPortsSupporting1gSpeed returns the PortsSupporting1gSpeed field value if set, zero value otherwise.
+// GetPortsSupporting1gSpeed returns the PortsSupporting1gSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting1gSpeed() []CapabilityPortRange {
-	if o == nil || o.PortsSupporting1gSpeed == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupporting1gSpeed
+	return o.PortsSupporting1gSpeed
 }
 
 // GetPortsSupporting1gSpeedOk returns a tuple with the PortsSupporting1gSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting1gSpeedOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupporting1gSpeed == nil {
 		return nil, false
 	}
-	return o.PortsSupporting1gSpeed, true
+	return &o.PortsSupporting1gSpeed, true
 }
 
 // HasPortsSupporting1gSpeed returns a boolean if a field has been set.
@@ -723,25 +524,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupporting1gSpeed() bool {
 
 // SetPortsSupporting1gSpeed gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupporting1gSpeed field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupporting1gSpeed(v []CapabilityPortRange) {
-	o.PortsSupporting1gSpeed = &v
+	o.PortsSupporting1gSpeed = v
 }
 
-// GetPortsSupporting25gSpeed returns the PortsSupporting25gSpeed field value if set, zero value otherwise.
+// GetPortsSupporting25gSpeed returns the PortsSupporting25gSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting25gSpeed() []CapabilityPortRange {
-	if o == nil || o.PortsSupporting25gSpeed == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupporting25gSpeed
+	return o.PortsSupporting25gSpeed
 }
 
 // GetPortsSupporting25gSpeedOk returns a tuple with the PortsSupporting25gSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting25gSpeedOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupporting25gSpeed == nil {
 		return nil, false
 	}
-	return o.PortsSupporting25gSpeed, true
+	return &o.PortsSupporting25gSpeed, true
 }
 
 // HasPortsSupporting25gSpeed returns a boolean if a field has been set.
@@ -755,25 +557,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupporting25gSpeed() bool {
 
 // SetPortsSupporting25gSpeed gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupporting25gSpeed field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupporting25gSpeed(v []CapabilityPortRange) {
-	o.PortsSupporting25gSpeed = &v
+	o.PortsSupporting25gSpeed = v
 }
 
-// GetPortsSupporting40gSpeed returns the PortsSupporting40gSpeed field value if set, zero value otherwise.
+// GetPortsSupporting40gSpeed returns the PortsSupporting40gSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting40gSpeed() []CapabilityPortRange {
-	if o == nil || o.PortsSupporting40gSpeed == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupporting40gSpeed
+	return o.PortsSupporting40gSpeed
 }
 
 // GetPortsSupporting40gSpeedOk returns a tuple with the PortsSupporting40gSpeed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupporting40gSpeedOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupporting40gSpeed == nil {
 		return nil, false
 	}
-	return o.PortsSupporting40gSpeed, true
+	return &o.PortsSupporting40gSpeed, true
 }
 
 // HasPortsSupporting40gSpeed returns a boolean if a field has been set.
@@ -787,25 +590,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupporting40gSpeed() bool {
 
 // SetPortsSupporting40gSpeed gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupporting40gSpeed field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupporting40gSpeed(v []CapabilityPortRange) {
-	o.PortsSupporting40gSpeed = &v
+	o.PortsSupporting40gSpeed = v
 }
 
-// GetPortsSupportingBreakout returns the PortsSupportingBreakout field value if set, zero value otherwise.
+// GetPortsSupportingBreakout returns the PortsSupportingBreakout field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupportingBreakout() []CapabilityPortRange {
-	if o == nil || o.PortsSupportingBreakout == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupportingBreakout
+	return o.PortsSupportingBreakout
 }
 
 // GetPortsSupportingBreakoutOk returns a tuple with the PortsSupportingBreakout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupportingBreakoutOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupportingBreakout == nil {
 		return nil, false
 	}
-	return o.PortsSupportingBreakout, true
+	return &o.PortsSupportingBreakout, true
 }
 
 // HasPortsSupportingBreakout returns a boolean if a field has been set.
@@ -819,25 +623,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupportingBreakout() bool {
 
 // SetPortsSupportingBreakout gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupportingBreakout field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupportingBreakout(v []CapabilityPortRange) {
-	o.PortsSupportingBreakout = &v
+	o.PortsSupportingBreakout = v
 }
 
-// GetPortsSupportingFcoe returns the PortsSupportingFcoe field value if set, zero value otherwise.
+// GetPortsSupportingFcoe returns the PortsSupportingFcoe field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupportingFcoe() []CapabilityPortRange {
-	if o == nil || o.PortsSupportingFcoe == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupportingFcoe
+	return o.PortsSupportingFcoe
 }
 
 // GetPortsSupportingFcoeOk returns a tuple with the PortsSupportingFcoe field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupportingFcoeOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupportingFcoe == nil {
 		return nil, false
 	}
-	return o.PortsSupportingFcoe, true
+	return &o.PortsSupportingFcoe, true
 }
 
 // HasPortsSupportingFcoe returns a boolean if a field has been set.
@@ -851,25 +656,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupportingFcoe() bool {
 
 // SetPortsSupportingFcoe gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupportingFcoe field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupportingFcoe(v []CapabilityPortRange) {
-	o.PortsSupportingFcoe = &v
+	o.PortsSupportingFcoe = v
 }
 
-// GetPortsSupportingServerRole returns the PortsSupportingServerRole field value if set, zero value otherwise.
+// GetPortsSupportingServerRole returns the PortsSupportingServerRole field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupportingServerRole() []CapabilityPortRange {
-	if o == nil || o.PortsSupportingServerRole == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.PortsSupportingServerRole
+	return o.PortsSupportingServerRole
 }
 
 // GetPortsSupportingServerRoleOk returns a tuple with the PortsSupportingServerRole field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetPortsSupportingServerRoleOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.PortsSupportingServerRole == nil {
 		return nil, false
 	}
-	return o.PortsSupportingServerRole, true
+	return &o.PortsSupportingServerRole, true
 }
 
 // HasPortsSupportingServerRole returns a boolean if a field has been set.
@@ -883,25 +689,26 @@ func (o *CapabilitySwitchCapabilityAllOf) HasPortsSupportingServerRole() bool {
 
 // SetPortsSupportingServerRole gets a reference to the given []CapabilityPortRange and assigns it to the PortsSupportingServerRole field.
 func (o *CapabilitySwitchCapabilityAllOf) SetPortsSupportingServerRole(v []CapabilityPortRange) {
-	o.PortsSupportingServerRole = &v
+	o.PortsSupportingServerRole = v
 }
 
-// GetReservedVsans returns the ReservedVsans field value if set, zero value otherwise.
+// GetReservedVsans returns the ReservedVsans field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetReservedVsans() []CapabilityPortRange {
-	if o == nil || o.ReservedVsans == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.ReservedVsans
+	return o.ReservedVsans
 }
 
 // GetReservedVsansOk returns a tuple with the ReservedVsans field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetReservedVsansOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.ReservedVsans == nil {
 		return nil, false
 	}
-	return o.ReservedVsans, true
+	return &o.ReservedVsans, true
 }
 
 // HasReservedVsans returns a boolean if a field has been set.
@@ -915,7 +722,7 @@ func (o *CapabilitySwitchCapabilityAllOf) HasReservedVsans() bool {
 
 // SetReservedVsans gets a reference to the given []CapabilityPortRange and assigns it to the ReservedVsans field.
 func (o *CapabilitySwitchCapabilityAllOf) SetReservedVsans(v []CapabilityPortRange) {
-	o.ReservedVsans = &v
+	o.ReservedVsans = v
 }
 
 // GetSerenoNetflowSupported returns the SerenoNetflowSupported field value if set, zero value otherwise.
@@ -950,22 +757,142 @@ func (o *CapabilitySwitchCapabilityAllOf) SetSerenoNetflowSupported(v bool) {
 	o.SerenoNetflowSupported = &v
 }
 
-// GetUnifiedPorts returns the UnifiedPorts field value if set, zero value otherwise.
+// GetStorageLimits returns the StorageLimits field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CapabilitySwitchCapabilityAllOf) GetStorageLimits() CapabilitySwitchStorageLimits {
+	if o == nil || o.StorageLimits.Get() == nil {
+		var ret CapabilitySwitchStorageLimits
+		return ret
+	}
+	return *o.StorageLimits.Get()
+}
+
+// GetStorageLimitsOk returns a tuple with the StorageLimits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CapabilitySwitchCapabilityAllOf) GetStorageLimitsOk() (*CapabilitySwitchStorageLimits, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StorageLimits.Get(), o.StorageLimits.IsSet()
+}
+
+// HasStorageLimits returns a boolean if a field has been set.
+func (o *CapabilitySwitchCapabilityAllOf) HasStorageLimits() bool {
+	if o != nil && o.StorageLimits.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageLimits gets a reference to the given NullableCapabilitySwitchStorageLimits and assigns it to the StorageLimits field.
+func (o *CapabilitySwitchCapabilityAllOf) SetStorageLimits(v CapabilitySwitchStorageLimits) {
+	o.StorageLimits.Set(&v)
+}
+
+// SetStorageLimitsNil sets the value for StorageLimits to be an explicit nil
+func (o *CapabilitySwitchCapabilityAllOf) SetStorageLimitsNil() {
+	o.StorageLimits.Set(nil)
+}
+
+// UnsetStorageLimits ensures that no value is present for StorageLimits, not even an explicit nil
+func (o *CapabilitySwitchCapabilityAllOf) UnsetStorageLimits() {
+	o.StorageLimits.Unset()
+}
+
+// GetSwitchingModeCapabilities returns the SwitchingModeCapabilities field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CapabilitySwitchCapabilityAllOf) GetSwitchingModeCapabilities() []CapabilitySwitchingModeCapability {
+	if o == nil {
+		var ret []CapabilitySwitchingModeCapability
+		return ret
+	}
+	return o.SwitchingModeCapabilities
+}
+
+// GetSwitchingModeCapabilitiesOk returns a tuple with the SwitchingModeCapabilities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CapabilitySwitchCapabilityAllOf) GetSwitchingModeCapabilitiesOk() (*[]CapabilitySwitchingModeCapability, bool) {
+	if o == nil || o.SwitchingModeCapabilities == nil {
+		return nil, false
+	}
+	return &o.SwitchingModeCapabilities, true
+}
+
+// HasSwitchingModeCapabilities returns a boolean if a field has been set.
+func (o *CapabilitySwitchCapabilityAllOf) HasSwitchingModeCapabilities() bool {
+	if o != nil && o.SwitchingModeCapabilities != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSwitchingModeCapabilities gets a reference to the given []CapabilitySwitchingModeCapability and assigns it to the SwitchingModeCapabilities field.
+func (o *CapabilitySwitchCapabilityAllOf) SetSwitchingModeCapabilities(v []CapabilitySwitchingModeCapability) {
+	o.SwitchingModeCapabilities = v
+}
+
+// GetSystemLimits returns the SystemLimits field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CapabilitySwitchCapabilityAllOf) GetSystemLimits() CapabilitySwitchSystemLimits {
+	if o == nil || o.SystemLimits.Get() == nil {
+		var ret CapabilitySwitchSystemLimits
+		return ret
+	}
+	return *o.SystemLimits.Get()
+}
+
+// GetSystemLimitsOk returns a tuple with the SystemLimits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CapabilitySwitchCapabilityAllOf) GetSystemLimitsOk() (*CapabilitySwitchSystemLimits, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SystemLimits.Get(), o.SystemLimits.IsSet()
+}
+
+// HasSystemLimits returns a boolean if a field has been set.
+func (o *CapabilitySwitchCapabilityAllOf) HasSystemLimits() bool {
+	if o != nil && o.SystemLimits.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSystemLimits gets a reference to the given NullableCapabilitySwitchSystemLimits and assigns it to the SystemLimits field.
+func (o *CapabilitySwitchCapabilityAllOf) SetSystemLimits(v CapabilitySwitchSystemLimits) {
+	o.SystemLimits.Set(&v)
+}
+
+// SetSystemLimitsNil sets the value for SystemLimits to be an explicit nil
+func (o *CapabilitySwitchCapabilityAllOf) SetSystemLimitsNil() {
+	o.SystemLimits.Set(nil)
+}
+
+// UnsetSystemLimits ensures that no value is present for SystemLimits, not even an explicit nil
+func (o *CapabilitySwitchCapabilityAllOf) UnsetSystemLimits() {
+	o.SystemLimits.Unset()
+}
+
+// GetUnifiedPorts returns the UnifiedPorts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CapabilitySwitchCapabilityAllOf) GetUnifiedPorts() []CapabilityPortRange {
-	if o == nil || o.UnifiedPorts == nil {
+	if o == nil {
 		var ret []CapabilityPortRange
 		return ret
 	}
-	return *o.UnifiedPorts
+	return o.UnifiedPorts
 }
 
 // GetUnifiedPortsOk returns a tuple with the UnifiedPorts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CapabilitySwitchCapabilityAllOf) GetUnifiedPortsOk() (*[]CapabilityPortRange, bool) {
 	if o == nil || o.UnifiedPorts == nil {
 		return nil, false
 	}
-	return o.UnifiedPorts, true
+	return &o.UnifiedPorts, true
 }
 
 // HasUnifiedPorts returns a boolean if a field has been set.
@@ -979,7 +906,7 @@ func (o *CapabilitySwitchCapabilityAllOf) HasUnifiedPorts() bool {
 
 // SetUnifiedPorts gets a reference to the given []CapabilityPortRange and assigns it to the UnifiedPorts field.
 func (o *CapabilitySwitchCapabilityAllOf) SetUnifiedPorts(v []CapabilityPortRange) {
-	o.UnifiedPorts = &v
+	o.UnifiedPorts = v
 }
 
 // GetUnifiedRule returns the UnifiedRule field value if set, zero value otherwise.
@@ -1014,40 +941,14 @@ func (o *CapabilitySwitchCapabilityAllOf) SetUnifiedRule(v string) {
 	o.UnifiedRule = &v
 }
 
-// GetVpCompressionSupported returns the VpCompressionSupported field value if set, zero value otherwise.
-func (o *CapabilitySwitchCapabilityAllOf) GetVpCompressionSupported() bool {
-	if o == nil || o.VpCompressionSupported == nil {
-		var ret bool
-		return ret
-	}
-	return *o.VpCompressionSupported
-}
-
-// GetVpCompressionSupportedOk returns a tuple with the VpCompressionSupported field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CapabilitySwitchCapabilityAllOf) GetVpCompressionSupportedOk() (*bool, bool) {
-	if o == nil || o.VpCompressionSupported == nil {
-		return nil, false
-	}
-	return o.VpCompressionSupported, true
-}
-
-// HasVpCompressionSupported returns a boolean if a field has been set.
-func (o *CapabilitySwitchCapabilityAllOf) HasVpCompressionSupported() bool {
-	if o != nil && o.VpCompressionSupported != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetVpCompressionSupported gets a reference to the given bool and assigns it to the VpCompressionSupported field.
-func (o *CapabilitySwitchCapabilityAllOf) SetVpCompressionSupported(v bool) {
-	o.VpCompressionSupported = &v
-}
-
 func (o CapabilitySwitchCapabilityAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.DefaultFcoeVlan != nil {
 		toSerialize["DefaultFcoeVlan"] = o.DefaultFcoeVlan
 	}
@@ -1066,38 +967,14 @@ func (o CapabilitySwitchCapabilityAllOf) MarshalJSON() ([]byte, error) {
 	if o.LocatorBeaconSupported != nil {
 		toSerialize["LocatorBeaconSupported"] = o.LocatorBeaconSupported
 	}
-	if o.MaxActiveSpanSessions != nil {
-		toSerialize["MaxActiveSpanSessions"] = o.MaxActiveSpanSessions
-	}
-	if o.MaxEthernetPortChannelMembers != nil {
-		toSerialize["MaxEthernetPortChannelMembers"] = o.MaxEthernetPortChannelMembers
-	}
-	if o.MaxEthernetPortChannels != nil {
-		toSerialize["MaxEthernetPortChannels"] = o.MaxEthernetPortChannels
-	}
-	if o.MaxEthernetUplinkPorts != nil {
-		toSerialize["MaxEthernetUplinkPorts"] = o.MaxEthernetUplinkPorts
-	}
-	if o.MaxFcFcoePortChannels != nil {
-		toSerialize["MaxFcFcoePortChannels"] = o.MaxFcFcoePortChannels
-	}
-	if o.MaxFcPortChannelMembers != nil {
-		toSerialize["MaxFcPortChannelMembers"] = o.MaxFcPortChannelMembers
-	}
-	if o.MaxFcoePortChannelMembers != nil {
-		toSerialize["MaxFcoePortChannelMembers"] = o.MaxFcoePortChannelMembers
-	}
 	if o.MaxPorts != nil {
 		toSerialize["MaxPorts"] = o.MaxPorts
 	}
 	if o.MaxSlots != nil {
 		toSerialize["MaxSlots"] = o.MaxSlots
 	}
-	if o.MaxVsansSupported != nil {
-		toSerialize["MaxVsansSupported"] = o.MaxVsansSupported
-	}
-	if o.MinActiveFans != nil {
-		toSerialize["MinActiveFans"] = o.MinActiveFans
+	if o.NetworkLimits.IsSet() {
+		toSerialize["NetworkLimits"] = o.NetworkLimits.Get()
 	}
 	if o.PortsSupporting100gSpeed != nil {
 		toSerialize["PortsSupporting100gSpeed"] = o.PortsSupporting100gSpeed
@@ -1129,14 +1006,20 @@ func (o CapabilitySwitchCapabilityAllOf) MarshalJSON() ([]byte, error) {
 	if o.SerenoNetflowSupported != nil {
 		toSerialize["SerenoNetflowSupported"] = o.SerenoNetflowSupported
 	}
+	if o.StorageLimits.IsSet() {
+		toSerialize["StorageLimits"] = o.StorageLimits.Get()
+	}
+	if o.SwitchingModeCapabilities != nil {
+		toSerialize["SwitchingModeCapabilities"] = o.SwitchingModeCapabilities
+	}
+	if o.SystemLimits.IsSet() {
+		toSerialize["SystemLimits"] = o.SystemLimits.Get()
+	}
 	if o.UnifiedPorts != nil {
 		toSerialize["UnifiedPorts"] = o.UnifiedPorts
 	}
 	if o.UnifiedRule != nil {
 		toSerialize["UnifiedRule"] = o.UnifiedRule
-	}
-	if o.VpCompressionSupported != nil {
-		toSerialize["VpCompressionSupported"] = o.VpCompressionSupported
 	}
 	return json.Marshal(toSerialize)
 }

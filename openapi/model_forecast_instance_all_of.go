@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,7 +18,11 @@ import (
 
 // ForecastInstanceAllOf Definition of the list of properties defined in 'forecast.Instance', excluding properties defined in parent classes.
 type ForecastInstanceAllOf struct {
-	AltModel *[]float32 `json:"AltModel,omitempty" yaml:"AltModel,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string    `json:"ObjectType" yaml:"ObjectType"`
+	AltModel   []float32 `json:"AltModel,omitempty" yaml:"AltModel,omitempty"`
 	// The Moid of the Intersight managed device instance for which regression model is derived.
 	DeviceId *string `json:"DeviceId,omitempty" yaml:"DeviceId,omitempty"`
 	// The number of days remaining before the device reaches its full functional capacity.
@@ -26,8 +30,8 @@ type ForecastInstanceAllOf struct {
 	// The name of the metric for which regression model is generated.
 	MetricName *string `json:"MetricName,omitempty" yaml:"MetricName,omitempty"`
 	// The minimum number of days the HyperFlex cluster should be up for computing forecast.
-	MinDaysForForecast *int64         `json:"MinDaysForForecast,omitempty" yaml:"MinDaysForForecast,omitempty"`
-	Model              *ForecastModel `json:"Model,omitempty" yaml:"Model,omitempty"`
+	MinDaysForForecast *int64                `json:"MinDaysForForecast,omitempty" yaml:"MinDaysForForecast,omitempty"`
+	Model              NullableForecastModel `json:"Model,omitempty" yaml:"Model,omitempty"`
 	// The number of days remaining before the device reaches the specified threshold for the metric as defined in definition.
 	ThresholdDays    *int64                               `json:"ThresholdDays,omitempty" yaml:"ThresholdDays,omitempty"`
 	ForecastDef      *ForecastDefinitionRelationship      `json:"ForecastDef,omitempty" yaml:"ForecastDef,omitempty"`
@@ -38,8 +42,12 @@ type ForecastInstanceAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewForecastInstanceAllOf() *ForecastInstanceAllOf {
+func NewForecastInstanceAllOf(classId string, objectType string) *ForecastInstanceAllOf {
 	this := ForecastInstanceAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var thresholdDays int64 = 2147483647
+	this.ThresholdDays = &thresholdDays
 	return &this
 }
 
@@ -48,25 +56,80 @@ func NewForecastInstanceAllOf() *ForecastInstanceAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewForecastInstanceAllOfWithDefaults() *ForecastInstanceAllOf {
 	this := ForecastInstanceAllOf{}
+	var classId string = "forecast.Instance"
+	this.ClassId = classId
+	var objectType string = "forecast.Instance"
+	this.ObjectType = objectType
+	var thresholdDays int64 = 2147483647
+	this.ThresholdDays = &thresholdDays
 	return &this
 }
 
-// GetAltModel returns the AltModel field value if set, zero value otherwise.
+// GetClassId returns the ClassId field value
+func (o *ForecastInstanceAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ForecastInstanceAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ForecastInstanceAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ForecastInstanceAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ForecastInstanceAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ForecastInstanceAllOf) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetAltModel returns the AltModel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ForecastInstanceAllOf) GetAltModel() []float32 {
-	if o == nil || o.AltModel == nil {
+	if o == nil {
 		var ret []float32
 		return ret
 	}
-	return *o.AltModel
+	return o.AltModel
 }
 
 // GetAltModelOk returns a tuple with the AltModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ForecastInstanceAllOf) GetAltModelOk() (*[]float32, bool) {
 	if o == nil || o.AltModel == nil {
 		return nil, false
 	}
-	return o.AltModel, true
+	return &o.AltModel, true
 }
 
 // HasAltModel returns a boolean if a field has been set.
@@ -80,7 +143,7 @@ func (o *ForecastInstanceAllOf) HasAltModel() bool {
 
 // SetAltModel gets a reference to the given []float32 and assigns it to the AltModel field.
 func (o *ForecastInstanceAllOf) SetAltModel(v []float32) {
-	o.AltModel = &v
+	o.AltModel = v
 }
 
 // GetDeviceId returns the DeviceId field value if set, zero value otherwise.
@@ -211,36 +274,47 @@ func (o *ForecastInstanceAllOf) SetMinDaysForForecast(v int64) {
 	o.MinDaysForForecast = &v
 }
 
-// GetModel returns the Model field value if set, zero value otherwise.
+// GetModel returns the Model field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ForecastInstanceAllOf) GetModel() ForecastModel {
-	if o == nil || o.Model == nil {
+	if o == nil || o.Model.Get() == nil {
 		var ret ForecastModel
 		return ret
 	}
-	return *o.Model
+	return *o.Model.Get()
 }
 
 // GetModelOk returns a tuple with the Model field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ForecastInstanceAllOf) GetModelOk() (*ForecastModel, bool) {
-	if o == nil || o.Model == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Model, true
+	return o.Model.Get(), o.Model.IsSet()
 }
 
 // HasModel returns a boolean if a field has been set.
 func (o *ForecastInstanceAllOf) HasModel() bool {
-	if o != nil && o.Model != nil {
+	if o != nil && o.Model.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetModel gets a reference to the given ForecastModel and assigns it to the Model field.
+// SetModel gets a reference to the given NullableForecastModel and assigns it to the Model field.
 func (o *ForecastInstanceAllOf) SetModel(v ForecastModel) {
-	o.Model = &v
+	o.Model.Set(&v)
+}
+
+// SetModelNil sets the value for Model to be an explicit nil
+func (o *ForecastInstanceAllOf) SetModelNil() {
+	o.Model.Set(nil)
+}
+
+// UnsetModel ensures that no value is present for Model, not even an explicit nil
+func (o *ForecastInstanceAllOf) UnsetModel() {
+	o.Model.Unset()
 }
 
 // GetThresholdDays returns the ThresholdDays field value if set, zero value otherwise.
@@ -341,6 +415,12 @@ func (o *ForecastInstanceAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRel
 
 func (o ForecastInstanceAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AltModel != nil {
 		toSerialize["AltModel"] = o.AltModel
 	}
@@ -356,8 +436,8 @@ func (o ForecastInstanceAllOf) MarshalJSON() ([]byte, error) {
 	if o.MinDaysForForecast != nil {
 		toSerialize["MinDaysForForecast"] = o.MinDaysForForecast
 	}
-	if o.Model != nil {
-		toSerialize["Model"] = o.Model
+	if o.Model.IsSet() {
+		toSerialize["Model"] = o.Model.Get()
 	}
 	if o.ThresholdDays != nil {
 		toSerialize["ThresholdDays"] = o.ThresholdDays

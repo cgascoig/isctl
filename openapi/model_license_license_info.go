@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -20,6 +20,10 @@ import (
 // LicenseLicenseInfo License state information for a specific license entitlement. Essentials license entitlement is supported currently. licenseState attribute is used for license enforcement. When license state is one of TrialPeriod, Compliance, or OutOfCompliance, the feature set defined for the license entitlement is granted to the customer.
 type LicenseLicenseInfo struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The license administrative state. Set this property to 'true' to activate the license entitlements.
 	ActiveAdmin *bool `json:"ActiveAdmin,omitempty" yaml:"ActiveAdmin,omitempty"`
 	// The number of days left for licenseState to stay in TrialPeriod or OutOfCompliance state.
@@ -38,7 +42,7 @@ type LicenseLicenseInfo struct {
 	LicenseCount *int64 `json:"LicenseCount,omitempty" yaml:"LicenseCount,omitempty"`
 	// The license state defined by Intersight. The value may be one of NotLicensed, TrialPeriod, OutOfCompliance, Compliance, GraceExpired, or TrialExpired. * `NotLicensed` - The license token is neither activated nor registered. * `GraceExpired` - The license grace period has expired. * `TrialPeriod` - The 90 days of trial period. * `OutOfCompliance` - The license is out of compliance. * `Compliance` - The license is in compliance. * `TrialExpired` - The trial period of 90 days has expired.
 	LicenseState *string `json:"LicenseState,omitempty" yaml:"LicenseState,omitempty"`
-	// The name of the Intersight license entitlement. For example, this property may be set to 'Essential'. * `Base` - Base as a License type. It is default license type. * `Essential` - Essential as a License type. * `Standard` - Standard as a License type. * `Advantage` - Advantage as a License type. * `Premier` - Premier as a License type.
+	// The name of the Intersight license entitlement. For example, this property may be set to 'Essential'. * `Base` - Base as a License type. It is default license type. * `Essential` - Essential as a License type. * `Standard` - Standard as a License type. * `Advantage` - Advantage as a License type. * `Premier` - Premier as a License type. * `IWO-Essential` - IWO-Essential as a License type. * `IWO-Advantage` - IWO-Advantage as a License type. * `IWO-Premier` - IWO-Premier as a License type.
 	LicenseType *string `json:"LicenseType,omitempty" yaml:"LicenseType,omitempty"`
 	// The date and time when the licenseState entered the TrialPeriod or OutOfCompliance state.
 	StartTime *time.Time `json:"StartTime,omitempty" yaml:"StartTime,omitempty"`
@@ -51,8 +55,10 @@ type LicenseLicenseInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLicenseLicenseInfo() *LicenseLicenseInfo {
+func NewLicenseLicenseInfo(classId string, objectType string) *LicenseLicenseInfo {
 	this := LicenseLicenseInfo{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var licenseState string = "NotLicensed"
 	this.LicenseState = &licenseState
 	var licenseType string = "Base"
@@ -65,11 +71,63 @@ func NewLicenseLicenseInfo() *LicenseLicenseInfo {
 // but it doesn't guarantee that properties required by API are set
 func NewLicenseLicenseInfoWithDefaults() *LicenseLicenseInfo {
 	this := LicenseLicenseInfo{}
+	var classId string = "license.LicenseInfo"
+	this.ClassId = classId
+	var objectType string = "license.LicenseInfo"
+	this.ObjectType = objectType
 	var licenseState string = "NotLicensed"
 	this.LicenseState = &licenseState
 	var licenseType string = "Base"
 	this.LicenseType = &licenseType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *LicenseLicenseInfo) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *LicenseLicenseInfo) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *LicenseLicenseInfo) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *LicenseLicenseInfo) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *LicenseLicenseInfo) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *LicenseLicenseInfo) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetActiveAdmin returns the ActiveAdmin field value if set, zero value otherwise.
@@ -497,6 +555,12 @@ func (o LicenseLicenseInfo) MarshalJSON() ([]byte, error) {
 	errMoBaseMo = json.Unmarshal([]byte(serializedMoBaseMo), &toSerialize)
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.ActiveAdmin != nil {
 		toSerialize["ActiveAdmin"] = o.ActiveAdmin

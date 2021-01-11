@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Editable** | Pointer to **bool** | Defines if the input is editable. | [optional] 
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "sdwan.TemplateInputsType"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "sdwan.TemplateInputsType"]
+**Editable** | Pointer to **bool** | Defines if the input is editable. | [optional] [default to false]
 **Key** | Pointer to **string** | Name of the dynamic input key specified in the vManage template. | [optional] 
-**Required** | Pointer to **bool** | Defines if the input is optional or required. | [optional] 
+**Required** | Pointer to **bool** | Defines if the input is optional or required. | [optional] [default to false]
 **Template** | Pointer to **string** | Refers to the name of the vManage template that this inputs belongs to. | [optional] [readonly] 
 **Title** | Pointer to **string** | Label for the property being saved in the current instance of template Input. | [optional] 
-**Type** | Pointer to **string** | Defines the object type for the input. | [optional] 
+**Type** | Pointer to **string** | Defines the object type for the input. | [optional] [default to "string"]
 **Value** | Pointer to **string** | Value of the dynamic input key specfied in the vManage template. | [optional] 
 
 ## Methods
 
 ### NewSdwanTemplateInputsType
 
-`func NewSdwanTemplateInputsType() *SdwanTemplateInputsType`
+`func NewSdwanTemplateInputsType(classId string, objectType string, ) *SdwanTemplateInputsType`
 
 NewSdwanTemplateInputsType instantiates a new SdwanTemplateInputsType object
 This constructor will assign default values to properties that have it defined,
@@ -30,6 +32,46 @@ will change when the set of required properties is changed
 NewSdwanTemplateInputsTypeWithDefaults instantiates a new SdwanTemplateInputsType object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *SdwanTemplateInputsType) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *SdwanTemplateInputsType) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *SdwanTemplateInputsType) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *SdwanTemplateInputsType) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *SdwanTemplateInputsType) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *SdwanTemplateInputsType) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetEditable
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -16,33 +16,65 @@ import (
 	"encoding/json"
 )
 
-// NiatelemetryTenant Object is available at Tenant scope. This currently applies only to the APIC environemt.
+// NiatelemetryTenant Object is available at Tenant scope.
 type NiatelemetryTenant struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
-	// Bidirectional Forwarding Detection bfdIfPol Model Object count scale.
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// Number of Bidirectional Forwarding Detection bfdIfPol Model Objects.
 	BfdIfPolCount *int64 `json:"BfdIfPolCount,omitempty" yaml:"BfdIfPolCount,omitempty"`
-	// Bidirectional Forwarding Detection Interface Policy count scale.
+	// Number of objects with Bidirectional Forwarding Detection Interface Policy.
 	BfdIfpCount *int64 `json:"BfdIfpCount,omitempty" yaml:"BfdIfpCount,omitempty"`
+	// Number of tenants with Dynamic Host Configuration Protocol enabled.
+	DhcpRsProvCount *int64 `json:"DhcpRsProvCount,omitempty" yaml:"DhcpRsProvCount,omitempty"`
 	// Dn for the tenants present.
 	Dn *string `json:"Dn,omitempty" yaml:"Dn,omitempty"`
-	// First hop security count scale. Checks for presence of IP source gaurd, dynamic arp inspection.
+	// Number of objects with First hop security. Checks for presence of IP source gaurd, dynamic arp inspection.
 	FhsBdPolCount *int64 `json:"FhsBdPolCount,omitempty" yaml:"FhsBdPolCount,omitempty"`
-	// First hop security count scale. Checks for presence of IP source gaurd, dynamic arp inspection.
+	// Number of application profiles per tenant.
+	FvApCount *int64 `json:"FvApCount,omitempty" yaml:"FvApCount,omitempty"`
+	// Number of bridge domains with hardware proxy enabled per tenant.
+	FvBdCount *int64 `json:"FvBdCount,omitempty" yaml:"FvBdCount,omitempty"`
+	// Number of bridge domain subnets per tenant.
+	FvBdSubnetCount *int64 `json:"FvBdSubnetCount,omitempty" yaml:"FvBdSubnetCount,omitempty"`
+	// Number of bridge domains with ARP flodding disabled per tenant.
+	FvBdnoArpCount *int64 `json:"FvBdnoArpCount,omitempty" yaml:"FvBdnoArpCount,omitempty"`
+	// Count of number of endpoints per tenant.
+	FvCepCount *int64 `json:"FvCepCount,omitempty" yaml:"FvCepCount,omitempty"`
+	// Number of objects with First hop security. Checks for presence of IP source gaurd, dynamic arp inspection.
 	FvRsBdToFhsCount *int64 `json:"FvRsBdToFhsCount,omitempty" yaml:"FvRsBdToFhsCount,omitempty"`
-	// Multi-Site scale for fvSiteConnp Model Object.
+	// Number of bridge domains connected to layer 3 out per tenant.
+	FvRsBdToOutCount *int64 `json:"FvRsBdToOutCount,omitempty" yaml:"FvRsBdToOutCount,omitempty"`
+	// Number of Multi-Site objects.
 	FvSiteConnpCount *int64 `json:"FvSiteConnpCount,omitempty" yaml:"FvSiteConnpCount,omitempty"`
+	// Number of subnets per tenant.
+	FvSubnetCount *int64 `json:"FvSubnetCount,omitempty" yaml:"FvSubnetCount,omitempty"`
+	// Number of IP static routes per tenant.
+	IpStaticRouteCount *int64 `json:"IpStaticRouteCount,omitempty" yaml:"IpStaticRouteCount,omitempty"`
 	// Number of layer 3 multicasts.
 	L3MulticastCount *int64 `json:"L3MulticastCount,omitempty" yaml:"L3MulticastCount,omitempty"`
 	// Number of layer 3 multicast CtxP.
 	L3MulticastCtxCount *int64 `json:"L3MulticastCtxCount,omitempty" yaml:"L3MulticastCtxCount,omitempty"`
 	// Number of layer 3 multicast IfP.
 	L3MulticastIfCount *int64 `json:"L3MulticastIfCount,omitempty" yaml:"L3MulticastIfCount,omitempty"`
-	// L3 out scale for the tenants present.
+	// Number of L3 out objects for the tenants present.
 	L3outCount *int64 `json:"L3outCount,omitempty" yaml:"L3outCount,omitempty"`
+	// Number of Quality Of Service Custom Policy.
+	QosCustomPolCount *int64 `json:"QosCustomPolCount,omitempty" yaml:"QosCustomPolCount,omitempty"`
+	// Type of record DCNM / APIC / SE. This determines the type of platform where inventory was collected.
+	RecordType *string `json:"RecordType,omitempty" yaml:"RecordType,omitempty"`
+	// Version of record being pushed. This determines what was the API version for data available from the device.
+	RecordVersion *string `json:"RecordVersion,omitempty" yaml:"RecordVersion,omitempty"`
 	// The Site name represents an APIC cluster. Service Engine can onboard multiple APIC clusters / sites.
 	SiteName *string `json:"SiteName,omitempty" yaml:"SiteName,omitempty"`
 	// SSM property feature usage.
 	Ssm *string `json:"Ssm,omitempty" yaml:"Ssm,omitempty"`
+	// Number of context-level ssm translate policies per tenant.
+	SsmCount *int64 `json:"SsmCount,omitempty" yaml:"SsmCount,omitempty"`
+	// Number of TCAM optimization enabled per tenant.
+	TcamOptCount *int64 `json:"TcamOptCount,omitempty" yaml:"TcamOptCount,omitempty"`
 	// Number of ITrace route endpoint per tenant.
 	TraceRouteEpCount *int64 `json:"TraceRouteEpCount,omitempty" yaml:"TraceRouteEpCount,omitempty"`
 	// Number of ITrace endpoint external routes per tenant.
@@ -51,16 +83,22 @@ type NiatelemetryTenant struct {
 	TraceRouteExtEpCount *int64 `json:"TraceRouteExtEpCount,omitempty" yaml:"TraceRouteExtEpCount,omitempty"`
 	// Number of ITrace external routes per tenant.
 	TraceRouteExtExtCount *int64 `json:"TraceRouteExtExtCount,omitempty" yaml:"TraceRouteExtExtCount,omitempty"`
-	// L4 to L7 Services graph count scale.
+	// Number of objects with L4 to L7 Services graph.
 	VnsAbsGraphCount *int64 `json:"VnsAbsGraphCount,omitempty" yaml:"VnsAbsGraphCount,omitempty"`
-	// Policy Based Routing standby Node count scale. Checks the Policy Based Routing backup policy.
+	// Number of objects with Policy Based Routing standby Node. Checks the Policy Based Routing backup policy.
 	VnsBackupPolCount *int64 `json:"VnsBackupPolCount,omitempty" yaml:"VnsBackupPolCount,omitempty"`
-	// Policy Based Routing standby Node count scale. Policy based redirect requires a destination to redirect traffic.
+	// Number of objects with Policy Based Routing standby Node. Policy based redirect requires a destination to redirect traffic.
 	VnsRedirectDestCount *int64 `json:"VnsRedirectDestCount,omitempty" yaml:"VnsRedirectDestCount,omitempty"`
-	// Policy Based Routing and Policy Based Service Insertion count scale. Includes without L4-L7 package.
+	// Number of Policy Based Routing and Policy Based Service Insertion objects. Includes without L4-L7 package.
 	VnsSvcRedirectPolCount *int64 `json:"VnsSvcRedirectPolCount,omitempty" yaml:"VnsSvcRedirectPolCount,omitempty"`
-	// Vrf scale count per tenant.
-	VrfCount         *int64                               `json:"VrfCount,omitempty" yaml:"VrfCount,omitempty"`
+	// Number of Vrfs per tenant.
+	VrfCount *int64 `json:"VrfCount,omitempty" yaml:"VrfCount,omitempty"`
+	// Number of Zoning Policy per tenant.
+	VzBrCpCount *int64 `json:"VzBrCpCount,omitempty" yaml:"VzBrCpCount,omitempty"`
+	// Number of Client Contract between End Point Groups per tenant.
+	VzRtConsCount *int64 `json:"VzRtConsCount,omitempty" yaml:"VzRtConsCount,omitempty"`
+	// Number of Client Contract between End Point Groups per tenant.
+	VzRtProvCount    *int64                               `json:"VzRtProvCount,omitempty" yaml:"VzRtProvCount,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
@@ -68,8 +106,10 @@ type NiatelemetryTenant struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNiatelemetryTenant() *NiatelemetryTenant {
+func NewNiatelemetryTenant(classId string, objectType string) *NiatelemetryTenant {
 	this := NiatelemetryTenant{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -78,7 +118,59 @@ func NewNiatelemetryTenant() *NiatelemetryTenant {
 // but it doesn't guarantee that properties required by API are set
 func NewNiatelemetryTenantWithDefaults() *NiatelemetryTenant {
 	this := NiatelemetryTenant{}
+	var classId string = "niatelemetry.Tenant"
+	this.ClassId = classId
+	var objectType string = "niatelemetry.Tenant"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *NiatelemetryTenant) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *NiatelemetryTenant) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *NiatelemetryTenant) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *NiatelemetryTenant) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetBfdIfPolCount returns the BfdIfPolCount field value if set, zero value otherwise.
@@ -145,6 +237,38 @@ func (o *NiatelemetryTenant) SetBfdIfpCount(v int64) {
 	o.BfdIfpCount = &v
 }
 
+// GetDhcpRsProvCount returns the DhcpRsProvCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetDhcpRsProvCount() int64 {
+	if o == nil || o.DhcpRsProvCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.DhcpRsProvCount
+}
+
+// GetDhcpRsProvCountOk returns a tuple with the DhcpRsProvCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetDhcpRsProvCountOk() (*int64, bool) {
+	if o == nil || o.DhcpRsProvCount == nil {
+		return nil, false
+	}
+	return o.DhcpRsProvCount, true
+}
+
+// HasDhcpRsProvCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasDhcpRsProvCount() bool {
+	if o != nil && o.DhcpRsProvCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDhcpRsProvCount gets a reference to the given int64 and assigns it to the DhcpRsProvCount field.
+func (o *NiatelemetryTenant) SetDhcpRsProvCount(v int64) {
+	o.DhcpRsProvCount = &v
+}
+
 // GetDn returns the Dn field value if set, zero value otherwise.
 func (o *NiatelemetryTenant) GetDn() string {
 	if o == nil || o.Dn == nil {
@@ -209,6 +333,166 @@ func (o *NiatelemetryTenant) SetFhsBdPolCount(v int64) {
 	o.FhsBdPolCount = &v
 }
 
+// GetFvApCount returns the FvApCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetFvApCount() int64 {
+	if o == nil || o.FvApCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvApCount
+}
+
+// GetFvApCountOk returns a tuple with the FvApCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetFvApCountOk() (*int64, bool) {
+	if o == nil || o.FvApCount == nil {
+		return nil, false
+	}
+	return o.FvApCount, true
+}
+
+// HasFvApCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasFvApCount() bool {
+	if o != nil && o.FvApCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvApCount gets a reference to the given int64 and assigns it to the FvApCount field.
+func (o *NiatelemetryTenant) SetFvApCount(v int64) {
+	o.FvApCount = &v
+}
+
+// GetFvBdCount returns the FvBdCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetFvBdCount() int64 {
+	if o == nil || o.FvBdCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvBdCount
+}
+
+// GetFvBdCountOk returns a tuple with the FvBdCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetFvBdCountOk() (*int64, bool) {
+	if o == nil || o.FvBdCount == nil {
+		return nil, false
+	}
+	return o.FvBdCount, true
+}
+
+// HasFvBdCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasFvBdCount() bool {
+	if o != nil && o.FvBdCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvBdCount gets a reference to the given int64 and assigns it to the FvBdCount field.
+func (o *NiatelemetryTenant) SetFvBdCount(v int64) {
+	o.FvBdCount = &v
+}
+
+// GetFvBdSubnetCount returns the FvBdSubnetCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetFvBdSubnetCount() int64 {
+	if o == nil || o.FvBdSubnetCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvBdSubnetCount
+}
+
+// GetFvBdSubnetCountOk returns a tuple with the FvBdSubnetCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetFvBdSubnetCountOk() (*int64, bool) {
+	if o == nil || o.FvBdSubnetCount == nil {
+		return nil, false
+	}
+	return o.FvBdSubnetCount, true
+}
+
+// HasFvBdSubnetCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasFvBdSubnetCount() bool {
+	if o != nil && o.FvBdSubnetCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvBdSubnetCount gets a reference to the given int64 and assigns it to the FvBdSubnetCount field.
+func (o *NiatelemetryTenant) SetFvBdSubnetCount(v int64) {
+	o.FvBdSubnetCount = &v
+}
+
+// GetFvBdnoArpCount returns the FvBdnoArpCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetFvBdnoArpCount() int64 {
+	if o == nil || o.FvBdnoArpCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvBdnoArpCount
+}
+
+// GetFvBdnoArpCountOk returns a tuple with the FvBdnoArpCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetFvBdnoArpCountOk() (*int64, bool) {
+	if o == nil || o.FvBdnoArpCount == nil {
+		return nil, false
+	}
+	return o.FvBdnoArpCount, true
+}
+
+// HasFvBdnoArpCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasFvBdnoArpCount() bool {
+	if o != nil && o.FvBdnoArpCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvBdnoArpCount gets a reference to the given int64 and assigns it to the FvBdnoArpCount field.
+func (o *NiatelemetryTenant) SetFvBdnoArpCount(v int64) {
+	o.FvBdnoArpCount = &v
+}
+
+// GetFvCepCount returns the FvCepCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetFvCepCount() int64 {
+	if o == nil || o.FvCepCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvCepCount
+}
+
+// GetFvCepCountOk returns a tuple with the FvCepCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetFvCepCountOk() (*int64, bool) {
+	if o == nil || o.FvCepCount == nil {
+		return nil, false
+	}
+	return o.FvCepCount, true
+}
+
+// HasFvCepCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasFvCepCount() bool {
+	if o != nil && o.FvCepCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvCepCount gets a reference to the given int64 and assigns it to the FvCepCount field.
+func (o *NiatelemetryTenant) SetFvCepCount(v int64) {
+	o.FvCepCount = &v
+}
+
 // GetFvRsBdToFhsCount returns the FvRsBdToFhsCount field value if set, zero value otherwise.
 func (o *NiatelemetryTenant) GetFvRsBdToFhsCount() int64 {
 	if o == nil || o.FvRsBdToFhsCount == nil {
@@ -241,6 +525,38 @@ func (o *NiatelemetryTenant) SetFvRsBdToFhsCount(v int64) {
 	o.FvRsBdToFhsCount = &v
 }
 
+// GetFvRsBdToOutCount returns the FvRsBdToOutCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetFvRsBdToOutCount() int64 {
+	if o == nil || o.FvRsBdToOutCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvRsBdToOutCount
+}
+
+// GetFvRsBdToOutCountOk returns a tuple with the FvRsBdToOutCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetFvRsBdToOutCountOk() (*int64, bool) {
+	if o == nil || o.FvRsBdToOutCount == nil {
+		return nil, false
+	}
+	return o.FvRsBdToOutCount, true
+}
+
+// HasFvRsBdToOutCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasFvRsBdToOutCount() bool {
+	if o != nil && o.FvRsBdToOutCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvRsBdToOutCount gets a reference to the given int64 and assigns it to the FvRsBdToOutCount field.
+func (o *NiatelemetryTenant) SetFvRsBdToOutCount(v int64) {
+	o.FvRsBdToOutCount = &v
+}
+
 // GetFvSiteConnpCount returns the FvSiteConnpCount field value if set, zero value otherwise.
 func (o *NiatelemetryTenant) GetFvSiteConnpCount() int64 {
 	if o == nil || o.FvSiteConnpCount == nil {
@@ -271,6 +587,70 @@ func (o *NiatelemetryTenant) HasFvSiteConnpCount() bool {
 // SetFvSiteConnpCount gets a reference to the given int64 and assigns it to the FvSiteConnpCount field.
 func (o *NiatelemetryTenant) SetFvSiteConnpCount(v int64) {
 	o.FvSiteConnpCount = &v
+}
+
+// GetFvSubnetCount returns the FvSubnetCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetFvSubnetCount() int64 {
+	if o == nil || o.FvSubnetCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvSubnetCount
+}
+
+// GetFvSubnetCountOk returns a tuple with the FvSubnetCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetFvSubnetCountOk() (*int64, bool) {
+	if o == nil || o.FvSubnetCount == nil {
+		return nil, false
+	}
+	return o.FvSubnetCount, true
+}
+
+// HasFvSubnetCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasFvSubnetCount() bool {
+	if o != nil && o.FvSubnetCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvSubnetCount gets a reference to the given int64 and assigns it to the FvSubnetCount field.
+func (o *NiatelemetryTenant) SetFvSubnetCount(v int64) {
+	o.FvSubnetCount = &v
+}
+
+// GetIpStaticRouteCount returns the IpStaticRouteCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetIpStaticRouteCount() int64 {
+	if o == nil || o.IpStaticRouteCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.IpStaticRouteCount
+}
+
+// GetIpStaticRouteCountOk returns a tuple with the IpStaticRouteCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetIpStaticRouteCountOk() (*int64, bool) {
+	if o == nil || o.IpStaticRouteCount == nil {
+		return nil, false
+	}
+	return o.IpStaticRouteCount, true
+}
+
+// HasIpStaticRouteCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasIpStaticRouteCount() bool {
+	if o != nil && o.IpStaticRouteCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIpStaticRouteCount gets a reference to the given int64 and assigns it to the IpStaticRouteCount field.
+func (o *NiatelemetryTenant) SetIpStaticRouteCount(v int64) {
+	o.IpStaticRouteCount = &v
 }
 
 // GetL3MulticastCount returns the L3MulticastCount field value if set, zero value otherwise.
@@ -401,6 +781,102 @@ func (o *NiatelemetryTenant) SetL3outCount(v int64) {
 	o.L3outCount = &v
 }
 
+// GetQosCustomPolCount returns the QosCustomPolCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetQosCustomPolCount() int64 {
+	if o == nil || o.QosCustomPolCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.QosCustomPolCount
+}
+
+// GetQosCustomPolCountOk returns a tuple with the QosCustomPolCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetQosCustomPolCountOk() (*int64, bool) {
+	if o == nil || o.QosCustomPolCount == nil {
+		return nil, false
+	}
+	return o.QosCustomPolCount, true
+}
+
+// HasQosCustomPolCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasQosCustomPolCount() bool {
+	if o != nil && o.QosCustomPolCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQosCustomPolCount gets a reference to the given int64 and assigns it to the QosCustomPolCount field.
+func (o *NiatelemetryTenant) SetQosCustomPolCount(v int64) {
+	o.QosCustomPolCount = &v
+}
+
+// GetRecordType returns the RecordType field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetRecordType() string {
+	if o == nil || o.RecordType == nil {
+		var ret string
+		return ret
+	}
+	return *o.RecordType
+}
+
+// GetRecordTypeOk returns a tuple with the RecordType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetRecordTypeOk() (*string, bool) {
+	if o == nil || o.RecordType == nil {
+		return nil, false
+	}
+	return o.RecordType, true
+}
+
+// HasRecordType returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasRecordType() bool {
+	if o != nil && o.RecordType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecordType gets a reference to the given string and assigns it to the RecordType field.
+func (o *NiatelemetryTenant) SetRecordType(v string) {
+	o.RecordType = &v
+}
+
+// GetRecordVersion returns the RecordVersion field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetRecordVersion() string {
+	if o == nil || o.RecordVersion == nil {
+		var ret string
+		return ret
+	}
+	return *o.RecordVersion
+}
+
+// GetRecordVersionOk returns a tuple with the RecordVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetRecordVersionOk() (*string, bool) {
+	if o == nil || o.RecordVersion == nil {
+		return nil, false
+	}
+	return o.RecordVersion, true
+}
+
+// HasRecordVersion returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasRecordVersion() bool {
+	if o != nil && o.RecordVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecordVersion gets a reference to the given string and assigns it to the RecordVersion field.
+func (o *NiatelemetryTenant) SetRecordVersion(v string) {
+	o.RecordVersion = &v
+}
+
 // GetSiteName returns the SiteName field value if set, zero value otherwise.
 func (o *NiatelemetryTenant) GetSiteName() string {
 	if o == nil || o.SiteName == nil {
@@ -463,6 +939,70 @@ func (o *NiatelemetryTenant) HasSsm() bool {
 // SetSsm gets a reference to the given string and assigns it to the Ssm field.
 func (o *NiatelemetryTenant) SetSsm(v string) {
 	o.Ssm = &v
+}
+
+// GetSsmCount returns the SsmCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetSsmCount() int64 {
+	if o == nil || o.SsmCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SsmCount
+}
+
+// GetSsmCountOk returns a tuple with the SsmCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetSsmCountOk() (*int64, bool) {
+	if o == nil || o.SsmCount == nil {
+		return nil, false
+	}
+	return o.SsmCount, true
+}
+
+// HasSsmCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasSsmCount() bool {
+	if o != nil && o.SsmCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSsmCount gets a reference to the given int64 and assigns it to the SsmCount field.
+func (o *NiatelemetryTenant) SetSsmCount(v int64) {
+	o.SsmCount = &v
+}
+
+// GetTcamOptCount returns the TcamOptCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetTcamOptCount() int64 {
+	if o == nil || o.TcamOptCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.TcamOptCount
+}
+
+// GetTcamOptCountOk returns a tuple with the TcamOptCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetTcamOptCountOk() (*int64, bool) {
+	if o == nil || o.TcamOptCount == nil {
+		return nil, false
+	}
+	return o.TcamOptCount, true
+}
+
+// HasTcamOptCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasTcamOptCount() bool {
+	if o != nil && o.TcamOptCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTcamOptCount gets a reference to the given int64 and assigns it to the TcamOptCount field.
+func (o *NiatelemetryTenant) SetTcamOptCount(v int64) {
+	o.TcamOptCount = &v
 }
 
 // GetTraceRouteEpCount returns the TraceRouteEpCount field value if set, zero value otherwise.
@@ -753,6 +1293,102 @@ func (o *NiatelemetryTenant) SetVrfCount(v int64) {
 	o.VrfCount = &v
 }
 
+// GetVzBrCpCount returns the VzBrCpCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetVzBrCpCount() int64 {
+	if o == nil || o.VzBrCpCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.VzBrCpCount
+}
+
+// GetVzBrCpCountOk returns a tuple with the VzBrCpCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetVzBrCpCountOk() (*int64, bool) {
+	if o == nil || o.VzBrCpCount == nil {
+		return nil, false
+	}
+	return o.VzBrCpCount, true
+}
+
+// HasVzBrCpCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasVzBrCpCount() bool {
+	if o != nil && o.VzBrCpCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVzBrCpCount gets a reference to the given int64 and assigns it to the VzBrCpCount field.
+func (o *NiatelemetryTenant) SetVzBrCpCount(v int64) {
+	o.VzBrCpCount = &v
+}
+
+// GetVzRtConsCount returns the VzRtConsCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetVzRtConsCount() int64 {
+	if o == nil || o.VzRtConsCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.VzRtConsCount
+}
+
+// GetVzRtConsCountOk returns a tuple with the VzRtConsCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetVzRtConsCountOk() (*int64, bool) {
+	if o == nil || o.VzRtConsCount == nil {
+		return nil, false
+	}
+	return o.VzRtConsCount, true
+}
+
+// HasVzRtConsCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasVzRtConsCount() bool {
+	if o != nil && o.VzRtConsCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVzRtConsCount gets a reference to the given int64 and assigns it to the VzRtConsCount field.
+func (o *NiatelemetryTenant) SetVzRtConsCount(v int64) {
+	o.VzRtConsCount = &v
+}
+
+// GetVzRtProvCount returns the VzRtProvCount field value if set, zero value otherwise.
+func (o *NiatelemetryTenant) GetVzRtProvCount() int64 {
+	if o == nil || o.VzRtProvCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.VzRtProvCount
+}
+
+// GetVzRtProvCountOk returns a tuple with the VzRtProvCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryTenant) GetVzRtProvCountOk() (*int64, bool) {
+	if o == nil || o.VzRtProvCount == nil {
+		return nil, false
+	}
+	return o.VzRtProvCount, true
+}
+
+// HasVzRtProvCount returns a boolean if a field has been set.
+func (o *NiatelemetryTenant) HasVzRtProvCount() bool {
+	if o != nil && o.VzRtProvCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVzRtProvCount gets a reference to the given int64 and assigns it to the VzRtProvCount field.
+func (o *NiatelemetryTenant) SetVzRtProvCount(v int64) {
+	o.VzRtProvCount = &v
+}
+
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
 func (o *NiatelemetryTenant) GetRegisteredDevice() AssetDeviceRegistrationRelationship {
 	if o == nil || o.RegisteredDevice == nil {
@@ -795,11 +1431,20 @@ func (o NiatelemetryTenant) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.BfdIfPolCount != nil {
 		toSerialize["BfdIfPolCount"] = o.BfdIfPolCount
 	}
 	if o.BfdIfpCount != nil {
 		toSerialize["BfdIfpCount"] = o.BfdIfpCount
+	}
+	if o.DhcpRsProvCount != nil {
+		toSerialize["DhcpRsProvCount"] = o.DhcpRsProvCount
 	}
 	if o.Dn != nil {
 		toSerialize["Dn"] = o.Dn
@@ -807,11 +1452,35 @@ func (o NiatelemetryTenant) MarshalJSON() ([]byte, error) {
 	if o.FhsBdPolCount != nil {
 		toSerialize["FhsBdPolCount"] = o.FhsBdPolCount
 	}
+	if o.FvApCount != nil {
+		toSerialize["FvApCount"] = o.FvApCount
+	}
+	if o.FvBdCount != nil {
+		toSerialize["FvBdCount"] = o.FvBdCount
+	}
+	if o.FvBdSubnetCount != nil {
+		toSerialize["FvBdSubnetCount"] = o.FvBdSubnetCount
+	}
+	if o.FvBdnoArpCount != nil {
+		toSerialize["FvBdnoArpCount"] = o.FvBdnoArpCount
+	}
+	if o.FvCepCount != nil {
+		toSerialize["FvCepCount"] = o.FvCepCount
+	}
 	if o.FvRsBdToFhsCount != nil {
 		toSerialize["FvRsBdToFhsCount"] = o.FvRsBdToFhsCount
 	}
+	if o.FvRsBdToOutCount != nil {
+		toSerialize["FvRsBdToOutCount"] = o.FvRsBdToOutCount
+	}
 	if o.FvSiteConnpCount != nil {
 		toSerialize["FvSiteConnpCount"] = o.FvSiteConnpCount
+	}
+	if o.FvSubnetCount != nil {
+		toSerialize["FvSubnetCount"] = o.FvSubnetCount
+	}
+	if o.IpStaticRouteCount != nil {
+		toSerialize["IpStaticRouteCount"] = o.IpStaticRouteCount
 	}
 	if o.L3MulticastCount != nil {
 		toSerialize["L3MulticastCount"] = o.L3MulticastCount
@@ -825,11 +1494,26 @@ func (o NiatelemetryTenant) MarshalJSON() ([]byte, error) {
 	if o.L3outCount != nil {
 		toSerialize["L3outCount"] = o.L3outCount
 	}
+	if o.QosCustomPolCount != nil {
+		toSerialize["QosCustomPolCount"] = o.QosCustomPolCount
+	}
+	if o.RecordType != nil {
+		toSerialize["RecordType"] = o.RecordType
+	}
+	if o.RecordVersion != nil {
+		toSerialize["RecordVersion"] = o.RecordVersion
+	}
 	if o.SiteName != nil {
 		toSerialize["SiteName"] = o.SiteName
 	}
 	if o.Ssm != nil {
 		toSerialize["Ssm"] = o.Ssm
+	}
+	if o.SsmCount != nil {
+		toSerialize["SsmCount"] = o.SsmCount
+	}
+	if o.TcamOptCount != nil {
+		toSerialize["TcamOptCount"] = o.TcamOptCount
 	}
 	if o.TraceRouteEpCount != nil {
 		toSerialize["TraceRouteEpCount"] = o.TraceRouteEpCount
@@ -857,6 +1541,15 @@ func (o NiatelemetryTenant) MarshalJSON() ([]byte, error) {
 	}
 	if o.VrfCount != nil {
 		toSerialize["VrfCount"] = o.VrfCount
+	}
+	if o.VzBrCpCount != nil {
+		toSerialize["VzBrCpCount"] = o.VzBrCpCount
+	}
+	if o.VzRtConsCount != nil {
+		toSerialize["VzRtConsCount"] = o.VzRtConsCount
+	}
+	if o.VzRtProvCount != nil {
+		toSerialize["VzRtProvCount"] = o.VzRtProvCount
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice

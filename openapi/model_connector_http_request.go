@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,10 +19,18 @@ import (
 // ConnectorHttpRequest A HTTP request sent by a cloud service to be proxied through a device connector.
 type ConnectorHttpRequest struct {
 	ConnectorBaseMessage `yaml:"ConnectorBaseMessage,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// The Target endpoint Moid which is used to fetch the previously persisted Target information in Intersight to create HTTP request along with any authentication info specifed.
+	AssetTargetMoid *string `json:"AssetTargetMoid,omitempty" yaml:"AssetTargetMoid,omitempty"`
 	// Contents of the request body to send for PUT/PATCH/POST requests.
 	Body *string `json:"Body,omitempty" yaml:"Body,omitempty"`
 	// The timeout for establishing the TCP connection to the target host. If not set the request timeout value is used.
 	DialTimeout *int64 `json:"DialTimeout,omitempty" yaml:"DialTimeout,omitempty"`
+	// The MO id of the asset.EndpointConnection this request is directed to. If set plugin will insert connection details into the request, including credentials if defined.
+	EndpointMoid *string `json:"EndpointMoid,omitempty" yaml:"EndpointMoid,omitempty"`
 	// Collection of key value pairs to set in the request header.
 	Header interface{} `json:"Header,omitempty" yaml:"Header,omitempty"`
 	// The request is for an internal platform API that requires authentication to be inserted by the platform implementation.
@@ -30,16 +38,18 @@ type ConnectorHttpRequest struct {
 	// Method specifies the HTTP method (GET, POST, PUT, etc.). For client requests an empty string means GET.
 	Method *string `json:"Method,omitempty" yaml:"Method,omitempty"`
 	// The timeout for the HTTP request to complete, from connection establishment to response body read complete. If not set a default timeout of five minutes is used.
-	Timeout *int64        `json:"Timeout,omitempty" yaml:"Timeout,omitempty"`
-	Url     *ConnectorUrl `json:"Url,omitempty" yaml:"Url,omitempty"`
+	Timeout *int64               `json:"Timeout,omitempty" yaml:"Timeout,omitempty"`
+	Url     NullableConnectorUrl `json:"Url,omitempty" yaml:"Url,omitempty"`
 }
 
 // NewConnectorHttpRequest instantiates a new ConnectorHttpRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectorHttpRequest() *ConnectorHttpRequest {
+func NewConnectorHttpRequest(classId string, objectType string) *ConnectorHttpRequest {
 	this := ConnectorHttpRequest{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -48,7 +58,91 @@ func NewConnectorHttpRequest() *ConnectorHttpRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorHttpRequestWithDefaults() *ConnectorHttpRequest {
 	this := ConnectorHttpRequest{}
+	var classId string = "connector.HttpRequest"
+	this.ClassId = classId
+	var objectType string = "connector.HttpRequest"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *ConnectorHttpRequest) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ConnectorHttpRequest) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ConnectorHttpRequest) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ConnectorHttpRequest) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ConnectorHttpRequest) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ConnectorHttpRequest) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetAssetTargetMoid returns the AssetTargetMoid field value if set, zero value otherwise.
+func (o *ConnectorHttpRequest) GetAssetTargetMoid() string {
+	if o == nil || o.AssetTargetMoid == nil {
+		var ret string
+		return ret
+	}
+	return *o.AssetTargetMoid
+}
+
+// GetAssetTargetMoidOk returns a tuple with the AssetTargetMoid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorHttpRequest) GetAssetTargetMoidOk() (*string, bool) {
+	if o == nil || o.AssetTargetMoid == nil {
+		return nil, false
+	}
+	return o.AssetTargetMoid, true
+}
+
+// HasAssetTargetMoid returns a boolean if a field has been set.
+func (o *ConnectorHttpRequest) HasAssetTargetMoid() bool {
+	if o != nil && o.AssetTargetMoid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAssetTargetMoid gets a reference to the given string and assigns it to the AssetTargetMoid field.
+func (o *ConnectorHttpRequest) SetAssetTargetMoid(v string) {
+	o.AssetTargetMoid = &v
 }
 
 // GetBody returns the Body field value if set, zero value otherwise.
@@ -113,6 +207,38 @@ func (o *ConnectorHttpRequest) HasDialTimeout() bool {
 // SetDialTimeout gets a reference to the given int64 and assigns it to the DialTimeout field.
 func (o *ConnectorHttpRequest) SetDialTimeout(v int64) {
 	o.DialTimeout = &v
+}
+
+// GetEndpointMoid returns the EndpointMoid field value if set, zero value otherwise.
+func (o *ConnectorHttpRequest) GetEndpointMoid() string {
+	if o == nil || o.EndpointMoid == nil {
+		var ret string
+		return ret
+	}
+	return *o.EndpointMoid
+}
+
+// GetEndpointMoidOk returns a tuple with the EndpointMoid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorHttpRequest) GetEndpointMoidOk() (*string, bool) {
+	if o == nil || o.EndpointMoid == nil {
+		return nil, false
+	}
+	return o.EndpointMoid, true
+}
+
+// HasEndpointMoid returns a boolean if a field has been set.
+func (o *ConnectorHttpRequest) HasEndpointMoid() bool {
+	if o != nil && o.EndpointMoid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEndpointMoid gets a reference to the given string and assigns it to the EndpointMoid field.
+func (o *ConnectorHttpRequest) SetEndpointMoid(v string) {
+	o.EndpointMoid = &v
 }
 
 // GetHeader returns the Header field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -244,36 +370,47 @@ func (o *ConnectorHttpRequest) SetTimeout(v int64) {
 	o.Timeout = &v
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConnectorHttpRequest) GetUrl() ConnectorUrl {
-	if o == nil || o.Url == nil {
+	if o == nil || o.Url.Get() == nil {
 		var ret ConnectorUrl
 		return ret
 	}
-	return *o.Url
+	return *o.Url.Get()
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectorHttpRequest) GetUrlOk() (*ConnectorUrl, bool) {
-	if o == nil || o.Url == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *ConnectorHttpRequest) HasUrl() bool {
-	if o != nil && o.Url != nil {
+	if o != nil && o.Url.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given ConnectorUrl and assigns it to the Url field.
+// SetUrl gets a reference to the given NullableConnectorUrl and assigns it to the Url field.
 func (o *ConnectorHttpRequest) SetUrl(v ConnectorUrl) {
-	o.Url = &v
+	o.Url.Set(&v)
+}
+
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *ConnectorHttpRequest) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *ConnectorHttpRequest) UnsetUrl() {
+	o.Url.Unset()
 }
 
 func (o ConnectorHttpRequest) MarshalJSON() ([]byte, error) {
@@ -286,11 +423,23 @@ func (o ConnectorHttpRequest) MarshalJSON() ([]byte, error) {
 	if errConnectorBaseMessage != nil {
 		return []byte{}, errConnectorBaseMessage
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
+	if o.AssetTargetMoid != nil {
+		toSerialize["AssetTargetMoid"] = o.AssetTargetMoid
+	}
 	if o.Body != nil {
 		toSerialize["Body"] = o.Body
 	}
 	if o.DialTimeout != nil {
 		toSerialize["DialTimeout"] = o.DialTimeout
+	}
+	if o.EndpointMoid != nil {
+		toSerialize["EndpointMoid"] = o.EndpointMoid
 	}
 	if o.Header != nil {
 		toSerialize["Header"] = o.Header
@@ -304,8 +453,8 @@ func (o ConnectorHttpRequest) MarshalJSON() ([]byte, error) {
 	if o.Timeout != nil {
 		toSerialize["Timeout"] = o.Timeout
 	}
-	if o.Url != nil {
-		toSerialize["Url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["Url"] = o.Url.Get()
 	}
 	return json.Marshal(toSerialize)
 }

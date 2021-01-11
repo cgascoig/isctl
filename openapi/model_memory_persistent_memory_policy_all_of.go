@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,9 +18,13 @@ import (
 
 // MemoryPersistentMemoryPolicyAllOf Definition of the list of properties defined in 'memory.PersistentMemoryPolicy', excluding properties defined in parent classes.
 type MemoryPersistentMemoryPolicyAllOf struct {
-	Goals             *[]MemoryPersistentMemoryGoal             `json:"Goals,omitempty" yaml:"Goals,omitempty"`
-	LocalSecurity     *MemoryPersistentMemoryLocalSecurity      `json:"LocalSecurity,omitempty" yaml:"LocalSecurity,omitempty"`
-	LogicalNamespaces *[]MemoryPersistentMemoryLogicalNamespace `json:"LogicalNamespaces,omitempty" yaml:"LogicalNamespaces,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType        string                                      `json:"ObjectType" yaml:"ObjectType"`
+	Goals             []MemoryPersistentMemoryGoal                `json:"Goals,omitempty" yaml:"Goals,omitempty"`
+	LocalSecurity     NullableMemoryPersistentMemoryLocalSecurity `json:"LocalSecurity,omitempty" yaml:"LocalSecurity,omitempty"`
+	LogicalNamespaces []MemoryPersistentMemoryLogicalNamespace    `json:"LogicalNamespaces,omitempty" yaml:"LogicalNamespaces,omitempty"`
 	// Management Mode of the policy. This can be either Configured from Intersight or Configured from Operating System. * `configured-from-intersight` - The Persistent Memory Modules are configured from Intersight thorugh Persistent Memory policy. * `configured-from-operating-system` - The Persistent Memory Modules are configured from operating system thorugh OS tools.
 	ManagementMode *string `json:"ManagementMode,omitempty" yaml:"ManagementMode,omitempty"`
 	// Persistent Memory Namespaces to be retained or not.
@@ -34,10 +38,14 @@ type MemoryPersistentMemoryPolicyAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMemoryPersistentMemoryPolicyAllOf() *MemoryPersistentMemoryPolicyAllOf {
+func NewMemoryPersistentMemoryPolicyAllOf(classId string, objectType string) *MemoryPersistentMemoryPolicyAllOf {
 	this := MemoryPersistentMemoryPolicyAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var managementMode string = "configured-from-intersight"
 	this.ManagementMode = &managementMode
+	var retainNamespaces bool = true
+	this.RetainNamespaces = &retainNamespaces
 	return &this
 }
 
@@ -46,27 +54,82 @@ func NewMemoryPersistentMemoryPolicyAllOf() *MemoryPersistentMemoryPolicyAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewMemoryPersistentMemoryPolicyAllOfWithDefaults() *MemoryPersistentMemoryPolicyAllOf {
 	this := MemoryPersistentMemoryPolicyAllOf{}
+	var classId string = "memory.PersistentMemoryPolicy"
+	this.ClassId = classId
+	var objectType string = "memory.PersistentMemoryPolicy"
+	this.ObjectType = objectType
 	var managementMode string = "configured-from-intersight"
 	this.ManagementMode = &managementMode
+	var retainNamespaces bool = true
+	this.RetainNamespaces = &retainNamespaces
 	return &this
 }
 
-// GetGoals returns the Goals field value if set, zero value otherwise.
+// GetClassId returns the ClassId field value
+func (o *MemoryPersistentMemoryPolicyAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *MemoryPersistentMemoryPolicyAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *MemoryPersistentMemoryPolicyAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *MemoryPersistentMemoryPolicyAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *MemoryPersistentMemoryPolicyAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *MemoryPersistentMemoryPolicyAllOf) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetGoals returns the Goals field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MemoryPersistentMemoryPolicyAllOf) GetGoals() []MemoryPersistentMemoryGoal {
-	if o == nil || o.Goals == nil {
+	if o == nil {
 		var ret []MemoryPersistentMemoryGoal
 		return ret
 	}
-	return *o.Goals
+	return o.Goals
 }
 
 // GetGoalsOk returns a tuple with the Goals field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MemoryPersistentMemoryPolicyAllOf) GetGoalsOk() (*[]MemoryPersistentMemoryGoal, bool) {
 	if o == nil || o.Goals == nil {
 		return nil, false
 	}
-	return o.Goals, true
+	return &o.Goals, true
 }
 
 // HasGoals returns a boolean if a field has been set.
@@ -80,57 +143,69 @@ func (o *MemoryPersistentMemoryPolicyAllOf) HasGoals() bool {
 
 // SetGoals gets a reference to the given []MemoryPersistentMemoryGoal and assigns it to the Goals field.
 func (o *MemoryPersistentMemoryPolicyAllOf) SetGoals(v []MemoryPersistentMemoryGoal) {
-	o.Goals = &v
+	o.Goals = v
 }
 
-// GetLocalSecurity returns the LocalSecurity field value if set, zero value otherwise.
+// GetLocalSecurity returns the LocalSecurity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MemoryPersistentMemoryPolicyAllOf) GetLocalSecurity() MemoryPersistentMemoryLocalSecurity {
-	if o == nil || o.LocalSecurity == nil {
+	if o == nil || o.LocalSecurity.Get() == nil {
 		var ret MemoryPersistentMemoryLocalSecurity
 		return ret
 	}
-	return *o.LocalSecurity
+	return *o.LocalSecurity.Get()
 }
 
 // GetLocalSecurityOk returns a tuple with the LocalSecurity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MemoryPersistentMemoryPolicyAllOf) GetLocalSecurityOk() (*MemoryPersistentMemoryLocalSecurity, bool) {
-	if o == nil || o.LocalSecurity == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.LocalSecurity, true
+	return o.LocalSecurity.Get(), o.LocalSecurity.IsSet()
 }
 
 // HasLocalSecurity returns a boolean if a field has been set.
 func (o *MemoryPersistentMemoryPolicyAllOf) HasLocalSecurity() bool {
-	if o != nil && o.LocalSecurity != nil {
+	if o != nil && o.LocalSecurity.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLocalSecurity gets a reference to the given MemoryPersistentMemoryLocalSecurity and assigns it to the LocalSecurity field.
+// SetLocalSecurity gets a reference to the given NullableMemoryPersistentMemoryLocalSecurity and assigns it to the LocalSecurity field.
 func (o *MemoryPersistentMemoryPolicyAllOf) SetLocalSecurity(v MemoryPersistentMemoryLocalSecurity) {
-	o.LocalSecurity = &v
+	o.LocalSecurity.Set(&v)
 }
 
-// GetLogicalNamespaces returns the LogicalNamespaces field value if set, zero value otherwise.
+// SetLocalSecurityNil sets the value for LocalSecurity to be an explicit nil
+func (o *MemoryPersistentMemoryPolicyAllOf) SetLocalSecurityNil() {
+	o.LocalSecurity.Set(nil)
+}
+
+// UnsetLocalSecurity ensures that no value is present for LocalSecurity, not even an explicit nil
+func (o *MemoryPersistentMemoryPolicyAllOf) UnsetLocalSecurity() {
+	o.LocalSecurity.Unset()
+}
+
+// GetLogicalNamespaces returns the LogicalNamespaces field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MemoryPersistentMemoryPolicyAllOf) GetLogicalNamespaces() []MemoryPersistentMemoryLogicalNamespace {
-	if o == nil || o.LogicalNamespaces == nil {
+	if o == nil {
 		var ret []MemoryPersistentMemoryLogicalNamespace
 		return ret
 	}
-	return *o.LogicalNamespaces
+	return o.LogicalNamespaces
 }
 
 // GetLogicalNamespacesOk returns a tuple with the LogicalNamespaces field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MemoryPersistentMemoryPolicyAllOf) GetLogicalNamespacesOk() (*[]MemoryPersistentMemoryLogicalNamespace, bool) {
 	if o == nil || o.LogicalNamespaces == nil {
 		return nil, false
 	}
-	return o.LogicalNamespaces, true
+	return &o.LogicalNamespaces, true
 }
 
 // HasLogicalNamespaces returns a boolean if a field has been set.
@@ -144,7 +219,7 @@ func (o *MemoryPersistentMemoryPolicyAllOf) HasLogicalNamespaces() bool {
 
 // SetLogicalNamespaces gets a reference to the given []MemoryPersistentMemoryLogicalNamespace and assigns it to the LogicalNamespaces field.
 func (o *MemoryPersistentMemoryPolicyAllOf) SetLogicalNamespaces(v []MemoryPersistentMemoryLogicalNamespace) {
-	o.LogicalNamespaces = &v
+	o.LogicalNamespaces = v
 }
 
 // GetManagementMode returns the ManagementMode field value if set, zero value otherwise.
@@ -278,11 +353,17 @@ func (o *MemoryPersistentMemoryPolicyAllOf) SetProfiles(v []PolicyAbstractConfig
 
 func (o MemoryPersistentMemoryPolicyAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Goals != nil {
 		toSerialize["Goals"] = o.Goals
 	}
-	if o.LocalSecurity != nil {
-		toSerialize["LocalSecurity"] = o.LocalSecurity
+	if o.LocalSecurity.IsSet() {
+		toSerialize["LocalSecurity"] = o.LocalSecurity.Get()
 	}
 	if o.LogicalNamespaces != nil {
 		toSerialize["LogicalNamespaces"] = o.LogicalNamespaces

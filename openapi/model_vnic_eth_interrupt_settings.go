@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,10 @@ import (
 // VnicEthInterruptSettings Interrupt settings for the virtual ethernet interface.
 type VnicEthInterruptSettings struct {
 	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The time to wait between interrupts or the idle period that must be encountered before an interrupt is sent. To turn off interrupt coalescing, enter 0 (zero) in this field.
 	CoalescingTime *int64 `json:"CoalescingTime,omitempty" yaml:"CoalescingTime,omitempty"`
 	// Interrupt Coalescing Type. This can be one of the following:- MIN  - The system waits for the time specified in the Coalescing Time field before sending another interrupt event IDLE - The system does not send an interrupt until there is a period of no activity lasting as least as long as the time specified in the Coalescing Time field. * `MIN` - The system waits for the time specified in the Coalescing Time field before sending another interrupt event. * `IDLE` - The system does not send an interrupt until there is a period of no activity lasting as least as long as the time specified in the Coalescing Time field.
@@ -33,10 +37,16 @@ type VnicEthInterruptSettings struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVnicEthInterruptSettings() *VnicEthInterruptSettings {
+func NewVnicEthInterruptSettings(classId string, objectType string) *VnicEthInterruptSettings {
 	this := VnicEthInterruptSettings{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var coalescingTime int64 = 125
+	this.CoalescingTime = &coalescingTime
 	var coalescingType string = "MIN"
 	this.CoalescingType = &coalescingType
+	var count int64 = 8
+	this.Count = &count
 	var mode string = "MSIx"
 	this.Mode = &mode
 	return &this
@@ -47,11 +57,67 @@ func NewVnicEthInterruptSettings() *VnicEthInterruptSettings {
 // but it doesn't guarantee that properties required by API are set
 func NewVnicEthInterruptSettingsWithDefaults() *VnicEthInterruptSettings {
 	this := VnicEthInterruptSettings{}
+	var classId string = "vnic.EthInterruptSettings"
+	this.ClassId = classId
+	var objectType string = "vnic.EthInterruptSettings"
+	this.ObjectType = objectType
+	var coalescingTime int64 = 125
+	this.CoalescingTime = &coalescingTime
 	var coalescingType string = "MIN"
 	this.CoalescingType = &coalescingType
+	var count int64 = 8
+	this.Count = &count
 	var mode string = "MSIx"
 	this.Mode = &mode
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *VnicEthInterruptSettings) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *VnicEthInterruptSettings) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *VnicEthInterruptSettings) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *VnicEthInterruptSettings) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *VnicEthInterruptSettings) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *VnicEthInterruptSettings) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetCoalescingTime returns the CoalescingTime field value if set, zero value otherwise.
@@ -191,6 +257,12 @@ func (o VnicEthInterruptSettings) MarshalJSON() ([]byte, error) {
 	errMoBaseComplexType = json.Unmarshal([]byte(serializedMoBaseComplexType), &toSerialize)
 	if errMoBaseComplexType != nil {
 		return []byte{}, errMoBaseComplexType
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.CoalescingTime != nil {
 		toSerialize["CoalescingTime"] = o.CoalescingTime

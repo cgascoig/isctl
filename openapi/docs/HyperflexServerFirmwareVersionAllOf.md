@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServerFirmwareVersionEntries** | Pointer to [**[]HyperflexServerFirmwareVersionEntry**](hyperflex.ServerFirmwareVersionEntry.md) |  | [optional] 
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ServerFirmwareVersion"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ServerFirmwareVersion"]
 **AppCatalog** | Pointer to [**HyperflexAppCatalogRelationship**](hyperflex.AppCatalog.Relationship.md) |  | [optional] 
+**ServerFirmwareVersionEntries** | Pointer to [**[]HyperflexServerFirmwareVersionEntryRelationship**](hyperflex.ServerFirmwareVersionEntry.Relationship.md) | An array of relationships to hyperflexServerFirmwareVersionEntry resources. | [optional] 
 
 ## Methods
 
 ### NewHyperflexServerFirmwareVersionAllOf
 
-`func NewHyperflexServerFirmwareVersionAllOf() *HyperflexServerFirmwareVersionAllOf`
+`func NewHyperflexServerFirmwareVersionAllOf(classId string, objectType string, ) *HyperflexServerFirmwareVersionAllOf`
 
 NewHyperflexServerFirmwareVersionAllOf instantiates a new HyperflexServerFirmwareVersionAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -26,30 +28,45 @@ NewHyperflexServerFirmwareVersionAllOfWithDefaults instantiates a new HyperflexS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetServerFirmwareVersionEntries
+### GetClassId
 
-`func (o *HyperflexServerFirmwareVersionAllOf) GetServerFirmwareVersionEntries() []HyperflexServerFirmwareVersionEntry`
+`func (o *HyperflexServerFirmwareVersionAllOf) GetClassId() string`
 
-GetServerFirmwareVersionEntries returns the ServerFirmwareVersionEntries field if non-nil, zero value otherwise.
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
 
-### GetServerFirmwareVersionEntriesOk
+### GetClassIdOk
 
-`func (o *HyperflexServerFirmwareVersionAllOf) GetServerFirmwareVersionEntriesOk() (*[]HyperflexServerFirmwareVersionEntry, bool)`
+`func (o *HyperflexServerFirmwareVersionAllOf) GetClassIdOk() (*string, bool)`
 
-GetServerFirmwareVersionEntriesOk returns a tuple with the ServerFirmwareVersionEntries field if it's non-nil, zero value otherwise
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetServerFirmwareVersionEntries
+### SetClassId
 
-`func (o *HyperflexServerFirmwareVersionAllOf) SetServerFirmwareVersionEntries(v []HyperflexServerFirmwareVersionEntry)`
+`func (o *HyperflexServerFirmwareVersionAllOf) SetClassId(v string)`
 
-SetServerFirmwareVersionEntries sets ServerFirmwareVersionEntries field to given value.
+SetClassId sets ClassId field to given value.
 
-### HasServerFirmwareVersionEntries
 
-`func (o *HyperflexServerFirmwareVersionAllOf) HasServerFirmwareVersionEntries() bool`
+### GetObjectType
 
-HasServerFirmwareVersionEntries returns a boolean if a field has been set.
+`func (o *HyperflexServerFirmwareVersionAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *HyperflexServerFirmwareVersionAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *HyperflexServerFirmwareVersionAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetAppCatalog
 
@@ -76,6 +93,41 @@ SetAppCatalog sets AppCatalog field to given value.
 
 HasAppCatalog returns a boolean if a field has been set.
 
+### GetServerFirmwareVersionEntries
+
+`func (o *HyperflexServerFirmwareVersionAllOf) GetServerFirmwareVersionEntries() []HyperflexServerFirmwareVersionEntryRelationship`
+
+GetServerFirmwareVersionEntries returns the ServerFirmwareVersionEntries field if non-nil, zero value otherwise.
+
+### GetServerFirmwareVersionEntriesOk
+
+`func (o *HyperflexServerFirmwareVersionAllOf) GetServerFirmwareVersionEntriesOk() (*[]HyperflexServerFirmwareVersionEntryRelationship, bool)`
+
+GetServerFirmwareVersionEntriesOk returns a tuple with the ServerFirmwareVersionEntries field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServerFirmwareVersionEntries
+
+`func (o *HyperflexServerFirmwareVersionAllOf) SetServerFirmwareVersionEntries(v []HyperflexServerFirmwareVersionEntryRelationship)`
+
+SetServerFirmwareVersionEntries sets ServerFirmwareVersionEntries field to given value.
+
+### HasServerFirmwareVersionEntries
+
+`func (o *HyperflexServerFirmwareVersionAllOf) HasServerFirmwareVersionEntries() bool`
+
+HasServerFirmwareVersionEntries returns a boolean if a field has been set.
+
+### SetServerFirmwareVersionEntriesNil
+
+`func (o *HyperflexServerFirmwareVersionAllOf) SetServerFirmwareVersionEntriesNil(b bool)`
+
+ SetServerFirmwareVersionEntriesNil sets the value for ServerFirmwareVersionEntries to be an explicit nil
+
+### UnsetServerFirmwareVersionEntries
+`func (o *HyperflexServerFirmwareVersionAllOf) UnsetServerFirmwareVersionEntries()`
+
+UnsetServerFirmwareVersionEntries ensures that no value is present for ServerFirmwareVersionEntries, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

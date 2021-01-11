@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,30 +18,51 @@ import (
 
 // HyperflexAlarmAllOf Definition of the list of properties defined in 'hyperflex.Alarm', excluding properties defined in parent classes.
 type HyperflexAlarmAllOf struct {
-	Acknowledged          *bool                         `json:"Acknowledged,omitempty" yaml:"Acknowledged,omitempty"`
-	AcknowledgedBy        *string                       `json:"AcknowledgedBy,omitempty" yaml:"AcknowledgedBy,omitempty"`
-	AcknowledgedTime      *int64                        `json:"AcknowledgedTime,omitempty" yaml:"AcknowledgedTime,omitempty"`
-	AcknowledgedTimeAsUtc *string                       `json:"AcknowledgedTimeAsUtc,omitempty" yaml:"AcknowledgedTimeAsUtc,omitempty"`
-	Description           *string                       `json:"Description,omitempty" yaml:"Description,omitempty"`
-	EntityData            *string                       `json:"EntityData,omitempty" yaml:"EntityData,omitempty"`
-	EntityName            *string                       `json:"EntityName,omitempty" yaml:"EntityName,omitempty"`
-	EntityType            *string                       `json:"EntityType,omitempty" yaml:"EntityType,omitempty"`
-	EntityUuId            *string                       `json:"EntityUuId,omitempty" yaml:"EntityUuId,omitempty"`
-	Message               *string                       `json:"Message,omitempty" yaml:"Message,omitempty"`
-	Name                  *string                       `json:"Name,omitempty" yaml:"Name,omitempty"`
-	Status                *string                       `json:"Status,omitempty" yaml:"Status,omitempty"`
-	TriggeredTime         *int64                        `json:"TriggeredTime,omitempty" yaml:"TriggeredTime,omitempty"`
-	TriggeredTimeAsUtc    *string                       `json:"TriggeredTimeAsUtc,omitempty" yaml:"TriggeredTimeAsUtc,omitempty"`
-	Uuid                  *string                       `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
-	Cluster               *HyperflexClusterRelationship `json:"Cluster,omitempty" yaml:"Cluster,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// The acknowledgement state of the alarm. It is 'true' when the alarm is acknowledged and false otherwise.
+	Acknowledged *bool `json:"Acknowledged,omitempty" yaml:"Acknowledged,omitempty"`
+	// The username of the user who acknowledged the alarm.
+	AcknowledgedBy *string `json:"AcknowledgedBy,omitempty" yaml:"AcknowledgedBy,omitempty"`
+	// The time when the alarm was acknowledged, represented as a Unix timestamp.
+	AcknowledgedTime *int64 `json:"AcknowledgedTime,omitempty" yaml:"AcknowledgedTime,omitempty"`
+	// The time when the alarm was acknowledged in ISO 6801 format.
+	AcknowledgedTimeAsUtc *string `json:"AcknowledgedTimeAsUtc,omitempty" yaml:"AcknowledgedTimeAsUtc,omitempty"`
+	// The description of the alarm which includes information about the fault that triggered the alarm.
+	Description *string `json:"Description,omitempty" yaml:"Description,omitempty"`
+	// The data pertaining to this entity.
+	EntityData *string `json:"EntityData,omitempty" yaml:"EntityData,omitempty"`
+	// The name of entity which triggered the alarm.
+	EntityName *string `json:"EntityName,omitempty" yaml:"EntityName,omitempty"`
+	// The type of entity which triggered the alarm. For example, this can be the cluster, a node, or VM running on the cluster. * `UNKNOWN` - The type of entity is not known. * `DISK` - The entity is a physical storage device. * `NODE` - The entity is a HyperFlex cluster node. * `CLUSTER` - The entity is the HyperFlex cluster itself. * `DATASTORE` - The entity is a logical datastore configured on the HyperFlex cluster. * `ZONE` - The entity is a logical or physical zone configured on the HyperFlex cluster. * `VIRTUALMACHINE` - The entity is a virtual machine running on the HyperFlex cluster.
+	EntityType *string `json:"EntityType,omitempty" yaml:"EntityType,omitempty"`
+	// The unique identifier of the entity which triggered the alarm.
+	EntityUuId *string `json:"EntityUuId,omitempty" yaml:"EntityUuId,omitempty"`
+	// The localized message displayed to the user which describes the alarm.
+	Message *string `json:"Message,omitempty" yaml:"Message,omitempty"`
+	// The name of the alarm. This name identifies the type of alarm that was triggered.
+	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
+	// The severity of the alarm. * `UNKNOWN` - The alarm status is not known. * `CLEARED` - The event that triggered the alarm has been remedied and no longer requires the user's attention. * `INFO` - The alarm represents a message that does not require the user's immediate attention. * `WARNING` - The alarm represents a moderate fault. * `CRITICAL` - The alarm represents a critical fault.
+	Status *string `json:"Status,omitempty" yaml:"Status,omitempty"`
+	// The time when alarm was triggered as a Unix timestamp.
+	TriggeredTime *int64 `json:"TriggeredTime,omitempty" yaml:"TriggeredTime,omitempty"`
+	// The time when alarm was triggered in ISO 6801 UTC format.
+	TriggeredTimeAsUtc *string `json:"TriggeredTimeAsUtc,omitempty" yaml:"TriggeredTimeAsUtc,omitempty"`
+	// The unique identifier for this alarm instance.
+	Uuid    *string                       `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
+	Cluster *HyperflexClusterRelationship `json:"Cluster,omitempty" yaml:"Cluster,omitempty"`
 }
 
 // NewHyperflexAlarmAllOf instantiates a new HyperflexAlarmAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexAlarmAllOf() *HyperflexAlarmAllOf {
+func NewHyperflexAlarmAllOf(classId string, objectType string) *HyperflexAlarmAllOf {
 	this := HyperflexAlarmAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var entityType string = "UNKNOWN"
 	this.EntityType = &entityType
 	var status string = "UNKNOWN"
@@ -54,11 +75,63 @@ func NewHyperflexAlarmAllOf() *HyperflexAlarmAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexAlarmAllOfWithDefaults() *HyperflexAlarmAllOf {
 	this := HyperflexAlarmAllOf{}
+	var classId string = "hyperflex.Alarm"
+	this.ClassId = classId
+	var objectType string = "hyperflex.Alarm"
+	this.ObjectType = objectType
 	var entityType string = "UNKNOWN"
 	this.EntityType = &entityType
 	var status string = "UNKNOWN"
 	this.Status = &status
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexAlarmAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexAlarmAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexAlarmAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexAlarmAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexAlarmAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexAlarmAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAcknowledged returns the Acknowledged field value if set, zero value otherwise.
@@ -575,6 +648,12 @@ func (o *HyperflexAlarmAllOf) SetCluster(v HyperflexClusterRelationship) {
 
 func (o HyperflexAlarmAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Acknowledged != nil {
 		toSerialize["Acknowledged"] = o.Acknowledged
 	}

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,12 +19,18 @@ import (
 
 // CondAlarmAllOf Definition of the list of properties defined in 'cond.Alarm', excluding properties defined in parent classes.
 type CondAlarmAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Alarm acknowledgment state. Default value is None. * `None` - The Enum value None represents that the alarm is not acknowledged and is included as part of health status and overall alarm count. * `Acknowledge` - The Enum value Acknowledge represents that the alarm is acknowledged by user. The alarm will be ignored from the health status and overall alarm count.
 	Acknowledge *string `json:"Acknowledge,omitempty" yaml:"Acknowledge,omitempty"`
 	// User who acknowledged the alarm.
 	AcknowledgeBy *string `json:"AcknowledgeBy,omitempty" yaml:"AcknowledgeBy,omitempty"`
 	// Time at which the alarm was acknowledged by the user.
 	AcknowledgeTime *time.Time `json:"AcknowledgeTime,omitempty" yaml:"AcknowledgeTime,omitempty"`
+	// Display name of the affected object on which the alarm is raised. The name uniquely identifies an alarm target such that it can be distinguished from similar objects managed by Intersight.
+	AffectedMoDisplayName *string `json:"AffectedMoDisplayName,omitempty" yaml:"AffectedMoDisplayName,omitempty"`
 	// MoId of the affected object from the managed system's point of view.
 	AffectedMoId *string `json:"AffectedMoId,omitempty" yaml:"AffectedMoId,omitempty"`
 	// Managed system affected object type. For example Adaptor, FI, CIMC.
@@ -51,6 +57,7 @@ type CondAlarmAllOf struct {
 	OrigSeverity *string `json:"OrigSeverity,omitempty" yaml:"OrigSeverity,omitempty"`
 	// The severity of the alarm. Valid values are Critical, Warning, Info, and Cleared. * `None` - The Enum value None represents that there is no severity. * `Info` - The Enum value Info represents the Informational level of severity. * `Critical` - The Enum value Critical represents the Critical level of severity. * `Warning` - The Enum value Warning represents the Warning level of severity. * `Cleared` - The Enum value Cleared represents that the alarm severity has been cleared.
 	Severity         *string                              `json:"Severity,omitempty" yaml:"Severity,omitempty"`
+	AffectedMo       *MoBaseMoRelationship                `json:"AffectedMo,omitempty" yaml:"AffectedMo,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
@@ -58,8 +65,10 @@ type CondAlarmAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCondAlarmAllOf() *CondAlarmAllOf {
+func NewCondAlarmAllOf(classId string, objectType string) *CondAlarmAllOf {
 	this := CondAlarmAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var acknowledge string = "None"
 	this.Acknowledge = &acknowledge
 	var origSeverity string = "None"
@@ -74,6 +83,10 @@ func NewCondAlarmAllOf() *CondAlarmAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewCondAlarmAllOfWithDefaults() *CondAlarmAllOf {
 	this := CondAlarmAllOf{}
+	var classId string = "cond.Alarm"
+	this.ClassId = classId
+	var objectType string = "cond.Alarm"
+	this.ObjectType = objectType
 	var acknowledge string = "None"
 	this.Acknowledge = &acknowledge
 	var origSeverity string = "None"
@@ -81,6 +94,54 @@ func NewCondAlarmAllOfWithDefaults() *CondAlarmAllOf {
 	var severity string = "None"
 	this.Severity = &severity
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *CondAlarmAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *CondAlarmAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *CondAlarmAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *CondAlarmAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAcknowledge returns the Acknowledge field value if set, zero value otherwise.
@@ -177,6 +238,38 @@ func (o *CondAlarmAllOf) HasAcknowledgeTime() bool {
 // SetAcknowledgeTime gets a reference to the given time.Time and assigns it to the AcknowledgeTime field.
 func (o *CondAlarmAllOf) SetAcknowledgeTime(v time.Time) {
 	o.AcknowledgeTime = &v
+}
+
+// GetAffectedMoDisplayName returns the AffectedMoDisplayName field value if set, zero value otherwise.
+func (o *CondAlarmAllOf) GetAffectedMoDisplayName() string {
+	if o == nil || o.AffectedMoDisplayName == nil {
+		var ret string
+		return ret
+	}
+	return *o.AffectedMoDisplayName
+}
+
+// GetAffectedMoDisplayNameOk returns a tuple with the AffectedMoDisplayName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAllOf) GetAffectedMoDisplayNameOk() (*string, bool) {
+	if o == nil || o.AffectedMoDisplayName == nil {
+		return nil, false
+	}
+	return o.AffectedMoDisplayName, true
+}
+
+// HasAffectedMoDisplayName returns a boolean if a field has been set.
+func (o *CondAlarmAllOf) HasAffectedMoDisplayName() bool {
+	if o != nil && o.AffectedMoDisplayName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAffectedMoDisplayName gets a reference to the given string and assigns it to the AffectedMoDisplayName field.
+func (o *CondAlarmAllOf) SetAffectedMoDisplayName(v string) {
+	o.AffectedMoDisplayName = &v
 }
 
 // GetAffectedMoId returns the AffectedMoId field value if set, zero value otherwise.
@@ -595,6 +688,38 @@ func (o *CondAlarmAllOf) SetSeverity(v string) {
 	o.Severity = &v
 }
 
+// GetAffectedMo returns the AffectedMo field value if set, zero value otherwise.
+func (o *CondAlarmAllOf) GetAffectedMo() MoBaseMoRelationship {
+	if o == nil || o.AffectedMo == nil {
+		var ret MoBaseMoRelationship
+		return ret
+	}
+	return *o.AffectedMo
+}
+
+// GetAffectedMoOk returns a tuple with the AffectedMo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAllOf) GetAffectedMoOk() (*MoBaseMoRelationship, bool) {
+	if o == nil || o.AffectedMo == nil {
+		return nil, false
+	}
+	return o.AffectedMo, true
+}
+
+// HasAffectedMo returns a boolean if a field has been set.
+func (o *CondAlarmAllOf) HasAffectedMo() bool {
+	if o != nil && o.AffectedMo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAffectedMo gets a reference to the given MoBaseMoRelationship and assigns it to the AffectedMo field.
+func (o *CondAlarmAllOf) SetAffectedMo(v MoBaseMoRelationship) {
+	o.AffectedMo = &v
+}
+
 // GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
 func (o *CondAlarmAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship {
 	if o == nil || o.RegisteredDevice == nil {
@@ -629,6 +754,12 @@ func (o *CondAlarmAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRelationsh
 
 func (o CondAlarmAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Acknowledge != nil {
 		toSerialize["Acknowledge"] = o.Acknowledge
 	}
@@ -637,6 +768,9 @@ func (o CondAlarmAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.AcknowledgeTime != nil {
 		toSerialize["AcknowledgeTime"] = o.AcknowledgeTime
+	}
+	if o.AffectedMoDisplayName != nil {
+		toSerialize["AffectedMoDisplayName"] = o.AffectedMoDisplayName
 	}
 	if o.AffectedMoId != nil {
 		toSerialize["AffectedMoId"] = o.AffectedMoId
@@ -676,6 +810,9 @@ func (o CondAlarmAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Severity != nil {
 		toSerialize["Severity"] = o.Severity
+	}
+	if o.AffectedMo != nil {
+		toSerialize["AffectedMo"] = o.AffectedMo
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,10 @@ import (
 // NiatelemetryNiaFeatureUsage Object available at Device connector scope for feature and fabric information. This applies to APIC environment currently.
 type NiatelemetryNiaFeatureUsage struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Number of APIC controllers. This determines the value of controllers for the fabric.
 	ApicCount *int64 `json:"ApicCount,omitempty" yaml:"ApicCount,omitempty"`
 	// ACI APPs feature usage scale.
@@ -27,8 +31,16 @@ type NiatelemetryNiaFeatureUsage struct {
 	Ave *string `json:"Ave,omitempty" yaml:"Ave,omitempty"`
 	// Number of BDs. This determines the total number of Broadcast Domains across the fabric.
 	BdCount *int64 `json:"BdCount,omitempty" yaml:"BdCount,omitempty"`
+	// Number of call home smart monitoring policies on the fabric.
+	CallhomeSmartGroupCount *int64 `json:"CallhomeSmartGroupCount,omitempty" yaml:"CallhomeSmartGroupCount,omitempty"`
 	// Number of Cloudsec SA peers.
 	CloudSecPeerCount *int64 `json:"CloudSecPeerCount,omitempty" yaml:"CloudSecPeerCount,omitempty"`
+	// Number of compute hypervisors on the fabric.
+	CompHvCount *int64 `json:"CompHvCount,omitempty" yaml:"CompHvCount,omitempty"`
+	// Number of system backup configure export policies on the fabric.
+	ConfigExportpCount *int64 `json:"ConfigExportpCount,omitempty" yaml:"ConfigExportpCount,omitempty"`
+	// Number of system backup configure jobs on the fanric.
+	ConfigJobCount *int64 `json:"ConfigJobCount,omitempty" yaml:"ConfigJobCount,omitempty"`
 	// Consistency checker application usage. This determines if the fabric has Consistency checker application installed.
 	ConsistencyCheckerApp *string `json:"ConsistencyCheckerApp,omitempty" yaml:"ConsistencyCheckerApp,omitempty"`
 	// Number of contracts. This determines the total number of Contracts configured across the fabric.
@@ -39,6 +51,8 @@ type NiatelemetryNiaFeatureUsage struct {
 	EigrpCount *int64 `json:"EigrpCount,omitempty" yaml:"EigrpCount,omitempty"`
 	// Number of End Point Groups. This determines the total number of End Point Groups across the fabric.
 	EpgCount *int64 `json:"EpgCount,omitempty" yaml:"EpgCount,omitempty"`
+	// Number of Multi-Pods per fabric.
+	FabricSetuppCount *int64 `json:"FabricSetuppCount,omitempty" yaml:"FabricSetuppCount,omitempty"`
 	// Total number of FCoE N-Port for DOM, VSAn, and VLAN.
 	FcoeNportCount *int64 `json:"FcoeNportCount,omitempty" yaml:"FcoeNportCount,omitempty"`
 	// Number of FCoE N-Port DOM.
@@ -47,6 +61,8 @@ type NiatelemetryNiaFeatureUsage struct {
 	FcoeNportVlanCount *int64 `json:"FcoeNportVlanCount,omitempty" yaml:"FcoeNportVlanCount,omitempty"`
 	// Number of FCoE N-Port VSAN.
 	FcoeNportVsanCount *int64 `json:"FcoeNportVsanCount,omitempty" yaml:"FcoeNportVsanCount,omitempty"`
+	// Number of Internet Protocol Service Level Agreements Monitoring policy objects for object tracking.
+	FvSlaDefCount *int64 `json:"FvSlaDefCount,omitempty" yaml:"FvSlaDefCount,omitempty"`
 	// Hsrp feature usage. This determines the total number of HSRP sessions across the fabric.
 	HsrpCount *int64 `json:"HsrpCount,omitempty" yaml:"HsrpCount,omitempty"`
 	// Ibgp feature usage. This determines the total number of BGP sessions across the fabric.
@@ -67,7 +83,7 @@ type NiatelemetryNiaFeatureUsage struct {
 	MaintenanceModeCount *int64 `json:"MaintenanceModeCount,omitempty" yaml:"MaintenanceModeCount,omitempty"`
 	// Management over IPv6 feature usage. This determines the total number of IPv6 configurtaions in the fabric.
 	ManagementOverV6Count *int64 `json:"ManagementOverV6Count,omitempty" yaml:"ManagementOverV6Count,omitempty"`
-	// Microsoft microsegmentation VmmEpPD scale. Ensures that Microsoft was configured.
+	// Number of Microsoft microsegmentation VmmEpPD objects. Ensures that Microsoft was configured.
 	MicrosoftUsegVmmEpPdCount *int64 `json:"MicrosoftUsegVmmEpPdCount,omitempty" yaml:"MicrosoftUsegVmmEpPdCount,omitempty"`
 	// Number of Netflow monitor policies.
 	NetFlowCount *int64 `json:"NetFlowCount,omitempty" yaml:"NetFlowCount,omitempty"`
@@ -81,10 +97,18 @@ type NiatelemetryNiaFeatureUsage struct {
 	OspfCount *int64 `json:"OspfCount,omitempty" yaml:"OspfCount,omitempty"`
 	// POE feature usage. This determines the total number of POE configurations across the fabric.
 	PoeCount *int64 `json:"PoeCount,omitempty" yaml:"PoeCount,omitempty"`
-	// Port Security count scale. Non-Zero value indicates the object as enabled.
+	// Number of objects with Port Security enabled. Non-Zero value indicates the object as enabled.
 	PortSecurityCount *int64 `json:"PortSecurityCount,omitempty" yaml:"PortSecurityCount,omitempty"`
 	// QinVniTunnel feature usage. This determines if the qinVniTunnel feature is being used on the fabric and the scale of it.
 	QinVniTunnelCount *int64 `json:"QinVniTunnelCount,omitempty" yaml:"QinVniTunnelCount,omitempty"`
+	// Number of Quality Of Service congestion class.
+	QosCongCount *int64 `json:"QosCongCount,omitempty" yaml:"QosCongCount,omitempty"`
+	// Number of Quality Of Service class.
+	QosPfcPolCount *int64 `json:"QosPfcPolCount,omitempty" yaml:"QosPfcPolCount,omitempty"`
+	// Type of record DCNM / APIC / SE. This determines the type of platform where inventory was collected.
+	RecordType *string `json:"RecordType,omitempty" yaml:"RecordType,omitempty"`
+	// Version of record being pushed. This determines what was the API version for data available from the device.
+	RecordVersion *string `json:"RecordVersion,omitempty" yaml:"RecordVersion,omitempty"`
 	// Number of remote Leafs. This determines the total number of remote leaf switches in the fabric.
 	RemoteLeafCount *int64 `json:"RemoteLeafCount,omitempty" yaml:"RemoteLeafCount,omitempty"`
 	// SCVMM feature usage. This determines the total number of SCVMM configurations in the fabric.
@@ -97,6 +121,8 @@ type NiatelemetryNiaFeatureUsage struct {
 	SmartCallHome *string `json:"SmartCallHome,omitempty" yaml:"SmartCallHome,omitempty"`
 	// SNMP feature usage. This determines if this feature is enabled or disabled.
 	Snmp *string `json:"Snmp,omitempty" yaml:"Snmp,omitempty"`
+	// Number of SNMP monitoring policies on the fabric.
+	SnmpGroupCount *int64 `json:"SnmpGroupCount,omitempty" yaml:"SnmpGroupCount,omitempty"`
 	// Number of Span Sources and Destinations.
 	SpanCount *int64 `json:"SpanCount,omitempty" yaml:"SpanCount,omitempty"`
 	// Number of Span Destinations with valid state.
@@ -107,8 +133,12 @@ type NiatelemetryNiaFeatureUsage struct {
 	SpineCount *int64 `json:"SpineCount,omitempty" yaml:"SpineCount,omitempty"`
 	// Ssh over IPv6 feature usage. This determines the total number of IPv6 configurtaions in the fabric.
 	SshOverV6Count *int64 `json:"SshOverV6Count,omitempty" yaml:"SshOverV6Count,omitempty"`
+	// Number of syslog monitoring policies on the fabric.
+	SyslogGroupCount *int64 `json:"SyslogGroupCount,omitempty" yaml:"SyslogGroupCount,omitempty"`
 	// Syslog over IPv6 feature usage. This determines the total number of IPv6 configurtaions in the fabric.
 	SyslogOverV6Count *int64 `json:"SyslogOverV6Count,omitempty" yaml:"SyslogOverV6Count,omitempty"`
+	// Number of tacacs monitoring policies on the fabric.
+	TacacsGroupCount *int64 `json:"TacacsGroupCount,omitempty" yaml:"TacacsGroupCount,omitempty"`
 	// Number of tenants. This determines the total number of tenants configured across the fabric.
 	TenantCount *int64 `json:"TenantCount,omitempty" yaml:"TenantCount,omitempty"`
 	// Number of tier 2 Leafs. This determines the total number of tier 2 Leaf switches in the fabric.
@@ -117,15 +147,15 @@ type NiatelemetryNiaFeatureUsage struct {
 	Twamp *string `json:"Twamp,omitempty" yaml:"Twamp,omitempty"`
 	// VMM uSegmentation feature usage. This determines if microsegmentation feature is enabled or disabled.
 	Useg *string `json:"Useg,omitempty" yaml:"Useg,omitempty"`
-	// VmWare vCenter 6.5 support count scale. Checks the controller revision value.
+	// Number of objects with VmWare vCenter 6.5 support. Checks the controller revision value.
 	VmWareVdsCount *int64 `json:"VmWareVdsCount,omitempty" yaml:"VmWareVdsCount,omitempty"`
-	// Gets the scale for Virtual Machine Monitor controller policy for VMware vCenter.
+	// Number of Virtual Machine Monitor controller policy objects for VMware vCenter.
 	VmmCtrlrpCount *int64 `json:"VmmCtrlrpCount,omitempty" yaml:"VmmCtrlrpCount,omitempty"`
-	// Obtains the scale for Virtual Machine Monitor domain policy model for VMware vCenter.
+	// Number of Virtual Machine Monitor domain policy model objects for VMware vCenter.
 	VmmDompCount *int64 `json:"VmmDompCount,omitempty" yaml:"VmmDompCount,omitempty"`
-	// Microsegmentation Distributed Virtual Switch feature usage. Gets the scale for VMware vCenter.
+	// Microsegmentation Distributed Virtual Switch feature usage. Gets the number of objects associated to VMware vCenter.
 	VmmEpPdCount *int64 `json:"VmmEpPdCount,omitempty" yaml:"VmmEpPdCount,omitempty"`
-	// L4-L7 Device Package Import count scale. Checks for the vendor and the model.
+	// Number of objects with L4-L7 Device Package Import enabled. Checks for the vendor and the model.
 	VnsmDevCount *int64 `json:"VnsmDevCount,omitempty" yaml:"VnsmDevCount,omitempty"`
 	// Virtual pod feature usage. This determines the total number of virtual POD configurations in the fabrics.
 	VpodCount        *int64                               `json:"VpodCount,omitempty" yaml:"VpodCount,omitempty"`
@@ -136,8 +166,10 @@ type NiatelemetryNiaFeatureUsage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNiatelemetryNiaFeatureUsage() *NiatelemetryNiaFeatureUsage {
+func NewNiatelemetryNiaFeatureUsage(classId string, objectType string) *NiatelemetryNiaFeatureUsage {
 	this := NiatelemetryNiaFeatureUsage{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -146,7 +178,59 @@ func NewNiatelemetryNiaFeatureUsage() *NiatelemetryNiaFeatureUsage {
 // but it doesn't guarantee that properties required by API are set
 func NewNiatelemetryNiaFeatureUsageWithDefaults() *NiatelemetryNiaFeatureUsage {
 	this := NiatelemetryNiaFeatureUsage{}
+	var classId string = "niatelemetry.NiaFeatureUsage"
+	this.ClassId = classId
+	var objectType string = "niatelemetry.NiaFeatureUsage"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *NiatelemetryNiaFeatureUsage) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *NiatelemetryNiaFeatureUsage) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *NiatelemetryNiaFeatureUsage) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *NiatelemetryNiaFeatureUsage) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetApicCount returns the ApicCount field value if set, zero value otherwise.
@@ -277,6 +361,38 @@ func (o *NiatelemetryNiaFeatureUsage) SetBdCount(v int64) {
 	o.BdCount = &v
 }
 
+// GetCallhomeSmartGroupCount returns the CallhomeSmartGroupCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetCallhomeSmartGroupCount() int64 {
+	if o == nil || o.CallhomeSmartGroupCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.CallhomeSmartGroupCount
+}
+
+// GetCallhomeSmartGroupCountOk returns a tuple with the CallhomeSmartGroupCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetCallhomeSmartGroupCountOk() (*int64, bool) {
+	if o == nil || o.CallhomeSmartGroupCount == nil {
+		return nil, false
+	}
+	return o.CallhomeSmartGroupCount, true
+}
+
+// HasCallhomeSmartGroupCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasCallhomeSmartGroupCount() bool {
+	if o != nil && o.CallhomeSmartGroupCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallhomeSmartGroupCount gets a reference to the given int64 and assigns it to the CallhomeSmartGroupCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetCallhomeSmartGroupCount(v int64) {
+	o.CallhomeSmartGroupCount = &v
+}
+
 // GetCloudSecPeerCount returns the CloudSecPeerCount field value if set, zero value otherwise.
 func (o *NiatelemetryNiaFeatureUsage) GetCloudSecPeerCount() int64 {
 	if o == nil || o.CloudSecPeerCount == nil {
@@ -307,6 +423,102 @@ func (o *NiatelemetryNiaFeatureUsage) HasCloudSecPeerCount() bool {
 // SetCloudSecPeerCount gets a reference to the given int64 and assigns it to the CloudSecPeerCount field.
 func (o *NiatelemetryNiaFeatureUsage) SetCloudSecPeerCount(v int64) {
 	o.CloudSecPeerCount = &v
+}
+
+// GetCompHvCount returns the CompHvCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetCompHvCount() int64 {
+	if o == nil || o.CompHvCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.CompHvCount
+}
+
+// GetCompHvCountOk returns a tuple with the CompHvCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetCompHvCountOk() (*int64, bool) {
+	if o == nil || o.CompHvCount == nil {
+		return nil, false
+	}
+	return o.CompHvCount, true
+}
+
+// HasCompHvCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasCompHvCount() bool {
+	if o != nil && o.CompHvCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCompHvCount gets a reference to the given int64 and assigns it to the CompHvCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetCompHvCount(v int64) {
+	o.CompHvCount = &v
+}
+
+// GetConfigExportpCount returns the ConfigExportpCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetConfigExportpCount() int64 {
+	if o == nil || o.ConfigExportpCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.ConfigExportpCount
+}
+
+// GetConfigExportpCountOk returns a tuple with the ConfigExportpCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetConfigExportpCountOk() (*int64, bool) {
+	if o == nil || o.ConfigExportpCount == nil {
+		return nil, false
+	}
+	return o.ConfigExportpCount, true
+}
+
+// HasConfigExportpCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasConfigExportpCount() bool {
+	if o != nil && o.ConfigExportpCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigExportpCount gets a reference to the given int64 and assigns it to the ConfigExportpCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetConfigExportpCount(v int64) {
+	o.ConfigExportpCount = &v
+}
+
+// GetConfigJobCount returns the ConfigJobCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetConfigJobCount() int64 {
+	if o == nil || o.ConfigJobCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.ConfigJobCount
+}
+
+// GetConfigJobCountOk returns a tuple with the ConfigJobCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetConfigJobCountOk() (*int64, bool) {
+	if o == nil || o.ConfigJobCount == nil {
+		return nil, false
+	}
+	return o.ConfigJobCount, true
+}
+
+// HasConfigJobCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasConfigJobCount() bool {
+	if o != nil && o.ConfigJobCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigJobCount gets a reference to the given int64 and assigns it to the ConfigJobCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetConfigJobCount(v int64) {
+	o.ConfigJobCount = &v
 }
 
 // GetConsistencyCheckerApp returns the ConsistencyCheckerApp field value if set, zero value otherwise.
@@ -469,6 +681,38 @@ func (o *NiatelemetryNiaFeatureUsage) SetEpgCount(v int64) {
 	o.EpgCount = &v
 }
 
+// GetFabricSetuppCount returns the FabricSetuppCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetFabricSetuppCount() int64 {
+	if o == nil || o.FabricSetuppCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FabricSetuppCount
+}
+
+// GetFabricSetuppCountOk returns a tuple with the FabricSetuppCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetFabricSetuppCountOk() (*int64, bool) {
+	if o == nil || o.FabricSetuppCount == nil {
+		return nil, false
+	}
+	return o.FabricSetuppCount, true
+}
+
+// HasFabricSetuppCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasFabricSetuppCount() bool {
+	if o != nil && o.FabricSetuppCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFabricSetuppCount gets a reference to the given int64 and assigns it to the FabricSetuppCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetFabricSetuppCount(v int64) {
+	o.FabricSetuppCount = &v
+}
+
 // GetFcoeNportCount returns the FcoeNportCount field value if set, zero value otherwise.
 func (o *NiatelemetryNiaFeatureUsage) GetFcoeNportCount() int64 {
 	if o == nil || o.FcoeNportCount == nil {
@@ -595,6 +839,38 @@ func (o *NiatelemetryNiaFeatureUsage) HasFcoeNportVsanCount() bool {
 // SetFcoeNportVsanCount gets a reference to the given int64 and assigns it to the FcoeNportVsanCount field.
 func (o *NiatelemetryNiaFeatureUsage) SetFcoeNportVsanCount(v int64) {
 	o.FcoeNportVsanCount = &v
+}
+
+// GetFvSlaDefCount returns the FvSlaDefCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetFvSlaDefCount() int64 {
+	if o == nil || o.FvSlaDefCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.FvSlaDefCount
+}
+
+// GetFvSlaDefCountOk returns a tuple with the FvSlaDefCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetFvSlaDefCountOk() (*int64, bool) {
+	if o == nil || o.FvSlaDefCount == nil {
+		return nil, false
+	}
+	return o.FvSlaDefCount, true
+}
+
+// HasFvSlaDefCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasFvSlaDefCount() bool {
+	if o != nil && o.FvSlaDefCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFvSlaDefCount gets a reference to the given int64 and assigns it to the FvSlaDefCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetFvSlaDefCount(v int64) {
+	o.FvSlaDefCount = &v
 }
 
 // GetHsrpCount returns the HsrpCount field value if set, zero value otherwise.
@@ -1205,6 +1481,134 @@ func (o *NiatelemetryNiaFeatureUsage) SetQinVniTunnelCount(v int64) {
 	o.QinVniTunnelCount = &v
 }
 
+// GetQosCongCount returns the QosCongCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetQosCongCount() int64 {
+	if o == nil || o.QosCongCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.QosCongCount
+}
+
+// GetQosCongCountOk returns a tuple with the QosCongCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetQosCongCountOk() (*int64, bool) {
+	if o == nil || o.QosCongCount == nil {
+		return nil, false
+	}
+	return o.QosCongCount, true
+}
+
+// HasQosCongCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasQosCongCount() bool {
+	if o != nil && o.QosCongCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQosCongCount gets a reference to the given int64 and assigns it to the QosCongCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetQosCongCount(v int64) {
+	o.QosCongCount = &v
+}
+
+// GetQosPfcPolCount returns the QosPfcPolCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetQosPfcPolCount() int64 {
+	if o == nil || o.QosPfcPolCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.QosPfcPolCount
+}
+
+// GetQosPfcPolCountOk returns a tuple with the QosPfcPolCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetQosPfcPolCountOk() (*int64, bool) {
+	if o == nil || o.QosPfcPolCount == nil {
+		return nil, false
+	}
+	return o.QosPfcPolCount, true
+}
+
+// HasQosPfcPolCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasQosPfcPolCount() bool {
+	if o != nil && o.QosPfcPolCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQosPfcPolCount gets a reference to the given int64 and assigns it to the QosPfcPolCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetQosPfcPolCount(v int64) {
+	o.QosPfcPolCount = &v
+}
+
+// GetRecordType returns the RecordType field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetRecordType() string {
+	if o == nil || o.RecordType == nil {
+		var ret string
+		return ret
+	}
+	return *o.RecordType
+}
+
+// GetRecordTypeOk returns a tuple with the RecordType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetRecordTypeOk() (*string, bool) {
+	if o == nil || o.RecordType == nil {
+		return nil, false
+	}
+	return o.RecordType, true
+}
+
+// HasRecordType returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasRecordType() bool {
+	if o != nil && o.RecordType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecordType gets a reference to the given string and assigns it to the RecordType field.
+func (o *NiatelemetryNiaFeatureUsage) SetRecordType(v string) {
+	o.RecordType = &v
+}
+
+// GetRecordVersion returns the RecordVersion field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetRecordVersion() string {
+	if o == nil || o.RecordVersion == nil {
+		var ret string
+		return ret
+	}
+	return *o.RecordVersion
+}
+
+// GetRecordVersionOk returns a tuple with the RecordVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetRecordVersionOk() (*string, bool) {
+	if o == nil || o.RecordVersion == nil {
+		return nil, false
+	}
+	return o.RecordVersion, true
+}
+
+// HasRecordVersion returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasRecordVersion() bool {
+	if o != nil && o.RecordVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecordVersion gets a reference to the given string and assigns it to the RecordVersion field.
+func (o *NiatelemetryNiaFeatureUsage) SetRecordVersion(v string) {
+	o.RecordVersion = &v
+}
+
 // GetRemoteLeafCount returns the RemoteLeafCount field value if set, zero value otherwise.
 func (o *NiatelemetryNiaFeatureUsage) GetRemoteLeafCount() int64 {
 	if o == nil || o.RemoteLeafCount == nil {
@@ -1397,6 +1801,38 @@ func (o *NiatelemetryNiaFeatureUsage) SetSnmp(v string) {
 	o.Snmp = &v
 }
 
+// GetSnmpGroupCount returns the SnmpGroupCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetSnmpGroupCount() int64 {
+	if o == nil || o.SnmpGroupCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SnmpGroupCount
+}
+
+// GetSnmpGroupCountOk returns a tuple with the SnmpGroupCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetSnmpGroupCountOk() (*int64, bool) {
+	if o == nil || o.SnmpGroupCount == nil {
+		return nil, false
+	}
+	return o.SnmpGroupCount, true
+}
+
+// HasSnmpGroupCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasSnmpGroupCount() bool {
+	if o != nil && o.SnmpGroupCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSnmpGroupCount gets a reference to the given int64 and assigns it to the SnmpGroupCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetSnmpGroupCount(v int64) {
+	o.SnmpGroupCount = &v
+}
+
 // GetSpanCount returns the SpanCount field value if set, zero value otherwise.
 func (o *NiatelemetryNiaFeatureUsage) GetSpanCount() int64 {
 	if o == nil || o.SpanCount == nil {
@@ -1557,6 +1993,38 @@ func (o *NiatelemetryNiaFeatureUsage) SetSshOverV6Count(v int64) {
 	o.SshOverV6Count = &v
 }
 
+// GetSyslogGroupCount returns the SyslogGroupCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetSyslogGroupCount() int64 {
+	if o == nil || o.SyslogGroupCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.SyslogGroupCount
+}
+
+// GetSyslogGroupCountOk returns a tuple with the SyslogGroupCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetSyslogGroupCountOk() (*int64, bool) {
+	if o == nil || o.SyslogGroupCount == nil {
+		return nil, false
+	}
+	return o.SyslogGroupCount, true
+}
+
+// HasSyslogGroupCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasSyslogGroupCount() bool {
+	if o != nil && o.SyslogGroupCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSyslogGroupCount gets a reference to the given int64 and assigns it to the SyslogGroupCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetSyslogGroupCount(v int64) {
+	o.SyslogGroupCount = &v
+}
+
 // GetSyslogOverV6Count returns the SyslogOverV6Count field value if set, zero value otherwise.
 func (o *NiatelemetryNiaFeatureUsage) GetSyslogOverV6Count() int64 {
 	if o == nil || o.SyslogOverV6Count == nil {
@@ -1587,6 +2055,38 @@ func (o *NiatelemetryNiaFeatureUsage) HasSyslogOverV6Count() bool {
 // SetSyslogOverV6Count gets a reference to the given int64 and assigns it to the SyslogOverV6Count field.
 func (o *NiatelemetryNiaFeatureUsage) SetSyslogOverV6Count(v int64) {
 	o.SyslogOverV6Count = &v
+}
+
+// GetTacacsGroupCount returns the TacacsGroupCount field value if set, zero value otherwise.
+func (o *NiatelemetryNiaFeatureUsage) GetTacacsGroupCount() int64 {
+	if o == nil || o.TacacsGroupCount == nil {
+		var ret int64
+		return ret
+	}
+	return *o.TacacsGroupCount
+}
+
+// GetTacacsGroupCountOk returns a tuple with the TacacsGroupCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryNiaFeatureUsage) GetTacacsGroupCountOk() (*int64, bool) {
+	if o == nil || o.TacacsGroupCount == nil {
+		return nil, false
+	}
+	return o.TacacsGroupCount, true
+}
+
+// HasTacacsGroupCount returns a boolean if a field has been set.
+func (o *NiatelemetryNiaFeatureUsage) HasTacacsGroupCount() bool {
+	if o != nil && o.TacacsGroupCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTacacsGroupCount gets a reference to the given int64 and assigns it to the TacacsGroupCount field.
+func (o *NiatelemetryNiaFeatureUsage) SetTacacsGroupCount(v int64) {
+	o.TacacsGroupCount = &v
 }
 
 // GetTenantCount returns the TenantCount field value if set, zero value otherwise.
@@ -1951,6 +2451,12 @@ func (o NiatelemetryNiaFeatureUsage) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.ApicCount != nil {
 		toSerialize["ApicCount"] = o.ApicCount
 	}
@@ -1963,8 +2469,20 @@ func (o NiatelemetryNiaFeatureUsage) MarshalJSON() ([]byte, error) {
 	if o.BdCount != nil {
 		toSerialize["BdCount"] = o.BdCount
 	}
+	if o.CallhomeSmartGroupCount != nil {
+		toSerialize["CallhomeSmartGroupCount"] = o.CallhomeSmartGroupCount
+	}
 	if o.CloudSecPeerCount != nil {
 		toSerialize["CloudSecPeerCount"] = o.CloudSecPeerCount
+	}
+	if o.CompHvCount != nil {
+		toSerialize["CompHvCount"] = o.CompHvCount
+	}
+	if o.ConfigExportpCount != nil {
+		toSerialize["ConfigExportpCount"] = o.ConfigExportpCount
+	}
+	if o.ConfigJobCount != nil {
+		toSerialize["ConfigJobCount"] = o.ConfigJobCount
 	}
 	if o.ConsistencyCheckerApp != nil {
 		toSerialize["ConsistencyCheckerApp"] = o.ConsistencyCheckerApp
@@ -1981,6 +2499,9 @@ func (o NiatelemetryNiaFeatureUsage) MarshalJSON() ([]byte, error) {
 	if o.EpgCount != nil {
 		toSerialize["EpgCount"] = o.EpgCount
 	}
+	if o.FabricSetuppCount != nil {
+		toSerialize["FabricSetuppCount"] = o.FabricSetuppCount
+	}
 	if o.FcoeNportCount != nil {
 		toSerialize["FcoeNportCount"] = o.FcoeNportCount
 	}
@@ -1992,6 +2513,9 @@ func (o NiatelemetryNiaFeatureUsage) MarshalJSON() ([]byte, error) {
 	}
 	if o.FcoeNportVsanCount != nil {
 		toSerialize["FcoeNportVsanCount"] = o.FcoeNportVsanCount
+	}
+	if o.FvSlaDefCount != nil {
+		toSerialize["FvSlaDefCount"] = o.FvSlaDefCount
 	}
 	if o.HsrpCount != nil {
 		toSerialize["HsrpCount"] = o.HsrpCount
@@ -2050,6 +2574,18 @@ func (o NiatelemetryNiaFeatureUsage) MarshalJSON() ([]byte, error) {
 	if o.QinVniTunnelCount != nil {
 		toSerialize["QinVniTunnelCount"] = o.QinVniTunnelCount
 	}
+	if o.QosCongCount != nil {
+		toSerialize["QosCongCount"] = o.QosCongCount
+	}
+	if o.QosPfcPolCount != nil {
+		toSerialize["QosPfcPolCount"] = o.QosPfcPolCount
+	}
+	if o.RecordType != nil {
+		toSerialize["RecordType"] = o.RecordType
+	}
+	if o.RecordVersion != nil {
+		toSerialize["RecordVersion"] = o.RecordVersion
+	}
 	if o.RemoteLeafCount != nil {
 		toSerialize["RemoteLeafCount"] = o.RemoteLeafCount
 	}
@@ -2068,6 +2604,9 @@ func (o NiatelemetryNiaFeatureUsage) MarshalJSON() ([]byte, error) {
 	if o.Snmp != nil {
 		toSerialize["Snmp"] = o.Snmp
 	}
+	if o.SnmpGroupCount != nil {
+		toSerialize["SnmpGroupCount"] = o.SnmpGroupCount
+	}
 	if o.SpanCount != nil {
 		toSerialize["SpanCount"] = o.SpanCount
 	}
@@ -2083,8 +2622,14 @@ func (o NiatelemetryNiaFeatureUsage) MarshalJSON() ([]byte, error) {
 	if o.SshOverV6Count != nil {
 		toSerialize["SshOverV6Count"] = o.SshOverV6Count
 	}
+	if o.SyslogGroupCount != nil {
+		toSerialize["SyslogGroupCount"] = o.SyslogGroupCount
+	}
 	if o.SyslogOverV6Count != nil {
 		toSerialize["SyslogOverV6Count"] = o.SyslogOverV6Count
+	}
+	if o.TacacsGroupCount != nil {
+		toSerialize["TacacsGroupCount"] = o.TacacsGroupCount
 	}
 	if o.TenantCount != nil {
 		toSerialize["TenantCount"] = o.TenantCount

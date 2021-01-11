@@ -4,18 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
 **Description** | Pointer to **string** | Detailed information about the endpoint. | [optional] 
 **Model** | Pointer to **string** | The model of the endpoint, for which this capability information is applicable. | [optional] 
 **Vendor** | Pointer to **string** | The vendor of the endpoint, for which this capability information is applicable. | [optional] 
 **Version** | Pointer to **string** | The firmware or software version of the endpoint, for which this capability information is applicable. | [optional] 
 **Capabilities** | Pointer to [**[]CapabilityCapabilityRelationship**](capability.Capability.Relationship.md) | An array of relationships to capabilityCapability resources. | [optional] 
-**Section** | Pointer to [**CapabilitySectionRelationship**](capability.Section.Relationship.md) |  | [optional] 
 
 ## Methods
 
 ### NewCapabilityEndpointDescriptorAllOf
 
-`func NewCapabilityEndpointDescriptorAllOf() *CapabilityEndpointDescriptorAllOf`
+`func NewCapabilityEndpointDescriptorAllOf(classId string, objectType string, ) *CapabilityEndpointDescriptorAllOf`
 
 NewCapabilityEndpointDescriptorAllOf instantiates a new CapabilityEndpointDescriptorAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +30,46 @@ will change when the set of required properties is changed
 NewCapabilityEndpointDescriptorAllOfWithDefaults instantiates a new CapabilityEndpointDescriptorAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *CapabilityEndpointDescriptorAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *CapabilityEndpointDescriptorAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *CapabilityEndpointDescriptorAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *CapabilityEndpointDescriptorAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *CapabilityEndpointDescriptorAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *CapabilityEndpointDescriptorAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetDescription
 
@@ -165,31 +206,6 @@ HasCapabilities returns a boolean if a field has been set.
 `func (o *CapabilityEndpointDescriptorAllOf) UnsetCapabilities()`
 
 UnsetCapabilities ensures that no value is present for Capabilities, not even an explicit nil
-### GetSection
-
-`func (o *CapabilityEndpointDescriptorAllOf) GetSection() CapabilitySectionRelationship`
-
-GetSection returns the Section field if non-nil, zero value otherwise.
-
-### GetSectionOk
-
-`func (o *CapabilityEndpointDescriptorAllOf) GetSectionOk() (*CapabilitySectionRelationship, bool)`
-
-GetSectionOk returns a tuple with the Section field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSection
-
-`func (o *CapabilityEndpointDescriptorAllOf) SetSection(v CapabilitySectionRelationship)`
-
-SetSection sets Section field to given value.
-
-### HasSection
-
-`func (o *CapabilityEndpointDescriptorAllOf) HasSection() bool`
-
-HasSection returns a boolean if a field has been set.
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

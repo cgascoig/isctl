@@ -4,7 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.LocalUserPassword"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.LocalUserPassword"]
 **CurrentPassword** | Pointer to **string** | User-entered passsord to be compared to password for change password function. | [optional] 
+**IsCurrentPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;currentPassword&#39; property has been set. | [optional] [readonly] [default to false]
+**IsNewPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;newPassword&#39; property has been set. | [optional] [readonly] [default to false]
 **NewPassword** | Pointer to **string** | New password that the user&#39;s password should be changed to. | [optional] 
 **Password** | Pointer to **string** | User&#39;s current valid passsord. | [optional] 
 **User** | Pointer to [**IamUserRelationship**](iam.User.Relationship.md) |  | [optional] 
@@ -13,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewIamLocalUserPasswordAllOf
 
-`func NewIamLocalUserPasswordAllOf() *IamLocalUserPasswordAllOf`
+`func NewIamLocalUserPasswordAllOf(classId string, objectType string, ) *IamLocalUserPasswordAllOf`
 
 NewIamLocalUserPasswordAllOf instantiates a new IamLocalUserPasswordAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +31,46 @@ will change when the set of required properties is changed
 NewIamLocalUserPasswordAllOfWithDefaults instantiates a new IamLocalUserPasswordAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *IamLocalUserPasswordAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *IamLocalUserPasswordAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *IamLocalUserPasswordAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *IamLocalUserPasswordAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *IamLocalUserPasswordAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *IamLocalUserPasswordAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetCurrentPassword
 
@@ -52,6 +96,56 @@ SetCurrentPassword sets CurrentPassword field to given value.
 `func (o *IamLocalUserPasswordAllOf) HasCurrentPassword() bool`
 
 HasCurrentPassword returns a boolean if a field has been set.
+
+### GetIsCurrentPasswordSet
+
+`func (o *IamLocalUserPasswordAllOf) GetIsCurrentPasswordSet() bool`
+
+GetIsCurrentPasswordSet returns the IsCurrentPasswordSet field if non-nil, zero value otherwise.
+
+### GetIsCurrentPasswordSetOk
+
+`func (o *IamLocalUserPasswordAllOf) GetIsCurrentPasswordSetOk() (*bool, bool)`
+
+GetIsCurrentPasswordSetOk returns a tuple with the IsCurrentPasswordSet field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsCurrentPasswordSet
+
+`func (o *IamLocalUserPasswordAllOf) SetIsCurrentPasswordSet(v bool)`
+
+SetIsCurrentPasswordSet sets IsCurrentPasswordSet field to given value.
+
+### HasIsCurrentPasswordSet
+
+`func (o *IamLocalUserPasswordAllOf) HasIsCurrentPasswordSet() bool`
+
+HasIsCurrentPasswordSet returns a boolean if a field has been set.
+
+### GetIsNewPasswordSet
+
+`func (o *IamLocalUserPasswordAllOf) GetIsNewPasswordSet() bool`
+
+GetIsNewPasswordSet returns the IsNewPasswordSet field if non-nil, zero value otherwise.
+
+### GetIsNewPasswordSetOk
+
+`func (o *IamLocalUserPasswordAllOf) GetIsNewPasswordSetOk() (*bool, bool)`
+
+GetIsNewPasswordSetOk returns a tuple with the IsNewPasswordSet field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsNewPasswordSet
+
+`func (o *IamLocalUserPasswordAllOf) SetIsNewPasswordSet(v bool)`
+
+SetIsNewPasswordSet sets IsNewPasswordSet field to given value.
+
+### HasIsNewPasswordSet
+
+`func (o *IamLocalUserPasswordAllOf) HasIsNewPasswordSet() bool`
+
+HasIsNewPasswordSet returns a boolean if a field has been set.
 
 ### GetNewPassword
 

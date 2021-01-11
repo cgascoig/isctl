@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "connector.SshConfig"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "connector.SshConfig"]
+**JumpHost** | Pointer to **string** | A jump host for establishing a connection to a server. Plugin will first establish a connection to this server, then create a tunneled connection to the target host. | [optional] 
 **Password** | Pointer to **string** | Password to use in the connection credentials (If empty the private key will be used). | [optional] 
 **Pkey** | Pointer to **string** | The private key to use in the connection credentials (Optional if password is given). | [optional] 
 **Target** | Pointer to **string** | The remote server to connect to. | [optional] 
@@ -13,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewConnectorSshConfigAllOf
 
-`func NewConnectorSshConfigAllOf() *ConnectorSshConfigAllOf`
+`func NewConnectorSshConfigAllOf(classId string, objectType string, ) *ConnectorSshConfigAllOf`
 
 NewConnectorSshConfigAllOf instantiates a new ConnectorSshConfigAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +30,71 @@ will change when the set of required properties is changed
 NewConnectorSshConfigAllOfWithDefaults instantiates a new ConnectorSshConfigAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *ConnectorSshConfigAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *ConnectorSshConfigAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *ConnectorSshConfigAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *ConnectorSshConfigAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *ConnectorSshConfigAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *ConnectorSshConfigAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
+
+### GetJumpHost
+
+`func (o *ConnectorSshConfigAllOf) GetJumpHost() string`
+
+GetJumpHost returns the JumpHost field if non-nil, zero value otherwise.
+
+### GetJumpHostOk
+
+`func (o *ConnectorSshConfigAllOf) GetJumpHostOk() (*string, bool)`
+
+GetJumpHostOk returns a tuple with the JumpHost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJumpHost
+
+`func (o *ConnectorSshConfigAllOf) SetJumpHost(v string)`
+
+SetJumpHost sets JumpHost field to given value.
+
+### HasJumpHost
+
+`func (o *ConnectorSshConfigAllOf) HasJumpHost() bool`
+
+HasJumpHost returns a boolean if a field has been set.
 
 ### GetPassword
 

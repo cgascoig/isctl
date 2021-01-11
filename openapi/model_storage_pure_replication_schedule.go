@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,9 +19,13 @@ import (
 // StoragePureReplicationSchedule Pure snapshot replication schedule entity.
 type StoragePureReplicationSchedule struct {
 	StorageBaseReplicationSchedule `yaml:"StorageBaseReplicationSchedule,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Total number of snapshots per day to be available on target above and over the specified retention time. PureStorage FlashArray maintains all created snapshot until retention period. Daily limit is applied only on the snapshots once retention time is expired. In case of, daily limit is less than the number of snapshot available on source, system select snapshots evenly spaced out throughout the day.
-	DailyLimit                   *int64                            `json:"DailyLimit,omitempty" yaml:"DailyLimit,omitempty"`
-	ReplicationBlackoutIntervals *[]StoragePureReplicationBlackout `json:"ReplicationBlackoutIntervals,omitempty" yaml:"ReplicationBlackoutIntervals,omitempty"`
+	DailyLimit                   *int64                           `json:"DailyLimit,omitempty" yaml:"DailyLimit,omitempty"`
+	ReplicationBlackoutIntervals []StoragePureReplicationBlackout `json:"ReplicationBlackoutIntervals,omitempty" yaml:"ReplicationBlackoutIntervals,omitempty"`
 	// Duration to keep the daily limit snapshots on target array. StorageArray deletes the snapshots permanently from the targets beyond this period.
 	SnapshotExpiryTime *string                                 `json:"SnapshotExpiryTime,omitempty" yaml:"SnapshotExpiryTime,omitempty"`
 	Array              *StoragePureArrayRelationship           `json:"Array,omitempty" yaml:"Array,omitempty"`
@@ -33,8 +37,10 @@ type StoragePureReplicationSchedule struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStoragePureReplicationSchedule() *StoragePureReplicationSchedule {
+func NewStoragePureReplicationSchedule(classId string, objectType string) *StoragePureReplicationSchedule {
 	this := StoragePureReplicationSchedule{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -43,7 +49,59 @@ func NewStoragePureReplicationSchedule() *StoragePureReplicationSchedule {
 // but it doesn't guarantee that properties required by API are set
 func NewStoragePureReplicationScheduleWithDefaults() *StoragePureReplicationSchedule {
 	this := StoragePureReplicationSchedule{}
+	var classId string = "storage.PureReplicationSchedule"
+	this.ClassId = classId
+	var objectType string = "storage.PureReplicationSchedule"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *StoragePureReplicationSchedule) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *StoragePureReplicationSchedule) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *StoragePureReplicationSchedule) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *StoragePureReplicationSchedule) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *StoragePureReplicationSchedule) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *StoragePureReplicationSchedule) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetDailyLimit returns the DailyLimit field value if set, zero value otherwise.
@@ -78,22 +136,23 @@ func (o *StoragePureReplicationSchedule) SetDailyLimit(v int64) {
 	o.DailyLimit = &v
 }
 
-// GetReplicationBlackoutIntervals returns the ReplicationBlackoutIntervals field value if set, zero value otherwise.
+// GetReplicationBlackoutIntervals returns the ReplicationBlackoutIntervals field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StoragePureReplicationSchedule) GetReplicationBlackoutIntervals() []StoragePureReplicationBlackout {
-	if o == nil || o.ReplicationBlackoutIntervals == nil {
+	if o == nil {
 		var ret []StoragePureReplicationBlackout
 		return ret
 	}
-	return *o.ReplicationBlackoutIntervals
+	return o.ReplicationBlackoutIntervals
 }
 
 // GetReplicationBlackoutIntervalsOk returns a tuple with the ReplicationBlackoutIntervals field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StoragePureReplicationSchedule) GetReplicationBlackoutIntervalsOk() (*[]StoragePureReplicationBlackout, bool) {
 	if o == nil || o.ReplicationBlackoutIntervals == nil {
 		return nil, false
 	}
-	return o.ReplicationBlackoutIntervals, true
+	return &o.ReplicationBlackoutIntervals, true
 }
 
 // HasReplicationBlackoutIntervals returns a boolean if a field has been set.
@@ -107,7 +166,7 @@ func (o *StoragePureReplicationSchedule) HasReplicationBlackoutIntervals() bool 
 
 // SetReplicationBlackoutIntervals gets a reference to the given []StoragePureReplicationBlackout and assigns it to the ReplicationBlackoutIntervals field.
 func (o *StoragePureReplicationSchedule) SetReplicationBlackoutIntervals(v []StoragePureReplicationBlackout) {
-	o.ReplicationBlackoutIntervals = &v
+	o.ReplicationBlackoutIntervals = v
 }
 
 // GetSnapshotExpiryTime returns the SnapshotExpiryTime field value if set, zero value otherwise.
@@ -247,6 +306,12 @@ func (o StoragePureReplicationSchedule) MarshalJSON() ([]byte, error) {
 	errStorageBaseReplicationSchedule = json.Unmarshal([]byte(serializedStorageBaseReplicationSchedule), &toSerialize)
 	if errStorageBaseReplicationSchedule != nil {
 		return []byte{}, errStorageBaseReplicationSchedule
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.DailyLimit != nil {
 		toSerialize["DailyLimit"] = o.DailyLimit

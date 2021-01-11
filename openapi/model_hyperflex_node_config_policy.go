@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,9 +19,14 @@ import (
 // HyperflexNodeConfigPolicy A policy specifying node details such as management and storage data IP ranges. For HyperFlex Edge, storage data IP range is pre-defined.
 type HyperflexNodeConfigPolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
-	DataIpRange          *HyperflexIpAddrRange `json:"DataIpRange,omitempty" yaml:"DataIpRange,omitempty"`
-	HxdpIpRange          *HyperflexIpAddrRange `json:"HxdpIpRange,omitempty" yaml:"HxdpIpRange,omitempty"`
-	MgmtIpRange          *HyperflexIpAddrRange `json:"MgmtIpRange,omitempty" yaml:"MgmtIpRange,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType               string                       `json:"ObjectType" yaml:"ObjectType"`
+	DataIpRange              NullableHyperflexIpAddrRange `json:"DataIpRange,omitempty" yaml:"DataIpRange,omitempty"`
+	HxdpIpRange              NullableHyperflexIpAddrRange `json:"HxdpIpRange,omitempty" yaml:"HxdpIpRange,omitempty"`
+	HypervisorControlIpRange NullableHyperflexIpAddrRange `json:"HypervisorControlIpRange,omitempty" yaml:"HypervisorControlIpRange,omitempty"`
+	MgmtIpRange              NullableHyperflexIpAddrRange `json:"MgmtIpRange,omitempty" yaml:"MgmtIpRange,omitempty"`
 	// The node name prefix that is used to automatically generate the default hostname for each server. A dash (-) will be appended to the prefix followed by the node number to form a hostname. This default naming scheme can be manually overridden in the node configuration. The maximum length of a prefix is 60, must only contain alphanumeric characters or dash (-), and must start with an alphanumeric character.
 	NodeNamePrefix *string `json:"NodeNamePrefix,omitempty" yaml:"NodeNamePrefix,omitempty"`
 	// An array of relationships to hyperflexClusterProfile resources.
@@ -33,8 +38,10 @@ type HyperflexNodeConfigPolicy struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexNodeConfigPolicy() *HyperflexNodeConfigPolicy {
+func NewHyperflexNodeConfigPolicy(classId string, objectType string) *HyperflexNodeConfigPolicy {
 	this := HyperflexNodeConfigPolicy{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -43,103 +50,231 @@ func NewHyperflexNodeConfigPolicy() *HyperflexNodeConfigPolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexNodeConfigPolicyWithDefaults() *HyperflexNodeConfigPolicy {
 	this := HyperflexNodeConfigPolicy{}
+	var classId string = "hyperflex.NodeConfigPolicy"
+	this.ClassId = classId
+	var objectType string = "hyperflex.NodeConfigPolicy"
+	this.ObjectType = objectType
 	return &this
 }
 
-// GetDataIpRange returns the DataIpRange field value if set, zero value otherwise.
+// GetClassId returns the ClassId field value
+func (o *HyperflexNodeConfigPolicy) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexNodeConfigPolicy) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexNodeConfigPolicy) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexNodeConfigPolicy) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexNodeConfigPolicy) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexNodeConfigPolicy) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetDataIpRange returns the DataIpRange field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexNodeConfigPolicy) GetDataIpRange() HyperflexIpAddrRange {
-	if o == nil || o.DataIpRange == nil {
+	if o == nil || o.DataIpRange.Get() == nil {
 		var ret HyperflexIpAddrRange
 		return ret
 	}
-	return *o.DataIpRange
+	return *o.DataIpRange.Get()
 }
 
 // GetDataIpRangeOk returns a tuple with the DataIpRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexNodeConfigPolicy) GetDataIpRangeOk() (*HyperflexIpAddrRange, bool) {
-	if o == nil || o.DataIpRange == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.DataIpRange, true
+	return o.DataIpRange.Get(), o.DataIpRange.IsSet()
 }
 
 // HasDataIpRange returns a boolean if a field has been set.
 func (o *HyperflexNodeConfigPolicy) HasDataIpRange() bool {
-	if o != nil && o.DataIpRange != nil {
+	if o != nil && o.DataIpRange.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDataIpRange gets a reference to the given HyperflexIpAddrRange and assigns it to the DataIpRange field.
+// SetDataIpRange gets a reference to the given NullableHyperflexIpAddrRange and assigns it to the DataIpRange field.
 func (o *HyperflexNodeConfigPolicy) SetDataIpRange(v HyperflexIpAddrRange) {
-	o.DataIpRange = &v
+	o.DataIpRange.Set(&v)
 }
 
-// GetHxdpIpRange returns the HxdpIpRange field value if set, zero value otherwise.
+// SetDataIpRangeNil sets the value for DataIpRange to be an explicit nil
+func (o *HyperflexNodeConfigPolicy) SetDataIpRangeNil() {
+	o.DataIpRange.Set(nil)
+}
+
+// UnsetDataIpRange ensures that no value is present for DataIpRange, not even an explicit nil
+func (o *HyperflexNodeConfigPolicy) UnsetDataIpRange() {
+	o.DataIpRange.Unset()
+}
+
+// GetHxdpIpRange returns the HxdpIpRange field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexNodeConfigPolicy) GetHxdpIpRange() HyperflexIpAddrRange {
-	if o == nil || o.HxdpIpRange == nil {
+	if o == nil || o.HxdpIpRange.Get() == nil {
 		var ret HyperflexIpAddrRange
 		return ret
 	}
-	return *o.HxdpIpRange
+	return *o.HxdpIpRange.Get()
 }
 
 // GetHxdpIpRangeOk returns a tuple with the HxdpIpRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexNodeConfigPolicy) GetHxdpIpRangeOk() (*HyperflexIpAddrRange, bool) {
-	if o == nil || o.HxdpIpRange == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.HxdpIpRange, true
+	return o.HxdpIpRange.Get(), o.HxdpIpRange.IsSet()
 }
 
 // HasHxdpIpRange returns a boolean if a field has been set.
 func (o *HyperflexNodeConfigPolicy) HasHxdpIpRange() bool {
-	if o != nil && o.HxdpIpRange != nil {
+	if o != nil && o.HxdpIpRange.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHxdpIpRange gets a reference to the given HyperflexIpAddrRange and assigns it to the HxdpIpRange field.
+// SetHxdpIpRange gets a reference to the given NullableHyperflexIpAddrRange and assigns it to the HxdpIpRange field.
 func (o *HyperflexNodeConfigPolicy) SetHxdpIpRange(v HyperflexIpAddrRange) {
-	o.HxdpIpRange = &v
+	o.HxdpIpRange.Set(&v)
 }
 
-// GetMgmtIpRange returns the MgmtIpRange field value if set, zero value otherwise.
-func (o *HyperflexNodeConfigPolicy) GetMgmtIpRange() HyperflexIpAddrRange {
-	if o == nil || o.MgmtIpRange == nil {
+// SetHxdpIpRangeNil sets the value for HxdpIpRange to be an explicit nil
+func (o *HyperflexNodeConfigPolicy) SetHxdpIpRangeNil() {
+	o.HxdpIpRange.Set(nil)
+}
+
+// UnsetHxdpIpRange ensures that no value is present for HxdpIpRange, not even an explicit nil
+func (o *HyperflexNodeConfigPolicy) UnsetHxdpIpRange() {
+	o.HxdpIpRange.Unset()
+}
+
+// GetHypervisorControlIpRange returns the HypervisorControlIpRange field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HyperflexNodeConfigPolicy) GetHypervisorControlIpRange() HyperflexIpAddrRange {
+	if o == nil || o.HypervisorControlIpRange.Get() == nil {
 		var ret HyperflexIpAddrRange
 		return ret
 	}
-	return *o.MgmtIpRange
+	return *o.HypervisorControlIpRange.Get()
+}
+
+// GetHypervisorControlIpRangeOk returns a tuple with the HypervisorControlIpRange field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HyperflexNodeConfigPolicy) GetHypervisorControlIpRangeOk() (*HyperflexIpAddrRange, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HypervisorControlIpRange.Get(), o.HypervisorControlIpRange.IsSet()
+}
+
+// HasHypervisorControlIpRange returns a boolean if a field has been set.
+func (o *HyperflexNodeConfigPolicy) HasHypervisorControlIpRange() bool {
+	if o != nil && o.HypervisorControlIpRange.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorControlIpRange gets a reference to the given NullableHyperflexIpAddrRange and assigns it to the HypervisorControlIpRange field.
+func (o *HyperflexNodeConfigPolicy) SetHypervisorControlIpRange(v HyperflexIpAddrRange) {
+	o.HypervisorControlIpRange.Set(&v)
+}
+
+// SetHypervisorControlIpRangeNil sets the value for HypervisorControlIpRange to be an explicit nil
+func (o *HyperflexNodeConfigPolicy) SetHypervisorControlIpRangeNil() {
+	o.HypervisorControlIpRange.Set(nil)
+}
+
+// UnsetHypervisorControlIpRange ensures that no value is present for HypervisorControlIpRange, not even an explicit nil
+func (o *HyperflexNodeConfigPolicy) UnsetHypervisorControlIpRange() {
+	o.HypervisorControlIpRange.Unset()
+}
+
+// GetMgmtIpRange returns the MgmtIpRange field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HyperflexNodeConfigPolicy) GetMgmtIpRange() HyperflexIpAddrRange {
+	if o == nil || o.MgmtIpRange.Get() == nil {
+		var ret HyperflexIpAddrRange
+		return ret
+	}
+	return *o.MgmtIpRange.Get()
 }
 
 // GetMgmtIpRangeOk returns a tuple with the MgmtIpRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexNodeConfigPolicy) GetMgmtIpRangeOk() (*HyperflexIpAddrRange, bool) {
-	if o == nil || o.MgmtIpRange == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.MgmtIpRange, true
+	return o.MgmtIpRange.Get(), o.MgmtIpRange.IsSet()
 }
 
 // HasMgmtIpRange returns a boolean if a field has been set.
 func (o *HyperflexNodeConfigPolicy) HasMgmtIpRange() bool {
-	if o != nil && o.MgmtIpRange != nil {
+	if o != nil && o.MgmtIpRange.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMgmtIpRange gets a reference to the given HyperflexIpAddrRange and assigns it to the MgmtIpRange field.
+// SetMgmtIpRange gets a reference to the given NullableHyperflexIpAddrRange and assigns it to the MgmtIpRange field.
 func (o *HyperflexNodeConfigPolicy) SetMgmtIpRange(v HyperflexIpAddrRange) {
-	o.MgmtIpRange = &v
+	o.MgmtIpRange.Set(&v)
+}
+
+// SetMgmtIpRangeNil sets the value for MgmtIpRange to be an explicit nil
+func (o *HyperflexNodeConfigPolicy) SetMgmtIpRangeNil() {
+	o.MgmtIpRange.Set(nil)
+}
+
+// UnsetMgmtIpRange ensures that no value is present for MgmtIpRange, not even an explicit nil
+func (o *HyperflexNodeConfigPolicy) UnsetMgmtIpRange() {
+	o.MgmtIpRange.Unset()
 }
 
 // GetNodeNamePrefix returns the NodeNamePrefix field value if set, zero value otherwise.
@@ -249,14 +384,23 @@ func (o HyperflexNodeConfigPolicy) MarshalJSON() ([]byte, error) {
 	if errPolicyAbstractPolicy != nil {
 		return []byte{}, errPolicyAbstractPolicy
 	}
-	if o.DataIpRange != nil {
-		toSerialize["DataIpRange"] = o.DataIpRange
+	if true {
+		toSerialize["ClassId"] = o.ClassId
 	}
-	if o.HxdpIpRange != nil {
-		toSerialize["HxdpIpRange"] = o.HxdpIpRange
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
-	if o.MgmtIpRange != nil {
-		toSerialize["MgmtIpRange"] = o.MgmtIpRange
+	if o.DataIpRange.IsSet() {
+		toSerialize["DataIpRange"] = o.DataIpRange.Get()
+	}
+	if o.HxdpIpRange.IsSet() {
+		toSerialize["HxdpIpRange"] = o.HxdpIpRange.Get()
+	}
+	if o.HypervisorControlIpRange.IsSet() {
+		toSerialize["HypervisorControlIpRange"] = o.HypervisorControlIpRange.Get()
+	}
+	if o.MgmtIpRange.IsSet() {
+		toSerialize["MgmtIpRange"] = o.MgmtIpRange.Get()
 	}
 	if o.NodeNamePrefix != nil {
 		toSerialize["NodeNamePrefix"] = o.NodeNamePrefix

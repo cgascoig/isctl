@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HttpServer** | Pointer to [**FirmwareHttpServer**](firmware.HttpServer.md) |  | [optional] 
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "firmware.DirectDownload"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "firmware.DirectDownload"]
+**HttpServer** | Pointer to [**NullableFirmwareHttpServer**](firmware.HttpServer.md) |  | [optional] 
 **ImageSource** | Pointer to **string** | Source type referring the image to be downloaded from CCO or from a local HTTPS server. * &#x60;cisco&#x60; - Image to be downloaded from Cisco software repository. * &#x60;localHttp&#x60; - Image to be downloaded from a https server. | [optional] [default to "cisco"]
-**IsPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;password&#39; property has been set. | [optional] [readonly] 
+**IsPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;password&#39; property has been set. | [optional] [readonly] [default to false]
 **Password** | Pointer to **string** | Password as configured on the local https server. | [optional] 
 **Upgradeoption** | Pointer to **string** | Option to control the upgrade, e.g., sd_upgrade_mount_only - download the image into sd and upgrade wait for the server on-next boot. * &#x60;sd_upgrade_mount_only&#x60; - Direct upgrade SD upgrade mount only. * &#x60;sd_download_only&#x60; - Direct upgrade SD download only. * &#x60;sd_upgrade_only&#x60; - Direct upgrade SD upgrade only. * &#x60;sd_upgrade_full&#x60; - Direct upgrade SD upgrade full. * &#x60;upgrade_full&#x60; - The upgrade downloads or mounts the image, and reboots immediately for an upgrade. * &#x60;upgrade_mount_only&#x60; - The upgrade downloads or mounts the image. The upgrade happens in next reboot. * &#x60;chassis_upgrade_full&#x60; - Direct upgrade chassis upgrade full. | [optional] [default to "sd_upgrade_mount_only"]
 **Username** | Pointer to **string** | Username as configured on the local https server. | [optional] 
@@ -15,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewFirmwareDirectDownloadAllOf
 
-`func NewFirmwareDirectDownloadAllOf() *FirmwareDirectDownloadAllOf`
+`func NewFirmwareDirectDownloadAllOf(classId string, objectType string, ) *FirmwareDirectDownloadAllOf`
 
 NewFirmwareDirectDownloadAllOf instantiates a new FirmwareDirectDownloadAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +31,46 @@ will change when the set of required properties is changed
 NewFirmwareDirectDownloadAllOfWithDefaults instantiates a new FirmwareDirectDownloadAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *FirmwareDirectDownloadAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *FirmwareDirectDownloadAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *FirmwareDirectDownloadAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *FirmwareDirectDownloadAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *FirmwareDirectDownloadAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *FirmwareDirectDownloadAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetHttpServer
 
@@ -55,6 +97,16 @@ SetHttpServer sets HttpServer field to given value.
 
 HasHttpServer returns a boolean if a field has been set.
 
+### SetHttpServerNil
+
+`func (o *FirmwareDirectDownloadAllOf) SetHttpServerNil(b bool)`
+
+ SetHttpServerNil sets the value for HttpServer to be an explicit nil
+
+### UnsetHttpServer
+`func (o *FirmwareDirectDownloadAllOf) UnsetHttpServer()`
+
+UnsetHttpServer ensures that no value is present for HttpServer, not even an explicit nil
 ### GetImageSource
 
 `func (o *FirmwareDirectDownloadAllOf) GetImageSource() string`

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -16,19 +16,26 @@ import (
 	"encoding/json"
 )
 
-// HyperflexServerFirmwareVersion A server firmware bundle version used for server components such as CIMC, adapters, BIOS, etc.
+// HyperflexServerFirmwareVersion The server firmware version represents the UCS server firmware details.
 type HyperflexServerFirmwareVersion struct {
-	MoBaseMo                     `yaml:"MoBaseMo,inline"`
-	ServerFirmwareVersionEntries *[]HyperflexServerFirmwareVersionEntry `json:"ServerFirmwareVersionEntries,omitempty" yaml:"ServerFirmwareVersionEntries,omitempty"`
-	AppCatalog                   *HyperflexAppCatalogRelationship       `json:"AppCatalog,omitempty" yaml:"AppCatalog,omitempty"`
+	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string                           `json:"ObjectType" yaml:"ObjectType"`
+	AppCatalog *HyperflexAppCatalogRelationship `json:"AppCatalog,omitempty" yaml:"AppCatalog,omitempty"`
+	// An array of relationships to hyperflexServerFirmwareVersionEntry resources.
+	ServerFirmwareVersionEntries []HyperflexServerFirmwareVersionEntryRelationship `json:"ServerFirmwareVersionEntries,omitempty" yaml:"ServerFirmwareVersionEntries,omitempty"`
 }
 
 // NewHyperflexServerFirmwareVersion instantiates a new HyperflexServerFirmwareVersion object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexServerFirmwareVersion() *HyperflexServerFirmwareVersion {
+func NewHyperflexServerFirmwareVersion(classId string, objectType string) *HyperflexServerFirmwareVersion {
 	this := HyperflexServerFirmwareVersion{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -37,39 +44,59 @@ func NewHyperflexServerFirmwareVersion() *HyperflexServerFirmwareVersion {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexServerFirmwareVersionWithDefaults() *HyperflexServerFirmwareVersion {
 	this := HyperflexServerFirmwareVersion{}
+	var classId string = "hyperflex.ServerFirmwareVersion"
+	this.ClassId = classId
+	var objectType string = "hyperflex.ServerFirmwareVersion"
+	this.ObjectType = objectType
 	return &this
 }
 
-// GetServerFirmwareVersionEntries returns the ServerFirmwareVersionEntries field value if set, zero value otherwise.
-func (o *HyperflexServerFirmwareVersion) GetServerFirmwareVersionEntries() []HyperflexServerFirmwareVersionEntry {
-	if o == nil || o.ServerFirmwareVersionEntries == nil {
-		var ret []HyperflexServerFirmwareVersionEntry
+// GetClassId returns the ClassId field value
+func (o *HyperflexServerFirmwareVersion) GetClassId() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
-	return *o.ServerFirmwareVersionEntries
+
+	return o.ClassId
 }
 
-// GetServerFirmwareVersionEntriesOk returns a tuple with the ServerFirmwareVersionEntries field value if set, nil otherwise
+// GetClassIdOk returns a tuple with the ClassId field value
 // and a boolean to check if the value has been set.
-func (o *HyperflexServerFirmwareVersion) GetServerFirmwareVersionEntriesOk() (*[]HyperflexServerFirmwareVersionEntry, bool) {
-	if o == nil || o.ServerFirmwareVersionEntries == nil {
+func (o *HyperflexServerFirmwareVersion) GetClassIdOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServerFirmwareVersionEntries, true
+	return &o.ClassId, true
 }
 
-// HasServerFirmwareVersionEntries returns a boolean if a field has been set.
-func (o *HyperflexServerFirmwareVersion) HasServerFirmwareVersionEntries() bool {
-	if o != nil && o.ServerFirmwareVersionEntries != nil {
-		return true
+// SetClassId sets field value
+func (o *HyperflexServerFirmwareVersion) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexServerFirmwareVersion) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
 	}
 
-	return false
+	return o.ObjectType
 }
 
-// SetServerFirmwareVersionEntries gets a reference to the given []HyperflexServerFirmwareVersionEntry and assigns it to the ServerFirmwareVersionEntries field.
-func (o *HyperflexServerFirmwareVersion) SetServerFirmwareVersionEntries(v []HyperflexServerFirmwareVersionEntry) {
-	o.ServerFirmwareVersionEntries = &v
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexServerFirmwareVersion) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexServerFirmwareVersion) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAppCatalog returns the AppCatalog field value if set, zero value otherwise.
@@ -104,6 +131,39 @@ func (o *HyperflexServerFirmwareVersion) SetAppCatalog(v HyperflexAppCatalogRela
 	o.AppCatalog = &v
 }
 
+// GetServerFirmwareVersionEntries returns the ServerFirmwareVersionEntries field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HyperflexServerFirmwareVersion) GetServerFirmwareVersionEntries() []HyperflexServerFirmwareVersionEntryRelationship {
+	if o == nil {
+		var ret []HyperflexServerFirmwareVersionEntryRelationship
+		return ret
+	}
+	return o.ServerFirmwareVersionEntries
+}
+
+// GetServerFirmwareVersionEntriesOk returns a tuple with the ServerFirmwareVersionEntries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HyperflexServerFirmwareVersion) GetServerFirmwareVersionEntriesOk() (*[]HyperflexServerFirmwareVersionEntryRelationship, bool) {
+	if o == nil || o.ServerFirmwareVersionEntries == nil {
+		return nil, false
+	}
+	return &o.ServerFirmwareVersionEntries, true
+}
+
+// HasServerFirmwareVersionEntries returns a boolean if a field has been set.
+func (o *HyperflexServerFirmwareVersion) HasServerFirmwareVersionEntries() bool {
+	if o != nil && o.ServerFirmwareVersionEntries != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetServerFirmwareVersionEntries gets a reference to the given []HyperflexServerFirmwareVersionEntryRelationship and assigns it to the ServerFirmwareVersionEntries field.
+func (o *HyperflexServerFirmwareVersion) SetServerFirmwareVersionEntries(v []HyperflexServerFirmwareVersionEntryRelationship) {
+	o.ServerFirmwareVersionEntries = v
+}
+
 func (o HyperflexServerFirmwareVersion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	serializedMoBaseMo, errMoBaseMo := json.Marshal(o.MoBaseMo)
@@ -114,11 +174,17 @@ func (o HyperflexServerFirmwareVersion) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
-	if o.ServerFirmwareVersionEntries != nil {
-		toSerialize["ServerFirmwareVersionEntries"] = o.ServerFirmwareVersionEntries
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.AppCatalog != nil {
 		toSerialize["AppCatalog"] = o.AppCatalog
+	}
+	if o.ServerFirmwareVersionEntries != nil {
+		toSerialize["ServerFirmwareVersionEntries"] = o.ServerFirmwareVersionEntries
 	}
 	return json.Marshal(toSerialize)
 }

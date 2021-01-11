@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,9 +18,17 @@ import (
 
 // HyperflexClusterProfileAllOf Definition of the list of properties defined in 'hyperflex.ClusterProfile', excluding properties defined in parent classes.
 type HyperflexClusterProfileAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The storage data IP address for the HyperFlex cluster.
 	DataIpAddress *string `json:"DataIpAddress,omitempty" yaml:"DataIpAddress,omitempty"`
-	// The hypervisor type for the HyperFlex cluster. * `ESXi` - ESXi hypervisor as specified by the user. * `HYPERV` - Hyperv hypervisor as specified by the user. * `KVM` - KVM hypervisor as specified by the user.
+	// The node name prefix that is used to automatically generate the default hostname for each server. A dash (-) will be appended to the prefix followed by the node number to form a hostname. This default naming scheme can be manually overridden in the node configuration. The maximum length of a prefix is 60, must only contain alphanumeric characters or dash (-), and must start with an alphanumeric character.
+	HostNamePrefix *string `json:"HostNamePrefix,omitempty" yaml:"HostNamePrefix,omitempty"`
+	// The hypervisor control virtual IP address for the HyperFlex compute cluster that is used for node/pod management.
+	HypervisorControlIpAddress *string `json:"HypervisorControlIpAddress,omitempty" yaml:"HypervisorControlIpAddress,omitempty"`
+	// The hypervisor type for the HyperFlex cluster. * `ESXi` - The hypervisor running on the HyperFlex cluster is a Vmware ESXi hypervisor of any version. * `HyperFlexAp` - The hypervisor running on the HyperFlex cluster is Cisco HyperFlex Application Platform. * `Hyper-V` - The hypervisor running on the HyperFlex cluster is Microsoft Hyper-V. * `Unknown` - The hypervisor running on the HyperFlex cluster is not known.
 	HypervisorType *string `json:"HypervisorType,omitempty" yaml:"HypervisorType,omitempty"`
 	// The MAC address prefix in the form of 00:25:B5:XX.
 	MacAddressPrefix *string `json:"MacAddressPrefix,omitempty" yaml:"MacAddressPrefix,omitempty"`
@@ -29,19 +37,23 @@ type HyperflexClusterProfileAllOf struct {
 	// The management platform for the HyperFlex cluster. * `FI` - The host servers used in the cluster deployment are managed by a UCS Fabric Interconnect. * `EDGE` - The host servers used in the cluster deployment are standalone severs.
 	MgmtPlatform *string `json:"MgmtPlatform,omitempty" yaml:"MgmtPlatform,omitempty"`
 	// The number of copies of each data block written.
-	Replication     *int64              `json:"Replication,omitempty" yaml:"Replication,omitempty"`
-	StorageDataVlan *HyperflexNamedVlan `json:"StorageDataVlan,omitempty" yaml:"StorageDataVlan,omitempty"`
+	Replication     *int64                     `json:"Replication,omitempty" yaml:"Replication,omitempty"`
+	StorageDataVlan NullableHyperflexNamedVlan `json:"StorageDataVlan,omitempty" yaml:"StorageDataVlan,omitempty"`
+	// The storage type used for the HyperFlex cluster (HyperFlex Storage or 3rd party). * `HyperFlexDp` - The type of storage is HyperFlex Data Platform. * `ThirdParty` - The type of storage is 3rd Party Storage (PureStorage, etc..).
+	StorageType *string `json:"StorageType,omitempty" yaml:"StorageType,omitempty"`
 	// The WWxN prefix in the form of 20:00:00:25:B5:XX.
-	WwxnPrefix        *string                                     `json:"WwxnPrefix,omitempty" yaml:"WwxnPrefix,omitempty"`
-	AssociatedCluster *HyperflexClusterRelationship               `json:"AssociatedCluster,omitempty" yaml:"AssociatedCluster,omitempty"`
-	AutoSupport       *HyperflexAutoSupportPolicyRelationship     `json:"AutoSupport,omitempty" yaml:"AutoSupport,omitempty"`
-	ClusterNetwork    *HyperflexClusterNetworkPolicyRelationship  `json:"ClusterNetwork,omitempty" yaml:"ClusterNetwork,omitempty"`
-	ClusterStorage    *HyperflexClusterStoragePolicyRelationship  `json:"ClusterStorage,omitempty" yaml:"ClusterStorage,omitempty"`
-	ConfigResult      *HyperflexConfigResultRelationship          `json:"ConfigResult,omitempty" yaml:"ConfigResult,omitempty"`
-	ExtFcStorage      *HyperflexExtFcStoragePolicyRelationship    `json:"ExtFcStorage,omitempty" yaml:"ExtFcStorage,omitempty"`
-	ExtIscsiStorage   *HyperflexExtIscsiStoragePolicyRelationship `json:"ExtIscsiStorage,omitempty" yaml:"ExtIscsiStorage,omitempty"`
-	LocalCredential   *HyperflexLocalCredentialPolicyRelationship `json:"LocalCredential,omitempty" yaml:"LocalCredential,omitempty"`
-	NodeConfig        *HyperflexNodeConfigPolicyRelationship      `json:"NodeConfig,omitempty" yaml:"NodeConfig,omitempty"`
+	WwxnPrefix               *string                                     `json:"WwxnPrefix,omitempty" yaml:"WwxnPrefix,omitempty"`
+	AssociatedCluster        *HyperflexClusterRelationship               `json:"AssociatedCluster,omitempty" yaml:"AssociatedCluster,omitempty"`
+	AssociatedComputeCluster *HyperflexHxapClusterRelationship           `json:"AssociatedComputeCluster,omitempty" yaml:"AssociatedComputeCluster,omitempty"`
+	AutoSupport              *HyperflexAutoSupportPolicyRelationship     `json:"AutoSupport,omitempty" yaml:"AutoSupport,omitempty"`
+	ClusterNetwork           *HyperflexClusterNetworkPolicyRelationship  `json:"ClusterNetwork,omitempty" yaml:"ClusterNetwork,omitempty"`
+	ClusterStorage           *HyperflexClusterStoragePolicyRelationship  `json:"ClusterStorage,omitempty" yaml:"ClusterStorage,omitempty"`
+	ConfigResult             *HyperflexConfigResultRelationship          `json:"ConfigResult,omitempty" yaml:"ConfigResult,omitempty"`
+	ExtFcStorage             *HyperflexExtFcStoragePolicyRelationship    `json:"ExtFcStorage,omitempty" yaml:"ExtFcStorage,omitempty"`
+	ExtIscsiStorage          *HyperflexExtIscsiStoragePolicyRelationship `json:"ExtIscsiStorage,omitempty" yaml:"ExtIscsiStorage,omitempty"`
+	Httpproxypolicy          *CommHttpProxyPolicyRelationship            `json:"Httpproxypolicy,omitempty" yaml:"Httpproxypolicy,omitempty"`
+	LocalCredential          *HyperflexLocalCredentialPolicyRelationship `json:"LocalCredential,omitempty" yaml:"LocalCredential,omitempty"`
+	NodeConfig               *HyperflexNodeConfigPolicyRelationship      `json:"NodeConfig,omitempty" yaml:"NodeConfig,omitempty"`
 	// An array of relationships to hyperflexNodeProfile resources.
 	NodeProfileConfig []HyperflexNodeProfileRelationship       `json:"NodeProfileConfig,omitempty" yaml:"NodeProfileConfig,omitempty"`
 	Organization      *OrganizationOrganizationRelationship    `json:"Organization,omitempty" yaml:"Organization,omitempty"`
@@ -58,12 +70,16 @@ type HyperflexClusterProfileAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexClusterProfileAllOf() *HyperflexClusterProfileAllOf {
+func NewHyperflexClusterProfileAllOf(classId string, objectType string) *HyperflexClusterProfileAllOf {
 	this := HyperflexClusterProfileAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var hypervisorType string = "ESXi"
 	this.HypervisorType = &hypervisorType
 	var mgmtPlatform string = "FI"
 	this.MgmtPlatform = &mgmtPlatform
+	var storageType string = "HyperFlexDp"
+	this.StorageType = &storageType
 	return &this
 }
 
@@ -72,11 +88,65 @@ func NewHyperflexClusterProfileAllOf() *HyperflexClusterProfileAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexClusterProfileAllOfWithDefaults() *HyperflexClusterProfileAllOf {
 	this := HyperflexClusterProfileAllOf{}
+	var classId string = "hyperflex.ClusterProfile"
+	this.ClassId = classId
+	var objectType string = "hyperflex.ClusterProfile"
+	this.ObjectType = objectType
 	var hypervisorType string = "ESXi"
 	this.HypervisorType = &hypervisorType
 	var mgmtPlatform string = "FI"
 	this.MgmtPlatform = &mgmtPlatform
+	var storageType string = "HyperFlexDp"
+	this.StorageType = &storageType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexClusterProfileAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterProfileAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexClusterProfileAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexClusterProfileAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterProfileAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexClusterProfileAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetDataIpAddress returns the DataIpAddress field value if set, zero value otherwise.
@@ -109,6 +179,70 @@ func (o *HyperflexClusterProfileAllOf) HasDataIpAddress() bool {
 // SetDataIpAddress gets a reference to the given string and assigns it to the DataIpAddress field.
 func (o *HyperflexClusterProfileAllOf) SetDataIpAddress(v string) {
 	o.DataIpAddress = &v
+}
+
+// GetHostNamePrefix returns the HostNamePrefix field value if set, zero value otherwise.
+func (o *HyperflexClusterProfileAllOf) GetHostNamePrefix() string {
+	if o == nil || o.HostNamePrefix == nil {
+		var ret string
+		return ret
+	}
+	return *o.HostNamePrefix
+}
+
+// GetHostNamePrefixOk returns a tuple with the HostNamePrefix field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterProfileAllOf) GetHostNamePrefixOk() (*string, bool) {
+	if o == nil || o.HostNamePrefix == nil {
+		return nil, false
+	}
+	return o.HostNamePrefix, true
+}
+
+// HasHostNamePrefix returns a boolean if a field has been set.
+func (o *HyperflexClusterProfileAllOf) HasHostNamePrefix() bool {
+	if o != nil && o.HostNamePrefix != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHostNamePrefix gets a reference to the given string and assigns it to the HostNamePrefix field.
+func (o *HyperflexClusterProfileAllOf) SetHostNamePrefix(v string) {
+	o.HostNamePrefix = &v
+}
+
+// GetHypervisorControlIpAddress returns the HypervisorControlIpAddress field value if set, zero value otherwise.
+func (o *HyperflexClusterProfileAllOf) GetHypervisorControlIpAddress() string {
+	if o == nil || o.HypervisorControlIpAddress == nil {
+		var ret string
+		return ret
+	}
+	return *o.HypervisorControlIpAddress
+}
+
+// GetHypervisorControlIpAddressOk returns a tuple with the HypervisorControlIpAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterProfileAllOf) GetHypervisorControlIpAddressOk() (*string, bool) {
+	if o == nil || o.HypervisorControlIpAddress == nil {
+		return nil, false
+	}
+	return o.HypervisorControlIpAddress, true
+}
+
+// HasHypervisorControlIpAddress returns a boolean if a field has been set.
+func (o *HyperflexClusterProfileAllOf) HasHypervisorControlIpAddress() bool {
+	if o != nil && o.HypervisorControlIpAddress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorControlIpAddress gets a reference to the given string and assigns it to the HypervisorControlIpAddress field.
+func (o *HyperflexClusterProfileAllOf) SetHypervisorControlIpAddress(v string) {
+	o.HypervisorControlIpAddress = &v
 }
 
 // GetHypervisorType returns the HypervisorType field value if set, zero value otherwise.
@@ -271,36 +405,79 @@ func (o *HyperflexClusterProfileAllOf) SetReplication(v int64) {
 	o.Replication = &v
 }
 
-// GetStorageDataVlan returns the StorageDataVlan field value if set, zero value otherwise.
+// GetStorageDataVlan returns the StorageDataVlan field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexClusterProfileAllOf) GetStorageDataVlan() HyperflexNamedVlan {
-	if o == nil || o.StorageDataVlan == nil {
+	if o == nil || o.StorageDataVlan.Get() == nil {
 		var ret HyperflexNamedVlan
 		return ret
 	}
-	return *o.StorageDataVlan
+	return *o.StorageDataVlan.Get()
 }
 
 // GetStorageDataVlanOk returns a tuple with the StorageDataVlan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexClusterProfileAllOf) GetStorageDataVlanOk() (*HyperflexNamedVlan, bool) {
-	if o == nil || o.StorageDataVlan == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.StorageDataVlan, true
+	return o.StorageDataVlan.Get(), o.StorageDataVlan.IsSet()
 }
 
 // HasStorageDataVlan returns a boolean if a field has been set.
 func (o *HyperflexClusterProfileAllOf) HasStorageDataVlan() bool {
-	if o != nil && o.StorageDataVlan != nil {
+	if o != nil && o.StorageDataVlan.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStorageDataVlan gets a reference to the given HyperflexNamedVlan and assigns it to the StorageDataVlan field.
+// SetStorageDataVlan gets a reference to the given NullableHyperflexNamedVlan and assigns it to the StorageDataVlan field.
 func (o *HyperflexClusterProfileAllOf) SetStorageDataVlan(v HyperflexNamedVlan) {
-	o.StorageDataVlan = &v
+	o.StorageDataVlan.Set(&v)
+}
+
+// SetStorageDataVlanNil sets the value for StorageDataVlan to be an explicit nil
+func (o *HyperflexClusterProfileAllOf) SetStorageDataVlanNil() {
+	o.StorageDataVlan.Set(nil)
+}
+
+// UnsetStorageDataVlan ensures that no value is present for StorageDataVlan, not even an explicit nil
+func (o *HyperflexClusterProfileAllOf) UnsetStorageDataVlan() {
+	o.StorageDataVlan.Unset()
+}
+
+// GetStorageType returns the StorageType field value if set, zero value otherwise.
+func (o *HyperflexClusterProfileAllOf) GetStorageType() string {
+	if o == nil || o.StorageType == nil {
+		var ret string
+		return ret
+	}
+	return *o.StorageType
+}
+
+// GetStorageTypeOk returns a tuple with the StorageType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterProfileAllOf) GetStorageTypeOk() (*string, bool) {
+	if o == nil || o.StorageType == nil {
+		return nil, false
+	}
+	return o.StorageType, true
+}
+
+// HasStorageType returns a boolean if a field has been set.
+func (o *HyperflexClusterProfileAllOf) HasStorageType() bool {
+	if o != nil && o.StorageType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageType gets a reference to the given string and assigns it to the StorageType field.
+func (o *HyperflexClusterProfileAllOf) SetStorageType(v string) {
+	o.StorageType = &v
 }
 
 // GetWwxnPrefix returns the WwxnPrefix field value if set, zero value otherwise.
@@ -365,6 +542,38 @@ func (o *HyperflexClusterProfileAllOf) HasAssociatedCluster() bool {
 // SetAssociatedCluster gets a reference to the given HyperflexClusterRelationship and assigns it to the AssociatedCluster field.
 func (o *HyperflexClusterProfileAllOf) SetAssociatedCluster(v HyperflexClusterRelationship) {
 	o.AssociatedCluster = &v
+}
+
+// GetAssociatedComputeCluster returns the AssociatedComputeCluster field value if set, zero value otherwise.
+func (o *HyperflexClusterProfileAllOf) GetAssociatedComputeCluster() HyperflexHxapClusterRelationship {
+	if o == nil || o.AssociatedComputeCluster == nil {
+		var ret HyperflexHxapClusterRelationship
+		return ret
+	}
+	return *o.AssociatedComputeCluster
+}
+
+// GetAssociatedComputeClusterOk returns a tuple with the AssociatedComputeCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterProfileAllOf) GetAssociatedComputeClusterOk() (*HyperflexHxapClusterRelationship, bool) {
+	if o == nil || o.AssociatedComputeCluster == nil {
+		return nil, false
+	}
+	return o.AssociatedComputeCluster, true
+}
+
+// HasAssociatedComputeCluster returns a boolean if a field has been set.
+func (o *HyperflexClusterProfileAllOf) HasAssociatedComputeCluster() bool {
+	if o != nil && o.AssociatedComputeCluster != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAssociatedComputeCluster gets a reference to the given HyperflexHxapClusterRelationship and assigns it to the AssociatedComputeCluster field.
+func (o *HyperflexClusterProfileAllOf) SetAssociatedComputeCluster(v HyperflexHxapClusterRelationship) {
+	o.AssociatedComputeCluster = &v
 }
 
 // GetAutoSupport returns the AutoSupport field value if set, zero value otherwise.
@@ -557,6 +766,38 @@ func (o *HyperflexClusterProfileAllOf) HasExtIscsiStorage() bool {
 // SetExtIscsiStorage gets a reference to the given HyperflexExtIscsiStoragePolicyRelationship and assigns it to the ExtIscsiStorage field.
 func (o *HyperflexClusterProfileAllOf) SetExtIscsiStorage(v HyperflexExtIscsiStoragePolicyRelationship) {
 	o.ExtIscsiStorage = &v
+}
+
+// GetHttpproxypolicy returns the Httpproxypolicy field value if set, zero value otherwise.
+func (o *HyperflexClusterProfileAllOf) GetHttpproxypolicy() CommHttpProxyPolicyRelationship {
+	if o == nil || o.Httpproxypolicy == nil {
+		var ret CommHttpProxyPolicyRelationship
+		return ret
+	}
+	return *o.Httpproxypolicy
+}
+
+// GetHttpproxypolicyOk returns a tuple with the Httpproxypolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterProfileAllOf) GetHttpproxypolicyOk() (*CommHttpProxyPolicyRelationship, bool) {
+	if o == nil || o.Httpproxypolicy == nil {
+		return nil, false
+	}
+	return o.Httpproxypolicy, true
+}
+
+// HasHttpproxypolicy returns a boolean if a field has been set.
+func (o *HyperflexClusterProfileAllOf) HasHttpproxypolicy() bool {
+	if o != nil && o.Httpproxypolicy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHttpproxypolicy gets a reference to the given CommHttpProxyPolicyRelationship and assigns it to the Httpproxypolicy field.
+func (o *HyperflexClusterProfileAllOf) SetHttpproxypolicy(v CommHttpProxyPolicyRelationship) {
+	o.Httpproxypolicy = &v
 }
 
 // GetLocalCredential returns the LocalCredential field value if set, zero value otherwise.
@@ -883,8 +1124,20 @@ func (o *HyperflexClusterProfileAllOf) SetVcenterConfig(v HyperflexVcenterConfig
 
 func (o HyperflexClusterProfileAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.DataIpAddress != nil {
 		toSerialize["DataIpAddress"] = o.DataIpAddress
+	}
+	if o.HostNamePrefix != nil {
+		toSerialize["HostNamePrefix"] = o.HostNamePrefix
+	}
+	if o.HypervisorControlIpAddress != nil {
+		toSerialize["HypervisorControlIpAddress"] = o.HypervisorControlIpAddress
 	}
 	if o.HypervisorType != nil {
 		toSerialize["HypervisorType"] = o.HypervisorType
@@ -901,14 +1154,20 @@ func (o HyperflexClusterProfileAllOf) MarshalJSON() ([]byte, error) {
 	if o.Replication != nil {
 		toSerialize["Replication"] = o.Replication
 	}
-	if o.StorageDataVlan != nil {
-		toSerialize["StorageDataVlan"] = o.StorageDataVlan
+	if o.StorageDataVlan.IsSet() {
+		toSerialize["StorageDataVlan"] = o.StorageDataVlan.Get()
+	}
+	if o.StorageType != nil {
+		toSerialize["StorageType"] = o.StorageType
 	}
 	if o.WwxnPrefix != nil {
 		toSerialize["WwxnPrefix"] = o.WwxnPrefix
 	}
 	if o.AssociatedCluster != nil {
 		toSerialize["AssociatedCluster"] = o.AssociatedCluster
+	}
+	if o.AssociatedComputeCluster != nil {
+		toSerialize["AssociatedComputeCluster"] = o.AssociatedComputeCluster
 	}
 	if o.AutoSupport != nil {
 		toSerialize["AutoSupport"] = o.AutoSupport
@@ -927,6 +1186,9 @@ func (o HyperflexClusterProfileAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.ExtIscsiStorage != nil {
 		toSerialize["ExtIscsiStorage"] = o.ExtIscsiStorage
+	}
+	if o.Httpproxypolicy != nil {
+		toSerialize["Httpproxypolicy"] = o.Httpproxypolicy
 	}
 	if o.LocalCredential != nil {
 		toSerialize["LocalCredential"] = o.LocalCredential

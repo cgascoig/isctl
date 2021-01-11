@@ -4,23 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.IpAddress"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.IpAddress"]
 **Address** | Pointer to **string** | IP Address to be used for KVM. | [optional] [readonly] 
 **Category** | Pointer to **string** | Category of the Kvm IP Address. * &#x60;Equipment&#x60; - Ip Address assigned to an equipment. * &#x60;ServiceProfile&#x60; - Ip Address assigned to a Service Profile. | [optional] [readonly] [default to "Equipment"]
 **DefaultGateway** | Pointer to **string** | Default gateway property of KVM IP Address. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The distinguished name for this managed object. | [optional] [readonly] 
-**HttpPort** | Pointer to **int64** | HTTP port of an IP Address. | [optional] [readonly] 
-**HttpsPort** | Pointer to **int64** | Secured HTTP port of an IP Address. | [optional] [readonly] 
-**KvmPort** | Pointer to **int64** | Port number on which the KVM is running and used for connecting to KVM console. | [optional] [readonly] 
+**HttpPort** | Pointer to **int64** | HTTP port of an IP Address. | [optional] [readonly] [default to 80]
+**HttpsPort** | Pointer to **int64** | Secured HTTP port of an IP Address. | [optional] [readonly] [default to 443]
+**KvmPort** | Pointer to **int64** | Port number on which the KVM is running and used for connecting to KVM console. | [optional] [readonly] [default to 2068]
 **KvmVlan** | Pointer to **int64** | VLAN Identifier of Inband IP Address. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name to identify the KVM IP Address. * &#x60;Outband&#x60; - The user assigned Out of band IP Address. * &#x60;Inband&#x60; - The user assigned Inband IP Address. | [optional] [readonly] [default to "Outband"]
 **Subnet** | Pointer to **string** | Subnet detail of a KVM IP Address. | [optional] [readonly] 
-**Type** | Pointer to **string** | Type of the KVM IP Address. * &#x60;MgmtInterface&#x60; - Ip Address of a Management Interface. * &#x60;VnicIpV4StaticAddr&#x60; - Static Ipv4 Address of a Virtual Network Interface. * &#x60;VnicIpV4PooledAddr&#x60; - Ipv4 Address of a Virtual Network Interface from an address pool. * &#x60;VnicIpV4MgmtPooledAddr&#x60; - Ipv4 Address of a Virtual Network Interface from a Managed address pool. * &#x60;VnicIpV6StaticAddr&#x60; - Static Ipv6 Address of a Virtual Network Interface. * &#x60;VnicIpV6MgmtPooledAddr&#x60; - Ipv6 Address of a Virtual Network Interface from a Managed address pool. * &#x60;VnicIpV4ProfDerivedAddr&#x60; - Server Profile derived Ipv4 Address of a Virtual Network Interface. | [optional] [readonly] [default to "MgmtInterface"]
+**Type** | Pointer to **string** | Type of the KVM IP Address. * &#x60;MgmtInterface&#x60; - Ip Address of a Management Interface. * &#x60;VnicIpV4StaticAddr&#x60; - Static Ipv4 Address of a Virtual Network Interface. * &#x60;VnicIpV4PooledAddr&#x60; - Ipv4 Address of a Virtual Network Interface from an address pool. * &#x60;VnicIpV4MgmtPooledAddr&#x60; - Ipv4 Address of a Virtual Network Interface from a Managed address pool. * &#x60;VnicIpV6StaticAddr&#x60; - Static Ipv6 Address of a Virtual Network Interface. * &#x60;VnicIpV6MgmtPooledAddr&#x60; - Ipv6 Address of a Virtual Network Interface from a Managed address pool. * &#x60;VnicIpV4ProfDerivedAddr&#x60; - Server Profile derived Ipv4 Address of a Virtual Network Interface. * &#x60;MgmtIpV6ProfDerivedAddr&#x60; - Server Profile derived Ipv6 Address used for accessing server management services. | [optional] [readonly] [default to "MgmtInterface"]
 
 ## Methods
 
 ### NewComputeIpAddressAllOf
 
-`func NewComputeIpAddressAllOf() *ComputeIpAddressAllOf`
+`func NewComputeIpAddressAllOf(classId string, objectType string, ) *ComputeIpAddressAllOf`
 
 NewComputeIpAddressAllOf instantiates a new ComputeIpAddressAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -34,6 +36,46 @@ will change when the set of required properties is changed
 NewComputeIpAddressAllOfWithDefaults instantiates a new ComputeIpAddressAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *ComputeIpAddressAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *ComputeIpAddressAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *ComputeIpAddressAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *ComputeIpAddressAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *ComputeIpAddressAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *ComputeIpAddressAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetAddress
 

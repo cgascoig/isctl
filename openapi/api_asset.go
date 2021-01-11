@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -117,178 +117,6 @@ func (r apiCreateAssetDeviceClaimRequest) Execute() (AssetDeviceClaim, *_nethttp
 	}
 	// body params
 	localVarPostBody = r.assetDeviceClaim
-	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		var v Error
-		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type apiCreateAssetManagedDeviceRequest struct {
-	ctx                _context.Context
-	apiService         *AssetApiService
-	assetManagedDevice *AssetManagedDevice
-	ifMatch            *string
-	ifNoneMatch        *string
-}
-
-func (r apiCreateAssetManagedDeviceRequest) AssetManagedDevice(assetManagedDevice AssetManagedDevice) apiCreateAssetManagedDeviceRequest {
-	r.assetManagedDevice = &assetManagedDevice
-	return r
-}
-
-func (r apiCreateAssetManagedDeviceRequest) IfMatch(ifMatch string) apiCreateAssetManagedDeviceRequest {
-	r.ifMatch = &ifMatch
-	return r
-}
-
-func (r apiCreateAssetManagedDeviceRequest) IfNoneMatch(ifNoneMatch string) apiCreateAssetManagedDeviceRequest {
-	r.ifNoneMatch = &ifNoneMatch
-	return r
-}
-
-/*
-CreateAssetManagedDevice Create a 'asset.ManagedDevice' resource.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiCreateAssetManagedDeviceRequest
-*/
-func (a *AssetApiService) CreateAssetManagedDevice(ctx _context.Context) apiCreateAssetManagedDeviceRequest {
-	return apiCreateAssetManagedDeviceRequest{
-		apiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
-Execute executes the request
- @return AssetManagedDevice
-*/
-func (r apiCreateAssetManagedDeviceRequest) Execute() (AssetManagedDevice, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  AssetManagedDevice
-	)
-
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.CreateAssetManagedDevice")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/asset/ManagedDevices"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.assetManagedDevice == nil {
-		return localVarReturnValue, nil, reportError("assetManagedDevice is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ifMatch != nil {
-		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
-	}
-	if r.ifNoneMatch != nil {
-		localVarHeaderParams["If-None-Match"] = parameterToString(*r.ifNoneMatch, "")
-	}
-	// body params
-	localVarPostBody = r.assetManagedDevice
 	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -719,142 +547,6 @@ func (r apiDeleteAssetDeviceRegistrationRequest) Execute() (*_nethttp.Response, 
 	}
 
 	localVarPath := localBasePath + "/api/v1/asset/DeviceRegistrations/{Moid}"
-	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		var v Error
-		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarHTTPResponse, newErr
-		}
-		newErr.model = v
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type apiDeleteAssetManagedDeviceRequest struct {
-	ctx        _context.Context
-	apiService *AssetApiService
-	moid       string
-}
-
-/*
-DeleteAssetManagedDevice Delete a 'asset.ManagedDevice' resource.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param moid The unique Moid identifier of a resource instance.
-@return apiDeleteAssetManagedDeviceRequest
-*/
-func (a *AssetApiService) DeleteAssetManagedDevice(ctx _context.Context, moid string) apiDeleteAssetManagedDeviceRequest {
-	return apiDeleteAssetManagedDeviceRequest{
-		apiService: a,
-		ctx:        ctx,
-		moid:       moid,
-	}
-}
-
-/*
-Execute executes the request
-
-*/
-func (r apiDeleteAssetManagedDeviceRequest) Execute() (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.DeleteAssetManagedDevice")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/asset/ManagedDevices/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3023,20 +2715,20 @@ func (r apiGetAssetDeviceRegistrationListRequest) Execute() (AssetDeviceRegistra
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetAssetManagedDeviceByMoidRequest struct {
+type apiGetAssetSubscriptionDeviceContractInformationByMoidRequest struct {
 	ctx        _context.Context
 	apiService *AssetApiService
 	moid       string
 }
 
 /*
-GetAssetManagedDeviceByMoid Read a 'asset.ManagedDevice' resource.
+GetAssetSubscriptionDeviceContractInformationByMoid Read a 'asset.SubscriptionDeviceContractInformation' resource.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param moid The unique Moid identifier of a resource instance.
-@return apiGetAssetManagedDeviceByMoidRequest
+@return apiGetAssetSubscriptionDeviceContractInformationByMoidRequest
 */
-func (a *AssetApiService) GetAssetManagedDeviceByMoid(ctx _context.Context, moid string) apiGetAssetManagedDeviceByMoidRequest {
-	return apiGetAssetManagedDeviceByMoidRequest{
+func (a *AssetApiService) GetAssetSubscriptionDeviceContractInformationByMoid(ctx _context.Context, moid string) apiGetAssetSubscriptionDeviceContractInformationByMoidRequest {
+	return apiGetAssetSubscriptionDeviceContractInformationByMoidRequest{
 		apiService: a,
 		ctx:        ctx,
 		moid:       moid,
@@ -3045,24 +2737,24 @@ func (a *AssetApiService) GetAssetManagedDeviceByMoid(ctx _context.Context, moid
 
 /*
 Execute executes the request
- @return AssetManagedDevice
+ @return AssetSubscriptionDeviceContractInformation
 */
-func (r apiGetAssetManagedDeviceByMoidRequest) Execute() (AssetManagedDevice, *_nethttp.Response, error) {
+func (r apiGetAssetSubscriptionDeviceContractInformationByMoidRequest) Execute() (AssetSubscriptionDeviceContractInformation, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AssetManagedDevice
+		localVarReturnValue  AssetSubscriptionDeviceContractInformation
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.GetAssetManagedDeviceByMoid")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.GetAssetSubscriptionDeviceContractInformationByMoid")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/asset/ManagedDevices/{Moid}"
+	localVarPath := localBasePath + "/api/v1/asset/SubscriptionDeviceContractInformations/{Moid}"
 	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3169,7 +2861,7 @@ func (r apiGetAssetManagedDeviceByMoidRequest) Execute() (AssetManagedDevice, *_
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetAssetManagedDeviceListRequest struct {
+type apiGetAssetSubscriptionDeviceContractInformationListRequest struct {
 	ctx         _context.Context
 	apiService  *AssetApiService
 	filter      *string
@@ -3185,68 +2877,68 @@ type apiGetAssetManagedDeviceListRequest struct {
 	tags        *string
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Filter(filter string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Filter(filter string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.filter = &filter
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Orderby(orderby string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Orderby(orderby string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.orderby = &orderby
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Top(top int32) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Top(top int32) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.top = &top
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Skip(skip int32) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Skip(skip int32) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.skip = &skip
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Select_(select_ string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Select_(select_ string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.select_ = &select_
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Expand(expand string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Expand(expand string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.expand = &expand
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Apply(apply string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Apply(apply string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.apply = &apply
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Count(count bool) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Count(count bool) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.count = &count
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Inlinecount(inlinecount string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Inlinecount(inlinecount string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.inlinecount = &inlinecount
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) At(at string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) At(at string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.at = &at
 	return r
 }
 
-func (r apiGetAssetManagedDeviceListRequest) Tags(tags string) apiGetAssetManagedDeviceListRequest {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Tags(tags string) apiGetAssetSubscriptionDeviceContractInformationListRequest {
 	r.tags = &tags
 	return r
 }
 
 /*
-GetAssetManagedDeviceList Read a 'asset.ManagedDevice' resource.
+GetAssetSubscriptionDeviceContractInformationList Read a 'asset.SubscriptionDeviceContractInformation' resource.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetAssetManagedDeviceListRequest
+@return apiGetAssetSubscriptionDeviceContractInformationListRequest
 */
-func (a *AssetApiService) GetAssetManagedDeviceList(ctx _context.Context) apiGetAssetManagedDeviceListRequest {
-	return apiGetAssetManagedDeviceListRequest{
+func (a *AssetApiService) GetAssetSubscriptionDeviceContractInformationList(ctx _context.Context) apiGetAssetSubscriptionDeviceContractInformationListRequest {
+	return apiGetAssetSubscriptionDeviceContractInformationListRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -3254,24 +2946,24 @@ func (a *AssetApiService) GetAssetManagedDeviceList(ctx _context.Context) apiGet
 
 /*
 Execute executes the request
- @return AssetManagedDeviceResponse
+ @return AssetSubscriptionDeviceContractInformationResponse
 */
-func (r apiGetAssetManagedDeviceListRequest) Execute() (AssetManagedDeviceResponse, *_nethttp.Response, error) {
+func (r apiGetAssetSubscriptionDeviceContractInformationListRequest) Execute() (AssetSubscriptionDeviceContractInformationResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AssetManagedDeviceResponse
+		localVarReturnValue  AssetSubscriptionDeviceContractInformationResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.GetAssetManagedDeviceList")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.GetAssetSubscriptionDeviceContractInformationList")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/asset/ManagedDevices"
+	localVarPath := localBasePath + "/api/v1/asset/SubscriptionDeviceContractInformations"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4298,173 +3990,6 @@ func (r apiPatchAssetDeviceRegistrationRequest) Execute() (AssetDeviceRegistrati
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiPatchAssetManagedDeviceRequest struct {
-	ctx                _context.Context
-	apiService         *AssetApiService
-	moid               string
-	assetManagedDevice *AssetManagedDevice
-	ifMatch            *string
-}
-
-func (r apiPatchAssetManagedDeviceRequest) AssetManagedDevice(assetManagedDevice AssetManagedDevice) apiPatchAssetManagedDeviceRequest {
-	r.assetManagedDevice = &assetManagedDevice
-	return r
-}
-
-func (r apiPatchAssetManagedDeviceRequest) IfMatch(ifMatch string) apiPatchAssetManagedDeviceRequest {
-	r.ifMatch = &ifMatch
-	return r
-}
-
-/*
-PatchAssetManagedDevice Update a 'asset.ManagedDevice' resource.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param moid The unique Moid identifier of a resource instance.
-@return apiPatchAssetManagedDeviceRequest
-*/
-func (a *AssetApiService) PatchAssetManagedDevice(ctx _context.Context, moid string) apiPatchAssetManagedDeviceRequest {
-	return apiPatchAssetManagedDeviceRequest{
-		apiService: a,
-		ctx:        ctx,
-		moid:       moid,
-	}
-}
-
-/*
-Execute executes the request
- @return AssetManagedDevice
-*/
-func (r apiPatchAssetManagedDeviceRequest) Execute() (AssetManagedDevice, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodPatch
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  AssetManagedDevice
-	)
-
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.PatchAssetManagedDevice")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/asset/ManagedDevices/{Moid}"
-	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.assetManagedDevice == nil {
-		return localVarReturnValue, nil, reportError("assetManagedDevice is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/json-patch+json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ifMatch != nil {
-		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
-	}
-	// body params
-	localVarPostBody = r.assetManagedDevice
-	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		var v Error
-		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type apiPatchAssetTargetRequest struct {
 	ctx         _context.Context
 	apiService  *AssetApiService
@@ -5050,173 +4575,6 @@ func (r apiUpdateAssetDeviceRegistrationRequest) Execute() (AssetDeviceRegistrat
 	}
 	// body params
 	localVarPostBody = r.assetDeviceRegistration
-	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		var v Error
-		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type apiUpdateAssetManagedDeviceRequest struct {
-	ctx                _context.Context
-	apiService         *AssetApiService
-	moid               string
-	assetManagedDevice *AssetManagedDevice
-	ifMatch            *string
-}
-
-func (r apiUpdateAssetManagedDeviceRequest) AssetManagedDevice(assetManagedDevice AssetManagedDevice) apiUpdateAssetManagedDeviceRequest {
-	r.assetManagedDevice = &assetManagedDevice
-	return r
-}
-
-func (r apiUpdateAssetManagedDeviceRequest) IfMatch(ifMatch string) apiUpdateAssetManagedDeviceRequest {
-	r.ifMatch = &ifMatch
-	return r
-}
-
-/*
-UpdateAssetManagedDevice Update a 'asset.ManagedDevice' resource.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param moid The unique Moid identifier of a resource instance.
-@return apiUpdateAssetManagedDeviceRequest
-*/
-func (a *AssetApiService) UpdateAssetManagedDevice(ctx _context.Context, moid string) apiUpdateAssetManagedDeviceRequest {
-	return apiUpdateAssetManagedDeviceRequest{
-		apiService: a,
-		ctx:        ctx,
-		moid:       moid,
-	}
-}
-
-/*
-Execute executes the request
- @return AssetManagedDevice
-*/
-func (r apiUpdateAssetManagedDeviceRequest) Execute() (AssetManagedDevice, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  AssetManagedDevice
-	)
-
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetApiService.UpdateAssetManagedDevice")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/asset/ManagedDevices/{Moid}"
-	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.assetManagedDevice == nil {
-		return localVarReturnValue, nil, reportError("assetManagedDevice is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/json-patch+json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ifMatch != nil {
-		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
-	}
-	// body params
-	localVarPostBody = r.assetManagedDevice
 	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

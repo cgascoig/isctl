@@ -8,13 +8,14 @@ import (
 
 // CliItem is a node in the CLI tree
 type CliItem struct {
-	Token         string
-	Help          string
-	Children      map[string]*CliItem
-	Parameter     string //the name of the field in the request struct, nil if this isn't a parameter
-	Operation     *Operation
-	BodyParamType string
-	BodyParamVars []*Var
+	Token                 string
+	Help                  string
+	Children              map[string]*CliItem
+	Parameter             string //the name of the field in the request struct, nil if this isn't a parameter
+	Operation             *Operation
+	BodyParamType         string
+	BodyParamVars         []*Var // this includes all inherited parameters of the BodyParamType
+	RequiredBodyParamVars []*Var // this is just required parameters in the concrete BodyParamType
 }
 
 type fixupFunc func(tokenlist []string) []string
@@ -115,6 +116,24 @@ func getOrCreateChildCliItem(cliItem *CliItem, token string, parameter bool) *Cl
 	return cliItem.Children[token]
 }
 
+func getRequiredBodyParamVars(opData *OperationsFile, dataType string) []*Var {
+	ret := []*Var{}
+	validTypeRegExp := regexp.MustCompile(`^[a-zA-Z0-9]+$`)
+
+	if model, ok := opData.Models[dataType]; ok {
+		for i := range model.Vars {
+			dt := model.Vars[i].DataType
+			if !validTypeRegExp.MatchString(dt) || dt == "int64" || dt == "float32" || dt == "int32" {
+				model.Vars[i].Ignore = true
+			}
+
+			ret = append(ret, &model.Vars[i])
+		}
+	}
+
+	return ret
+}
+
 func getBodyParamVars(opData *OperationsFile, dataType string) []*Var {
 	ret := []*Var{}
 	validTypeRegExp := regexp.MustCompile(`^[a-zA-Z0-9]+$`)
@@ -136,8 +155,28 @@ func getBodyParamVars(opData *OperationsFile, dataType string) []*Var {
 	return ret
 }
 
+func removeDuplicateBodyParamVars(vars []*Var) []*Var {
+	seen := map[string]bool{}
+	ret := []*Var{}
+
+	for _, v := range vars {
+		if _, ok := seen[v.Name]; !ok {
+			ret = append(ret, v)
+			seen[v.Name] = true
+		}
+	}
+	return ret
+}
+
 var ignoredOperations map[string]bool = map[string]bool{
-	"QueryTelemetryTimeSeries": true,
+	"QueryTelemetryTimeSeries":         true,
+	"QueryTelemetryDatasourceMetadata": true,
+	"QueryTelemetryGroupBy":            true,
+	"QueryTelemetryScan":               true,
+	"QueryTelemetrySearch":             true,
+	"QueryTelemetrySegmentMetadata":    true,
+	"QueryTelemetryTimeBoundary":       true,
+	"QueryTelemetryTopN":               true,
 }
 
 func generateCliTree(opData *OperationsFile) *CliItem {
@@ -170,7 +209,8 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 		for _, param := range op.Params {
 			if param.IsBodyParam {
 				cliItem.BodyParamType = param.DataType
-				cliItem.BodyParamVars = getBodyParamVars(opData, param.DataType)
+				cliItem.BodyParamVars = removeDuplicateBodyParamVars(getBodyParamVars(opData, param.DataType))
+				cliItem.RequiredBodyParamVars = getRequiredBodyParamVars(opData, param.DataType)
 			}
 		}
 

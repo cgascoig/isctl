@@ -4,18 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "boot.Pxe"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "boot.Pxe"]
 **InterfaceName** | Pointer to **string** | The name of the underlying virtual ethernet interface used by the PXE boot device. | [optional] 
 **InterfaceSource** | Pointer to **string** | Lists the supported Interface Source for PXE device. Supported values are \&quot;name\&quot; and \&quot;mac\&quot;. * &#x60;name&#x60; - Use interface name to select virtual ethernet interface. * &#x60;mac&#x60; - Use MAC address to select virtual ethernet interface. * &#x60;port&#x60; - Use port to select virtual ethernet interface. | [optional] [default to "name"]
 **IpType** | Pointer to **string** | The IP Address family type to use during the PXE Boot process. * &#x60;None&#x60; - Default value if IpType is not specified. * &#x60;IPv4&#x60; - The IPv4 address family type. * &#x60;IPv6&#x60; - The IPv6 address family type. | [optional] [default to "None"]
 **MacAddress** | Pointer to **string** | The MAC Address of the underlying virtual ethernet interface used by the PXE boot device. | [optional] 
-**Port** | Pointer to **int64** | The Port ID of the adapter on which the underlying virtual ethernet interface is present. If no port is specified, the default value is -1. Supported values are -1 to 255. | [optional] 
+**Port** | Pointer to **int64** | The Port ID of the adapter on which the underlying virtual ethernet interface is present. If no port is specified, the default value is -1. Supported values are -1 to 255. | [optional] [default to -1]
 **Slot** | Pointer to **string** | The slot ID of the adapter on which the underlying virtual ethernet interface is present. Supported values are ( 1 - 255, \&quot;MLOM\&quot;, \&quot;L\&quot;, \&quot;L1\&quot;, \&quot;L2\&quot;, \&quot;OCP\&quot;). | [optional] 
 
 ## Methods
 
 ### NewBootPxe
 
-`func NewBootPxe() *BootPxe`
+`func NewBootPxe(classId string, objectType string, ) *BootPxe`
 
 NewBootPxe instantiates a new BootPxe object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +31,46 @@ will change when the set of required properties is changed
 NewBootPxeWithDefaults instantiates a new BootPxe object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *BootPxe) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *BootPxe) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *BootPxe) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *BootPxe) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *BootPxe) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *BootPxe) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetInterfaceName
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,20 +19,30 @@ import (
 // AssetAddressInformation Type for saving the address information. It is used in asset.DeviceContractInformation object to save customer address.
 type AssetAddressInformation struct {
 	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Address Line one of the address information. example \"PO BOX 641570\".
 	Address1 *string `json:"Address1,omitempty" yaml:"Address1,omitempty"`
 	// Address Line two of the address information. example \"Cisco Systems\".
 	Address2 *string `json:"Address2,omitempty" yaml:"Address2,omitempty"`
+	// Address Line three of the address information. example \"Cisco Systems\".
+	Address3 *string `json:"Address3,omitempty" yaml:"Address3,omitempty"`
 	// City in which the address resides. example \"San Jose\".
 	City *string `json:"City,omitempty" yaml:"City,omitempty"`
 	// Country in which the address resides. example \"US\".
 	Country *string `json:"Country,omitempty" yaml:"Country,omitempty"`
+	// County in which the address resides. example \"Washington County\".
+	County *string `json:"County,omitempty" yaml:"County,omitempty"`
 	// Location in which the address resides. example \"14852\".
 	Location *string `json:"Location,omitempty" yaml:"Location,omitempty"`
 	// Name of the user whose address is being populated.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
 	// Postal Code in which the address resides. example \"95164-1570\".
 	PostalCode *string `json:"PostalCode,omitempty" yaml:"PostalCode,omitempty"`
+	// Province in which the address resides. example \"AB\".
+	Province *string `json:"Province,omitempty" yaml:"Province,omitempty"`
 	// State in which the address resides. example \"CA\".
 	State *string `json:"State,omitempty" yaml:"State,omitempty"`
 }
@@ -41,8 +51,10 @@ type AssetAddressInformation struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAssetAddressInformation() *AssetAddressInformation {
+func NewAssetAddressInformation(classId string, objectType string) *AssetAddressInformation {
 	this := AssetAddressInformation{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -51,7 +63,59 @@ func NewAssetAddressInformation() *AssetAddressInformation {
 // but it doesn't guarantee that properties required by API are set
 func NewAssetAddressInformationWithDefaults() *AssetAddressInformation {
 	this := AssetAddressInformation{}
+	var classId string = "asset.AddressInformation"
+	this.ClassId = classId
+	var objectType string = "asset.AddressInformation"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *AssetAddressInformation) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *AssetAddressInformation) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *AssetAddressInformation) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *AssetAddressInformation) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *AssetAddressInformation) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *AssetAddressInformation) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAddress1 returns the Address1 field value if set, zero value otherwise.
@@ -118,6 +182,38 @@ func (o *AssetAddressInformation) SetAddress2(v string) {
 	o.Address2 = &v
 }
 
+// GetAddress3 returns the Address3 field value if set, zero value otherwise.
+func (o *AssetAddressInformation) GetAddress3() string {
+	if o == nil || o.Address3 == nil {
+		var ret string
+		return ret
+	}
+	return *o.Address3
+}
+
+// GetAddress3Ok returns a tuple with the Address3 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssetAddressInformation) GetAddress3Ok() (*string, bool) {
+	if o == nil || o.Address3 == nil {
+		return nil, false
+	}
+	return o.Address3, true
+}
+
+// HasAddress3 returns a boolean if a field has been set.
+func (o *AssetAddressInformation) HasAddress3() bool {
+	if o != nil && o.Address3 != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAddress3 gets a reference to the given string and assigns it to the Address3 field.
+func (o *AssetAddressInformation) SetAddress3(v string) {
+	o.Address3 = &v
+}
+
 // GetCity returns the City field value if set, zero value otherwise.
 func (o *AssetAddressInformation) GetCity() string {
 	if o == nil || o.City == nil {
@@ -180,6 +276,38 @@ func (o *AssetAddressInformation) HasCountry() bool {
 // SetCountry gets a reference to the given string and assigns it to the Country field.
 func (o *AssetAddressInformation) SetCountry(v string) {
 	o.Country = &v
+}
+
+// GetCounty returns the County field value if set, zero value otherwise.
+func (o *AssetAddressInformation) GetCounty() string {
+	if o == nil || o.County == nil {
+		var ret string
+		return ret
+	}
+	return *o.County
+}
+
+// GetCountyOk returns a tuple with the County field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssetAddressInformation) GetCountyOk() (*string, bool) {
+	if o == nil || o.County == nil {
+		return nil, false
+	}
+	return o.County, true
+}
+
+// HasCounty returns a boolean if a field has been set.
+func (o *AssetAddressInformation) HasCounty() bool {
+	if o != nil && o.County != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCounty gets a reference to the given string and assigns it to the County field.
+func (o *AssetAddressInformation) SetCounty(v string) {
+	o.County = &v
 }
 
 // GetLocation returns the Location field value if set, zero value otherwise.
@@ -278,6 +406,38 @@ func (o *AssetAddressInformation) SetPostalCode(v string) {
 	o.PostalCode = &v
 }
 
+// GetProvince returns the Province field value if set, zero value otherwise.
+func (o *AssetAddressInformation) GetProvince() string {
+	if o == nil || o.Province == nil {
+		var ret string
+		return ret
+	}
+	return *o.Province
+}
+
+// GetProvinceOk returns a tuple with the Province field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssetAddressInformation) GetProvinceOk() (*string, bool) {
+	if o == nil || o.Province == nil {
+		return nil, false
+	}
+	return o.Province, true
+}
+
+// HasProvince returns a boolean if a field has been set.
+func (o *AssetAddressInformation) HasProvince() bool {
+	if o != nil && o.Province != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProvince gets a reference to the given string and assigns it to the Province field.
+func (o *AssetAddressInformation) SetProvince(v string) {
+	o.Province = &v
+}
+
 // GetState returns the State field value if set, zero value otherwise.
 func (o *AssetAddressInformation) GetState() string {
 	if o == nil || o.State == nil {
@@ -320,17 +480,29 @@ func (o AssetAddressInformation) MarshalJSON() ([]byte, error) {
 	if errMoBaseComplexType != nil {
 		return []byte{}, errMoBaseComplexType
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Address1 != nil {
 		toSerialize["Address1"] = o.Address1
 	}
 	if o.Address2 != nil {
 		toSerialize["Address2"] = o.Address2
 	}
+	if o.Address3 != nil {
+		toSerialize["Address3"] = o.Address3
+	}
 	if o.City != nil {
 		toSerialize["City"] = o.City
 	}
 	if o.Country != nil {
 		toSerialize["Country"] = o.Country
+	}
+	if o.County != nil {
+		toSerialize["County"] = o.County
 	}
 	if o.Location != nil {
 		toSerialize["Location"] = o.Location
@@ -340,6 +512,9 @@ func (o AssetAddressInformation) MarshalJSON() ([]byte, error) {
 	}
 	if o.PostalCode != nil {
 		toSerialize["PostalCode"] = o.PostalCode
+	}
+	if o.Province != nil {
+		toSerialize["Province"] = o.Province
 	}
 	if o.State != nil {
 		toSerialize["State"] = o.State

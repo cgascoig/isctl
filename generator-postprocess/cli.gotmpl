@@ -32,7 +32,13 @@ func () *cobra.Command {
             req := client.{{ .Operation.BaseName }}Api.{{ .Operation.OperationID }}(authCtx{{ if .Parameter }}, args[0]{{ end }})
 
             {{ if ne .BodyParamType "" }}
-            body := openapi.New{{ .BodyParamType }}()
+            body := openapi.New{{ .BodyParamType }}(
+                //"{{ .Operation.ReturnBaseType }}", "{{ .Operation.ReturnBaseType }}"
+                {{ $classid := .Operation.ReturnBaseType }}
+                {{ range .RequiredBodyParamVars }}
+                    {{ if .Required }}{{ if eq .Name "ObjectType" "ClassId" }}"{{ $classid }}",{{ end }}{{ end }}
+                {{ end }}
+                )
 
             //Set class id and object type by default
             body.ClassId = "{{ .Operation.ReturnBaseType }}"
@@ -50,9 +56,13 @@ func () *cobra.Command {
             }
 
             {{ range .BodyParamVars }}
-                {{ if eq .DataType "string" "bool" "[]string" }}
+                {{ if eq .DataType "string" "bool" }}
                     if isFlagPassed(cmd.Flags(), "{{ .Name }}") {
                         body.{{ .Name }} = {{ if not .Required }}&{{ end }}{{ .Name }}
+                    }
+                {{ else if eq .DataType "[]string" }}
+                    if isFlagPassed(cmd.Flags(), "{{ .Name }}") {
+                        body.{{ .Name }} = {{ .Name }}
                     }
                 {{ else if not .Ignore }}
                     if isFlagPassed(cmd.Flags(), "{{ .Name }}") && isMoRef(openapi.{{ .DataType }}{}) {
@@ -61,7 +71,7 @@ func () *cobra.Command {
                             ok := setMoRefSelector(&paramVal, fmt.Sprintf("Name eq '%s'", f))
 
                             if ok {
-                                body.{{ .Name }} = &paramVal
+                                body.{{ .Name }} = {{ if not .Nullable }}&{{ end }}paramVal
 //                                if v, ok := v.(openapi.{{ .DataType }}); ok {
 //                                    body.{{ .Name }} = &v
 //                                }
@@ -173,6 +183,20 @@ func setMoRefSelector(v interface{}, selector string) bool {
     moref.Selector = &selector
 
     val := reflect.ValueOf(v).Elem()
+
+    // Here we are trying to find the type of the field other than MoMoRef (e.g. OrganizationOrganization)
+    // i.e. the type that this MoRef refers to
+    t := val.Type()
+    var referredTypeName string
+    for i := 0; i < t.NumField(); i++ {
+        if t.Field(i).Name == "MoMoRef" {
+            continue
+        }
+        referredTypeName = t.Field(i).Type.Elem().Name()
+    }
+
+    moref.ObjectType = goTypeNameToIntersightClassID[referredTypeName]
+
     val.FieldByName("MoMoRef").Set(reflect.ValueOf(moref))
 
     return true

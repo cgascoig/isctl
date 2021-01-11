@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -20,6 +20,10 @@ import (
 // WorkflowTaskInfo Task instance which represents the run time instance of a task within a workflow.
 type WorkflowTaskInfo struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The task description and this is the description that was added when the task was included into the workflow.
 	Description *string `json:"Description,omitempty" yaml:"Description,omitempty"`
 	// The time stamp when the task reached a final state.
@@ -33,8 +37,8 @@ type WorkflowTaskInfo struct {
 	// Denotes whether or not this is an internal task.  Internal tasks will be hidden from the UI within a workflow.
 	Internal *bool `json:"Internal,omitempty" yaml:"Internal,omitempty"`
 	// User friendly short label to describe this task instance in the workflow.
-	Label   *string            `json:"Label,omitempty" yaml:"Label,omitempty"`
-	Message *[]WorkflowMessage `json:"Message,omitempty" yaml:"Message,omitempty"`
+	Label   *string           `json:"Label,omitempty" yaml:"Label,omitempty"`
+	Message []WorkflowMessage `json:"Message,omitempty" yaml:"Message,omitempty"`
 	// Task definition name which specifies the task type.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
 	// The output data that was generated by this task.
@@ -43,13 +47,15 @@ type WorkflowTaskInfo struct {
 	RefName *string `json:"RefName,omitempty" yaml:"RefName,omitempty"`
 	// A counter for number of retries.
 	RetryCount *int64 `json:"RetryCount,omitempty" yaml:"RetryCount,omitempty"`
+	// The task is disabled/enabled for rollback operation in this workflow if the task has rollback support.
+	RollbackDisabled *bool `json:"RollbackDisabled,omitempty" yaml:"RollbackDisabled,omitempty"`
 	// The instance ID of the task that is currently being executed. When retrying a workflow with failed tasks, the task in workflow engine will have a new instance ID, but the task may still be in-progress. In this case, the task instId reflects the instance ID in the workflow engine, while runningInstId reflects the instance ID of the instance that is currently being executed.
 	RunningInstId *string `json:"RunningInstId,omitempty" yaml:"RunningInstId,omitempty"`
 	// The time stamp when the task started execution.
 	StartTime *time.Time `json:"StartTime,omitempty" yaml:"StartTime,omitempty"`
 	// The status of the task and this will specify if the task is running or has reached a final state.
 	Status          *string                             `json:"Status,omitempty" yaml:"Status,omitempty"`
-	TaskInstIdList  *[]WorkflowTaskRetryInfo            `json:"TaskInstIdList,omitempty" yaml:"TaskInstIdList,omitempty"`
+	TaskInstIdList  []WorkflowTaskRetryInfo             `json:"TaskInstIdList,omitempty" yaml:"TaskInstIdList,omitempty"`
 	SubWorkflowInfo *WorkflowWorkflowInfoRelationship   `json:"SubWorkflowInfo,omitempty" yaml:"SubWorkflowInfo,omitempty"`
 	TaskDefinition  *WorkflowTaskDefinitionRelationship `json:"TaskDefinition,omitempty" yaml:"TaskDefinition,omitempty"`
 	WorkflowInfo    *WorkflowWorkflowInfoRelationship   `json:"WorkflowInfo,omitempty" yaml:"WorkflowInfo,omitempty"`
@@ -59,8 +65,12 @@ type WorkflowTaskInfo struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkflowTaskInfo() *WorkflowTaskInfo {
+func NewWorkflowTaskInfo(classId string, objectType string) *WorkflowTaskInfo {
 	this := WorkflowTaskInfo{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var rollbackDisabled bool = false
+	this.RollbackDisabled = &rollbackDisabled
 	return &this
 }
 
@@ -69,7 +79,61 @@ func NewWorkflowTaskInfo() *WorkflowTaskInfo {
 // but it doesn't guarantee that properties required by API are set
 func NewWorkflowTaskInfoWithDefaults() *WorkflowTaskInfo {
 	this := WorkflowTaskInfo{}
+	var classId string = "workflow.TaskInfo"
+	this.ClassId = classId
+	var objectType string = "workflow.TaskInfo"
+	this.ObjectType = objectType
+	var rollbackDisabled bool = false
+	this.RollbackDisabled = &rollbackDisabled
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *WorkflowTaskInfo) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskInfo) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *WorkflowTaskInfo) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *WorkflowTaskInfo) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskInfo) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *WorkflowTaskInfo) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -297,22 +361,23 @@ func (o *WorkflowTaskInfo) SetLabel(v string) {
 	o.Label = &v
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise.
+// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkflowTaskInfo) GetMessage() []WorkflowMessage {
-	if o == nil || o.Message == nil {
+	if o == nil {
 		var ret []WorkflowMessage
 		return ret
 	}
-	return *o.Message
+	return o.Message
 }
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkflowTaskInfo) GetMessageOk() (*[]WorkflowMessage, bool) {
 	if o == nil || o.Message == nil {
 		return nil, false
 	}
-	return o.Message, true
+	return &o.Message, true
 }
 
 // HasMessage returns a boolean if a field has been set.
@@ -326,7 +391,7 @@ func (o *WorkflowTaskInfo) HasMessage() bool {
 
 // SetMessage gets a reference to the given []WorkflowMessage and assigns it to the Message field.
 func (o *WorkflowTaskInfo) SetMessage(v []WorkflowMessage) {
-	o.Message = &v
+	o.Message = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -458,6 +523,38 @@ func (o *WorkflowTaskInfo) SetRetryCount(v int64) {
 	o.RetryCount = &v
 }
 
+// GetRollbackDisabled returns the RollbackDisabled field value if set, zero value otherwise.
+func (o *WorkflowTaskInfo) GetRollbackDisabled() bool {
+	if o == nil || o.RollbackDisabled == nil {
+		var ret bool
+		return ret
+	}
+	return *o.RollbackDisabled
+}
+
+// GetRollbackDisabledOk returns a tuple with the RollbackDisabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WorkflowTaskInfo) GetRollbackDisabledOk() (*bool, bool) {
+	if o == nil || o.RollbackDisabled == nil {
+		return nil, false
+	}
+	return o.RollbackDisabled, true
+}
+
+// HasRollbackDisabled returns a boolean if a field has been set.
+func (o *WorkflowTaskInfo) HasRollbackDisabled() bool {
+	if o != nil && o.RollbackDisabled != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRollbackDisabled gets a reference to the given bool and assigns it to the RollbackDisabled field.
+func (o *WorkflowTaskInfo) SetRollbackDisabled(v bool) {
+	o.RollbackDisabled = &v
+}
+
 // GetRunningInstId returns the RunningInstId field value if set, zero value otherwise.
 func (o *WorkflowTaskInfo) GetRunningInstId() string {
 	if o == nil || o.RunningInstId == nil {
@@ -554,22 +651,23 @@ func (o *WorkflowTaskInfo) SetStatus(v string) {
 	o.Status = &v
 }
 
-// GetTaskInstIdList returns the TaskInstIdList field value if set, zero value otherwise.
+// GetTaskInstIdList returns the TaskInstIdList field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkflowTaskInfo) GetTaskInstIdList() []WorkflowTaskRetryInfo {
-	if o == nil || o.TaskInstIdList == nil {
+	if o == nil {
 		var ret []WorkflowTaskRetryInfo
 		return ret
 	}
-	return *o.TaskInstIdList
+	return o.TaskInstIdList
 }
 
 // GetTaskInstIdListOk returns a tuple with the TaskInstIdList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkflowTaskInfo) GetTaskInstIdListOk() (*[]WorkflowTaskRetryInfo, bool) {
 	if o == nil || o.TaskInstIdList == nil {
 		return nil, false
 	}
-	return o.TaskInstIdList, true
+	return &o.TaskInstIdList, true
 }
 
 // HasTaskInstIdList returns a boolean if a field has been set.
@@ -583,7 +681,7 @@ func (o *WorkflowTaskInfo) HasTaskInstIdList() bool {
 
 // SetTaskInstIdList gets a reference to the given []WorkflowTaskRetryInfo and assigns it to the TaskInstIdList field.
 func (o *WorkflowTaskInfo) SetTaskInstIdList(v []WorkflowTaskRetryInfo) {
-	o.TaskInstIdList = &v
+	o.TaskInstIdList = v
 }
 
 // GetSubWorkflowInfo returns the SubWorkflowInfo field value if set, zero value otherwise.
@@ -692,6 +790,12 @@ func (o WorkflowTaskInfo) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Description != nil {
 		toSerialize["Description"] = o.Description
 	}
@@ -727,6 +831,9 @@ func (o WorkflowTaskInfo) MarshalJSON() ([]byte, error) {
 	}
 	if o.RetryCount != nil {
 		toSerialize["RetryCount"] = o.RetryCount
+	}
+	if o.RollbackDisabled != nil {
+		toSerialize["RollbackDisabled"] = o.RollbackDisabled
 	}
 	if o.RunningInstId != nil {
 		toSerialize["RunningInstId"] = o.RunningInstId

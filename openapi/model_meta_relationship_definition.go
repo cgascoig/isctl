@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,10 @@ import (
 // MetaRelationshipDefinition Definitions for the relationship in a meta.
 type MetaRelationshipDefinition struct {
 	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// API access definition for this relationship. * `NoAccess` - The property is not accessible from the API. * `ReadOnly` - The value of the property is read-only.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa ReadOnly property. * `CreateOnly` - The value of the property can be set when the REST resource is created. It cannot be changed after object creation.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa CreateOnly property.CreateOnly properties are returned in the response body of HTTP GET requests. * `ReadWrite` - The property has read/write access. * `WriteOnly` - The value of the property can be set but it is never returned in the response body of supported HTTP methods.This settings is used for sensitive properties such as passwords. * `ReadOnCreate` - The value of the property is returned in the HTTP POST response body when the REST resource is created.The property is not writeable and cannot be queried through a GET request after the resource has been created.
 	ApiAccess *string `json:"ApiAccess,omitempty" yaml:"ApiAccess,omitempty"`
 	// Specifies whether the relationship is a collection.
@@ -29,7 +33,9 @@ type MetaRelationshipDefinition struct {
 	ExportWithPeer *bool `json:"ExportWithPeer,omitempty" yaml:"ExportWithPeer,omitempty"`
 	// The name of the relationship.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
-	// Fully qualified type of the foreign managed object.
+	// Name of relationship in peer managed object.
+	PeerRelName *string `json:"PeerRelName,omitempty" yaml:"PeerRelName,omitempty"`
+	// Fully qualified type of the peer managed object.
 	Type *string `json:"Type,omitempty" yaml:"Type,omitempty"`
 }
 
@@ -37,8 +43,10 @@ type MetaRelationshipDefinition struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMetaRelationshipDefinition() *MetaRelationshipDefinition {
+func NewMetaRelationshipDefinition(classId string, objectType string) *MetaRelationshipDefinition {
 	this := MetaRelationshipDefinition{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var apiAccess string = "NoAccess"
 	this.ApiAccess = &apiAccess
 	return &this
@@ -49,9 +57,61 @@ func NewMetaRelationshipDefinition() *MetaRelationshipDefinition {
 // but it doesn't guarantee that properties required by API are set
 func NewMetaRelationshipDefinitionWithDefaults() *MetaRelationshipDefinition {
 	this := MetaRelationshipDefinition{}
+	var classId string = "meta.RelationshipDefinition"
+	this.ClassId = classId
+	var objectType string = "meta.RelationshipDefinition"
+	this.ObjectType = objectType
 	var apiAccess string = "NoAccess"
 	this.ApiAccess = &apiAccess
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *MetaRelationshipDefinition) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *MetaRelationshipDefinition) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *MetaRelationshipDefinition) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *MetaRelationshipDefinition) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *MetaRelationshipDefinition) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *MetaRelationshipDefinition) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetApiAccess returns the ApiAccess field value if set, zero value otherwise.
@@ -214,6 +274,38 @@ func (o *MetaRelationshipDefinition) SetName(v string) {
 	o.Name = &v
 }
 
+// GetPeerRelName returns the PeerRelName field value if set, zero value otherwise.
+func (o *MetaRelationshipDefinition) GetPeerRelName() string {
+	if o == nil || o.PeerRelName == nil {
+		var ret string
+		return ret
+	}
+	return *o.PeerRelName
+}
+
+// GetPeerRelNameOk returns a tuple with the PeerRelName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MetaRelationshipDefinition) GetPeerRelNameOk() (*string, bool) {
+	if o == nil || o.PeerRelName == nil {
+		return nil, false
+	}
+	return o.PeerRelName, true
+}
+
+// HasPeerRelName returns a boolean if a field has been set.
+func (o *MetaRelationshipDefinition) HasPeerRelName() bool {
+	if o != nil && o.PeerRelName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPeerRelName gets a reference to the given string and assigns it to the PeerRelName field.
+func (o *MetaRelationshipDefinition) SetPeerRelName(v string) {
+	o.PeerRelName = &v
+}
+
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *MetaRelationshipDefinition) GetType() string {
 	if o == nil || o.Type == nil {
@@ -256,6 +348,12 @@ func (o MetaRelationshipDefinition) MarshalJSON() ([]byte, error) {
 	if errMoBaseComplexType != nil {
 		return []byte{}, errMoBaseComplexType
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.ApiAccess != nil {
 		toSerialize["ApiAccess"] = o.ApiAccess
 	}
@@ -270,6 +368,9 @@ func (o MetaRelationshipDefinition) MarshalJSON() ([]byte, error) {
 	}
 	if o.Name != nil {
 		toSerialize["Name"] = o.Name
+	}
+	if o.PeerRelName != nil {
+		toSerialize["PeerRelName"] = o.PeerRelName
 	}
 	if o.Type != nil {
 		toSerialize["Type"] = o.Type

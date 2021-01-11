@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,13 +19,18 @@ import (
 // HyperflexSoftwareVersionPolicy A policy capturing software versions for different HyperFlex Cluster compatible components ( like HyperFlex Data Platform, Hypervisor, etc. ), that the user wishes to apply on the HyperFlex cluster.
 type HyperflexSoftwareVersionPolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Desired HyperFlex Data Platform software version to apply on the HyperFlex cluster.
 	HxdpVersion *string `json:"HxdpVersion,omitempty" yaml:"HxdpVersion,omitempty"`
 	// Desired  hypervisor version to apply for all the nodes on the HyperFlex cluster.
 	HypervisorVersion *string `json:"HypervisorVersion,omitempty" yaml:"HypervisorVersion,omitempty"`
 	// Desired server firmware version to apply on the HyperFlex Cluster.
-	ServerFirmwareVersion *string   `json:"ServerFirmwareVersion,omitempty" yaml:"ServerFirmwareVersion,omitempty"`
-	UpgradeTypes          *[]string `json:"UpgradeTypes,omitempty" yaml:"UpgradeTypes,omitempty"`
+	ServerFirmwareVersion  *string                              `json:"ServerFirmwareVersion,omitempty" yaml:"ServerFirmwareVersion,omitempty"`
+	ServerFirmwareVersions []HyperflexServerFirmwareVersionInfo `json:"ServerFirmwareVersions,omitempty" yaml:"ServerFirmwareVersions,omitempty"`
+	UpgradeTypes           []string                             `json:"UpgradeTypes,omitempty" yaml:"UpgradeTypes,omitempty"`
 	// An array of relationships to hyperflexClusterProfile resources.
 	ClusterProfiles           []HyperflexClusterProfileRelationship       `json:"ClusterProfiles,omitempty" yaml:"ClusterProfiles,omitempty"`
 	HxdpVersionInfo           *SoftwareHyperflexDistributableRelationship `json:"HxdpVersionInfo,omitempty" yaml:"HxdpVersionInfo,omitempty"`
@@ -38,8 +43,10 @@ type HyperflexSoftwareVersionPolicy struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexSoftwareVersionPolicy() *HyperflexSoftwareVersionPolicy {
+func NewHyperflexSoftwareVersionPolicy(classId string, objectType string) *HyperflexSoftwareVersionPolicy {
 	this := HyperflexSoftwareVersionPolicy{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -48,7 +55,59 @@ func NewHyperflexSoftwareVersionPolicy() *HyperflexSoftwareVersionPolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexSoftwareVersionPolicyWithDefaults() *HyperflexSoftwareVersionPolicy {
 	this := HyperflexSoftwareVersionPolicy{}
+	var classId string = "hyperflex.SoftwareVersionPolicy"
+	this.ClassId = classId
+	var objectType string = "hyperflex.SoftwareVersionPolicy"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexSoftwareVersionPolicy) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexSoftwareVersionPolicy) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexSoftwareVersionPolicy) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexSoftwareVersionPolicy) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexSoftwareVersionPolicy) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexSoftwareVersionPolicy) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetHxdpVersion returns the HxdpVersion field value if set, zero value otherwise.
@@ -147,22 +206,56 @@ func (o *HyperflexSoftwareVersionPolicy) SetServerFirmwareVersion(v string) {
 	o.ServerFirmwareVersion = &v
 }
 
-// GetUpgradeTypes returns the UpgradeTypes field value if set, zero value otherwise.
+// GetServerFirmwareVersions returns the ServerFirmwareVersions field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HyperflexSoftwareVersionPolicy) GetServerFirmwareVersions() []HyperflexServerFirmwareVersionInfo {
+	if o == nil {
+		var ret []HyperflexServerFirmwareVersionInfo
+		return ret
+	}
+	return o.ServerFirmwareVersions
+}
+
+// GetServerFirmwareVersionsOk returns a tuple with the ServerFirmwareVersions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HyperflexSoftwareVersionPolicy) GetServerFirmwareVersionsOk() (*[]HyperflexServerFirmwareVersionInfo, bool) {
+	if o == nil || o.ServerFirmwareVersions == nil {
+		return nil, false
+	}
+	return &o.ServerFirmwareVersions, true
+}
+
+// HasServerFirmwareVersions returns a boolean if a field has been set.
+func (o *HyperflexSoftwareVersionPolicy) HasServerFirmwareVersions() bool {
+	if o != nil && o.ServerFirmwareVersions != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetServerFirmwareVersions gets a reference to the given []HyperflexServerFirmwareVersionInfo and assigns it to the ServerFirmwareVersions field.
+func (o *HyperflexSoftwareVersionPolicy) SetServerFirmwareVersions(v []HyperflexServerFirmwareVersionInfo) {
+	o.ServerFirmwareVersions = v
+}
+
+// GetUpgradeTypes returns the UpgradeTypes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexSoftwareVersionPolicy) GetUpgradeTypes() []string {
-	if o == nil || o.UpgradeTypes == nil {
+	if o == nil {
 		var ret []string
 		return ret
 	}
-	return *o.UpgradeTypes
+	return o.UpgradeTypes
 }
 
 // GetUpgradeTypesOk returns a tuple with the UpgradeTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexSoftwareVersionPolicy) GetUpgradeTypesOk() (*[]string, bool) {
 	if o == nil || o.UpgradeTypes == nil {
 		return nil, false
 	}
-	return o.UpgradeTypes, true
+	return &o.UpgradeTypes, true
 }
 
 // HasUpgradeTypes returns a boolean if a field has been set.
@@ -176,7 +269,7 @@ func (o *HyperflexSoftwareVersionPolicy) HasUpgradeTypes() bool {
 
 // SetUpgradeTypes gets a reference to the given []string and assigns it to the UpgradeTypes field.
 func (o *HyperflexSoftwareVersionPolicy) SetUpgradeTypes(v []string) {
-	o.UpgradeTypes = &v
+	o.UpgradeTypes = v
 }
 
 // GetClusterProfiles returns the ClusterProfiles field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -350,6 +443,12 @@ func (o HyperflexSoftwareVersionPolicy) MarshalJSON() ([]byte, error) {
 	if errPolicyAbstractPolicy != nil {
 		return []byte{}, errPolicyAbstractPolicy
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.HxdpVersion != nil {
 		toSerialize["HxdpVersion"] = o.HxdpVersion
 	}
@@ -358,6 +457,9 @@ func (o HyperflexSoftwareVersionPolicy) MarshalJSON() ([]byte, error) {
 	}
 	if o.ServerFirmwareVersion != nil {
 		toSerialize["ServerFirmwareVersion"] = o.ServerFirmwareVersion
+	}
+	if o.ServerFirmwareVersions != nil {
+		toSerialize["ServerFirmwareVersions"] = o.ServerFirmwareVersions
 	}
 	if o.UpgradeTypes != nil {
 		toSerialize["UpgradeTypes"] = o.UpgradeTypes

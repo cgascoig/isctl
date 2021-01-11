@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,6 +18,10 @@ import (
 
 // EquipmentIdentitySummaryAllOf Definition of the list of properties defined in 'equipment.IdentitySummary', excluding properties defined in parent classes.
 type EquipmentIdentitySummaryAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Serial Identifier of an adapter participating in SWM.
 	AdapterSerial *string `json:"AdapterSerial,omitempty" yaml:"AdapterSerial,omitempty"`
 	// Updated by UI/API to trigger specific chassis action type. * `None` - No operation value for maintenance actions on an equipment. * `Decommission` - Decommission the equipment and temporarily remove it from being managed by Intersight. * `Recommission` - Recommission the equipment. * `Reack` - Reacknowledge the equipment and discover it again. * `Remove` - Remove the equipment permanently from Intersight management.
@@ -29,13 +33,13 @@ type EquipmentIdentitySummaryAllOf struct {
 	// FI Device registration Mo ID.
 	DeviceMoId *string `json:"DeviceMoId,omitempty" yaml:"DeviceMoId,omitempty"`
 	// Numeric Identifier assigned by the management system to the equipment.
-	Identifier         *int64                     `json:"Identifier,omitempty" yaml:"Identifier,omitempty"`
-	IoCardIdentityList *[]EquipmentIoCardIdentity `json:"IoCardIdentityList,omitempty" yaml:"IoCardIdentityList,omitempty"`
-	// The equipment's lifecycle status. * `None` - Default state of an equipment. This should be an initial state when no state is defined for an equipment. * `Active` - Default Lifecycle State for a physical entity. * `Decommissioned` - Decommission Lifecycle state. * `DecommissionInProgress` - Decommission Inprogress Lifecycle state. * `RecommissionInProgress` - Recommission Inprogress Lifecycle state. * `OperationFailed` - Failed Operation Lifecycle state. * `ReackInProgress` - ReackInProgress Lifecycle state. * `RemoveInProgress` - RemoveInProgress Lifecycle state. * `Discovered` - Discovered Lifecycle state. * `DiscoveryInProgress` - DiscoveryInProgress Lifecycle state. * `DiscoveryFailed` - DiscoveryFailed Lifecycle state.
+	Identifier         *int64                    `json:"Identifier,omitempty" yaml:"Identifier,omitempty"`
+	IoCardIdentityList []EquipmentIoCardIdentity `json:"IoCardIdentityList,omitempty" yaml:"IoCardIdentityList,omitempty"`
+	// The equipment's lifecycle status. * `None` - Default state of an equipment. This should be an initial state when no state is defined for an equipment. * `Active` - Default Lifecycle State for a physical entity. * `Decommissioned` - Decommission Lifecycle state. * `DecommissionInProgress` - Decommission Inprogress Lifecycle state. * `RecommissionInProgress` - Recommission Inprogress Lifecycle state. * `OperationFailed` - Failed Operation Lifecycle state. * `ReackInProgress` - ReackInProgress Lifecycle state. * `RemoveInProgress` - RemoveInProgress Lifecycle state. * `Discovered` - Discovered Lifecycle state. * `DiscoveryInProgress` - DiscoveryInProgress Lifecycle state. * `DiscoveryFailed` - DiscoveryFailed Lifecycle state. * `FirmwareUpgradeInProgress` - Firmware upgrade is in progress on given physical entity.
 	Lifecycle *string `json:"Lifecycle,omitempty" yaml:"Lifecycle,omitempty"`
 	// The vendor provided model name for the equipment.
 	Model *string `json:"Model,omitempty" yaml:"Model,omitempty"`
-	// Indicates pending discovery flag.
+	// Value to indicate if discovery needs to be triggered after some event (ex. device connector reconnect).
 	PendingDiscovery *string `json:"PendingDiscovery,omitempty" yaml:"PendingDiscovery,omitempty"`
 	// The serial number of the equipment.
 	Serial *string `json:"Serial,omitempty" yaml:"Serial,omitempty"`
@@ -54,8 +58,10 @@ type EquipmentIdentitySummaryAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEquipmentIdentitySummaryAllOf() *EquipmentIdentitySummaryAllOf {
+func NewEquipmentIdentitySummaryAllOf(classId string, objectType string) *EquipmentIdentitySummaryAllOf {
 	this := EquipmentIdentitySummaryAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var adminAction string = "None"
 	this.AdminAction = &adminAction
 	var adminActionState string = "None"
@@ -70,6 +76,10 @@ func NewEquipmentIdentitySummaryAllOf() *EquipmentIdentitySummaryAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewEquipmentIdentitySummaryAllOfWithDefaults() *EquipmentIdentitySummaryAllOf {
 	this := EquipmentIdentitySummaryAllOf{}
+	var classId string = "equipment.IdentitySummary"
+	this.ClassId = classId
+	var objectType string = "equipment.IdentitySummary"
+	this.ObjectType = objectType
 	var adminAction string = "None"
 	this.AdminAction = &adminAction
 	var adminActionState string = "None"
@@ -77,6 +87,54 @@ func NewEquipmentIdentitySummaryAllOfWithDefaults() *EquipmentIdentitySummaryAll
 	var lifecycle string = "None"
 	this.Lifecycle = &lifecycle
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *EquipmentIdentitySummaryAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *EquipmentIdentitySummaryAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *EquipmentIdentitySummaryAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *EquipmentIdentitySummaryAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *EquipmentIdentitySummaryAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *EquipmentIdentitySummaryAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAdapterSerial returns the AdapterSerial field value if set, zero value otherwise.
@@ -271,22 +329,23 @@ func (o *EquipmentIdentitySummaryAllOf) SetIdentifier(v int64) {
 	o.Identifier = &v
 }
 
-// GetIoCardIdentityList returns the IoCardIdentityList field value if set, zero value otherwise.
+// GetIoCardIdentityList returns the IoCardIdentityList field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EquipmentIdentitySummaryAllOf) GetIoCardIdentityList() []EquipmentIoCardIdentity {
-	if o == nil || o.IoCardIdentityList == nil {
+	if o == nil {
 		var ret []EquipmentIoCardIdentity
 		return ret
 	}
-	return *o.IoCardIdentityList
+	return o.IoCardIdentityList
 }
 
 // GetIoCardIdentityListOk returns a tuple with the IoCardIdentityList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EquipmentIdentitySummaryAllOf) GetIoCardIdentityListOk() (*[]EquipmentIoCardIdentity, bool) {
 	if o == nil || o.IoCardIdentityList == nil {
 		return nil, false
 	}
-	return o.IoCardIdentityList, true
+	return &o.IoCardIdentityList, true
 }
 
 // HasIoCardIdentityList returns a boolean if a field has been set.
@@ -300,7 +359,7 @@ func (o *EquipmentIdentitySummaryAllOf) HasIoCardIdentityList() bool {
 
 // SetIoCardIdentityList gets a reference to the given []EquipmentIoCardIdentity and assigns it to the IoCardIdentityList field.
 func (o *EquipmentIdentitySummaryAllOf) SetIoCardIdentityList(v []EquipmentIoCardIdentity) {
-	o.IoCardIdentityList = &v
+	o.IoCardIdentityList = v
 }
 
 // GetLifecycle returns the Lifecycle field value if set, zero value otherwise.
@@ -593,6 +652,12 @@ func (o *EquipmentIdentitySummaryAllOf) SetDeviceRegistration(v AssetDeviceRegis
 
 func (o EquipmentIdentitySummaryAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AdapterSerial != nil {
 		toSerialize["AdapterSerial"] = o.AdapterSerial
 	}

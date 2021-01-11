@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,17 +18,31 @@ import (
 
 // HyperflexNodeAllOf Definition of the list of properties defined in 'hyperflex.Node', excluding properties defined in parent classes.
 type HyperflexNodeAllOf struct {
-	BuildNumber    *string                         `json:"BuildNumber,omitempty" yaml:"BuildNumber,omitempty"`
-	DisplayVersion *string                         `json:"DisplayVersion,omitempty" yaml:"DisplayVersion,omitempty"`
-	HostName       *string                         `json:"HostName,omitempty" yaml:"HostName,omitempty"`
-	Hypervisor     *string                         `json:"Hypervisor,omitempty" yaml:"Hypervisor,omitempty"`
-	Identity       *HyperflexHxUuIdDt              `json:"Identity,omitempty" yaml:"Identity,omitempty"`
-	Ip             *HyperflexHxNetworkAddressDt    `json:"Ip,omitempty" yaml:"Ip,omitempty"`
-	Lockdown       *bool                           `json:"Lockdown,omitempty" yaml:"Lockdown,omitempty"`
-	ModelNumber    *string                         `json:"ModelNumber,omitempty" yaml:"ModelNumber,omitempty"`
-	Role           *string                         `json:"Role,omitempty" yaml:"Role,omitempty"`
-	SerialNumber   *string                         `json:"SerialNumber,omitempty" yaml:"SerialNumber,omitempty"`
-	Status         *string                         `json:"Status,omitempty" yaml:"Status,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// The build number of the hypervisor running on the host.
+	BuildNumber *string `json:"BuildNumber,omitempty" yaml:"BuildNumber,omitempty"`
+	// The user-friendly string representation of the hypervisor version of the host.
+	DisplayVersion *string `json:"DisplayVersion,omitempty" yaml:"DisplayVersion,omitempty"`
+	// The hostname configured for the hypervisor running on the host.
+	HostName *string `json:"HostName,omitempty" yaml:"HostName,omitempty"`
+	// The type of hypervisor running on the host.
+	Hypervisor *string                             `json:"Hypervisor,omitempty" yaml:"Hypervisor,omitempty"`
+	Identity   NullableHyperflexHxUuIdDt           `json:"Identity,omitempty" yaml:"Identity,omitempty"`
+	Ip         NullableHyperflexHxNetworkAddressDt `json:"Ip,omitempty" yaml:"Ip,omitempty"`
+	// The admin state of lockdown mode on the host. If 'true', lockdown mode is enabled.
+	Lockdown *bool `json:"Lockdown,omitempty" yaml:"Lockdown,omitempty"`
+	// The model of the host server.
+	ModelNumber *string `json:"ModelNumber,omitempty" yaml:"ModelNumber,omitempty"`
+	// The role of the host in the HyperFlex cluster. Specifies whether this host is used for compute or for both compute and storage. * `UNKNOWN` - The role of the HyperFlex cluster node is not known. * `STORAGE` - The HyperFlex cluster node provides both storage and compute resources for the cluster. * `COMPUTE` - The HyperFlex cluster node provides compute resources for the cluster.
+	Role *string `json:"Role,omitempty" yaml:"Role,omitempty"`
+	// The serial of the host server.
+	SerialNumber *string `json:"SerialNumber,omitempty" yaml:"SerialNumber,omitempty"`
+	// The status of the host. Indicates whether the hypervisor is online. * `UNKNOWN` - The host status cannot be determined. * `ONLINE` - The host is online and operational. * `OFFLINE` - The host is offline and is currently not participating in the HyperFlex cluster. * `INMAINTENANCE` - The host is not participating in the HyperFlex cluster because of a maintenance operation, such as firmware or data platform upgrade. * `DEGRADED` - The host is degraded and may not be performing in its full operational capacity.
+	Status *string `json:"Status,omitempty" yaml:"Status,omitempty"`
+	// The version of the hypervisor running on the host.
 	Version        *string                         `json:"Version,omitempty" yaml:"Version,omitempty"`
 	Cluster        *HyperflexClusterRelationship   `json:"Cluster,omitempty" yaml:"Cluster,omitempty"`
 	ClusterMember  *AssetClusterMemberRelationship `json:"ClusterMember,omitempty" yaml:"ClusterMember,omitempty"`
@@ -39,8 +53,10 @@ type HyperflexNodeAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexNodeAllOf() *HyperflexNodeAllOf {
+func NewHyperflexNodeAllOf(classId string, objectType string) *HyperflexNodeAllOf {
 	this := HyperflexNodeAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var role string = "UNKNOWN"
 	this.Role = &role
 	var status string = "UNKNOWN"
@@ -53,11 +69,63 @@ func NewHyperflexNodeAllOf() *HyperflexNodeAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexNodeAllOfWithDefaults() *HyperflexNodeAllOf {
 	this := HyperflexNodeAllOf{}
+	var classId string = "hyperflex.Node"
+	this.ClassId = classId
+	var objectType string = "hyperflex.Node"
+	this.ObjectType = objectType
 	var role string = "UNKNOWN"
 	this.Role = &role
 	var status string = "UNKNOWN"
 	this.Status = &status
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexNodeAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexNodeAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexNodeAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexNodeAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexNodeAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexNodeAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetBuildNumber returns the BuildNumber field value if set, zero value otherwise.
@@ -188,68 +256,90 @@ func (o *HyperflexNodeAllOf) SetHypervisor(v string) {
 	o.Hypervisor = &v
 }
 
-// GetIdentity returns the Identity field value if set, zero value otherwise.
+// GetIdentity returns the Identity field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexNodeAllOf) GetIdentity() HyperflexHxUuIdDt {
-	if o == nil || o.Identity == nil {
+	if o == nil || o.Identity.Get() == nil {
 		var ret HyperflexHxUuIdDt
 		return ret
 	}
-	return *o.Identity
+	return *o.Identity.Get()
 }
 
 // GetIdentityOk returns a tuple with the Identity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexNodeAllOf) GetIdentityOk() (*HyperflexHxUuIdDt, bool) {
-	if o == nil || o.Identity == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Identity, true
+	return o.Identity.Get(), o.Identity.IsSet()
 }
 
 // HasIdentity returns a boolean if a field has been set.
 func (o *HyperflexNodeAllOf) HasIdentity() bool {
-	if o != nil && o.Identity != nil {
+	if o != nil && o.Identity.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIdentity gets a reference to the given HyperflexHxUuIdDt and assigns it to the Identity field.
+// SetIdentity gets a reference to the given NullableHyperflexHxUuIdDt and assigns it to the Identity field.
 func (o *HyperflexNodeAllOf) SetIdentity(v HyperflexHxUuIdDt) {
-	o.Identity = &v
+	o.Identity.Set(&v)
 }
 
-// GetIp returns the Ip field value if set, zero value otherwise.
+// SetIdentityNil sets the value for Identity to be an explicit nil
+func (o *HyperflexNodeAllOf) SetIdentityNil() {
+	o.Identity.Set(nil)
+}
+
+// UnsetIdentity ensures that no value is present for Identity, not even an explicit nil
+func (o *HyperflexNodeAllOf) UnsetIdentity() {
+	o.Identity.Unset()
+}
+
+// GetIp returns the Ip field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexNodeAllOf) GetIp() HyperflexHxNetworkAddressDt {
-	if o == nil || o.Ip == nil {
+	if o == nil || o.Ip.Get() == nil {
 		var ret HyperflexHxNetworkAddressDt
 		return ret
 	}
-	return *o.Ip
+	return *o.Ip.Get()
 }
 
 // GetIpOk returns a tuple with the Ip field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexNodeAllOf) GetIpOk() (*HyperflexHxNetworkAddressDt, bool) {
-	if o == nil || o.Ip == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Ip, true
+	return o.Ip.Get(), o.Ip.IsSet()
 }
 
 // HasIp returns a boolean if a field has been set.
 func (o *HyperflexNodeAllOf) HasIp() bool {
-	if o != nil && o.Ip != nil {
+	if o != nil && o.Ip.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIp gets a reference to the given HyperflexHxNetworkAddressDt and assigns it to the Ip field.
+// SetIp gets a reference to the given NullableHyperflexHxNetworkAddressDt and assigns it to the Ip field.
 func (o *HyperflexNodeAllOf) SetIp(v HyperflexHxNetworkAddressDt) {
-	o.Ip = &v
+	o.Ip.Set(&v)
+}
+
+// SetIpNil sets the value for Ip to be an explicit nil
+func (o *HyperflexNodeAllOf) SetIpNil() {
+	o.Ip.Set(nil)
+}
+
+// UnsetIp ensures that no value is present for Ip, not even an explicit nil
+func (o *HyperflexNodeAllOf) UnsetIp() {
+	o.Ip.Unset()
 }
 
 // GetLockdown returns the Lockdown field value if set, zero value otherwise.
@@ -542,6 +632,12 @@ func (o *HyperflexNodeAllOf) SetPhysicalServer(v ComputePhysicalRelationship) {
 
 func (o HyperflexNodeAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.BuildNumber != nil {
 		toSerialize["BuildNumber"] = o.BuildNumber
 	}
@@ -554,11 +650,11 @@ func (o HyperflexNodeAllOf) MarshalJSON() ([]byte, error) {
 	if o.Hypervisor != nil {
 		toSerialize["Hypervisor"] = o.Hypervisor
 	}
-	if o.Identity != nil {
-		toSerialize["Identity"] = o.Identity
+	if o.Identity.IsSet() {
+		toSerialize["Identity"] = o.Identity.Get()
 	}
-	if o.Ip != nil {
-		toSerialize["Ip"] = o.Ip
+	if o.Ip.IsSet() {
+		toSerialize["Ip"] = o.Ip.Get()
 	}
 	if o.Lockdown != nil {
 		toSerialize["Lockdown"] = o.Lockdown

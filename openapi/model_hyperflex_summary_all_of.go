@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,35 +18,60 @@ import (
 
 // HyperflexSummaryAllOf Definition of the list of properties defined in 'hyperflex.Summary', excluding properties defined in parent classes.
 type HyperflexSummaryAllOf struct {
-	ActiveNodes               *string                                   `json:"ActiveNodes,omitempty" yaml:"ActiveNodes,omitempty"`
-	Address                   *string                                   `json:"Address,omitempty" yaml:"Address,omitempty"`
-	Boottime                  *int64                                    `json:"Boottime,omitempty" yaml:"Boottime,omitempty"`
-	ClusterAccessPolicy       *string                                   `json:"ClusterAccessPolicy,omitempty" yaml:"ClusterAccessPolicy,omitempty"`
-	CompressionSavings        *float64                                  `json:"CompressionSavings,omitempty" yaml:"CompressionSavings,omitempty"`
-	DataReplicationCompliance *string                                   `json:"DataReplicationCompliance,omitempty" yaml:"DataReplicationCompliance,omitempty"`
-	DataReplicationFactor     *string                                   `json:"DataReplicationFactor,omitempty" yaml:"DataReplicationFactor,omitempty"`
-	DeduplicationSavings      *float64                                  `json:"DeduplicationSavings,omitempty" yaml:"DeduplicationSavings,omitempty"`
-	Downtime                  *string                                   `json:"Downtime,omitempty" yaml:"Downtime,omitempty"`
-	FreeCapacity              *int64                                    `json:"FreeCapacity,omitempty" yaml:"FreeCapacity,omitempty"`
-	HealingInfo               *HyperflexStPlatformClusterHealingInfo    `json:"HealingInfo,omitempty" yaml:"HealingInfo,omitempty"`
-	Name                      *string                                   `json:"Name,omitempty" yaml:"Name,omitempty"`
-	ResiliencyDetails         *map[string]interface{}                   `json:"ResiliencyDetails,omitempty" yaml:"ResiliencyDetails,omitempty"`
-	ResiliencyDetailsSize     *int64                                    `json:"ResiliencyDetailsSize,omitempty" yaml:"ResiliencyDetailsSize,omitempty"`
-	ResiliencyInfo            *HyperflexStPlatformClusterResiliencyInfo `json:"ResiliencyInfo,omitempty" yaml:"ResiliencyInfo,omitempty"`
-	SpaceStatus               *string                                   `json:"SpaceStatus,omitempty" yaml:"SpaceStatus,omitempty"`
-	State                     *string                                   `json:"State,omitempty" yaml:"State,omitempty"`
-	TotalCapacity             *int64                                    `json:"TotalCapacity,omitempty" yaml:"TotalCapacity,omitempty"`
-	TotalSavings              *float64                                  `json:"TotalSavings,omitempty" yaml:"TotalSavings,omitempty"`
-	Uptime                    *string                                   `json:"Uptime,omitempty" yaml:"Uptime,omitempty"`
-	UsedCapacity              *int64                                    `json:"UsedCapacity,omitempty" yaml:"UsedCapacity,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// The number of nodes currently participating in the storage cluster.
+	ActiveNodes *string `json:"ActiveNodes,omitempty" yaml:"ActiveNodes,omitempty"`
+	// The data IP address of the HyperFlex cluster.
+	Address *string `json:"Address,omitempty" yaml:"Address,omitempty"`
+	// The time taken during last cluster startup in seconds.
+	Boottime *int64 `json:"Boottime,omitempty" yaml:"Boottime,omitempty"`
+	// The cluster access policy for the HyperFlex cluster. An access policy of 'STRICT' means that the cluster becomes readonly once any fragment of data is reduced to one copy. 'LENIENT' means that the cluster stays in read-write mode even if any fragment of data is reduced to one copy.
+	ClusterAccessPolicy *string `json:"ClusterAccessPolicy,omitempty" yaml:"ClusterAccessPolicy,omitempty"`
+	// The percentage of storage space saved using data compression.
+	CompressionSavings *float64 `json:"CompressionSavings,omitempty" yaml:"CompressionSavings,omitempty"`
+	// The compliance with the data replication factor set for the HyperFlex cluster.
+	DataReplicationCompliance *string `json:"DataReplicationCompliance,omitempty" yaml:"DataReplicationCompliance,omitempty"`
+	// The number of data copies retained by the HyperFlex cluster.
+	DataReplicationFactor *string `json:"DataReplicationFactor,omitempty" yaml:"DataReplicationFactor,omitempty"`
+	// The percentage of storage space saved using data deduplication.
+	DeduplicationSavings *float64 `json:"DeduplicationSavings,omitempty" yaml:"DeduplicationSavings,omitempty"`
+	// The amount of time the HyperFlex cluster has been offline.
+	Downtime *string `json:"Downtime,omitempty" yaml:"Downtime,omitempty"`
+	// The amount of storage capacity currently not in use, represented in bytes.
+	FreeCapacity *int64                                        `json:"FreeCapacity,omitempty" yaml:"FreeCapacity,omitempty"`
+	HealingInfo  NullableHyperflexStPlatformClusterHealingInfo `json:"HealingInfo,omitempty" yaml:"HealingInfo,omitempty"`
+	// The name of the HyperFlex cluster.
+	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
+	// The details about the resiliency health of the cluster. Includes information about the cluster healing status and the storage cluster health.
+	ResiliencyDetails *map[string]interface{} `json:"ResiliencyDetails,omitempty" yaml:"ResiliencyDetails,omitempty"`
+	// The number of elements in the resiliency details property.
+	ResiliencyDetailsSize *int64                                           `json:"ResiliencyDetailsSize,omitempty" yaml:"ResiliencyDetailsSize,omitempty"`
+	ResiliencyInfo        NullableHyperflexStPlatformClusterResiliencyInfo `json:"ResiliencyInfo,omitempty" yaml:"ResiliencyInfo,omitempty"`
+	// The space utilization status of the HyperFlex cluster.
+	SpaceStatus *string `json:"SpaceStatus,omitempty" yaml:"SpaceStatus,omitempty"`
+	// The operational state of the HyperFlex cluster.
+	State *string `json:"State,omitempty" yaml:"State,omitempty"`
+	// The total amount of storage capacity available for the HyperFlex cluster, represented in bytes.
+	TotalCapacity *int64 `json:"TotalCapacity,omitempty" yaml:"TotalCapacity,omitempty"`
+	// The percentage of storage space saved in total.
+	TotalSavings *float64 `json:"TotalSavings,omitempty" yaml:"TotalSavings,omitempty"`
+	// The amount of time the HyperFlex cluster has been running since last startup.
+	Uptime *string `json:"Uptime,omitempty" yaml:"Uptime,omitempty"`
+	// The amount of storage capacity in use, represented in bytes.
+	UsedCapacity *int64 `json:"UsedCapacity,omitempty" yaml:"UsedCapacity,omitempty"`
 }
 
 // NewHyperflexSummaryAllOf instantiates a new HyperflexSummaryAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexSummaryAllOf() *HyperflexSummaryAllOf {
+func NewHyperflexSummaryAllOf(classId string, objectType string) *HyperflexSummaryAllOf {
 	this := HyperflexSummaryAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -55,7 +80,59 @@ func NewHyperflexSummaryAllOf() *HyperflexSummaryAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexSummaryAllOfWithDefaults() *HyperflexSummaryAllOf {
 	this := HyperflexSummaryAllOf{}
+	var classId string = "hyperflex.Summary"
+	this.ClassId = classId
+	var objectType string = "hyperflex.Summary"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexSummaryAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexSummaryAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexSummaryAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexSummaryAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexSummaryAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexSummaryAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetActiveNodes returns the ActiveNodes field value if set, zero value otherwise.
@@ -378,36 +455,47 @@ func (o *HyperflexSummaryAllOf) SetFreeCapacity(v int64) {
 	o.FreeCapacity = &v
 }
 
-// GetHealingInfo returns the HealingInfo field value if set, zero value otherwise.
+// GetHealingInfo returns the HealingInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexSummaryAllOf) GetHealingInfo() HyperflexStPlatformClusterHealingInfo {
-	if o == nil || o.HealingInfo == nil {
+	if o == nil || o.HealingInfo.Get() == nil {
 		var ret HyperflexStPlatformClusterHealingInfo
 		return ret
 	}
-	return *o.HealingInfo
+	return *o.HealingInfo.Get()
 }
 
 // GetHealingInfoOk returns a tuple with the HealingInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexSummaryAllOf) GetHealingInfoOk() (*HyperflexStPlatformClusterHealingInfo, bool) {
-	if o == nil || o.HealingInfo == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.HealingInfo, true
+	return o.HealingInfo.Get(), o.HealingInfo.IsSet()
 }
 
 // HasHealingInfo returns a boolean if a field has been set.
 func (o *HyperflexSummaryAllOf) HasHealingInfo() bool {
-	if o != nil && o.HealingInfo != nil {
+	if o != nil && o.HealingInfo.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHealingInfo gets a reference to the given HyperflexStPlatformClusterHealingInfo and assigns it to the HealingInfo field.
+// SetHealingInfo gets a reference to the given NullableHyperflexStPlatformClusterHealingInfo and assigns it to the HealingInfo field.
 func (o *HyperflexSummaryAllOf) SetHealingInfo(v HyperflexStPlatformClusterHealingInfo) {
-	o.HealingInfo = &v
+	o.HealingInfo.Set(&v)
+}
+
+// SetHealingInfoNil sets the value for HealingInfo to be an explicit nil
+func (o *HyperflexSummaryAllOf) SetHealingInfoNil() {
+	o.HealingInfo.Set(nil)
+}
+
+// UnsetHealingInfo ensures that no value is present for HealingInfo, not even an explicit nil
+func (o *HyperflexSummaryAllOf) UnsetHealingInfo() {
+	o.HealingInfo.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -506,36 +594,47 @@ func (o *HyperflexSummaryAllOf) SetResiliencyDetailsSize(v int64) {
 	o.ResiliencyDetailsSize = &v
 }
 
-// GetResiliencyInfo returns the ResiliencyInfo field value if set, zero value otherwise.
+// GetResiliencyInfo returns the ResiliencyInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexSummaryAllOf) GetResiliencyInfo() HyperflexStPlatformClusterResiliencyInfo {
-	if o == nil || o.ResiliencyInfo == nil {
+	if o == nil || o.ResiliencyInfo.Get() == nil {
 		var ret HyperflexStPlatformClusterResiliencyInfo
 		return ret
 	}
-	return *o.ResiliencyInfo
+	return *o.ResiliencyInfo.Get()
 }
 
 // GetResiliencyInfoOk returns a tuple with the ResiliencyInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexSummaryAllOf) GetResiliencyInfoOk() (*HyperflexStPlatformClusterResiliencyInfo, bool) {
-	if o == nil || o.ResiliencyInfo == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResiliencyInfo, true
+	return o.ResiliencyInfo.Get(), o.ResiliencyInfo.IsSet()
 }
 
 // HasResiliencyInfo returns a boolean if a field has been set.
 func (o *HyperflexSummaryAllOf) HasResiliencyInfo() bool {
-	if o != nil && o.ResiliencyInfo != nil {
+	if o != nil && o.ResiliencyInfo.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetResiliencyInfo gets a reference to the given HyperflexStPlatformClusterResiliencyInfo and assigns it to the ResiliencyInfo field.
+// SetResiliencyInfo gets a reference to the given NullableHyperflexStPlatformClusterResiliencyInfo and assigns it to the ResiliencyInfo field.
 func (o *HyperflexSummaryAllOf) SetResiliencyInfo(v HyperflexStPlatformClusterResiliencyInfo) {
-	o.ResiliencyInfo = &v
+	o.ResiliencyInfo.Set(&v)
+}
+
+// SetResiliencyInfoNil sets the value for ResiliencyInfo to be an explicit nil
+func (o *HyperflexSummaryAllOf) SetResiliencyInfoNil() {
+	o.ResiliencyInfo.Set(nil)
+}
+
+// UnsetResiliencyInfo ensures that no value is present for ResiliencyInfo, not even an explicit nil
+func (o *HyperflexSummaryAllOf) UnsetResiliencyInfo() {
+	o.ResiliencyInfo.Unset()
 }
 
 // GetSpaceStatus returns the SpaceStatus field value if set, zero value otherwise.
@@ -732,6 +831,12 @@ func (o *HyperflexSummaryAllOf) SetUsedCapacity(v int64) {
 
 func (o HyperflexSummaryAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.ActiveNodes != nil {
 		toSerialize["ActiveNodes"] = o.ActiveNodes
 	}
@@ -762,8 +867,8 @@ func (o HyperflexSummaryAllOf) MarshalJSON() ([]byte, error) {
 	if o.FreeCapacity != nil {
 		toSerialize["FreeCapacity"] = o.FreeCapacity
 	}
-	if o.HealingInfo != nil {
-		toSerialize["HealingInfo"] = o.HealingInfo
+	if o.HealingInfo.IsSet() {
+		toSerialize["HealingInfo"] = o.HealingInfo.Get()
 	}
 	if o.Name != nil {
 		toSerialize["Name"] = o.Name
@@ -774,8 +879,8 @@ func (o HyperflexSummaryAllOf) MarshalJSON() ([]byte, error) {
 	if o.ResiliencyDetailsSize != nil {
 		toSerialize["ResiliencyDetailsSize"] = o.ResiliencyDetailsSize
 	}
-	if o.ResiliencyInfo != nil {
-		toSerialize["ResiliencyInfo"] = o.ResiliencyInfo
+	if o.ResiliencyInfo.IsSet() {
+		toSerialize["ResiliencyInfo"] = o.ResiliencyInfo.Get()
 	}
 	if o.SpaceStatus != nil {
 		toSerialize["SpaceStatus"] = o.SpaceStatus

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,6 +18,10 @@ import (
 
 // ComputeBladeAllOf Definition of the list of properties defined in 'compute.Blade', excluding properties defined in parent classes.
 type ComputeBladeAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The id of the chassis that the blade is located in.
 	ChassisId *string `json:"ChassisId,omitempty" yaml:"ChassisId,omitempty"`
 	// The mode of the server that determines it is scaled.
@@ -25,12 +29,14 @@ type ComputeBladeAllOf struct {
 	// The slot number in the chassis that the blade is located in.
 	SlotId *int64 `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
 	// An array of relationships to adapterUnit resources.
-	Adapters []AdapterUnitRelationship `json:"Adapters,omitempty" yaml:"Adapters,omitempty"`
+	Adapters     []AdapterUnitRelationship `json:"Adapters,omitempty" yaml:"Adapters,omitempty"`
+	BiosBootmode *BiosBootModeRelationship `json:"BiosBootmode,omitempty" yaml:"BiosBootmode,omitempty"`
 	// An array of relationships to biosUnit resources.
-	BiosUnits        []BiosUnitRelationship            `json:"BiosUnits,omitempty" yaml:"BiosUnits,omitempty"`
-	Bmc              *ManagementControllerRelationship `json:"Bmc,omitempty" yaml:"Bmc,omitempty"`
-	Board            *ComputeBoardRelationship         `json:"Board,omitempty" yaml:"Board,omitempty"`
-	EquipmentChassis *EquipmentChassisRelationship     `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
+	BiosUnits          []BiosUnitRelationship            `json:"BiosUnits,omitempty" yaml:"BiosUnits,omitempty"`
+	Bmc                *ManagementControllerRelationship `json:"Bmc,omitempty" yaml:"Bmc,omitempty"`
+	Board              *ComputeBoardRelationship         `json:"Board,omitempty" yaml:"Board,omitempty"`
+	BootDeviceBootmode *BootDeviceBootModeRelationship   `json:"BootDeviceBootmode,omitempty" yaml:"BootDeviceBootmode,omitempty"`
+	EquipmentChassis   *EquipmentChassisRelationship     `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
 	// An array of relationships to equipmentIoExpander resources.
 	EquipmentIoExpanders []EquipmentIoExpanderRelationship `json:"EquipmentIoExpanders,omitempty" yaml:"EquipmentIoExpanders,omitempty"`
 	// An array of relationships to inventoryGenericInventoryHolder resources.
@@ -57,8 +63,10 @@ type ComputeBladeAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComputeBladeAllOf() *ComputeBladeAllOf {
+func NewComputeBladeAllOf(classId string, objectType string) *ComputeBladeAllOf {
 	this := ComputeBladeAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -67,7 +75,59 @@ func NewComputeBladeAllOf() *ComputeBladeAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewComputeBladeAllOfWithDefaults() *ComputeBladeAllOf {
 	this := ComputeBladeAllOf{}
+	var classId string = "compute.Blade"
+	this.ClassId = classId
+	var objectType string = "compute.Blade"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *ComputeBladeAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ComputeBladeAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ComputeBladeAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ComputeBladeAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ComputeBladeAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ComputeBladeAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetChassisId returns the ChassisId field value if set, zero value otherwise.
@@ -199,6 +259,38 @@ func (o *ComputeBladeAllOf) SetAdapters(v []AdapterUnitRelationship) {
 	o.Adapters = v
 }
 
+// GetBiosBootmode returns the BiosBootmode field value if set, zero value otherwise.
+func (o *ComputeBladeAllOf) GetBiosBootmode() BiosBootModeRelationship {
+	if o == nil || o.BiosBootmode == nil {
+		var ret BiosBootModeRelationship
+		return ret
+	}
+	return *o.BiosBootmode
+}
+
+// GetBiosBootmodeOk returns a tuple with the BiosBootmode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeBladeAllOf) GetBiosBootmodeOk() (*BiosBootModeRelationship, bool) {
+	if o == nil || o.BiosBootmode == nil {
+		return nil, false
+	}
+	return o.BiosBootmode, true
+}
+
+// HasBiosBootmode returns a boolean if a field has been set.
+func (o *ComputeBladeAllOf) HasBiosBootmode() bool {
+	if o != nil && o.BiosBootmode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBiosBootmode gets a reference to the given BiosBootModeRelationship and assigns it to the BiosBootmode field.
+func (o *ComputeBladeAllOf) SetBiosBootmode(v BiosBootModeRelationship) {
+	o.BiosBootmode = &v
+}
+
 // GetBiosUnits returns the BiosUnits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeBladeAllOf) GetBiosUnits() []BiosUnitRelationship {
 	if o == nil {
@@ -294,6 +386,38 @@ func (o *ComputeBladeAllOf) HasBoard() bool {
 // SetBoard gets a reference to the given ComputeBoardRelationship and assigns it to the Board field.
 func (o *ComputeBladeAllOf) SetBoard(v ComputeBoardRelationship) {
 	o.Board = &v
+}
+
+// GetBootDeviceBootmode returns the BootDeviceBootmode field value if set, zero value otherwise.
+func (o *ComputeBladeAllOf) GetBootDeviceBootmode() BootDeviceBootModeRelationship {
+	if o == nil || o.BootDeviceBootmode == nil {
+		var ret BootDeviceBootModeRelationship
+		return ret
+	}
+	return *o.BootDeviceBootmode
+}
+
+// GetBootDeviceBootmodeOk returns a tuple with the BootDeviceBootmode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComputeBladeAllOf) GetBootDeviceBootmodeOk() (*BootDeviceBootModeRelationship, bool) {
+	if o == nil || o.BootDeviceBootmode == nil {
+		return nil, false
+	}
+	return o.BootDeviceBootmode, true
+}
+
+// HasBootDeviceBootmode returns a boolean if a field has been set.
+func (o *ComputeBladeAllOf) HasBootDeviceBootmode() bool {
+	if o != nil && o.BootDeviceBootmode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootDeviceBootmode gets a reference to the given BootDeviceBootModeRelationship and assigns it to the BootDeviceBootmode field.
+func (o *ComputeBladeAllOf) SetBootDeviceBootmode(v BootDeviceBootModeRelationship) {
+	o.BootDeviceBootmode = &v
 }
 
 // GetEquipmentChassis returns the EquipmentChassis field value if set, zero value otherwise.
@@ -722,6 +846,12 @@ func (o *ComputeBladeAllOf) SetTopSystem(v TopSystemRelationship) {
 
 func (o ComputeBladeAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.ChassisId != nil {
 		toSerialize["ChassisId"] = o.ChassisId
 	}
@@ -734,6 +864,9 @@ func (o ComputeBladeAllOf) MarshalJSON() ([]byte, error) {
 	if o.Adapters != nil {
 		toSerialize["Adapters"] = o.Adapters
 	}
+	if o.BiosBootmode != nil {
+		toSerialize["BiosBootmode"] = o.BiosBootmode
+	}
 	if o.BiosUnits != nil {
 		toSerialize["BiosUnits"] = o.BiosUnits
 	}
@@ -742,6 +875,9 @@ func (o ComputeBladeAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Board != nil {
 		toSerialize["Board"] = o.Board
+	}
+	if o.BootDeviceBootmode != nil {
+		toSerialize["BootDeviceBootmode"] = o.BootDeviceBootmode
 	}
 	if o.EquipmentChassis != nil {
 		toSerialize["EquipmentChassis"] = o.EquipmentChassis

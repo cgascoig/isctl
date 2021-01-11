@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,22 +18,33 @@ import (
 
 // HyperflexHealthAllOf Definition of the list of properties defined in 'hyperflex.Health', excluding properties defined in parent classes.
 type HyperflexHealthAllOf struct {
-	ArbitrationServiceState   *string                            `json:"ArbitrationServiceState,omitempty" yaml:"ArbitrationServiceState,omitempty"`
-	DataReplicationCompliance *string                            `json:"DataReplicationCompliance,omitempty" yaml:"DataReplicationCompliance,omitempty"`
-	ResiliencyDetails         *HyperflexHxResiliencyInfoDt       `json:"ResiliencyDetails,omitempty" yaml:"ResiliencyDetails,omitempty"`
-	State                     *string                            `json:"State,omitempty" yaml:"State,omitempty"`
-	Uuid                      *string                            `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
-	ZkHealth                  *string                            `json:"ZkHealth,omitempty" yaml:"ZkHealth,omitempty"`
-	ZoneResiliencyList        *[]HyperflexHxZoneResiliencyInfoDt `json:"ZoneResiliencyList,omitempty" yaml:"ZoneResiliencyList,omitempty"`
-	Cluster                   *HyperflexClusterRelationship      `json:"Cluster,omitempty" yaml:"Cluster,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// The status of the HyperFlex cluster's connection to the Intersight arbitration service. The arbitration service state is only applicable to 2-node edge clusters. * `NOT_AVAILABLE` - The cluster does not require a connection to the arbitration service. * `UNKNOWN` - The cluster's connection state to the arbitration service cannot be determined. * `ONLINE` - The cluster is connected to the arbitration service. * `OFFLINE` - The cluster is disconnected from the arbitration service.
+	ArbitrationServiceState *string `json:"ArbitrationServiceState,omitempty" yaml:"ArbitrationServiceState,omitempty"`
+	// The HyperFlex cluster's compliance to the configured replication factor. It indicates that the compliance has degraded if the number of copies of data is reduced. * `UNKNOWN` - The replication compliance of the HyperFlex cluster is not known. * `COMPLIANT` - The HyperFlex cluster is compliant with the replication policy. All data on the cluster is replicated according to the configured replication factor. * `NON_COMPLIANT` - The HyperFlex cluster is not compliant with the replication policy. Some data on the cluster is not replicated in accordance with the configured replication factor.
+	DataReplicationCompliance *string                             `json:"DataReplicationCompliance,omitempty" yaml:"DataReplicationCompliance,omitempty"`
+	ResiliencyDetails         NullableHyperflexHxResiliencyInfoDt `json:"ResiliencyDetails,omitempty" yaml:"ResiliencyDetails,omitempty"`
+	// The operational status of the HyperFlex cluster. * `UNKNOWN` - The operational status of the cluster cannot be determined. * `ONLINE` - The HyperFlex cluster is online and is performing IO operations. * `OFFLINE` - The HyperFlex cluster is offline and is not ready to perform IO operations. * `ENOSPACE` - The HyperFlex cluster is out of available storage capacity and cannot perform write transactions. * `READONLY` - The HyperFlex cluster is not accepting write transactions, but can still display static cluster information.
+	State *string `json:"State,omitempty" yaml:"State,omitempty"`
+	// The unique identifier for the cluster.
+	Uuid *string `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
+	// The health status of the HyperFlex cluster's zookeeper ensemble. * `NOT_AVAILABLE` - The operational status of the ZK ensemble is not provided by the HyperFlex cluster. * `UNKNOWN` - The operational status of the ZK ensemble cannot be determined. * `ONLINE` - The ZK ensemble is online and operational. * `OFFLINE` - The ZK ensemble is offline and not operational.
+	ZkHealth           *string                           `json:"ZkHealth,omitempty" yaml:"ZkHealth,omitempty"`
+	ZoneResiliencyList []HyperflexHxZoneResiliencyInfoDt `json:"ZoneResiliencyList,omitempty" yaml:"ZoneResiliencyList,omitempty"`
+	Cluster            *HyperflexClusterRelationship     `json:"Cluster,omitempty" yaml:"Cluster,omitempty"`
 }
 
 // NewHyperflexHealthAllOf instantiates a new HyperflexHealthAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexHealthAllOf() *HyperflexHealthAllOf {
+func NewHyperflexHealthAllOf(classId string, objectType string) *HyperflexHealthAllOf {
 	this := HyperflexHealthAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var arbitrationServiceState string = "NOT_AVAILABLE"
 	this.ArbitrationServiceState = &arbitrationServiceState
 	var dataReplicationCompliance string = "UNKNOWN"
@@ -50,6 +61,10 @@ func NewHyperflexHealthAllOf() *HyperflexHealthAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexHealthAllOfWithDefaults() *HyperflexHealthAllOf {
 	this := HyperflexHealthAllOf{}
+	var classId string = "hyperflex.Health"
+	this.ClassId = classId
+	var objectType string = "hyperflex.Health"
+	this.ObjectType = objectType
 	var arbitrationServiceState string = "NOT_AVAILABLE"
 	this.ArbitrationServiceState = &arbitrationServiceState
 	var dataReplicationCompliance string = "UNKNOWN"
@@ -59,6 +74,54 @@ func NewHyperflexHealthAllOfWithDefaults() *HyperflexHealthAllOf {
 	var zkHealth string = "NOT_AVAILABLE"
 	this.ZkHealth = &zkHealth
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexHealthAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexHealthAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexHealthAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexHealthAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexHealthAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexHealthAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetArbitrationServiceState returns the ArbitrationServiceState field value if set, zero value otherwise.
@@ -125,36 +188,47 @@ func (o *HyperflexHealthAllOf) SetDataReplicationCompliance(v string) {
 	o.DataReplicationCompliance = &v
 }
 
-// GetResiliencyDetails returns the ResiliencyDetails field value if set, zero value otherwise.
+// GetResiliencyDetails returns the ResiliencyDetails field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexHealthAllOf) GetResiliencyDetails() HyperflexHxResiliencyInfoDt {
-	if o == nil || o.ResiliencyDetails == nil {
+	if o == nil || o.ResiliencyDetails.Get() == nil {
 		var ret HyperflexHxResiliencyInfoDt
 		return ret
 	}
-	return *o.ResiliencyDetails
+	return *o.ResiliencyDetails.Get()
 }
 
 // GetResiliencyDetailsOk returns a tuple with the ResiliencyDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexHealthAllOf) GetResiliencyDetailsOk() (*HyperflexHxResiliencyInfoDt, bool) {
-	if o == nil || o.ResiliencyDetails == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResiliencyDetails, true
+	return o.ResiliencyDetails.Get(), o.ResiliencyDetails.IsSet()
 }
 
 // HasResiliencyDetails returns a boolean if a field has been set.
 func (o *HyperflexHealthAllOf) HasResiliencyDetails() bool {
-	if o != nil && o.ResiliencyDetails != nil {
+	if o != nil && o.ResiliencyDetails.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetResiliencyDetails gets a reference to the given HyperflexHxResiliencyInfoDt and assigns it to the ResiliencyDetails field.
+// SetResiliencyDetails gets a reference to the given NullableHyperflexHxResiliencyInfoDt and assigns it to the ResiliencyDetails field.
 func (o *HyperflexHealthAllOf) SetResiliencyDetails(v HyperflexHxResiliencyInfoDt) {
-	o.ResiliencyDetails = &v
+	o.ResiliencyDetails.Set(&v)
+}
+
+// SetResiliencyDetailsNil sets the value for ResiliencyDetails to be an explicit nil
+func (o *HyperflexHealthAllOf) SetResiliencyDetailsNil() {
+	o.ResiliencyDetails.Set(nil)
+}
+
+// UnsetResiliencyDetails ensures that no value is present for ResiliencyDetails, not even an explicit nil
+func (o *HyperflexHealthAllOf) UnsetResiliencyDetails() {
+	o.ResiliencyDetails.Unset()
 }
 
 // GetState returns the State field value if set, zero value otherwise.
@@ -253,22 +327,23 @@ func (o *HyperflexHealthAllOf) SetZkHealth(v string) {
 	o.ZkHealth = &v
 }
 
-// GetZoneResiliencyList returns the ZoneResiliencyList field value if set, zero value otherwise.
+// GetZoneResiliencyList returns the ZoneResiliencyList field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexHealthAllOf) GetZoneResiliencyList() []HyperflexHxZoneResiliencyInfoDt {
-	if o == nil || o.ZoneResiliencyList == nil {
+	if o == nil {
 		var ret []HyperflexHxZoneResiliencyInfoDt
 		return ret
 	}
-	return *o.ZoneResiliencyList
+	return o.ZoneResiliencyList
 }
 
 // GetZoneResiliencyListOk returns a tuple with the ZoneResiliencyList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexHealthAllOf) GetZoneResiliencyListOk() (*[]HyperflexHxZoneResiliencyInfoDt, bool) {
 	if o == nil || o.ZoneResiliencyList == nil {
 		return nil, false
 	}
-	return o.ZoneResiliencyList, true
+	return &o.ZoneResiliencyList, true
 }
 
 // HasZoneResiliencyList returns a boolean if a field has been set.
@@ -282,7 +357,7 @@ func (o *HyperflexHealthAllOf) HasZoneResiliencyList() bool {
 
 // SetZoneResiliencyList gets a reference to the given []HyperflexHxZoneResiliencyInfoDt and assigns it to the ZoneResiliencyList field.
 func (o *HyperflexHealthAllOf) SetZoneResiliencyList(v []HyperflexHxZoneResiliencyInfoDt) {
-	o.ZoneResiliencyList = &v
+	o.ZoneResiliencyList = v
 }
 
 // GetCluster returns the Cluster field value if set, zero value otherwise.
@@ -319,14 +394,20 @@ func (o *HyperflexHealthAllOf) SetCluster(v HyperflexClusterRelationship) {
 
 func (o HyperflexHealthAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.ArbitrationServiceState != nil {
 		toSerialize["ArbitrationServiceState"] = o.ArbitrationServiceState
 	}
 	if o.DataReplicationCompliance != nil {
 		toSerialize["DataReplicationCompliance"] = o.DataReplicationCompliance
 	}
-	if o.ResiliencyDetails != nil {
-		toSerialize["ResiliencyDetails"] = o.ResiliencyDetails
+	if o.ResiliencyDetails.IsSet() {
+		toSerialize["ResiliencyDetails"] = o.ResiliencyDetails.Get()
 	}
 	if o.State != nil {
 		toSerialize["State"] = o.State

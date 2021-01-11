@@ -4,21 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ClusterProfile"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ClusterProfile"]
 **DataIpAddress** | Pointer to **string** | The storage data IP address for the HyperFlex cluster. | [optional] 
-**HypervisorType** | Pointer to **string** | The hypervisor type for the HyperFlex cluster. * &#x60;ESXi&#x60; - ESXi hypervisor as specified by the user. * &#x60;HYPERV&#x60; - Hyperv hypervisor as specified by the user. * &#x60;KVM&#x60; - KVM hypervisor as specified by the user. | [optional] [default to "ESXi"]
+**HostNamePrefix** | Pointer to **string** | The node name prefix that is used to automatically generate the default hostname for each server. A dash (-) will be appended to the prefix followed by the node number to form a hostname. This default naming scheme can be manually overridden in the node configuration. The maximum length of a prefix is 60, must only contain alphanumeric characters or dash (-), and must start with an alphanumeric character. | [optional] 
+**HypervisorControlIpAddress** | Pointer to **string** | The hypervisor control virtual IP address for the HyperFlex compute cluster that is used for node/pod management. | [optional] 
+**HypervisorType** | Pointer to **string** | The hypervisor type for the HyperFlex cluster. * &#x60;ESXi&#x60; - The hypervisor running on the HyperFlex cluster is a Vmware ESXi hypervisor of any version. * &#x60;HyperFlexAp&#x60; - The hypervisor running on the HyperFlex cluster is Cisco HyperFlex Application Platform. * &#x60;Hyper-V&#x60; - The hypervisor running on the HyperFlex cluster is Microsoft Hyper-V. * &#x60;Unknown&#x60; - The hypervisor running on the HyperFlex cluster is not known. | [optional] [default to "ESXi"]
 **MacAddressPrefix** | Pointer to **string** | The MAC address prefix in the form of 00:25:B5:XX. | [optional] 
 **MgmtIpAddress** | Pointer to **string** | The management IP address for the HyperFlex cluster. | [optional] 
 **MgmtPlatform** | Pointer to **string** | The management platform for the HyperFlex cluster. * &#x60;FI&#x60; - The host servers used in the cluster deployment are managed by a UCS Fabric Interconnect. * &#x60;EDGE&#x60; - The host servers used in the cluster deployment are standalone severs. | [optional] [default to "FI"]
 **Replication** | Pointer to **int64** | The number of copies of each data block written. | [optional] 
-**StorageDataVlan** | Pointer to [**HyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
+**StorageDataVlan** | Pointer to [**NullableHyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
+**StorageType** | Pointer to **string** | The storage type used for the HyperFlex cluster (HyperFlex Storage or 3rd party). * &#x60;HyperFlexDp&#x60; - The type of storage is HyperFlex Data Platform. * &#x60;ThirdParty&#x60; - The type of storage is 3rd Party Storage (PureStorage, etc..). | [optional] [default to "HyperFlexDp"]
 **WwxnPrefix** | Pointer to **string** | The WWxN prefix in the form of 20:00:00:25:B5:XX. | [optional] 
 **AssociatedCluster** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
+**AssociatedComputeCluster** | Pointer to [**HyperflexHxapClusterRelationship**](hyperflex.HxapCluster.Relationship.md) |  | [optional] 
 **AutoSupport** | Pointer to [**HyperflexAutoSupportPolicyRelationship**](hyperflex.AutoSupportPolicy.Relationship.md) |  | [optional] 
 **ClusterNetwork** | Pointer to [**HyperflexClusterNetworkPolicyRelationship**](hyperflex.ClusterNetworkPolicy.Relationship.md) |  | [optional] 
 **ClusterStorage** | Pointer to [**HyperflexClusterStoragePolicyRelationship**](hyperflex.ClusterStoragePolicy.Relationship.md) |  | [optional] 
 **ConfigResult** | Pointer to [**HyperflexConfigResultRelationship**](hyperflex.ConfigResult.Relationship.md) |  | [optional] 
 **ExtFcStorage** | Pointer to [**HyperflexExtFcStoragePolicyRelationship**](hyperflex.ExtFcStoragePolicy.Relationship.md) |  | [optional] 
 **ExtIscsiStorage** | Pointer to [**HyperflexExtIscsiStoragePolicyRelationship**](hyperflex.ExtIscsiStoragePolicy.Relationship.md) |  | [optional] 
+**Httpproxypolicy** | Pointer to [**CommHttpProxyPolicyRelationship**](comm.HttpProxyPolicy.Relationship.md) |  | [optional] 
 **LocalCredential** | Pointer to [**HyperflexLocalCredentialPolicyRelationship**](hyperflex.LocalCredentialPolicy.Relationship.md) |  | [optional] 
 **NodeConfig** | Pointer to [**HyperflexNodeConfigPolicyRelationship**](hyperflex.NodeConfigPolicy.Relationship.md) |  | [optional] 
 **NodeProfileConfig** | Pointer to [**[]HyperflexNodeProfileRelationship**](hyperflex.NodeProfile.Relationship.md) | An array of relationships to hyperflexNodeProfile resources. | [optional] 
@@ -34,7 +41,7 @@ Name | Type | Description | Notes
 
 ### NewHyperflexClusterProfile
 
-`func NewHyperflexClusterProfile() *HyperflexClusterProfile`
+`func NewHyperflexClusterProfile(classId string, objectType string, ) *HyperflexClusterProfile`
 
 NewHyperflexClusterProfile instantiates a new HyperflexClusterProfile object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +55,46 @@ will change when the set of required properties is changed
 NewHyperflexClusterProfileWithDefaults instantiates a new HyperflexClusterProfile object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *HyperflexClusterProfile) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *HyperflexClusterProfile) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *HyperflexClusterProfile) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *HyperflexClusterProfile) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *HyperflexClusterProfile) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *HyperflexClusterProfile) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetDataIpAddress
 
@@ -73,6 +120,56 @@ SetDataIpAddress sets DataIpAddress field to given value.
 `func (o *HyperflexClusterProfile) HasDataIpAddress() bool`
 
 HasDataIpAddress returns a boolean if a field has been set.
+
+### GetHostNamePrefix
+
+`func (o *HyperflexClusterProfile) GetHostNamePrefix() string`
+
+GetHostNamePrefix returns the HostNamePrefix field if non-nil, zero value otherwise.
+
+### GetHostNamePrefixOk
+
+`func (o *HyperflexClusterProfile) GetHostNamePrefixOk() (*string, bool)`
+
+GetHostNamePrefixOk returns a tuple with the HostNamePrefix field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostNamePrefix
+
+`func (o *HyperflexClusterProfile) SetHostNamePrefix(v string)`
+
+SetHostNamePrefix sets HostNamePrefix field to given value.
+
+### HasHostNamePrefix
+
+`func (o *HyperflexClusterProfile) HasHostNamePrefix() bool`
+
+HasHostNamePrefix returns a boolean if a field has been set.
+
+### GetHypervisorControlIpAddress
+
+`func (o *HyperflexClusterProfile) GetHypervisorControlIpAddress() string`
+
+GetHypervisorControlIpAddress returns the HypervisorControlIpAddress field if non-nil, zero value otherwise.
+
+### GetHypervisorControlIpAddressOk
+
+`func (o *HyperflexClusterProfile) GetHypervisorControlIpAddressOk() (*string, bool)`
+
+GetHypervisorControlIpAddressOk returns a tuple with the HypervisorControlIpAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisorControlIpAddress
+
+`func (o *HyperflexClusterProfile) SetHypervisorControlIpAddress(v string)`
+
+SetHypervisorControlIpAddress sets HypervisorControlIpAddress field to given value.
+
+### HasHypervisorControlIpAddress
+
+`func (o *HyperflexClusterProfile) HasHypervisorControlIpAddress() bool`
+
+HasHypervisorControlIpAddress returns a boolean if a field has been set.
 
 ### GetHypervisorType
 
@@ -224,6 +321,41 @@ SetStorageDataVlan sets StorageDataVlan field to given value.
 
 HasStorageDataVlan returns a boolean if a field has been set.
 
+### SetStorageDataVlanNil
+
+`func (o *HyperflexClusterProfile) SetStorageDataVlanNil(b bool)`
+
+ SetStorageDataVlanNil sets the value for StorageDataVlan to be an explicit nil
+
+### UnsetStorageDataVlan
+`func (o *HyperflexClusterProfile) UnsetStorageDataVlan()`
+
+UnsetStorageDataVlan ensures that no value is present for StorageDataVlan, not even an explicit nil
+### GetStorageType
+
+`func (o *HyperflexClusterProfile) GetStorageType() string`
+
+GetStorageType returns the StorageType field if non-nil, zero value otherwise.
+
+### GetStorageTypeOk
+
+`func (o *HyperflexClusterProfile) GetStorageTypeOk() (*string, bool)`
+
+GetStorageTypeOk returns a tuple with the StorageType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageType
+
+`func (o *HyperflexClusterProfile) SetStorageType(v string)`
+
+SetStorageType sets StorageType field to given value.
+
+### HasStorageType
+
+`func (o *HyperflexClusterProfile) HasStorageType() bool`
+
+HasStorageType returns a boolean if a field has been set.
+
 ### GetWwxnPrefix
 
 `func (o *HyperflexClusterProfile) GetWwxnPrefix() string`
@@ -273,6 +405,31 @@ SetAssociatedCluster sets AssociatedCluster field to given value.
 `func (o *HyperflexClusterProfile) HasAssociatedCluster() bool`
 
 HasAssociatedCluster returns a boolean if a field has been set.
+
+### GetAssociatedComputeCluster
+
+`func (o *HyperflexClusterProfile) GetAssociatedComputeCluster() HyperflexHxapClusterRelationship`
+
+GetAssociatedComputeCluster returns the AssociatedComputeCluster field if non-nil, zero value otherwise.
+
+### GetAssociatedComputeClusterOk
+
+`func (o *HyperflexClusterProfile) GetAssociatedComputeClusterOk() (*HyperflexHxapClusterRelationship, bool)`
+
+GetAssociatedComputeClusterOk returns a tuple with the AssociatedComputeCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssociatedComputeCluster
+
+`func (o *HyperflexClusterProfile) SetAssociatedComputeCluster(v HyperflexHxapClusterRelationship)`
+
+SetAssociatedComputeCluster sets AssociatedComputeCluster field to given value.
+
+### HasAssociatedComputeCluster
+
+`func (o *HyperflexClusterProfile) HasAssociatedComputeCluster() bool`
+
+HasAssociatedComputeCluster returns a boolean if a field has been set.
 
 ### GetAutoSupport
 
@@ -423,6 +580,31 @@ SetExtIscsiStorage sets ExtIscsiStorage field to given value.
 `func (o *HyperflexClusterProfile) HasExtIscsiStorage() bool`
 
 HasExtIscsiStorage returns a boolean if a field has been set.
+
+### GetHttpproxypolicy
+
+`func (o *HyperflexClusterProfile) GetHttpproxypolicy() CommHttpProxyPolicyRelationship`
+
+GetHttpproxypolicy returns the Httpproxypolicy field if non-nil, zero value otherwise.
+
+### GetHttpproxypolicyOk
+
+`func (o *HyperflexClusterProfile) GetHttpproxypolicyOk() (*CommHttpProxyPolicyRelationship, bool)`
+
+GetHttpproxypolicyOk returns a tuple with the Httpproxypolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHttpproxypolicy
+
+`func (o *HyperflexClusterProfile) SetHttpproxypolicy(v CommHttpProxyPolicyRelationship)`
+
+SetHttpproxypolicy sets Httpproxypolicy field to given value.
+
+### HasHttpproxypolicy
+
+`func (o *HyperflexClusterProfile) HasHttpproxypolicy() bool`
+
+HasHttpproxypolicy returns a boolean if a field has been set.
 
 ### GetLocalCredential
 

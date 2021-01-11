@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HddFailuresTolerable** | Pointer to **int64** |  | [optional] [readonly] 
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.StPlatformClusterResiliencyInfo"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.StPlatformClusterResiliencyInfo"]
+**HddFailuresTolerable** | Pointer to **int64** | The number of persistent storage device failures tolerable before the storage cluster becomes offline. | [optional] [readonly] 
 **Messages** | Pointer to **[]string** |  | [optional] 
-**MessagesIterator** | Pointer to **interface{}** |  | [optional] [readonly] 
-**MessagesSize** | Pointer to **int64** |  | [optional] [readonly] 
-**NodeFailuresTolerable** | Pointer to **int64** |  | [optional] [readonly] 
-**SsdFailuresTolerable** | Pointer to **int64** |  | [optional] [readonly] 
-**State** | Pointer to **string** |  | [optional] [readonly] 
+**MessagesIterator** | Pointer to **interface{}** | The current message describing the auto-healing process of the cluster. | [optional] [readonly] 
+**MessagesSize** | Pointer to **int64** | The number of elements in the messages collection. | [optional] [readonly] 
+**NodeFailuresTolerable** | Pointer to **int64** | The number of node failures tolerable before the storage cluster becomes offline. | [optional] [readonly] 
+**SsdFailuresTolerable** | Pointer to **int64** | The number of caching device failures tolerable before the storage cluster becomes offline. | [optional] [readonly] 
+**State** | Pointer to **string** | The resiliency state of the cluster. The resiliency status is &#39;HEALTHY&#39; if there are no failures and the storage cluster is fully operational. The resiliency status is &#39;WARNING&#39; when the cluster has experienced failures that may adversely affect the cluster. It is &#39;UNKNOWN&#39; if the cluster is offline or if the state cannot be determined. | [optional] [readonly] 
 
 ## Methods
 
 ### NewHyperflexStPlatformClusterResiliencyInfoAllOf
 
-`func NewHyperflexStPlatformClusterResiliencyInfoAllOf() *HyperflexStPlatformClusterResiliencyInfoAllOf`
+`func NewHyperflexStPlatformClusterResiliencyInfoAllOf(classId string, objectType string, ) *HyperflexStPlatformClusterResiliencyInfoAllOf`
 
 NewHyperflexStPlatformClusterResiliencyInfoAllOf instantiates a new HyperflexStPlatformClusterResiliencyInfoAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -30,6 +32,46 @@ will change when the set of required properties is changed
 NewHyperflexStPlatformClusterResiliencyInfoAllOfWithDefaults instantiates a new HyperflexStPlatformClusterResiliencyInfoAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetHddFailuresTolerable
 
@@ -81,6 +123,16 @@ SetMessages sets Messages field to given value.
 
 HasMessages returns a boolean if a field has been set.
 
+### SetMessagesNil
+
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) SetMessagesNil(b bool)`
+
+ SetMessagesNil sets the value for Messages to be an explicit nil
+
+### UnsetMessages
+`func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) UnsetMessages()`
+
+UnsetMessages ensures that no value is present for Messages, not even an explicit nil
 ### GetMessagesIterator
 
 `func (o *HyperflexStPlatformClusterResiliencyInfoAllOf) GetMessagesIterator() interface{}`

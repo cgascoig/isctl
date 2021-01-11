@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,11 +19,15 @@ import (
 // HyperflexExtFcStoragePolicy A policy specifying external storage connectivity information via Fabric attached FC storage.
 type HyperflexExtFcStoragePolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Enables or disables external FC storage configuration.
-	AdminState      *bool                     `json:"AdminState,omitempty" yaml:"AdminState,omitempty"`
-	ExtaTraffic     *HyperflexNamedVsan       `json:"ExtaTraffic,omitempty" yaml:"ExtaTraffic,omitempty"`
-	ExtbTraffic     *HyperflexNamedVsan       `json:"ExtbTraffic,omitempty" yaml:"ExtbTraffic,omitempty"`
-	WwxnPrefixRange *HyperflexWwxnPrefixRange `json:"WwxnPrefixRange,omitempty" yaml:"WwxnPrefixRange,omitempty"`
+	AdminState      *bool                            `json:"AdminState,omitempty" yaml:"AdminState,omitempty"`
+	ExtaTraffic     NullableHyperflexNamedVsan       `json:"ExtaTraffic,omitempty" yaml:"ExtaTraffic,omitempty"`
+	ExtbTraffic     NullableHyperflexNamedVsan       `json:"ExtbTraffic,omitempty" yaml:"ExtbTraffic,omitempty"`
+	WwxnPrefixRange NullableHyperflexWwxnPrefixRange `json:"WwxnPrefixRange,omitempty" yaml:"WwxnPrefixRange,omitempty"`
 	// An array of relationships to hyperflexClusterProfile resources.
 	ClusterProfiles []HyperflexClusterProfileRelationship `json:"ClusterProfiles,omitempty" yaml:"ClusterProfiles,omitempty"`
 	Organization    *OrganizationOrganizationRelationship `json:"Organization,omitempty" yaml:"Organization,omitempty"`
@@ -33,8 +37,10 @@ type HyperflexExtFcStoragePolicy struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexExtFcStoragePolicy() *HyperflexExtFcStoragePolicy {
+func NewHyperflexExtFcStoragePolicy(classId string, objectType string) *HyperflexExtFcStoragePolicy {
 	this := HyperflexExtFcStoragePolicy{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -43,7 +49,59 @@ func NewHyperflexExtFcStoragePolicy() *HyperflexExtFcStoragePolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexExtFcStoragePolicyWithDefaults() *HyperflexExtFcStoragePolicy {
 	this := HyperflexExtFcStoragePolicy{}
+	var classId string = "hyperflex.ExtFcStoragePolicy"
+	this.ClassId = classId
+	var objectType string = "hyperflex.ExtFcStoragePolicy"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexExtFcStoragePolicy) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexExtFcStoragePolicy) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexExtFcStoragePolicy) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexExtFcStoragePolicy) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexExtFcStoragePolicy) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexExtFcStoragePolicy) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAdminState returns the AdminState field value if set, zero value otherwise.
@@ -78,100 +136,133 @@ func (o *HyperflexExtFcStoragePolicy) SetAdminState(v bool) {
 	o.AdminState = &v
 }
 
-// GetExtaTraffic returns the ExtaTraffic field value if set, zero value otherwise.
+// GetExtaTraffic returns the ExtaTraffic field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexExtFcStoragePolicy) GetExtaTraffic() HyperflexNamedVsan {
-	if o == nil || o.ExtaTraffic == nil {
+	if o == nil || o.ExtaTraffic.Get() == nil {
 		var ret HyperflexNamedVsan
 		return ret
 	}
-	return *o.ExtaTraffic
+	return *o.ExtaTraffic.Get()
 }
 
 // GetExtaTrafficOk returns a tuple with the ExtaTraffic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexExtFcStoragePolicy) GetExtaTrafficOk() (*HyperflexNamedVsan, bool) {
-	if o == nil || o.ExtaTraffic == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExtaTraffic, true
+	return o.ExtaTraffic.Get(), o.ExtaTraffic.IsSet()
 }
 
 // HasExtaTraffic returns a boolean if a field has been set.
 func (o *HyperflexExtFcStoragePolicy) HasExtaTraffic() bool {
-	if o != nil && o.ExtaTraffic != nil {
+	if o != nil && o.ExtaTraffic.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExtaTraffic gets a reference to the given HyperflexNamedVsan and assigns it to the ExtaTraffic field.
+// SetExtaTraffic gets a reference to the given NullableHyperflexNamedVsan and assigns it to the ExtaTraffic field.
 func (o *HyperflexExtFcStoragePolicy) SetExtaTraffic(v HyperflexNamedVsan) {
-	o.ExtaTraffic = &v
+	o.ExtaTraffic.Set(&v)
 }
 
-// GetExtbTraffic returns the ExtbTraffic field value if set, zero value otherwise.
+// SetExtaTrafficNil sets the value for ExtaTraffic to be an explicit nil
+func (o *HyperflexExtFcStoragePolicy) SetExtaTrafficNil() {
+	o.ExtaTraffic.Set(nil)
+}
+
+// UnsetExtaTraffic ensures that no value is present for ExtaTraffic, not even an explicit nil
+func (o *HyperflexExtFcStoragePolicy) UnsetExtaTraffic() {
+	o.ExtaTraffic.Unset()
+}
+
+// GetExtbTraffic returns the ExtbTraffic field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexExtFcStoragePolicy) GetExtbTraffic() HyperflexNamedVsan {
-	if o == nil || o.ExtbTraffic == nil {
+	if o == nil || o.ExtbTraffic.Get() == nil {
 		var ret HyperflexNamedVsan
 		return ret
 	}
-	return *o.ExtbTraffic
+	return *o.ExtbTraffic.Get()
 }
 
 // GetExtbTrafficOk returns a tuple with the ExtbTraffic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexExtFcStoragePolicy) GetExtbTrafficOk() (*HyperflexNamedVsan, bool) {
-	if o == nil || o.ExtbTraffic == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExtbTraffic, true
+	return o.ExtbTraffic.Get(), o.ExtbTraffic.IsSet()
 }
 
 // HasExtbTraffic returns a boolean if a field has been set.
 func (o *HyperflexExtFcStoragePolicy) HasExtbTraffic() bool {
-	if o != nil && o.ExtbTraffic != nil {
+	if o != nil && o.ExtbTraffic.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExtbTraffic gets a reference to the given HyperflexNamedVsan and assigns it to the ExtbTraffic field.
+// SetExtbTraffic gets a reference to the given NullableHyperflexNamedVsan and assigns it to the ExtbTraffic field.
 func (o *HyperflexExtFcStoragePolicy) SetExtbTraffic(v HyperflexNamedVsan) {
-	o.ExtbTraffic = &v
+	o.ExtbTraffic.Set(&v)
 }
 
-// GetWwxnPrefixRange returns the WwxnPrefixRange field value if set, zero value otherwise.
+// SetExtbTrafficNil sets the value for ExtbTraffic to be an explicit nil
+func (o *HyperflexExtFcStoragePolicy) SetExtbTrafficNil() {
+	o.ExtbTraffic.Set(nil)
+}
+
+// UnsetExtbTraffic ensures that no value is present for ExtbTraffic, not even an explicit nil
+func (o *HyperflexExtFcStoragePolicy) UnsetExtbTraffic() {
+	o.ExtbTraffic.Unset()
+}
+
+// GetWwxnPrefixRange returns the WwxnPrefixRange field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexExtFcStoragePolicy) GetWwxnPrefixRange() HyperflexWwxnPrefixRange {
-	if o == nil || o.WwxnPrefixRange == nil {
+	if o == nil || o.WwxnPrefixRange.Get() == nil {
 		var ret HyperflexWwxnPrefixRange
 		return ret
 	}
-	return *o.WwxnPrefixRange
+	return *o.WwxnPrefixRange.Get()
 }
 
 // GetWwxnPrefixRangeOk returns a tuple with the WwxnPrefixRange field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexExtFcStoragePolicy) GetWwxnPrefixRangeOk() (*HyperflexWwxnPrefixRange, bool) {
-	if o == nil || o.WwxnPrefixRange == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.WwxnPrefixRange, true
+	return o.WwxnPrefixRange.Get(), o.WwxnPrefixRange.IsSet()
 }
 
 // HasWwxnPrefixRange returns a boolean if a field has been set.
 func (o *HyperflexExtFcStoragePolicy) HasWwxnPrefixRange() bool {
-	if o != nil && o.WwxnPrefixRange != nil {
+	if o != nil && o.WwxnPrefixRange.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWwxnPrefixRange gets a reference to the given HyperflexWwxnPrefixRange and assigns it to the WwxnPrefixRange field.
+// SetWwxnPrefixRange gets a reference to the given NullableHyperflexWwxnPrefixRange and assigns it to the WwxnPrefixRange field.
 func (o *HyperflexExtFcStoragePolicy) SetWwxnPrefixRange(v HyperflexWwxnPrefixRange) {
-	o.WwxnPrefixRange = &v
+	o.WwxnPrefixRange.Set(&v)
+}
+
+// SetWwxnPrefixRangeNil sets the value for WwxnPrefixRange to be an explicit nil
+func (o *HyperflexExtFcStoragePolicy) SetWwxnPrefixRangeNil() {
+	o.WwxnPrefixRange.Set(nil)
+}
+
+// UnsetWwxnPrefixRange ensures that no value is present for WwxnPrefixRange, not even an explicit nil
+func (o *HyperflexExtFcStoragePolicy) UnsetWwxnPrefixRange() {
+	o.WwxnPrefixRange.Unset()
 }
 
 // GetClusterProfiles returns the ClusterProfiles field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -249,17 +340,23 @@ func (o HyperflexExtFcStoragePolicy) MarshalJSON() ([]byte, error) {
 	if errPolicyAbstractPolicy != nil {
 		return []byte{}, errPolicyAbstractPolicy
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AdminState != nil {
 		toSerialize["AdminState"] = o.AdminState
 	}
-	if o.ExtaTraffic != nil {
-		toSerialize["ExtaTraffic"] = o.ExtaTraffic
+	if o.ExtaTraffic.IsSet() {
+		toSerialize["ExtaTraffic"] = o.ExtaTraffic.Get()
 	}
-	if o.ExtbTraffic != nil {
-		toSerialize["ExtbTraffic"] = o.ExtbTraffic
+	if o.ExtbTraffic.IsSet() {
+		toSerialize["ExtbTraffic"] = o.ExtbTraffic.Get()
 	}
-	if o.WwxnPrefixRange != nil {
-		toSerialize["WwxnPrefixRange"] = o.WwxnPrefixRange
+	if o.WwxnPrefixRange.IsSet() {
+		toSerialize["WwxnPrefixRange"] = o.WwxnPrefixRange.Get()
 	}
 	if o.ClusterProfiles != nil {
 		toSerialize["ClusterProfiles"] = o.ClusterProfiles
