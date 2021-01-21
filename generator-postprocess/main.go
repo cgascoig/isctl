@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"regexp"
 	"text/template"
 
 	yaml "gopkg.in/yaml.v2"
@@ -31,6 +32,11 @@ type Operation struct {
 	Summary        string  `yaml:"summary"`
 	BaseName       string  `yaml:"baseName"`
 	Params         []Param `yaml:"params"`
+}
+
+func (o *Operation) IsListOperation() bool {
+	r := regexp.MustCompile(`List$`)
+	return r.MatchString(o.OperationID)
 }
 
 // Param represents the YAML of one parameter
@@ -98,8 +104,19 @@ func main() {
 
 	cliTree := generateCliTree(&opData)
 
-	generate("generator-postprocess/cli.gotmpl", "cmd/cli.go", cliTree)
-	generate("generator-postprocess/types.gotmpl", "cmd/types.go", opData)
+	data := struct {
+		CliTree    *CliItem
+		Operations []Operation
+		Models     map[string]Model
+	}{
+		CliTree:    cliTree,
+		Operations: opData.Operations,
+		Models:     opData.Models,
+	}
+
+	generate("generator-postprocess/cli.go.tmpl", "cmd/cli.go", data)
+	generate("generator-postprocess/types.go.tmpl", "cmd/types.go", data)
+	generate("generator-postprocess/operations.go.tmpl", "cmd/operations.go", data)
 
 	log.Printf("Finished post processing.")
 }

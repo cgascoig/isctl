@@ -49,9 +49,9 @@ build/generator-postprocess: $(shell find generator-postprocess -name \*.go -typ
 > mkdir -p $(@D)
 > go build -v -o "$@" $(GO_MODULE)/generator-postprocess 
 
-cmd/cli.go: build/generator-postprocess openapi/operations.yaml generator-postprocess/cli.gotmpl generator-postprocess/types.gotmpl
-> build/generator-postprocess --operations openapi/operations.yaml --template generator-postprocess/cli.gotmpl --output "$@"
-> go fmt "$@"
+cmd/cli.go: build/generator-postprocess openapi/operations.yaml $(shell find generator-postprocess -name \*.go.tmpl -type f)
+> build/generator-postprocess --operations openapi/operations.yaml --template generator-postprocess/cli.go.tmpl --output "$@"
+> go fmt $(shell find cmd -name \*.go -type f)
 
 build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
 > $(GO_BUILD_CMD) -o "$@" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
