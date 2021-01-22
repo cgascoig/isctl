@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,12 +18,16 @@ import (
 
 // ResourceGroupAllOf Definition of the list of properties defined in 'resource.Group', excluding properties defined in parent classes.
 type ResourceGroupAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The name of this resource group.
-	Name                    *string                            `json:"Name,omitempty" yaml:"Name,omitempty"`
-	PerTypeCombinedSelector *[]ResourcePerTypeCombinedSelector `json:"PerTypeCombinedSelector,omitempty" yaml:"PerTypeCombinedSelector,omitempty"`
+	Name                    *string                           `json:"Name,omitempty" yaml:"Name,omitempty"`
+	PerTypeCombinedSelector []ResourcePerTypeCombinedSelector `json:"PerTypeCombinedSelector,omitempty" yaml:"PerTypeCombinedSelector,omitempty"`
 	// Qualifier shall be used to specify if we want to organize resources using multiple resource group or single For an account, resource groups can be of only one of the above types. (Both the types are mutually exclusive for an account.). * `Allow-Selectors` - Resources will be added to resource groups based on ODATA filter. Multiple resource group can be created to organize resources. * `Allow-All` - All resources will become part of the Resource Group. Only one resource group can be created to organize resources.
 	Qualifier *string                 `json:"Qualifier,omitempty" yaml:"Qualifier,omitempty"`
-	Selectors *[]ResourceSelector     `json:"Selectors,omitempty" yaml:"Selectors,omitempty"`
+	Selectors []ResourceSelector      `json:"Selectors,omitempty" yaml:"Selectors,omitempty"`
 	Account   *IamAccountRelationship `json:"Account,omitempty" yaml:"Account,omitempty"`
 	// An array of relationships to organizationOrganization resources.
 	Organizations []OrganizationOrganizationRelationship `json:"Organizations,omitempty" yaml:"Organizations,omitempty"`
@@ -33,8 +37,10 @@ type ResourceGroupAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResourceGroupAllOf() *ResourceGroupAllOf {
+func NewResourceGroupAllOf(classId string, objectType string) *ResourceGroupAllOf {
 	this := ResourceGroupAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var qualifier string = "Allow-Selectors"
 	this.Qualifier = &qualifier
 	return &this
@@ -45,9 +51,61 @@ func NewResourceGroupAllOf() *ResourceGroupAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewResourceGroupAllOfWithDefaults() *ResourceGroupAllOf {
 	this := ResourceGroupAllOf{}
+	var classId string = "resource.Group"
+	this.ClassId = classId
+	var objectType string = "resource.Group"
+	this.ObjectType = objectType
 	var qualifier string = "Allow-Selectors"
 	this.Qualifier = &qualifier
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *ResourceGroupAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ResourceGroupAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ResourceGroupAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ResourceGroupAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ResourceGroupAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ResourceGroupAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -82,22 +140,23 @@ func (o *ResourceGroupAllOf) SetName(v string) {
 	o.Name = &v
 }
 
-// GetPerTypeCombinedSelector returns the PerTypeCombinedSelector field value if set, zero value otherwise.
+// GetPerTypeCombinedSelector returns the PerTypeCombinedSelector field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceGroupAllOf) GetPerTypeCombinedSelector() []ResourcePerTypeCombinedSelector {
-	if o == nil || o.PerTypeCombinedSelector == nil {
+	if o == nil {
 		var ret []ResourcePerTypeCombinedSelector
 		return ret
 	}
-	return *o.PerTypeCombinedSelector
+	return o.PerTypeCombinedSelector
 }
 
 // GetPerTypeCombinedSelectorOk returns a tuple with the PerTypeCombinedSelector field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceGroupAllOf) GetPerTypeCombinedSelectorOk() (*[]ResourcePerTypeCombinedSelector, bool) {
 	if o == nil || o.PerTypeCombinedSelector == nil {
 		return nil, false
 	}
-	return o.PerTypeCombinedSelector, true
+	return &o.PerTypeCombinedSelector, true
 }
 
 // HasPerTypeCombinedSelector returns a boolean if a field has been set.
@@ -111,7 +170,7 @@ func (o *ResourceGroupAllOf) HasPerTypeCombinedSelector() bool {
 
 // SetPerTypeCombinedSelector gets a reference to the given []ResourcePerTypeCombinedSelector and assigns it to the PerTypeCombinedSelector field.
 func (o *ResourceGroupAllOf) SetPerTypeCombinedSelector(v []ResourcePerTypeCombinedSelector) {
-	o.PerTypeCombinedSelector = &v
+	o.PerTypeCombinedSelector = v
 }
 
 // GetQualifier returns the Qualifier field value if set, zero value otherwise.
@@ -146,22 +205,23 @@ func (o *ResourceGroupAllOf) SetQualifier(v string) {
 	o.Qualifier = &v
 }
 
-// GetSelectors returns the Selectors field value if set, zero value otherwise.
+// GetSelectors returns the Selectors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ResourceGroupAllOf) GetSelectors() []ResourceSelector {
-	if o == nil || o.Selectors == nil {
+	if o == nil {
 		var ret []ResourceSelector
 		return ret
 	}
-	return *o.Selectors
+	return o.Selectors
 }
 
 // GetSelectorsOk returns a tuple with the Selectors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ResourceGroupAllOf) GetSelectorsOk() (*[]ResourceSelector, bool) {
 	if o == nil || o.Selectors == nil {
 		return nil, false
 	}
-	return o.Selectors, true
+	return &o.Selectors, true
 }
 
 // HasSelectors returns a boolean if a field has been set.
@@ -175,7 +235,7 @@ func (o *ResourceGroupAllOf) HasSelectors() bool {
 
 // SetSelectors gets a reference to the given []ResourceSelector and assigns it to the Selectors field.
 func (o *ResourceGroupAllOf) SetSelectors(v []ResourceSelector) {
-	o.Selectors = &v
+	o.Selectors = v
 }
 
 // GetAccount returns the Account field value if set, zero value otherwise.
@@ -245,6 +305,12 @@ func (o *ResourceGroupAllOf) SetOrganizations(v []OrganizationOrganizationRelati
 
 func (o ResourceGroupAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Name != nil {
 		toSerialize["Name"] = o.Name
 	}

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,8 +18,16 @@ import (
 
 // IamLocalUserPasswordAllOf Definition of the list of properties defined in 'iam.LocalUserPassword', excluding properties defined in parent classes.
 type IamLocalUserPasswordAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// User-entered passsord to be compared to password for change password function.
 	CurrentPassword *string `json:"CurrentPassword,omitempty" yaml:"CurrentPassword,omitempty"`
+	// Indicates whether the value of the 'currentPassword' property has been set.
+	IsCurrentPasswordSet *bool `json:"IsCurrentPasswordSet,omitempty" yaml:"IsCurrentPasswordSet,omitempty"`
+	// Indicates whether the value of the 'newPassword' property has been set.
+	IsNewPasswordSet *bool `json:"IsNewPasswordSet,omitempty" yaml:"IsNewPasswordSet,omitempty"`
 	// New password that the user's password should be changed to.
 	NewPassword *string `json:"NewPassword,omitempty" yaml:"NewPassword,omitempty"`
 	// User's current valid passsord.
@@ -31,8 +39,14 @@ type IamLocalUserPasswordAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIamLocalUserPasswordAllOf() *IamLocalUserPasswordAllOf {
+func NewIamLocalUserPasswordAllOf(classId string, objectType string) *IamLocalUserPasswordAllOf {
 	this := IamLocalUserPasswordAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var isCurrentPasswordSet bool = false
+	this.IsCurrentPasswordSet = &isCurrentPasswordSet
+	var isNewPasswordSet bool = false
+	this.IsNewPasswordSet = &isNewPasswordSet
 	return &this
 }
 
@@ -41,7 +55,63 @@ func NewIamLocalUserPasswordAllOf() *IamLocalUserPasswordAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewIamLocalUserPasswordAllOfWithDefaults() *IamLocalUserPasswordAllOf {
 	this := IamLocalUserPasswordAllOf{}
+	var classId string = "iam.LocalUserPassword"
+	this.ClassId = classId
+	var objectType string = "iam.LocalUserPassword"
+	this.ObjectType = objectType
+	var isCurrentPasswordSet bool = false
+	this.IsCurrentPasswordSet = &isCurrentPasswordSet
+	var isNewPasswordSet bool = false
+	this.IsNewPasswordSet = &isNewPasswordSet
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *IamLocalUserPasswordAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *IamLocalUserPasswordAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *IamLocalUserPasswordAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *IamLocalUserPasswordAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *IamLocalUserPasswordAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *IamLocalUserPasswordAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetCurrentPassword returns the CurrentPassword field value if set, zero value otherwise.
@@ -74,6 +144,70 @@ func (o *IamLocalUserPasswordAllOf) HasCurrentPassword() bool {
 // SetCurrentPassword gets a reference to the given string and assigns it to the CurrentPassword field.
 func (o *IamLocalUserPasswordAllOf) SetCurrentPassword(v string) {
 	o.CurrentPassword = &v
+}
+
+// GetIsCurrentPasswordSet returns the IsCurrentPasswordSet field value if set, zero value otherwise.
+func (o *IamLocalUserPasswordAllOf) GetIsCurrentPasswordSet() bool {
+	if o == nil || o.IsCurrentPasswordSet == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsCurrentPasswordSet
+}
+
+// GetIsCurrentPasswordSetOk returns a tuple with the IsCurrentPasswordSet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IamLocalUserPasswordAllOf) GetIsCurrentPasswordSetOk() (*bool, bool) {
+	if o == nil || o.IsCurrentPasswordSet == nil {
+		return nil, false
+	}
+	return o.IsCurrentPasswordSet, true
+}
+
+// HasIsCurrentPasswordSet returns a boolean if a field has been set.
+func (o *IamLocalUserPasswordAllOf) HasIsCurrentPasswordSet() bool {
+	if o != nil && o.IsCurrentPasswordSet != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsCurrentPasswordSet gets a reference to the given bool and assigns it to the IsCurrentPasswordSet field.
+func (o *IamLocalUserPasswordAllOf) SetIsCurrentPasswordSet(v bool) {
+	o.IsCurrentPasswordSet = &v
+}
+
+// GetIsNewPasswordSet returns the IsNewPasswordSet field value if set, zero value otherwise.
+func (o *IamLocalUserPasswordAllOf) GetIsNewPasswordSet() bool {
+	if o == nil || o.IsNewPasswordSet == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsNewPasswordSet
+}
+
+// GetIsNewPasswordSetOk returns a tuple with the IsNewPasswordSet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IamLocalUserPasswordAllOf) GetIsNewPasswordSetOk() (*bool, bool) {
+	if o == nil || o.IsNewPasswordSet == nil {
+		return nil, false
+	}
+	return o.IsNewPasswordSet, true
+}
+
+// HasIsNewPasswordSet returns a boolean if a field has been set.
+func (o *IamLocalUserPasswordAllOf) HasIsNewPasswordSet() bool {
+	if o != nil && o.IsNewPasswordSet != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsNewPasswordSet gets a reference to the given bool and assigns it to the IsNewPasswordSet field.
+func (o *IamLocalUserPasswordAllOf) SetIsNewPasswordSet(v bool) {
+	o.IsNewPasswordSet = &v
 }
 
 // GetNewPassword returns the NewPassword field value if set, zero value otherwise.
@@ -174,8 +308,20 @@ func (o *IamLocalUserPasswordAllOf) SetUser(v IamUserRelationship) {
 
 func (o IamLocalUserPasswordAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.CurrentPassword != nil {
 		toSerialize["CurrentPassword"] = o.CurrentPassword
+	}
+	if o.IsCurrentPasswordSet != nil {
+		toSerialize["IsCurrentPasswordSet"] = o.IsCurrentPasswordSet
+	}
+	if o.IsNewPasswordSet != nil {
+		toSerialize["IsNewPasswordSet"] = o.IsNewPasswordSet
 	}
 	if o.NewPassword != nil {
 		toSerialize["NewPassword"] = o.NewPassword

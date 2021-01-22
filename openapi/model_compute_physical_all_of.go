@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,9 +18,13 @@ import (
 
 // ComputePhysicalAllOf Definition of the list of properties defined in 'compute.Physical', excluding properties defined in parent classes.
 type ComputePhysicalAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property. The enum values provides the list of concrete types that can be instantiated from this abstract type.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The desired power state of the server.
-	AdminPowerState *string              `json:"AdminPowerState,omitempty" yaml:"AdminPowerState,omitempty"`
-	AlarmSummary    *ComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
+	AdminPowerState *string                     `json:"AdminPowerState,omitempty" yaml:"AdminPowerState,omitempty"`
+	AlarmSummary    NullableComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
 	// The user defined asset tag assigned to the server.
 	AssetTag *string `json:"AssetTag,omitempty" yaml:"AssetTag,omitempty"`
 	// The amount of memory available on the server.
@@ -28,8 +32,8 @@ type ComputePhysicalAllOf struct {
 	// The BIOS POST completion status of the server.
 	BiosPostComplete *bool `json:"BiosPostComplete,omitempty" yaml:"BiosPostComplete,omitempty"`
 	// The fault summary for the server.
-	FaultSummary   *int64              `json:"FaultSummary,omitempty" yaml:"FaultSummary,omitempty"`
-	KvmIpAddresses *[]ComputeIpAddress `json:"KvmIpAddresses,omitempty" yaml:"KvmIpAddresses,omitempty"`
+	FaultSummary   *int64             `json:"FaultSummary,omitempty" yaml:"FaultSummary,omitempty"`
+	KvmIpAddresses []ComputeIpAddress `json:"KvmIpAddresses,omitempty" yaml:"KvmIpAddresses,omitempty"`
 	// The management mode of the server. * `IntersightStandalone` - Intersight Standalone mode of operation. * `UCSM` - Unified Computing System Manager mode of operation. * `Intersight` - Intersight managed mode of operation.
 	ManagementMode *string `json:"ManagementMode,omitempty" yaml:"ManagementMode,omitempty"`
 	// The maximum memory speed in MHz available on the server.
@@ -67,16 +71,40 @@ type ComputePhysicalAllOf struct {
 	// The user defined label assigned to the server.
 	UserLabel *string `json:"UserLabel,omitempty" yaml:"UserLabel,omitempty"`
 	// The universally unique identity of the server.
-	Uuid         *string                                `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
-	MgmtIdentity *EquipmentPhysicalIdentityRelationship `json:"MgmtIdentity,omitempty" yaml:"MgmtIdentity,omitempty"`
+	Uuid *string `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
+	// An array of relationships to bootCddDevice resources.
+	BootCddDevices []BootCddDeviceRelationship `json:"BootCddDevices,omitempty" yaml:"BootCddDevices,omitempty"`
+	// An array of relationships to bootHddDevice resources.
+	BootHddDevices []BootHddDeviceRelationship `json:"BootHddDevices,omitempty" yaml:"BootHddDevices,omitempty"`
+	// An array of relationships to bootIscsiDevice resources.
+	BootIscsiDevices []BootIscsiDeviceRelationship `json:"BootIscsiDevices,omitempty" yaml:"BootIscsiDevices,omitempty"`
+	// An array of relationships to bootNvmeDevice resources.
+	BootNvmeDevices []BootNvmeDeviceRelationship `json:"BootNvmeDevices,omitempty" yaml:"BootNvmeDevices,omitempty"`
+	// An array of relationships to bootPchStorageDevice resources.
+	BootPchStorageDevices []BootPchStorageDeviceRelationship `json:"BootPchStorageDevices,omitempty" yaml:"BootPchStorageDevices,omitempty"`
+	// An array of relationships to bootPxeDevice resources.
+	BootPxeDevices []BootPxeDeviceRelationship `json:"BootPxeDevices,omitempty" yaml:"BootPxeDevices,omitempty"`
+	// An array of relationships to bootSanDevice resources.
+	BootSanDevices []BootSanDeviceRelationship `json:"BootSanDevices,omitempty" yaml:"BootSanDevices,omitempty"`
+	// An array of relationships to bootSdDevice resources.
+	BootSdDevices []BootSdDeviceRelationship `json:"BootSdDevices,omitempty" yaml:"BootSdDevices,omitempty"`
+	// An array of relationships to bootUefiShellDevice resources.
+	BootUefiShellDevices []BootUefiShellDeviceRelationship `json:"BootUefiShellDevices,omitempty" yaml:"BootUefiShellDevices,omitempty"`
+	// An array of relationships to bootUsbDevice resources.
+	BootUsbDevices []BootUsbDeviceRelationship `json:"BootUsbDevices,omitempty" yaml:"BootUsbDevices,omitempty"`
+	// An array of relationships to bootVmediaDevice resources.
+	BootVmediaDevices []BootVmediaDeviceRelationship         `json:"BootVmediaDevices,omitempty" yaml:"BootVmediaDevices,omitempty"`
+	MgmtIdentity      *EquipmentPhysicalIdentityRelationship `json:"MgmtIdentity,omitempty" yaml:"MgmtIdentity,omitempty"`
 }
 
 // NewComputePhysicalAllOf instantiates a new ComputePhysicalAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComputePhysicalAllOf() *ComputePhysicalAllOf {
+func NewComputePhysicalAllOf(classId string, objectType string) *ComputePhysicalAllOf {
 	this := ComputePhysicalAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var managementMode string = "IntersightStandalone"
 	this.ManagementMode = &managementMode
 	return &this
@@ -90,6 +118,54 @@ func NewComputePhysicalAllOfWithDefaults() *ComputePhysicalAllOf {
 	var managementMode string = "IntersightStandalone"
 	this.ManagementMode = &managementMode
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *ComputePhysicalAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ComputePhysicalAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ComputePhysicalAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ComputePhysicalAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAdminPowerState returns the AdminPowerState field value if set, zero value otherwise.
@@ -124,36 +200,47 @@ func (o *ComputePhysicalAllOf) SetAdminPowerState(v string) {
 	o.AdminPowerState = &v
 }
 
-// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputePhysicalAllOf) GetAlarmSummary() ComputeAlarmSummary {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil || o.AlarmSummary.Get() == nil {
 		var ret ComputeAlarmSummary
 		return ret
 	}
-	return *o.AlarmSummary
+	return *o.AlarmSummary.Get()
 }
 
 // GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputePhysicalAllOf) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool) {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlarmSummary, true
+	return o.AlarmSummary.Get(), o.AlarmSummary.IsSet()
 }
 
 // HasAlarmSummary returns a boolean if a field has been set.
 func (o *ComputePhysicalAllOf) HasAlarmSummary() bool {
-	if o != nil && o.AlarmSummary != nil {
+	if o != nil && o.AlarmSummary.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAlarmSummary gets a reference to the given ComputeAlarmSummary and assigns it to the AlarmSummary field.
+// SetAlarmSummary gets a reference to the given NullableComputeAlarmSummary and assigns it to the AlarmSummary field.
 func (o *ComputePhysicalAllOf) SetAlarmSummary(v ComputeAlarmSummary) {
-	o.AlarmSummary = &v
+	o.AlarmSummary.Set(&v)
+}
+
+// SetAlarmSummaryNil sets the value for AlarmSummary to be an explicit nil
+func (o *ComputePhysicalAllOf) SetAlarmSummaryNil() {
+	o.AlarmSummary.Set(nil)
+}
+
+// UnsetAlarmSummary ensures that no value is present for AlarmSummary, not even an explicit nil
+func (o *ComputePhysicalAllOf) UnsetAlarmSummary() {
+	o.AlarmSummary.Unset()
 }
 
 // GetAssetTag returns the AssetTag field value if set, zero value otherwise.
@@ -284,22 +371,23 @@ func (o *ComputePhysicalAllOf) SetFaultSummary(v int64) {
 	o.FaultSummary = &v
 }
 
-// GetKvmIpAddresses returns the KvmIpAddresses field value if set, zero value otherwise.
+// GetKvmIpAddresses returns the KvmIpAddresses field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputePhysicalAllOf) GetKvmIpAddresses() []ComputeIpAddress {
-	if o == nil || o.KvmIpAddresses == nil {
+	if o == nil {
 		var ret []ComputeIpAddress
 		return ret
 	}
-	return *o.KvmIpAddresses
+	return o.KvmIpAddresses
 }
 
 // GetKvmIpAddressesOk returns a tuple with the KvmIpAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputePhysicalAllOf) GetKvmIpAddressesOk() (*[]ComputeIpAddress, bool) {
 	if o == nil || o.KvmIpAddresses == nil {
 		return nil, false
 	}
-	return o.KvmIpAddresses, true
+	return &o.KvmIpAddresses, true
 }
 
 // HasKvmIpAddresses returns a boolean if a field has been set.
@@ -313,7 +401,7 @@ func (o *ComputePhysicalAllOf) HasKvmIpAddresses() bool {
 
 // SetKvmIpAddresses gets a reference to the given []ComputeIpAddress and assigns it to the KvmIpAddresses field.
 func (o *ComputePhysicalAllOf) SetKvmIpAddresses(v []ComputeIpAddress) {
-	o.KvmIpAddresses = &v
+	o.KvmIpAddresses = v
 }
 
 // GetManagementMode returns the ManagementMode field value if set, zero value otherwise.
@@ -924,6 +1012,369 @@ func (o *ComputePhysicalAllOf) SetUuid(v string) {
 	o.Uuid = &v
 }
 
+// GetBootCddDevices returns the BootCddDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootCddDevices() []BootCddDeviceRelationship {
+	if o == nil {
+		var ret []BootCddDeviceRelationship
+		return ret
+	}
+	return o.BootCddDevices
+}
+
+// GetBootCddDevicesOk returns a tuple with the BootCddDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootCddDevicesOk() (*[]BootCddDeviceRelationship, bool) {
+	if o == nil || o.BootCddDevices == nil {
+		return nil, false
+	}
+	return &o.BootCddDevices, true
+}
+
+// HasBootCddDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootCddDevices() bool {
+	if o != nil && o.BootCddDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootCddDevices gets a reference to the given []BootCddDeviceRelationship and assigns it to the BootCddDevices field.
+func (o *ComputePhysicalAllOf) SetBootCddDevices(v []BootCddDeviceRelationship) {
+	o.BootCddDevices = v
+}
+
+// GetBootHddDevices returns the BootHddDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootHddDevices() []BootHddDeviceRelationship {
+	if o == nil {
+		var ret []BootHddDeviceRelationship
+		return ret
+	}
+	return o.BootHddDevices
+}
+
+// GetBootHddDevicesOk returns a tuple with the BootHddDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootHddDevicesOk() (*[]BootHddDeviceRelationship, bool) {
+	if o == nil || o.BootHddDevices == nil {
+		return nil, false
+	}
+	return &o.BootHddDevices, true
+}
+
+// HasBootHddDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootHddDevices() bool {
+	if o != nil && o.BootHddDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootHddDevices gets a reference to the given []BootHddDeviceRelationship and assigns it to the BootHddDevices field.
+func (o *ComputePhysicalAllOf) SetBootHddDevices(v []BootHddDeviceRelationship) {
+	o.BootHddDevices = v
+}
+
+// GetBootIscsiDevices returns the BootIscsiDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootIscsiDevices() []BootIscsiDeviceRelationship {
+	if o == nil {
+		var ret []BootIscsiDeviceRelationship
+		return ret
+	}
+	return o.BootIscsiDevices
+}
+
+// GetBootIscsiDevicesOk returns a tuple with the BootIscsiDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootIscsiDevicesOk() (*[]BootIscsiDeviceRelationship, bool) {
+	if o == nil || o.BootIscsiDevices == nil {
+		return nil, false
+	}
+	return &o.BootIscsiDevices, true
+}
+
+// HasBootIscsiDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootIscsiDevices() bool {
+	if o != nil && o.BootIscsiDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootIscsiDevices gets a reference to the given []BootIscsiDeviceRelationship and assigns it to the BootIscsiDevices field.
+func (o *ComputePhysicalAllOf) SetBootIscsiDevices(v []BootIscsiDeviceRelationship) {
+	o.BootIscsiDevices = v
+}
+
+// GetBootNvmeDevices returns the BootNvmeDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootNvmeDevices() []BootNvmeDeviceRelationship {
+	if o == nil {
+		var ret []BootNvmeDeviceRelationship
+		return ret
+	}
+	return o.BootNvmeDevices
+}
+
+// GetBootNvmeDevicesOk returns a tuple with the BootNvmeDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootNvmeDevicesOk() (*[]BootNvmeDeviceRelationship, bool) {
+	if o == nil || o.BootNvmeDevices == nil {
+		return nil, false
+	}
+	return &o.BootNvmeDevices, true
+}
+
+// HasBootNvmeDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootNvmeDevices() bool {
+	if o != nil && o.BootNvmeDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootNvmeDevices gets a reference to the given []BootNvmeDeviceRelationship and assigns it to the BootNvmeDevices field.
+func (o *ComputePhysicalAllOf) SetBootNvmeDevices(v []BootNvmeDeviceRelationship) {
+	o.BootNvmeDevices = v
+}
+
+// GetBootPchStorageDevices returns the BootPchStorageDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootPchStorageDevices() []BootPchStorageDeviceRelationship {
+	if o == nil {
+		var ret []BootPchStorageDeviceRelationship
+		return ret
+	}
+	return o.BootPchStorageDevices
+}
+
+// GetBootPchStorageDevicesOk returns a tuple with the BootPchStorageDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootPchStorageDevicesOk() (*[]BootPchStorageDeviceRelationship, bool) {
+	if o == nil || o.BootPchStorageDevices == nil {
+		return nil, false
+	}
+	return &o.BootPchStorageDevices, true
+}
+
+// HasBootPchStorageDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootPchStorageDevices() bool {
+	if o != nil && o.BootPchStorageDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootPchStorageDevices gets a reference to the given []BootPchStorageDeviceRelationship and assigns it to the BootPchStorageDevices field.
+func (o *ComputePhysicalAllOf) SetBootPchStorageDevices(v []BootPchStorageDeviceRelationship) {
+	o.BootPchStorageDevices = v
+}
+
+// GetBootPxeDevices returns the BootPxeDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootPxeDevices() []BootPxeDeviceRelationship {
+	if o == nil {
+		var ret []BootPxeDeviceRelationship
+		return ret
+	}
+	return o.BootPxeDevices
+}
+
+// GetBootPxeDevicesOk returns a tuple with the BootPxeDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootPxeDevicesOk() (*[]BootPxeDeviceRelationship, bool) {
+	if o == nil || o.BootPxeDevices == nil {
+		return nil, false
+	}
+	return &o.BootPxeDevices, true
+}
+
+// HasBootPxeDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootPxeDevices() bool {
+	if o != nil && o.BootPxeDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootPxeDevices gets a reference to the given []BootPxeDeviceRelationship and assigns it to the BootPxeDevices field.
+func (o *ComputePhysicalAllOf) SetBootPxeDevices(v []BootPxeDeviceRelationship) {
+	o.BootPxeDevices = v
+}
+
+// GetBootSanDevices returns the BootSanDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootSanDevices() []BootSanDeviceRelationship {
+	if o == nil {
+		var ret []BootSanDeviceRelationship
+		return ret
+	}
+	return o.BootSanDevices
+}
+
+// GetBootSanDevicesOk returns a tuple with the BootSanDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootSanDevicesOk() (*[]BootSanDeviceRelationship, bool) {
+	if o == nil || o.BootSanDevices == nil {
+		return nil, false
+	}
+	return &o.BootSanDevices, true
+}
+
+// HasBootSanDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootSanDevices() bool {
+	if o != nil && o.BootSanDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootSanDevices gets a reference to the given []BootSanDeviceRelationship and assigns it to the BootSanDevices field.
+func (o *ComputePhysicalAllOf) SetBootSanDevices(v []BootSanDeviceRelationship) {
+	o.BootSanDevices = v
+}
+
+// GetBootSdDevices returns the BootSdDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootSdDevices() []BootSdDeviceRelationship {
+	if o == nil {
+		var ret []BootSdDeviceRelationship
+		return ret
+	}
+	return o.BootSdDevices
+}
+
+// GetBootSdDevicesOk returns a tuple with the BootSdDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootSdDevicesOk() (*[]BootSdDeviceRelationship, bool) {
+	if o == nil || o.BootSdDevices == nil {
+		return nil, false
+	}
+	return &o.BootSdDevices, true
+}
+
+// HasBootSdDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootSdDevices() bool {
+	if o != nil && o.BootSdDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootSdDevices gets a reference to the given []BootSdDeviceRelationship and assigns it to the BootSdDevices field.
+func (o *ComputePhysicalAllOf) SetBootSdDevices(v []BootSdDeviceRelationship) {
+	o.BootSdDevices = v
+}
+
+// GetBootUefiShellDevices returns the BootUefiShellDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootUefiShellDevices() []BootUefiShellDeviceRelationship {
+	if o == nil {
+		var ret []BootUefiShellDeviceRelationship
+		return ret
+	}
+	return o.BootUefiShellDevices
+}
+
+// GetBootUefiShellDevicesOk returns a tuple with the BootUefiShellDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootUefiShellDevicesOk() (*[]BootUefiShellDeviceRelationship, bool) {
+	if o == nil || o.BootUefiShellDevices == nil {
+		return nil, false
+	}
+	return &o.BootUefiShellDevices, true
+}
+
+// HasBootUefiShellDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootUefiShellDevices() bool {
+	if o != nil && o.BootUefiShellDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootUefiShellDevices gets a reference to the given []BootUefiShellDeviceRelationship and assigns it to the BootUefiShellDevices field.
+func (o *ComputePhysicalAllOf) SetBootUefiShellDevices(v []BootUefiShellDeviceRelationship) {
+	o.BootUefiShellDevices = v
+}
+
+// GetBootUsbDevices returns the BootUsbDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootUsbDevices() []BootUsbDeviceRelationship {
+	if o == nil {
+		var ret []BootUsbDeviceRelationship
+		return ret
+	}
+	return o.BootUsbDevices
+}
+
+// GetBootUsbDevicesOk returns a tuple with the BootUsbDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootUsbDevicesOk() (*[]BootUsbDeviceRelationship, bool) {
+	if o == nil || o.BootUsbDevices == nil {
+		return nil, false
+	}
+	return &o.BootUsbDevices, true
+}
+
+// HasBootUsbDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootUsbDevices() bool {
+	if o != nil && o.BootUsbDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootUsbDevices gets a reference to the given []BootUsbDeviceRelationship and assigns it to the BootUsbDevices field.
+func (o *ComputePhysicalAllOf) SetBootUsbDevices(v []BootUsbDeviceRelationship) {
+	o.BootUsbDevices = v
+}
+
+// GetBootVmediaDevices returns the BootVmediaDevices field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ComputePhysicalAllOf) GetBootVmediaDevices() []BootVmediaDeviceRelationship {
+	if o == nil {
+		var ret []BootVmediaDeviceRelationship
+		return ret
+	}
+	return o.BootVmediaDevices
+}
+
+// GetBootVmediaDevicesOk returns a tuple with the BootVmediaDevices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ComputePhysicalAllOf) GetBootVmediaDevicesOk() (*[]BootVmediaDeviceRelationship, bool) {
+	if o == nil || o.BootVmediaDevices == nil {
+		return nil, false
+	}
+	return &o.BootVmediaDevices, true
+}
+
+// HasBootVmediaDevices returns a boolean if a field has been set.
+func (o *ComputePhysicalAllOf) HasBootVmediaDevices() bool {
+	if o != nil && o.BootVmediaDevices != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootVmediaDevices gets a reference to the given []BootVmediaDeviceRelationship and assigns it to the BootVmediaDevices field.
+func (o *ComputePhysicalAllOf) SetBootVmediaDevices(v []BootVmediaDeviceRelationship) {
+	o.BootVmediaDevices = v
+}
+
 // GetMgmtIdentity returns the MgmtIdentity field value if set, zero value otherwise.
 func (o *ComputePhysicalAllOf) GetMgmtIdentity() EquipmentPhysicalIdentityRelationship {
 	if o == nil || o.MgmtIdentity == nil {
@@ -958,11 +1409,17 @@ func (o *ComputePhysicalAllOf) SetMgmtIdentity(v EquipmentPhysicalIdentityRelati
 
 func (o ComputePhysicalAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AdminPowerState != nil {
 		toSerialize["AdminPowerState"] = o.AdminPowerState
 	}
-	if o.AlarmSummary != nil {
-		toSerialize["AlarmSummary"] = o.AlarmSummary
+	if o.AlarmSummary.IsSet() {
+		toSerialize["AlarmSummary"] = o.AlarmSummary.Get()
 	}
 	if o.AssetTag != nil {
 		toSerialize["AssetTag"] = o.AssetTag
@@ -1035,6 +1492,39 @@ func (o ComputePhysicalAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Uuid != nil {
 		toSerialize["Uuid"] = o.Uuid
+	}
+	if o.BootCddDevices != nil {
+		toSerialize["BootCddDevices"] = o.BootCddDevices
+	}
+	if o.BootHddDevices != nil {
+		toSerialize["BootHddDevices"] = o.BootHddDevices
+	}
+	if o.BootIscsiDevices != nil {
+		toSerialize["BootIscsiDevices"] = o.BootIscsiDevices
+	}
+	if o.BootNvmeDevices != nil {
+		toSerialize["BootNvmeDevices"] = o.BootNvmeDevices
+	}
+	if o.BootPchStorageDevices != nil {
+		toSerialize["BootPchStorageDevices"] = o.BootPchStorageDevices
+	}
+	if o.BootPxeDevices != nil {
+		toSerialize["BootPxeDevices"] = o.BootPxeDevices
+	}
+	if o.BootSanDevices != nil {
+		toSerialize["BootSanDevices"] = o.BootSanDevices
+	}
+	if o.BootSdDevices != nil {
+		toSerialize["BootSdDevices"] = o.BootSdDevices
+	}
+	if o.BootUefiShellDevices != nil {
+		toSerialize["BootUefiShellDevices"] = o.BootUefiShellDevices
+	}
+	if o.BootUsbDevices != nil {
+		toSerialize["BootUsbDevices"] = o.BootUsbDevices
+	}
+	if o.BootVmediaDevices != nil {
+		toSerialize["BootVmediaDevices"] = o.BootVmediaDevices
 	}
 	if o.MgmtIdentity != nil {
 		toSerialize["MgmtIdentity"] = o.MgmtIdentity

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,11 +19,15 @@ import (
 // HyperflexLocalCredentialPolicy A policy specifying credentials for HyperFlex cluster such as controller VM password, hypervisor username, and password.
 type HyperflexLocalCredentialPolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Indicates if Hypervisor password is the factory set default password. For HyperFlex Data Platform versions 3.0 or higher, enable this if the default password was not changed on the Hypervisor. It is required to supply a new custom Hypervisor password that will be applied to the Hypervisor during deployment. For HyperFlex Data Platform versions prior to 3.0 release, this setting has no effect and the default password will be used for initial install. The Hypervisor password should be changed after deployment.
 	FactoryHypervisorPassword *bool `json:"FactoryHypervisorPassword,omitempty" yaml:"FactoryHypervisorPassword,omitempty"`
 	// HyperFlex storage controller VM password must contain a minimum of 10 characters, with at least 1 lowercase, 1 uppercase, 1 numeric, and 1 of these -_@#$%^&*! special characters.
 	HxdpRootPwd *string `json:"HxdpRootPwd,omitempty" yaml:"HxdpRootPwd,omitempty"`
-	// Hypervisor administrator username must contain only alphanumeric characters. Use the root account for ESXi deployments.
+	// Hypervisor administrator username must contain only alphanumeric characters.
 	HypervisorAdmin *string `json:"HypervisorAdmin,omitempty" yaml:"HypervisorAdmin,omitempty"`
 	// The ESXi root password. For HyperFlex Data Platform 3.0 or later, if the factory default password was not manually changed, you must set a new custom password. If the password was manually changed, you must not enable the factory default password property and provide the current hypervisor password. Note - All HyperFlex nodes require the same hypervisor password for installation. For HyperFlex Data Platform prior to 3.0, use the default password \"Cisco123\" for newly manufactured HyperFlex servers. A custom password should only be entered if hypervisor credentials were manually changed prior to deployment.
 	HypervisorAdminPwd *string `json:"HypervisorAdminPwd,omitempty" yaml:"HypervisorAdminPwd,omitempty"`
@@ -40,8 +44,16 @@ type HyperflexLocalCredentialPolicy struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexLocalCredentialPolicy() *HyperflexLocalCredentialPolicy {
+func NewHyperflexLocalCredentialPolicy(classId string, objectType string) *HyperflexLocalCredentialPolicy {
 	this := HyperflexLocalCredentialPolicy{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var factoryHypervisorPassword bool = false
+	this.FactoryHypervisorPassword = &factoryHypervisorPassword
+	var isHxdpRootPwdSet bool = false
+	this.IsHxdpRootPwdSet = &isHxdpRootPwdSet
+	var isHypervisorAdminPwdSet bool = false
+	this.IsHypervisorAdminPwdSet = &isHypervisorAdminPwdSet
 	return &this
 }
 
@@ -50,7 +62,65 @@ func NewHyperflexLocalCredentialPolicy() *HyperflexLocalCredentialPolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexLocalCredentialPolicyWithDefaults() *HyperflexLocalCredentialPolicy {
 	this := HyperflexLocalCredentialPolicy{}
+	var classId string = "hyperflex.LocalCredentialPolicy"
+	this.ClassId = classId
+	var objectType string = "hyperflex.LocalCredentialPolicy"
+	this.ObjectType = objectType
+	var factoryHypervisorPassword bool = false
+	this.FactoryHypervisorPassword = &factoryHypervisorPassword
+	var isHxdpRootPwdSet bool = false
+	this.IsHxdpRootPwdSet = &isHxdpRootPwdSet
+	var isHypervisorAdminPwdSet bool = false
+	this.IsHypervisorAdminPwdSet = &isHypervisorAdminPwdSet
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexLocalCredentialPolicy) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexLocalCredentialPolicy) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexLocalCredentialPolicy) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexLocalCredentialPolicy) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexLocalCredentialPolicy) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexLocalCredentialPolicy) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetFactoryHypervisorPassword returns the FactoryHypervisorPassword field value if set, zero value otherwise.
@@ -319,6 +389,12 @@ func (o HyperflexLocalCredentialPolicy) MarshalJSON() ([]byte, error) {
 	errPolicyAbstractPolicy = json.Unmarshal([]byte(serializedPolicyAbstractPolicy), &toSerialize)
 	if errPolicyAbstractPolicy != nil {
 		return []byte{}, errPolicyAbstractPolicy
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.FactoryHypervisorPassword != nil {
 		toSerialize["FactoryHypervisorPassword"] = o.FactoryHypervisorPassword

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"testing"
 
 	"github.com/cgascoig/isctl/openapi"
@@ -8,27 +9,29 @@ import (
 )
 
 func TestApplyJSONPathFilter(t *testing.T) {
-	in := openapi.NtpPolicyResponse{
-		NtpPolicyList: &openapi.NtpPolicyList{
-			MoBaseResponse: openapi.MoBaseResponse{
-				ObjectType: "ntp.Policy.List",
-			},
-			Results: []openapi.NtpPolicy{
-				{
-					PolicyAbstractPolicy: openapi.PolicyAbstractPolicy{
-						MoBaseMo: openapi.MoBaseMo{
-							Moid:       optionalStr("1234567"),
-							ClassId:    "ntp.Policy",
-							ObjectType: "ntp.Policy",
-						},
-						Name: optionalStr("NtpTest"),
-					},
-					Enabled:    optionalBool(true),
-					NtpServers: &[]string{"1.1.1.1", "1.1.1.2"},
-				},
-			},
-		},
+	var in openapi.NtpPolicyResponse
+
+	inStr := `
+	{
+		"ObjectType": "ntp.Policy.List",
+		"Results": [
+		  {
+			"ClassId": "ntp.Policy",
+			"Enabled": true,
+			"Moid": "1234567",
+			"Name": "NtpTest",
+			"NtpServers": [
+			  "1.1.1.1",
+			  "1.1.1.2"
+			],
+			"ObjectType": "ntp.Policy"
+		  }
+		]
 	}
+	`
+
+	err := json.Unmarshal([]byte(inStr), &in)
+	assert.NoError(t, err)
 
 	var expected interface{}
 

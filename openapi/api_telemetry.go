@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -27,20 +27,710 @@ var (
 // TelemetryApiService TelemetryApi service
 type TelemetryApiService service
 
-type apiQueryTelemetryTimeSeriesRequest struct {
-	ctx                            _context.Context
-	apiService                     *TelemetryApiService
-	telemetryDruidAggregateRequest *TelemetryDruidAggregateRequest
+type apiQueryTelemetryDatasourceMetadataRequest struct {
+	ctx                                     _context.Context
+	apiService                              *TelemetryApiService
+	telemetryDruidDataSourceMetadataRequest *TelemetryDruidDataSourceMetadataRequest
 }
 
-func (r apiQueryTelemetryTimeSeriesRequest) TelemetryDruidAggregateRequest(telemetryDruidAggregateRequest TelemetryDruidAggregateRequest) apiQueryTelemetryTimeSeriesRequest {
-	r.telemetryDruidAggregateRequest = &telemetryDruidAggregateRequest
+func (r apiQueryTelemetryDatasourceMetadataRequest) TelemetryDruidDataSourceMetadataRequest(telemetryDruidDataSourceMetadataRequest TelemetryDruidDataSourceMetadataRequest) apiQueryTelemetryDatasourceMetadataRequest {
+	r.telemetryDruidDataSourceMetadataRequest = &telemetryDruidDataSourceMetadataRequest
 	return r
 }
 
 /*
-QueryTelemetryTimeSeries Perform a Druid time series aggregation request.
-Endpoint that exposes Druid requests for time series data. This endpoint exposes multiple requests, including Time series, Top N, GroupBy, Scan, Time Boundary, Segment meta-data and datasource meta-data.
+QueryTelemetryDatasourceMetadata Perform a Druid DatasourceMetadata request.
+Endpoint that exposes Druid DatasourceMetadata requests for time series data.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiQueryTelemetryDatasourceMetadataRequest
+*/
+func (a *TelemetryApiService) QueryTelemetryDatasourceMetadata(ctx _context.Context) apiQueryTelemetryDatasourceMetadataRequest {
+	return apiQueryTelemetryDatasourceMetadataRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return []TelemetryDruidDataSourceMetadataResult
+*/
+func (r apiQueryTelemetryDatasourceMetadataRequest) Execute() ([]TelemetryDruidDataSourceMetadataResult, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []TelemetryDruidDataSourceMetadataResult
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TelemetryApiService.QueryTelemetryDatasourceMetadata")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/telemetry/DataSourceMetadata"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.telemetryDruidDataSourceMetadataRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidDataSourceMetadataRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.telemetryDruidDataSourceMetadataRequest
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v TelemetryDruidError
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiQueryTelemetryGroupByRequest struct {
+	ctx                          _context.Context
+	apiService                   *TelemetryApiService
+	telemetryDruidGroupByRequest *TelemetryDruidGroupByRequest
+}
+
+func (r apiQueryTelemetryGroupByRequest) TelemetryDruidGroupByRequest(telemetryDruidGroupByRequest TelemetryDruidGroupByRequest) apiQueryTelemetryGroupByRequest {
+	r.telemetryDruidGroupByRequest = &telemetryDruidGroupByRequest
+	return r
+}
+
+/*
+QueryTelemetryGroupBy Perform a Druid GroupBy request.
+Endpoint that exposes Druid GroupBy requests for time series data.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiQueryTelemetryGroupByRequest
+*/
+func (a *TelemetryApiService) QueryTelemetryGroupBy(ctx _context.Context) apiQueryTelemetryGroupByRequest {
+	return apiQueryTelemetryGroupByRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return []TelemetryDruidGroupByResult
+*/
+func (r apiQueryTelemetryGroupByRequest) Execute() ([]TelemetryDruidGroupByResult, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []TelemetryDruidGroupByResult
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TelemetryApiService.QueryTelemetryGroupBy")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/telemetry/GroupBys"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.telemetryDruidGroupByRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidGroupByRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.telemetryDruidGroupByRequest
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v TelemetryDruidError
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiQueryTelemetryScanRequest struct {
+	ctx                       _context.Context
+	apiService                *TelemetryApiService
+	telemetryDruidScanRequest *TelemetryDruidScanRequest
+}
+
+func (r apiQueryTelemetryScanRequest) TelemetryDruidScanRequest(telemetryDruidScanRequest TelemetryDruidScanRequest) apiQueryTelemetryScanRequest {
+	r.telemetryDruidScanRequest = &telemetryDruidScanRequest
+	return r
+}
+
+/*
+QueryTelemetryScan Perform a Druid Scan request.
+Endpoint that exposes Druid Scan requests for time series data.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiQueryTelemetryScanRequest
+*/
+func (a *TelemetryApiService) QueryTelemetryScan(ctx _context.Context) apiQueryTelemetryScanRequest {
+	return apiQueryTelemetryScanRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return []TelemetryDruidScanResult
+*/
+func (r apiQueryTelemetryScanRequest) Execute() ([]TelemetryDruidScanResult, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []TelemetryDruidScanResult
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TelemetryApiService.QueryTelemetryScan")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/telemetry/Scans"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.telemetryDruidScanRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidScanRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.telemetryDruidScanRequest
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v TelemetryDruidError
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiQueryTelemetrySearchRequest struct {
+	ctx                         _context.Context
+	apiService                  *TelemetryApiService
+	telemetryDruidSearchRequest *TelemetryDruidSearchRequest
+}
+
+func (r apiQueryTelemetrySearchRequest) TelemetryDruidSearchRequest(telemetryDruidSearchRequest TelemetryDruidSearchRequest) apiQueryTelemetrySearchRequest {
+	r.telemetryDruidSearchRequest = &telemetryDruidSearchRequest
+	return r
+}
+
+/*
+QueryTelemetrySearch Perform a Druid Search request.
+Endpoint that exposes Druid Search requests for time series data.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiQueryTelemetrySearchRequest
+*/
+func (a *TelemetryApiService) QueryTelemetrySearch(ctx _context.Context) apiQueryTelemetrySearchRequest {
+	return apiQueryTelemetrySearchRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return []TelemetryDruidSearchResult
+*/
+func (r apiQueryTelemetrySearchRequest) Execute() ([]TelemetryDruidSearchResult, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []TelemetryDruidSearchResult
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TelemetryApiService.QueryTelemetrySearch")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/telemetry/Searches"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.telemetryDruidSearchRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidSearchRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.telemetryDruidSearchRequest
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v TelemetryDruidError
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiQueryTelemetrySegmentMetadataRequest struct {
+	ctx                                  _context.Context
+	apiService                           *TelemetryApiService
+	telemetryDruidSegmentMetadataRequest *TelemetryDruidSegmentMetadataRequest
+}
+
+func (r apiQueryTelemetrySegmentMetadataRequest) TelemetryDruidSegmentMetadataRequest(telemetryDruidSegmentMetadataRequest TelemetryDruidSegmentMetadataRequest) apiQueryTelemetrySegmentMetadataRequest {
+	r.telemetryDruidSegmentMetadataRequest = &telemetryDruidSegmentMetadataRequest
+	return r
+}
+
+/*
+QueryTelemetrySegmentMetadata Perform a Druid SegmentMetadata request.
+Endpoint that exposes Druid SegmentMetadata requests for time series data.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiQueryTelemetrySegmentMetadataRequest
+*/
+func (a *TelemetryApiService) QueryTelemetrySegmentMetadata(ctx _context.Context) apiQueryTelemetrySegmentMetadataRequest {
+	return apiQueryTelemetrySegmentMetadataRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return []TelemetryDruidSegmentMetadataResult
+*/
+func (r apiQueryTelemetrySegmentMetadataRequest) Execute() ([]TelemetryDruidSegmentMetadataResult, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []TelemetryDruidSegmentMetadataResult
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TelemetryApiService.QueryTelemetrySegmentMetadata")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/telemetry/SegmentMetadata"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.telemetryDruidSegmentMetadataRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidSegmentMetadataRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.telemetryDruidSegmentMetadataRequest
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v TelemetryDruidError
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiQueryTelemetryTimeBoundaryRequest struct {
+	ctx                               _context.Context
+	apiService                        *TelemetryApiService
+	telemetryDruidTimeBoundaryRequest *TelemetryDruidTimeBoundaryRequest
+}
+
+func (r apiQueryTelemetryTimeBoundaryRequest) TelemetryDruidTimeBoundaryRequest(telemetryDruidTimeBoundaryRequest TelemetryDruidTimeBoundaryRequest) apiQueryTelemetryTimeBoundaryRequest {
+	r.telemetryDruidTimeBoundaryRequest = &telemetryDruidTimeBoundaryRequest
+	return r
+}
+
+/*
+QueryTelemetryTimeBoundary Perform a Druid TimeBoundary request.
+Endpoint that exposes Druid TimeBoundary requests for time series data.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiQueryTelemetryTimeBoundaryRequest
+*/
+func (a *TelemetryApiService) QueryTelemetryTimeBoundary(ctx _context.Context) apiQueryTelemetryTimeBoundaryRequest {
+	return apiQueryTelemetryTimeBoundaryRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return []TelemetryDruidTimeBoundaryResult
+*/
+func (r apiQueryTelemetryTimeBoundaryRequest) Execute() ([]TelemetryDruidTimeBoundaryResult, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []TelemetryDruidTimeBoundaryResult
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TelemetryApiService.QueryTelemetryTimeBoundary")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/telemetry/TimeBoundaries"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.telemetryDruidTimeBoundaryRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidTimeBoundaryRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.telemetryDruidTimeBoundaryRequest
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v TelemetryDruidError
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiQueryTelemetryTimeSeriesRequest struct {
+	ctx                             _context.Context
+	apiService                      *TelemetryApiService
+	telemetryDruidTimeSeriesRequest *TelemetryDruidTimeSeriesRequest
+}
+
+func (r apiQueryTelemetryTimeSeriesRequest) TelemetryDruidTimeSeriesRequest(telemetryDruidTimeSeriesRequest TelemetryDruidTimeSeriesRequest) apiQueryTelemetryTimeSeriesRequest {
+	r.telemetryDruidTimeSeriesRequest = &telemetryDruidTimeSeriesRequest
+	return r
+}
+
+/*
+QueryTelemetryTimeSeries Perform a Druid TimeSeries request.
+Endpoint that exposes Druid requests for time series data. This endpoint exposes specifically TimeSeries requests and broker information.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return apiQueryTelemetryTimeSeriesRequest
 */
@@ -76,8 +766,8 @@ func (r apiQueryTelemetryTimeSeriesRequest) Execute() ([]TelemetryDruidIntervalR
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.telemetryDruidAggregateRequest == nil {
-		return localVarReturnValue, nil, reportError("telemetryDruidAggregateRequest is required and must be specified")
+	if r.telemetryDruidTimeSeriesRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidTimeSeriesRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -98,7 +788,7 @@ func (r apiQueryTelemetryTimeSeriesRequest) Execute() ([]TelemetryDruidIntervalR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.telemetryDruidAggregateRequest
+	localVarPostBody = r.telemetryDruidTimeSeriesRequest
 	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -120,7 +810,122 @@ func (r apiQueryTelemetryTimeSeriesRequest) Execute() ([]TelemetryDruidIntervalR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		var v InlineResponseDefault
+		var v TelemetryDruidError
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiQueryTelemetryTopNRequest struct {
+	ctx                       _context.Context
+	apiService                *TelemetryApiService
+	telemetryDruidTopNRequest *TelemetryDruidTopNRequest
+}
+
+func (r apiQueryTelemetryTopNRequest) TelemetryDruidTopNRequest(telemetryDruidTopNRequest TelemetryDruidTopNRequest) apiQueryTelemetryTopNRequest {
+	r.telemetryDruidTopNRequest = &telemetryDruidTopNRequest
+	return r
+}
+
+/*
+QueryTelemetryTopN Perform a Druid TopN request.
+Endpoint that exposes Druid TopN requests for time series data.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiQueryTelemetryTopNRequest
+*/
+func (a *TelemetryApiService) QueryTelemetryTopN(ctx _context.Context) apiQueryTelemetryTopNRequest {
+	return apiQueryTelemetryTopNRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return []TelemetryDruidTopNResult
+*/
+func (r apiQueryTelemetryTopNRequest) Execute() ([]TelemetryDruidTopNResult, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []TelemetryDruidTopNResult
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TelemetryApiService.QueryTelemetryTopN")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/telemetry/Topns"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.telemetryDruidTopNRequest == nil {
+		return localVarReturnValue, nil, reportError("telemetryDruidTopNRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.telemetryDruidTopNRequest
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		var v TelemetryDruidError
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 		if err != nil {
 			newErr.error = err.Error()

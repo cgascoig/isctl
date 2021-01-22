@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,10 @@ import (
 // StorageVirtualDrive A Virtual Disk Drive or Logical Unit Number.
 type StorageVirtualDrive struct {
 	EquipmentBase `yaml:"EquipmentBase,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The access policy of the virtual drive.
 	AccessPolicy *string `json:"AccessPolicy,omitempty" yaml:"AccessPolicy,omitempty"`
 	// The current write cache policy of the virtual drive.
@@ -74,9 +78,10 @@ type StorageVirtualDrive struct {
 	DiskGroup           *StorageDiskGroupRelationship    `json:"DiskGroup,omitempty" yaml:"DiskGroup,omitempty"`
 	InventoryDeviceInfo *InventoryDeviceInfoRelationship `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	// An array of relationships to storagePhysicalDiskUsage resources.
-	PhysicalDiskUsages []StoragePhysicalDiskUsageRelationship `json:"PhysicalDiskUsages,omitempty" yaml:"PhysicalDiskUsages,omitempty"`
-	RegisteredDevice   *AssetDeviceRegistrationRelationship   `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
-	StorageController  *StorageControllerRelationship         `json:"StorageController,omitempty" yaml:"StorageController,omitempty"`
+	PhysicalDiskUsages           []StoragePhysicalDiskUsageRelationship    `json:"PhysicalDiskUsages,omitempty" yaml:"PhysicalDiskUsages,omitempty"`
+	RegisteredDevice             *AssetDeviceRegistrationRelationship      `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	StorageController            *StorageControllerRelationship            `json:"StorageController,omitempty" yaml:"StorageController,omitempty"`
+	StorageVirtualDriveContainer *StorageVirtualDriveContainerRelationship `json:"StorageVirtualDriveContainer,omitempty" yaml:"StorageVirtualDriveContainer,omitempty"`
 	// An array of relationships to storageVdMemberEp resources.
 	VdMemberEps           []StorageVdMemberEpRelationship           `json:"VdMemberEps,omitempty" yaml:"VdMemberEps,omitempty"`
 	VirtualDriveExtension *StorageVirtualDriveExtensionRelationship `json:"VirtualDriveExtension,omitempty" yaml:"VirtualDriveExtension,omitempty"`
@@ -86,8 +91,10 @@ type StorageVirtualDrive struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStorageVirtualDrive() *StorageVirtualDrive {
+func NewStorageVirtualDrive(classId string, objectType string) *StorageVirtualDrive {
 	this := StorageVirtualDrive{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -96,7 +103,59 @@ func NewStorageVirtualDrive() *StorageVirtualDrive {
 // but it doesn't guarantee that properties required by API are set
 func NewStorageVirtualDriveWithDefaults() *StorageVirtualDrive {
 	this := StorageVirtualDrive{}
+	var classId string = "storage.VirtualDrive"
+	this.ClassId = classId
+	var objectType string = "storage.VirtualDrive"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *StorageVirtualDrive) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDrive) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *StorageVirtualDrive) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *StorageVirtualDrive) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDrive) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *StorageVirtualDrive) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAccessPolicy returns the AccessPolicy field value if set, zero value otherwise.
@@ -1092,6 +1151,38 @@ func (o *StorageVirtualDrive) SetStorageController(v StorageControllerRelationsh
 	o.StorageController = &v
 }
 
+// GetStorageVirtualDriveContainer returns the StorageVirtualDriveContainer field value if set, zero value otherwise.
+func (o *StorageVirtualDrive) GetStorageVirtualDriveContainer() StorageVirtualDriveContainerRelationship {
+	if o == nil || o.StorageVirtualDriveContainer == nil {
+		var ret StorageVirtualDriveContainerRelationship
+		return ret
+	}
+	return *o.StorageVirtualDriveContainer
+}
+
+// GetStorageVirtualDriveContainerOk returns a tuple with the StorageVirtualDriveContainer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDrive) GetStorageVirtualDriveContainerOk() (*StorageVirtualDriveContainerRelationship, bool) {
+	if o == nil || o.StorageVirtualDriveContainer == nil {
+		return nil, false
+	}
+	return o.StorageVirtualDriveContainer, true
+}
+
+// HasStorageVirtualDriveContainer returns a boolean if a field has been set.
+func (o *StorageVirtualDrive) HasStorageVirtualDriveContainer() bool {
+	if o != nil && o.StorageVirtualDriveContainer != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageVirtualDriveContainer gets a reference to the given StorageVirtualDriveContainerRelationship and assigns it to the StorageVirtualDriveContainer field.
+func (o *StorageVirtualDrive) SetStorageVirtualDriveContainer(v StorageVirtualDriveContainerRelationship) {
+	o.StorageVirtualDriveContainer = &v
+}
+
 // GetVdMemberEps returns the VdMemberEps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StorageVirtualDrive) GetVdMemberEps() []StorageVdMemberEpRelationship {
 	if o == nil {
@@ -1166,6 +1257,12 @@ func (o StorageVirtualDrive) MarshalJSON() ([]byte, error) {
 	errEquipmentBase = json.Unmarshal([]byte(serializedEquipmentBase), &toSerialize)
 	if errEquipmentBase != nil {
 		return []byte{}, errEquipmentBase
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.AccessPolicy != nil {
 		toSerialize["AccessPolicy"] = o.AccessPolicy
@@ -1259,6 +1356,9 @@ func (o StorageVirtualDrive) MarshalJSON() ([]byte, error) {
 	}
 	if o.StorageController != nil {
 		toSerialize["StorageController"] = o.StorageController
+	}
+	if o.StorageVirtualDriveContainer != nil {
+		toSerialize["StorageVirtualDriveContainer"] = o.StorageVirtualDriveContainer
 	}
 	if o.VdMemberEps != nil {
 		toSerialize["VdMemberEps"] = o.VdMemberEps

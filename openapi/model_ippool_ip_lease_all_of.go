@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,22 +18,39 @@ import (
 
 // IppoolIpLeaseAllOf Definition of the list of properties defined in 'ippool.IpLease', excluding properties defined in parent classes.
 type IppoolIpLeaseAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// Type of the IP address requested. * `IPv4` - IP V4 address type requested. * `IPv6` - IP V6 address type requested.
+	IpType *string `json:"IpType,omitempty" yaml:"IpType,omitempty"`
 	// IPv4 Address given as a lease to an external entity like server profiles.
-	IpV4Address      *string                       `json:"IpV4Address,omitempty" yaml:"IpV4Address,omitempty"`
-	IpV4Config       *IppoolIpV4Config             `json:"IpV4Config,omitempty" yaml:"IpV4Config,omitempty"`
-	AssignedToEntity *MoBaseMoRelationship         `json:"AssignedToEntity,omitempty" yaml:"AssignedToEntity,omitempty"`
-	Pool             *IppoolPoolRelationship       `json:"Pool,omitempty" yaml:"Pool,omitempty"`
-	PoolMember       *IppoolPoolMemberRelationship `json:"PoolMember,omitempty" yaml:"PoolMember,omitempty"`
-	Universe         *IppoolUniverseRelationship   `json:"Universe,omitempty" yaml:"Universe,omitempty"`
-	Vrf              *VrfVrfRelationship           `json:"Vrf,omitempty" yaml:"Vrf,omitempty"`
+	IpV4Address *string                  `json:"IpV4Address,omitempty" yaml:"IpV4Address,omitempty"`
+	IpV4Config  NullableIppoolIpV4Config `json:"IpV4Config,omitempty" yaml:"IpV4Config,omitempty"`
+	// IPv6 Address given as a lease to an external entity like server profiles.
+	IpV6Address                   *string                                          `json:"IpV6Address,omitempty" yaml:"IpV6Address,omitempty"`
+	IpV6Config                    NullableIppoolIpV6Config                         `json:"IpV6Config,omitempty" yaml:"IpV6Config,omitempty"`
+	Var0ClusterProfile            *KubernetesClusterProfileRelationship            `json:"_0_ClusterProfile,omitempty" yaml:"_0_ClusterProfile,omitempty"`
+	Var1ClusterProfile            *KubernetesClusterProfileRelationship            `json:"_1_ClusterProfile,omitempty" yaml:"_1_ClusterProfile,omitempty"`
+	Var2VirtualMachineNodeProfile *KubernetesVirtualMachineNodeProfileRelationship `json:"_2_VirtualMachineNodeProfile,omitempty" yaml:"_2_VirtualMachineNodeProfile,omitempty"`
+	Var3VirtualMachineNodeProfile *KubernetesVirtualMachineNodeProfileRelationship `json:"_3_VirtualMachineNodeProfile,omitempty" yaml:"_3_VirtualMachineNodeProfile,omitempty"`
+	AssignedToEntity              *MoBaseMoRelationship                            `json:"AssignedToEntity,omitempty" yaml:"AssignedToEntity,omitempty"`
+	Pool                          *IppoolPoolRelationship                          `json:"Pool,omitempty" yaml:"Pool,omitempty"`
+	PoolMember                    *IppoolPoolMemberRelationship                    `json:"PoolMember,omitempty" yaml:"PoolMember,omitempty"`
+	Universe                      *IppoolUniverseRelationship                      `json:"Universe,omitempty" yaml:"Universe,omitempty"`
+	Vrf                           *VrfVrfRelationship                              `json:"Vrf,omitempty" yaml:"Vrf,omitempty"`
 }
 
 // NewIppoolIpLeaseAllOf instantiates a new IppoolIpLeaseAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIppoolIpLeaseAllOf() *IppoolIpLeaseAllOf {
+func NewIppoolIpLeaseAllOf(classId string, objectType string) *IppoolIpLeaseAllOf {
 	this := IppoolIpLeaseAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var ipType string = "IPv4"
+	this.IpType = &ipType
 	return &this
 }
 
@@ -42,7 +59,93 @@ func NewIppoolIpLeaseAllOf() *IppoolIpLeaseAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewIppoolIpLeaseAllOfWithDefaults() *IppoolIpLeaseAllOf {
 	this := IppoolIpLeaseAllOf{}
+	var classId string = "ippool.IpLease"
+	this.ClassId = classId
+	var objectType string = "ippool.IpLease"
+	this.ObjectType = objectType
+	var ipType string = "IPv4"
+	this.IpType = &ipType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *IppoolIpLeaseAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *IppoolIpLeaseAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *IppoolIpLeaseAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *IppoolIpLeaseAllOf) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetIpType returns the IpType field value if set, zero value otherwise.
+func (o *IppoolIpLeaseAllOf) GetIpType() string {
+	if o == nil || o.IpType == nil {
+		var ret string
+		return ret
+	}
+	return *o.IpType
+}
+
+// GetIpTypeOk returns a tuple with the IpType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetIpTypeOk() (*string, bool) {
+	if o == nil || o.IpType == nil {
+		return nil, false
+	}
+	return o.IpType, true
+}
+
+// HasIpType returns a boolean if a field has been set.
+func (o *IppoolIpLeaseAllOf) HasIpType() bool {
+	if o != nil && o.IpType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIpType gets a reference to the given string and assigns it to the IpType field.
+func (o *IppoolIpLeaseAllOf) SetIpType(v string) {
+	o.IpType = &v
 }
 
 // GetIpV4Address returns the IpV4Address field value if set, zero value otherwise.
@@ -77,36 +180,250 @@ func (o *IppoolIpLeaseAllOf) SetIpV4Address(v string) {
 	o.IpV4Address = &v
 }
 
-// GetIpV4Config returns the IpV4Config field value if set, zero value otherwise.
+// GetIpV4Config returns the IpV4Config field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IppoolIpLeaseAllOf) GetIpV4Config() IppoolIpV4Config {
-	if o == nil || o.IpV4Config == nil {
+	if o == nil || o.IpV4Config.Get() == nil {
 		var ret IppoolIpV4Config
 		return ret
 	}
-	return *o.IpV4Config
+	return *o.IpV4Config.Get()
 }
 
 // GetIpV4ConfigOk returns a tuple with the IpV4Config field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IppoolIpLeaseAllOf) GetIpV4ConfigOk() (*IppoolIpV4Config, bool) {
-	if o == nil || o.IpV4Config == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.IpV4Config, true
+	return o.IpV4Config.Get(), o.IpV4Config.IsSet()
 }
 
 // HasIpV4Config returns a boolean if a field has been set.
 func (o *IppoolIpLeaseAllOf) HasIpV4Config() bool {
-	if o != nil && o.IpV4Config != nil {
+	if o != nil && o.IpV4Config.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIpV4Config gets a reference to the given IppoolIpV4Config and assigns it to the IpV4Config field.
+// SetIpV4Config gets a reference to the given NullableIppoolIpV4Config and assigns it to the IpV4Config field.
 func (o *IppoolIpLeaseAllOf) SetIpV4Config(v IppoolIpV4Config) {
-	o.IpV4Config = &v
+	o.IpV4Config.Set(&v)
+}
+
+// SetIpV4ConfigNil sets the value for IpV4Config to be an explicit nil
+func (o *IppoolIpLeaseAllOf) SetIpV4ConfigNil() {
+	o.IpV4Config.Set(nil)
+}
+
+// UnsetIpV4Config ensures that no value is present for IpV4Config, not even an explicit nil
+func (o *IppoolIpLeaseAllOf) UnsetIpV4Config() {
+	o.IpV4Config.Unset()
+}
+
+// GetIpV6Address returns the IpV6Address field value if set, zero value otherwise.
+func (o *IppoolIpLeaseAllOf) GetIpV6Address() string {
+	if o == nil || o.IpV6Address == nil {
+		var ret string
+		return ret
+	}
+	return *o.IpV6Address
+}
+
+// GetIpV6AddressOk returns a tuple with the IpV6Address field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetIpV6AddressOk() (*string, bool) {
+	if o == nil || o.IpV6Address == nil {
+		return nil, false
+	}
+	return o.IpV6Address, true
+}
+
+// HasIpV6Address returns a boolean if a field has been set.
+func (o *IppoolIpLeaseAllOf) HasIpV6Address() bool {
+	if o != nil && o.IpV6Address != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIpV6Address gets a reference to the given string and assigns it to the IpV6Address field.
+func (o *IppoolIpLeaseAllOf) SetIpV6Address(v string) {
+	o.IpV6Address = &v
+}
+
+// GetIpV6Config returns the IpV6Config field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IppoolIpLeaseAllOf) GetIpV6Config() IppoolIpV6Config {
+	if o == nil || o.IpV6Config.Get() == nil {
+		var ret IppoolIpV6Config
+		return ret
+	}
+	return *o.IpV6Config.Get()
+}
+
+// GetIpV6ConfigOk returns a tuple with the IpV6Config field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IppoolIpLeaseAllOf) GetIpV6ConfigOk() (*IppoolIpV6Config, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IpV6Config.Get(), o.IpV6Config.IsSet()
+}
+
+// HasIpV6Config returns a boolean if a field has been set.
+func (o *IppoolIpLeaseAllOf) HasIpV6Config() bool {
+	if o != nil && o.IpV6Config.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIpV6Config gets a reference to the given NullableIppoolIpV6Config and assigns it to the IpV6Config field.
+func (o *IppoolIpLeaseAllOf) SetIpV6Config(v IppoolIpV6Config) {
+	o.IpV6Config.Set(&v)
+}
+
+// SetIpV6ConfigNil sets the value for IpV6Config to be an explicit nil
+func (o *IppoolIpLeaseAllOf) SetIpV6ConfigNil() {
+	o.IpV6Config.Set(nil)
+}
+
+// UnsetIpV6Config ensures that no value is present for IpV6Config, not even an explicit nil
+func (o *IppoolIpLeaseAllOf) UnsetIpV6Config() {
+	o.IpV6Config.Unset()
+}
+
+// GetVar0ClusterProfile returns the Var0ClusterProfile field value if set, zero value otherwise.
+func (o *IppoolIpLeaseAllOf) GetVar0ClusterProfile() KubernetesClusterProfileRelationship {
+	if o == nil || o.Var0ClusterProfile == nil {
+		var ret KubernetesClusterProfileRelationship
+		return ret
+	}
+	return *o.Var0ClusterProfile
+}
+
+// GetVar0ClusterProfileOk returns a tuple with the Var0ClusterProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetVar0ClusterProfileOk() (*KubernetesClusterProfileRelationship, bool) {
+	if o == nil || o.Var0ClusterProfile == nil {
+		return nil, false
+	}
+	return o.Var0ClusterProfile, true
+}
+
+// HasVar0ClusterProfile returns a boolean if a field has been set.
+func (o *IppoolIpLeaseAllOf) HasVar0ClusterProfile() bool {
+	if o != nil && o.Var0ClusterProfile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVar0ClusterProfile gets a reference to the given KubernetesClusterProfileRelationship and assigns it to the Var0ClusterProfile field.
+func (o *IppoolIpLeaseAllOf) SetVar0ClusterProfile(v KubernetesClusterProfileRelationship) {
+	o.Var0ClusterProfile = &v
+}
+
+// GetVar1ClusterProfile returns the Var1ClusterProfile field value if set, zero value otherwise.
+func (o *IppoolIpLeaseAllOf) GetVar1ClusterProfile() KubernetesClusterProfileRelationship {
+	if o == nil || o.Var1ClusterProfile == nil {
+		var ret KubernetesClusterProfileRelationship
+		return ret
+	}
+	return *o.Var1ClusterProfile
+}
+
+// GetVar1ClusterProfileOk returns a tuple with the Var1ClusterProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetVar1ClusterProfileOk() (*KubernetesClusterProfileRelationship, bool) {
+	if o == nil || o.Var1ClusterProfile == nil {
+		return nil, false
+	}
+	return o.Var1ClusterProfile, true
+}
+
+// HasVar1ClusterProfile returns a boolean if a field has been set.
+func (o *IppoolIpLeaseAllOf) HasVar1ClusterProfile() bool {
+	if o != nil && o.Var1ClusterProfile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVar1ClusterProfile gets a reference to the given KubernetesClusterProfileRelationship and assigns it to the Var1ClusterProfile field.
+func (o *IppoolIpLeaseAllOf) SetVar1ClusterProfile(v KubernetesClusterProfileRelationship) {
+	o.Var1ClusterProfile = &v
+}
+
+// GetVar2VirtualMachineNodeProfile returns the Var2VirtualMachineNodeProfile field value if set, zero value otherwise.
+func (o *IppoolIpLeaseAllOf) GetVar2VirtualMachineNodeProfile() KubernetesVirtualMachineNodeProfileRelationship {
+	if o == nil || o.Var2VirtualMachineNodeProfile == nil {
+		var ret KubernetesVirtualMachineNodeProfileRelationship
+		return ret
+	}
+	return *o.Var2VirtualMachineNodeProfile
+}
+
+// GetVar2VirtualMachineNodeProfileOk returns a tuple with the Var2VirtualMachineNodeProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetVar2VirtualMachineNodeProfileOk() (*KubernetesVirtualMachineNodeProfileRelationship, bool) {
+	if o == nil || o.Var2VirtualMachineNodeProfile == nil {
+		return nil, false
+	}
+	return o.Var2VirtualMachineNodeProfile, true
+}
+
+// HasVar2VirtualMachineNodeProfile returns a boolean if a field has been set.
+func (o *IppoolIpLeaseAllOf) HasVar2VirtualMachineNodeProfile() bool {
+	if o != nil && o.Var2VirtualMachineNodeProfile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVar2VirtualMachineNodeProfile gets a reference to the given KubernetesVirtualMachineNodeProfileRelationship and assigns it to the Var2VirtualMachineNodeProfile field.
+func (o *IppoolIpLeaseAllOf) SetVar2VirtualMachineNodeProfile(v KubernetesVirtualMachineNodeProfileRelationship) {
+	o.Var2VirtualMachineNodeProfile = &v
+}
+
+// GetVar3VirtualMachineNodeProfile returns the Var3VirtualMachineNodeProfile field value if set, zero value otherwise.
+func (o *IppoolIpLeaseAllOf) GetVar3VirtualMachineNodeProfile() KubernetesVirtualMachineNodeProfileRelationship {
+	if o == nil || o.Var3VirtualMachineNodeProfile == nil {
+		var ret KubernetesVirtualMachineNodeProfileRelationship
+		return ret
+	}
+	return *o.Var3VirtualMachineNodeProfile
+}
+
+// GetVar3VirtualMachineNodeProfileOk returns a tuple with the Var3VirtualMachineNodeProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *IppoolIpLeaseAllOf) GetVar3VirtualMachineNodeProfileOk() (*KubernetesVirtualMachineNodeProfileRelationship, bool) {
+	if o == nil || o.Var3VirtualMachineNodeProfile == nil {
+		return nil, false
+	}
+	return o.Var3VirtualMachineNodeProfile, true
+}
+
+// HasVar3VirtualMachineNodeProfile returns a boolean if a field has been set.
+func (o *IppoolIpLeaseAllOf) HasVar3VirtualMachineNodeProfile() bool {
+	if o != nil && o.Var3VirtualMachineNodeProfile != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVar3VirtualMachineNodeProfile gets a reference to the given KubernetesVirtualMachineNodeProfileRelationship and assigns it to the Var3VirtualMachineNodeProfile field.
+func (o *IppoolIpLeaseAllOf) SetVar3VirtualMachineNodeProfile(v KubernetesVirtualMachineNodeProfileRelationship) {
+	o.Var3VirtualMachineNodeProfile = &v
 }
 
 // GetAssignedToEntity returns the AssignedToEntity field value if set, zero value otherwise.
@@ -271,11 +588,38 @@ func (o *IppoolIpLeaseAllOf) SetVrf(v VrfVrfRelationship) {
 
 func (o IppoolIpLeaseAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
+	if o.IpType != nil {
+		toSerialize["IpType"] = o.IpType
+	}
 	if o.IpV4Address != nil {
 		toSerialize["IpV4Address"] = o.IpV4Address
 	}
-	if o.IpV4Config != nil {
-		toSerialize["IpV4Config"] = o.IpV4Config
+	if o.IpV4Config.IsSet() {
+		toSerialize["IpV4Config"] = o.IpV4Config.Get()
+	}
+	if o.IpV6Address != nil {
+		toSerialize["IpV6Address"] = o.IpV6Address
+	}
+	if o.IpV6Config.IsSet() {
+		toSerialize["IpV6Config"] = o.IpV6Config.Get()
+	}
+	if o.Var0ClusterProfile != nil {
+		toSerialize["_0_ClusterProfile"] = o.Var0ClusterProfile
+	}
+	if o.Var1ClusterProfile != nil {
+		toSerialize["_1_ClusterProfile"] = o.Var1ClusterProfile
+	}
+	if o.Var2VirtualMachineNodeProfile != nil {
+		toSerialize["_2_VirtualMachineNodeProfile"] = o.Var2VirtualMachineNodeProfile
+	}
+	if o.Var3VirtualMachineNodeProfile != nil {
+		toSerialize["_3_VirtualMachineNodeProfile"] = o.Var3VirtualMachineNodeProfile
 	}
 	if o.AssignedToEntity != nil {
 		toSerialize["AssignedToEntity"] = o.AssignedToEntity

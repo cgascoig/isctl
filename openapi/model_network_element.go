@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,19 +19,27 @@ import (
 // NetworkElement A Unified Computing Systems (UCS) Fabric Interconnect.
 type NetworkElement struct {
 	EquipmentBase `yaml:"EquipmentBase,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Administratively configured state of Fabric Evacuation feature, for this switch.
 	AdminEvacState *string `json:"AdminEvacState,omitempty" yaml:"AdminEvacState,omitempty"`
 	// The administrative state of the network Element inband management interface.
-	AdminInbandInterfaceState *string              `json:"AdminInbandInterfaceState,omitempty" yaml:"AdminInbandInterfaceState,omitempty"`
-	AlarmSummary              *ComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
+	AdminInbandInterfaceState *string                     `json:"AdminInbandInterfaceState,omitempty" yaml:"AdminInbandInterfaceState,omitempty"`
+	AlarmSummary              NullableComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
 	// Available memory (un-used) on this switch platform.
 	AvailableMemory *string `json:"AvailableMemory,omitempty" yaml:"AvailableMemory,omitempty"`
 	// The user configured Ethernet operational mode for this switch (End-Host or Switching).
 	EthernetMode *string `json:"EthernetMode,omitempty" yaml:"EthernetMode,omitempty"`
+	// The user configured Ethernet operational mode for this switch (End-Host or Switching). * `end-host` - In end-host mode, the fabric interconnects appear to the upstream devices as end hosts with multiple links.In this mode, the switch does not run Spanning Tree Protocol and avoids loops by following a set of rules for traffic forwarding.In case of ethernet switching mode - Ethernet end-host mode is also known as Ethernet host virtualizer. * `switch` - In switch mode, the switch runs Spanning Tree Protocol to avoid loops, and broadcast and multicast packets are handled in the traditional way.This is the traditional switch mode.
+	EthernetSwitchingMode *string `json:"EthernetSwitchingMode,omitempty" yaml:"EthernetSwitchingMode,omitempty"`
 	// The fault summary of the network Element out-of-band management interface.
 	FaultSummary *int64 `json:"FaultSummary,omitempty" yaml:"FaultSummary,omitempty"`
 	// The user configured FC operational mode for this switch (End-Host or Switching).
 	FcMode *string `json:"FcMode,omitempty" yaml:"FcMode,omitempty"`
+	// The user configured FC operational mode for this switch (End-Host or Switching). * `end-host` - In end-host mode, the fabric interconnects appear to the upstream devices as end hosts with multiple links.In this mode, the switch does not run Spanning Tree Protocol and avoids loops by following a set of rules for traffic forwarding.In case of ethernet switching mode - Ethernet end-host mode is also known as Ethernet host virtualizer. * `switch` - In switch mode, the switch runs Spanning Tree Protocol to avoid loops, and broadcast and multicast packets are handled in the traditional way.This is the traditional switch mode.
+	FcSwitchingMode *string `json:"FcSwitchingMode,omitempty" yaml:"FcSwitchingMode,omitempty"`
 	// The IP address of the network Element inband management interface.
 	InbandIpAddress *string `json:"InbandIpAddress,omitempty" yaml:"InbandIpAddress,omitempty"`
 	// The default gateway of the network Element inband management interface.
@@ -73,12 +81,12 @@ type NetworkElement struct {
 	// An array of relationships to equipmentSwitchCard resources.
 	Cards []EquipmentSwitchCardRelationship `json:"Cards,omitempty" yaml:"Cards,omitempty"`
 	// An array of relationships to equipmentFanModule resources.
-	Fanmodules          []EquipmentFanModuleRelationship  `json:"Fanmodules,omitempty" yaml:"Fanmodules,omitempty"`
-	InventoryDeviceInfo *InventoryDeviceInfoRelationship  `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
-	ManagementContoller *ManagementControllerRelationship `json:"ManagementContoller,omitempty" yaml:"ManagementContoller,omitempty"`
-	ManagementEntity    *ManagementEntityRelationship     `json:"ManagementEntity,omitempty" yaml:"ManagementEntity,omitempty"`
-	NetworkFcZoneInfo   *NetworkFcZoneInfoRelationship    `json:"NetworkFcZoneInfo,omitempty" yaml:"NetworkFcZoneInfo,omitempty"`
-	NetworkVlanPortInfo *NetworkVlanPortInfoRelationship  `json:"NetworkVlanPortInfo,omitempty" yaml:"NetworkVlanPortInfo,omitempty"`
+	Fanmodules           []EquipmentFanModuleRelationship  `json:"Fanmodules,omitempty" yaml:"Fanmodules,omitempty"`
+	InventoryDeviceInfo  *InventoryDeviceInfoRelationship  `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
+	ManagementController *ManagementControllerRelationship `json:"ManagementController,omitempty" yaml:"ManagementController,omitempty"`
+	ManagementEntity     *ManagementEntityRelationship     `json:"ManagementEntity,omitempty" yaml:"ManagementEntity,omitempty"`
+	NetworkFcZoneInfo    *NetworkFcZoneInfoRelationship    `json:"NetworkFcZoneInfo,omitempty" yaml:"NetworkFcZoneInfo,omitempty"`
+	NetworkVlanPortInfo  *NetworkVlanPortInfoRelationship  `json:"NetworkVlanPortInfo,omitempty" yaml:"NetworkVlanPortInfo,omitempty"`
 	// An array of relationships to portMacBinding resources.
 	PortMacBindings []PortMacBindingRelationship `json:"PortMacBindings,omitempty" yaml:"PortMacBindings,omitempty"`
 	// An array of relationships to equipmentPsu resources.
@@ -94,8 +102,14 @@ type NetworkElement struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNetworkElement() *NetworkElement {
+func NewNetworkElement(classId string, objectType string) *NetworkElement {
 	this := NetworkElement{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var ethernetSwitchingMode string = "end-host"
+	this.EthernetSwitchingMode = &ethernetSwitchingMode
+	var fcSwitchingMode string = "end-host"
+	this.FcSwitchingMode = &fcSwitchingMode
 	var managementMode string = "IntersightStandalone"
 	this.ManagementMode = &managementMode
 	return &this
@@ -106,9 +120,65 @@ func NewNetworkElement() *NetworkElement {
 // but it doesn't guarantee that properties required by API are set
 func NewNetworkElementWithDefaults() *NetworkElement {
 	this := NetworkElement{}
+	var classId string = "network.Element"
+	this.ClassId = classId
+	var objectType string = "network.Element"
+	this.ObjectType = objectType
+	var ethernetSwitchingMode string = "end-host"
+	this.EthernetSwitchingMode = &ethernetSwitchingMode
+	var fcSwitchingMode string = "end-host"
+	this.FcSwitchingMode = &fcSwitchingMode
 	var managementMode string = "IntersightStandalone"
 	this.ManagementMode = &managementMode
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *NetworkElement) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *NetworkElement) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *NetworkElement) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *NetworkElement) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAdminEvacState returns the AdminEvacState field value if set, zero value otherwise.
@@ -175,36 +245,47 @@ func (o *NetworkElement) SetAdminInbandInterfaceState(v string) {
 	o.AdminInbandInterfaceState = &v
 }
 
-// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NetworkElement) GetAlarmSummary() ComputeAlarmSummary {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil || o.AlarmSummary.Get() == nil {
 		var ret ComputeAlarmSummary
 		return ret
 	}
-	return *o.AlarmSummary
+	return *o.AlarmSummary.Get()
 }
 
 // GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetworkElement) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool) {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlarmSummary, true
+	return o.AlarmSummary.Get(), o.AlarmSummary.IsSet()
 }
 
 // HasAlarmSummary returns a boolean if a field has been set.
 func (o *NetworkElement) HasAlarmSummary() bool {
-	if o != nil && o.AlarmSummary != nil {
+	if o != nil && o.AlarmSummary.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAlarmSummary gets a reference to the given ComputeAlarmSummary and assigns it to the AlarmSummary field.
+// SetAlarmSummary gets a reference to the given NullableComputeAlarmSummary and assigns it to the AlarmSummary field.
 func (o *NetworkElement) SetAlarmSummary(v ComputeAlarmSummary) {
-	o.AlarmSummary = &v
+	o.AlarmSummary.Set(&v)
+}
+
+// SetAlarmSummaryNil sets the value for AlarmSummary to be an explicit nil
+func (o *NetworkElement) SetAlarmSummaryNil() {
+	o.AlarmSummary.Set(nil)
+}
+
+// UnsetAlarmSummary ensures that no value is present for AlarmSummary, not even an explicit nil
+func (o *NetworkElement) UnsetAlarmSummary() {
+	o.AlarmSummary.Unset()
 }
 
 // GetAvailableMemory returns the AvailableMemory field value if set, zero value otherwise.
@@ -271,6 +352,38 @@ func (o *NetworkElement) SetEthernetMode(v string) {
 	o.EthernetMode = &v
 }
 
+// GetEthernetSwitchingMode returns the EthernetSwitchingMode field value if set, zero value otherwise.
+func (o *NetworkElement) GetEthernetSwitchingMode() string {
+	if o == nil || o.EthernetSwitchingMode == nil {
+		var ret string
+		return ret
+	}
+	return *o.EthernetSwitchingMode
+}
+
+// GetEthernetSwitchingModeOk returns a tuple with the EthernetSwitchingMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetEthernetSwitchingModeOk() (*string, bool) {
+	if o == nil || o.EthernetSwitchingMode == nil {
+		return nil, false
+	}
+	return o.EthernetSwitchingMode, true
+}
+
+// HasEthernetSwitchingMode returns a boolean if a field has been set.
+func (o *NetworkElement) HasEthernetSwitchingMode() bool {
+	if o != nil && o.EthernetSwitchingMode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEthernetSwitchingMode gets a reference to the given string and assigns it to the EthernetSwitchingMode field.
+func (o *NetworkElement) SetEthernetSwitchingMode(v string) {
+	o.EthernetSwitchingMode = &v
+}
+
 // GetFaultSummary returns the FaultSummary field value if set, zero value otherwise.
 func (o *NetworkElement) GetFaultSummary() int64 {
 	if o == nil || o.FaultSummary == nil {
@@ -333,6 +446,38 @@ func (o *NetworkElement) HasFcMode() bool {
 // SetFcMode gets a reference to the given string and assigns it to the FcMode field.
 func (o *NetworkElement) SetFcMode(v string) {
 	o.FcMode = &v
+}
+
+// GetFcSwitchingMode returns the FcSwitchingMode field value if set, zero value otherwise.
+func (o *NetworkElement) GetFcSwitchingMode() string {
+	if o == nil || o.FcSwitchingMode == nil {
+		var ret string
+		return ret
+	}
+	return *o.FcSwitchingMode
+}
+
+// GetFcSwitchingModeOk returns a tuple with the FcSwitchingMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NetworkElement) GetFcSwitchingModeOk() (*string, bool) {
+	if o == nil || o.FcSwitchingMode == nil {
+		return nil, false
+	}
+	return o.FcSwitchingMode, true
+}
+
+// HasFcSwitchingMode returns a boolean if a field has been set.
+func (o *NetworkElement) HasFcSwitchingMode() bool {
+	if o != nil && o.FcSwitchingMode != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFcSwitchingMode gets a reference to the given string and assigns it to the FcSwitchingMode field.
+func (o *NetworkElement) SetFcSwitchingMode(v string) {
+	o.FcSwitchingMode = &v
 }
 
 // GetInbandIpAddress returns the InbandIpAddress field value if set, zero value otherwise.
@@ -1041,36 +1186,36 @@ func (o *NetworkElement) SetInventoryDeviceInfo(v InventoryDeviceInfoRelationshi
 	o.InventoryDeviceInfo = &v
 }
 
-// GetManagementContoller returns the ManagementContoller field value if set, zero value otherwise.
-func (o *NetworkElement) GetManagementContoller() ManagementControllerRelationship {
-	if o == nil || o.ManagementContoller == nil {
+// GetManagementController returns the ManagementController field value if set, zero value otherwise.
+func (o *NetworkElement) GetManagementController() ManagementControllerRelationship {
+	if o == nil || o.ManagementController == nil {
 		var ret ManagementControllerRelationship
 		return ret
 	}
-	return *o.ManagementContoller
+	return *o.ManagementController
 }
 
-// GetManagementContollerOk returns a tuple with the ManagementContoller field value if set, nil otherwise
+// GetManagementControllerOk returns a tuple with the ManagementController field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NetworkElement) GetManagementContollerOk() (*ManagementControllerRelationship, bool) {
-	if o == nil || o.ManagementContoller == nil {
+func (o *NetworkElement) GetManagementControllerOk() (*ManagementControllerRelationship, bool) {
+	if o == nil || o.ManagementController == nil {
 		return nil, false
 	}
-	return o.ManagementContoller, true
+	return o.ManagementController, true
 }
 
-// HasManagementContoller returns a boolean if a field has been set.
-func (o *NetworkElement) HasManagementContoller() bool {
-	if o != nil && o.ManagementContoller != nil {
+// HasManagementController returns a boolean if a field has been set.
+func (o *NetworkElement) HasManagementController() bool {
+	if o != nil && o.ManagementController != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetManagementContoller gets a reference to the given ManagementControllerRelationship and assigns it to the ManagementContoller field.
-func (o *NetworkElement) SetManagementContoller(v ManagementControllerRelationship) {
-	o.ManagementContoller = &v
+// SetManagementController gets a reference to the given ManagementControllerRelationship and assigns it to the ManagementController field.
+func (o *NetworkElement) SetManagementController(v ManagementControllerRelationship) {
+	o.ManagementController = &v
 }
 
 // GetManagementEntity returns the ManagementEntity field value if set, zero value otherwise.
@@ -1374,14 +1519,20 @@ func (o NetworkElement) MarshalJSON() ([]byte, error) {
 	if errEquipmentBase != nil {
 		return []byte{}, errEquipmentBase
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AdminEvacState != nil {
 		toSerialize["AdminEvacState"] = o.AdminEvacState
 	}
 	if o.AdminInbandInterfaceState != nil {
 		toSerialize["AdminInbandInterfaceState"] = o.AdminInbandInterfaceState
 	}
-	if o.AlarmSummary != nil {
-		toSerialize["AlarmSummary"] = o.AlarmSummary
+	if o.AlarmSummary.IsSet() {
+		toSerialize["AlarmSummary"] = o.AlarmSummary.Get()
 	}
 	if o.AvailableMemory != nil {
 		toSerialize["AvailableMemory"] = o.AvailableMemory
@@ -1389,11 +1540,17 @@ func (o NetworkElement) MarshalJSON() ([]byte, error) {
 	if o.EthernetMode != nil {
 		toSerialize["EthernetMode"] = o.EthernetMode
 	}
+	if o.EthernetSwitchingMode != nil {
+		toSerialize["EthernetSwitchingMode"] = o.EthernetSwitchingMode
+	}
 	if o.FaultSummary != nil {
 		toSerialize["FaultSummary"] = o.FaultSummary
 	}
 	if o.FcMode != nil {
 		toSerialize["FcMode"] = o.FcMode
+	}
+	if o.FcSwitchingMode != nil {
+		toSerialize["FcSwitchingMode"] = o.FcSwitchingMode
 	}
 	if o.InbandIpAddress != nil {
 		toSerialize["InbandIpAddress"] = o.InbandIpAddress
@@ -1461,8 +1618,8 @@ func (o NetworkElement) MarshalJSON() ([]byte, error) {
 	if o.InventoryDeviceInfo != nil {
 		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo
 	}
-	if o.ManagementContoller != nil {
-		toSerialize["ManagementContoller"] = o.ManagementContoller
+	if o.ManagementController != nil {
+		toSerialize["ManagementController"] = o.ManagementController
 	}
 	if o.ManagementEntity != nil {
 		toSerialize["ManagementEntity"] = o.ManagementEntity

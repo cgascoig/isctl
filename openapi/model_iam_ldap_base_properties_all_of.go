@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,6 +18,10 @@ import (
 
 // IamLdapBasePropertiesAllOf Definition of the list of properties defined in 'iam.LdapBaseProperties', excluding properties defined in parent classes.
 type IamLdapBasePropertiesAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Role and locale information of the user.
 	Attribute *string `json:"Attribute,omitempty" yaml:"Attribute,omitempty"`
 	// Base Distinguished Name (DN). Starting point from where server will search for users and groups.
@@ -40,7 +44,7 @@ type IamLdapBasePropertiesAllOf struct {
 	IsPasswordSet *bool `json:"IsPasswordSet,omitempty" yaml:"IsPasswordSet,omitempty"`
 	// Search depth to look for a nested LDAP group in an LDAP group map.
 	NestedGroupSearchDepth *int64 `json:"NestedGroupSearchDepth,omitempty" yaml:"NestedGroupSearchDepth,omitempty"`
-	// Password of the user, that is used to authenticate.
+	// The password of the user for initial bind process. It can be any string that adheres to the following constraints. It can have character except spaces, tabs, line breaks. It cannot be more than 254 characters.
 	Password *string `json:"Password,omitempty" yaml:"Password,omitempty"`
 	// LDAP authentication timeout duration, in seconds.
 	Timeout *int64 `json:"Timeout,omitempty" yaml:"Timeout,omitempty"`
@@ -50,10 +54,18 @@ type IamLdapBasePropertiesAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIamLdapBasePropertiesAllOf() *IamLdapBasePropertiesAllOf {
+func NewIamLdapBasePropertiesAllOf(classId string, objectType string) *IamLdapBasePropertiesAllOf {
 	this := IamLdapBasePropertiesAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var bindMethod string = "LoginCredentials"
 	this.BindMethod = &bindMethod
+	var isPasswordSet bool = false
+	this.IsPasswordSet = &isPasswordSet
+	var nestedGroupSearchDepth int64 = 128
+	this.NestedGroupSearchDepth = &nestedGroupSearchDepth
+	var timeout int64 = 0
+	this.Timeout = &timeout
 	return &this
 }
 
@@ -62,9 +74,67 @@ func NewIamLdapBasePropertiesAllOf() *IamLdapBasePropertiesAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewIamLdapBasePropertiesAllOfWithDefaults() *IamLdapBasePropertiesAllOf {
 	this := IamLdapBasePropertiesAllOf{}
+	var classId string = "iam.LdapBaseProperties"
+	this.ClassId = classId
+	var objectType string = "iam.LdapBaseProperties"
+	this.ObjectType = objectType
 	var bindMethod string = "LoginCredentials"
 	this.BindMethod = &bindMethod
+	var isPasswordSet bool = false
+	this.IsPasswordSet = &isPasswordSet
+	var nestedGroupSearchDepth int64 = 128
+	this.NestedGroupSearchDepth = &nestedGroupSearchDepth
+	var timeout int64 = 0
+	this.Timeout = &timeout
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *IamLdapBasePropertiesAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *IamLdapBasePropertiesAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *IamLdapBasePropertiesAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *IamLdapBasePropertiesAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *IamLdapBasePropertiesAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *IamLdapBasePropertiesAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAttribute returns the Attribute field value if set, zero value otherwise.
@@ -485,6 +555,12 @@ func (o *IamLdapBasePropertiesAllOf) SetTimeout(v int64) {
 
 func (o IamLdapBasePropertiesAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Attribute != nil {
 		toSerialize["Attribute"] = o.Attribute
 	}

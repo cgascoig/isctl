@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,6 +18,10 @@ import (
 
 // StorageVirtualDriveConfigAllOf Definition of the list of properties defined in 'storage.VirtualDriveConfig', excluding properties defined in parent classes.
 type StorageVirtualDriveConfigAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Access policy that host has on this virtual drive. * `Default` - Use platform default access mode. * `ReadWrite` - Enables host to perform read-write on the VD. * `ReadOnly` - Host can only read from the VD. * `Blocked` - Host can neither read nor write to the VD.
 	AccessPolicy *string `json:"AccessPolicy,omitempty" yaml:"AccessPolicy,omitempty"`
 	// The flag enables the use of this virtual drive as a boot drive.
@@ -40,6 +44,8 @@ type StorageVirtualDriveConfigAllOf struct {
 	Size *int64 `json:"Size,omitempty" yaml:"Size,omitempty"`
 	// The strip size is the portion of a stripe that resides on a single drive in the drive group. The stripe consists of the data segments that the RAID controller writes across multiple drives, not including parity drives. * `Default` - Use platform default strip size for a virtual drive. * `32k` - Enables a strip size of 32k for a virtual drive. * `64k` - Enables a strip size of 64k for a virtual drive. * `128k` - Enables a strip size of 128k for a virtual drive. * `256k` - Enables a strip size of 256k for a virtual drive. * `512k` - Enables a strip size of 512k for a virtual drive. * `1024k` - Enables a strip size of 1024k for a virtual drive.
 	StripSize *string `json:"StripSize,omitempty" yaml:"StripSize,omitempty"`
+	// Unique Id of the Virtual Drive to be used to identify Virtual Drive when name is empty.
+	Vdid *string `json:"Vdid,omitempty" yaml:"Vdid,omitempty"`
 	// Write mode to be used to write data to this virtual drive. * `Default` - Use platform default write mode. * `WriteThrough` - Data is written through the cache and to the physical drives. Performance is improved, because subsequent reads of that data can be satisfied from the cache. * `WriteBackGoodBbu` - Data is stored in the cache, and is only written to the physical drives when space in the cache is needed. Virtual drives requesting this policy fall back to Write Through caching when the battery backup unit (BBU) cannot guarantee the safety of the cache in the event of a power failure. * `AlwaysWriteBack` - With this policy, write caching remains Write Back even if the battery backup unit is defective or discharged.
 	WritePolicy *string `json:"WritePolicy,omitempty" yaml:"WritePolicy,omitempty"`
 }
@@ -48,8 +54,10 @@ type StorageVirtualDriveConfigAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStorageVirtualDriveConfigAllOf() *StorageVirtualDriveConfigAllOf {
+func NewStorageVirtualDriveConfigAllOf(classId string, objectType string) *StorageVirtualDriveConfigAllOf {
 	this := StorageVirtualDriveConfigAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var accessPolicy string = "Default"
 	this.AccessPolicy = &accessPolicy
 	var driveCache string = "Default"
@@ -70,6 +78,10 @@ func NewStorageVirtualDriveConfigAllOf() *StorageVirtualDriveConfigAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewStorageVirtualDriveConfigAllOfWithDefaults() *StorageVirtualDriveConfigAllOf {
 	this := StorageVirtualDriveConfigAllOf{}
+	var classId string = "storage.VirtualDriveConfig"
+	this.ClassId = classId
+	var objectType string = "storage.VirtualDriveConfig"
+	this.ObjectType = objectType
 	var accessPolicy string = "Default"
 	this.AccessPolicy = &accessPolicy
 	var driveCache string = "Default"
@@ -83,6 +95,54 @@ func NewStorageVirtualDriveConfigAllOfWithDefaults() *StorageVirtualDriveConfigA
 	var writePolicy string = "Default"
 	this.WritePolicy = &writePolicy
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *StorageVirtualDriveConfigAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDriveConfigAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *StorageVirtualDriveConfigAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *StorageVirtualDriveConfigAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDriveConfigAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *StorageVirtualDriveConfigAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAccessPolicy returns the AccessPolicy field value if set, zero value otherwise.
@@ -437,6 +497,38 @@ func (o *StorageVirtualDriveConfigAllOf) SetStripSize(v string) {
 	o.StripSize = &v
 }
 
+// GetVdid returns the Vdid field value if set, zero value otherwise.
+func (o *StorageVirtualDriveConfigAllOf) GetVdid() string {
+	if o == nil || o.Vdid == nil {
+		var ret string
+		return ret
+	}
+	return *o.Vdid
+}
+
+// GetVdidOk returns a tuple with the Vdid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StorageVirtualDriveConfigAllOf) GetVdidOk() (*string, bool) {
+	if o == nil || o.Vdid == nil {
+		return nil, false
+	}
+	return o.Vdid, true
+}
+
+// HasVdid returns a boolean if a field has been set.
+func (o *StorageVirtualDriveConfigAllOf) HasVdid() bool {
+	if o != nil && o.Vdid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVdid gets a reference to the given string and assigns it to the Vdid field.
+func (o *StorageVirtualDriveConfigAllOf) SetVdid(v string) {
+	o.Vdid = &v
+}
+
 // GetWritePolicy returns the WritePolicy field value if set, zero value otherwise.
 func (o *StorageVirtualDriveConfigAllOf) GetWritePolicy() string {
 	if o == nil || o.WritePolicy == nil {
@@ -471,6 +563,12 @@ func (o *StorageVirtualDriveConfigAllOf) SetWritePolicy(v string) {
 
 func (o StorageVirtualDriveConfigAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AccessPolicy != nil {
 		toSerialize["AccessPolicy"] = o.AccessPolicy
 	}
@@ -503,6 +601,9 @@ func (o StorageVirtualDriveConfigAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.StripSize != nil {
 		toSerialize["StripSize"] = o.StripSize
+	}
+	if o.Vdid != nil {
+		toSerialize["Vdid"] = o.Vdid
 	}
 	if o.WritePolicy != nil {
 		toSerialize["WritePolicy"] = o.WritePolicy

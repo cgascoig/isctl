@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.PhysicalSummary"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.PhysicalSummary"]
 **AdminPowerState** | Pointer to **string** | The desired power state of the server. | [optional] [readonly] 
-**AlarmSummary** | Pointer to [**ComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
+**AlarmSummary** | Pointer to [**NullableComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
 **AssetTag** | Pointer to **string** | The user defined asset tag assigned to the server. | [optional] [readonly] 
 **AvailableMemory** | Pointer to **int64** | The amount of memory available on the server. | [optional] [readonly] 
 **BiosPostComplete** | Pointer to **bool** | The BIOS POST completion status of the server. | [optional] [readonly] 
@@ -48,7 +50,6 @@ Name | Type | Description | Notes
 **UserLabel** | Pointer to **string** | The user defined label assigned to the server. | [optional] [readonly] 
 **Uuid** | Pointer to **string** | The universally unique identity of the server. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
-**EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
 **InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
 **RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
 
@@ -56,7 +57,7 @@ Name | Type | Description | Notes
 
 ### NewComputePhysicalSummaryAllOf
 
-`func NewComputePhysicalSummaryAllOf() *ComputePhysicalSummaryAllOf`
+`func NewComputePhysicalSummaryAllOf(classId string, objectType string, ) *ComputePhysicalSummaryAllOf`
 
 NewComputePhysicalSummaryAllOf instantiates a new ComputePhysicalSummaryAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -70,6 +71,46 @@ will change when the set of required properties is changed
 NewComputePhysicalSummaryAllOfWithDefaults instantiates a new ComputePhysicalSummaryAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *ComputePhysicalSummaryAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *ComputePhysicalSummaryAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *ComputePhysicalSummaryAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *ComputePhysicalSummaryAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *ComputePhysicalSummaryAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *ComputePhysicalSummaryAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetAdminPowerState
 
@@ -121,6 +162,16 @@ SetAlarmSummary sets AlarmSummary field to given value.
 
 HasAlarmSummary returns a boolean if a field has been set.
 
+### SetAlarmSummaryNil
+
+`func (o *ComputePhysicalSummaryAllOf) SetAlarmSummaryNil(b bool)`
+
+ SetAlarmSummaryNil sets the value for AlarmSummary to be an explicit nil
+
+### UnsetAlarmSummary
+`func (o *ComputePhysicalSummaryAllOf) UnsetAlarmSummary()`
+
+UnsetAlarmSummary ensures that no value is present for AlarmSummary, not even an explicit nil
 ### GetAssetTag
 
 `func (o *ComputePhysicalSummaryAllOf) GetAssetTag() string`
@@ -421,6 +472,16 @@ SetKvmIpAddresses sets KvmIpAddresses field to given value.
 
 HasKvmIpAddresses returns a boolean if a field has been set.
 
+### SetKvmIpAddressesNil
+
+`func (o *ComputePhysicalSummaryAllOf) SetKvmIpAddressesNil(b bool)`
+
+ SetKvmIpAddressesNil sets the value for KvmIpAddresses to be an explicit nil
+
+### UnsetKvmIpAddresses
+`func (o *ComputePhysicalSummaryAllOf) UnsetKvmIpAddresses()`
+
+UnsetKvmIpAddresses ensures that no value is present for KvmIpAddresses, not even an explicit nil
 ### GetManagementMode
 
 `func (o *ComputePhysicalSummaryAllOf) GetManagementMode() string`
@@ -1170,31 +1231,6 @@ SetVendor sets Vendor field to given value.
 `func (o *ComputePhysicalSummaryAllOf) HasVendor() bool`
 
 HasVendor returns a boolean if a field has been set.
-
-### GetEquipmentChassis
-
-`func (o *ComputePhysicalSummaryAllOf) GetEquipmentChassis() EquipmentChassisRelationship`
-
-GetEquipmentChassis returns the EquipmentChassis field if non-nil, zero value otherwise.
-
-### GetEquipmentChassisOk
-
-`func (o *ComputePhysicalSummaryAllOf) GetEquipmentChassisOk() (*EquipmentChassisRelationship, bool)`
-
-GetEquipmentChassisOk returns a tuple with the EquipmentChassis field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEquipmentChassis
-
-`func (o *ComputePhysicalSummaryAllOf) SetEquipmentChassis(v EquipmentChassisRelationship)`
-
-SetEquipmentChassis sets EquipmentChassis field to given value.
-
-### HasEquipmentChassis
-
-`func (o *ComputePhysicalSummaryAllOf) HasEquipmentChassis() bool`
-
-HasEquipmentChassis returns a boolean if a field has been set.
 
 ### GetInventoryDeviceInfo
 

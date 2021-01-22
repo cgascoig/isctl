@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,10 +19,16 @@ import (
 // HyperflexNodeProfile A configuration profile per node in the HyperFlex cluster. It defines node settings such as IP address configuration for hypervisor management network, storage data network, HyperFlex management network, and the assigned physical server.
 type HyperflexNodeProfile struct {
 	PolicyAbstractProfile `yaml:"PolicyAbstractProfile,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// IP address for storage data network (Controller VM interface).
 	HxdpDataIp *string `json:"HxdpDataIp,omitempty" yaml:"HxdpDataIp,omitempty"`
 	// IP address for HyperFlex management network.
 	HxdpMgmtIp *string `json:"HxdpMgmtIp,omitempty" yaml:"HxdpMgmtIp,omitempty"`
+	// IP address for hypervisor control such as VM migration or pod management.
+	HypervisorControlIp *string `json:"HypervisorControlIp,omitempty" yaml:"HypervisorControlIp,omitempty"`
 	// IP address for storage data network (Hypervisor interface).
 	HypervisorDataIp *string `json:"HypervisorDataIp,omitempty" yaml:"HypervisorDataIp,omitempty"`
 	// IP address for Hypervisor management network.
@@ -35,8 +41,10 @@ type HyperflexNodeProfile struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexNodeProfile() *HyperflexNodeProfile {
+func NewHyperflexNodeProfile(classId string, objectType string) *HyperflexNodeProfile {
 	this := HyperflexNodeProfile{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -45,7 +53,59 @@ func NewHyperflexNodeProfile() *HyperflexNodeProfile {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexNodeProfileWithDefaults() *HyperflexNodeProfile {
 	this := HyperflexNodeProfile{}
+	var classId string = "hyperflex.NodeProfile"
+	this.ClassId = classId
+	var objectType string = "hyperflex.NodeProfile"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *HyperflexNodeProfile) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexNodeProfile) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexNodeProfile) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexNodeProfile) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexNodeProfile) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexNodeProfile) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetHxdpDataIp returns the HxdpDataIp field value if set, zero value otherwise.
@@ -110,6 +170,38 @@ func (o *HyperflexNodeProfile) HasHxdpMgmtIp() bool {
 // SetHxdpMgmtIp gets a reference to the given string and assigns it to the HxdpMgmtIp field.
 func (o *HyperflexNodeProfile) SetHxdpMgmtIp(v string) {
 	o.HxdpMgmtIp = &v
+}
+
+// GetHypervisorControlIp returns the HypervisorControlIp field value if set, zero value otherwise.
+func (o *HyperflexNodeProfile) GetHypervisorControlIp() string {
+	if o == nil || o.HypervisorControlIp == nil {
+		var ret string
+		return ret
+	}
+	return *o.HypervisorControlIp
+}
+
+// GetHypervisorControlIpOk returns a tuple with the HypervisorControlIp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HyperflexNodeProfile) GetHypervisorControlIpOk() (*string, bool) {
+	if o == nil || o.HypervisorControlIp == nil {
+		return nil, false
+	}
+	return o.HypervisorControlIp, true
+}
+
+// HasHypervisorControlIp returns a boolean if a field has been set.
+func (o *HyperflexNodeProfile) HasHypervisorControlIp() bool {
+	if o != nil && o.HypervisorControlIp != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorControlIp gets a reference to the given string and assigns it to the HypervisorControlIp field.
+func (o *HyperflexNodeProfile) SetHypervisorControlIp(v string) {
+	o.HypervisorControlIp = &v
 }
 
 // GetHypervisorDataIp returns the HypervisorDataIp field value if set, zero value otherwise.
@@ -250,11 +342,20 @@ func (o HyperflexNodeProfile) MarshalJSON() ([]byte, error) {
 	if errPolicyAbstractProfile != nil {
 		return []byte{}, errPolicyAbstractProfile
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.HxdpDataIp != nil {
 		toSerialize["HxdpDataIp"] = o.HxdpDataIp
 	}
 	if o.HxdpMgmtIp != nil {
 		toSerialize["HxdpMgmtIp"] = o.HxdpMgmtIp
+	}
+	if o.HypervisorControlIp != nil {
+		toSerialize["HypervisorControlIp"] = o.HypervisorControlIp
 	}
 	if o.HypervisorDataIp != nil {
 		toSerialize["HypervisorDataIp"] = o.HypervisorDataIp

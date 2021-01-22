@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,7 +18,11 @@ import (
 
 // HyperflexClusterAllOf Definition of the list of properties defined in 'hyperflex.Cluster', excluding properties defined in parent classes.
 type HyperflexClusterAllOf struct {
-	AlarmSummary *HyperflexAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType   string                        `json:"ObjectType" yaml:"ObjectType"`
+	AlarmSummary NullableHyperflexAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
 	// The number of days remaining before the cluster's storage utilization reaches the recommended capacity limit of 76%. Default value is math.MaxInt32 to indicate that the capacity runway is \"Unknown\" for a cluster that is not connected or with not sufficient data.
 	CapacityRunway *int64 `json:"CapacityRunway,omitempty" yaml:"CapacityRunway,omitempty"`
 	// The name of this HyperFlex cluster.
@@ -31,7 +35,7 @@ type HyperflexClusterAllOf struct {
 	ComputeNodeCount *int64 `json:"ComputeNodeCount,omitempty" yaml:"ComputeNodeCount,omitempty"`
 	// The number of converged nodes that belong to this cluster.
 	ConvergedNodeCount *int64 `json:"ConvergedNodeCount,omitempty" yaml:"ConvergedNodeCount,omitempty"`
-	// The deployment type of the HyperFlex cluster. The cluster can have one of the following configurations: 1. Datacenter: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes on a single site. 2. Stretched Cluster: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes distributed across multiple sites. 3. Edge: The HyperFlex cluster consists of 2-4 standalone nodes. If the cluster is running a HyperFlex Data Platform version less than 4.0 or if the deployment type cannot be determined, the deployment type is set as 'NA' (not available). * `NA` - The deployment type of the HyperFlex cluster is not available. * `Datacenter` - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes on the same site. * `Stretched Cluster` - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes across different sites. * `Edge` - The deployment type of a HyperFlex cluster consisting of 2-4 standalone nodes.
+	// The deployment type of the HyperFlex cluster. The cluster can have one of the following configurations: 1. Datacenter: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes on a single site. 2. Stretched Cluster: The HyperFlex cluster consists of UCS Fabric Interconnect-attached nodes distributed across multiple sites. 3. Edge: The HyperFlex cluster consists of 2-4 standalone nodes. If the cluster is running a HyperFlex Data Platform version less than 4.0 or if the deployment type cannot be determined, the deployment type is set as 'NA' (not available). * `NA` - The deployment type of the HyperFlex cluster is not available. * `Datacenter` - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes on the same site. * `Stretched Cluster` - The deployment type of a HyperFlex cluster consisting of UCS Fabric Interconnect-attached nodes across different sites. * `Edge` - The deployment type of a HyperFlex cluster consisting of 2 or more standalone nodes.
 	DeploymentType *string `json:"DeploymentType,omitempty" yaml:"DeploymentType,omitempty"`
 	// The unique identifier of the device registration that represents this HyperFlex cluster's connection to Intersight.
 	DeviceId *string `json:"DeviceId,omitempty" yaml:"DeviceId,omitempty"`
@@ -41,11 +45,11 @@ type HyperflexClusterAllOf struct {
 	HxVersion *string `json:"HxVersion,omitempty" yaml:"HxVersion,omitempty"`
 	// The version and build number of the HyperFlex Data Platform for this cluster. After a cluster upgrade, this version string will be updated on the next inventory cycle to reflect the newly installed version.
 	HxdpBuildVersion *string `json:"HxdpBuildVersion,omitempty" yaml:"HxdpBuildVersion,omitempty"`
-	// The type of hypervisor running on this cluster. * `ESXi` - ESXi hypervisor as specified by the user. * `HYPERV` - Hyperv hypervisor as specified by the user. * `KVM` - KVM hypervisor as specified by the user.
+	// The type of hypervisor running on this cluster. * `ESXi` - The hypervisor running on the HyperFlex cluster is a Vmware ESXi hypervisor of any version. * `HyperFlexAp` - The hypervisor running on the HyperFlex cluster is Cisco HyperFlex Application Platform. * `Hyper-V` - The hypervisor running on the HyperFlex cluster is Microsoft Hyper-V. * `Unknown` - The hypervisor running on the HyperFlex cluster is not known.
 	HypervisorType *string `json:"HypervisorType,omitempty" yaml:"HypervisorType,omitempty"`
 	// The version of hypervisor running on this cluster.
-	HypervisorVersion *string           `json:"HypervisorVersion,omitempty" yaml:"HypervisorVersion,omitempty"`
-	Summary           *HyperflexSummary `json:"Summary,omitempty" yaml:"Summary,omitempty"`
+	HypervisorVersion *string                  `json:"HypervisorVersion,omitempty" yaml:"HypervisorVersion,omitempty"`
+	Summary           NullableHyperflexSummary `json:"Summary,omitempty" yaml:"Summary,omitempty"`
 	// The storage utilization percentage is computed based on total capacity and current capacity utilization.
 	UtilizationPercentage *float32 `json:"UtilizationPercentage,omitempty" yaml:"UtilizationPercentage,omitempty"`
 	// The storage utilization trend percentage represents the trend in percentage computed using the first and last point from historical data.
@@ -58,14 +62,22 @@ type HyperflexClusterAllOf struct {
 	// An array of relationships to hyperflexNode resources.
 	Nodes            []HyperflexNodeRelationship          `json:"Nodes,omitempty" yaml:"Nodes,omitempty"`
 	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	// An array of relationships to storageHyperFlexStorageContainer resources.
+	StorageContainers []StorageHyperFlexStorageContainerRelationship `json:"StorageContainers,omitempty" yaml:"StorageContainers,omitempty"`
+	// An array of relationships to storageHyperFlexVolume resources.
+	Volumes []StorageHyperFlexVolumeRelationship `json:"Volumes,omitempty" yaml:"Volumes,omitempty"`
 }
 
 // NewHyperflexClusterAllOf instantiates a new HyperflexClusterAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHyperflexClusterAllOf() *HyperflexClusterAllOf {
+func NewHyperflexClusterAllOf(classId string, objectType string) *HyperflexClusterAllOf {
 	this := HyperflexClusterAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
+	var capacityRunway int64 = 2147483647
+	this.CapacityRunway = &capacityRunway
 	var deploymentType string = "NA"
 	this.DeploymentType = &deploymentType
 	var hypervisorType string = "ESXi"
@@ -78,6 +90,12 @@ func NewHyperflexClusterAllOf() *HyperflexClusterAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewHyperflexClusterAllOfWithDefaults() *HyperflexClusterAllOf {
 	this := HyperflexClusterAllOf{}
+	var classId string = "hyperflex.Cluster"
+	this.ClassId = classId
+	var objectType string = "hyperflex.Cluster"
+	this.ObjectType = objectType
+	var capacityRunway int64 = 2147483647
+	this.CapacityRunway = &capacityRunway
 	var deploymentType string = "NA"
 	this.DeploymentType = &deploymentType
 	var hypervisorType string = "ESXi"
@@ -85,36 +103,95 @@ func NewHyperflexClusterAllOfWithDefaults() *HyperflexClusterAllOf {
 	return &this
 }
 
-// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+// GetClassId returns the ClassId field value
+func (o *HyperflexClusterAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *HyperflexClusterAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *HyperflexClusterAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *HyperflexClusterAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *HyperflexClusterAllOf) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexClusterAllOf) GetAlarmSummary() HyperflexAlarmSummary {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil || o.AlarmSummary.Get() == nil {
 		var ret HyperflexAlarmSummary
 		return ret
 	}
-	return *o.AlarmSummary
+	return *o.AlarmSummary.Get()
 }
 
 // GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexClusterAllOf) GetAlarmSummaryOk() (*HyperflexAlarmSummary, bool) {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlarmSummary, true
+	return o.AlarmSummary.Get(), o.AlarmSummary.IsSet()
 }
 
 // HasAlarmSummary returns a boolean if a field has been set.
 func (o *HyperflexClusterAllOf) HasAlarmSummary() bool {
-	if o != nil && o.AlarmSummary != nil {
+	if o != nil && o.AlarmSummary.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAlarmSummary gets a reference to the given HyperflexAlarmSummary and assigns it to the AlarmSummary field.
+// SetAlarmSummary gets a reference to the given NullableHyperflexAlarmSummary and assigns it to the AlarmSummary field.
 func (o *HyperflexClusterAllOf) SetAlarmSummary(v HyperflexAlarmSummary) {
-	o.AlarmSummary = &v
+	o.AlarmSummary.Set(&v)
+}
+
+// SetAlarmSummaryNil sets the value for AlarmSummary to be an explicit nil
+func (o *HyperflexClusterAllOf) SetAlarmSummaryNil() {
+	o.AlarmSummary.Set(nil)
+}
+
+// UnsetAlarmSummary ensures that no value is present for AlarmSummary, not even an explicit nil
+func (o *HyperflexClusterAllOf) UnsetAlarmSummary() {
+	o.AlarmSummary.Unset()
 }
 
 // GetCapacityRunway returns the CapacityRunway field value if set, zero value otherwise.
@@ -533,36 +610,47 @@ func (o *HyperflexClusterAllOf) SetHypervisorVersion(v string) {
 	o.HypervisorVersion = &v
 }
 
-// GetSummary returns the Summary field value if set, zero value otherwise.
+// GetSummary returns the Summary field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HyperflexClusterAllOf) GetSummary() HyperflexSummary {
-	if o == nil || o.Summary == nil {
+	if o == nil || o.Summary.Get() == nil {
 		var ret HyperflexSummary
 		return ret
 	}
-	return *o.Summary
+	return *o.Summary.Get()
 }
 
 // GetSummaryOk returns a tuple with the Summary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HyperflexClusterAllOf) GetSummaryOk() (*HyperflexSummary, bool) {
-	if o == nil || o.Summary == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Summary, true
+	return o.Summary.Get(), o.Summary.IsSet()
 }
 
 // HasSummary returns a boolean if a field has been set.
 func (o *HyperflexClusterAllOf) HasSummary() bool {
-	if o != nil && o.Summary != nil {
+	if o != nil && o.Summary.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSummary gets a reference to the given HyperflexSummary and assigns it to the Summary field.
+// SetSummary gets a reference to the given NullableHyperflexSummary and assigns it to the Summary field.
 func (o *HyperflexClusterAllOf) SetSummary(v HyperflexSummary) {
-	o.Summary = &v
+	o.Summary.Set(&v)
+}
+
+// SetSummaryNil sets the value for Summary to be an explicit nil
+func (o *HyperflexClusterAllOf) SetSummaryNil() {
+	o.Summary.Set(nil)
+}
+
+// UnsetSummary ensures that no value is present for Summary, not even an explicit nil
+func (o *HyperflexClusterAllOf) UnsetSummary() {
+	o.Summary.Unset()
 }
 
 // GetUtilizationPercentage returns the UtilizationPercentage field value if set, zero value otherwise.
@@ -791,10 +879,82 @@ func (o *HyperflexClusterAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRel
 	o.RegisteredDevice = &v
 }
 
+// GetStorageContainers returns the StorageContainers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HyperflexClusterAllOf) GetStorageContainers() []StorageHyperFlexStorageContainerRelationship {
+	if o == nil {
+		var ret []StorageHyperFlexStorageContainerRelationship
+		return ret
+	}
+	return o.StorageContainers
+}
+
+// GetStorageContainersOk returns a tuple with the StorageContainers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HyperflexClusterAllOf) GetStorageContainersOk() (*[]StorageHyperFlexStorageContainerRelationship, bool) {
+	if o == nil || o.StorageContainers == nil {
+		return nil, false
+	}
+	return &o.StorageContainers, true
+}
+
+// HasStorageContainers returns a boolean if a field has been set.
+func (o *HyperflexClusterAllOf) HasStorageContainers() bool {
+	if o != nil && o.StorageContainers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageContainers gets a reference to the given []StorageHyperFlexStorageContainerRelationship and assigns it to the StorageContainers field.
+func (o *HyperflexClusterAllOf) SetStorageContainers(v []StorageHyperFlexStorageContainerRelationship) {
+	o.StorageContainers = v
+}
+
+// GetVolumes returns the Volumes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HyperflexClusterAllOf) GetVolumes() []StorageHyperFlexVolumeRelationship {
+	if o == nil {
+		var ret []StorageHyperFlexVolumeRelationship
+		return ret
+	}
+	return o.Volumes
+}
+
+// GetVolumesOk returns a tuple with the Volumes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HyperflexClusterAllOf) GetVolumesOk() (*[]StorageHyperFlexVolumeRelationship, bool) {
+	if o == nil || o.Volumes == nil {
+		return nil, false
+	}
+	return &o.Volumes, true
+}
+
+// HasVolumes returns a boolean if a field has been set.
+func (o *HyperflexClusterAllOf) HasVolumes() bool {
+	if o != nil && o.Volumes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVolumes gets a reference to the given []StorageHyperFlexVolumeRelationship and assigns it to the Volumes field.
+func (o *HyperflexClusterAllOf) SetVolumes(v []StorageHyperFlexVolumeRelationship) {
+	o.Volumes = v
+}
+
 func (o HyperflexClusterAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AlarmSummary != nil {
-		toSerialize["AlarmSummary"] = o.AlarmSummary
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
+	if o.AlarmSummary.IsSet() {
+		toSerialize["AlarmSummary"] = o.AlarmSummary.Get()
 	}
 	if o.CapacityRunway != nil {
 		toSerialize["CapacityRunway"] = o.CapacityRunway
@@ -835,8 +995,8 @@ func (o HyperflexClusterAllOf) MarshalJSON() ([]byte, error) {
 	if o.HypervisorVersion != nil {
 		toSerialize["HypervisorVersion"] = o.HypervisorVersion
 	}
-	if o.Summary != nil {
-		toSerialize["Summary"] = o.Summary
+	if o.Summary.IsSet() {
+		toSerialize["Summary"] = o.Summary.Get()
 	}
 	if o.UtilizationPercentage != nil {
 		toSerialize["UtilizationPercentage"] = o.UtilizationPercentage
@@ -858,6 +1018,12 @@ func (o HyperflexClusterAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.RegisteredDevice != nil {
 		toSerialize["RegisteredDevice"] = o.RegisteredDevice
+	}
+	if o.StorageContainers != nil {
+		toSerialize["StorageContainers"] = o.StorageContainers
+	}
+	if o.Volumes != nil {
+		toSerialize["Volumes"] = o.Volumes
 	}
 	return json.Marshal(toSerialize)
 }

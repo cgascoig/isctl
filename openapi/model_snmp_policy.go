@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,10 @@ import (
 // SnmpPolicy Policy to configure SNMP settings on endpoint.
 type SnmpPolicy struct {
 	PolicyAbstractPolicy `yaml:"PolicyAbstractPolicy,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 18 characters long.
 	AccessCommunityString *string `json:"AccessCommunityString,omitempty" yaml:"AccessCommunityString,omitempty"`
 	// Controls access to the information in the inventory tables. Applicable only for SNMPv1 and SNMPv2c users. * `Disabled` - Blocks access to the information in the inventory tables. * `Limited` - Partial access to read the information in the inventory tables. * `Full` - Full access to read the information in the inventory tables.
@@ -27,10 +31,10 @@ type SnmpPolicy struct {
 	Enabled *bool `json:"Enabled,omitempty" yaml:"Enabled,omitempty"`
 	// User-defined unique identification of the static engine.
 	EngineId *string `json:"EngineId,omitempty" yaml:"EngineId,omitempty"`
-	// Port on which Cisco IMC SNMP agent runs.
-	SnmpPort  *int64      `json:"SnmpPort,omitempty" yaml:"SnmpPort,omitempty"`
-	SnmpTraps *[]SnmpTrap `json:"SnmpTraps,omitempty" yaml:"SnmpTraps,omitempty"`
-	SnmpUsers *[]SnmpUser `json:"SnmpUsers,omitempty" yaml:"SnmpUsers,omitempty"`
+	// Port on which Cisco IMC SNMP agent runs. Enter a value between 1-65535. Reserved ports not allowed (22, 23, 80, 123, 389, 443, 623, 636, 2068, 3268, 3269).
+	SnmpPort  *int64     `json:"SnmpPort,omitempty" yaml:"SnmpPort,omitempty"`
+	SnmpTraps []SnmpTrap `json:"SnmpTraps,omitempty" yaml:"SnmpTraps,omitempty"`
+	SnmpUsers []SnmpUser `json:"SnmpUsers,omitempty" yaml:"SnmpUsers,omitempty"`
 	// Contact person responsible for the SNMP implementation. Enter a string up to 64 characters, such as an email address or a name and telephone number.
 	SysContact *string `json:"SysContact,omitempty" yaml:"SysContact,omitempty"`
 	// Location of host on which the SNMP agent (server) runs.
@@ -46,10 +50,16 @@ type SnmpPolicy struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSnmpPolicy() *SnmpPolicy {
+func NewSnmpPolicy(classId string, objectType string) *SnmpPolicy {
 	this := SnmpPolicy{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var communityAccess string = "Disabled"
 	this.CommunityAccess = &communityAccess
+	var enabled bool = true
+	this.Enabled = &enabled
+	var snmpPort int64 = 161
+	this.SnmpPort = &snmpPort
 	return &this
 }
 
@@ -58,9 +68,65 @@ func NewSnmpPolicy() *SnmpPolicy {
 // but it doesn't guarantee that properties required by API are set
 func NewSnmpPolicyWithDefaults() *SnmpPolicy {
 	this := SnmpPolicy{}
+	var classId string = "snmp.Policy"
+	this.ClassId = classId
+	var objectType string = "snmp.Policy"
+	this.ObjectType = objectType
 	var communityAccess string = "Disabled"
 	this.CommunityAccess = &communityAccess
+	var enabled bool = true
+	this.Enabled = &enabled
+	var snmpPort int64 = 161
+	this.SnmpPort = &snmpPort
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *SnmpPolicy) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *SnmpPolicy) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *SnmpPolicy) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *SnmpPolicy) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *SnmpPolicy) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *SnmpPolicy) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAccessCommunityString returns the AccessCommunityString field value if set, zero value otherwise.
@@ -223,22 +289,23 @@ func (o *SnmpPolicy) SetSnmpPort(v int64) {
 	o.SnmpPort = &v
 }
 
-// GetSnmpTraps returns the SnmpTraps field value if set, zero value otherwise.
+// GetSnmpTraps returns the SnmpTraps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnmpPolicy) GetSnmpTraps() []SnmpTrap {
-	if o == nil || o.SnmpTraps == nil {
+	if o == nil {
 		var ret []SnmpTrap
 		return ret
 	}
-	return *o.SnmpTraps
+	return o.SnmpTraps
 }
 
 // GetSnmpTrapsOk returns a tuple with the SnmpTraps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnmpPolicy) GetSnmpTrapsOk() (*[]SnmpTrap, bool) {
 	if o == nil || o.SnmpTraps == nil {
 		return nil, false
 	}
-	return o.SnmpTraps, true
+	return &o.SnmpTraps, true
 }
 
 // HasSnmpTraps returns a boolean if a field has been set.
@@ -252,25 +319,26 @@ func (o *SnmpPolicy) HasSnmpTraps() bool {
 
 // SetSnmpTraps gets a reference to the given []SnmpTrap and assigns it to the SnmpTraps field.
 func (o *SnmpPolicy) SetSnmpTraps(v []SnmpTrap) {
-	o.SnmpTraps = &v
+	o.SnmpTraps = v
 }
 
-// GetSnmpUsers returns the SnmpUsers field value if set, zero value otherwise.
+// GetSnmpUsers returns the SnmpUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SnmpPolicy) GetSnmpUsers() []SnmpUser {
-	if o == nil || o.SnmpUsers == nil {
+	if o == nil {
 		var ret []SnmpUser
 		return ret
 	}
-	return *o.SnmpUsers
+	return o.SnmpUsers
 }
 
 // GetSnmpUsersOk returns a tuple with the SnmpUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SnmpPolicy) GetSnmpUsersOk() (*[]SnmpUser, bool) {
 	if o == nil || o.SnmpUsers == nil {
 		return nil, false
 	}
-	return o.SnmpUsers, true
+	return &o.SnmpUsers, true
 }
 
 // HasSnmpUsers returns a boolean if a field has been set.
@@ -284,7 +352,7 @@ func (o *SnmpPolicy) HasSnmpUsers() bool {
 
 // SetSnmpUsers gets a reference to the given []SnmpUser and assigns it to the SnmpUsers field.
 func (o *SnmpPolicy) SetSnmpUsers(v []SnmpUser) {
-	o.SnmpUsers = &v
+	o.SnmpUsers = v
 }
 
 // GetSysContact returns the SysContact field value if set, zero value otherwise.
@@ -457,6 +525,12 @@ func (o SnmpPolicy) MarshalJSON() ([]byte, error) {
 	errPolicyAbstractPolicy = json.Unmarshal([]byte(serializedPolicyAbstractPolicy), &toSerialize)
 	if errPolicyAbstractPolicy != nil {
 		return []byte{}, errPolicyAbstractPolicy
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.AccessCommunityString != nil {
 		toSerialize["AccessCommunityString"] = o.AccessCommunityString

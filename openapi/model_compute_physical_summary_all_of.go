@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,9 +18,13 @@ import (
 
 // ComputePhysicalSummaryAllOf Definition of the list of properties defined in 'compute.PhysicalSummary', excluding properties defined in parent classes.
 type ComputePhysicalSummaryAllOf struct {
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The desired power state of the server.
-	AdminPowerState *string              `json:"AdminPowerState,omitempty" yaml:"AdminPowerState,omitempty"`
-	AlarmSummary    *ComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
+	AdminPowerState *string                     `json:"AdminPowerState,omitempty" yaml:"AdminPowerState,omitempty"`
+	AlarmSummary    NullableComputeAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
 	// The user defined asset tag assigned to the server.
 	AssetTag *string `json:"AssetTag,omitempty" yaml:"AssetTag,omitempty"`
 	// The amount of memory available on the server.
@@ -42,8 +46,8 @@ type ComputePhysicalSummaryAllOf struct {
 	// The firmware version of the Cisco Integrated Management Controller (CIMC) for this server.
 	Firmware *string `json:"Firmware,omitempty" yaml:"Firmware,omitempty"`
 	// The IPv4 address configured on the management interface of the Integrated Management Controller.
-	Ipv4Address    *string             `json:"Ipv4Address,omitempty" yaml:"Ipv4Address,omitempty"`
-	KvmIpAddresses *[]ComputeIpAddress `json:"KvmIpAddresses,omitempty" yaml:"KvmIpAddresses,omitempty"`
+	Ipv4Address    *string            `json:"Ipv4Address,omitempty" yaml:"Ipv4Address,omitempty"`
+	KvmIpAddresses []ComputeIpAddress `json:"KvmIpAddresses,omitempty" yaml:"KvmIpAddresses,omitempty"`
 	// The management mode of the server. * `IntersightStandalone` - Intersight Standalone mode of operation. * `UCSM` - Unified Computing System Manager mode of operation. * `Intersight` - Intersight managed mode of operation.
 	ManagementMode *string `json:"ManagementMode,omitempty" yaml:"ManagementMode,omitempty"`
 	// The maximum memory speed in MHz available on the server.
@@ -104,7 +108,6 @@ type ComputePhysicalSummaryAllOf struct {
 	Uuid *string `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`
 	// This field identifies the vendor of the given component.
 	Vendor              *string                              `json:"Vendor,omitempty" yaml:"Vendor,omitempty"`
-	EquipmentChassis    *EquipmentChassisRelationship        `json:"EquipmentChassis,omitempty" yaml:"EquipmentChassis,omitempty"`
 	InventoryDeviceInfo *InventoryDeviceInfoRelationship     `json:"InventoryDeviceInfo,omitempty" yaml:"InventoryDeviceInfo,omitempty"`
 	RegisteredDevice    *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
@@ -113,8 +116,10 @@ type ComputePhysicalSummaryAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComputePhysicalSummaryAllOf() *ComputePhysicalSummaryAllOf {
+func NewComputePhysicalSummaryAllOf(classId string, objectType string) *ComputePhysicalSummaryAllOf {
 	this := ComputePhysicalSummaryAllOf{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var managementMode string = "IntersightStandalone"
 	this.ManagementMode = &managementMode
 	return &this
@@ -125,9 +130,61 @@ func NewComputePhysicalSummaryAllOf() *ComputePhysicalSummaryAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewComputePhysicalSummaryAllOfWithDefaults() *ComputePhysicalSummaryAllOf {
 	this := ComputePhysicalSummaryAllOf{}
+	var classId string = "compute.PhysicalSummary"
+	this.ClassId = classId
+	var objectType string = "compute.PhysicalSummary"
+	this.ObjectType = objectType
 	var managementMode string = "IntersightStandalone"
 	this.ManagementMode = &managementMode
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *ComputePhysicalSummaryAllOf) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ComputePhysicalSummaryAllOf) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ComputePhysicalSummaryAllOf) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ComputePhysicalSummaryAllOf) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ComputePhysicalSummaryAllOf) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAdminPowerState returns the AdminPowerState field value if set, zero value otherwise.
@@ -162,36 +219,47 @@ func (o *ComputePhysicalSummaryAllOf) SetAdminPowerState(v string) {
 	o.AdminPowerState = &v
 }
 
-// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputePhysicalSummaryAllOf) GetAlarmSummary() ComputeAlarmSummary {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil || o.AlarmSummary.Get() == nil {
 		var ret ComputeAlarmSummary
 		return ret
 	}
-	return *o.AlarmSummary
+	return *o.AlarmSummary.Get()
 }
 
 // GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputePhysicalSummaryAllOf) GetAlarmSummaryOk() (*ComputeAlarmSummary, bool) {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlarmSummary, true
+	return o.AlarmSummary.Get(), o.AlarmSummary.IsSet()
 }
 
 // HasAlarmSummary returns a boolean if a field has been set.
 func (o *ComputePhysicalSummaryAllOf) HasAlarmSummary() bool {
-	if o != nil && o.AlarmSummary != nil {
+	if o != nil && o.AlarmSummary.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAlarmSummary gets a reference to the given ComputeAlarmSummary and assigns it to the AlarmSummary field.
+// SetAlarmSummary gets a reference to the given NullableComputeAlarmSummary and assigns it to the AlarmSummary field.
 func (o *ComputePhysicalSummaryAllOf) SetAlarmSummary(v ComputeAlarmSummary) {
-	o.AlarmSummary = &v
+	o.AlarmSummary.Set(&v)
+}
+
+// SetAlarmSummaryNil sets the value for AlarmSummary to be an explicit nil
+func (o *ComputePhysicalSummaryAllOf) SetAlarmSummaryNil() {
+	o.AlarmSummary.Set(nil)
+}
+
+// UnsetAlarmSummary ensures that no value is present for AlarmSummary, not even an explicit nil
+func (o *ComputePhysicalSummaryAllOf) UnsetAlarmSummary() {
+	o.AlarmSummary.Unset()
 }
 
 // GetAssetTag returns the AssetTag field value if set, zero value otherwise.
@@ -546,22 +614,23 @@ func (o *ComputePhysicalSummaryAllOf) SetIpv4Address(v string) {
 	o.Ipv4Address = &v
 }
 
-// GetKvmIpAddresses returns the KvmIpAddresses field value if set, zero value otherwise.
+// GetKvmIpAddresses returns the KvmIpAddresses field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputePhysicalSummaryAllOf) GetKvmIpAddresses() []ComputeIpAddress {
-	if o == nil || o.KvmIpAddresses == nil {
+	if o == nil {
 		var ret []ComputeIpAddress
 		return ret
 	}
-	return *o.KvmIpAddresses
+	return o.KvmIpAddresses
 }
 
 // GetKvmIpAddressesOk returns a tuple with the KvmIpAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputePhysicalSummaryAllOf) GetKvmIpAddressesOk() (*[]ComputeIpAddress, bool) {
 	if o == nil || o.KvmIpAddresses == nil {
 		return nil, false
 	}
-	return o.KvmIpAddresses, true
+	return &o.KvmIpAddresses, true
 }
 
 // HasKvmIpAddresses returns a boolean if a field has been set.
@@ -575,7 +644,7 @@ func (o *ComputePhysicalSummaryAllOf) HasKvmIpAddresses() bool {
 
 // SetKvmIpAddresses gets a reference to the given []ComputeIpAddress and assigns it to the KvmIpAddresses field.
 func (o *ComputePhysicalSummaryAllOf) SetKvmIpAddresses(v []ComputeIpAddress) {
-	o.KvmIpAddresses = &v
+	o.KvmIpAddresses = v
 }
 
 // GetManagementMode returns the ManagementMode field value if set, zero value otherwise.
@@ -1538,38 +1607,6 @@ func (o *ComputePhysicalSummaryAllOf) SetVendor(v string) {
 	o.Vendor = &v
 }
 
-// GetEquipmentChassis returns the EquipmentChassis field value if set, zero value otherwise.
-func (o *ComputePhysicalSummaryAllOf) GetEquipmentChassis() EquipmentChassisRelationship {
-	if o == nil || o.EquipmentChassis == nil {
-		var ret EquipmentChassisRelationship
-		return ret
-	}
-	return *o.EquipmentChassis
-}
-
-// GetEquipmentChassisOk returns a tuple with the EquipmentChassis field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ComputePhysicalSummaryAllOf) GetEquipmentChassisOk() (*EquipmentChassisRelationship, bool) {
-	if o == nil || o.EquipmentChassis == nil {
-		return nil, false
-	}
-	return o.EquipmentChassis, true
-}
-
-// HasEquipmentChassis returns a boolean if a field has been set.
-func (o *ComputePhysicalSummaryAllOf) HasEquipmentChassis() bool {
-	if o != nil && o.EquipmentChassis != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetEquipmentChassis gets a reference to the given EquipmentChassisRelationship and assigns it to the EquipmentChassis field.
-func (o *ComputePhysicalSummaryAllOf) SetEquipmentChassis(v EquipmentChassisRelationship) {
-	o.EquipmentChassis = &v
-}
-
 // GetInventoryDeviceInfo returns the InventoryDeviceInfo field value if set, zero value otherwise.
 func (o *ComputePhysicalSummaryAllOf) GetInventoryDeviceInfo() InventoryDeviceInfoRelationship {
 	if o == nil || o.InventoryDeviceInfo == nil {
@@ -1636,11 +1673,17 @@ func (o *ComputePhysicalSummaryAllOf) SetRegisteredDevice(v AssetDeviceRegistrat
 
 func (o ComputePhysicalSummaryAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AdminPowerState != nil {
 		toSerialize["AdminPowerState"] = o.AdminPowerState
 	}
-	if o.AlarmSummary != nil {
-		toSerialize["AlarmSummary"] = o.AlarmSummary
+	if o.AlarmSummary.IsSet() {
+		toSerialize["AlarmSummary"] = o.AlarmSummary.Get()
 	}
 	if o.AssetTag != nil {
 		toSerialize["AssetTag"] = o.AssetTag
@@ -1767,9 +1810,6 @@ func (o ComputePhysicalSummaryAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Vendor != nil {
 		toSerialize["Vendor"] = o.Vendor
-	}
-	if o.EquipmentChassis != nil {
-		toSerialize["EquipmentChassis"] = o.EquipmentChassis
 	}
 	if o.InventoryDeviceInfo != nil {
 		toSerialize["InventoryDeviceInfo"] = o.InventoryDeviceInfo

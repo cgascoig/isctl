@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,10 @@ import (
 // IamPermission Permission provides a way to assign roles to a user or user group to perform operations on object hierarchy.
 type IamPermission struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The informative description about each permission.
 	Description *string `json:"Description,omitempty" yaml:"Description,omitempty"`
 	// The name of the permission which has to be granted to user.
@@ -26,6 +30,8 @@ type IamPermission struct {
 	Account *IamAccountRelationship `json:"Account,omitempty" yaml:"Account,omitempty"`
 	// An array of relationships to iamEndPointRole resources.
 	EndPointRoles []IamEndPointRoleRelationship `json:"EndPointRoles,omitempty" yaml:"EndPointRoles,omitempty"`
+	// An array of relationships to iamPrivilegeSet resources.
+	PrivilegeSets []IamPrivilegeSetRelationship `json:"PrivilegeSets,omitempty" yaml:"PrivilegeSets,omitempty"`
 	// An array of relationships to iamResourceRoles resources.
 	ResourceRoles []IamResourceRolesRelationship `json:"ResourceRoles,omitempty" yaml:"ResourceRoles,omitempty"`
 	// An array of relationships to iamRole resources.
@@ -41,8 +47,10 @@ type IamPermission struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIamPermission() *IamPermission {
+func NewIamPermission(classId string, objectType string) *IamPermission {
 	this := IamPermission{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -51,7 +59,59 @@ func NewIamPermission() *IamPermission {
 // but it doesn't guarantee that properties required by API are set
 func NewIamPermissionWithDefaults() *IamPermission {
 	this := IamPermission{}
+	var classId string = "iam.Permission"
+	this.ClassId = classId
+	var objectType string = "iam.Permission"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *IamPermission) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *IamPermission) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *IamPermission) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *IamPermission) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *IamPermission) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *IamPermission) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -181,6 +241,39 @@ func (o *IamPermission) HasEndPointRoles() bool {
 // SetEndPointRoles gets a reference to the given []IamEndPointRoleRelationship and assigns it to the EndPointRoles field.
 func (o *IamPermission) SetEndPointRoles(v []IamEndPointRoleRelationship) {
 	o.EndPointRoles = v
+}
+
+// GetPrivilegeSets returns the PrivilegeSets field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IamPermission) GetPrivilegeSets() []IamPrivilegeSetRelationship {
+	if o == nil {
+		var ret []IamPrivilegeSetRelationship
+		return ret
+	}
+	return o.PrivilegeSets
+}
+
+// GetPrivilegeSetsOk returns a tuple with the PrivilegeSets field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IamPermission) GetPrivilegeSetsOk() (*[]IamPrivilegeSetRelationship, bool) {
+	if o == nil || o.PrivilegeSets == nil {
+		return nil, false
+	}
+	return &o.PrivilegeSets, true
+}
+
+// HasPrivilegeSets returns a boolean if a field has been set.
+func (o *IamPermission) HasPrivilegeSets() bool {
+	if o != nil && o.PrivilegeSets != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivilegeSets gets a reference to the given []IamPrivilegeSetRelationship and assigns it to the PrivilegeSets field.
+func (o *IamPermission) SetPrivilegeSets(v []IamPrivilegeSetRelationship) {
+	o.PrivilegeSets = v
 }
 
 // GetResourceRoles returns the ResourceRoles field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -357,6 +450,12 @@ func (o IamPermission) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.Description != nil {
 		toSerialize["Description"] = o.Description
 	}
@@ -368,6 +467,9 @@ func (o IamPermission) MarshalJSON() ([]byte, error) {
 	}
 	if o.EndPointRoles != nil {
 		toSerialize["EndPointRoles"] = o.EndPointRoles
+	}
+	if o.PrivilegeSets != nil {
+		toSerialize["PrivilegeSets"] = o.PrivilegeSets
 	}
 	if o.ResourceRoles != nil {
 		toSerialize["ResourceRoles"] = o.ResourceRoles

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,11 +19,15 @@ import (
 // WorkflowCliCommand This models a single CLI command that can be executed on the end point.
 type WorkflowCliCommand struct {
 	WorkflowApi `yaml:"WorkflowApi,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The command to run on the device connector.
 	Command *string `json:"Command,omitempty" yaml:"Command,omitempty"`
 	// The regex string that identifies the end of the command response.
-	EndPrompt     *string                 `json:"EndPrompt,omitempty" yaml:"EndPrompt,omitempty"`
-	ExpectPrompts *[]WorkflowExpectPrompt `json:"ExpectPrompts,omitempty" yaml:"ExpectPrompts,omitempty"`
+	EndPrompt     *string                `json:"EndPrompt,omitempty" yaml:"EndPrompt,omitempty"`
+	ExpectPrompts []WorkflowExpectPrompt `json:"ExpectPrompts,omitempty" yaml:"ExpectPrompts,omitempty"`
 	// Skips the execution status check of the terminal command. One use case for this is while exiting the terminal session from esxi host.
 	SkipStatusCheck *bool `json:"SkipStatusCheck,omitempty" yaml:"SkipStatusCheck,omitempty"`
 	// If this flag is set, it marks the end of the terminal session where the previous commands were executed.
@@ -38,8 +42,10 @@ type WorkflowCliCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkflowCliCommand() *WorkflowCliCommand {
+func NewWorkflowCliCommand(classId string, objectType string) *WorkflowCliCommand {
 	this := WorkflowCliCommand{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var type_ string = "NonInteractive"
 	this.Type = &type_
 	return &this
@@ -50,9 +56,61 @@ func NewWorkflowCliCommand() *WorkflowCliCommand {
 // but it doesn't guarantee that properties required by API are set
 func NewWorkflowCliCommandWithDefaults() *WorkflowCliCommand {
 	this := WorkflowCliCommand{}
+	var classId string = "workflow.CliCommand"
+	this.ClassId = classId
+	var objectType string = "workflow.CliCommand"
+	this.ObjectType = objectType
 	var type_ string = "NonInteractive"
 	this.Type = &type_
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *WorkflowCliCommand) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowCliCommand) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *WorkflowCliCommand) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *WorkflowCliCommand) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowCliCommand) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *WorkflowCliCommand) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetCommand returns the Command field value if set, zero value otherwise.
@@ -119,22 +177,23 @@ func (o *WorkflowCliCommand) SetEndPrompt(v string) {
 	o.EndPrompt = &v
 }
 
-// GetExpectPrompts returns the ExpectPrompts field value if set, zero value otherwise.
+// GetExpectPrompts returns the ExpectPrompts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkflowCliCommand) GetExpectPrompts() []WorkflowExpectPrompt {
-	if o == nil || o.ExpectPrompts == nil {
+	if o == nil {
 		var ret []WorkflowExpectPrompt
 		return ret
 	}
-	return *o.ExpectPrompts
+	return o.ExpectPrompts
 }
 
 // GetExpectPromptsOk returns a tuple with the ExpectPrompts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkflowCliCommand) GetExpectPromptsOk() (*[]WorkflowExpectPrompt, bool) {
 	if o == nil || o.ExpectPrompts == nil {
 		return nil, false
 	}
-	return o.ExpectPrompts, true
+	return &o.ExpectPrompts, true
 }
 
 // HasExpectPrompts returns a boolean if a field has been set.
@@ -148,7 +207,7 @@ func (o *WorkflowCliCommand) HasExpectPrompts() bool {
 
 // SetExpectPrompts gets a reference to the given []WorkflowExpectPrompt and assigns it to the ExpectPrompts field.
 func (o *WorkflowCliCommand) SetExpectPrompts(v []WorkflowExpectPrompt) {
-	o.ExpectPrompts = &v
+	o.ExpectPrompts = v
 }
 
 // GetSkipStatusCheck returns the SkipStatusCheck field value if set, zero value otherwise.
@@ -288,6 +347,12 @@ func (o WorkflowCliCommand) MarshalJSON() ([]byte, error) {
 	errWorkflowApi = json.Unmarshal([]byte(serializedWorkflowApi), &toSerialize)
 	if errWorkflowApi != nil {
 		return []byte{}, errWorkflowApi
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.Command != nil {
 		toSerialize["Command"] = o.Command

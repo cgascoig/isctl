@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,17 +19,21 @@ import (
 // NiatelemetryEpg Object is available at End Point Group scope. This currently applies only to the APIC environemt.
 type NiatelemetryEpg struct {
 	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Azure Pack NAT with ASA feature usage.
 	AzurePackCount *int64 `json:"AzurePackCount,omitempty" yaml:"AzurePackCount,omitempty"`
 	// Dn value for the End Point Groups present.
 	Dn *string `json:"Dn,omitempty" yaml:"Dn,omitempty"`
-	// EPG Delimiter scale where the delimiter value is present.
+	// Number of  objects with delimiter value present in EPG Delimiter attribute.
 	EpgDelimiterCount *int64 `json:"EpgDelimiterCount,omitempty" yaml:"EpgDelimiterCount,omitempty"`
 	// Number of ports with FC path attribute of type FC.
 	FcNpvCount *int64 `json:"FcNpvCount,omitempty" yaml:"FcNpvCount,omitempty"`
 	// Number of FCoE per End Point Group.
 	FcoeCount *string `json:"FcoeCount,omitempty" yaml:"FcoeCount,omitempty"`
-	// FvRsDomAtt scale per End Point Group with VMware configured.
+	// Number of FvRsDomAtt objects per End Point Group with VMware configuration.
 	FvRsDomAttCount *int64 `json:"FvRsDomAttCount,omitempty" yaml:"FvRsDomAttCount,omitempty"`
 	// Intra End Point Group Contract for Distributed Virtual Switch and BM feature usage.
 	IntraEpgDvsBmCount *int64 `json:"IntraEpgDvsBmCount,omitempty" yaml:"IntraEpgDvsBmCount,omitempty"`
@@ -39,12 +43,16 @@ type NiatelemetryEpg struct {
 	IsAttrBased *string `json:"IsAttrBased,omitempty" yaml:"IsAttrBased,omitempty"`
 	// Gets the state of End Point Groups where microsegmentation is present.
 	Microsegmentation *string `json:"Microsegmentation,omitempty" yaml:"Microsegmentation,omitempty"`
-	// FvRsDomAtt scale per End Point Group with Microsoft configured.
+	// Number of FvRsDomAtt objects per End Point Group with Microsoft configuration.
 	MicrosoftUsegCount *int64 `json:"MicrosoftUsegCount,omitempty" yaml:"MicrosoftUsegCount,omitempty"`
 	// Name value for the End Point Groups present.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
-	// Simplified Service Graph Integration with Windows Azure Pack count scale.
+	// Number of objects with Simplified Service Graph Integration with Windows Azure Pack.
 	OrchslDevVipCfgCount *int64 `json:"OrchslDevVipCfgCount,omitempty" yaml:"OrchslDevVipCfgCount,omitempty"`
+	// Type of record DCNM / APIC / SE. This determines the type of platform where inventory was collected.
+	RecordType *string `json:"RecordType,omitempty" yaml:"RecordType,omitempty"`
+	// Version of record being pushed. This determines what was the API version for data available from the device.
+	RecordVersion *string `json:"RecordVersion,omitempty" yaml:"RecordVersion,omitempty"`
 	// The Site name represents an APIC cluster. Service Engine can onboard multiple APIC clusters / sites.
 	SiteName *string `json:"SiteName,omitempty" yaml:"SiteName,omitempty"`
 	// Logical Operators for attribute based microsegmentation in a hypervisor.
@@ -56,8 +64,10 @@ type NiatelemetryEpg struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNiatelemetryEpg() *NiatelemetryEpg {
+func NewNiatelemetryEpg(classId string, objectType string) *NiatelemetryEpg {
 	this := NiatelemetryEpg{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -66,7 +76,59 @@ func NewNiatelemetryEpg() *NiatelemetryEpg {
 // but it doesn't guarantee that properties required by API are set
 func NewNiatelemetryEpgWithDefaults() *NiatelemetryEpg {
 	this := NiatelemetryEpg{}
+	var classId string = "niatelemetry.Epg"
+	this.ClassId = classId
+	var objectType string = "niatelemetry.Epg"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *NiatelemetryEpg) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryEpg) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *NiatelemetryEpg) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *NiatelemetryEpg) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryEpg) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *NiatelemetryEpg) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAzurePackCount returns the AzurePackCount field value if set, zero value otherwise.
@@ -485,6 +547,70 @@ func (o *NiatelemetryEpg) SetOrchslDevVipCfgCount(v int64) {
 	o.OrchslDevVipCfgCount = &v
 }
 
+// GetRecordType returns the RecordType field value if set, zero value otherwise.
+func (o *NiatelemetryEpg) GetRecordType() string {
+	if o == nil || o.RecordType == nil {
+		var ret string
+		return ret
+	}
+	return *o.RecordType
+}
+
+// GetRecordTypeOk returns a tuple with the RecordType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryEpg) GetRecordTypeOk() (*string, bool) {
+	if o == nil || o.RecordType == nil {
+		return nil, false
+	}
+	return o.RecordType, true
+}
+
+// HasRecordType returns a boolean if a field has been set.
+func (o *NiatelemetryEpg) HasRecordType() bool {
+	if o != nil && o.RecordType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecordType gets a reference to the given string and assigns it to the RecordType field.
+func (o *NiatelemetryEpg) SetRecordType(v string) {
+	o.RecordType = &v
+}
+
+// GetRecordVersion returns the RecordVersion field value if set, zero value otherwise.
+func (o *NiatelemetryEpg) GetRecordVersion() string {
+	if o == nil || o.RecordVersion == nil {
+		var ret string
+		return ret
+	}
+	return *o.RecordVersion
+}
+
+// GetRecordVersionOk returns a tuple with the RecordVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NiatelemetryEpg) GetRecordVersionOk() (*string, bool) {
+	if o == nil || o.RecordVersion == nil {
+		return nil, false
+	}
+	return o.RecordVersion, true
+}
+
+// HasRecordVersion returns a boolean if a field has been set.
+func (o *NiatelemetryEpg) HasRecordVersion() bool {
+	if o != nil && o.RecordVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRecordVersion gets a reference to the given string and assigns it to the RecordVersion field.
+func (o *NiatelemetryEpg) SetRecordVersion(v string) {
+	o.RecordVersion = &v
+}
+
 // GetSiteName returns the SiteName field value if set, zero value otherwise.
 func (o *NiatelemetryEpg) GetSiteName() string {
 	if o == nil || o.SiteName == nil {
@@ -591,6 +717,12 @@ func (o NiatelemetryEpg) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AzurePackCount != nil {
 		toSerialize["AzurePackCount"] = o.AzurePackCount
 	}
@@ -629,6 +761,12 @@ func (o NiatelemetryEpg) MarshalJSON() ([]byte, error) {
 	}
 	if o.OrchslDevVipCfgCount != nil {
 		toSerialize["OrchslDevVipCfgCount"] = o.OrchslDevVipCfgCount
+	}
+	if o.RecordType != nil {
+		toSerialize["RecordType"] = o.RecordType
+	}
+	if o.RecordVersion != nil {
+		toSerialize["RecordVersion"] = o.RecordVersion
 	}
 	if o.SiteName != nil {
 		toSerialize["SiteName"] = o.SiteName

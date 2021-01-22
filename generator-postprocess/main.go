@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"regexp"
 	"text/template"
 
 	yaml "gopkg.in/yaml.v2"
@@ -33,6 +34,11 @@ type Operation struct {
 	Params         []Param `yaml:"params"`
 }
 
+func (o *Operation) IsListOperation() bool {
+	r := regexp.MustCompile(`List$`)
+	return r.MatchString(o.OperationID)
+}
+
 // Param represents the YAML of one parameter
 type Param struct {
 	ParamName    string `yaml:"paramName"`
@@ -56,13 +62,34 @@ type Var struct {
 	DataType string `yaml:"dataType"`
 	Required bool   `yaml:"required"`
 	ReadOnly bool   `yaml:"readOnly"`
+	Nullable bool   `yaml:"nullable"`
+	Default  string `yaml:"default"`
 	Ignore   bool   // Used in cli.gotmpl to skip vars
+}
+
+func generate(templateFilename string, outputFilename string, data interface{}) {
+	log.Printf("Generating '%s' using template file '%s'", outputFilename, templateFilename)
+
+	tmpl, err := template.ParseFiles(templateFilename)
+	if err != nil {
+		log.Fatalf("Error loading template file: %v", err)
+	}
+
+	outfile, err := os.Create(outputFilename)
+	if err != nil {
+		log.Fatalf("Error creating output file: %v", err)
+	}
+
+	err = tmpl.Execute(outfile, data)
+	if err != nil {
+		log.Fatalf("Error executing template: %v", err)
+	}
 }
 
 func main() {
 	flag.Parse()
 
-	log.Printf("Generating '%s' using template file '%s' and operations data from '%s'", outputFilename, templateFilename, operationsFilename)
+	log.Printf("Using operations data from '%s'", operationsFilename)
 
 	opFileBytes, err := ioutil.ReadFile(operationsFilename)
 	if err != nil {
@@ -77,20 +104,19 @@ func main() {
 
 	cliTree := generateCliTree(&opData)
 
-	tmpl, err := template.ParseFiles(templateFilename)
-	if err != nil {
-		log.Fatalf("Error loading template file: %v", err)
+	data := struct {
+		CliTree    *CliItem
+		Operations []Operation
+		Models     map[string]Model
+	}{
+		CliTree:    cliTree,
+		Operations: opData.Operations,
+		Models:     opData.Models,
 	}
 
-	outfile, err := os.Create(outputFilename)
-	if err != nil {
-		log.Fatalf("Error creating output file: %v", err)
-	}
-
-	err = tmpl.Execute(outfile, cliTree)
-	if err != nil {
-		log.Fatalf("Error executing template: %v", err)
-	}
+	generate("generator-postprocess/cli.go.tmpl", "cmd/cli.go", data)
+	generate("generator-postprocess/types.go.tmpl", "cmd/types.go", data)
+	generate("generator-postprocess/operations.go.tmpl", "cmd/operations.go", data)
 
 	log.Printf("Finished post processing.")
 }

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -18,8 +18,12 @@ import (
 
 // CondAlarmAggregation Object which represents alarm aggregation for a managed end point.
 type CondAlarmAggregation struct {
-	MoBaseMo     `yaml:"MoBaseMo,inline"`
-	AlarmSummary *CondAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
+	MoBaseMo `yaml:"MoBaseMo,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType   string                   `json:"ObjectType" yaml:"ObjectType"`
+	AlarmSummary NullableCondAlarmSummary `json:"AlarmSummary,omitempty" yaml:"AlarmSummary,omitempty"`
 	// Count of all alarms with severity Critical, irrespective of acknowledgement status.
 	CriticalAlarmsCount *int64 `json:"CriticalAlarmsCount,omitempty" yaml:"CriticalAlarmsCount,omitempty"`
 	// Health of the managed end point. The highest severity computed from alarmSummary property is set as the health. * `None` - The Enum value None represents that there is no severity. * `Info` - The Enum value Info represents the Informational level of severity. * `Critical` - The Enum value Critical represents the Critical level of severity. * `Warning` - The Enum value Warning represents the Warning level of severity. * `Cleared` - The Enum value Cleared represents that the alarm severity has been cleared.
@@ -37,8 +41,10 @@ type CondAlarmAggregation struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCondAlarmAggregation() *CondAlarmAggregation {
+func NewCondAlarmAggregation(classId string, objectType string) *CondAlarmAggregation {
 	this := CondAlarmAggregation{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var health string = "None"
 	this.Health = &health
 	return &this
@@ -49,41 +55,104 @@ func NewCondAlarmAggregation() *CondAlarmAggregation {
 // but it doesn't guarantee that properties required by API are set
 func NewCondAlarmAggregationWithDefaults() *CondAlarmAggregation {
 	this := CondAlarmAggregation{}
+	var classId string = "cond.AlarmAggregation"
+	this.ClassId = classId
+	var objectType string = "cond.AlarmAggregation"
+	this.ObjectType = objectType
 	var health string = "None"
 	this.Health = &health
 	return &this
 }
 
-// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise.
+// GetClassId returns the ClassId field value
+func (o *CondAlarmAggregation) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAggregation) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *CondAlarmAggregation) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *CondAlarmAggregation) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *CondAlarmAggregation) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *CondAlarmAggregation) SetObjectType(v string) {
+	o.ObjectType = v
+}
+
+// GetAlarmSummary returns the AlarmSummary field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CondAlarmAggregation) GetAlarmSummary() CondAlarmSummary {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil || o.AlarmSummary.Get() == nil {
 		var ret CondAlarmSummary
 		return ret
 	}
-	return *o.AlarmSummary
+	return *o.AlarmSummary.Get()
 }
 
 // GetAlarmSummaryOk returns a tuple with the AlarmSummary field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CondAlarmAggregation) GetAlarmSummaryOk() (*CondAlarmSummary, bool) {
-	if o == nil || o.AlarmSummary == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.AlarmSummary, true
+	return o.AlarmSummary.Get(), o.AlarmSummary.IsSet()
 }
 
 // HasAlarmSummary returns a boolean if a field has been set.
 func (o *CondAlarmAggregation) HasAlarmSummary() bool {
-	if o != nil && o.AlarmSummary != nil {
+	if o != nil && o.AlarmSummary.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAlarmSummary gets a reference to the given CondAlarmSummary and assigns it to the AlarmSummary field.
+// SetAlarmSummary gets a reference to the given NullableCondAlarmSummary and assigns it to the AlarmSummary field.
 func (o *CondAlarmAggregation) SetAlarmSummary(v CondAlarmSummary) {
-	o.AlarmSummary = &v
+	o.AlarmSummary.Set(&v)
+}
+
+// SetAlarmSummaryNil sets the value for AlarmSummary to be an explicit nil
+func (o *CondAlarmAggregation) SetAlarmSummaryNil() {
+	o.AlarmSummary.Set(nil)
+}
+
+// UnsetAlarmSummary ensures that no value is present for AlarmSummary, not even an explicit nil
+func (o *CondAlarmAggregation) UnsetAlarmSummary() {
+	o.AlarmSummary.Unset()
 }
 
 // GetCriticalAlarmsCount returns the CriticalAlarmsCount field value if set, zero value otherwise.
@@ -288,8 +357,14 @@ func (o CondAlarmAggregation) MarshalJSON() ([]byte, error) {
 	if errMoBaseMo != nil {
 		return []byte{}, errMoBaseMo
 	}
-	if o.AlarmSummary != nil {
-		toSerialize["AlarmSummary"] = o.AlarmSummary
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
+	if o.AlarmSummary.IsSet() {
+		toSerialize["AlarmSummary"] = o.AlarmSummary.Get()
 	}
 	if o.CriticalAlarmsCount != nil {
 		toSerialize["CriticalAlarmsCount"] = o.CriticalAlarmsCount

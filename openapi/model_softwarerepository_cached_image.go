@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -20,6 +20,10 @@ import (
 // SoftwarerepositoryCachedImage The image cached in the customer's datacenter.
 type SoftwarerepositoryCachedImage struct {
 	ConnectorDownloadStatus `yaml:"ConnectorDownloadStatus,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// The action to be performed on the imported file. If 'PreCache' is set, the image will be cached in endpoint. If 'Evict' is set, the cached file will be removed. Applicable in Intersight appliance deployment. If 'Cancel' is set, the ImportState is marked as 'Failed'. Applicable for local machine source. * `None` - No action should be taken on the imported file. * `GeneratePreSignedUploadUrl` - Generate pre signed URL of file for importing into the repository. * `GeneratePreSignedDownloadUrl` - Generate pre signed URL of file in the repository to download. * `CompleteImportProcess` - Mark that the import process of the file into the repository is complete. * `MarkImportFailed` - Mark to indicate that the import process of the file into the repository failed. * `PreCache` - Cache the file into the Intersight Appliance. * `Cancel` - The cancel import process for the file into the repository. * `Extract` - The action to extract the file in the external repository. * `Evict` - Evict the cached file from the Intersight Appliance.
 	Action *string `json:"Action,omitempty" yaml:"Action,omitempty"`
 	// The state  of this file in the endpoint The importState is updated during the cache operation and as part of the cache monitoring process. * `ReadyForImport` - The image is ready to be imported into the repository. * `Importing` - The image is being imported into the repository. * `Imported` - The image has been extracted and imported into the repository. * `PendingExtraction` - Indicates that the image has been imported but not extracted in the repository. * `Extracting` - Indicates that the image is being extracted into the repository. * `Extracted` - Indicates that the image has been extracted into the repository. * `Failed` - The image import from an external source to the repository has failed. * `MetaOnly` - The image is present in an external repository. * `ReadyForCache` - The image is ready to be cached into the Intersight Appliance. * `Caching` - Indicates that the image is being cached into the Intersight Appliance or endpoint cache. * `Cached` - Indicates that the image has been cached into the Intersight Appliance or endpoint cache. * `CachingFailed` - Indicates that the image caching into the Intersight Appliance failed or endpoint cache. * `Corrupted` - Indicates that the image in the local repository (or endpoint cache) has been corrupted after it was cached. * `Evicted` - Indicates that the image has been evicted from the Intersight Appliance (or endpoint cache) to reclaim storage space.
@@ -33,8 +37,8 @@ type SoftwarerepositoryCachedImage struct {
 	// The actual sha512sum of the cached image.
 	OriginalSha512sum *string `json:"OriginalSha512sum,omitempty" yaml:"OriginalSha512sum,omitempty"`
 	// The absolute path of the imported file in the endpoint.
-	Path                *string   `json:"Path,omitempty" yaml:"Path,omitempty"`
-	RegisteredWorkflows *[]string `json:"RegisteredWorkflows,omitempty" yaml:"RegisteredWorkflows,omitempty"`
+	Path                *string  `json:"Path,omitempty" yaml:"Path,omitempty"`
+	RegisteredWorkflows []string `json:"RegisteredWorkflows,omitempty" yaml:"RegisteredWorkflows,omitempty"`
 	// The number of times this file has been used to copy or upgrade or install actions. Used by the cache monitoring process to determine the files to be evicted from the cache.
 	UsedCount      *int64                              `json:"UsedCount,omitempty" yaml:"UsedCount,omitempty"`
 	File           *SoftwarerepositoryFileRelationship `json:"File,omitempty" yaml:"File,omitempty"`
@@ -45,8 +49,10 @@ type SoftwarerepositoryCachedImage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSoftwarerepositoryCachedImage() *SoftwarerepositoryCachedImage {
+func NewSoftwarerepositoryCachedImage(classId string, objectType string) *SoftwarerepositoryCachedImage {
 	this := SoftwarerepositoryCachedImage{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var action string = "None"
 	this.Action = &action
 	var cacheState string = "ReadyForImport"
@@ -59,11 +65,63 @@ func NewSoftwarerepositoryCachedImage() *SoftwarerepositoryCachedImage {
 // but it doesn't guarantee that properties required by API are set
 func NewSoftwarerepositoryCachedImageWithDefaults() *SoftwarerepositoryCachedImage {
 	this := SoftwarerepositoryCachedImage{}
+	var classId string = "softwarerepository.CachedImage"
+	this.ClassId = classId
+	var objectType string = "softwarerepository.CachedImage"
+	this.ObjectType = objectType
 	var action string = "None"
 	this.Action = &action
 	var cacheState string = "ReadyForImport"
 	this.CacheState = &cacheState
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *SoftwarerepositoryCachedImage) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *SoftwarerepositoryCachedImage) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *SoftwarerepositoryCachedImage) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *SoftwarerepositoryCachedImage) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *SoftwarerepositoryCachedImage) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *SoftwarerepositoryCachedImage) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAction returns the Action field value if set, zero value otherwise.
@@ -290,22 +348,23 @@ func (o *SoftwarerepositoryCachedImage) SetPath(v string) {
 	o.Path = &v
 }
 
-// GetRegisteredWorkflows returns the RegisteredWorkflows field value if set, zero value otherwise.
+// GetRegisteredWorkflows returns the RegisteredWorkflows field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SoftwarerepositoryCachedImage) GetRegisteredWorkflows() []string {
-	if o == nil || o.RegisteredWorkflows == nil {
+	if o == nil {
 		var ret []string
 		return ret
 	}
-	return *o.RegisteredWorkflows
+	return o.RegisteredWorkflows
 }
 
 // GetRegisteredWorkflowsOk returns a tuple with the RegisteredWorkflows field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SoftwarerepositoryCachedImage) GetRegisteredWorkflowsOk() (*[]string, bool) {
 	if o == nil || o.RegisteredWorkflows == nil {
 		return nil, false
 	}
-	return o.RegisteredWorkflows, true
+	return &o.RegisteredWorkflows, true
 }
 
 // HasRegisteredWorkflows returns a boolean if a field has been set.
@@ -319,7 +378,7 @@ func (o *SoftwarerepositoryCachedImage) HasRegisteredWorkflows() bool {
 
 // SetRegisteredWorkflows gets a reference to the given []string and assigns it to the RegisteredWorkflows field.
 func (o *SoftwarerepositoryCachedImage) SetRegisteredWorkflows(v []string) {
-	o.RegisteredWorkflows = &v
+	o.RegisteredWorkflows = v
 }
 
 // GetUsedCount returns the UsedCount field value if set, zero value otherwise.
@@ -427,6 +486,12 @@ func (o SoftwarerepositoryCachedImage) MarshalJSON() ([]byte, error) {
 	errConnectorDownloadStatus = json.Unmarshal([]byte(serializedConnectorDownloadStatus), &toSerialize)
 	if errConnectorDownloadStatus != nil {
 		return []byte{}, errConnectorDownloadStatus
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.Action != nil {
 		toSerialize["Action"] = o.Action

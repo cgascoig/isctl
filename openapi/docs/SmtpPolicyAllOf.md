@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | If enabled, controls the state of the SMTP client service on the managed device. | [optional] 
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "smtp.Policy"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "smtp.Policy"]
+**Enabled** | Pointer to **bool** | If enabled, controls the state of the SMTP client service on the managed device. | [optional] [default to true]
 **MinSeverity** | Pointer to **string** | Minimum fault severity level to receive email notifications. Email notifications are sent for all faults whose severity is equal to or greater than the chosen level. * &#x60;critical&#x60; - Minimum severity to report is critical. * &#x60;condition&#x60; - Minimum severity to report is informational. * &#x60;warning&#x60; - Minimum severity to report is warning. * &#x60;minor&#x60; - Minimum severity to report is minor. * &#x60;major&#x60; - Minimum severity to report is major. | [optional] [default to "critical"]
 **SenderEmail** | Pointer to **string** | The email address entered here will be displayed as the from address (mail received from address) of all the SMTP mail alerts that are received. If not configured, the hostname of the server is used in the from address field. | [optional] 
-**SmtpPort** | Pointer to **int64** | Port number used by the SMTP server for outgoing SMTP communication. | [optional] 
+**SmtpPort** | Pointer to **int64** | Port number used by the SMTP server for outgoing SMTP communication. | [optional] [default to 25]
 **SmtpRecipients** | Pointer to **[]string** |  | [optional] 
 **SmtpServer** | Pointer to **string** | IP address or hostname of the SMTP server. The SMTP server is used by the managed device to send email notifications. | [optional] 
 **Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
@@ -17,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewSmtpPolicyAllOf
 
-`func NewSmtpPolicyAllOf() *SmtpPolicyAllOf`
+`func NewSmtpPolicyAllOf(classId string, objectType string, ) *SmtpPolicyAllOf`
 
 NewSmtpPolicyAllOf instantiates a new SmtpPolicyAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -31,6 +33,46 @@ will change when the set of required properties is changed
 NewSmtpPolicyAllOfWithDefaults instantiates a new SmtpPolicyAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *SmtpPolicyAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *SmtpPolicyAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *SmtpPolicyAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *SmtpPolicyAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *SmtpPolicyAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *SmtpPolicyAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetEnabled
 
@@ -157,6 +199,16 @@ SetSmtpRecipients sets SmtpRecipients field to given value.
 
 HasSmtpRecipients returns a boolean if a field has been set.
 
+### SetSmtpRecipientsNil
+
+`func (o *SmtpPolicyAllOf) SetSmtpRecipientsNil(b bool)`
+
+ SetSmtpRecipientsNil sets the value for SmtpRecipients to be an explicit nil
+
+### UnsetSmtpRecipients
+`func (o *SmtpPolicyAllOf) UnsetSmtpRecipients()`
+
+UnsetSmtpRecipients ensures that no value is present for SmtpRecipients, not even an explicit nil
 ### GetSmtpServer
 
 `func (o *SmtpPolicyAllOf) GetSmtpServer() string`

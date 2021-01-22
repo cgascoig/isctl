@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,6 +19,10 @@ import (
 // ComputeServerSetting Models the configurable properties of a server in Intersight.
 type ComputeServerSetting struct {
 	InventoryBase `yaml:"InventoryBase,inline"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// User configured state of the locator LED for the server. * `None` - No operation property for locator led. * `On` - The Locator Led is turned on. * `Off` - The Locator Led is turned off.
 	AdminLocatorLedState *string `json:"AdminLocatorLedState,omitempty" yaml:"AdminLocatorLedState,omitempty"`
 	// User configured power state of the server. * `Policy` - Power state is set to the default value in the policy. * `PowerOn` - Power state of the server is set to On. * `PowerOff` - Power state is the server set to Off. * `PowerCycle` - Power state the server is reset. * `HardReset` - Power state the server is hard reset. * `Shutdown` - Operating system on the server is shut down. * `Reboot` - Power state of IMC is rebooted.
@@ -26,21 +30,23 @@ type ComputeServerSetting struct {
 	// The configured state of these settings in the target server. The value is any one of Applied, Applying, Failed. Applied - This state denotes that the settings are applied successfully in the target server. Applying - This state denotes that the settings are being applied in the target server. Failed - This state denotes that the settings could not be applied in the target server. * `Applied` - User configured settings are in applied state. * `Applying` - User settings are being applied on the target server. * `Failed` - User configured settings could not be applied.
 	ConfigState *string `json:"ConfigState,omitempty" yaml:"ConfigState,omitempty"`
 	// The name of the device chosen by user for configuring One-Time Boot device.
-	OneTimeBootDevice         *string                              `json:"OneTimeBootDevice,omitempty" yaml:"OneTimeBootDevice,omitempty"`
-	PersistentMemoryOperation *ComputePersistentMemoryOperation    `json:"PersistentMemoryOperation,omitempty" yaml:"PersistentMemoryOperation,omitempty"`
-	ServerConfig              *ComputeServerConfig                 `json:"ServerConfig,omitempty" yaml:"ServerConfig,omitempty"`
-	LocatorLed                *EquipmentLocatorLedRelationship     `json:"LocatorLed,omitempty" yaml:"LocatorLed,omitempty"`
-	RegisteredDevice          *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
-	RunningWorkflow           *WorkflowWorkflowInfoRelationship    `json:"RunningWorkflow,omitempty" yaml:"RunningWorkflow,omitempty"`
-	Server                    *ComputePhysicalRelationship         `json:"Server,omitempty" yaml:"Server,omitempty"`
+	OneTimeBootDevice         *string                                  `json:"OneTimeBootDevice,omitempty" yaml:"OneTimeBootDevice,omitempty"`
+	PersistentMemoryOperation NullableComputePersistentMemoryOperation `json:"PersistentMemoryOperation,omitempty" yaml:"PersistentMemoryOperation,omitempty"`
+	ServerConfig              NullableComputeServerConfig              `json:"ServerConfig,omitempty" yaml:"ServerConfig,omitempty"`
+	LocatorLed                *EquipmentLocatorLedRelationship         `json:"LocatorLed,omitempty" yaml:"LocatorLed,omitempty"`
+	RegisteredDevice          *AssetDeviceRegistrationRelationship     `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
+	RunningWorkflow           *WorkflowWorkflowInfoRelationship        `json:"RunningWorkflow,omitempty" yaml:"RunningWorkflow,omitempty"`
+	Server                    *ComputePhysicalRelationship             `json:"Server,omitempty" yaml:"Server,omitempty"`
 }
 
 // NewComputeServerSetting instantiates a new ComputeServerSetting object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewComputeServerSetting() *ComputeServerSetting {
+func NewComputeServerSetting(classId string, objectType string) *ComputeServerSetting {
 	this := ComputeServerSetting{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	var adminLocatorLedState string = "None"
 	this.AdminLocatorLedState = &adminLocatorLedState
 	var adminPowerState string = "Policy"
@@ -55,6 +61,10 @@ func NewComputeServerSetting() *ComputeServerSetting {
 // but it doesn't guarantee that properties required by API are set
 func NewComputeServerSettingWithDefaults() *ComputeServerSetting {
 	this := ComputeServerSetting{}
+	var classId string = "compute.ServerSetting"
+	this.ClassId = classId
+	var objectType string = "compute.ServerSetting"
+	this.ObjectType = objectType
 	var adminLocatorLedState string = "None"
 	this.AdminLocatorLedState = &adminLocatorLedState
 	var adminPowerState string = "Policy"
@@ -62,6 +72,54 @@ func NewComputeServerSettingWithDefaults() *ComputeServerSetting {
 	var configState string = "Applied"
 	this.ConfigState = &configState
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *ComputeServerSetting) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *ComputeServerSetting) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *ComputeServerSetting) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *ComputeServerSetting) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *ComputeServerSetting) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *ComputeServerSetting) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAdminLocatorLedState returns the AdminLocatorLedState field value if set, zero value otherwise.
@@ -192,68 +250,90 @@ func (o *ComputeServerSetting) SetOneTimeBootDevice(v string) {
 	o.OneTimeBootDevice = &v
 }
 
-// GetPersistentMemoryOperation returns the PersistentMemoryOperation field value if set, zero value otherwise.
+// GetPersistentMemoryOperation returns the PersistentMemoryOperation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeServerSetting) GetPersistentMemoryOperation() ComputePersistentMemoryOperation {
-	if o == nil || o.PersistentMemoryOperation == nil {
+	if o == nil || o.PersistentMemoryOperation.Get() == nil {
 		var ret ComputePersistentMemoryOperation
 		return ret
 	}
-	return *o.PersistentMemoryOperation
+	return *o.PersistentMemoryOperation.Get()
 }
 
 // GetPersistentMemoryOperationOk returns a tuple with the PersistentMemoryOperation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeServerSetting) GetPersistentMemoryOperationOk() (*ComputePersistentMemoryOperation, bool) {
-	if o == nil || o.PersistentMemoryOperation == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.PersistentMemoryOperation, true
+	return o.PersistentMemoryOperation.Get(), o.PersistentMemoryOperation.IsSet()
 }
 
 // HasPersistentMemoryOperation returns a boolean if a field has been set.
 func (o *ComputeServerSetting) HasPersistentMemoryOperation() bool {
-	if o != nil && o.PersistentMemoryOperation != nil {
+	if o != nil && o.PersistentMemoryOperation.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPersistentMemoryOperation gets a reference to the given ComputePersistentMemoryOperation and assigns it to the PersistentMemoryOperation field.
+// SetPersistentMemoryOperation gets a reference to the given NullableComputePersistentMemoryOperation and assigns it to the PersistentMemoryOperation field.
 func (o *ComputeServerSetting) SetPersistentMemoryOperation(v ComputePersistentMemoryOperation) {
-	o.PersistentMemoryOperation = &v
+	o.PersistentMemoryOperation.Set(&v)
 }
 
-// GetServerConfig returns the ServerConfig field value if set, zero value otherwise.
+// SetPersistentMemoryOperationNil sets the value for PersistentMemoryOperation to be an explicit nil
+func (o *ComputeServerSetting) SetPersistentMemoryOperationNil() {
+	o.PersistentMemoryOperation.Set(nil)
+}
+
+// UnsetPersistentMemoryOperation ensures that no value is present for PersistentMemoryOperation, not even an explicit nil
+func (o *ComputeServerSetting) UnsetPersistentMemoryOperation() {
+	o.PersistentMemoryOperation.Unset()
+}
+
+// GetServerConfig returns the ServerConfig field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ComputeServerSetting) GetServerConfig() ComputeServerConfig {
-	if o == nil || o.ServerConfig == nil {
+	if o == nil || o.ServerConfig.Get() == nil {
 		var ret ComputeServerConfig
 		return ret
 	}
-	return *o.ServerConfig
+	return *o.ServerConfig.Get()
 }
 
 // GetServerConfigOk returns a tuple with the ServerConfig field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ComputeServerSetting) GetServerConfigOk() (*ComputeServerConfig, bool) {
-	if o == nil || o.ServerConfig == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.ServerConfig, true
+	return o.ServerConfig.Get(), o.ServerConfig.IsSet()
 }
 
 // HasServerConfig returns a boolean if a field has been set.
 func (o *ComputeServerSetting) HasServerConfig() bool {
-	if o != nil && o.ServerConfig != nil {
+	if o != nil && o.ServerConfig.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetServerConfig gets a reference to the given ComputeServerConfig and assigns it to the ServerConfig field.
+// SetServerConfig gets a reference to the given NullableComputeServerConfig and assigns it to the ServerConfig field.
 func (o *ComputeServerSetting) SetServerConfig(v ComputeServerConfig) {
-	o.ServerConfig = &v
+	o.ServerConfig.Set(&v)
+}
+
+// SetServerConfigNil sets the value for ServerConfig to be an explicit nil
+func (o *ComputeServerSetting) SetServerConfigNil() {
+	o.ServerConfig.Set(nil)
+}
+
+// UnsetServerConfig ensures that no value is present for ServerConfig, not even an explicit nil
+func (o *ComputeServerSetting) UnsetServerConfig() {
+	o.ServerConfig.Unset()
 }
 
 // GetLocatorLed returns the LocatorLed field value if set, zero value otherwise.
@@ -394,6 +474,12 @@ func (o ComputeServerSetting) MarshalJSON() ([]byte, error) {
 	if errInventoryBase != nil {
 		return []byte{}, errInventoryBase
 	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
+	}
 	if o.AdminLocatorLedState != nil {
 		toSerialize["AdminLocatorLedState"] = o.AdminLocatorLedState
 	}
@@ -406,11 +492,11 @@ func (o ComputeServerSetting) MarshalJSON() ([]byte, error) {
 	if o.OneTimeBootDevice != nil {
 		toSerialize["OneTimeBootDevice"] = o.OneTimeBootDevice
 	}
-	if o.PersistentMemoryOperation != nil {
-		toSerialize["PersistentMemoryOperation"] = o.PersistentMemoryOperation
+	if o.PersistentMemoryOperation.IsSet() {
+		toSerialize["PersistentMemoryOperation"] = o.PersistentMemoryOperation.Get()
 	}
-	if o.ServerConfig != nil {
-		toSerialize["ServerConfig"] = o.ServerConfig
+	if o.ServerConfig.IsSet() {
+		toSerialize["ServerConfig"] = o.ServerConfig.Get()
 	}
 	if o.LocatorLed != nil {
 		toSerialize["LocatorLed"] = o.LocatorLed

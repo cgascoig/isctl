@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -19,12 +19,16 @@ import (
 // WorkflowDecisionTask A DecisionTask is a control task that executes a sequence of WorkflowTasks based off decision provided and evaluated by this task.
 type WorkflowDecisionTask struct {
 	WorkflowControlTask `yaml:"WorkflowControlTask,inline"`
-	// The condition to evaluate for this decision task. The condition can be a workflow or task variable or an expression based on the input parameters. Example value for condition if its Workflow/task variable is -  \"${task1.output.var1} or ${workflow.input.var2}\" which evaluates to a value matching any of the decision case values. Example value for condition if its an expression is - \"if ( $.element ! = null && $.element > 0 ) 'true'; else 'false'; \" which evaluates to 'true' or 'false' and will match one of the decision case values. Here \"element\" is a variable in decisiontask's inputParameters JSON formatted map. You can also use javascript like functions indexOf, toUpperCase in the expression which will be evaluated by the expression evaluator.
-	Condition     *string                 `json:"Condition,omitempty" yaml:"Condition,omitempty"`
-	DecisionCases *[]WorkflowDecisionCase `json:"DecisionCases,omitempty" yaml:"DecisionCases,omitempty"`
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// The condition to evaluate for this decision task. The condition can be a workflow or task variable or an JavaScript expression. Example value for condition could be a variable like \"${task1.output.var1} or ${workflow.input.var2}\" which evaluates to a value matching any of the decision case values. Example value for condition if it’s an expression - \"if ( ${task1.output.var1} ! = null && ${task1.output.var1} > 0 ) 'true'; else 'false'; \" which evaluates to 'true' or 'false' and will match one of the decision case values. You can also use JavaScript functions like indexOf, toUpperCase in the expression which will be evaluated by the expression evaluator.
+	Condition     *string                `json:"Condition,omitempty" yaml:"Condition,omitempty"`
+	DecisionCases []WorkflowDecisionCase `json:"DecisionCases,omitempty" yaml:"DecisionCases,omitempty"`
 	// The default next Task to execute if the decision cannot be evaluated to any of the DecisionCases.
 	DefaultTask *string `json:"DefaultTask,omitempty" yaml:"DefaultTask,omitempty"`
-	// JSON formatted map that defines the input given to the decision task. The inputs are used as variables in the condition property of decision task. The input variables can be static values like \"hello\" , \"24\", \"true\" OR previous task outputs/workflow inputs like \"${task2.output.var1}}\". The input variables are referrenced as $.inputVariableName in the condition property.
+	// This field is deprecated. Decision case conditions can be added using the workflow input or task output variables in the Condition field. Refer to Condition field for more details.
 	InputParameters interface{} `json:"InputParameters,omitempty" yaml:"InputParameters,omitempty"`
 }
 
@@ -32,8 +36,10 @@ type WorkflowDecisionTask struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkflowDecisionTask() *WorkflowDecisionTask {
+func NewWorkflowDecisionTask(classId string, objectType string) *WorkflowDecisionTask {
 	this := WorkflowDecisionTask{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -42,7 +48,59 @@ func NewWorkflowDecisionTask() *WorkflowDecisionTask {
 // but it doesn't guarantee that properties required by API are set
 func NewWorkflowDecisionTaskWithDefaults() *WorkflowDecisionTask {
 	this := WorkflowDecisionTask{}
+	var classId string = "workflow.DecisionTask"
+	this.ClassId = classId
+	var objectType string = "workflow.DecisionTask"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *WorkflowDecisionTask) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowDecisionTask) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *WorkflowDecisionTask) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *WorkflowDecisionTask) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowDecisionTask) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *WorkflowDecisionTask) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetCondition returns the Condition field value if set, zero value otherwise.
@@ -77,22 +135,23 @@ func (o *WorkflowDecisionTask) SetCondition(v string) {
 	o.Condition = &v
 }
 
-// GetDecisionCases returns the DecisionCases field value if set, zero value otherwise.
+// GetDecisionCases returns the DecisionCases field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkflowDecisionTask) GetDecisionCases() []WorkflowDecisionCase {
-	if o == nil || o.DecisionCases == nil {
+	if o == nil {
 		var ret []WorkflowDecisionCase
 		return ret
 	}
-	return *o.DecisionCases
+	return o.DecisionCases
 }
 
 // GetDecisionCasesOk returns a tuple with the DecisionCases field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkflowDecisionTask) GetDecisionCasesOk() (*[]WorkflowDecisionCase, bool) {
 	if o == nil || o.DecisionCases == nil {
 		return nil, false
 	}
-	return o.DecisionCases, true
+	return &o.DecisionCases, true
 }
 
 // HasDecisionCases returns a boolean if a field has been set.
@@ -106,7 +165,7 @@ func (o *WorkflowDecisionTask) HasDecisionCases() bool {
 
 // SetDecisionCases gets a reference to the given []WorkflowDecisionCase and assigns it to the DecisionCases field.
 func (o *WorkflowDecisionTask) SetDecisionCases(v []WorkflowDecisionCase) {
-	o.DecisionCases = &v
+	o.DecisionCases = v
 }
 
 // GetDefaultTask returns the DefaultTask field value if set, zero value otherwise.
@@ -183,6 +242,12 @@ func (o WorkflowDecisionTask) MarshalJSON() ([]byte, error) {
 	errWorkflowControlTask = json.Unmarshal([]byte(serializedWorkflowControlTask), &toSerialize)
 	if errWorkflowControlTask != nil {
 		return []byte{}, errWorkflowControlTask
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.Condition != nil {
 		toSerialize["Condition"] = o.Condition

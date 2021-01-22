@@ -4,12 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ArbitrationServiceState** | Pointer to **string** |  | [optional] [readonly] [default to "NOT_AVAILABLE"]
-**DataReplicationCompliance** | Pointer to **string** |  | [optional] [readonly] [default to "UNKNOWN"]
-**ResiliencyDetails** | Pointer to [**HyperflexHxResiliencyInfoDt**](hyperflex.HxResiliencyInfoDt.md) |  | [optional] 
-**State** | Pointer to **string** |  | [optional] [readonly] [default to "UNKNOWN"]
-**Uuid** | Pointer to **string** |  | [optional] [readonly] 
-**ZkHealth** | Pointer to **string** |  | [optional] [readonly] [default to "NOT_AVAILABLE"]
+**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.Health"]
+**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.Health"]
+**ArbitrationServiceState** | Pointer to **string** | The status of the HyperFlex cluster&#39;s connection to the Intersight arbitration service. The arbitration service state is only applicable to 2-node edge clusters. * &#x60;NOT_AVAILABLE&#x60; - The cluster does not require a connection to the arbitration service. * &#x60;UNKNOWN&#x60; - The cluster&#39;s connection state to the arbitration service cannot be determined. * &#x60;ONLINE&#x60; - The cluster is connected to the arbitration service. * &#x60;OFFLINE&#x60; - The cluster is disconnected from the arbitration service. | [optional] [readonly] [default to "NOT_AVAILABLE"]
+**DataReplicationCompliance** | Pointer to **string** | The HyperFlex cluster&#39;s compliance to the configured replication factor. It indicates that the compliance has degraded if the number of copies of data is reduced. * &#x60;UNKNOWN&#x60; - The replication compliance of the HyperFlex cluster is not known. * &#x60;COMPLIANT&#x60; - The HyperFlex cluster is compliant with the replication policy. All data on the cluster is replicated according to the configured replication factor. * &#x60;NON_COMPLIANT&#x60; - The HyperFlex cluster is not compliant with the replication policy. Some data on the cluster is not replicated in accordance with the configured replication factor. | [optional] [readonly] [default to "UNKNOWN"]
+**ResiliencyDetails** | Pointer to [**NullableHyperflexHxResiliencyInfoDt**](hyperflex.HxResiliencyInfoDt.md) |  | [optional] 
+**State** | Pointer to **string** | The operational status of the HyperFlex cluster. * &#x60;UNKNOWN&#x60; - The operational status of the cluster cannot be determined. * &#x60;ONLINE&#x60; - The HyperFlex cluster is online and is performing IO operations. * &#x60;OFFLINE&#x60; - The HyperFlex cluster is offline and is not ready to perform IO operations. * &#x60;ENOSPACE&#x60; - The HyperFlex cluster is out of available storage capacity and cannot perform write transactions. * &#x60;READONLY&#x60; - The HyperFlex cluster is not accepting write transactions, but can still display static cluster information. | [optional] [readonly] [default to "UNKNOWN"]
+**Uuid** | Pointer to **string** | The unique identifier for the cluster. | [optional] [readonly] 
+**ZkHealth** | Pointer to **string** | The health status of the HyperFlex cluster&#39;s zookeeper ensemble. * &#x60;NOT_AVAILABLE&#x60; - The operational status of the ZK ensemble is not provided by the HyperFlex cluster. * &#x60;UNKNOWN&#x60; - The operational status of the ZK ensemble cannot be determined. * &#x60;ONLINE&#x60; - The ZK ensemble is online and operational. * &#x60;OFFLINE&#x60; - The ZK ensemble is offline and not operational. | [optional] [readonly] [default to "NOT_AVAILABLE"]
 **ZoneResiliencyList** | Pointer to [**[]HyperflexHxZoneResiliencyInfoDt**](hyperflex.HxZoneResiliencyInfoDt.md) |  | [optional] 
 **Cluster** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
 
@@ -17,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewHyperflexHealthAllOf
 
-`func NewHyperflexHealthAllOf() *HyperflexHealthAllOf`
+`func NewHyperflexHealthAllOf(classId string, objectType string, ) *HyperflexHealthAllOf`
 
 NewHyperflexHealthAllOf instantiates a new HyperflexHealthAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -31,6 +33,46 @@ will change when the set of required properties is changed
 NewHyperflexHealthAllOfWithDefaults instantiates a new HyperflexHealthAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClassId
+
+`func (o *HyperflexHealthAllOf) GetClassId() string`
+
+GetClassId returns the ClassId field if non-nil, zero value otherwise.
+
+### GetClassIdOk
+
+`func (o *HyperflexHealthAllOf) GetClassIdOk() (*string, bool)`
+
+GetClassIdOk returns a tuple with the ClassId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassId
+
+`func (o *HyperflexHealthAllOf) SetClassId(v string)`
+
+SetClassId sets ClassId field to given value.
+
+
+### GetObjectType
+
+`func (o *HyperflexHealthAllOf) GetObjectType() string`
+
+GetObjectType returns the ObjectType field if non-nil, zero value otherwise.
+
+### GetObjectTypeOk
+
+`func (o *HyperflexHealthAllOf) GetObjectTypeOk() (*string, bool)`
+
+GetObjectTypeOk returns a tuple with the ObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectType
+
+`func (o *HyperflexHealthAllOf) SetObjectType(v string)`
+
+SetObjectType sets ObjectType field to given value.
+
 
 ### GetArbitrationServiceState
 
@@ -107,6 +149,16 @@ SetResiliencyDetails sets ResiliencyDetails field to given value.
 
 HasResiliencyDetails returns a boolean if a field has been set.
 
+### SetResiliencyDetailsNil
+
+`func (o *HyperflexHealthAllOf) SetResiliencyDetailsNil(b bool)`
+
+ SetResiliencyDetailsNil sets the value for ResiliencyDetails to be an explicit nil
+
+### UnsetResiliencyDetails
+`func (o *HyperflexHealthAllOf) UnsetResiliencyDetails()`
+
+UnsetResiliencyDetails ensures that no value is present for ResiliencyDetails, not even an explicit nil
 ### GetState
 
 `func (o *HyperflexHealthAllOf) GetState() string`
@@ -207,6 +259,16 @@ SetZoneResiliencyList sets ZoneResiliencyList field to given value.
 
 HasZoneResiliencyList returns a boolean if a field has been set.
 
+### SetZoneResiliencyListNil
+
+`func (o *HyperflexHealthAllOf) SetZoneResiliencyListNil(b bool)`
+
+ SetZoneResiliencyListNil sets the value for ZoneResiliencyList to be an explicit nil
+
+### UnsetZoneResiliencyList
+`func (o *HyperflexHealthAllOf) UnsetZoneResiliencyList()`
+
+UnsetZoneResiliencyList ensures that no value is present for ZoneResiliencyList, not even an explicit nil
 ### GetCluster
 
 `func (o *HyperflexHealthAllOf) GetCluster() HyperflexClusterRelationship`

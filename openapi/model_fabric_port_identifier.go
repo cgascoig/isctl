@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-07-31T04:35:53Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
  *
- * API version: 1.0.9-2110
+ * API version: 1.0.9-2908
  * Contact: intersight@cisco.com
  */
 
@@ -16,12 +16,16 @@ import (
 	"encoding/json"
 )
 
-// FabricPortIdentifier Type to represent switch ports.
+// FabricPortIdentifier Type to represent switch ports. A common port naming convention is to identify a port as “slotId/portId” when no breakout port is configured and “slotId/aggregatePortId/portId” when a breakout port is configured.
 type FabricPortIdentifier struct {
 	MoBaseComplexType `yaml:"MoBaseComplexType,inline"`
-	// Breakout port Identifier of the Switch Interface.
+	// The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data.
+	ClassId string `json:"ClassId" yaml:"ClassId"`
+	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
+	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
+	// Breakout port Identifier of the Switch Interface. When a port is not configured as a breakout port, the aggregatePortId is set to 0, and unused. When a port is configured as a breakout port, the 'aggregatePortId' port number as labeled on the equipment, e.g. the id of the port on the switch.
 	AggregatePortId *int64 `json:"AggregatePortId,omitempty" yaml:"AggregatePortId,omitempty"`
-	// Port Identifier of the Switch/FEX/Chassis Interface.
+	// Port Identifier of the Switch/FEX/Chassis Interface. When a port is not configured as a breakout port, the portId is the port number as labeled on the equipment, e.g. the id of the port on the switch, FEX or chassis. When a port is configured as a breakout port, the 'portId' represents the port id on the fanout side of the breakout cable.
 	PortId *int64 `json:"PortId,omitempty" yaml:"PortId,omitempty"`
 	// Slot Identifier of the Switch/FEX/Chassis Interface.
 	SlotId *int64 `json:"SlotId,omitempty" yaml:"SlotId,omitempty"`
@@ -31,8 +35,10 @@ type FabricPortIdentifier struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFabricPortIdentifier() *FabricPortIdentifier {
+func NewFabricPortIdentifier(classId string, objectType string) *FabricPortIdentifier {
 	this := FabricPortIdentifier{}
+	this.ClassId = classId
+	this.ObjectType = objectType
 	return &this
 }
 
@@ -41,7 +47,59 @@ func NewFabricPortIdentifier() *FabricPortIdentifier {
 // but it doesn't guarantee that properties required by API are set
 func NewFabricPortIdentifierWithDefaults() *FabricPortIdentifier {
 	this := FabricPortIdentifier{}
+	var classId string = "fabric.PortIdentifier"
+	this.ClassId = classId
+	var objectType string = "fabric.PortIdentifier"
+	this.ObjectType = objectType
 	return &this
+}
+
+// GetClassId returns the ClassId field value
+func (o *FabricPortIdentifier) GetClassId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ClassId
+}
+
+// GetClassIdOk returns a tuple with the ClassId field value
+// and a boolean to check if the value has been set.
+func (o *FabricPortIdentifier) GetClassIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ClassId, true
+}
+
+// SetClassId sets field value
+func (o *FabricPortIdentifier) SetClassId(v string) {
+	o.ClassId = v
+}
+
+// GetObjectType returns the ObjectType field value
+func (o *FabricPortIdentifier) GetObjectType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ObjectType
+}
+
+// GetObjectTypeOk returns a tuple with the ObjectType field value
+// and a boolean to check if the value has been set.
+func (o *FabricPortIdentifier) GetObjectTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ObjectType, true
+}
+
+// SetObjectType sets field value
+func (o *FabricPortIdentifier) SetObjectType(v string) {
+	o.ObjectType = v
 }
 
 // GetAggregatePortId returns the AggregatePortId field value if set, zero value otherwise.
@@ -149,6 +207,12 @@ func (o FabricPortIdentifier) MarshalJSON() ([]byte, error) {
 	errMoBaseComplexType = json.Unmarshal([]byte(serializedMoBaseComplexType), &toSerialize)
 	if errMoBaseComplexType != nil {
 		return []byte{}, errMoBaseComplexType
+	}
+	if true {
+		toSerialize["ClassId"] = o.ClassId
+	}
+	if true {
+		toSerialize["ObjectType"] = o.ObjectType
 	}
 	if o.AggregatePortId != nil {
 		toSerialize["AggregatePortId"] = o.AggregatePortId
