@@ -8,9 +8,9 @@ import (
     "regexp"
     "reflect"
     "log"
+    "encoding/json"
 
     "github.com/cgascoig/isctl/openapi"
-    //"github.com/mitchellh/mapstructure"
 )
 
 {{ define "cliitem" }}
@@ -28,6 +28,10 @@ import (
                     {{ if .Required }}{{ if eq .Name "ObjectType" "ClassId" }}"{{ $classid }}",{{ end }}{{ end }}
                 {{ end }}
                 )
+            
+            //Set class id and object type by default
+            o.body.ClassId = "{{ .Operation.ReturnBaseType }}"
+            o.body.ObjectType = "{{ .Operation.ReturnBaseType }}"
         }
 
         return o.body
@@ -38,54 +42,45 @@ import (
         {{ if ne .BodyParamType "" }}
         body := o.GetBody()
 
-        //Set class id and object type by default
-        body.ClassId = "{{ .Operation.ReturnBaseType }}"
-        body.ObjectType = "{{ .Operation.ReturnBaseType }}"
+        log.Printf("SetBodyParams: input params: %v", params)
 
         {{ range .BodyParamVars }}
-            {{ if eq .DataType "string" }}
-                if v1, ok := params["{{ .Name }}"]; ok {
-                    if v, ok := v1.(string); ok {
-                        body.{{ .Name }} = {{ if not .Required }}&{{ end }}v
-                    } else {
-                        return fmt.Errorf("Invalid data type for body parameter {{ .Name }}: %T", v1)
-                    }
-                }
-            {{ else if eq .DataType "bool" }}
-                if v1, ok := params["{{ .Name }}"]; ok {
-                    if v, ok := v1.(bool); ok {
-                        body.{{ .Name }} = {{ if not .Required }}&{{ end }}v
-                    } else {
-                        return fmt.Errorf("Invalid data type for body parameter {{ .Name }}: %T", v1)
-                    }
-                }
-            {{ else if eq .DataType "[]string" }}
-                if v1, ok := params["{{ .Name }}"]; ok {
-                    if v2, ok := v1.([]interface{}); ok {
-                        if v := toStringSlice(v2); v != nil {
-                            body.{{ .Name }} = v
-                        } else {
-                            return fmt.Errorf("Invalid data type for body parameter {{ .Name }}: %T", v1)
-                        }
-                    } else {
-                        return fmt.Errorf("Invalid data type for body parameter {{ .Name }}: %T", v1)
-                    }
-                }
-            {{ else if not .Ignore }}
-                if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
-                    if name, ok := v.(string); ok {
-                        paramVal := openapi.{{ .DataType }}{}
+        {{ if eq .DataType "string" "bool" "[]string" }}{{ else if not .Ignore }}
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
+                if refStr, ok := v.(string); ok {
+                    paramVal := openapi.{{ .DataType }}{}
 
-                        {{/* ok := setMoRefSelector(&paramVal, fmt.Sprintf("Name eq '%s'", v))*/}}
-                        ok := setMoMoRefByName(client, &paramVal, "{{ .DataType }}", name)
+                    filter, isMoFilter := parseMoRef(refStr)
+                    if isMoFilter {
+                        ok := setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
 
                         if ok {
-                            body.{{ .Name }} = {{ if not .Nullable }}&{{ end }}paramVal
-                        } 
+                            //body.{{ .Name }} = {{ if not .Nullable }}&{{ end }}paramVal
+                            params["{{ .Name }}"] = &paramVal
+                        } else {
+                            return fmt.Errorf("Error retreiving relationship: %s", refStr)
+                        }
+                    } else {
+                        return fmt.Errorf("Error parsing relationship: %s", refStr)
                     }
                 }
-            {{ end }}
+            }
         {{ end }}
+        {{ end }}
+
+        log.Printf("SetBodyParams: after relationship resolving: %v", params)
+
+        jsTmp, err := json.Marshal(params)
+        if err != nil {
+            return fmt.Errorf("SetBodyParams: Error marshalling JSON: %v", err)
+        }
+
+        log.Printf("SetBodyParams: intermediary JSON: %s", jsTmp)
+        
+        err = json.Unmarshal(jsTmp, body)
+        if err != nil {
+            return fmt.Errorf("SetBodyParams: Error unmarshalling JSON: %v", err)
+        }
 
         //o.body = body
         return nil
