@@ -6,7 +6,6 @@ import (
     "fmt"
     "net/http"
     "regexp"
-    "reflect"
     "log"
     "encoding/json"
 
@@ -55,7 +54,6 @@ import (
                         ok := setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
 
                         if ok {
-                            //body.{{ .Name }} = {{ if not .Nullable }}&{{ end }}paramVal
                             params["{{ .Name }}"] = &paramVal
                         } else {
                             return fmt.Errorf("Error retreiving relationship: %s", refStr)
@@ -120,130 +118,6 @@ import (
 
 {{ template "cliitem" .CliTree }}
 
-func toStringSlice(in []interface{}) ([]string) {
-    ret :=[]string{}
-
-    for _, el := range in {
-        if s, ok := el.(string); ok {
-            ret = append(ret, s)
-        } else {
-            return nil
-        }
-    }
-
-    return ret
-}
-
-func setMoMoRefByName(client *openapi.APIClient, v interface{}, relationship string, name string) bool {
-    return setMoMoRefByFilter(client, v, relationship, fmt.Sprintf("Name eq '%s'", name))
-}
-
-func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship string, filter string) bool {
-    if !isMoRef(v) {
-        return false
-    }
-
-    log.Printf("Looking up MoMoRef %s with filter %s", relationship, filter)
-
-    moref := new(openapi.MoMoRef)
-    moref.ClassId = "mo.MoRef"
-
-    op := getOperationForRelationship(relationship)
-    res, _, err := op.Execute(client, nil, map[string]string{"filter": filter})
-    if err != nil {
-        log.Printf("Error executing lookup query: %v", err)
-        return false
-    }
-
-    moid, ok := getMoid(res)
-    if !ok {
-        return false
-    }
-
-    log.Printf("Got Moid %s", moid)
-
-    moref.Moid = &moid
-
-    val := reflect.ValueOf(v).Elem()
-
-    // Here we are trying to find the type of the field other than MoMoRef (e.g. OrganizationOrganization)
-    // i.e. the type that this MoRef refers to
-    t := val.Type()
-    var referredTypeName string
-    for i := 0; i < t.NumField(); i++ {
-        if t.Field(i).Name == "MoMoRef" {
-            continue
-        }
-        referredTypeName = t.Field(i).Type.Elem().Name()
-    }
-
-    moref.ObjectType = goTypeNameToIntersightClassID[referredTypeName]
-
-    val.FieldByName("MoMoRef").Set(reflect.ValueOf(moref))
-
-    return true
-}
-
-// getMoid takes a "<objecttype>.List" structure, checks there was exactly 1 match and returns the Moid of that match
-func getMoid(res interface{}) (string, bool) {
-    val := reflect.Indirect(reflect.ValueOf(res))
-	valType := val.Type()
-	if valType.Kind() != reflect.Struct {
-        log.Printf("getMoid: res not struct")
-		return "", false
-	}
-
-    // Find the ...List field
-    r := regexp.MustCompile(`List$`)
-    var listFieldName string
-    for i:=0; i<valType.NumField(); i++ {
-        if r.MatchString(valType.Field(i).Name) {
-            listFieldName = valType.Field(i).Name
-        }
-    }
-
-    if listFieldName == "" {
-        log.Printf("getMoid: no ...List field")
-        return "", false
-    }
-
-    listStruct := reflect.Indirect(val.FieldByName(listFieldName))
-
-    if listStruct.Kind() != reflect.Struct {
-        log.Printf("getMoid: ..List not struct")
-		return "", false
-	}
-
-	_, ok := listStruct.Type().FieldByName("Results")
-    if !ok {
-        log.Printf("getMoid: no Results field (original res: %+v)", res)
-        return "", false
-    }
-
-    results := listStruct.FieldByName("Results")
-    if results.Kind() != reflect.Slice && results.Kind() != reflect.Array {
-        log.Printf("getMoid: Results field not slice/array")
-        return "", false
-    }
-
-    if results.Len() != 1 {
-        log.Printf("getMoid: number of results doesn't exactly equal 1")
-        return "", false
-    }
-
-    result := results.Index(0)
-    if result.Kind() != reflect.Struct {
-        log.Printf("getMoid: single result is not struct")
-        return "", false
-    }
-
-    if _, ok := result.Type().FieldByName("Moid"); !ok {
-        log.Printf("getMoid: single result doesn't have Moid field")
-        return "", false
-    }
-
-    return reflect.Indirect(result.FieldByName("Moid")).String(), true
-}
 
 func getOperationForRelationship(relationship string) Operation {
     r := regexp.MustCompile(`Relationship$`)

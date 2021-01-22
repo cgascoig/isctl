@@ -70,32 +70,3 @@ func TestSetMoRefSelector(t *testing.T) {
 		assert.Equal(t, test.in, test.out)
 	}
 }
-
-func TestToStringSlice(t *testing.T) {
-	tests := []struct {
-		in  []interface{}
-		out []string
-	}{
-		{
-			in:  []interface{}{"test1", "test2"},
-			out: []string{"test1", "test2"},
-		},
-		{
-			in:  []interface{}{"test1"},
-			out: []string{"test1"},
-		},
-		{
-			in:  []interface{}{},
-			out: []string{},
-		},
-		{
-			in:  []interface{}{1, "2"},
-			out: nil,
-		},
-	}
-
-	for _, test := range tests {
-		o := toStringSlice(test.in)
-		assert.Equal(t, test.out, o)
-	}
-}
