@@ -6,6 +6,7 @@ import (
 	"github.com/cgascoig/isctl/openapi"
 )
 
+// Operation is a generic interface for Intersight Operations
 type Operation interface {
 	SetBodyParams(*openapi.APIClient, map[string]interface{}) error
 
