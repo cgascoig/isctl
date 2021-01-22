@@ -1,13 +1,42 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"reflect"
 	"regexp"
 
 	"github.com/cgascoig/isctl/openapi"
+	yaml "gopkg.in/yaml.v2"
 )
+
+func readBody(bodyFormat string, bodyParamMap interface{}) error {
+	if bodyFormat == "json" {
+		// Gather body from JSON on stdin.
+		fmt.Println("Waiting for JSON body: ")
+		err := json.NewDecoder(os.Stdin).Decode(bodyParamMap)
+		if err != nil {
+			return fmt.Errorf("Decoding JSON: %v", err)
+		}
+
+		log.Printf("After JSON parse, bodyParamMap: %v", bodyParamMap)
+	} else if bodyFormat == "yaml" {
+		// Gather body from YAML on stdin.
+		fmt.Println("Waiting for YAML body: ")
+		err := yaml.NewDecoder(os.Stdin).Decode(bodyParamMap)
+		if err != nil {
+			return fmt.Errorf("Decoding YAML: %v", err)
+		}
+
+		log.Printf("After YAML parse, bodyParamMap: %v", bodyParamMap)
+	} else {
+		return fmt.Errorf("Unknown request body format: %s", bodyFormat)
+	}
+
+	return nil
+}
 
 //Parse the MoRef string and return a filter or nil
 func parseMoRef(moref string) (string, bool) {
