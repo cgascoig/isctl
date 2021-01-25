@@ -27,6 +27,11 @@ func TestParseMoRef(t *testing.T) {
 			filter: "Name eq 'default'",
 			ok:     true,
 		},
+		{
+			moref:  "MoRef[default]",
+			filter: "Name eq 'default'",
+			ok:     true,
+		},
 	}
 
 	for _, test := range tests {

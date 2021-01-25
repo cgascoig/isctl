@@ -20,6 +20,8 @@ var (
 	verbose        bool
 
 	authCtx context.Context
+
+	auxCommands []*cobra.Command
 )
 
 const (
@@ -63,7 +65,10 @@ func main() {
 		Short: "Configure the isctl command",
 	}
 	rootCmd.AddCommand(configCmd)
-	rootCmd.AddCommand(newCmdVersion())
+	rootCmd.AddCommand(newCmdApply(client))
+	for _, cmd := range auxCommands {
+		rootCmd.AddCommand(cmd)
+	}
 	rootCmd.PersistentPreRunE = validateFlags
 
 	if err := rootCmd.Execute(); err != nil {

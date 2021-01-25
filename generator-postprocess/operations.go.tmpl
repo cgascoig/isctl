@@ -8,6 +8,7 @@ import (
     "regexp"
     "log"
     "encoding/json"
+    "reflect"
 
     "github.com/cgascoig/isctl/openapi"
 )
@@ -36,6 +37,28 @@ import (
         return o.body
     }
     {{ end }}
+
+    func (o *{{ .Operation.OperationID }}) GetReferencedClasses(params map[string]interface{}) ([]string, error) {
+        {{ if ne .BodyParamType "" }}
+        ret := []string{}
+        {{ range .BodyParamVars }}
+        {{ if eq .DataType "string" "bool" "[]string" }}{{ else if not .Ignore }}
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
+                if refStr, ok := v.(string); ok {
+                    paramVal := openapi.{{ .DataType }}{}
+
+                    if _, isMoFilter := parseMoRef(refStr); isMoFilter {
+                        ret = append(ret, goTypeNameToIntersightClassID[getReferredTypeName(reflect.ValueOf(paramVal).Type())])
+                    }
+                }
+            }
+        {{ end }}
+        {{ end }}
+
+        return ret, nil
+        {{ else }}return []string{}, nil{{ end }}
+    }
+
 
     func (o *{{ .Operation.OperationID }}) SetBodyParams(client *openapi.APIClient, params map[string]interface{}) error {
         {{ if ne .BodyParamType "" }}
@@ -125,6 +148,40 @@ func getOperationForRelationship(relationship string) Operation {
     switch relationship {
     {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsListOperation }}
         case "{{ .ReturnType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}{{ end }}
+    }
+
+    return nil
+}
+
+func getGetOperationForClassID(classID string) Operation {
+    classID = fmt.Sprintf("%s.Response", classID)
+    switch classID {
+    {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsListOperation }}
+        case "{{ .ReturnBaseType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}{{ end }}
+    }
+
+    return nil
+}
+
+func getUpdateOperationForClassID(classID string) Operation {
+    switch classID {
+    {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsUpdateOperation }}
+        case "{{ .ReturnBaseType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}{{ end }}
+    }
+
+    return nil
+}
+
+func getCreateOperationForClassID(classID string) Operation {
+    switch classID {
+    {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsCreateOperation }}
+        case "{{ .ReturnBaseType }}":
             return &{{ .OperationID }}{}
     {{ end }}{{ end }}{{ end }}
     }

@@ -47,6 +47,12 @@ func parseMoRef(moref string) (string, bool) {
 		return fmt.Sprintf("%s eq '%s'", m[1], m[2]), true
 	}
 
+	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_-]+)\]`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return fmt.Sprintf("Name eq '%s'", m[1]), true
+	}
+
 	r = regexp.MustCompile(`^\s*([0-9A-Za-z_-]+)\s*$`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
@@ -58,6 +64,18 @@ func parseMoRef(moref string) (string, bool) {
 
 func setMoMoRefByName(client *openapi.APIClient, v interface{}, relationship string, name string) bool {
 	return setMoMoRefByFilter(client, v, relationship, fmt.Sprintf("Name eq '%s'", name))
+}
+
+func getReferredTypeName(t reflect.Type) string {
+	var referredTypeName string
+	for i := 0; i < t.NumField(); i++ {
+		if t.Field(i).Name == "MoMoRef" {
+			continue
+		}
+		referredTypeName = t.Field(i).Type.Elem().Name()
+	}
+
+	return referredTypeName
 }
 
 func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship string, filter string) bool {
@@ -91,13 +109,7 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 	// Here we are trying to find the type of the field other than MoMoRef (e.g. OrganizationOrganization)
 	// i.e. the type that this MoRef refers to
 	t := val.Type()
-	var referredTypeName string
-	for i := 0; i < t.NumField(); i++ {
-		if t.Field(i).Name == "MoMoRef" {
-			continue
-		}
-		referredTypeName = t.Field(i).Type.Elem().Name()
-	}
+	referredTypeName := getReferredTypeName(t)
 
 	moref.ObjectType = goTypeNameToIntersightClassID[referredTypeName]
 

@@ -6,19 +6,21 @@ JSON_NTP_POLICY="{\"Name\": \"${JSON_POLICY_NAME}\",\"Enabled\": true, \"NtpServ
 YAML_POLICY_NAME="${TEST_NTP_POLICY_NAME}-yaml"
 YAML_NTP_POLICY="ClassId: ntp.Policy\nObjectType: ntp.Policy\nName: ${YAML_POLICY_NAME}\nEnabled: true\nNtpServers: \n    - 1.1.1.1\nOrganization: MoRef[Name:default]"
 
+TEST_SECTION="Passing body as YAML/JSON"
+
 ##################################################################
 # JSON Tests
 ##################################################################
 
-@test "create new NTP policy - JSON" {
+@test "${TEST_SECTION}: create new NTP policy - JSON" {
     echo -e "${JSON_NTP_POLICY}" | ./build/isctl create ntp policy --bodyformat json
 }
 
-@test "get NTP policy list should include new policy - JSON" {
+@test "${TEST_SECTION}: get NTP policy list should include new policy - JSON" {
     ./build/isctl get ntp policy | grep "${JSON_POLICY_NAME}"
 }
 
-# @test "update NTP policy - JSON" {
+# @test "${TEST_SECTION}: update NTP policy - JSON" {
 #     # update the NTP policy with Enabled=False
 #     ./build/isctl update ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
 
@@ -28,7 +30,7 @@ YAML_NTP_POLICY="ClassId: ntp.Policy\nObjectType: ntp.Policy\nName: ${YAML_POLIC
 #     [ "${ENABLED}" == "false" ]
 # }
 
-@test "delete NTP policy - JSON" {
+@test "${TEST_SECTION}: delete NTP policy - JSON" {
     ./build/isctl delete ntp policy moid $(./build/isctl get ntp policy --name "${JSON_POLICY_NAME}" --jsonpath '$.Moid')
 
     # check that the policy no longer exists
@@ -39,15 +41,15 @@ YAML_NTP_POLICY="ClassId: ntp.Policy\nObjectType: ntp.Policy\nName: ${YAML_POLIC
 # YAML Tests
 ##################################################################
 
-@test "create new NTP policy - YAML" {
+@test "${TEST_SECTION}: create new NTP policy - YAML" {
     echo -e "${YAML_NTP_POLICY}" | ./build/isctl create ntp policy --bodyformat yaml
 }
 
-@test "get NTP policy list should include new policy - YAML" {
+@test "${TEST_SECTION}: get NTP policy list should include new policy - YAML" {
     ./build/isctl get ntp policy | grep "${YAML_POLICY_NAME}"
 }
 
-# @test "update NTP policy - YAML" {
+# @test "${TEST_SECTION}: update NTP policy - YAML" {
 #     # update the NTP policy with Enabled=False
 #     ./build/isctl update ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
 
@@ -57,7 +59,7 @@ YAML_NTP_POLICY="ClassId: ntp.Policy\nObjectType: ntp.Policy\nName: ${YAML_POLIC
 #     [ "${ENABLED}" == "false" ]
 # }
 
-@test "delete NTP policy - YAML" {
+@test "${TEST_SECTION}: delete NTP policy - YAML" {
     ./build/isctl delete ntp policy moid $(./build/isctl get ntp policy --name "${YAML_POLICY_NAME}" --jsonpath '$.Moid')
 
     # check that the policy no longer exists

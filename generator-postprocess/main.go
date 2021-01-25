@@ -39,6 +39,16 @@ func (o *Operation) IsListOperation() bool {
 	return r.MatchString(o.OperationID)
 }
 
+func (o *Operation) IsUpdateOperation() bool {
+	r := regexp.MustCompile(`^Update`)
+	return r.MatchString(o.OperationID)
+}
+
+func (o *Operation) IsCreateOperation() bool {
+	r := regexp.MustCompile(`^Create`)
+	return r.MatchString(o.OperationID)
+}
+
 // Param represents the YAML of one parameter
 type Param struct {
 	ParamName    string `yaml:"paramName"`
