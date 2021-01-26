@@ -8,7 +8,7 @@ import (
 
 	"github.com/cgascoig/isctl/openapi"
 	"github.com/spf13/cobra"
-	yaml "gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v3"
 )
 
 var (

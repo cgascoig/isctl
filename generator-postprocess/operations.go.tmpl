@@ -47,7 +47,7 @@ import (
                 if refStr, ok := v.(string); ok {
                     paramVal := openapi.{{ .DataType }}{}
 
-                    if _, isMoFilter := parseMoRef(refStr); isMoFilter {
+                    if _, _, isMoFilter := parseMoRef(refStr); isMoFilter {
                         ret = append(ret, goTypeNameToIntersightClassID[getReferredTypeName(reflect.ValueOf(paramVal).Type())])
                     }
                 }
@@ -72,9 +72,14 @@ import (
                 if refStr, ok := v.(string); ok {
                     paramVal := openapi.{{ .DataType }}{}
 
-                    filter, isMoFilter := parseMoRef(refStr)
+                    filter, datatype, isMoFilter := parseMoRef(refStr)
                     if isMoFilter {
-                        ok := setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
+                        var ok bool
+                        if datatype != "" {
+                            ok = setMoMoRefByFilter(client, &paramVal, datatype, filter)
+                        } else {
+                            ok = setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
+                        }
 
                         if ok {
                             params["{{ .Name }}"] = &paramVal
