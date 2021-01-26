@@ -77,6 +77,17 @@ type Var struct {
 	Ignore   bool   // Used in cli.gotmpl to skip vars
 }
 
+func (v *Var) IsList() bool {
+	validTypeRegExp := regexp.MustCompile(`^\[\][a-zA-Z0-9]+$`)
+	return validTypeRegExp.MatchString(v.DataType) && v.DataType != "[]int64" && v.DataType != "[]float32" && v.DataType != "[]int32"
+}
+
+func (v *Var) ListElementType() string {
+	validTypeRegExp := regexp.MustCompile(`^\[\]([a-zA-Z0-9]+)$`)
+	m := validTypeRegExp.FindStringSubmatch(v.DataType)
+	return m[1]
+}
+
 func generate(templateFilename string, outputFilename string, data interface{}) {
 	log.Printf("Generating '%s' using template file '%s'", outputFilename, templateFilename)
 

@@ -42,7 +42,7 @@ import (
         {{ if ne .BodyParamType "" }}
         ret := []string{}
         {{ range .BodyParamVars }}
-        {{ if eq .DataType "string" "bool" "[]string" }}{{ else if not .Ignore }}
+        {{ if eq .DataType "string" "bool" "[]string" }}{{ else }}{{ if not .Ignore }}
             if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
                 if refStr, ok := v.(string); ok {
                     paramVal := openapi.{{ .DataType }}{}
@@ -52,6 +52,23 @@ import (
                     }
                 }
             }
+        {{ end }}{{ if .IsList }}
+            // handle list
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .ListElementType }}{}) {
+                if l, ok := v.([]interface{}); ok {
+                    for _, item := range l {
+                        if refStr, ok := item.(string); ok {
+                            paramVal := openapi.{{ .ListElementType }}{}
+
+                            _, _, isMoFilter := parseMoRef(refStr)
+                            if isMoFilter {
+                                ret = append(ret, goTypeNameToIntersightClassID[getReferredTypeName(reflect.ValueOf(paramVal).Type())])
+                            }
+                        }
+                    }
+                }
+            }
+        {{ end }}
         {{ end }}
         {{ end }}
 
@@ -67,7 +84,7 @@ import (
         log.Printf("SetBodyParams: input params: %v", params)
 
         {{ range .BodyParamVars }}
-        {{ if eq .DataType "string" "bool" "[]string" }}{{ else if not .Ignore }}
+        {{ if eq .DataType "string" "bool" "[]string" }}{{ else }}{{ if not .Ignore }}
             if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
                 if refStr, ok := v.(string); ok {
                     paramVal := openapi.{{ .DataType }}{}
@@ -91,6 +108,45 @@ import (
                     }
                 }
             }
+        {{ end }}{{ if .IsList }}
+            // handle list
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .ListElementType }}{}) {
+                fmt.Printf("List {{ .Name }} a %#v\n", v)
+                if l, ok := v.([]interface{}); ok {
+                    fmt.Printf("List {{ .Name }} b\n")
+                    newList := []interface{}{}
+                    for _, item := range l {
+                        if refStr, ok := item.(string); ok {
+                            fmt.Printf("List {{ .Name }} c\n")
+                            paramVal := openapi.{{ .ListElementType }}{}
+
+                            filter, datatype, isMoFilter := parseMoRef(refStr)
+                            if isMoFilter {
+                                fmt.Printf("List {{ .Name }} d\n")
+                                var ok bool
+                                if datatype != "" {
+                                    ok = setMoMoRefByFilter(client, &paramVal, datatype, filter)
+                                } else {
+                                    ok = setMoMoRefByFilter(client, &paramVal, "{{ .ListElementType }}", filter)
+                                }
+
+                                if ok {
+                                    fmt.Printf("List {{ .Name }} e\n")
+                                    newList = append(newList, &paramVal)
+                                } else {
+                                    return fmt.Errorf("Error retreiving relationship: %s", refStr)
+                                }
+                            } else {
+                                return fmt.Errorf("Error parsing relationship: %s", refStr)
+                            }
+                        } else {
+                            newList = append(newList, item)
+                        }
+                    }
+                    params["{{ .Name }}"] = newList
+                }
+            }
+        {{ end }}
         {{ end }}
         {{ end }}
 

@@ -48,4 +48,13 @@ func TestGetReferencedClasses(t *testing.T) {
 
 	assert.Nil(t, err)
 	assert.ElementsMatch(t, []string{"organization.Organization"}, refClasses)
+
+	op = getUpdateOperationForClassID("kubernetes.ClusterProfile")
+
+	refClasses, err = op.GetReferencedClasses(map[string]interface{}{
+		"ClusterIpPools": []interface{}{"MoRef[ip-pool-1]"},
+	})
+
+	assert.Nil(t, err)
+	assert.ElementsMatch(t, []string{"ippool.Pool"}, refClasses)
 }
