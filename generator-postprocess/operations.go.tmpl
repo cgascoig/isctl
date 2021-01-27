@@ -249,3 +249,14 @@ func getCreateOperationForClassID(classID string) Operation {
 
     return nil
 }
+
+func getDeleteOperationForClassID(classID string) Operation {
+    switch classID {
+    {{ range .Operations }}{{ if .IsDeleteOperation }}
+        case "{{ .DeleteOperationDataType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}
+    }
+
+    return nil
+}

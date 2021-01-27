@@ -13,6 +13,7 @@ import (
 
 var (
 	applyFilenames []string
+	applyDelete    bool
 )
 
 type rawMO map[string]interface{}
@@ -33,14 +34,17 @@ func newCmdApply(client *openapi.APIClient) *cobra.Command {
 	}
 
 	cmd.Flags().StringSliceVarP(&applyFilenames, "filename", "f", []string{}, "Filename(s) that contains the configuration to apply (comma-separated list)")
+	cmd.Flags().BoolVarP(&applyDelete, "delete", "d", false, "Destroy the configuration instead of creating it")
 
 	return cmd
 }
 
+func init() {
+	auxCommandsGenerators = append(auxCommandsGenerators, newCmdApply)
+}
+
 func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
 	config.client.GetConfig().Debug = verbose
-
-	log.Printf("Running apply with filenames %v\n", applyFilenames)
 
 	rawMOs, err := loadRawMOs(applyFilenames)
 	if err != nil {
@@ -52,14 +56,63 @@ func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
 		log.Fatalf("Unable to determine order to apply MOs: %v", err)
 	}
 
-	log.Printf("ordered rawMOs: %v", rawMOs)
+	if !applyDelete {
+		// Normal apply
+		err = applyMOs(config.client, rawMOs)
+		if err != nil {
+			log.Fatalf("Error while applying MOs: %v", err)
+		}
 
-	err = applyMOs(config.client, rawMOs)
-	if err != nil {
-		log.Fatalf("Error while applying MOs: %v", err)
+		fmt.Println("Apply completed successfully")
+	} else {
+		// Destroy
+		err = destroyMOs(config.client, rawMOs)
+		if err != nil {
+			log.Fatalf("Error while destroying MOs: %v", err)
+		}
+
+		fmt.Println("Destroy completed successfully")
+	}
+}
+
+func destroyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
+	// when destroying we process in reverse order
+	for i := len(rawMOs) - 1; i >= 0; i-- {
+		mo := rawMOs[i]
+
+		classID, err := mo.getString("ClassId")
+		if err != nil {
+			return err
+		}
+
+		name, err := mo.getString("Name")
+		if err != nil {
+			return err
+		}
+
+		getOperation := getGetOperationForClassID(classID)
+		res, _, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
+		if err != nil {
+			return fmt.Errorf("Error checking if MO already exists: %v", err)
+		}
+
+		moid, ok := getMoid(res)
+		if ok {
+			log.Printf("Performing delete operation on existing MO (Name: %s, Moid: %s, ClassId: %s)", name, moid, classID)
+
+			delOperation := getDeleteOperationForClassID(classID)
+
+			_, _, err = delOperation.Execute(client, []string{moid}, nil)
+			if err != nil {
+				return fmt.Errorf("Error executing operation: %v", err)
+			}
+		} else {
+			log.Printf("Skipping non-existent MO (Name: %s, ClassId: %s)", name, classID)
+		}
+
 	}
 
-	fmt.Println("Apply completed successfully")
+	return nil
 }
 
 func applyMOs(client *openapi.APIClient, rawMOs []rawMO) error {

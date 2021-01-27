@@ -7,6 +7,8 @@ import (
 	"os"
 	"regexp"
 	"text/template"
+	"fmt"
+	"strings"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -47,6 +49,21 @@ func (o *Operation) IsUpdateOperation() bool {
 func (o *Operation) IsCreateOperation() bool {
 	r := regexp.MustCompile(`^Create`)
 	return r.MatchString(o.OperationID)
+}
+
+func (o *Operation) IsDeleteOperation() bool {
+	r := regexp.MustCompile(`^Delete`)
+	return r.MatchString(o.OperationID)
+}
+
+func (o *Operation) DeleteOperationDataType() string {
+	re := fmt.Sprintf(`^Delete%s(\w+)$`, o.BaseName)
+	r := regexp.MustCompile(re)
+	m := r.FindStringSubmatch(o.OperationID)
+	if len(m) != 2 {
+		return ""
+	}
+	return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
 }
 
 // Param represents the YAML of one parameter

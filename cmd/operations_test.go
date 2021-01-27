@@ -24,6 +24,12 @@ func TestGetGetOperationForClassID(t *testing.T) {
 	assert.True(t, ok)
 }
 
+func TestGetDeleteOperationForClassID(t *testing.T) {
+	op := getDeleteOperationForClassID("ntp.Policy")
+	_, ok := op.(*DeleteNtpPolicy)
+	assert.True(t, ok)
+}
+
 func TestGetReferencedClasses(t *testing.T) {
 	op := getUpdateOperationForClassID("ntp.Policy")
 
