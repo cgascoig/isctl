@@ -4,11 +4,11 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"reflect"
 
-	"github.com/cgascoig/isctl/openapi"
+    log "github.com/sirupsen/logrus"
+    "github.com/cgascoig/isctl/openapi"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 )
@@ -61,18 +61,6 @@ func () *cobra.Command {
                     return
                 }
             }
-            
-            {{/* if err == nil && bodyFormat == "json" {
-                // Gather body from JSON on stdin. 
-                fmt.Println("Waiting for JSON body: ")
-                err := json.NewDecoder(os.Stdin).Decode(&bodyParamMap)
-                if err != nil {
-                    resultHandler(nil, nil, fmt.Errorf("Decoding JSON: %v", err))
-                    return
-                }
-
-                log.Printf("After JSON parse, bodyParamMap: %v", bodyParamMap)
-            } */}}
 
             operation := {{ .Operation.OperationID }}{}
 
@@ -162,9 +150,8 @@ func flagSetToMap(flagset *pflag.FlagSet, ret *map[string]interface{}) {
         case "stringSlice":
             (*ret)[f.Name], _ = flagset.GetStringSlice(f.Name)
         default:
-            log.Printf("Unknown type for %s flag", f.Name )
+            log.Warnf("Unknown type for %s flag", f.Name )
         }
-        //fmt.Printf("Got flag %s of type %s", f.Name, f.Value.Type())
     })
 
     return
