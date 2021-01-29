@@ -20,7 +20,11 @@ var (
 	verbose        bool
 
 	authCtx context.Context
+
+	auxCommandsGenerators []commandGenerator
 )
+
+type commandGenerator func(*openapi.APIClient) *cobra.Command
 
 const (
 	keyIDConfigKey   = "keyID"
@@ -63,7 +67,10 @@ func main() {
 		Short: "Configure the isctl command",
 	}
 	rootCmd.AddCommand(configCmd)
-	rootCmd.AddCommand(newCmdVersion())
+	// rootCmd.AddCommand(newCmdApply(client))
+	for _, cmdGen := range auxCommandsGenerators {
+		rootCmd.AddCommand(cmdGen(client))
+	}
 	rootCmd.PersistentPreRunE = validateFlags
 
 	if err := rootCmd.Execute(); err != nil {

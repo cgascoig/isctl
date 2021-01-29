@@ -16,6 +16,7 @@ type CliItem struct {
 	BodyParamType         string
 	BodyParamVars         []*Var // this includes all inherited parameters of the BodyParamType
 	RequiredBodyParamVars []*Var // this is just required parameters in the concrete BodyParamType
+	Alias bool // this indicates that this CliItem is really an alias for another operation - we don't need to generate and Operation in operations.go for these
 }
 
 type fixupFunc func(tokenlist []string) []string
@@ -199,6 +200,8 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 			cliItem.Help = tokenHelp[i]
 		}
 
+
+		lastNonParamCliItem := cliItem
 		for _, param := range op.Params {
 			if param.IsPathParam {
 				cliItem = getOrCreateChildCliItem(cliItem, param.ParamName, true)
@@ -215,6 +218,23 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 		}
 
 		cliItem.Operation = op
+
+		// if the CLI Item is an "moid" parameter, we generate a sibling CLI Item for "name" 
+		//  (so you can do "isctl get ntp policy name XYZ" instead of having to lookup the Moid first)
+		if cliItem.Parameter == "moid" {
+			cliItem = getOrCreateChildCliItem(lastNonParamCliItem, "name", true)
+			// Check if there is a body param
+			for _, param := range op.Params {
+				if param.IsBodyParam {
+					cliItem.BodyParamType = param.DataType
+					cliItem.BodyParamVars = removeDuplicateBodyParamVars(getBodyParamVars(opData, param.DataType))
+					cliItem.RequiredBodyParamVars = getRequiredBodyParamVars(opData, param.DataType)
+				}
+			}
+
+			cliItem.Operation = op
+			cliItem.Alias = true // this is an alias for the operation with "moid" parameter - don't generate a duplicate operation in operations.go
+		}
 	}
 
 	return &cliTree

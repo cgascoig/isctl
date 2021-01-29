@@ -7,6 +7,8 @@ import (
 	"os"
 	"regexp"
 	"text/template"
+	"fmt"
+	"strings"
 
 	yaml "gopkg.in/yaml.v2"
 )
@@ -39,6 +41,49 @@ func (o *Operation) IsListOperation() bool {
 	return r.MatchString(o.OperationID)
 }
 
+func (o *Operation) IsUpdateOperation() bool {
+	r := regexp.MustCompile(`^Update`)
+	return r.MatchString(o.OperationID)
+}
+
+func (o *Operation) IsCreateOperation() bool {
+	r := regexp.MustCompile(`^Create`)
+	return r.MatchString(o.OperationID)
+}
+
+func (o *Operation) IsDeleteOperation() bool {
+	r := regexp.MustCompile(`^Delete`)
+	return r.MatchString(o.OperationID)
+}
+
+func (o *Operation) DeleteOperationDataType() string {
+	re := fmt.Sprintf(`^Delete%s(\w+)$`, o.BaseName)
+	r := regexp.MustCompile(re)
+	m := r.FindStringSubmatch(o.OperationID)
+	if len(m) != 2 {
+		return ""
+	}
+	return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
+}
+
+func (o *Operation) OperationClassID() string {
+	if o.ReturnBaseType != "" {
+		r := regexp.MustCompile(`^(\w+\.\w+)\.Response$`)
+		m := r.FindStringSubmatch(o.ReturnBaseType)
+		if m == nil || len(m) != 2 {
+			return o.ReturnBaseType
+		}
+		return m[1]
+	}
+	re := fmt.Sprintf(`^\w+%s(\w+)$`, o.BaseName)
+	r := regexp.MustCompile(re)
+	m := r.FindStringSubmatch(o.OperationID)
+	if len(m) != 2 {
+		return ""
+	}
+	return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
+}
+
 // Param represents the YAML of one parameter
 type Param struct {
 	ParamName    string `yaml:"paramName"`
@@ -65,6 +110,17 @@ type Var struct {
 	Nullable bool   `yaml:"nullable"`
 	Default  string `yaml:"default"`
 	Ignore   bool   // Used in cli.gotmpl to skip vars
+}
+
+func (v *Var) IsList() bool {
+	validTypeRegExp := regexp.MustCompile(`^\[\][a-zA-Z0-9]+$`)
+	return validTypeRegExp.MatchString(v.DataType) && v.DataType != "[]int64" && v.DataType != "[]float32" && v.DataType != "[]int32"
+}
+
+func (v *Var) ListElementType() string {
+	validTypeRegExp := regexp.MustCompile(`^\[\]([a-zA-Z0-9]+)$`)
+	m := validTypeRegExp.FindStringSubmatch(v.DataType)
+	return m[1]
 }
 
 func generate(templateFilename string, outputFilename string, data interface{}) {

@@ -38,26 +38,61 @@ func readBody(bodyFormat string, bodyParamMap interface{}) error {
 	return nil
 }
 
-//Parse the MoRef string and return a filter or nil
-func parseMoRef(moref string) (string, bool) {
-	r := regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_-]+)\]`)
+//Parse the MoRef string and return:
+// (filter string, relationshipDataType string, ok bool)
+func parseMoRef(moref string) (string, string, bool) {
+	var r *regexp.Regexp
+	var m []string
 
-	m := r.FindStringSubmatch(moref)
-	if m != nil {
-		return fmt.Sprintf("%s eq '%s'", m[1], m[2]), true
-	}
+	r = regexp.MustCompile(`MoRef:(\w+)\[(\w+):([0-9A-Za-z_-]+)\]`)
 
-	r = regexp.MustCompile(`^\s*([0-9A-Za-z_-]+)\s*$`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
-		return fmt.Sprintf("Name eq '%s'", m[1]), true
+		return fmt.Sprintf("%s eq '%s'", m[2], m[3]), m[1], true
 	}
 
-	return "", false
+	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_-]+)\]`)
+
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return fmt.Sprintf("%s eq '%s'", m[1], m[2]), "", true
+	}
+
+	r = regexp.MustCompile(`^MoRef:(\w+)\[([0-9A-Za-z_-]+)\]`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return fmt.Sprintf("Name eq '%s'", m[2]), m[1], true
+	}
+
+	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_-]+)\]`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return fmt.Sprintf("Name eq '%s'", m[1]), "", true
+	}
+
+	r = regexp.MustCompile(`^\s*([0-9A-Za-z_\-\.]+)\s*$`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return fmt.Sprintf("Name eq '%s'", m[1]), "", true
+	}
+
+	return "", "", false
 }
 
 func setMoMoRefByName(client *openapi.APIClient, v interface{}, relationship string, name string) bool {
 	return setMoMoRefByFilter(client, v, relationship, fmt.Sprintf("Name eq '%s'", name))
+}
+
+func getReferredTypeName(t reflect.Type) string {
+	var referredTypeName string
+	for i := 0; i < t.NumField(); i++ {
+		if t.Field(i).Name == "MoMoRef" {
+			continue
+		}
+		referredTypeName = t.Field(i).Type.Elem().Name()
+	}
+
+	return referredTypeName
 }
 
 func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship string, filter string) bool {
@@ -71,6 +106,9 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 	moref.ClassId = "mo.MoRef"
 
 	op := getOperationForRelationship(relationship)
+	if op == nil {
+		log.Fatalf("FATAL: No operation for relationship: %s", relationship)
+	}
 	res, _, err := op.Execute(client, nil, map[string]string{"filter": filter})
 	if err != nil {
 		log.Printf("Error executing lookup query: %v", err)
@@ -91,13 +129,7 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 	// Here we are trying to find the type of the field other than MoMoRef (e.g. OrganizationOrganization)
 	// i.e. the type that this MoRef refers to
 	t := val.Type()
-	var referredTypeName string
-	for i := 0; i < t.NumField(); i++ {
-		if t.Field(i).Name == "MoMoRef" {
-			continue
-		}
-		referredTypeName = t.Field(i).Type.Elem().Name()
-	}
+	referredTypeName := getReferredTypeName(t)
 
 	moref.ObjectType = goTypeNameToIntersightClassID[referredTypeName]
 

@@ -8,12 +8,13 @@ import (
     "regexp"
     "log"
     "encoding/json"
+    "reflect"
 
     "github.com/cgascoig/isctl/openapi"
 )
 
 {{ define "cliitem" }}
-{{ if .Operation }}
+{{ if .Operation }}{{ if not .Alias }}
     type {{ .Operation.OperationID }} struct {
     {{ if ne .BodyParamType "" }}body *openapi.{{ .BodyParamType }}{{ end }}
     }
@@ -37,6 +38,45 @@ import (
     }
     {{ end }}
 
+    func (o *{{ .Operation.OperationID }}) GetReferencedClasses(params map[string]interface{}) ([]string, error) {
+        {{ if ne .BodyParamType "" }}
+        ret := []string{}
+        {{ range .BodyParamVars }}
+        {{ if eq .DataType "string" "bool" "[]string" }}{{ else }}{{ if not .Ignore }}
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
+                if refStr, ok := v.(string); ok {
+                    paramVal := openapi.{{ .DataType }}{}
+
+                    if _, _, isMoFilter := parseMoRef(refStr); isMoFilter {
+                        ret = append(ret, goTypeNameToIntersightClassID[getReferredTypeName(reflect.ValueOf(paramVal).Type())])
+                    }
+                }
+            }
+        {{ end }}{{ if .IsList }}
+            // handle list
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .ListElementType }}{}) {
+                if l, ok := v.([]interface{}); ok {
+                    for _, item := range l {
+                        if refStr, ok := item.(string); ok {
+                            paramVal := openapi.{{ .ListElementType }}{}
+
+                            _, _, isMoFilter := parseMoRef(refStr)
+                            if isMoFilter {
+                                ret = append(ret, goTypeNameToIntersightClassID[getReferredTypeName(reflect.ValueOf(paramVal).Type())])
+                            }
+                        }
+                    }
+                }
+            }
+        {{ end }}
+        {{ end }}
+        {{ end }}
+
+        return ret, nil
+        {{ else }}return []string{}, nil{{ end }}
+    }
+
+
     func (o *{{ .Operation.OperationID }}) SetBodyParams(client *openapi.APIClient, params map[string]interface{}) error {
         {{ if ne .BodyParamType "" }}
         body := o.GetBody()
@@ -44,14 +84,19 @@ import (
         log.Printf("SetBodyParams: input params: %v", params)
 
         {{ range .BodyParamVars }}
-        {{ if eq .DataType "string" "bool" "[]string" }}{{ else if not .Ignore }}
+        {{ if eq .DataType "string" "bool" "[]string" }}{{ else }}{{ if not .Ignore }}
             if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
                 if refStr, ok := v.(string); ok {
                     paramVal := openapi.{{ .DataType }}{}
 
-                    filter, isMoFilter := parseMoRef(refStr)
+                    filter, datatype, isMoFilter := parseMoRef(refStr)
                     if isMoFilter {
-                        ok := setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
+                        var ok bool
+                        if datatype != "" {
+                            ok = setMoMoRefByFilter(client, &paramVal, datatype, filter)
+                        } else {
+                            ok = setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
+                        }
 
                         if ok {
                             params["{{ .Name }}"] = &paramVal
@@ -63,6 +108,45 @@ import (
                     }
                 }
             }
+        {{ end }}{{ if .IsList }}
+            // handle list
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .ListElementType }}{}) {
+                fmt.Printf("List {{ .Name }} a %#v\n", v)
+                if l, ok := v.([]interface{}); ok {
+                    fmt.Printf("List {{ .Name }} b\n")
+                    newList := []interface{}{}
+                    for _, item := range l {
+                        if refStr, ok := item.(string); ok {
+                            fmt.Printf("List {{ .Name }} c\n")
+                            paramVal := openapi.{{ .ListElementType }}{}
+
+                            filter, datatype, isMoFilter := parseMoRef(refStr)
+                            if isMoFilter {
+                                fmt.Printf("List {{ .Name }} d\n")
+                                var ok bool
+                                if datatype != "" {
+                                    ok = setMoMoRefByFilter(client, &paramVal, datatype, filter)
+                                } else {
+                                    ok = setMoMoRefByFilter(client, &paramVal, "{{ .ListElementType }}", filter)
+                                }
+
+                                if ok {
+                                    fmt.Printf("List {{ .Name }} e\n")
+                                    newList = append(newList, &paramVal)
+                                } else {
+                                    return fmt.Errorf("Error retreiving relationship: %s", refStr)
+                                }
+                            } else {
+                                return fmt.Errorf("Error parsing relationship: %s", refStr)
+                            }
+                        } else {
+                            newList = append(newList, item)
+                        }
+                    }
+                    params["{{ .Name }}"] = newList
+                }
+            }
+        {{ end }}
         {{ end }}
         {{ end }}
 
@@ -111,7 +195,7 @@ import (
         return nil, httpResponse, err
         {{ end }}
     }
-{{ end }}
+{{ end }}{{ end }}
 
 {{ range $k, $v := .Children }}{{ template "cliitem" $v}}{{ end }}
 {{ end }}
@@ -127,6 +211,51 @@ func getOperationForRelationship(relationship string) Operation {
         case "{{ .ReturnType }}":
             return &{{ .OperationID }}{}
     {{ end }}{{ end }}{{ end }}
+    }
+
+    return nil
+}
+
+func getGetOperationForClassID(classID string) Operation {
+    classID = fmt.Sprintf("%s.Response", classID)
+    switch classID {
+    {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsListOperation }}
+        case "{{ .ReturnBaseType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}{{ end }}
+    }
+
+    return nil
+}
+
+func getUpdateOperationForClassID(classID string) Operation {
+    switch classID {
+    {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsUpdateOperation }}
+        case "{{ .ReturnBaseType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}{{ end }}
+    }
+
+    return nil
+}
+
+func getCreateOperationForClassID(classID string) Operation {
+    switch classID {
+    {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsCreateOperation }}
+        case "{{ .ReturnBaseType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}{{ end }}
+    }
+
+    return nil
+}
+
+func getDeleteOperationForClassID(classID string) Operation {
+    switch classID {
+    {{ range .Operations }}{{ if .IsDeleteOperation }}
+        case "{{ .DeleteOperationDataType }}":
+            return &{{ .OperationID }}{}
+    {{ end }}{{ end }}
     }
 
     return nil

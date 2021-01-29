@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/cgascoig/isctl/openapi"
 	"github.com/spf13/cobra"
 )
 
@@ -13,7 +14,7 @@ var (
 
 const ()
 
-func newCmdVersion() *cobra.Command {
+func newCmdVersion(client *openapi.APIClient) *cobra.Command {
 	return &cobra.Command{
 		Use:   "version",
 		Run:   runCmdVersion,
@@ -23,4 +24,8 @@ func newCmdVersion() *cobra.Command {
 
 func runCmdVersion(cmd *cobra.Command, args []string) {
 	fmt.Printf("isctl version %s (Git commit %s)\n", version, commit)
+}
+
+func init() {
+	auxCommandsGenerators = append(auxCommandsGenerators, newCmdVersion)
 }

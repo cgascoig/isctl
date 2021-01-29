@@ -1,0 +1,12 @@
+---
+ClassId: ntp.Policy
+ObjectType: ntp.Policy
+Name: isctl-bats-test
+Enabled: true
+NtpServers: 
+    - 1.1.1.1
+Organization: MoRef[Name:isctl-bats-test]
+---
+ClassId: organization.Organization
+ObjectType: organization.Organization
+Name: isctl-bats-test

@@ -10,5 +10,7 @@ import (
 type Operation interface {
 	SetBodyParams(*openapi.APIClient, map[string]interface{}) error
 
+	GetReferencedClasses(params map[string]interface{}) ([]string, error)
+
 	Execute(*openapi.APIClient, []string, map[string]string) (interface{}, *http.Response, error)
 }
