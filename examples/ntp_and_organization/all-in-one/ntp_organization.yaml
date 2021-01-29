@@ -1,0 +1,12 @@
+---
+ClassId: ntp.Policy
+ObjectType: ntp.Policy
+Name: isctl-test
+Enabled: true
+NtpServers: 
+    - 1.1.1.1
+Organization: MoRef[Name:isctl-test]
+---
+ClassId: organization.Organization
+ObjectType: organization.Organization
+Name: isctl-test

@@ -1,0 +1,72 @@
+# This example creates an IKS ClusterProfile, NetworkPolicy, SysConfigPolicy and 2 x NodeGroupProfiles
+# it assumes the IPPool(cg-iks-pool-vlan-28), VirtualMachineInfrastructureProvider(cg-iks-vminfraprov)
+# and VersionPolicy(cg-k8s-1.18.2) all exist already. They can be included in the same YAML file if preferred. 
+
+ClassId: kubernetes.ClusterProfile
+Name: isctl-k8s-test
+Description: Created by isctl
+Organization: default
+
+NetConfig: MoRef[isctl-k8s-test]
+ClusterIpPools:
+- MoRef[cg-iks-pool-vlan-28]
+SysConfig: MoRef[isctl-k8s-test]
+# Addons:
+# - MoRef[XYZ]
+ManagementConfig:
+  LoadBalancerCount: 1
+  SshKeys:
+  - "ssh-ed25519 <KEY> username@example.com"
+  SshUser: iksadmin
+---
+ClassId: kubernetes.NetworkPolicy
+Name: isctl-k8s-test
+Description: Created by isctl
+Organization: default
+
+CniType: Calico
+PodNetworkCidr: 172.16.0.0/17
+ServiceCidr: 192.168.13.0/24
+---
+ClassId: kubernetes.SysConfigPolicy
+Name: isctl-k8s-test
+Description: Created by isctl
+Organization: default
+
+DnsDomainName: cisco.com
+DnsServers:
+- 8.8.8.8
+NtpServers:
+- pool.ntp.org
+Timezone: Australia/Sydney
+---
+ClassId: kubernetes.NodeGroupProfile
+Name: isctl-k8s-test-master
+Description: Created by isctl
+Organization: default
+
+NodeType: Master
+Desiredsize: 1
+
+# The InfraProvider relationship is an abstract class (KubernetesInfrastructureProviderRelationship). Therefore, 
+# the MoRef here needs to explicitly specify the concrete class KubernetesVirtualMachineInfrastructureProviderRelationship
+InfraProvider: MoRef:KubernetesVirtualMachineInfrastructureProviderRelationship[cg-iks-vminfraprov]
+IpPools:
+- MoRef[cg-iks-pool-vlan-28]
+KubernetesVersion: MoRef[cg-k8s-1.18.2]
+ClusterProfile: MoRef[isctl-k8s-test]
+
+---
+ClassId: kubernetes.NodeGroupProfile
+Name: isctl-k8s-test-w-1
+Description: Created by isctl
+Organization: default
+
+NodeType: Worker
+Desiredsize: 1
+
+InfraProvider: MoRef:KubernetesVirtualMachineInfrastructureProviderRelationship[cg-iks-vminfraprov]
+IpPools:
+- MoRef[cg-iks-pool-vlan-28]
+KubernetesVersion: MoRef[cg-k8s-1.18.2]
+ClusterProfile: MoRef[isctl-k8s-test]

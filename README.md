@@ -215,7 +215,7 @@ Waiting for JSON body:
 }
 ```
 
-This is useful when you have your object defined as JSON in a file, for example:
+This is useful when you have your object defined as a JSON or YAML file, for example:
 
 ```
 cat ntp_policy.json | isctl create ntp policy --bodyformat json
@@ -229,24 +229,79 @@ Deleting resources is quite simple if you know the Moid:
 isctl delete ntp policy moid 123456789012345678901234
 ```
 
-If you don't know the Moid, you can combine two commands together, for example this command uses a `get` to find the object by name, then uses the JSONPath query to extract the Moid and finally calls the `delete` command:
+Or the Name:
 
 ```
-isctl delete ntp policy moid $(./build/isctl get ntp policy --name isctl-test-1 --jsonpath '$.Moid')
+isctl delete ntp policy name isctl-test-1
 ```
 
 ## Updating resources
 
-Updating resources is also quite simple if you know the Moid. For example, if you want to set the `Enabled` attribute in an NTP policy to `False`:
+Resources can also be updated by Moid or Name. For example, if you want to set the `Enabled` attribute in an NTP policy to `False`:
 
 ```
 isctl update ntp policy moid 123456789012345678901234 --Enabled=False
 ```
 
-If you don't know the Moid, use the same technique as described for deletion:
+Or by Name:
 
 ```
-isctl update ntp policy moid $(./build/isctl get ntp policy --name isctl-test-1 --jsonpath '$.Moid') --Enabled=False
+isctl update ntp policy name isctl-test-1 --Enabled=False
+```
+
+## Bulk applying configuration
+
+You can manage (create/update/destroy) a collection of Intersight resources in bulk using the `apply` command. 
+
+First, create your resources in a YAML file (or files) (see [here](examples) for more examples). For example, the following manages an Organization and NTP Policy:
+
+```
+ClassId: ntp.Policy
+ObjectType: ntp.Policy
+Name: isctl-test
+Enabled: true
+NtpServers: 
+    - 1.1.1.1
+Organization: MoRef[Name:isctl-test]
+---
+ClassId: organization.Organization
+ObjectType: organization.Organization
+Name: isctl-test
+```
+
+The order is not important - `isctl` will try to apply the individual resources in the correct order based on any dependencies between them. 
+
+To apply (create or update) these to Intersight, run: 
+
+```
+isctl apply -f examples/ntp_and_organization/all-in-one/ntp_organization.yaml
+```
+
+You can specify individual files or you can specify a directory and all the contained YAML files will be applied automatically:
+
+```
+isctl apply -f examples/ntp_and_organization/file-per-resource/
+```
+
+`isctl` will automatically create/update each resource:
+
+```
+INFO[0001] Performing update operation on existing MO (Name: isctl-test, Moid: 60138f066972652d33286fa0, ClassId: organization.Organization)
+INFO[0002] Performing create operation on new MO (Name: isctl-test, ClassId: ntp.Policy)
+Apply completed successfully
+```
+
+You can also bulk destroy resources from the YAML definitions:
+
+```
+isctl apply --delete -f examples/ntp_and_organization/file-per-resource/
+```
+
+Output:
+```
+INFO[0000] Performing delete operation on existing MO (Name: isctl-test, Moid: 60138f386275722d31241642, ClassId: ntp.Policy)
+INFO[0002] Performing delete operation on existing MO (Name: isctl-test, Moid: 60138f066972652d33286fa0, ClassId: organization.Organization)
+Destroy completed successfully
 ```
 
 # Development
