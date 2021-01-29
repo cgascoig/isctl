@@ -23,18 +23,18 @@ brew install cgascoig/isctl/isctl
 
 If you don't use Homebew:
 
-* Download the latest release from the [Releases](releases/) page. 
+* Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
 * Unzip and move the `isctl` binary somewhere that is on your path (e.g. `/usr/local/bin`). 
 
 
 ## Windows
 
-* Download the latest release from the [Releases](releases/) page. 
+* Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
 * Unzip and move the `isctl.exe` binary somewhere that is on your path. 
 
 ## Linux
 
-* Download the latest release from the [Releases](releases/) page. 
+* Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
 * Extract the `.tar.gz` and move the `isctl` binary somewhere that is on your path (e.g. `/usr/local/bin`). 
 
 
