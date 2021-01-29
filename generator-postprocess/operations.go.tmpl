@@ -14,7 +14,7 @@ import (
 )
 
 {{ define "cliitem" }}
-{{ if .Operation }}
+{{ if .Operation }}{{ if not .Alias }}
     type {{ .Operation.OperationID }} struct {
     {{ if ne .BodyParamType "" }}body *openapi.{{ .BodyParamType }}{{ end }}
     }
@@ -195,7 +195,7 @@ import (
         return nil, httpResponse, err
         {{ end }}
     }
-{{ end }}
+{{ end }}{{ end }}
 
 {{ range $k, $v := .Children }}{{ template "cliitem" $v}}{{ end }}
 {{ end }}

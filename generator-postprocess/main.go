@@ -66,6 +66,24 @@ func (o *Operation) DeleteOperationDataType() string {
 	return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
 }
 
+func (o *Operation) OperationClassID() string {
+	if o.ReturnBaseType != "" {
+		r := regexp.MustCompile(`^(\w+\.\w+)\.Response$`)
+		m := r.FindStringSubmatch(o.ReturnBaseType)
+		if m == nil || len(m) != 2 {
+			return o.ReturnBaseType
+		}
+		return m[1]
+	}
+	re := fmt.Sprintf(`^\w+%s(\w+)$`, o.BaseName)
+	r := regexp.MustCompile(re)
+	m := r.FindStringSubmatch(o.OperationID)
+	if len(m) != 2 {
+		return ""
+	}
+	return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
+}
+
 // Param represents the YAML of one parameter
 type Param struct {
 	ParamName    string `yaml:"paramName"`

@@ -29,6 +29,28 @@ func () *cobra.Command {
         Run: func(cmd *cobra.Command, args []string) {
             client.GetConfig().Debug = verbose
 
+            {{ if eq .Parameter "name" }}
+            // Lookup moid from name
+            getOp := getGetOperationForClassID("{{ .Operation.OperationClassID }}")
+            if getOp == nil {
+                resultHandler(nil, nil, fmt.Errorf("FATAL: No operation to lookup Moid from '{{ .Operation.OperationClassID }}'"))
+                return
+            }
+            res, _, err := getOp.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", args[0])})
+            if err != nil {
+                resultHandler(nil, nil, fmt.Errorf("Error executing query to lookup Moid from Name: %v", err))
+                return 
+            }
+
+            moid, ok := getMoid(res)
+            if !ok {
+                resultHandler(nil, nil, fmt.Errorf("Error executing query to lookup Moid from Name: number of results must exactly equal 1"))
+                return 
+            }
+
+            args = []string{moid}
+            {{ end }}
+
             bodyParamMap := map[string]interface{}{}
 
             bodyFormat, err := cmd.Flags().GetString("bodyformat")

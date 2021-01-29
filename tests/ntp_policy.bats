@@ -29,7 +29,7 @@ TEST_SECTION="NTP Policy CRUD"
     [ "${ENABLED}" == "true" ]
 }
 
-@test "${TEST_SECTION}: update NTP policy" {
+@test "${TEST_SECTION}: update NTP policy by moid" {
     # update the NTP policy with Enabled=False
     ./build/isctl update ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
 
@@ -37,6 +37,16 @@ TEST_SECTION="NTP Policy CRUD"
     ENABLED=$( ./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json | jq -r .Enabled )
 
     [ "${ENABLED}" == "false" ]
+}
+
+@test "${TEST_SECTION}: update NTP policy by name" {
+    # update the NTP policy with Enabled=True
+    ./build/isctl update ntp policy name "${TEST_NTP_POLICY_NAME}" --Enabled=True
+
+    # Check Enabled=False
+    ENABLED=$( ./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json | jq -r .Enabled )
+
+    [ "${ENABLED}" == "true" ]
 }
 
 @test "${TEST_SECTION}: delete NTP policy" {
