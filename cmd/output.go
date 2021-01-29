@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"sort"
 	"strings"
@@ -11,6 +10,7 @@ import (
 
 	"github.com/PaesslerAG/jsonpath"
 	"github.com/bndr/gotabulate"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 )
@@ -20,7 +20,7 @@ func logHTTPResponse(httpResponse *http.Response) {
 		return
 	}
 
-	log.Printf("HTTP Response: %d %v", httpResponse.StatusCode, httpResponse.Status)
+	log.Debugf("HTTP Response: %d %v", httpResponse.StatusCode, httpResponse.Status)
 }
 
 func resultHandler(result interface{}, httpResponse *http.Response, err error) {
@@ -283,7 +283,7 @@ func printResultDefault(result interface{}) {
 func printResultYAML(result interface{}) {
 	out, err := yaml.Marshal(result)
 	if err != nil {
-		fmt.Printf("ERROR: %v", err)
+		log.Errorf("%v", err)
 		return
 	}
 
@@ -293,7 +293,7 @@ func printResultYAML(result interface{}) {
 func printResultJSON(result interface{}) {
 	out, err := json.MarshalIndent(result, "", "  ")
 	if err != nil {
-		fmt.Printf("ERROR: %v", err)
+		log.Errorf("%v", err)
 		return
 	}
 

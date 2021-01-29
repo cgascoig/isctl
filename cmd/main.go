@@ -4,12 +4,12 @@ import (
 	"bufio"
 	"context"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 
 	"github.com/cgascoig/isctl/openapi"
 	homedir "github.com/mitchellh/go-homedir"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -98,7 +98,7 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 			// Config file not found; ignore error if desired
-			log.Println("Config file not found, creating empty default.")
+			log.Warn("Config file not found, creating empty default.")
 			f, err := os.Create(configFile)
 			if err != nil {
 				log.Fatalf("ERROR while creating empty config file: %v", err)
@@ -145,6 +145,12 @@ func configure(cmd *cobra.Command, args []string) {
 }
 
 func validateFlags(cmd *cobra.Command, args []string) error {
+	// Setup logging
+	if verbose {
+		log.SetLevel(log.DebugLevel)
+		log.Debug("Logging level set to debug(verbose)")
+	}
+
 	// Skip validation for config command
 	if cmd.Use == "configure" || cmd.Use == "version" {
 		return nil

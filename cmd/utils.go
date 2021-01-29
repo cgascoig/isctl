@@ -3,12 +3,12 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 	"reflect"
 	"regexp"
 
 	"github.com/cgascoig/isctl/openapi"
+	log "github.com/sirupsen/logrus"
 	yaml "gopkg.in/yaml.v2"
 )
 
@@ -21,7 +21,7 @@ func readBody(bodyFormat string, bodyParamMap interface{}) error {
 			return fmt.Errorf("Decoding JSON: %v", err)
 		}
 
-		log.Printf("After JSON parse, bodyParamMap: %v", bodyParamMap)
+		log.Tracef("After JSON parse, bodyParamMap: %v", bodyParamMap)
 	} else if bodyFormat == "yaml" {
 		// Gather body from YAML on stdin.
 		fmt.Println("Waiting for YAML body: ")
@@ -30,7 +30,7 @@ func readBody(bodyFormat string, bodyParamMap interface{}) error {
 			return fmt.Errorf("Decoding YAML: %v", err)
 		}
 
-		log.Printf("After YAML parse, bodyParamMap: %v", bodyParamMap)
+		log.Tracef("After YAML parse, bodyParamMap: %v", bodyParamMap)
 	} else {
 		return fmt.Errorf("Unknown request body format: %s", bodyFormat)
 	}
@@ -100,7 +100,7 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 		return false
 	}
 
-	log.Printf("Looking up MoMoRef %s with filter %s", relationship, filter)
+	log.Debugf("Looking up MoMoRef %s with filter %s", relationship, filter)
 
 	moref := new(openapi.MoMoRef)
 	moref.ClassId = "mo.MoRef"
@@ -111,7 +111,7 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 	}
 	res, _, err := op.Execute(client, nil, map[string]string{"filter": filter})
 	if err != nil {
-		log.Printf("Error executing lookup query: %v", err)
+		log.Errorf("Error executing lookup query: %v", err)
 		return false
 	}
 
@@ -120,7 +120,7 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 		return false
 	}
 
-	log.Printf("Got Moid %s", moid)
+	log.Debugf("Got Moid %s", moid)
 
 	moref.Moid = &moid
 
@@ -143,7 +143,7 @@ func getMoid(res interface{}) (string, bool) {
 	val := reflect.Indirect(reflect.ValueOf(res))
 	valType := val.Type()
 	if valType.Kind() != reflect.Struct {
-		log.Printf("getMoid: res not struct")
+		log.Tracef("getMoid: res not struct")
 		return "", false
 	}
 
@@ -157,42 +157,42 @@ func getMoid(res interface{}) (string, bool) {
 	}
 
 	if listFieldName == "" {
-		log.Printf("getMoid: no ...List field")
+		log.Tracef("getMoid: no ...List field")
 		return "", false
 	}
 
 	listStruct := reflect.Indirect(val.FieldByName(listFieldName))
 
 	if listStruct.Kind() != reflect.Struct {
-		log.Printf("getMoid: ..List not struct")
+		log.Tracef("getMoid: ..List not struct")
 		return "", false
 	}
 
 	_, ok := listStruct.Type().FieldByName("Results")
 	if !ok {
-		log.Printf("getMoid: no Results field (original res: %+v)", res)
+		log.Tracef("getMoid: no Results field (original res: %+v)", res)
 		return "", false
 	}
 
 	results := listStruct.FieldByName("Results")
 	if results.Kind() != reflect.Slice && results.Kind() != reflect.Array {
-		log.Printf("getMoid: Results field not slice/array")
+		log.Tracef("getMoid: Results field not slice/array")
 		return "", false
 	}
 
 	if results.Len() != 1 {
-		log.Printf("getMoid: number of results doesn't exactly equal 1")
+		log.Tracef("getMoid: number of results doesn't exactly equal 1")
 		return "", false
 	}
 
 	result := results.Index(0)
 	if result.Kind() != reflect.Struct {
-		log.Printf("getMoid: single result is not struct")
+		log.Tracef("getMoid: single result is not struct")
 		return "", false
 	}
 
 	if _, ok := result.Type().FieldByName("Moid"); !ok {
-		log.Printf("getMoid: single result doesn't have Moid field")
+		log.Tracef("getMoid: single result doesn't have Moid field")
 		return "", false
 	}
 

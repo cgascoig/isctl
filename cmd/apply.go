@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 
 	"github.com/cgascoig/isctl/openapi"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	yaml "gopkg.in/yaml.v3"
 )
@@ -254,8 +254,6 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 			dependencies[classID][dep] = true
 		}
 	}
-
-	// fmt.Printf("dependencies: %v", dependencies)
 
 	// while there are still unfinalised classIds, pick one and perform the recursive search for dependencies
 	for classID := getOrderedMOsGetUnfinalisedClassID(&finalised); classID != ""; classID = getOrderedMOsGetUnfinalisedClassID(&finalised) {
