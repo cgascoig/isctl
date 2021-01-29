@@ -304,6 +304,40 @@ INFO[0002] Performing delete operation on existing MO (Name: isctl-test, Moid: 6
 Destroy completed successfully
 ```
 
+### Specifying relationships
+
+In the bulk YAML files or when creating/updating individual resources, there are a few ways to specify relationships between resources. 
+
+You can set the relationship explicitly with the ClassId and Moid:
+
+```
+Organization:
+  ClassId: mo.MoRef
+  Moid: 123456789012345678901234
+```
+
+Or you can specify the relationship using the MoRef syntax. For example, the following will find the Organization with Name "isctl-test" and automatically fill in the Moid:
+
+```
+Organization: MoRef[Name:isctl-test]
+```
+
+There are a few variants of the MoRef syntax to allow more flexibility - the following are all equivalent to each other:
+
+```
+# if the field is a relationship, isctl will assume a bare string is the name to query
+Organization: isctl-test
+
+# explicitly specify this is an MoRef
+Organization: MoRef[isctl-test] 
+
+# explicitly specify that the field to match the destination by is Name (you can use other fields)
+Organization: MoRef[Name:isctl-test]
+
+# this is only needed where the field has a relationship to an abstract class and you need to specify which concrete class
+Organization: MoRef:OrganizationOrganizationRelationship[Name:isctl-test] 
+```
+
 # Development
 
 ## How is this built?
