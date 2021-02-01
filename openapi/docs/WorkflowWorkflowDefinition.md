@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Label** | Pointer to **string** | A user friendly short name to identify the workflow. Label can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_). | [optional] 
 **LicenseEntitlement** | Pointer to **string** | License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks. * &#x60;Base&#x60; - Base as a License type. It is default license type. * &#x60;Essential&#x60; - Essential as a License type. * &#x60;Standard&#x60; - Standard as a License type. * &#x60;Advantage&#x60; - Advantage as a License type. * &#x60;Premier&#x60; - Premier as a License type. * &#x60;IWO-Essential&#x60; - IWO-Essential as a License type. * &#x60;IWO-Advantage&#x60; - IWO-Advantage as a License type. * &#x60;IWO-Premier&#x60; - IWO-Premier as a License type. | [optional] [readonly] [default to "Base"]
 **MaxTaskCount** | Pointer to **int64** | The maximum number of tasks that can be executed on this workflow. | [optional] [readonly] 
+**MaxWorkerTaskCount** | Pointer to **int64** | The maximum number of external (worker) tasks that can be executed on this workflow. | [optional] [readonly] 
 **Name** | Pointer to **string** | The name for this workflow. You can have multiple versions of the workflow with the same name. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.) or an underscore (_). | [optional] 
 **OutputDefinition** | Pointer to [**[]WorkflowBaseDataType**](workflow.BaseDataType.md) |  | [optional] 
 **OutputParameters** | Pointer to **interface{}** | The output mappings for the workflow. The outputs for worflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is &#39;${Source.output.JsonPath}&#39;. &#39;Source&#39; is the name of the task within the workflow. You can map any task output to a workflow output as long as the types are compatible. Following this is JSON path expression to extract JSON fragment from source&#39;s output. | [optional] 
@@ -278,6 +279,31 @@ SetMaxTaskCount sets MaxTaskCount field to given value.
 `func (o *WorkflowWorkflowDefinition) HasMaxTaskCount() bool`
 
 HasMaxTaskCount returns a boolean if a field has been set.
+
+### GetMaxWorkerTaskCount
+
+`func (o *WorkflowWorkflowDefinition) GetMaxWorkerTaskCount() int64`
+
+GetMaxWorkerTaskCount returns the MaxWorkerTaskCount field if non-nil, zero value otherwise.
+
+### GetMaxWorkerTaskCountOk
+
+`func (o *WorkflowWorkflowDefinition) GetMaxWorkerTaskCountOk() (*int64, bool)`
+
+GetMaxWorkerTaskCountOk returns a tuple with the MaxWorkerTaskCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxWorkerTaskCount
+
+`func (o *WorkflowWorkflowDefinition) SetMaxWorkerTaskCount(v int64)`
+
+SetMaxWorkerTaskCount sets MaxWorkerTaskCount field to given value.
+
+### HasMaxWorkerTaskCount
+
+`func (o *WorkflowWorkflowDefinition) HasMaxWorkerTaskCount() bool`
+
+HasMaxWorkerTaskCount returns a boolean if a field has been set.
 
 ### GetName
 
