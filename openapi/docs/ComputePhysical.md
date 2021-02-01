@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **UserLabel** | Pointer to **string** | The user defined label assigned to the server. | [optional] [readonly] 
 **Uuid** | Pointer to **string** | The universally unique identity of the server. | [optional] [readonly] 
 **BootCddDevices** | Pointer to [**[]BootCddDeviceRelationship**](boot.CddDevice.Relationship.md) | An array of relationships to bootCddDevice resources. | [optional] 
+**BootDeviceBootSecurity** | Pointer to [**BootDeviceBootSecurityRelationship**](boot.DeviceBootSecurity.Relationship.md) |  | [optional] 
 **BootHddDevices** | Pointer to [**[]BootHddDeviceRelationship**](boot.HddDevice.Relationship.md) | An array of relationships to bootHddDevice resources. | [optional] 
 **BootIscsiDevices** | Pointer to [**[]BootIscsiDeviceRelationship**](boot.IscsiDevice.Relationship.md) | An array of relationships to bootIscsiDevice resources. | [optional] 
 **BootNvmeDevices** | Pointer to [**[]BootNvmeDeviceRelationship**](boot.NvmeDevice.Relationship.md) | An array of relationships to bootNvmeDevice resources. | [optional] 
@@ -44,6 +45,7 @@ Name | Type | Description | Notes
 **BootUsbDevices** | Pointer to [**[]BootUsbDeviceRelationship**](boot.UsbDevice.Relationship.md) | An array of relationships to bootUsbDevice resources. | [optional] 
 **BootVmediaDevices** | Pointer to [**[]BootVmediaDeviceRelationship**](boot.VmediaDevice.Relationship.md) | An array of relationships to bootVmediaDevice resources. | [optional] 
 **MgmtIdentity** | Pointer to [**EquipmentPhysicalIdentityRelationship**](equipment.PhysicalIdentity.Relationship.md) |  | [optional] 
+**Vmedia** | Pointer to [**ComputeVmediaRelationship**](compute.Vmedia.Relationship.md) |  | [optional] 
 
 ## Methods
 
@@ -809,6 +811,31 @@ HasBootCddDevices returns a boolean if a field has been set.
 `func (o *ComputePhysical) UnsetBootCddDevices()`
 
 UnsetBootCddDevices ensures that no value is present for BootCddDevices, not even an explicit nil
+### GetBootDeviceBootSecurity
+
+`func (o *ComputePhysical) GetBootDeviceBootSecurity() BootDeviceBootSecurityRelationship`
+
+GetBootDeviceBootSecurity returns the BootDeviceBootSecurity field if non-nil, zero value otherwise.
+
+### GetBootDeviceBootSecurityOk
+
+`func (o *ComputePhysical) GetBootDeviceBootSecurityOk() (*BootDeviceBootSecurityRelationship, bool)`
+
+GetBootDeviceBootSecurityOk returns a tuple with the BootDeviceBootSecurity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBootDeviceBootSecurity
+
+`func (o *ComputePhysical) SetBootDeviceBootSecurity(v BootDeviceBootSecurityRelationship)`
+
+SetBootDeviceBootSecurity sets BootDeviceBootSecurity field to given value.
+
+### HasBootDeviceBootSecurity
+
+`func (o *ComputePhysical) HasBootDeviceBootSecurity() bool`
+
+HasBootDeviceBootSecurity returns a boolean if a field has been set.
+
 ### GetBootHddDevices
 
 `func (o *ComputePhysical) GetBootHddDevices() []BootHddDeviceRelationship`
@@ -1183,6 +1210,31 @@ SetMgmtIdentity sets MgmtIdentity field to given value.
 `func (o *ComputePhysical) HasMgmtIdentity() bool`
 
 HasMgmtIdentity returns a boolean if a field has been set.
+
+### GetVmedia
+
+`func (o *ComputePhysical) GetVmedia() ComputeVmediaRelationship`
+
+GetVmedia returns the Vmedia field if non-nil, zero value otherwise.
+
+### GetVmediaOk
+
+`func (o *ComputePhysical) GetVmediaOk() (*ComputeVmediaRelationship, bool)`
+
+GetVmediaOk returns a tuple with the Vmedia field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVmedia
+
+`func (o *ComputePhysical) SetVmedia(v ComputeVmediaRelationship)`
+
+SetVmedia sets Vmedia field to given value.
+
+### HasVmedia
+
+`func (o *ComputePhysical) HasVmedia() bool`
+
+HasVmedia returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

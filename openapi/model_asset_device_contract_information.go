@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2020-12-08T20:53:20Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
  *
- * API version: 1.0.9-2908
+ * API version: 1.0.9-3252
  * Contact: intersight@cisco.com
  */
 
@@ -25,8 +25,10 @@ type AssetDeviceContractInformation struct {
 	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
 	ObjectType string                           `json:"ObjectType" yaml:"ObjectType"`
 	Contract   NullableAssetContractInformation `json:"Contract,omitempty" yaml:"Contract,omitempty"`
-	// Calculated contract status that is derived based on the service line status and contract end date. It is different from serviceLineStatus property. serviceLineStatus gives us ACTIVE, OVERDUE, EXPIRED. These are transformed into Active, Expiring Soon and Not Covered. * `Not Covered` - The Cisco device does not have a valid support contract. * `Active` - The Cisco device is covered under a active support contract. * `Expiring Soon` - The contract for this Cisco device is going to expire in the next 30 days.
+	// Calculated contract status that is derived based on the service line status and contract end date. It is different from serviceLineStatus property. serviceLineStatus gives us ACTIVE, OVERDUE, EXPIRED. These are transformed into Active, Expiring Soon and Not Covered. * `Unknown` - The device's contract status cannot be determined. * `Not Covered` - The Cisco device does not have a valid support contract. * `Active` - The Cisco device is covered under a active support contract. * `Expiring Soon` - The contract for this Cisco device is going to expire in the next 30 days.
 	ContractStatus *string `json:"ContractStatus,omitempty" yaml:"ContractStatus,omitempty"`
+	// Date and time indicating when the contract data is last fetched from Cisco's Contract API successfully.
+	ContractUpdatedTime *time.Time `json:"ContractUpdatedTime,omitempty" yaml:"ContractUpdatedTime,omitempty"`
 	// End date of the covered product line. The coverage end date is fetched from Cisco SN2INFO API.
 	CoveredProductLineEndDate *string `json:"CoveredProductLineEndDate,omitempty" yaml:"CoveredProductLineEndDate,omitempty"`
 	// Unique identifier of the Cisco device. This information is used to query Cisco APIx SN2INFO and CCWR databases.
@@ -43,7 +45,7 @@ type AssetDeviceContractInformation struct {
 	MaintenancePurchaseOrderNumber *string `json:"MaintenancePurchaseOrderNumber,omitempty" yaml:"MaintenancePurchaseOrderNumber,omitempty"`
 	// Maintenance sales order number for the Cisco device.
 	MaintenanceSalesOrderNumber *string `json:"MaintenanceSalesOrderNumber,omitempty" yaml:"MaintenanceSalesOrderNumber,omitempty"`
-	// The platform type of the Cisco device. * `` - The device reported an empty or unrecognized platform type. * `APIC` - An Application Policy Infrastructure Controller cluster. * `DCNM` - A Data Center Network Manager instance. Data Center Network Manager (DCNM) is the network management platform for all NX-OS-enabled deployments, spanning new fabric architectures, IP Fabric for Media, and storage networking deployments for the Cisco Nexus-powered data center. * `UCSFI` - A UCS Fabric Interconnect in HA or standalone mode, which is being managed by UCS Manager (UCSM). * `UCSFIISM` - A UCS Fabric Interconnect in HA or standalone mode, managed directly by Intersight. * `IMC` - A standalone UCS Server Integrated Management Controller. * `IMCM4` - A standalone UCS M4 Server. * `IMCM5` - A standalone UCS M5 server. * `UCSIOM` - An UCS Chassis IO module. * `HX` - A HyperFlex storage controller. * `HyperFlexAP` - A HyperFlex Application Platform. * `UCSD` - A UCS Director virtual appliance. Cisco UCS Director automates, orchestrates, and manages Cisco and third-party hardware. * `IntersightAppliance` - A Cisco Intersight Connected Virtual Appliance. * `IntersightAssist` - A Cisco Intersight Assist. * `PureStorageFlashArray` - A Pure Storage FlashArray device. * `NetAppOntap` - A NetApp ONTAP storage system. * `EmcScaleIo` - An EMC ScaleIO storage system. * `EmcVmax` - An EMC VMAX storage system. * `EmcVplex` - An EMC VPLEX storage system. * `EmcXtremIo` - An EMC XtremIO storage system. * `VmwareVcenter` - A VMware vCenter device that manages Virtual Machines. * `MicrosoftHyperV` - A Microsoft HyperV system that manages Virtual Machines. * `AppDynamics` - An AppDynamics controller that monitors applications. * `Dynatrace` - A Dynatrace controller that monitors applications. * `MicrosoftSqlServer` - A Microsoft SQL database server. * `Kubernetes` - A Kubernetes cluster that runs containerized applications. * `AmazonWebService` - A Amazon web service target that discovers and monitors different services like EC2. It discovers entities like VMs, Volumes, regions etc. and monitors attributes like Mem, CPU, cost. * `AmazonWebServiceBilling` - A Amazon web service billing target to retrieve billing information stored in S3 bucket. * `MicrosoftAzureServicePrincipal` - A Microsoft Azure Service Principal target that discovers all the associated Azure subscriptions. * `MicrosoftAzureEnterpriseAgreement` - A Microsoft Azure Enterprise Agreement target that discovers cost, billing and RIs. * `ServiceEngine` - Cisco Application Services Engine. Cisco Application Services Engine is a platform to deploy and manage applications. * `HitachiVirtualStoragePlatform` - A Hitachi Virtual Storage Platform also referred to as Hitachi VSP. It includes various storage systems designed for data centers. * `IMCBlade` - An Intersight managed UCS Blade Server. * `CustomTarget` - An external endpoint added as Target that can be accessed through its REST API interface in Intersight Orchestrator automation workflow.Standard HTTP authentication scheme supported: Basic. * `CiscoCatalyst` - A Cisco Catalyst networking switch device.
+	// The platform type of the Cisco device. * `` - The device reported an empty or unrecognized platform type. * `APIC` - An Application Policy Infrastructure Controller cluster. * `DCNM` - A Data Center Network Manager instance. Data Center Network Manager (DCNM) is the network management platform for all NX-OS-enabled deployments, spanning new fabric architectures, IP Fabric for Media, and storage networking deployments for the Cisco Nexus-powered data center. * `UCSFI` - A UCS Fabric Interconnect in HA or standalone mode, which is being managed by UCS Manager (UCSM). * `UCSFIISM` - A UCS Fabric Interconnect in HA or standalone mode, managed directly by Intersight. * `IMC` - A standalone UCS Server Integrated Management Controller. * `IMCM4` - A standalone UCS M4 Server. * `IMCM5` - A standalone UCS M5 server. * `UCSIOM` - An UCS Chassis IO module. * `HX` - A HyperFlex storage controller. * `HyperFlexAP` - A HyperFlex Application Platform. * `UCSD` - A UCS Director virtual appliance. Cisco UCS Director automates, orchestrates, and manages Cisco and third-party hardware. * `IntersightAppliance` - A Cisco Intersight Connected Virtual Appliance. * `IntersightAssist` - A Cisco Intersight Assist. * `PureStorageFlashArray` - A Pure Storage FlashArray device. * `NetAppOntap` - A NetApp ONTAP storage system. * `NetAppActiveIqUnifiedManager` - A NetApp Active IQ Unified Manager. * `EmcScaleIo` - An EMC ScaleIO storage system. * `EmcVmax` - An EMC VMAX storage system. * `EmcVplex` - An EMC VPLEX storage system. * `EmcXtremIo` - An EMC XtremIO storage system. * `VmwareVcenter` - A VMware vCenter device that manages Virtual Machines. * `MicrosoftHyperV` - A Microsoft HyperV system that manages Virtual Machines. * `AppDynamics` - An AppDynamics controller that monitors applications. * `Dynatrace` - A Dynatrace controller that monitors applications. * `MicrosoftSqlServer` - A Microsoft SQL database server. * `Kubernetes` - A Kubernetes cluster that runs containerized applications. * `AmazonWebService` - A Amazon web service target that discovers and monitors different services like EC2. It discovers entities like VMs, Volumes, regions etc. and monitors attributes like Mem, CPU, cost. * `AmazonWebServiceBilling` - A Amazon web service billing target to retrieve billing information stored in S3 bucket. * `MicrosoftAzureServicePrincipal` - A Microsoft Azure Service Principal target that discovers all the associated Azure subscriptions. * `MicrosoftAzureEnterpriseAgreement` - A Microsoft Azure Enterprise Agreement target that discovers cost, billing and RIs. * `ServiceEngine` - Cisco Application Services Engine. Cisco Application Services Engine is a platform to deploy and manage applications. * `HitachiVirtualStoragePlatform` - A Hitachi Virtual Storage Platform also referred to as Hitachi VSP. It includes various storage systems designed for data centers. * `IMCBlade` - An Intersight managed UCS Blade Server. * `TerraformCloud` - A Terraform Cloud account. * `TerraformAgent` - A Terraform Cloud Agent that Intersight will deploy in datacenter. The agent will execute Terraform plan for Terraform Cloud workspace configured to use the agent. * `CustomTarget` - An external endpoint added as Target that can be accessed through its REST API interface in Intersight Orchestrator automation workflow.Standard HTTP authentication scheme supported: Basic. * `CiscoCatalyst` - A Cisco Catalyst networking switch device.
 	PlatformType *string                         `json:"PlatformType,omitempty" yaml:"PlatformType,omitempty"`
 	Product      NullableAssetProductInformation `json:"Product,omitempty" yaml:"Product,omitempty"`
 	// Purchase order number for the Cisco device. It is a unique number assigned for every purchase.
@@ -78,7 +80,7 @@ func NewAssetDeviceContractInformation(classId string, objectType string) *Asset
 	this := AssetDeviceContractInformation{}
 	this.ClassId = classId
 	this.ObjectType = objectType
-	var contractStatus string = "Not Covered"
+	var contractStatus string = "Unknown"
 	this.ContractStatus = &contractStatus
 	var deviceType string = "None"
 	this.DeviceType = &deviceType
@@ -98,7 +100,7 @@ func NewAssetDeviceContractInformationWithDefaults() *AssetDeviceContractInforma
 	this.ClassId = classId
 	var objectType string = "asset.DeviceContractInformation"
 	this.ObjectType = objectType
-	var contractStatus string = "Not Covered"
+	var contractStatus string = "Unknown"
 	this.ContractStatus = &contractStatus
 	var deviceType string = "None"
 	this.DeviceType = &deviceType
@@ -230,6 +232,38 @@ func (o *AssetDeviceContractInformation) HasContractStatus() bool {
 // SetContractStatus gets a reference to the given string and assigns it to the ContractStatus field.
 func (o *AssetDeviceContractInformation) SetContractStatus(v string) {
 	o.ContractStatus = &v
+}
+
+// GetContractUpdatedTime returns the ContractUpdatedTime field value if set, zero value otherwise.
+func (o *AssetDeviceContractInformation) GetContractUpdatedTime() time.Time {
+	if o == nil || o.ContractUpdatedTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.ContractUpdatedTime
+}
+
+// GetContractUpdatedTimeOk returns a tuple with the ContractUpdatedTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssetDeviceContractInformation) GetContractUpdatedTimeOk() (*time.Time, bool) {
+	if o == nil || o.ContractUpdatedTime == nil {
+		return nil, false
+	}
+	return o.ContractUpdatedTime, true
+}
+
+// HasContractUpdatedTime returns a boolean if a field has been set.
+func (o *AssetDeviceContractInformation) HasContractUpdatedTime() bool {
+	if o != nil && o.ContractUpdatedTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetContractUpdatedTime gets a reference to the given time.Time and assigns it to the ContractUpdatedTime field.
+func (o *AssetDeviceContractInformation) SetContractUpdatedTime(v time.Time) {
+	o.ContractUpdatedTime = &v
 }
 
 // GetCoveredProductLineEndDate returns the CoveredProductLineEndDate field value if set, zero value otherwise.
@@ -1033,6 +1067,9 @@ func (o AssetDeviceContractInformation) MarshalJSON() ([]byte, error) {
 	}
 	if o.ContractStatus != nil {
 		toSerialize["ContractStatus"] = o.ContractStatus
+	}
+	if o.ContractUpdatedTime != nil {
+		toSerialize["ContractUpdatedTime"] = o.ContractUpdatedTime
 	}
 	if o.CoveredProductLineEndDate != nil {
 		toSerialize["CoveredProductLineEndDate"] = o.CoveredProductLineEndDate
