@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -146,7 +146,6 @@ func (r apiCreateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -156,7 +155,6 @@ func (r apiCreateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -166,7 +164,6 @@ func (r apiCreateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -176,7 +173,6 @@ func (r apiCreateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -291,7 +287,6 @@ func (r apiDeleteBootPrecisionPolicyRequest) Execute() (*_nethttp.Response, erro
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -301,7 +296,6 @@ func (r apiDeleteBootPrecisionPolicyRequest) Execute() (*_nethttp.Response, erro
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -311,7 +305,6 @@ func (r apiDeleteBootPrecisionPolicyRequest) Execute() (*_nethttp.Response, erro
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -321,7 +314,6 @@ func (r apiDeleteBootPrecisionPolicyRequest) Execute() (*_nethttp.Response, erro
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -428,7 +420,6 @@ func (r apiGetBootCddDeviceByMoidRequest) Execute() (BootCddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -438,7 +429,6 @@ func (r apiGetBootCddDeviceByMoidRequest) Execute() (BootCddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -448,7 +438,6 @@ func (r apiGetBootCddDeviceByMoidRequest) Execute() (BootCddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -458,7 +447,6 @@ func (r apiGetBootCddDeviceByMoidRequest) Execute() (BootCddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -669,7 +657,6 @@ func (r apiGetBootCddDeviceListRequest) Execute() (BootCddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -679,7 +666,6 @@ func (r apiGetBootCddDeviceListRequest) Execute() (BootCddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -689,7 +675,6 @@ func (r apiGetBootCddDeviceListRequest) Execute() (BootCddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -699,7 +684,6 @@ func (r apiGetBootCddDeviceListRequest) Execute() (BootCddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -815,7 +799,6 @@ func (r apiGetBootDeviceBootModeByMoidRequest) Execute() (BootDeviceBootMode, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -825,7 +808,6 @@ func (r apiGetBootDeviceBootModeByMoidRequest) Execute() (BootDeviceBootMode, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -835,7 +817,6 @@ func (r apiGetBootDeviceBootModeByMoidRequest) Execute() (BootDeviceBootMode, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -845,7 +826,6 @@ func (r apiGetBootDeviceBootModeByMoidRequest) Execute() (BootDeviceBootMode, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1056,7 +1036,6 @@ func (r apiGetBootDeviceBootModeListRequest) Execute() (BootDeviceBootModeRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1066,7 +1045,6 @@ func (r apiGetBootDeviceBootModeListRequest) Execute() (BootDeviceBootModeRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1076,7 +1054,6 @@ func (r apiGetBootDeviceBootModeListRequest) Execute() (BootDeviceBootModeRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1086,7 +1063,6 @@ func (r apiGetBootDeviceBootModeListRequest) Execute() (BootDeviceBootModeRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1202,7 +1178,6 @@ func (r apiGetBootDeviceBootSecurityByMoidRequest) Execute() (BootDeviceBootSecu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1212,7 +1187,6 @@ func (r apiGetBootDeviceBootSecurityByMoidRequest) Execute() (BootDeviceBootSecu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1222,7 +1196,6 @@ func (r apiGetBootDeviceBootSecurityByMoidRequest) Execute() (BootDeviceBootSecu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1232,7 +1205,6 @@ func (r apiGetBootDeviceBootSecurityByMoidRequest) Execute() (BootDeviceBootSecu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1443,7 +1415,6 @@ func (r apiGetBootDeviceBootSecurityListRequest) Execute() (BootDeviceBootSecuri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1453,7 +1424,6 @@ func (r apiGetBootDeviceBootSecurityListRequest) Execute() (BootDeviceBootSecuri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1463,7 +1433,6 @@ func (r apiGetBootDeviceBootSecurityListRequest) Execute() (BootDeviceBootSecuri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1473,7 +1442,6 @@ func (r apiGetBootDeviceBootSecurityListRequest) Execute() (BootDeviceBootSecuri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1589,7 +1557,6 @@ func (r apiGetBootHddDeviceByMoidRequest) Execute() (BootHddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1599,7 +1566,6 @@ func (r apiGetBootHddDeviceByMoidRequest) Execute() (BootHddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1609,7 +1575,6 @@ func (r apiGetBootHddDeviceByMoidRequest) Execute() (BootHddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1619,7 +1584,6 @@ func (r apiGetBootHddDeviceByMoidRequest) Execute() (BootHddDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1830,7 +1794,6 @@ func (r apiGetBootHddDeviceListRequest) Execute() (BootHddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1840,7 +1803,6 @@ func (r apiGetBootHddDeviceListRequest) Execute() (BootHddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1850,7 +1812,6 @@ func (r apiGetBootHddDeviceListRequest) Execute() (BootHddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1860,7 +1821,6 @@ func (r apiGetBootHddDeviceListRequest) Execute() (BootHddDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1976,7 +1936,6 @@ func (r apiGetBootIscsiDeviceByMoidRequest) Execute() (BootIscsiDevice, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1986,7 +1945,6 @@ func (r apiGetBootIscsiDeviceByMoidRequest) Execute() (BootIscsiDevice, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1996,7 +1954,6 @@ func (r apiGetBootIscsiDeviceByMoidRequest) Execute() (BootIscsiDevice, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2006,7 +1963,6 @@ func (r apiGetBootIscsiDeviceByMoidRequest) Execute() (BootIscsiDevice, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2217,7 +2173,6 @@ func (r apiGetBootIscsiDeviceListRequest) Execute() (BootIscsiDeviceResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2227,7 +2182,6 @@ func (r apiGetBootIscsiDeviceListRequest) Execute() (BootIscsiDeviceResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2237,7 +2191,6 @@ func (r apiGetBootIscsiDeviceListRequest) Execute() (BootIscsiDeviceResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2247,7 +2200,6 @@ func (r apiGetBootIscsiDeviceListRequest) Execute() (BootIscsiDeviceResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2363,7 +2315,6 @@ func (r apiGetBootNvmeDeviceByMoidRequest) Execute() (BootNvmeDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2373,7 +2324,6 @@ func (r apiGetBootNvmeDeviceByMoidRequest) Execute() (BootNvmeDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2383,7 +2333,6 @@ func (r apiGetBootNvmeDeviceByMoidRequest) Execute() (BootNvmeDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2393,7 +2342,6 @@ func (r apiGetBootNvmeDeviceByMoidRequest) Execute() (BootNvmeDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2604,7 +2552,6 @@ func (r apiGetBootNvmeDeviceListRequest) Execute() (BootNvmeDeviceResponse, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2614,7 +2561,6 @@ func (r apiGetBootNvmeDeviceListRequest) Execute() (BootNvmeDeviceResponse, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2624,7 +2570,6 @@ func (r apiGetBootNvmeDeviceListRequest) Execute() (BootNvmeDeviceResponse, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2634,7 +2579,6 @@ func (r apiGetBootNvmeDeviceListRequest) Execute() (BootNvmeDeviceResponse, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2750,7 +2694,6 @@ func (r apiGetBootPchStorageDeviceByMoidRequest) Execute() (BootPchStorageDevice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2760,7 +2703,6 @@ func (r apiGetBootPchStorageDeviceByMoidRequest) Execute() (BootPchStorageDevice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2770,7 +2712,6 @@ func (r apiGetBootPchStorageDeviceByMoidRequest) Execute() (BootPchStorageDevice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2780,7 +2721,6 @@ func (r apiGetBootPchStorageDeviceByMoidRequest) Execute() (BootPchStorageDevice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2991,7 +2931,6 @@ func (r apiGetBootPchStorageDeviceListRequest) Execute() (BootPchStorageDeviceRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3001,7 +2940,6 @@ func (r apiGetBootPchStorageDeviceListRequest) Execute() (BootPchStorageDeviceRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3011,7 +2949,6 @@ func (r apiGetBootPchStorageDeviceListRequest) Execute() (BootPchStorageDeviceRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3021,7 +2958,6 @@ func (r apiGetBootPchStorageDeviceListRequest) Execute() (BootPchStorageDeviceRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3137,7 +3073,6 @@ func (r apiGetBootPrecisionPolicyByMoidRequest) Execute() (BootPrecisionPolicy, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3147,7 +3082,6 @@ func (r apiGetBootPrecisionPolicyByMoidRequest) Execute() (BootPrecisionPolicy, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3157,7 +3091,6 @@ func (r apiGetBootPrecisionPolicyByMoidRequest) Execute() (BootPrecisionPolicy, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3167,7 +3100,6 @@ func (r apiGetBootPrecisionPolicyByMoidRequest) Execute() (BootPrecisionPolicy, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3378,7 +3310,6 @@ func (r apiGetBootPrecisionPolicyListRequest) Execute() (BootPrecisionPolicyResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3388,7 +3319,6 @@ func (r apiGetBootPrecisionPolicyListRequest) Execute() (BootPrecisionPolicyResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3398,7 +3328,6 @@ func (r apiGetBootPrecisionPolicyListRequest) Execute() (BootPrecisionPolicyResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3408,7 +3337,6 @@ func (r apiGetBootPrecisionPolicyListRequest) Execute() (BootPrecisionPolicyResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3524,7 +3452,6 @@ func (r apiGetBootPxeDeviceByMoidRequest) Execute() (BootPxeDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3534,7 +3461,6 @@ func (r apiGetBootPxeDeviceByMoidRequest) Execute() (BootPxeDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3544,7 +3470,6 @@ func (r apiGetBootPxeDeviceByMoidRequest) Execute() (BootPxeDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3554,7 +3479,6 @@ func (r apiGetBootPxeDeviceByMoidRequest) Execute() (BootPxeDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3765,7 +3689,6 @@ func (r apiGetBootPxeDeviceListRequest) Execute() (BootPxeDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3775,7 +3698,6 @@ func (r apiGetBootPxeDeviceListRequest) Execute() (BootPxeDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3785,7 +3707,6 @@ func (r apiGetBootPxeDeviceListRequest) Execute() (BootPxeDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3795,7 +3716,6 @@ func (r apiGetBootPxeDeviceListRequest) Execute() (BootPxeDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3911,7 +3831,6 @@ func (r apiGetBootSanDeviceByMoidRequest) Execute() (BootSanDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3921,7 +3840,6 @@ func (r apiGetBootSanDeviceByMoidRequest) Execute() (BootSanDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3931,7 +3849,6 @@ func (r apiGetBootSanDeviceByMoidRequest) Execute() (BootSanDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3941,7 +3858,6 @@ func (r apiGetBootSanDeviceByMoidRequest) Execute() (BootSanDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4152,7 +4068,6 @@ func (r apiGetBootSanDeviceListRequest) Execute() (BootSanDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4162,7 +4077,6 @@ func (r apiGetBootSanDeviceListRequest) Execute() (BootSanDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4172,7 +4086,6 @@ func (r apiGetBootSanDeviceListRequest) Execute() (BootSanDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4182,7 +4095,6 @@ func (r apiGetBootSanDeviceListRequest) Execute() (BootSanDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4298,7 +4210,6 @@ func (r apiGetBootSdDeviceByMoidRequest) Execute() (BootSdDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4308,7 +4219,6 @@ func (r apiGetBootSdDeviceByMoidRequest) Execute() (BootSdDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4318,7 +4228,6 @@ func (r apiGetBootSdDeviceByMoidRequest) Execute() (BootSdDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4328,7 +4237,6 @@ func (r apiGetBootSdDeviceByMoidRequest) Execute() (BootSdDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4539,7 +4447,6 @@ func (r apiGetBootSdDeviceListRequest) Execute() (BootSdDeviceResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4549,7 +4456,6 @@ func (r apiGetBootSdDeviceListRequest) Execute() (BootSdDeviceResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4559,7 +4465,6 @@ func (r apiGetBootSdDeviceListRequest) Execute() (BootSdDeviceResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4569,7 +4474,6 @@ func (r apiGetBootSdDeviceListRequest) Execute() (BootSdDeviceResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4685,7 +4589,6 @@ func (r apiGetBootUefiShellDeviceByMoidRequest) Execute() (BootUefiShellDevice, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4695,7 +4598,6 @@ func (r apiGetBootUefiShellDeviceByMoidRequest) Execute() (BootUefiShellDevice, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4705,7 +4607,6 @@ func (r apiGetBootUefiShellDeviceByMoidRequest) Execute() (BootUefiShellDevice, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4715,7 +4616,6 @@ func (r apiGetBootUefiShellDeviceByMoidRequest) Execute() (BootUefiShellDevice, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4926,7 +4826,6 @@ func (r apiGetBootUefiShellDeviceListRequest) Execute() (BootUefiShellDeviceResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4936,7 +4835,6 @@ func (r apiGetBootUefiShellDeviceListRequest) Execute() (BootUefiShellDeviceResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4946,7 +4844,6 @@ func (r apiGetBootUefiShellDeviceListRequest) Execute() (BootUefiShellDeviceResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4956,7 +4853,6 @@ func (r apiGetBootUefiShellDeviceListRequest) Execute() (BootUefiShellDeviceResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5072,7 +4968,6 @@ func (r apiGetBootUsbDeviceByMoidRequest) Execute() (BootUsbDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5082,7 +4977,6 @@ func (r apiGetBootUsbDeviceByMoidRequest) Execute() (BootUsbDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5092,7 +4986,6 @@ func (r apiGetBootUsbDeviceByMoidRequest) Execute() (BootUsbDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5102,7 +4995,6 @@ func (r apiGetBootUsbDeviceByMoidRequest) Execute() (BootUsbDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5313,7 +5205,6 @@ func (r apiGetBootUsbDeviceListRequest) Execute() (BootUsbDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5323,7 +5214,6 @@ func (r apiGetBootUsbDeviceListRequest) Execute() (BootUsbDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5333,7 +5223,6 @@ func (r apiGetBootUsbDeviceListRequest) Execute() (BootUsbDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5343,7 +5232,6 @@ func (r apiGetBootUsbDeviceListRequest) Execute() (BootUsbDeviceResponse, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5459,7 +5347,6 @@ func (r apiGetBootVmediaDeviceByMoidRequest) Execute() (BootVmediaDevice, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5469,7 +5356,6 @@ func (r apiGetBootVmediaDeviceByMoidRequest) Execute() (BootVmediaDevice, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5479,7 +5365,6 @@ func (r apiGetBootVmediaDeviceByMoidRequest) Execute() (BootVmediaDevice, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5489,7 +5374,6 @@ func (r apiGetBootVmediaDeviceByMoidRequest) Execute() (BootVmediaDevice, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5700,7 +5584,6 @@ func (r apiGetBootVmediaDeviceListRequest) Execute() (BootVmediaDeviceResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5710,7 +5593,6 @@ func (r apiGetBootVmediaDeviceListRequest) Execute() (BootVmediaDeviceResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5720,7 +5602,6 @@ func (r apiGetBootVmediaDeviceListRequest) Execute() (BootVmediaDeviceResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5730,7 +5611,6 @@ func (r apiGetBootVmediaDeviceListRequest) Execute() (BootVmediaDeviceResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5867,7 +5747,6 @@ func (r apiPatchBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5877,7 +5756,6 @@ func (r apiPatchBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5887,7 +5765,6 @@ func (r apiPatchBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5897,7 +5774,6 @@ func (r apiPatchBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6034,7 +5910,6 @@ func (r apiPatchBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6044,7 +5919,6 @@ func (r apiPatchBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6054,7 +5928,6 @@ func (r apiPatchBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6064,7 +5937,6 @@ func (r apiPatchBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6201,7 +6073,6 @@ func (r apiPatchBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6211,7 +6082,6 @@ func (r apiPatchBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6221,7 +6091,6 @@ func (r apiPatchBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6231,7 +6100,6 @@ func (r apiPatchBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6368,7 +6236,6 @@ func (r apiPatchBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6378,7 +6245,6 @@ func (r apiPatchBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6388,7 +6254,6 @@ func (r apiPatchBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6398,7 +6263,6 @@ func (r apiPatchBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6535,7 +6399,6 @@ func (r apiPatchBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6545,7 +6408,6 @@ func (r apiPatchBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6555,7 +6417,6 @@ func (r apiPatchBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6565,7 +6426,6 @@ func (r apiPatchBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6702,7 +6562,6 @@ func (r apiPatchBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6712,7 +6571,6 @@ func (r apiPatchBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6722,7 +6580,6 @@ func (r apiPatchBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6732,7 +6589,6 @@ func (r apiPatchBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6869,7 +6725,6 @@ func (r apiPatchBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6879,7 +6734,6 @@ func (r apiPatchBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6889,7 +6743,6 @@ func (r apiPatchBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6899,7 +6752,6 @@ func (r apiPatchBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7036,7 +6888,6 @@ func (r apiPatchBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7046,7 +6897,6 @@ func (r apiPatchBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7056,7 +6906,6 @@ func (r apiPatchBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7066,7 +6915,6 @@ func (r apiPatchBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7203,7 +7051,6 @@ func (r apiPatchBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7213,7 +7060,6 @@ func (r apiPatchBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7223,7 +7069,6 @@ func (r apiPatchBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7233,7 +7078,6 @@ func (r apiPatchBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7370,7 +7214,6 @@ func (r apiPatchBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7380,7 +7223,6 @@ func (r apiPatchBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7390,7 +7232,6 @@ func (r apiPatchBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7400,7 +7241,6 @@ func (r apiPatchBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7537,7 +7377,6 @@ func (r apiPatchBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7547,7 +7386,6 @@ func (r apiPatchBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7557,7 +7395,6 @@ func (r apiPatchBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7567,7 +7404,6 @@ func (r apiPatchBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7704,7 +7540,6 @@ func (r apiPatchBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7714,7 +7549,6 @@ func (r apiPatchBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7724,7 +7558,6 @@ func (r apiPatchBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7734,7 +7567,6 @@ func (r apiPatchBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7871,7 +7703,6 @@ func (r apiPatchBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7881,7 +7712,6 @@ func (r apiPatchBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7891,7 +7721,6 @@ func (r apiPatchBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7901,7 +7730,6 @@ func (r apiPatchBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8038,7 +7866,6 @@ func (r apiPatchBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8048,7 +7875,6 @@ func (r apiPatchBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8058,7 +7884,6 @@ func (r apiPatchBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8068,7 +7893,6 @@ func (r apiPatchBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8205,7 +8029,6 @@ func (r apiUpdateBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8215,7 +8038,6 @@ func (r apiUpdateBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8225,7 +8047,6 @@ func (r apiUpdateBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8235,7 +8056,6 @@ func (r apiUpdateBootCddDeviceRequest) Execute() (BootCddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8372,7 +8192,6 @@ func (r apiUpdateBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8382,7 +8201,6 @@ func (r apiUpdateBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8392,7 +8210,6 @@ func (r apiUpdateBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8402,7 +8219,6 @@ func (r apiUpdateBootDeviceBootModeRequest) Execute() (BootDeviceBootMode, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8539,7 +8355,6 @@ func (r apiUpdateBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8549,7 +8364,6 @@ func (r apiUpdateBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8559,7 +8373,6 @@ func (r apiUpdateBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8569,7 +8382,6 @@ func (r apiUpdateBootDeviceBootSecurityRequest) Execute() (BootDeviceBootSecurit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8706,7 +8518,6 @@ func (r apiUpdateBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8716,7 +8527,6 @@ func (r apiUpdateBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8726,7 +8536,6 @@ func (r apiUpdateBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8736,7 +8545,6 @@ func (r apiUpdateBootHddDeviceRequest) Execute() (BootHddDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8873,7 +8681,6 @@ func (r apiUpdateBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8883,7 +8690,6 @@ func (r apiUpdateBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8893,7 +8699,6 @@ func (r apiUpdateBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8903,7 +8708,6 @@ func (r apiUpdateBootIscsiDeviceRequest) Execute() (BootIscsiDevice, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9040,7 +8844,6 @@ func (r apiUpdateBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Res
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9050,7 +8853,6 @@ func (r apiUpdateBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Res
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9060,7 +8862,6 @@ func (r apiUpdateBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Res
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9070,7 +8871,6 @@ func (r apiUpdateBootNvmeDeviceRequest) Execute() (BootNvmeDevice, *_nethttp.Res
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9207,7 +9007,6 @@ func (r apiUpdateBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9217,7 +9016,6 @@ func (r apiUpdateBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9227,7 +9025,6 @@ func (r apiUpdateBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9237,7 +9034,6 @@ func (r apiUpdateBootPchStorageDeviceRequest) Execute() (BootPchStorageDevice, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9374,7 +9170,6 @@ func (r apiUpdateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9384,7 +9179,6 @@ func (r apiUpdateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9394,7 +9188,6 @@ func (r apiUpdateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9404,7 +9197,6 @@ func (r apiUpdateBootPrecisionPolicyRequest) Execute() (BootPrecisionPolicy, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9541,7 +9333,6 @@ func (r apiUpdateBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9551,7 +9342,6 @@ func (r apiUpdateBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9561,7 +9351,6 @@ func (r apiUpdateBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9571,7 +9360,6 @@ func (r apiUpdateBootPxeDeviceRequest) Execute() (BootPxeDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9708,7 +9496,6 @@ func (r apiUpdateBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9718,7 +9505,6 @@ func (r apiUpdateBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9728,7 +9514,6 @@ func (r apiUpdateBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9738,7 +9523,6 @@ func (r apiUpdateBootSanDeviceRequest) Execute() (BootSanDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9875,7 +9659,6 @@ func (r apiUpdateBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9885,7 +9668,6 @@ func (r apiUpdateBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9895,7 +9677,6 @@ func (r apiUpdateBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9905,7 +9686,6 @@ func (r apiUpdateBootSdDeviceRequest) Execute() (BootSdDevice, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10042,7 +9822,6 @@ func (r apiUpdateBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10052,7 +9831,6 @@ func (r apiUpdateBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10062,7 +9840,6 @@ func (r apiUpdateBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10072,7 +9849,6 @@ func (r apiUpdateBootUefiShellDeviceRequest) Execute() (BootUefiShellDevice, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10209,7 +9985,6 @@ func (r apiUpdateBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10219,7 +9994,6 @@ func (r apiUpdateBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10229,7 +10003,6 @@ func (r apiUpdateBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10239,7 +10012,6 @@ func (r apiUpdateBootUsbDeviceRequest) Execute() (BootUsbDevice, *_nethttp.Respo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10376,7 +10148,6 @@ func (r apiUpdateBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10386,7 +10157,6 @@ func (r apiUpdateBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10396,7 +10166,6 @@ func (r apiUpdateBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10406,7 +10175,6 @@ func (r apiUpdateBootVmediaDeviceRequest) Execute() (BootVmediaDevice, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

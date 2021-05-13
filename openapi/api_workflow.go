@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -146,7 +146,6 @@ func (r apiCreateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -156,7 +155,6 @@ func (r apiCreateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -166,7 +164,6 @@ func (r apiCreateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -176,7 +173,6 @@ func (r apiCreateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -318,7 +314,6 @@ func (r apiCreateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -328,7 +323,6 @@ func (r apiCreateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -338,7 +332,6 @@ func (r apiCreateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -348,7 +341,6 @@ func (r apiCreateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -490,7 +482,6 @@ func (r apiCreateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -500,7 +491,6 @@ func (r apiCreateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -510,7 +500,6 @@ func (r apiCreateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -520,7 +509,6 @@ func (r apiCreateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -662,7 +650,6 @@ func (r apiCreateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -672,7 +659,6 @@ func (r apiCreateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -682,7 +668,6 @@ func (r apiCreateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -692,7 +677,6 @@ func (r apiCreateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -834,7 +818,6 @@ func (r apiCreateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -844,7 +827,6 @@ func (r apiCreateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -854,7 +836,6 @@ func (r apiCreateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -864,7 +845,174 @@ func (r apiCreateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiCreateWorkflowTemplateEvaluationRequest struct {
+	ctx                        _context.Context
+	apiService                 *WorkflowApiService
+	workflowTemplateEvaluation *WorkflowTemplateEvaluation
+	ifMatch                    *string
+	ifNoneMatch                *string
+}
+
+func (r apiCreateWorkflowTemplateEvaluationRequest) WorkflowTemplateEvaluation(workflowTemplateEvaluation WorkflowTemplateEvaluation) apiCreateWorkflowTemplateEvaluationRequest {
+	r.workflowTemplateEvaluation = &workflowTemplateEvaluation
+	return r
+}
+
+func (r apiCreateWorkflowTemplateEvaluationRequest) IfMatch(ifMatch string) apiCreateWorkflowTemplateEvaluationRequest {
+	r.ifMatch = &ifMatch
+	return r
+}
+
+func (r apiCreateWorkflowTemplateEvaluationRequest) IfNoneMatch(ifNoneMatch string) apiCreateWorkflowTemplateEvaluationRequest {
+	r.ifNoneMatch = &ifNoneMatch
+	return r
+}
+
+/*
+CreateWorkflowTemplateEvaluation Create a 'workflow.TemplateEvaluation' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiCreateWorkflowTemplateEvaluationRequest
+*/
+func (a *WorkflowApiService) CreateWorkflowTemplateEvaluation(ctx _context.Context) apiCreateWorkflowTemplateEvaluationRequest {
+	return apiCreateWorkflowTemplateEvaluationRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return WorkflowTemplateEvaluation
+*/
+func (r apiCreateWorkflowTemplateEvaluationRequest) Execute() (WorkflowTemplateEvaluation, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  WorkflowTemplateEvaluation
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "WorkflowApiService.CreateWorkflowTemplateEvaluation")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/workflow/TemplateEvaluations"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.workflowTemplateEvaluation == nil {
+		return localVarReturnValue, nil, reportError("workflowTemplateEvaluation is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ifMatch != nil {
+		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
+	}
+	if r.ifNoneMatch != nil {
+		localVarHeaderParams["If-None-Match"] = parameterToString(*r.ifNoneMatch, "")
+	}
+	// body params
+	localVarPostBody = r.workflowTemplateEvaluation
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1006,7 +1154,6 @@ func (r apiCreateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1016,7 +1163,6 @@ func (r apiCreateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1026,7 +1172,6 @@ func (r apiCreateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1036,7 +1181,6 @@ func (r apiCreateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1178,7 +1322,6 @@ func (r apiCreateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1188,7 +1331,6 @@ func (r apiCreateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1198,7 +1340,6 @@ func (r apiCreateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1208,7 +1349,6 @@ func (r apiCreateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1323,7 +1463,6 @@ func (r apiDeleteWorkflowBatchApiExecutorRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1333,7 +1472,6 @@ func (r apiDeleteWorkflowBatchApiExecutorRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1343,7 +1481,6 @@ func (r apiDeleteWorkflowBatchApiExecutorRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1353,7 +1490,6 @@ func (r apiDeleteWorkflowBatchApiExecutorRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1459,7 +1595,6 @@ func (r apiDeleteWorkflowCustomDataTypeDefinitionRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1469,7 +1604,6 @@ func (r apiDeleteWorkflowCustomDataTypeDefinitionRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1479,7 +1613,6 @@ func (r apiDeleteWorkflowCustomDataTypeDefinitionRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1489,7 +1622,6 @@ func (r apiDeleteWorkflowCustomDataTypeDefinitionRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1595,7 +1727,6 @@ func (r apiDeleteWorkflowErrorResponseHandlerRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1605,7 +1736,6 @@ func (r apiDeleteWorkflowErrorResponseHandlerRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1615,7 +1745,6 @@ func (r apiDeleteWorkflowErrorResponseHandlerRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1625,7 +1754,6 @@ func (r apiDeleteWorkflowErrorResponseHandlerRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1731,7 +1859,6 @@ func (r apiDeleteWorkflowRollbackWorkflowRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1741,7 +1868,6 @@ func (r apiDeleteWorkflowRollbackWorkflowRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1751,7 +1877,6 @@ func (r apiDeleteWorkflowRollbackWorkflowRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1761,7 +1886,6 @@ func (r apiDeleteWorkflowRollbackWorkflowRequest) Execute() (*_nethttp.Response,
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1867,7 +1991,6 @@ func (r apiDeleteWorkflowTaskDefinitionRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1877,7 +2000,6 @@ func (r apiDeleteWorkflowTaskDefinitionRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1887,7 +2009,6 @@ func (r apiDeleteWorkflowTaskDefinitionRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1897,7 +2018,6 @@ func (r apiDeleteWorkflowTaskDefinitionRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2003,7 +2123,6 @@ func (r apiDeleteWorkflowWorkflowDefinitionRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2013,7 +2132,6 @@ func (r apiDeleteWorkflowWorkflowDefinitionRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2023,7 +2141,6 @@ func (r apiDeleteWorkflowWorkflowDefinitionRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2033,7 +2150,6 @@ func (r apiDeleteWorkflowWorkflowDefinitionRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2139,7 +2255,6 @@ func (r apiDeleteWorkflowWorkflowInfoRequest) Execute() (*_nethttp.Response, err
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2149,7 +2264,6 @@ func (r apiDeleteWorkflowWorkflowInfoRequest) Execute() (*_nethttp.Response, err
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2159,7 +2273,6 @@ func (r apiDeleteWorkflowWorkflowInfoRequest) Execute() (*_nethttp.Response, err
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2169,7 +2282,6 @@ func (r apiDeleteWorkflowWorkflowInfoRequest) Execute() (*_nethttp.Response, err
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2276,7 +2388,6 @@ func (r apiGetWorkflowBatchApiExecutorByMoidRequest) Execute() (WorkflowBatchApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2286,7 +2397,6 @@ func (r apiGetWorkflowBatchApiExecutorByMoidRequest) Execute() (WorkflowBatchApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2296,7 +2406,6 @@ func (r apiGetWorkflowBatchApiExecutorByMoidRequest) Execute() (WorkflowBatchApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2306,7 +2415,6 @@ func (r apiGetWorkflowBatchApiExecutorByMoidRequest) Execute() (WorkflowBatchApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2517,7 +2625,6 @@ func (r apiGetWorkflowBatchApiExecutorListRequest) Execute() (WorkflowBatchApiEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2527,7 +2634,6 @@ func (r apiGetWorkflowBatchApiExecutorListRequest) Execute() (WorkflowBatchApiEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2537,7 +2643,6 @@ func (r apiGetWorkflowBatchApiExecutorListRequest) Execute() (WorkflowBatchApiEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2547,7 +2652,6 @@ func (r apiGetWorkflowBatchApiExecutorListRequest) Execute() (WorkflowBatchApiEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2663,7 +2767,6 @@ func (r apiGetWorkflowBuildTaskMetaByMoidRequest) Execute() (WorkflowBuildTaskMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2673,7 +2776,6 @@ func (r apiGetWorkflowBuildTaskMetaByMoidRequest) Execute() (WorkflowBuildTaskMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2683,7 +2785,6 @@ func (r apiGetWorkflowBuildTaskMetaByMoidRequest) Execute() (WorkflowBuildTaskMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2693,7 +2794,6 @@ func (r apiGetWorkflowBuildTaskMetaByMoidRequest) Execute() (WorkflowBuildTaskMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2904,7 +3004,6 @@ func (r apiGetWorkflowBuildTaskMetaListRequest) Execute() (WorkflowBuildTaskMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2914,7 +3013,6 @@ func (r apiGetWorkflowBuildTaskMetaListRequest) Execute() (WorkflowBuildTaskMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2924,7 +3022,6 @@ func (r apiGetWorkflowBuildTaskMetaListRequest) Execute() (WorkflowBuildTaskMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2934,7 +3031,6 @@ func (r apiGetWorkflowBuildTaskMetaListRequest) Execute() (WorkflowBuildTaskMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3050,7 +3146,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerByMoidRequest) Execute() (WorkflowBuildT
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3060,7 +3155,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerByMoidRequest) Execute() (WorkflowBuildT
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3070,7 +3164,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerByMoidRequest) Execute() (WorkflowBuildT
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3080,7 +3173,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerByMoidRequest) Execute() (WorkflowBuildT
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3291,7 +3383,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerListRequest) Execute() (WorkflowBuildTas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3301,7 +3392,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerListRequest) Execute() (WorkflowBuildTas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3311,7 +3401,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerListRequest) Execute() (WorkflowBuildTas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3321,7 +3410,6 @@ func (r apiGetWorkflowBuildTaskMetaOwnerListRequest) Execute() (WorkflowBuildTas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3437,7 +3525,6 @@ func (r apiGetWorkflowCatalogByMoidRequest) Execute() (WorkflowCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3447,7 +3534,6 @@ func (r apiGetWorkflowCatalogByMoidRequest) Execute() (WorkflowCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3457,7 +3543,6 @@ func (r apiGetWorkflowCatalogByMoidRequest) Execute() (WorkflowCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3467,7 +3552,6 @@ func (r apiGetWorkflowCatalogByMoidRequest) Execute() (WorkflowCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3678,7 +3762,6 @@ func (r apiGetWorkflowCatalogListRequest) Execute() (WorkflowCatalogResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3688,7 +3771,6 @@ func (r apiGetWorkflowCatalogListRequest) Execute() (WorkflowCatalogResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3698,7 +3780,6 @@ func (r apiGetWorkflowCatalogListRequest) Execute() (WorkflowCatalogResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3708,7 +3789,6 @@ func (r apiGetWorkflowCatalogListRequest) Execute() (WorkflowCatalogResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3824,7 +3904,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionByMoidRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3834,7 +3913,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionByMoidRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3844,7 +3922,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionByMoidRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3854,7 +3931,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionByMoidRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4065,7 +4141,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionListRequest) Execute() (WorkflowCu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4075,7 +4150,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionListRequest) Execute() (WorkflowCu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4085,7 +4159,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionListRequest) Execute() (WorkflowCu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4095,7 +4168,6 @@ func (r apiGetWorkflowCustomDataTypeDefinitionListRequest) Execute() (WorkflowCu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4211,7 +4283,6 @@ func (r apiGetWorkflowErrorResponseHandlerByMoidRequest) Execute() (WorkflowErro
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4221,7 +4292,6 @@ func (r apiGetWorkflowErrorResponseHandlerByMoidRequest) Execute() (WorkflowErro
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4231,7 +4301,6 @@ func (r apiGetWorkflowErrorResponseHandlerByMoidRequest) Execute() (WorkflowErro
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4241,7 +4310,6 @@ func (r apiGetWorkflowErrorResponseHandlerByMoidRequest) Execute() (WorkflowErro
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4452,7 +4520,6 @@ func (r apiGetWorkflowErrorResponseHandlerListRequest) Execute() (WorkflowErrorR
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4462,7 +4529,6 @@ func (r apiGetWorkflowErrorResponseHandlerListRequest) Execute() (WorkflowErrorR
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4472,7 +4538,6 @@ func (r apiGetWorkflowErrorResponseHandlerListRequest) Execute() (WorkflowErrorR
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4482,7 +4547,6 @@ func (r apiGetWorkflowErrorResponseHandlerListRequest) Execute() (WorkflowErrorR
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4598,7 +4662,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoByMoidRequest) Execute() (Workfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4608,7 +4671,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoByMoidRequest) Execute() (Workfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4618,7 +4680,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoByMoidRequest) Execute() (Workfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4628,7 +4689,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoByMoidRequest) Execute() (Workfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4839,7 +4899,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoListRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4849,7 +4908,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoListRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4859,7 +4917,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoListRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4869,7 +4926,6 @@ func (r apiGetWorkflowPendingDynamicWorkflowInfoListRequest) Execute() (Workflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4985,7 +5041,6 @@ func (r apiGetWorkflowRollbackWorkflowByMoidRequest) Execute() (WorkflowRollback
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4995,7 +5050,6 @@ func (r apiGetWorkflowRollbackWorkflowByMoidRequest) Execute() (WorkflowRollback
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5005,7 +5059,6 @@ func (r apiGetWorkflowRollbackWorkflowByMoidRequest) Execute() (WorkflowRollback
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5015,7 +5068,6 @@ func (r apiGetWorkflowRollbackWorkflowByMoidRequest) Execute() (WorkflowRollback
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5226,7 +5278,6 @@ func (r apiGetWorkflowRollbackWorkflowListRequest) Execute() (WorkflowRollbackWo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5236,7 +5287,6 @@ func (r apiGetWorkflowRollbackWorkflowListRequest) Execute() (WorkflowRollbackWo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5246,7 +5296,6 @@ func (r apiGetWorkflowRollbackWorkflowListRequest) Execute() (WorkflowRollbackWo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5256,7 +5305,385 @@ func (r apiGetWorkflowRollbackWorkflowListRequest) Execute() (WorkflowRollbackWo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetWorkflowTaskDebugLogByMoidRequest struct {
+	ctx        _context.Context
+	apiService *WorkflowApiService
+	moid       string
+}
+
+/*
+GetWorkflowTaskDebugLogByMoid Read a 'workflow.TaskDebugLog' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiGetWorkflowTaskDebugLogByMoidRequest
+*/
+func (a *WorkflowApiService) GetWorkflowTaskDebugLogByMoid(ctx _context.Context, moid string) apiGetWorkflowTaskDebugLogByMoidRequest {
+	return apiGetWorkflowTaskDebugLogByMoidRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return WorkflowTaskDebugLog
+*/
+func (r apiGetWorkflowTaskDebugLogByMoidRequest) Execute() (WorkflowTaskDebugLog, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  WorkflowTaskDebugLog
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "WorkflowApiService.GetWorkflowTaskDebugLogByMoid")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/workflow/TaskDebugLogs/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetWorkflowTaskDebugLogListRequest struct {
+	ctx         _context.Context
+	apiService  *WorkflowApiService
+	filter      *string
+	orderby     *string
+	top         *int32
+	skip        *int32
+	select_     *string
+	expand      *string
+	apply       *string
+	count       *bool
+	inlinecount *string
+	at          *string
+	tags        *string
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Filter(filter string) apiGetWorkflowTaskDebugLogListRequest {
+	r.filter = &filter
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Orderby(orderby string) apiGetWorkflowTaskDebugLogListRequest {
+	r.orderby = &orderby
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Top(top int32) apiGetWorkflowTaskDebugLogListRequest {
+	r.top = &top
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Skip(skip int32) apiGetWorkflowTaskDebugLogListRequest {
+	r.skip = &skip
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Select_(select_ string) apiGetWorkflowTaskDebugLogListRequest {
+	r.select_ = &select_
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Expand(expand string) apiGetWorkflowTaskDebugLogListRequest {
+	r.expand = &expand
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Apply(apply string) apiGetWorkflowTaskDebugLogListRequest {
+	r.apply = &apply
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Count(count bool) apiGetWorkflowTaskDebugLogListRequest {
+	r.count = &count
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Inlinecount(inlinecount string) apiGetWorkflowTaskDebugLogListRequest {
+	r.inlinecount = &inlinecount
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) At(at string) apiGetWorkflowTaskDebugLogListRequest {
+	r.at = &at
+	return r
+}
+
+func (r apiGetWorkflowTaskDebugLogListRequest) Tags(tags string) apiGetWorkflowTaskDebugLogListRequest {
+	r.tags = &tags
+	return r
+}
+
+/*
+GetWorkflowTaskDebugLogList Read a 'workflow.TaskDebugLog' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiGetWorkflowTaskDebugLogListRequest
+*/
+func (a *WorkflowApiService) GetWorkflowTaskDebugLogList(ctx _context.Context) apiGetWorkflowTaskDebugLogListRequest {
+	return apiGetWorkflowTaskDebugLogListRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return WorkflowTaskDebugLogResponse
+*/
+func (r apiGetWorkflowTaskDebugLogListRequest) Execute() (WorkflowTaskDebugLogResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  WorkflowTaskDebugLogResponse
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "WorkflowApiService.GetWorkflowTaskDebugLogList")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/workflow/TaskDebugLogs"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.filter != nil {
+		localVarQueryParams.Add("$filter", parameterToString(*r.filter, ""))
+	}
+	if r.orderby != nil {
+		localVarQueryParams.Add("$orderby", parameterToString(*r.orderby, ""))
+	}
+	if r.top != nil {
+		localVarQueryParams.Add("$top", parameterToString(*r.top, ""))
+	}
+	if r.skip != nil {
+		localVarQueryParams.Add("$skip", parameterToString(*r.skip, ""))
+	}
+	if r.select_ != nil {
+		localVarQueryParams.Add("$select", parameterToString(*r.select_, ""))
+	}
+	if r.expand != nil {
+		localVarQueryParams.Add("$expand", parameterToString(*r.expand, ""))
+	}
+	if r.apply != nil {
+		localVarQueryParams.Add("$apply", parameterToString(*r.apply, ""))
+	}
+	if r.count != nil {
+		localVarQueryParams.Add("$count", parameterToString(*r.count, ""))
+	}
+	if r.inlinecount != nil {
+		localVarQueryParams.Add("$inlinecount", parameterToString(*r.inlinecount, ""))
+	}
+	if r.at != nil {
+		localVarQueryParams.Add("at", parameterToString(*r.at, ""))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5372,7 +5799,6 @@ func (r apiGetWorkflowTaskDefinitionByMoidRequest) Execute() (WorkflowTaskDefini
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5382,7 +5808,6 @@ func (r apiGetWorkflowTaskDefinitionByMoidRequest) Execute() (WorkflowTaskDefini
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5392,7 +5817,6 @@ func (r apiGetWorkflowTaskDefinitionByMoidRequest) Execute() (WorkflowTaskDefini
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5402,7 +5826,6 @@ func (r apiGetWorkflowTaskDefinitionByMoidRequest) Execute() (WorkflowTaskDefini
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5613,7 +6036,6 @@ func (r apiGetWorkflowTaskDefinitionListRequest) Execute() (WorkflowTaskDefiniti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5623,7 +6045,6 @@ func (r apiGetWorkflowTaskDefinitionListRequest) Execute() (WorkflowTaskDefiniti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5633,7 +6054,6 @@ func (r apiGetWorkflowTaskDefinitionListRequest) Execute() (WorkflowTaskDefiniti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5643,7 +6063,6 @@ func (r apiGetWorkflowTaskDefinitionListRequest) Execute() (WorkflowTaskDefiniti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5759,7 +6178,6 @@ func (r apiGetWorkflowTaskInfoByMoidRequest) Execute() (WorkflowTaskInfo, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5769,7 +6187,6 @@ func (r apiGetWorkflowTaskInfoByMoidRequest) Execute() (WorkflowTaskInfo, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5779,7 +6196,6 @@ func (r apiGetWorkflowTaskInfoByMoidRequest) Execute() (WorkflowTaskInfo, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5789,7 +6205,6 @@ func (r apiGetWorkflowTaskInfoByMoidRequest) Execute() (WorkflowTaskInfo, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6000,7 +6415,6 @@ func (r apiGetWorkflowTaskInfoListRequest) Execute() (WorkflowTaskInfoResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6010,7 +6424,6 @@ func (r apiGetWorkflowTaskInfoListRequest) Execute() (WorkflowTaskInfoResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6020,7 +6433,6 @@ func (r apiGetWorkflowTaskInfoListRequest) Execute() (WorkflowTaskInfoResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6030,7 +6442,6 @@ func (r apiGetWorkflowTaskInfoListRequest) Execute() (WorkflowTaskInfoResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6146,7 +6557,6 @@ func (r apiGetWorkflowTaskMetadataByMoidRequest) Execute() (WorkflowTaskMetadata
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6156,7 +6566,6 @@ func (r apiGetWorkflowTaskMetadataByMoidRequest) Execute() (WorkflowTaskMetadata
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6166,7 +6575,6 @@ func (r apiGetWorkflowTaskMetadataByMoidRequest) Execute() (WorkflowTaskMetadata
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6176,7 +6584,6 @@ func (r apiGetWorkflowTaskMetadataByMoidRequest) Execute() (WorkflowTaskMetadata
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6387,7 +6794,6 @@ func (r apiGetWorkflowTaskMetadataListRequest) Execute() (WorkflowTaskMetadataRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6397,7 +6803,6 @@ func (r apiGetWorkflowTaskMetadataListRequest) Execute() (WorkflowTaskMetadataRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6407,7 +6812,6 @@ func (r apiGetWorkflowTaskMetadataListRequest) Execute() (WorkflowTaskMetadataRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6417,7 +6821,385 @@ func (r apiGetWorkflowTaskMetadataListRequest) Execute() (WorkflowTaskMetadataRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetWorkflowTemplateFunctionMetaByMoidRequest struct {
+	ctx        _context.Context
+	apiService *WorkflowApiService
+	moid       string
+}
+
+/*
+GetWorkflowTemplateFunctionMetaByMoid Read a 'workflow.TemplateFunctionMeta' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiGetWorkflowTemplateFunctionMetaByMoidRequest
+*/
+func (a *WorkflowApiService) GetWorkflowTemplateFunctionMetaByMoid(ctx _context.Context, moid string) apiGetWorkflowTemplateFunctionMetaByMoidRequest {
+	return apiGetWorkflowTemplateFunctionMetaByMoidRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return WorkflowTemplateFunctionMeta
+*/
+func (r apiGetWorkflowTemplateFunctionMetaByMoidRequest) Execute() (WorkflowTemplateFunctionMeta, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  WorkflowTemplateFunctionMeta
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "WorkflowApiService.GetWorkflowTemplateFunctionMetaByMoid")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/workflow/TemplateFunctionMeta/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetWorkflowTemplateFunctionMetaListRequest struct {
+	ctx         _context.Context
+	apiService  *WorkflowApiService
+	filter      *string
+	orderby     *string
+	top         *int32
+	skip        *int32
+	select_     *string
+	expand      *string
+	apply       *string
+	count       *bool
+	inlinecount *string
+	at          *string
+	tags        *string
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Filter(filter string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.filter = &filter
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Orderby(orderby string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.orderby = &orderby
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Top(top int32) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.top = &top
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Skip(skip int32) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.skip = &skip
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Select_(select_ string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.select_ = &select_
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Expand(expand string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.expand = &expand
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Apply(apply string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.apply = &apply
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Count(count bool) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.count = &count
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Inlinecount(inlinecount string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.inlinecount = &inlinecount
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) At(at string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.at = &at
+	return r
+}
+
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Tags(tags string) apiGetWorkflowTemplateFunctionMetaListRequest {
+	r.tags = &tags
+	return r
+}
+
+/*
+GetWorkflowTemplateFunctionMetaList Read a 'workflow.TemplateFunctionMeta' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiGetWorkflowTemplateFunctionMetaListRequest
+*/
+func (a *WorkflowApiService) GetWorkflowTemplateFunctionMetaList(ctx _context.Context) apiGetWorkflowTemplateFunctionMetaListRequest {
+	return apiGetWorkflowTemplateFunctionMetaListRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return WorkflowTemplateFunctionMetaResponse
+*/
+func (r apiGetWorkflowTemplateFunctionMetaListRequest) Execute() (WorkflowTemplateFunctionMetaResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  WorkflowTemplateFunctionMetaResponse
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "WorkflowApiService.GetWorkflowTemplateFunctionMetaList")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/workflow/TemplateFunctionMeta"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.filter != nil {
+		localVarQueryParams.Add("$filter", parameterToString(*r.filter, ""))
+	}
+	if r.orderby != nil {
+		localVarQueryParams.Add("$orderby", parameterToString(*r.orderby, ""))
+	}
+	if r.top != nil {
+		localVarQueryParams.Add("$top", parameterToString(*r.top, ""))
+	}
+	if r.skip != nil {
+		localVarQueryParams.Add("$skip", parameterToString(*r.skip, ""))
+	}
+	if r.select_ != nil {
+		localVarQueryParams.Add("$select", parameterToString(*r.select_, ""))
+	}
+	if r.expand != nil {
+		localVarQueryParams.Add("$expand", parameterToString(*r.expand, ""))
+	}
+	if r.apply != nil {
+		localVarQueryParams.Add("$apply", parameterToString(*r.apply, ""))
+	}
+	if r.count != nil {
+		localVarQueryParams.Add("$count", parameterToString(*r.count, ""))
+	}
+	if r.inlinecount != nil {
+		localVarQueryParams.Add("$inlinecount", parameterToString(*r.inlinecount, ""))
+	}
+	if r.at != nil {
+		localVarQueryParams.Add("at", parameterToString(*r.at, ""))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6533,7 +7315,6 @@ func (r apiGetWorkflowWorkflowDefinitionByMoidRequest) Execute() (WorkflowWorkfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6543,7 +7324,6 @@ func (r apiGetWorkflowWorkflowDefinitionByMoidRequest) Execute() (WorkflowWorkfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6553,7 +7333,6 @@ func (r apiGetWorkflowWorkflowDefinitionByMoidRequest) Execute() (WorkflowWorkfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6563,7 +7342,6 @@ func (r apiGetWorkflowWorkflowDefinitionByMoidRequest) Execute() (WorkflowWorkfl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6774,7 +7552,6 @@ func (r apiGetWorkflowWorkflowDefinitionListRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6784,7 +7561,6 @@ func (r apiGetWorkflowWorkflowDefinitionListRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6794,7 +7570,6 @@ func (r apiGetWorkflowWorkflowDefinitionListRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6804,7 +7579,6 @@ func (r apiGetWorkflowWorkflowDefinitionListRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6920,7 +7694,6 @@ func (r apiGetWorkflowWorkflowInfoByMoidRequest) Execute() (WorkflowWorkflowInfo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6930,7 +7703,6 @@ func (r apiGetWorkflowWorkflowInfoByMoidRequest) Execute() (WorkflowWorkflowInfo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6940,7 +7712,6 @@ func (r apiGetWorkflowWorkflowInfoByMoidRequest) Execute() (WorkflowWorkflowInfo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6950,7 +7721,6 @@ func (r apiGetWorkflowWorkflowInfoByMoidRequest) Execute() (WorkflowWorkflowInfo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7161,7 +7931,6 @@ func (r apiGetWorkflowWorkflowInfoListRequest) Execute() (WorkflowWorkflowInfoRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7171,7 +7940,6 @@ func (r apiGetWorkflowWorkflowInfoListRequest) Execute() (WorkflowWorkflowInfoRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7181,7 +7949,6 @@ func (r apiGetWorkflowWorkflowInfoListRequest) Execute() (WorkflowWorkflowInfoRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7191,7 +7958,6 @@ func (r apiGetWorkflowWorkflowInfoListRequest) Execute() (WorkflowWorkflowInfoRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7307,7 +8073,6 @@ func (r apiGetWorkflowWorkflowMetaByMoidRequest) Execute() (WorkflowWorkflowMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7317,7 +8082,6 @@ func (r apiGetWorkflowWorkflowMetaByMoidRequest) Execute() (WorkflowWorkflowMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7327,7 +8091,6 @@ func (r apiGetWorkflowWorkflowMetaByMoidRequest) Execute() (WorkflowWorkflowMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7337,7 +8100,6 @@ func (r apiGetWorkflowWorkflowMetaByMoidRequest) Execute() (WorkflowWorkflowMeta
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7548,7 +8310,6 @@ func (r apiGetWorkflowWorkflowMetaListRequest) Execute() (WorkflowWorkflowMetaRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7558,7 +8319,6 @@ func (r apiGetWorkflowWorkflowMetaListRequest) Execute() (WorkflowWorkflowMetaRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7568,7 +8328,6 @@ func (r apiGetWorkflowWorkflowMetaListRequest) Execute() (WorkflowWorkflowMetaRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7578,7 +8337,6 @@ func (r apiGetWorkflowWorkflowMetaListRequest) Execute() (WorkflowWorkflowMetaRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7694,7 +8452,6 @@ func (r apiGetWorkflowWorkflowMetadataByMoidRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7704,7 +8461,6 @@ func (r apiGetWorkflowWorkflowMetadataByMoidRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7714,7 +8470,6 @@ func (r apiGetWorkflowWorkflowMetadataByMoidRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7724,7 +8479,6 @@ func (r apiGetWorkflowWorkflowMetadataByMoidRequest) Execute() (WorkflowWorkflow
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7935,7 +8689,6 @@ func (r apiGetWorkflowWorkflowMetadataListRequest) Execute() (WorkflowWorkflowMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7945,7 +8698,6 @@ func (r apiGetWorkflowWorkflowMetadataListRequest) Execute() (WorkflowWorkflowMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7955,7 +8707,6 @@ func (r apiGetWorkflowWorkflowMetadataListRequest) Execute() (WorkflowWorkflowMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7965,7 +8716,6 @@ func (r apiGetWorkflowWorkflowMetadataListRequest) Execute() (WorkflowWorkflowMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8102,7 +8852,6 @@ func (r apiPatchWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8112,7 +8861,6 @@ func (r apiPatchWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8122,7 +8870,6 @@ func (r apiPatchWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8132,7 +8879,6 @@ func (r apiPatchWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8269,7 +9015,6 @@ func (r apiPatchWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCust
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8279,7 +9024,6 @@ func (r apiPatchWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCust
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8289,7 +9033,6 @@ func (r apiPatchWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCust
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8299,7 +9042,6 @@ func (r apiPatchWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCust
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8436,7 +9178,6 @@ func (r apiPatchWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8446,7 +9187,6 @@ func (r apiPatchWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8456,7 +9196,6 @@ func (r apiPatchWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8466,7 +9205,6 @@ func (r apiPatchWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8603,7 +9341,6 @@ func (r apiPatchWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWork
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8613,7 +9350,6 @@ func (r apiPatchWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWork
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8623,7 +9359,6 @@ func (r apiPatchWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWork
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8633,7 +9368,6 @@ func (r apiPatchWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWork
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8770,7 +9504,6 @@ func (r apiPatchWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinition
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8780,7 +9513,6 @@ func (r apiPatchWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinition
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8790,7 +9522,6 @@ func (r apiPatchWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinition
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8800,7 +9531,6 @@ func (r apiPatchWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinition
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8937,7 +9667,6 @@ func (r apiPatchWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8947,7 +9676,6 @@ func (r apiPatchWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8957,7 +9685,6 @@ func (r apiPatchWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8967,7 +9694,6 @@ func (r apiPatchWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9104,7 +9830,6 @@ func (r apiPatchWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9114,7 +9839,6 @@ func (r apiPatchWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9124,7 +9848,6 @@ func (r apiPatchWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9134,7 +9857,6 @@ func (r apiPatchWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9271,7 +9993,6 @@ func (r apiPatchWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9281,7 +10002,6 @@ func (r apiPatchWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9291,7 +10011,6 @@ func (r apiPatchWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9301,7 +10020,6 @@ func (r apiPatchWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9438,7 +10156,6 @@ func (r apiUpdateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9448,7 +10165,6 @@ func (r apiUpdateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9458,7 +10174,6 @@ func (r apiUpdateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9468,7 +10183,6 @@ func (r apiUpdateWorkflowBatchApiExecutorRequest) Execute() (WorkflowBatchApiExe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9605,7 +10319,6 @@ func (r apiUpdateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9615,7 +10328,6 @@ func (r apiUpdateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9625,7 +10337,6 @@ func (r apiUpdateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9635,7 +10346,6 @@ func (r apiUpdateWorkflowCustomDataTypeDefinitionRequest) Execute() (WorkflowCus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9772,7 +10482,6 @@ func (r apiUpdateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9782,7 +10491,6 @@ func (r apiUpdateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9792,7 +10500,6 @@ func (r apiUpdateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9802,7 +10509,6 @@ func (r apiUpdateWorkflowErrorResponseHandlerRequest) Execute() (WorkflowErrorRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9939,7 +10645,6 @@ func (r apiUpdateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9949,7 +10654,6 @@ func (r apiUpdateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9959,7 +10663,6 @@ func (r apiUpdateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9969,7 +10672,6 @@ func (r apiUpdateWorkflowRollbackWorkflowRequest) Execute() (WorkflowRollbackWor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10106,7 +10808,6 @@ func (r apiUpdateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10116,7 +10817,6 @@ func (r apiUpdateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10126,7 +10826,6 @@ func (r apiUpdateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10136,7 +10835,6 @@ func (r apiUpdateWorkflowTaskDefinitionRequest) Execute() (WorkflowTaskDefinitio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10273,7 +10971,6 @@ func (r apiUpdateWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10283,7 +10980,6 @@ func (r apiUpdateWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10293,7 +10989,6 @@ func (r apiUpdateWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10303,7 +10998,6 @@ func (r apiUpdateWorkflowTaskInfoRequest) Execute() (WorkflowTaskInfo, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10440,7 +11134,6 @@ func (r apiUpdateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10450,7 +11143,6 @@ func (r apiUpdateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10460,7 +11152,6 @@ func (r apiUpdateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10470,7 +11161,6 @@ func (r apiUpdateWorkflowWorkflowDefinitionRequest) Execute() (WorkflowWorkflowD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10607,7 +11297,6 @@ func (r apiUpdateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10617,7 +11306,6 @@ func (r apiUpdateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10627,7 +11315,6 @@ func (r apiUpdateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10637,7 +11324,6 @@ func (r apiUpdateWorkflowWorkflowInfoRequest) Execute() (WorkflowWorkflowInfo, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

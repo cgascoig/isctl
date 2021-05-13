@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -22,10 +22,10 @@ type VirtualizationBaseVirtualDiskAllOf struct {
 	ClassId string `json:"ClassId" yaml:"ClassId"`
 	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property. The enum values provides the list of concrete types that can be instantiated from this abstract type.
 	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
-	// Disk capacity represented in bytes.
-	Capacity *int64 `json:"Capacity,omitempty" yaml:"Capacity,omitempty"`
 	// Name of the storage disk. Name must be unique within a Datastore.
 	Name *string `json:"Name,omitempty" yaml:"Name,omitempty"`
+	// Disk size represented in bytes.
+	Size *int64 `json:"Size,omitempty" yaml:"Size,omitempty"`
 }
 
 // NewVirtualizationBaseVirtualDiskAllOf instantiates a new VirtualizationBaseVirtualDiskAllOf object
@@ -44,10 +44,6 @@ func NewVirtualizationBaseVirtualDiskAllOf(classId string, objectType string) *V
 // but it doesn't guarantee that properties required by API are set
 func NewVirtualizationBaseVirtualDiskAllOfWithDefaults() *VirtualizationBaseVirtualDiskAllOf {
 	this := VirtualizationBaseVirtualDiskAllOf{}
-	var classId string = "hyperflex.HxapVirtualDisk"
-	this.ClassId = classId
-	var objectType string = "hyperflex.HxapVirtualDisk"
-	this.ObjectType = objectType
 	return &this
 }
 
@@ -99,38 +95,6 @@ func (o *VirtualizationBaseVirtualDiskAllOf) SetObjectType(v string) {
 	o.ObjectType = v
 }
 
-// GetCapacity returns the Capacity field value if set, zero value otherwise.
-func (o *VirtualizationBaseVirtualDiskAllOf) GetCapacity() int64 {
-	if o == nil || o.Capacity == nil {
-		var ret int64
-		return ret
-	}
-	return *o.Capacity
-}
-
-// GetCapacityOk returns a tuple with the Capacity field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *VirtualizationBaseVirtualDiskAllOf) GetCapacityOk() (*int64, bool) {
-	if o == nil || o.Capacity == nil {
-		return nil, false
-	}
-	return o.Capacity, true
-}
-
-// HasCapacity returns a boolean if a field has been set.
-func (o *VirtualizationBaseVirtualDiskAllOf) HasCapacity() bool {
-	if o != nil && o.Capacity != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetCapacity gets a reference to the given int64 and assigns it to the Capacity field.
-func (o *VirtualizationBaseVirtualDiskAllOf) SetCapacity(v int64) {
-	o.Capacity = &v
-}
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *VirtualizationBaseVirtualDiskAllOf) GetName() string {
 	if o == nil || o.Name == nil {
@@ -163,6 +127,38 @@ func (o *VirtualizationBaseVirtualDiskAllOf) SetName(v string) {
 	o.Name = &v
 }
 
+// GetSize returns the Size field value if set, zero value otherwise.
+func (o *VirtualizationBaseVirtualDiskAllOf) GetSize() int64 {
+	if o == nil || o.Size == nil {
+		var ret int64
+		return ret
+	}
+	return *o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VirtualizationBaseVirtualDiskAllOf) GetSizeOk() (*int64, bool) {
+	if o == nil || o.Size == nil {
+		return nil, false
+	}
+	return o.Size, true
+}
+
+// HasSize returns a boolean if a field has been set.
+func (o *VirtualizationBaseVirtualDiskAllOf) HasSize() bool {
+	if o != nil && o.Size != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given int64 and assigns it to the Size field.
+func (o *VirtualizationBaseVirtualDiskAllOf) SetSize(v int64) {
+	o.Size = &v
+}
+
 func (o VirtualizationBaseVirtualDiskAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -171,11 +167,11 @@ func (o VirtualizationBaseVirtualDiskAllOf) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["ObjectType"] = o.ObjectType
 	}
-	if o.Capacity != nil {
-		toSerialize["Capacity"] = o.Capacity
-	}
 	if o.Name != nil {
 		toSerialize["Name"] = o.Name
+	}
+	if o.Size != nil {
+		toSerialize["Size"] = o.Size
 	}
 	return json.Marshal(toSerialize)
 }

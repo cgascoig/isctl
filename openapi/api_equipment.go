@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -120,7 +120,6 @@ func (r apiGetEquipmentChassisByMoidRequest) Execute() (EquipmentChassis, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -130,7 +129,6 @@ func (r apiGetEquipmentChassisByMoidRequest) Execute() (EquipmentChassis, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -140,7 +138,6 @@ func (r apiGetEquipmentChassisByMoidRequest) Execute() (EquipmentChassis, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -150,7 +147,6 @@ func (r apiGetEquipmentChassisByMoidRequest) Execute() (EquipmentChassis, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -266,7 +262,6 @@ func (r apiGetEquipmentChassisIdentityByMoidRequest) Execute() (EquipmentChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -276,7 +271,6 @@ func (r apiGetEquipmentChassisIdentityByMoidRequest) Execute() (EquipmentChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -286,7 +280,6 @@ func (r apiGetEquipmentChassisIdentityByMoidRequest) Execute() (EquipmentChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -296,7 +289,6 @@ func (r apiGetEquipmentChassisIdentityByMoidRequest) Execute() (EquipmentChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -507,7 +499,6 @@ func (r apiGetEquipmentChassisIdentityListRequest) Execute() (EquipmentChassisId
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -517,7 +508,6 @@ func (r apiGetEquipmentChassisIdentityListRequest) Execute() (EquipmentChassisId
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -527,7 +517,6 @@ func (r apiGetEquipmentChassisIdentityListRequest) Execute() (EquipmentChassisId
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -537,7 +526,6 @@ func (r apiGetEquipmentChassisIdentityListRequest) Execute() (EquipmentChassisId
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -748,7 +736,6 @@ func (r apiGetEquipmentChassisListRequest) Execute() (EquipmentChassisResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -758,7 +745,6 @@ func (r apiGetEquipmentChassisListRequest) Execute() (EquipmentChassisResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -768,7 +754,6 @@ func (r apiGetEquipmentChassisListRequest) Execute() (EquipmentChassisResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -778,7 +763,6 @@ func (r apiGetEquipmentChassisListRequest) Execute() (EquipmentChassisResponse, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -894,7 +878,6 @@ func (r apiGetEquipmentChassisOperationByMoidRequest) Execute() (EquipmentChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -904,7 +887,6 @@ func (r apiGetEquipmentChassisOperationByMoidRequest) Execute() (EquipmentChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -914,7 +896,6 @@ func (r apiGetEquipmentChassisOperationByMoidRequest) Execute() (EquipmentChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -924,7 +905,6 @@ func (r apiGetEquipmentChassisOperationByMoidRequest) Execute() (EquipmentChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1135,7 +1115,6 @@ func (r apiGetEquipmentChassisOperationListRequest) Execute() (EquipmentChassisO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1145,7 +1124,6 @@ func (r apiGetEquipmentChassisOperationListRequest) Execute() (EquipmentChassisO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1155,7 +1133,6 @@ func (r apiGetEquipmentChassisOperationListRequest) Execute() (EquipmentChassisO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1165,7 +1142,6 @@ func (r apiGetEquipmentChassisOperationListRequest) Execute() (EquipmentChassisO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1281,7 +1257,6 @@ func (r apiGetEquipmentDeviceSummaryByMoidRequest) Execute() (EquipmentDeviceSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1291,7 +1266,6 @@ func (r apiGetEquipmentDeviceSummaryByMoidRequest) Execute() (EquipmentDeviceSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1301,7 +1275,6 @@ func (r apiGetEquipmentDeviceSummaryByMoidRequest) Execute() (EquipmentDeviceSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1311,7 +1284,6 @@ func (r apiGetEquipmentDeviceSummaryByMoidRequest) Execute() (EquipmentDeviceSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1522,7 +1494,6 @@ func (r apiGetEquipmentDeviceSummaryListRequest) Execute() (EquipmentDeviceSumma
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1532,7 +1503,6 @@ func (r apiGetEquipmentDeviceSummaryListRequest) Execute() (EquipmentDeviceSumma
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1542,7 +1512,6 @@ func (r apiGetEquipmentDeviceSummaryListRequest) Execute() (EquipmentDeviceSumma
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1552,7 +1521,6 @@ func (r apiGetEquipmentDeviceSummaryListRequest) Execute() (EquipmentDeviceSumma
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1668,7 +1636,6 @@ func (r apiGetEquipmentFanByMoidRequest) Execute() (EquipmentFan, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1678,7 +1645,6 @@ func (r apiGetEquipmentFanByMoidRequest) Execute() (EquipmentFan, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1688,7 +1654,6 @@ func (r apiGetEquipmentFanByMoidRequest) Execute() (EquipmentFan, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1698,7 +1663,6 @@ func (r apiGetEquipmentFanByMoidRequest) Execute() (EquipmentFan, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1909,7 +1873,6 @@ func (r apiGetEquipmentFanListRequest) Execute() (EquipmentFanResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1919,7 +1882,6 @@ func (r apiGetEquipmentFanListRequest) Execute() (EquipmentFanResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1929,7 +1891,6 @@ func (r apiGetEquipmentFanListRequest) Execute() (EquipmentFanResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1939,7 +1900,6 @@ func (r apiGetEquipmentFanListRequest) Execute() (EquipmentFanResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2055,7 +2015,6 @@ func (r apiGetEquipmentFanModuleByMoidRequest) Execute() (EquipmentFanModule, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2065,7 +2024,6 @@ func (r apiGetEquipmentFanModuleByMoidRequest) Execute() (EquipmentFanModule, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2075,7 +2033,6 @@ func (r apiGetEquipmentFanModuleByMoidRequest) Execute() (EquipmentFanModule, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2085,7 +2042,6 @@ func (r apiGetEquipmentFanModuleByMoidRequest) Execute() (EquipmentFanModule, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2296,7 +2252,6 @@ func (r apiGetEquipmentFanModuleListRequest) Execute() (EquipmentFanModuleRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2306,7 +2261,6 @@ func (r apiGetEquipmentFanModuleListRequest) Execute() (EquipmentFanModuleRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2316,7 +2270,6 @@ func (r apiGetEquipmentFanModuleListRequest) Execute() (EquipmentFanModuleRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2326,7 +2279,6 @@ func (r apiGetEquipmentFanModuleListRequest) Execute() (EquipmentFanModuleRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2442,7 +2394,6 @@ func (r apiGetEquipmentFexByMoidRequest) Execute() (EquipmentFex, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2452,7 +2403,6 @@ func (r apiGetEquipmentFexByMoidRequest) Execute() (EquipmentFex, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2462,7 +2412,6 @@ func (r apiGetEquipmentFexByMoidRequest) Execute() (EquipmentFex, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2472,7 +2421,6 @@ func (r apiGetEquipmentFexByMoidRequest) Execute() (EquipmentFex, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2588,7 +2536,6 @@ func (r apiGetEquipmentFexIdentityByMoidRequest) Execute() (EquipmentFexIdentity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2598,7 +2545,6 @@ func (r apiGetEquipmentFexIdentityByMoidRequest) Execute() (EquipmentFexIdentity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2608,7 +2554,6 @@ func (r apiGetEquipmentFexIdentityByMoidRequest) Execute() (EquipmentFexIdentity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2618,7 +2563,6 @@ func (r apiGetEquipmentFexIdentityByMoidRequest) Execute() (EquipmentFexIdentity
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2829,7 +2773,6 @@ func (r apiGetEquipmentFexIdentityListRequest) Execute() (EquipmentFexIdentityRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2839,7 +2782,6 @@ func (r apiGetEquipmentFexIdentityListRequest) Execute() (EquipmentFexIdentityRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2849,7 +2791,6 @@ func (r apiGetEquipmentFexIdentityListRequest) Execute() (EquipmentFexIdentityRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2859,7 +2800,6 @@ func (r apiGetEquipmentFexIdentityListRequest) Execute() (EquipmentFexIdentityRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3070,7 +3010,6 @@ func (r apiGetEquipmentFexListRequest) Execute() (EquipmentFexResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3080,7 +3019,6 @@ func (r apiGetEquipmentFexListRequest) Execute() (EquipmentFexResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3090,7 +3028,6 @@ func (r apiGetEquipmentFexListRequest) Execute() (EquipmentFexResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3100,7 +3037,6 @@ func (r apiGetEquipmentFexListRequest) Execute() (EquipmentFexResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3216,7 +3152,6 @@ func (r apiGetEquipmentFexOperationByMoidRequest) Execute() (EquipmentFexOperati
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3226,7 +3161,6 @@ func (r apiGetEquipmentFexOperationByMoidRequest) Execute() (EquipmentFexOperati
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3236,7 +3170,6 @@ func (r apiGetEquipmentFexOperationByMoidRequest) Execute() (EquipmentFexOperati
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3246,7 +3179,6 @@ func (r apiGetEquipmentFexOperationByMoidRequest) Execute() (EquipmentFexOperati
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3457,7 +3389,6 @@ func (r apiGetEquipmentFexOperationListRequest) Execute() (EquipmentFexOperation
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3467,7 +3398,6 @@ func (r apiGetEquipmentFexOperationListRequest) Execute() (EquipmentFexOperation
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3477,7 +3407,6 @@ func (r apiGetEquipmentFexOperationListRequest) Execute() (EquipmentFexOperation
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3487,7 +3416,385 @@ func (r apiGetEquipmentFexOperationListRequest) Execute() (EquipmentFexOperation
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetEquipmentFruByMoidRequest struct {
+	ctx        _context.Context
+	apiService *EquipmentApiService
+	moid       string
+}
+
+/*
+GetEquipmentFruByMoid Read a 'equipment.Fru' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiGetEquipmentFruByMoidRequest
+*/
+func (a *EquipmentApiService) GetEquipmentFruByMoid(ctx _context.Context, moid string) apiGetEquipmentFruByMoidRequest {
+	return apiGetEquipmentFruByMoidRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return EquipmentFru
+*/
+func (r apiGetEquipmentFruByMoidRequest) Execute() (EquipmentFru, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  EquipmentFru
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "EquipmentApiService.GetEquipmentFruByMoid")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/equipment/Frus/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetEquipmentFruListRequest struct {
+	ctx         _context.Context
+	apiService  *EquipmentApiService
+	filter      *string
+	orderby     *string
+	top         *int32
+	skip        *int32
+	select_     *string
+	expand      *string
+	apply       *string
+	count       *bool
+	inlinecount *string
+	at          *string
+	tags        *string
+}
+
+func (r apiGetEquipmentFruListRequest) Filter(filter string) apiGetEquipmentFruListRequest {
+	r.filter = &filter
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Orderby(orderby string) apiGetEquipmentFruListRequest {
+	r.orderby = &orderby
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Top(top int32) apiGetEquipmentFruListRequest {
+	r.top = &top
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Skip(skip int32) apiGetEquipmentFruListRequest {
+	r.skip = &skip
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Select_(select_ string) apiGetEquipmentFruListRequest {
+	r.select_ = &select_
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Expand(expand string) apiGetEquipmentFruListRequest {
+	r.expand = &expand
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Apply(apply string) apiGetEquipmentFruListRequest {
+	r.apply = &apply
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Count(count bool) apiGetEquipmentFruListRequest {
+	r.count = &count
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Inlinecount(inlinecount string) apiGetEquipmentFruListRequest {
+	r.inlinecount = &inlinecount
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) At(at string) apiGetEquipmentFruListRequest {
+	r.at = &at
+	return r
+}
+
+func (r apiGetEquipmentFruListRequest) Tags(tags string) apiGetEquipmentFruListRequest {
+	r.tags = &tags
+	return r
+}
+
+/*
+GetEquipmentFruList Read a 'equipment.Fru' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiGetEquipmentFruListRequest
+*/
+func (a *EquipmentApiService) GetEquipmentFruList(ctx _context.Context) apiGetEquipmentFruListRequest {
+	return apiGetEquipmentFruListRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return EquipmentFruResponse
+*/
+func (r apiGetEquipmentFruListRequest) Execute() (EquipmentFruResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  EquipmentFruResponse
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "EquipmentApiService.GetEquipmentFruList")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/equipment/Frus"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.filter != nil {
+		localVarQueryParams.Add("$filter", parameterToString(*r.filter, ""))
+	}
+	if r.orderby != nil {
+		localVarQueryParams.Add("$orderby", parameterToString(*r.orderby, ""))
+	}
+	if r.top != nil {
+		localVarQueryParams.Add("$top", parameterToString(*r.top, ""))
+	}
+	if r.skip != nil {
+		localVarQueryParams.Add("$skip", parameterToString(*r.skip, ""))
+	}
+	if r.select_ != nil {
+		localVarQueryParams.Add("$select", parameterToString(*r.select_, ""))
+	}
+	if r.expand != nil {
+		localVarQueryParams.Add("$expand", parameterToString(*r.expand, ""))
+	}
+	if r.apply != nil {
+		localVarQueryParams.Add("$apply", parameterToString(*r.apply, ""))
+	}
+	if r.count != nil {
+		localVarQueryParams.Add("$count", parameterToString(*r.count, ""))
+	}
+	if r.inlinecount != nil {
+		localVarQueryParams.Add("$inlinecount", parameterToString(*r.inlinecount, ""))
+	}
+	if r.at != nil {
+		localVarQueryParams.Add("at", parameterToString(*r.at, ""))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3603,7 +3910,6 @@ func (r apiGetEquipmentIdentitySummaryByMoidRequest) Execute() (EquipmentIdentit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3613,7 +3919,6 @@ func (r apiGetEquipmentIdentitySummaryByMoidRequest) Execute() (EquipmentIdentit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3623,7 +3928,6 @@ func (r apiGetEquipmentIdentitySummaryByMoidRequest) Execute() (EquipmentIdentit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3633,7 +3937,6 @@ func (r apiGetEquipmentIdentitySummaryByMoidRequest) Execute() (EquipmentIdentit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3844,7 +4147,6 @@ func (r apiGetEquipmentIdentitySummaryListRequest) Execute() (EquipmentIdentityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3854,7 +4156,6 @@ func (r apiGetEquipmentIdentitySummaryListRequest) Execute() (EquipmentIdentityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3864,7 +4165,6 @@ func (r apiGetEquipmentIdentitySummaryListRequest) Execute() (EquipmentIdentityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3874,7 +4174,6 @@ func (r apiGetEquipmentIdentitySummaryListRequest) Execute() (EquipmentIdentityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3990,7 +4289,6 @@ func (r apiGetEquipmentIoCardByMoidRequest) Execute() (EquipmentIoCard, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4000,7 +4298,6 @@ func (r apiGetEquipmentIoCardByMoidRequest) Execute() (EquipmentIoCard, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4010,7 +4307,6 @@ func (r apiGetEquipmentIoCardByMoidRequest) Execute() (EquipmentIoCard, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4020,7 +4316,6 @@ func (r apiGetEquipmentIoCardByMoidRequest) Execute() (EquipmentIoCard, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4231,7 +4526,6 @@ func (r apiGetEquipmentIoCardListRequest) Execute() (EquipmentIoCardResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4241,7 +4535,6 @@ func (r apiGetEquipmentIoCardListRequest) Execute() (EquipmentIoCardResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4251,7 +4544,6 @@ func (r apiGetEquipmentIoCardListRequest) Execute() (EquipmentIoCardResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4261,7 +4553,6 @@ func (r apiGetEquipmentIoCardListRequest) Execute() (EquipmentIoCardResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4377,7 +4668,6 @@ func (r apiGetEquipmentIoCardOperationByMoidRequest) Execute() (EquipmentIoCardO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4387,7 +4677,6 @@ func (r apiGetEquipmentIoCardOperationByMoidRequest) Execute() (EquipmentIoCardO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4397,7 +4686,6 @@ func (r apiGetEquipmentIoCardOperationByMoidRequest) Execute() (EquipmentIoCardO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4407,7 +4695,6 @@ func (r apiGetEquipmentIoCardOperationByMoidRequest) Execute() (EquipmentIoCardO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4618,7 +4905,6 @@ func (r apiGetEquipmentIoCardOperationListRequest) Execute() (EquipmentIoCardOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4628,7 +4914,6 @@ func (r apiGetEquipmentIoCardOperationListRequest) Execute() (EquipmentIoCardOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4638,7 +4923,6 @@ func (r apiGetEquipmentIoCardOperationListRequest) Execute() (EquipmentIoCardOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4648,7 +4932,6 @@ func (r apiGetEquipmentIoCardOperationListRequest) Execute() (EquipmentIoCardOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4764,7 +5047,6 @@ func (r apiGetEquipmentIoExpanderByMoidRequest) Execute() (EquipmentIoExpander, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4774,7 +5056,6 @@ func (r apiGetEquipmentIoExpanderByMoidRequest) Execute() (EquipmentIoExpander, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4784,7 +5065,6 @@ func (r apiGetEquipmentIoExpanderByMoidRequest) Execute() (EquipmentIoExpander, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4794,7 +5074,6 @@ func (r apiGetEquipmentIoExpanderByMoidRequest) Execute() (EquipmentIoExpander, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5005,7 +5284,6 @@ func (r apiGetEquipmentIoExpanderListRequest) Execute() (EquipmentIoExpanderResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5015,7 +5293,6 @@ func (r apiGetEquipmentIoExpanderListRequest) Execute() (EquipmentIoExpanderResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5025,7 +5302,6 @@ func (r apiGetEquipmentIoExpanderListRequest) Execute() (EquipmentIoExpanderResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5035,7 +5311,6 @@ func (r apiGetEquipmentIoExpanderListRequest) Execute() (EquipmentIoExpanderResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5151,7 +5426,6 @@ func (r apiGetEquipmentLocatorLedByMoidRequest) Execute() (EquipmentLocatorLed, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5161,7 +5435,6 @@ func (r apiGetEquipmentLocatorLedByMoidRequest) Execute() (EquipmentLocatorLed, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5171,7 +5444,6 @@ func (r apiGetEquipmentLocatorLedByMoidRequest) Execute() (EquipmentLocatorLed, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5181,7 +5453,6 @@ func (r apiGetEquipmentLocatorLedByMoidRequest) Execute() (EquipmentLocatorLed, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5392,7 +5663,6 @@ func (r apiGetEquipmentLocatorLedListRequest) Execute() (EquipmentLocatorLedResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5402,7 +5672,6 @@ func (r apiGetEquipmentLocatorLedListRequest) Execute() (EquipmentLocatorLedResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5412,7 +5681,6 @@ func (r apiGetEquipmentLocatorLedListRequest) Execute() (EquipmentLocatorLedResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5422,7 +5690,6 @@ func (r apiGetEquipmentLocatorLedListRequest) Execute() (EquipmentLocatorLedResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5538,7 +5805,6 @@ func (r apiGetEquipmentPsuByMoidRequest) Execute() (EquipmentPsu, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5548,7 +5814,6 @@ func (r apiGetEquipmentPsuByMoidRequest) Execute() (EquipmentPsu, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5558,7 +5823,6 @@ func (r apiGetEquipmentPsuByMoidRequest) Execute() (EquipmentPsu, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5568,7 +5832,6 @@ func (r apiGetEquipmentPsuByMoidRequest) Execute() (EquipmentPsu, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5684,7 +5947,6 @@ func (r apiGetEquipmentPsuControlByMoidRequest) Execute() (EquipmentPsuControl, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5694,7 +5956,6 @@ func (r apiGetEquipmentPsuControlByMoidRequest) Execute() (EquipmentPsuControl, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5704,7 +5965,6 @@ func (r apiGetEquipmentPsuControlByMoidRequest) Execute() (EquipmentPsuControl, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5714,7 +5974,6 @@ func (r apiGetEquipmentPsuControlByMoidRequest) Execute() (EquipmentPsuControl, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5925,7 +6184,6 @@ func (r apiGetEquipmentPsuControlListRequest) Execute() (EquipmentPsuControlResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5935,7 +6193,6 @@ func (r apiGetEquipmentPsuControlListRequest) Execute() (EquipmentPsuControlResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5945,7 +6202,6 @@ func (r apiGetEquipmentPsuControlListRequest) Execute() (EquipmentPsuControlResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5955,7 +6211,6 @@ func (r apiGetEquipmentPsuControlListRequest) Execute() (EquipmentPsuControlResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6166,7 +6421,6 @@ func (r apiGetEquipmentPsuListRequest) Execute() (EquipmentPsuResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6176,7 +6430,6 @@ func (r apiGetEquipmentPsuListRequest) Execute() (EquipmentPsuResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6186,7 +6439,6 @@ func (r apiGetEquipmentPsuListRequest) Execute() (EquipmentPsuResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6196,7 +6448,6 @@ func (r apiGetEquipmentPsuListRequest) Execute() (EquipmentPsuResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6312,7 +6563,6 @@ func (r apiGetEquipmentRackEnclosureByMoidRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6322,7 +6572,6 @@ func (r apiGetEquipmentRackEnclosureByMoidRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6332,7 +6581,6 @@ func (r apiGetEquipmentRackEnclosureByMoidRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6342,7 +6590,6 @@ func (r apiGetEquipmentRackEnclosureByMoidRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6553,7 +6800,6 @@ func (r apiGetEquipmentRackEnclosureListRequest) Execute() (EquipmentRackEnclosu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6563,7 +6809,6 @@ func (r apiGetEquipmentRackEnclosureListRequest) Execute() (EquipmentRackEnclosu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6573,7 +6818,6 @@ func (r apiGetEquipmentRackEnclosureListRequest) Execute() (EquipmentRackEnclosu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6583,7 +6827,6 @@ func (r apiGetEquipmentRackEnclosureListRequest) Execute() (EquipmentRackEnclosu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6699,7 +6942,6 @@ func (r apiGetEquipmentRackEnclosureSlotByMoidRequest) Execute() (EquipmentRackE
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6709,7 +6951,6 @@ func (r apiGetEquipmentRackEnclosureSlotByMoidRequest) Execute() (EquipmentRackE
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6719,7 +6960,6 @@ func (r apiGetEquipmentRackEnclosureSlotByMoidRequest) Execute() (EquipmentRackE
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6729,7 +6969,6 @@ func (r apiGetEquipmentRackEnclosureSlotByMoidRequest) Execute() (EquipmentRackE
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6940,7 +7179,6 @@ func (r apiGetEquipmentRackEnclosureSlotListRequest) Execute() (EquipmentRackEnc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6950,7 +7188,6 @@ func (r apiGetEquipmentRackEnclosureSlotListRequest) Execute() (EquipmentRackEnc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6960,7 +7197,6 @@ func (r apiGetEquipmentRackEnclosureSlotListRequest) Execute() (EquipmentRackEnc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6970,7 +7206,6 @@ func (r apiGetEquipmentRackEnclosureSlotListRequest) Execute() (EquipmentRackEnc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7086,7 +7321,6 @@ func (r apiGetEquipmentSharedIoModuleByMoidRequest) Execute() (EquipmentSharedIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7096,7 +7330,6 @@ func (r apiGetEquipmentSharedIoModuleByMoidRequest) Execute() (EquipmentSharedIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7106,7 +7339,6 @@ func (r apiGetEquipmentSharedIoModuleByMoidRequest) Execute() (EquipmentSharedIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7116,7 +7348,6 @@ func (r apiGetEquipmentSharedIoModuleByMoidRequest) Execute() (EquipmentSharedIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7327,7 +7558,6 @@ func (r apiGetEquipmentSharedIoModuleListRequest) Execute() (EquipmentSharedIoMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7337,7 +7567,6 @@ func (r apiGetEquipmentSharedIoModuleListRequest) Execute() (EquipmentSharedIoMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7347,7 +7576,6 @@ func (r apiGetEquipmentSharedIoModuleListRequest) Execute() (EquipmentSharedIoMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7357,7 +7585,6 @@ func (r apiGetEquipmentSharedIoModuleListRequest) Execute() (EquipmentSharedIoMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7473,7 +7700,6 @@ func (r apiGetEquipmentSwitchCardByMoidRequest) Execute() (EquipmentSwitchCard, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7483,7 +7709,6 @@ func (r apiGetEquipmentSwitchCardByMoidRequest) Execute() (EquipmentSwitchCard, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7493,7 +7718,6 @@ func (r apiGetEquipmentSwitchCardByMoidRequest) Execute() (EquipmentSwitchCard, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7503,7 +7727,6 @@ func (r apiGetEquipmentSwitchCardByMoidRequest) Execute() (EquipmentSwitchCard, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7714,7 +7937,6 @@ func (r apiGetEquipmentSwitchCardListRequest) Execute() (EquipmentSwitchCardResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7724,7 +7946,6 @@ func (r apiGetEquipmentSwitchCardListRequest) Execute() (EquipmentSwitchCardResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7734,7 +7955,6 @@ func (r apiGetEquipmentSwitchCardListRequest) Execute() (EquipmentSwitchCardResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7744,7 +7964,6 @@ func (r apiGetEquipmentSwitchCardListRequest) Execute() (EquipmentSwitchCardResp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7860,7 +8079,6 @@ func (r apiGetEquipmentSystemIoControllerByMoidRequest) Execute() (EquipmentSyst
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7870,7 +8088,6 @@ func (r apiGetEquipmentSystemIoControllerByMoidRequest) Execute() (EquipmentSyst
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7880,7 +8097,6 @@ func (r apiGetEquipmentSystemIoControllerByMoidRequest) Execute() (EquipmentSyst
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7890,7 +8106,6 @@ func (r apiGetEquipmentSystemIoControllerByMoidRequest) Execute() (EquipmentSyst
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8101,7 +8316,6 @@ func (r apiGetEquipmentSystemIoControllerListRequest) Execute() (EquipmentSystem
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8111,7 +8325,6 @@ func (r apiGetEquipmentSystemIoControllerListRequest) Execute() (EquipmentSystem
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8121,7 +8334,6 @@ func (r apiGetEquipmentSystemIoControllerListRequest) Execute() (EquipmentSystem
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8131,7 +8343,6 @@ func (r apiGetEquipmentSystemIoControllerListRequest) Execute() (EquipmentSystem
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8247,7 +8458,6 @@ func (r apiGetEquipmentTpmByMoidRequest) Execute() (EquipmentTpm, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8257,7 +8467,6 @@ func (r apiGetEquipmentTpmByMoidRequest) Execute() (EquipmentTpm, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8267,7 +8476,6 @@ func (r apiGetEquipmentTpmByMoidRequest) Execute() (EquipmentTpm, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8277,7 +8485,6 @@ func (r apiGetEquipmentTpmByMoidRequest) Execute() (EquipmentTpm, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8488,7 +8695,6 @@ func (r apiGetEquipmentTpmListRequest) Execute() (EquipmentTpmResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8498,7 +8704,6 @@ func (r apiGetEquipmentTpmListRequest) Execute() (EquipmentTpmResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8508,7 +8713,6 @@ func (r apiGetEquipmentTpmListRequest) Execute() (EquipmentTpmResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8518,7 +8722,6 @@ func (r apiGetEquipmentTpmListRequest) Execute() (EquipmentTpmResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8634,7 +8837,6 @@ func (r apiGetEquipmentTransceiverByMoidRequest) Execute() (EquipmentTransceiver
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8644,7 +8846,6 @@ func (r apiGetEquipmentTransceiverByMoidRequest) Execute() (EquipmentTransceiver
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8654,7 +8855,6 @@ func (r apiGetEquipmentTransceiverByMoidRequest) Execute() (EquipmentTransceiver
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8664,7 +8864,6 @@ func (r apiGetEquipmentTransceiverByMoidRequest) Execute() (EquipmentTransceiver
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8875,7 +9074,6 @@ func (r apiGetEquipmentTransceiverListRequest) Execute() (EquipmentTransceiverRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8885,7 +9083,6 @@ func (r apiGetEquipmentTransceiverListRequest) Execute() (EquipmentTransceiverRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8895,7 +9092,6 @@ func (r apiGetEquipmentTransceiverListRequest) Execute() (EquipmentTransceiverRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8905,7 +9101,6 @@ func (r apiGetEquipmentTransceiverListRequest) Execute() (EquipmentTransceiverRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9042,7 +9237,6 @@ func (r apiPatchEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9052,7 +9246,6 @@ func (r apiPatchEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9062,7 +9255,6 @@ func (r apiPatchEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9072,7 +9264,6 @@ func (r apiPatchEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9209,7 +9400,6 @@ func (r apiPatchEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIden
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9219,7 +9409,6 @@ func (r apiPatchEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIden
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9229,7 +9418,6 @@ func (r apiPatchEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIden
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9239,7 +9427,6 @@ func (r apiPatchEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIden
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9376,7 +9563,6 @@ func (r apiPatchEquipmentChassisOperationRequest) Execute() (EquipmentChassisOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9386,7 +9572,6 @@ func (r apiPatchEquipmentChassisOperationRequest) Execute() (EquipmentChassisOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9396,7 +9581,6 @@ func (r apiPatchEquipmentChassisOperationRequest) Execute() (EquipmentChassisOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9406,7 +9590,6 @@ func (r apiPatchEquipmentChassisOperationRequest) Execute() (EquipmentChassisOpe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9543,7 +9726,6 @@ func (r apiPatchEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9553,7 +9735,6 @@ func (r apiPatchEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9563,7 +9744,6 @@ func (r apiPatchEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9573,7 +9753,6 @@ func (r apiPatchEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9710,7 +9889,6 @@ func (r apiPatchEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9720,7 +9898,6 @@ func (r apiPatchEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9730,7 +9907,6 @@ func (r apiPatchEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9740,7 +9916,6 @@ func (r apiPatchEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_neth
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9877,7 +10052,6 @@ func (r apiPatchEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9887,7 +10061,6 @@ func (r apiPatchEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9897,7 +10070,6 @@ func (r apiPatchEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9907,7 +10079,6 @@ func (r apiPatchEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10044,7 +10215,6 @@ func (r apiPatchEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10054,7 +10224,6 @@ func (r apiPatchEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10064,7 +10233,6 @@ func (r apiPatchEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10074,7 +10242,6 @@ func (r apiPatchEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10211,7 +10378,6 @@ func (r apiPatchEquipmentFexOperationRequest) Execute() (EquipmentFexOperation, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10221,7 +10387,6 @@ func (r apiPatchEquipmentFexOperationRequest) Execute() (EquipmentFexOperation, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10231,7 +10396,6 @@ func (r apiPatchEquipmentFexOperationRequest) Execute() (EquipmentFexOperation, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10241,7 +10405,169 @@ func (r apiPatchEquipmentFexOperationRequest) Execute() (EquipmentFexOperation, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiPatchEquipmentFruRequest struct {
+	ctx          _context.Context
+	apiService   *EquipmentApiService
+	moid         string
+	equipmentFru *EquipmentFru
+	ifMatch      *string
+}
+
+func (r apiPatchEquipmentFruRequest) EquipmentFru(equipmentFru EquipmentFru) apiPatchEquipmentFruRequest {
+	r.equipmentFru = &equipmentFru
+	return r
+}
+
+func (r apiPatchEquipmentFruRequest) IfMatch(ifMatch string) apiPatchEquipmentFruRequest {
+	r.ifMatch = &ifMatch
+	return r
+}
+
+/*
+PatchEquipmentFru Update a 'equipment.Fru' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiPatchEquipmentFruRequest
+*/
+func (a *EquipmentApiService) PatchEquipmentFru(ctx _context.Context, moid string) apiPatchEquipmentFruRequest {
+	return apiPatchEquipmentFruRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return EquipmentFru
+*/
+func (r apiPatchEquipmentFruRequest) Execute() (EquipmentFru, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPatch
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  EquipmentFru
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "EquipmentApiService.PatchEquipmentFru")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/equipment/Frus/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.equipmentFru == nil {
+		return localVarReturnValue, nil, reportError("equipmentFru is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/json-patch+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ifMatch != nil {
+		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
+	}
+	// body params
+	localVarPostBody = r.equipmentFru
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10378,7 +10704,6 @@ func (r apiPatchEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10388,7 +10713,6 @@ func (r apiPatchEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10398,7 +10722,6 @@ func (r apiPatchEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10408,7 +10731,6 @@ func (r apiPatchEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10545,7 +10867,6 @@ func (r apiPatchEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOpera
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10555,7 +10876,6 @@ func (r apiPatchEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOpera
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10565,7 +10885,6 @@ func (r apiPatchEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOpera
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10575,7 +10894,6 @@ func (r apiPatchEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOpera
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10712,7 +11030,6 @@ func (r apiPatchEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10722,7 +11039,6 @@ func (r apiPatchEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10732,7 +11048,6 @@ func (r apiPatchEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10742,7 +11057,6 @@ func (r apiPatchEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10879,7 +11193,6 @@ func (r apiPatchEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10889,7 +11202,6 @@ func (r apiPatchEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10899,7 +11211,6 @@ func (r apiPatchEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10909,7 +11220,6 @@ func (r apiPatchEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11046,7 +11356,6 @@ func (r apiPatchEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11056,7 +11365,6 @@ func (r apiPatchEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11066,7 +11374,6 @@ func (r apiPatchEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11076,7 +11383,6 @@ func (r apiPatchEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11213,7 +11519,6 @@ func (r apiPatchEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11223,7 +11528,6 @@ func (r apiPatchEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11233,7 +11537,6 @@ func (r apiPatchEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11243,7 +11546,6 @@ func (r apiPatchEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11380,7 +11682,6 @@ func (r apiPatchEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosure
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11390,7 +11691,6 @@ func (r apiPatchEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosure
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11400,7 +11700,6 @@ func (r apiPatchEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosure
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11410,7 +11709,6 @@ func (r apiPatchEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosure
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11547,7 +11845,6 @@ func (r apiPatchEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11557,7 +11854,6 @@ func (r apiPatchEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11567,7 +11863,6 @@ func (r apiPatchEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11577,7 +11872,6 @@ func (r apiPatchEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEnclo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11714,7 +12008,6 @@ func (r apiPatchEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoModu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11724,7 +12017,6 @@ func (r apiPatchEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoModu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11734,7 +12026,6 @@ func (r apiPatchEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoModu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11744,7 +12035,6 @@ func (r apiPatchEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoModu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11881,7 +12171,6 @@ func (r apiPatchEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11891,7 +12180,6 @@ func (r apiPatchEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11901,7 +12189,6 @@ func (r apiPatchEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11911,7 +12198,6 @@ func (r apiPatchEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12048,7 +12334,6 @@ func (r apiPatchEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12058,7 +12343,6 @@ func (r apiPatchEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12068,7 +12352,6 @@ func (r apiPatchEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12078,7 +12361,6 @@ func (r apiPatchEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12215,7 +12497,6 @@ func (r apiPatchEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12225,7 +12506,6 @@ func (r apiPatchEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12235,7 +12515,6 @@ func (r apiPatchEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12245,7 +12524,6 @@ func (r apiPatchEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12382,7 +12660,6 @@ func (r apiPatchEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12392,7 +12669,6 @@ func (r apiPatchEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12402,7 +12678,6 @@ func (r apiPatchEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12412,7 +12687,6 @@ func (r apiPatchEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12549,7 +12823,6 @@ func (r apiUpdateEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12559,7 +12832,6 @@ func (r apiUpdateEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12569,7 +12841,6 @@ func (r apiUpdateEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12579,7 +12850,6 @@ func (r apiUpdateEquipmentChassisRequest) Execute() (EquipmentChassis, *_nethttp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12716,7 +12986,6 @@ func (r apiUpdateEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIde
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12726,7 +12995,6 @@ func (r apiUpdateEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIde
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12736,7 +13004,6 @@ func (r apiUpdateEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIde
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12746,7 +13013,6 @@ func (r apiUpdateEquipmentChassisIdentityRequest) Execute() (EquipmentChassisIde
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12883,7 +13149,6 @@ func (r apiUpdateEquipmentChassisOperationRequest) Execute() (EquipmentChassisOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12893,7 +13158,6 @@ func (r apiUpdateEquipmentChassisOperationRequest) Execute() (EquipmentChassisOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12903,7 +13167,6 @@ func (r apiUpdateEquipmentChassisOperationRequest) Execute() (EquipmentChassisOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12913,7 +13176,6 @@ func (r apiUpdateEquipmentChassisOperationRequest) Execute() (EquipmentChassisOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13050,7 +13312,6 @@ func (r apiUpdateEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13060,7 +13321,6 @@ func (r apiUpdateEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13070,7 +13330,6 @@ func (r apiUpdateEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13080,7 +13339,6 @@ func (r apiUpdateEquipmentFanRequest) Execute() (EquipmentFan, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13217,7 +13475,6 @@ func (r apiUpdateEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13227,7 +13484,6 @@ func (r apiUpdateEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13237,7 +13493,6 @@ func (r apiUpdateEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13247,7 +13502,6 @@ func (r apiUpdateEquipmentFanModuleRequest) Execute() (EquipmentFanModule, *_net
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13384,7 +13638,6 @@ func (r apiUpdateEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13394,7 +13647,6 @@ func (r apiUpdateEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13404,7 +13656,6 @@ func (r apiUpdateEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13414,7 +13665,6 @@ func (r apiUpdateEquipmentFexRequest) Execute() (EquipmentFex, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13551,7 +13801,6 @@ func (r apiUpdateEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13561,7 +13810,6 @@ func (r apiUpdateEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13571,7 +13819,6 @@ func (r apiUpdateEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13581,7 +13828,6 @@ func (r apiUpdateEquipmentFexIdentityRequest) Execute() (EquipmentFexIdentity, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13718,7 +13964,6 @@ func (r apiUpdateEquipmentFexOperationRequest) Execute() (EquipmentFexOperation,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13728,7 +13973,6 @@ func (r apiUpdateEquipmentFexOperationRequest) Execute() (EquipmentFexOperation,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13738,7 +13982,6 @@ func (r apiUpdateEquipmentFexOperationRequest) Execute() (EquipmentFexOperation,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13748,7 +13991,169 @@ func (r apiUpdateEquipmentFexOperationRequest) Execute() (EquipmentFexOperation,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiUpdateEquipmentFruRequest struct {
+	ctx          _context.Context
+	apiService   *EquipmentApiService
+	moid         string
+	equipmentFru *EquipmentFru
+	ifMatch      *string
+}
+
+func (r apiUpdateEquipmentFruRequest) EquipmentFru(equipmentFru EquipmentFru) apiUpdateEquipmentFruRequest {
+	r.equipmentFru = &equipmentFru
+	return r
+}
+
+func (r apiUpdateEquipmentFruRequest) IfMatch(ifMatch string) apiUpdateEquipmentFruRequest {
+	r.ifMatch = &ifMatch
+	return r
+}
+
+/*
+UpdateEquipmentFru Update a 'equipment.Fru' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiUpdateEquipmentFruRequest
+*/
+func (a *EquipmentApiService) UpdateEquipmentFru(ctx _context.Context, moid string) apiUpdateEquipmentFruRequest {
+	return apiUpdateEquipmentFruRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return EquipmentFru
+*/
+func (r apiUpdateEquipmentFruRequest) Execute() (EquipmentFru, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  EquipmentFru
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "EquipmentApiService.UpdateEquipmentFru")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/equipment/Frus/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.equipmentFru == nil {
+		return localVarReturnValue, nil, reportError("equipmentFru is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/json-patch+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ifMatch != nil {
+		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
+	}
+	// body params
+	localVarPostBody = r.equipmentFru
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13885,7 +14290,6 @@ func (r apiUpdateEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13895,7 +14299,6 @@ func (r apiUpdateEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13905,7 +14308,6 @@ func (r apiUpdateEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13915,7 +14317,6 @@ func (r apiUpdateEquipmentIoCardRequest) Execute() (EquipmentIoCard, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14052,7 +14453,6 @@ func (r apiUpdateEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOper
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14062,7 +14462,6 @@ func (r apiUpdateEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOper
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14072,7 +14471,6 @@ func (r apiUpdateEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOper
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14082,7 +14480,6 @@ func (r apiUpdateEquipmentIoCardOperationRequest) Execute() (EquipmentIoCardOper
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14219,7 +14616,6 @@ func (r apiUpdateEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14229,7 +14625,6 @@ func (r apiUpdateEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14239,7 +14634,6 @@ func (r apiUpdateEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14249,7 +14643,6 @@ func (r apiUpdateEquipmentIoExpanderRequest) Execute() (EquipmentIoExpander, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14386,7 +14779,6 @@ func (r apiUpdateEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14396,7 +14788,6 @@ func (r apiUpdateEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14406,7 +14797,6 @@ func (r apiUpdateEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14416,7 +14806,6 @@ func (r apiUpdateEquipmentLocatorLedRequest) Execute() (EquipmentLocatorLed, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14553,7 +14942,6 @@ func (r apiUpdateEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14563,7 +14951,6 @@ func (r apiUpdateEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14573,7 +14960,6 @@ func (r apiUpdateEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14583,7 +14969,6 @@ func (r apiUpdateEquipmentPsuRequest) Execute() (EquipmentPsu, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14720,7 +15105,6 @@ func (r apiUpdateEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14730,7 +15114,6 @@ func (r apiUpdateEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14740,7 +15123,6 @@ func (r apiUpdateEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14750,7 +15132,6 @@ func (r apiUpdateEquipmentPsuControlRequest) Execute() (EquipmentPsuControl, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14887,7 +15268,6 @@ func (r apiUpdateEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosur
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14897,7 +15277,6 @@ func (r apiUpdateEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosur
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14907,7 +15286,6 @@ func (r apiUpdateEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosur
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14917,7 +15295,6 @@ func (r apiUpdateEquipmentRackEnclosureRequest) Execute() (EquipmentRackEnclosur
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15054,7 +15431,6 @@ func (r apiUpdateEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEncl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15064,7 +15440,6 @@ func (r apiUpdateEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEncl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15074,7 +15449,6 @@ func (r apiUpdateEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEncl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15084,7 +15458,6 @@ func (r apiUpdateEquipmentRackEnclosureSlotRequest) Execute() (EquipmentRackEncl
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15221,7 +15594,6 @@ func (r apiUpdateEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoMod
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15231,7 +15603,6 @@ func (r apiUpdateEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoMod
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15241,7 +15612,6 @@ func (r apiUpdateEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoMod
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15251,7 +15621,6 @@ func (r apiUpdateEquipmentSharedIoModuleRequest) Execute() (EquipmentSharedIoMod
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15388,7 +15757,6 @@ func (r apiUpdateEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15398,7 +15766,6 @@ func (r apiUpdateEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15408,7 +15775,6 @@ func (r apiUpdateEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15418,7 +15784,6 @@ func (r apiUpdateEquipmentSwitchCardRequest) Execute() (EquipmentSwitchCard, *_n
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15555,7 +15920,6 @@ func (r apiUpdateEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15565,7 +15929,6 @@ func (r apiUpdateEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15575,7 +15938,6 @@ func (r apiUpdateEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15585,7 +15947,6 @@ func (r apiUpdateEquipmentSystemIoControllerRequest) Execute() (EquipmentSystemI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15722,7 +16083,6 @@ func (r apiUpdateEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15732,7 +16092,6 @@ func (r apiUpdateEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15742,7 +16101,6 @@ func (r apiUpdateEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15752,7 +16110,6 @@ func (r apiUpdateEquipmentTpmRequest) Execute() (EquipmentTpm, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15889,7 +16246,6 @@ func (r apiUpdateEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15899,7 +16255,6 @@ func (r apiUpdateEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15909,7 +16264,6 @@ func (r apiUpdateEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15919,7 +16273,6 @@ func (r apiUpdateEquipmentTransceiverRequest) Execute() (EquipmentTransceiver, *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -23,19 +23,19 @@ type StorageNetAppVolume struct {
 	ClassId string `json:"ClassId" yaml:"ClassId"`
 	// The fully-qualified name of the instantiated, concrete type. The value should be the same as the 'ClassId' property.
 	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
-	// The autosize mode for NetApp Volume. Modes can be off or grow or grow_shrink * `off` - The volume will not grow or shrink in size in response to the amount of used space. * `grow` - The volume will automatically grow when used space in the volume is above the grow threshold. * `grow_shrink` - The volume will grow or shrink in size in response to the amount of used space.
+	// The autosize mode for NetApp Volume. Modes can be off or grow or grow_shrink. * `off` - The volume will not grow or shrink in size in response to the amount of used space. * `grow` - The volume will automatically grow when used space in the volume is above the grow threshold. * `grow_shrink` - The volume will grow or shrink in size in response to the amount of used space.
 	AutosizeMode *string `json:"AutosizeMode,omitempty" yaml:"AutosizeMode,omitempty"`
 	// Name of Export Policy.
 	ExportPolicyName *string `json:"ExportPolicyName,omitempty" yaml:"ExportPolicyName,omitempty"`
-	// Name of Snapshot Policy.
+	// Name of the snapshot policy.
 	SnapshotPolicyName *string `json:"SnapshotPolicyName,omitempty" yaml:"SnapshotPolicyName,omitempty"`
-	// Name of Snapshot Policy.
+	// Uuid of the snapshot policy.
 	SnapshotPolicyUuid *string `json:"SnapshotPolicyUuid,omitempty" yaml:"SnapshotPolicyUuid,omitempty"`
-	// The total space used by Snapshot copies in the volume represented in bytes.
+	// The total space used by snapshot copies in the volume represented in bytes.
 	SnapshotUtilizedCapacity *int64 `json:"SnapshotUtilizedCapacity,omitempty" yaml:"SnapshotUtilizedCapacity,omitempty"`
 	// The current state of a NetApp volume. * `offline` - Read and write access to the volume is not allowed. * `online` - Read and write access to the volume is allowed. * `error` - Storage volume state of error type. * `mixed` - The constituents of a FlexGroup volume are not all in the same state.
 	State *string `json:"State,omitempty" yaml:"State,omitempty"`
-	// NetApp volume type. The volume type can be Read-write or Data-protection, Load-sharing, or Data-cache. * `data-protection` - Prevents modification of the data on the Volume. * `read-write` - Data on the Volume can be modified. * `load-sharing` - Load Sharing
+	// NetApp volume type. The volume type can be Read-write or Data-protection, Load-sharing, or Data-cache. * `data-protection` - Prevents modification of the data on the Volume. * `read-write` - Data on the Volume can be modified. * `load-sharing` - Load Sharing.
 	Type *string `json:"Type,omitempty" yaml:"Type,omitempty"`
 	// UUID of NetApp Volume.
 	Uuid  *string                           `json:"Uuid,omitempty" yaml:"Uuid,omitempty"`

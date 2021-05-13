@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -146,7 +146,6 @@ func (r apiCreateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -156,7 +155,6 @@ func (r apiCreateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -166,7 +164,6 @@ func (r apiCreateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -176,7 +173,6 @@ func (r apiCreateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -318,7 +314,6 @@ func (r apiCreateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -328,7 +323,6 @@ func (r apiCreateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -338,7 +332,6 @@ func (r apiCreateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -348,7 +341,6 @@ func (r apiCreateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -490,7 +482,6 @@ func (r apiCreateFirmwareChassisUpgradeRequest) Execute() (FirmwareChassisUpgrad
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -500,7 +491,6 @@ func (r apiCreateFirmwareChassisUpgradeRequest) Execute() (FirmwareChassisUpgrad
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -510,7 +500,6 @@ func (r apiCreateFirmwareChassisUpgradeRequest) Execute() (FirmwareChassisUpgrad
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -520,7 +509,6 @@ func (r apiCreateFirmwareChassisUpgradeRequest) Execute() (FirmwareChassisUpgrad
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -662,7 +650,6 @@ func (r apiCreateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -672,7 +659,6 @@ func (r apiCreateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -682,7 +668,6 @@ func (r apiCreateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -692,7 +677,6 @@ func (r apiCreateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -834,7 +818,6 @@ func (r apiCreateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -844,7 +827,6 @@ func (r apiCreateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -854,7 +836,6 @@ func (r apiCreateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -864,7 +845,6 @@ func (r apiCreateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1006,7 +986,6 @@ func (r apiCreateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1016,7 +995,6 @@ func (r apiCreateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1026,7 +1004,6 @@ func (r apiCreateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1036,7 +1013,6 @@ func (r apiCreateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1178,7 +1154,6 @@ func (r apiCreateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1188,7 +1163,6 @@ func (r apiCreateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1198,7 +1172,6 @@ func (r apiCreateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1208,7 +1181,6 @@ func (r apiCreateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1350,7 +1322,6 @@ func (r apiCreateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1360,7 +1331,6 @@ func (r apiCreateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1370,7 +1340,6 @@ func (r apiCreateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1380,7 +1349,6 @@ func (r apiCreateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1522,7 +1490,6 @@ func (r apiCreateFirmwareEulaRequest) Execute() (FirmwareEula, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1532,7 +1499,6 @@ func (r apiCreateFirmwareEulaRequest) Execute() (FirmwareEula, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1542,7 +1508,6 @@ func (r apiCreateFirmwareEulaRequest) Execute() (FirmwareEula, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1552,7 +1517,6 @@ func (r apiCreateFirmwareEulaRequest) Execute() (FirmwareEula, *_nethttp.Respons
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1694,7 +1658,6 @@ func (r apiCreateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1704,7 +1667,6 @@ func (r apiCreateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1714,7 +1676,6 @@ func (r apiCreateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1724,7 +1685,6 @@ func (r apiCreateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1866,7 +1826,6 @@ func (r apiCreateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1876,7 +1835,6 @@ func (r apiCreateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1886,7 +1844,6 @@ func (r apiCreateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1896,7 +1853,6 @@ func (r apiCreateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2038,7 +1994,6 @@ func (r apiCreateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2048,7 +2003,6 @@ func (r apiCreateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2058,7 +2012,6 @@ func (r apiCreateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2068,7 +2021,6 @@ func (r apiCreateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2210,7 +2162,6 @@ func (r apiCreateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2220,7 +2171,6 @@ func (r apiCreateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2230,7 +2180,6 @@ func (r apiCreateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2240,7 +2189,6 @@ func (r apiCreateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2382,7 +2330,6 @@ func (r apiCreateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2392,7 +2339,6 @@ func (r apiCreateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2402,7 +2348,6 @@ func (r apiCreateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2412,7 +2357,6 @@ func (r apiCreateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2554,7 +2498,6 @@ func (r apiCreateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2564,7 +2507,6 @@ func (r apiCreateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2574,7 +2516,6 @@ func (r apiCreateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2584,7 +2525,6 @@ func (r apiCreateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2726,7 +2666,6 @@ func (r apiCreateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2736,7 +2675,6 @@ func (r apiCreateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2746,7 +2684,6 @@ func (r apiCreateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2756,7 +2693,6 @@ func (r apiCreateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2898,7 +2834,6 @@ func (r apiCreateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2908,7 +2843,6 @@ func (r apiCreateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2918,7 +2852,6 @@ func (r apiCreateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2928,7 +2861,6 @@ func (r apiCreateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3070,7 +3002,6 @@ func (r apiCreateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3080,7 +3011,6 @@ func (r apiCreateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3090,7 +3020,6 @@ func (r apiCreateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3100,7 +3029,6 @@ func (r apiCreateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3242,7 +3170,6 @@ func (r apiCreateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3252,7 +3179,6 @@ func (r apiCreateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3262,7 +3188,6 @@ func (r apiCreateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3272,7 +3197,6 @@ func (r apiCreateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3414,7 +3338,6 @@ func (r apiCreateFirmwareSwitchUpgradeRequest) Execute() (FirmwareSwitchUpgrade,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3424,7 +3347,6 @@ func (r apiCreateFirmwareSwitchUpgradeRequest) Execute() (FirmwareSwitchUpgrade,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3434,7 +3356,6 @@ func (r apiCreateFirmwareSwitchUpgradeRequest) Execute() (FirmwareSwitchUpgrade,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3444,7 +3365,174 @@ func (r apiCreateFirmwareSwitchUpgradeRequest) Execute() (FirmwareSwitchUpgrade,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiCreateFirmwareUnsupportedVersionUpgradeRequest struct {
+	ctx                               _context.Context
+	apiService                        *FirmwareApiService
+	firmwareUnsupportedVersionUpgrade *FirmwareUnsupportedVersionUpgrade
+	ifMatch                           *string
+	ifNoneMatch                       *string
+}
+
+func (r apiCreateFirmwareUnsupportedVersionUpgradeRequest) FirmwareUnsupportedVersionUpgrade(firmwareUnsupportedVersionUpgrade FirmwareUnsupportedVersionUpgrade) apiCreateFirmwareUnsupportedVersionUpgradeRequest {
+	r.firmwareUnsupportedVersionUpgrade = &firmwareUnsupportedVersionUpgrade
+	return r
+}
+
+func (r apiCreateFirmwareUnsupportedVersionUpgradeRequest) IfMatch(ifMatch string) apiCreateFirmwareUnsupportedVersionUpgradeRequest {
+	r.ifMatch = &ifMatch
+	return r
+}
+
+func (r apiCreateFirmwareUnsupportedVersionUpgradeRequest) IfNoneMatch(ifNoneMatch string) apiCreateFirmwareUnsupportedVersionUpgradeRequest {
+	r.ifNoneMatch = &ifNoneMatch
+	return r
+}
+
+/*
+CreateFirmwareUnsupportedVersionUpgrade Create a 'firmware.UnsupportedVersionUpgrade' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiCreateFirmwareUnsupportedVersionUpgradeRequest
+*/
+func (a *FirmwareApiService) CreateFirmwareUnsupportedVersionUpgrade(ctx _context.Context) apiCreateFirmwareUnsupportedVersionUpgradeRequest {
+	return apiCreateFirmwareUnsupportedVersionUpgradeRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return FirmwareUnsupportedVersionUpgrade
+*/
+func (r apiCreateFirmwareUnsupportedVersionUpgradeRequest) Execute() (FirmwareUnsupportedVersionUpgrade, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FirmwareUnsupportedVersionUpgrade
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "FirmwareApiService.CreateFirmwareUnsupportedVersionUpgrade")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/firmware/UnsupportedVersionUpgrades"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.firmwareUnsupportedVersionUpgrade == nil {
+		return localVarReturnValue, nil, reportError("firmwareUnsupportedVersionUpgrade is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ifMatch != nil {
+		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
+	}
+	if r.ifNoneMatch != nil {
+		localVarHeaderParams["If-None-Match"] = parameterToString(*r.ifNoneMatch, "")
+	}
+	// body params
+	localVarPostBody = r.firmwareUnsupportedVersionUpgrade
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3586,7 +3674,6 @@ func (r apiCreateFirmwareUpgradeRequest) Execute() (FirmwareUpgrade, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3596,7 +3683,6 @@ func (r apiCreateFirmwareUpgradeRequest) Execute() (FirmwareUpgrade, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3606,7 +3692,6 @@ func (r apiCreateFirmwareUpgradeRequest) Execute() (FirmwareUpgrade, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3616,7 +3701,6 @@ func (r apiCreateFirmwareUpgradeRequest) Execute() (FirmwareUpgrade, *_nethttp.R
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3758,7 +3842,6 @@ func (r apiCreateFirmwareUpgradeImpactRequest) Execute() (FirmwareUpgradeImpact,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3768,7 +3851,6 @@ func (r apiCreateFirmwareUpgradeImpactRequest) Execute() (FirmwareUpgradeImpact,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3778,7 +3860,6 @@ func (r apiCreateFirmwareUpgradeImpactRequest) Execute() (FirmwareUpgradeImpact,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3788,7 +3869,6 @@ func (r apiCreateFirmwareUpgradeImpactRequest) Execute() (FirmwareUpgradeImpact,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3903,7 +3983,6 @@ func (r apiDeleteFirmwareBiosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3913,7 +3992,6 @@ func (r apiDeleteFirmwareBiosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3923,7 +4001,6 @@ func (r apiDeleteFirmwareBiosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3933,7 +4010,6 @@ func (r apiDeleteFirmwareBiosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4039,7 +4115,6 @@ func (r apiDeleteFirmwareBoardControllerDescriptorRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4049,7 +4124,6 @@ func (r apiDeleteFirmwareBoardControllerDescriptorRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4059,7 +4133,6 @@ func (r apiDeleteFirmwareBoardControllerDescriptorRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4069,7 +4142,6 @@ func (r apiDeleteFirmwareBoardControllerDescriptorRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4175,7 +4247,6 @@ func (r apiDeleteFirmwareChassisUpgradeRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4185,7 +4256,6 @@ func (r apiDeleteFirmwareChassisUpgradeRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4195,7 +4265,6 @@ func (r apiDeleteFirmwareChassisUpgradeRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4205,7 +4274,6 @@ func (r apiDeleteFirmwareChassisUpgradeRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4311,7 +4379,6 @@ func (r apiDeleteFirmwareCimcDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4321,7 +4388,6 @@ func (r apiDeleteFirmwareCimcDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4331,7 +4397,6 @@ func (r apiDeleteFirmwareCimcDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4341,7 +4406,6 @@ func (r apiDeleteFirmwareCimcDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4447,7 +4511,6 @@ func (r apiDeleteFirmwareDimmDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4457,7 +4520,6 @@ func (r apiDeleteFirmwareDimmDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4467,7 +4529,6 @@ func (r apiDeleteFirmwareDimmDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4477,7 +4538,6 @@ func (r apiDeleteFirmwareDimmDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4583,7 +4643,6 @@ func (r apiDeleteFirmwareDistributableRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4593,7 +4652,6 @@ func (r apiDeleteFirmwareDistributableRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4603,7 +4661,6 @@ func (r apiDeleteFirmwareDistributableRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4613,7 +4670,6 @@ func (r apiDeleteFirmwareDistributableRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4719,7 +4775,6 @@ func (r apiDeleteFirmwareDriveDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4729,7 +4784,6 @@ func (r apiDeleteFirmwareDriveDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4739,7 +4793,6 @@ func (r apiDeleteFirmwareDriveDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4749,7 +4802,6 @@ func (r apiDeleteFirmwareDriveDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4855,7 +4907,6 @@ func (r apiDeleteFirmwareDriverDistributableRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4865,7 +4916,6 @@ func (r apiDeleteFirmwareDriverDistributableRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4875,7 +4925,6 @@ func (r apiDeleteFirmwareDriverDistributableRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4885,7 +4934,6 @@ func (r apiDeleteFirmwareDriverDistributableRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4991,7 +5039,6 @@ func (r apiDeleteFirmwareGpuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5001,7 +5048,6 @@ func (r apiDeleteFirmwareGpuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5011,7 +5057,6 @@ func (r apiDeleteFirmwareGpuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5021,7 +5066,6 @@ func (r apiDeleteFirmwareGpuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5127,7 +5171,6 @@ func (r apiDeleteFirmwareHbaDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5137,7 +5180,6 @@ func (r apiDeleteFirmwareHbaDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5147,7 +5189,6 @@ func (r apiDeleteFirmwareHbaDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5157,7 +5198,6 @@ func (r apiDeleteFirmwareHbaDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5263,7 +5303,6 @@ func (r apiDeleteFirmwareIomDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5273,7 +5312,6 @@ func (r apiDeleteFirmwareIomDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5283,7 +5321,6 @@ func (r apiDeleteFirmwareIomDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5293,7 +5330,6 @@ func (r apiDeleteFirmwareIomDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5399,7 +5435,6 @@ func (r apiDeleteFirmwareMswitchDescriptorRequest) Execute() (*_nethttp.Response
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5409,7 +5444,6 @@ func (r apiDeleteFirmwareMswitchDescriptorRequest) Execute() (*_nethttp.Response
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5419,7 +5453,6 @@ func (r apiDeleteFirmwareMswitchDescriptorRequest) Execute() (*_nethttp.Response
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5429,7 +5462,6 @@ func (r apiDeleteFirmwareMswitchDescriptorRequest) Execute() (*_nethttp.Response
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5535,7 +5567,6 @@ func (r apiDeleteFirmwareNxosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5545,7 +5576,6 @@ func (r apiDeleteFirmwareNxosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5555,7 +5585,6 @@ func (r apiDeleteFirmwareNxosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5565,7 +5594,6 @@ func (r apiDeleteFirmwareNxosDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5671,7 +5699,6 @@ func (r apiDeleteFirmwarePcieDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5681,7 +5708,6 @@ func (r apiDeleteFirmwarePcieDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5691,7 +5717,6 @@ func (r apiDeleteFirmwarePcieDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5701,7 +5726,6 @@ func (r apiDeleteFirmwarePcieDescriptorRequest) Execute() (*_nethttp.Response, e
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5807,7 +5831,6 @@ func (r apiDeleteFirmwarePsuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5817,7 +5840,6 @@ func (r apiDeleteFirmwarePsuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5827,7 +5849,6 @@ func (r apiDeleteFirmwarePsuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5837,7 +5858,6 @@ func (r apiDeleteFirmwarePsuDescriptorRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5943,7 +5963,6 @@ func (r apiDeleteFirmwareSasExpanderDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5953,7 +5972,6 @@ func (r apiDeleteFirmwareSasExpanderDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5963,7 +5981,6 @@ func (r apiDeleteFirmwareSasExpanderDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5973,7 +5990,6 @@ func (r apiDeleteFirmwareSasExpanderDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6079,7 +6095,6 @@ func (r apiDeleteFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6089,7 +6104,6 @@ func (r apiDeleteFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6099,7 +6113,6 @@ func (r apiDeleteFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6109,7 +6122,6 @@ func (r apiDeleteFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6215,7 +6227,6 @@ func (r apiDeleteFirmwareStorageControllerDescriptorRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6225,7 +6236,6 @@ func (r apiDeleteFirmwareStorageControllerDescriptorRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6235,7 +6245,6 @@ func (r apiDeleteFirmwareStorageControllerDescriptorRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6245,7 +6254,6 @@ func (r apiDeleteFirmwareStorageControllerDescriptorRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6351,7 +6359,6 @@ func (r apiDeleteFirmwareSwitchUpgradeRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6361,7 +6368,6 @@ func (r apiDeleteFirmwareSwitchUpgradeRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6371,7 +6377,6 @@ func (r apiDeleteFirmwareSwitchUpgradeRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6381,7 +6386,138 @@ func (r apiDeleteFirmwareSwitchUpgradeRequest) Execute() (*_nethttp.Response, er
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type apiDeleteFirmwareUnsupportedVersionUpgradeRequest struct {
+	ctx        _context.Context
+	apiService *FirmwareApiService
+	moid       string
+}
+
+/*
+DeleteFirmwareUnsupportedVersionUpgrade Delete a 'firmware.UnsupportedVersionUpgrade' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiDeleteFirmwareUnsupportedVersionUpgradeRequest
+*/
+func (a *FirmwareApiService) DeleteFirmwareUnsupportedVersionUpgrade(ctx _context.Context, moid string) apiDeleteFirmwareUnsupportedVersionUpgradeRequest {
+	return apiDeleteFirmwareUnsupportedVersionUpgradeRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+
+*/
+func (r apiDeleteFirmwareUnsupportedVersionUpgradeRequest) Execute() (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "FirmwareApiService.DeleteFirmwareUnsupportedVersionUpgrade")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/firmware/UnsupportedVersionUpgrades/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6487,7 +6623,6 @@ func (r apiDeleteFirmwareUpgradeRequest) Execute() (*_nethttp.Response, error) {
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6497,7 +6632,6 @@ func (r apiDeleteFirmwareUpgradeRequest) Execute() (*_nethttp.Response, error) {
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6507,7 +6641,6 @@ func (r apiDeleteFirmwareUpgradeRequest) Execute() (*_nethttp.Response, error) {
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6517,7 +6650,6 @@ func (r apiDeleteFirmwareUpgradeRequest) Execute() (*_nethttp.Response, error) {
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6624,7 +6756,6 @@ func (r apiGetFirmwareBiosDescriptorByMoidRequest) Execute() (FirmwareBiosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6634,7 +6765,6 @@ func (r apiGetFirmwareBiosDescriptorByMoidRequest) Execute() (FirmwareBiosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6644,7 +6774,6 @@ func (r apiGetFirmwareBiosDescriptorByMoidRequest) Execute() (FirmwareBiosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6654,7 +6783,6 @@ func (r apiGetFirmwareBiosDescriptorByMoidRequest) Execute() (FirmwareBiosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6865,7 +6993,6 @@ func (r apiGetFirmwareBiosDescriptorListRequest) Execute() (FirmwareBiosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6875,7 +7002,6 @@ func (r apiGetFirmwareBiosDescriptorListRequest) Execute() (FirmwareBiosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6885,7 +7011,6 @@ func (r apiGetFirmwareBiosDescriptorListRequest) Execute() (FirmwareBiosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6895,7 +7020,6 @@ func (r apiGetFirmwareBiosDescriptorListRequest) Execute() (FirmwareBiosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7011,7 +7135,6 @@ func (r apiGetFirmwareBoardControllerDescriptorByMoidRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7021,7 +7144,6 @@ func (r apiGetFirmwareBoardControllerDescriptorByMoidRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7031,7 +7153,6 @@ func (r apiGetFirmwareBoardControllerDescriptorByMoidRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7041,7 +7162,6 @@ func (r apiGetFirmwareBoardControllerDescriptorByMoidRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7252,7 +7372,6 @@ func (r apiGetFirmwareBoardControllerDescriptorListRequest) Execute() (FirmwareB
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7262,7 +7381,6 @@ func (r apiGetFirmwareBoardControllerDescriptorListRequest) Execute() (FirmwareB
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7272,7 +7390,6 @@ func (r apiGetFirmwareBoardControllerDescriptorListRequest) Execute() (FirmwareB
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7282,7 +7399,6 @@ func (r apiGetFirmwareBoardControllerDescriptorListRequest) Execute() (FirmwareB
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7398,7 +7514,6 @@ func (r apiGetFirmwareChassisUpgradeByMoidRequest) Execute() (FirmwareChassisUpg
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7408,7 +7523,6 @@ func (r apiGetFirmwareChassisUpgradeByMoidRequest) Execute() (FirmwareChassisUpg
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7418,7 +7532,6 @@ func (r apiGetFirmwareChassisUpgradeByMoidRequest) Execute() (FirmwareChassisUpg
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7428,7 +7541,6 @@ func (r apiGetFirmwareChassisUpgradeByMoidRequest) Execute() (FirmwareChassisUpg
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7639,7 +7751,6 @@ func (r apiGetFirmwareChassisUpgradeListRequest) Execute() (FirmwareChassisUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7649,7 +7760,6 @@ func (r apiGetFirmwareChassisUpgradeListRequest) Execute() (FirmwareChassisUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7659,7 +7769,6 @@ func (r apiGetFirmwareChassisUpgradeListRequest) Execute() (FirmwareChassisUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7669,7 +7778,6 @@ func (r apiGetFirmwareChassisUpgradeListRequest) Execute() (FirmwareChassisUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7785,7 +7893,6 @@ func (r apiGetFirmwareCimcDescriptorByMoidRequest) Execute() (FirmwareCimcDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7795,7 +7902,6 @@ func (r apiGetFirmwareCimcDescriptorByMoidRequest) Execute() (FirmwareCimcDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7805,7 +7911,6 @@ func (r apiGetFirmwareCimcDescriptorByMoidRequest) Execute() (FirmwareCimcDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7815,7 +7920,6 @@ func (r apiGetFirmwareCimcDescriptorByMoidRequest) Execute() (FirmwareCimcDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8026,7 +8130,6 @@ func (r apiGetFirmwareCimcDescriptorListRequest) Execute() (FirmwareCimcDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8036,7 +8139,6 @@ func (r apiGetFirmwareCimcDescriptorListRequest) Execute() (FirmwareCimcDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8046,7 +8148,6 @@ func (r apiGetFirmwareCimcDescriptorListRequest) Execute() (FirmwareCimcDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8056,7 +8157,6 @@ func (r apiGetFirmwareCimcDescriptorListRequest) Execute() (FirmwareCimcDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8172,7 +8272,6 @@ func (r apiGetFirmwareDimmDescriptorByMoidRequest) Execute() (FirmwareDimmDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8182,7 +8281,6 @@ func (r apiGetFirmwareDimmDescriptorByMoidRequest) Execute() (FirmwareDimmDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8192,7 +8290,6 @@ func (r apiGetFirmwareDimmDescriptorByMoidRequest) Execute() (FirmwareDimmDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8202,7 +8299,6 @@ func (r apiGetFirmwareDimmDescriptorByMoidRequest) Execute() (FirmwareDimmDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8413,7 +8509,6 @@ func (r apiGetFirmwareDimmDescriptorListRequest) Execute() (FirmwareDimmDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8423,7 +8518,6 @@ func (r apiGetFirmwareDimmDescriptorListRequest) Execute() (FirmwareDimmDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8433,7 +8527,6 @@ func (r apiGetFirmwareDimmDescriptorListRequest) Execute() (FirmwareDimmDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8443,7 +8536,6 @@ func (r apiGetFirmwareDimmDescriptorListRequest) Execute() (FirmwareDimmDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8559,7 +8651,6 @@ func (r apiGetFirmwareDistributableByMoidRequest) Execute() (FirmwareDistributab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8569,7 +8660,6 @@ func (r apiGetFirmwareDistributableByMoidRequest) Execute() (FirmwareDistributab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8579,7 +8669,6 @@ func (r apiGetFirmwareDistributableByMoidRequest) Execute() (FirmwareDistributab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8589,7 +8678,6 @@ func (r apiGetFirmwareDistributableByMoidRequest) Execute() (FirmwareDistributab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8800,7 +8888,6 @@ func (r apiGetFirmwareDistributableListRequest) Execute() (FirmwareDistributable
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8810,7 +8897,6 @@ func (r apiGetFirmwareDistributableListRequest) Execute() (FirmwareDistributable
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8820,7 +8906,6 @@ func (r apiGetFirmwareDistributableListRequest) Execute() (FirmwareDistributable
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8830,7 +8915,6 @@ func (r apiGetFirmwareDistributableListRequest) Execute() (FirmwareDistributable
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8946,7 +9030,6 @@ func (r apiGetFirmwareDistributableMetaByMoidRequest) Execute() (FirmwareDistrib
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8956,7 +9039,6 @@ func (r apiGetFirmwareDistributableMetaByMoidRequest) Execute() (FirmwareDistrib
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8966,7 +9048,6 @@ func (r apiGetFirmwareDistributableMetaByMoidRequest) Execute() (FirmwareDistrib
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8976,7 +9057,6 @@ func (r apiGetFirmwareDistributableMetaByMoidRequest) Execute() (FirmwareDistrib
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9187,7 +9267,6 @@ func (r apiGetFirmwareDistributableMetaListRequest) Execute() (FirmwareDistribut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9197,7 +9276,6 @@ func (r apiGetFirmwareDistributableMetaListRequest) Execute() (FirmwareDistribut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9207,7 +9285,6 @@ func (r apiGetFirmwareDistributableMetaListRequest) Execute() (FirmwareDistribut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9217,7 +9294,6 @@ func (r apiGetFirmwareDistributableMetaListRequest) Execute() (FirmwareDistribut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9333,7 +9409,6 @@ func (r apiGetFirmwareDriveDescriptorByMoidRequest) Execute() (FirmwareDriveDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9343,7 +9418,6 @@ func (r apiGetFirmwareDriveDescriptorByMoidRequest) Execute() (FirmwareDriveDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9353,7 +9427,6 @@ func (r apiGetFirmwareDriveDescriptorByMoidRequest) Execute() (FirmwareDriveDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9363,7 +9436,6 @@ func (r apiGetFirmwareDriveDescriptorByMoidRequest) Execute() (FirmwareDriveDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9574,7 +9646,6 @@ func (r apiGetFirmwareDriveDescriptorListRequest) Execute() (FirmwareDriveDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9584,7 +9655,6 @@ func (r apiGetFirmwareDriveDescriptorListRequest) Execute() (FirmwareDriveDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9594,7 +9664,6 @@ func (r apiGetFirmwareDriveDescriptorListRequest) Execute() (FirmwareDriveDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9604,7 +9673,6 @@ func (r apiGetFirmwareDriveDescriptorListRequest) Execute() (FirmwareDriveDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9720,7 +9788,6 @@ func (r apiGetFirmwareDriverDistributableByMoidRequest) Execute() (FirmwareDrive
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9730,7 +9797,6 @@ func (r apiGetFirmwareDriverDistributableByMoidRequest) Execute() (FirmwareDrive
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9740,7 +9806,6 @@ func (r apiGetFirmwareDriverDistributableByMoidRequest) Execute() (FirmwareDrive
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9750,7 +9815,6 @@ func (r apiGetFirmwareDriverDistributableByMoidRequest) Execute() (FirmwareDrive
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9961,7 +10025,6 @@ func (r apiGetFirmwareDriverDistributableListRequest) Execute() (FirmwareDriverD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9971,7 +10034,6 @@ func (r apiGetFirmwareDriverDistributableListRequest) Execute() (FirmwareDriverD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9981,7 +10043,6 @@ func (r apiGetFirmwareDriverDistributableListRequest) Execute() (FirmwareDriverD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9991,7 +10052,6 @@ func (r apiGetFirmwareDriverDistributableListRequest) Execute() (FirmwareDriverD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10107,7 +10167,6 @@ func (r apiGetFirmwareEulaByMoidRequest) Execute() (FirmwareEula, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10117,7 +10176,6 @@ func (r apiGetFirmwareEulaByMoidRequest) Execute() (FirmwareEula, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10127,7 +10185,6 @@ func (r apiGetFirmwareEulaByMoidRequest) Execute() (FirmwareEula, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10137,7 +10194,6 @@ func (r apiGetFirmwareEulaByMoidRequest) Execute() (FirmwareEula, *_nethttp.Resp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10348,7 +10404,6 @@ func (r apiGetFirmwareEulaListRequest) Execute() (FirmwareEulaResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10358,7 +10413,6 @@ func (r apiGetFirmwareEulaListRequest) Execute() (FirmwareEulaResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10368,7 +10422,6 @@ func (r apiGetFirmwareEulaListRequest) Execute() (FirmwareEulaResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10378,7 +10431,6 @@ func (r apiGetFirmwareEulaListRequest) Execute() (FirmwareEulaResponse, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10494,7 +10546,6 @@ func (r apiGetFirmwareFirmwareSummaryByMoidRequest) Execute() (FirmwareFirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10504,7 +10555,6 @@ func (r apiGetFirmwareFirmwareSummaryByMoidRequest) Execute() (FirmwareFirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10514,7 +10564,6 @@ func (r apiGetFirmwareFirmwareSummaryByMoidRequest) Execute() (FirmwareFirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10524,7 +10573,6 @@ func (r apiGetFirmwareFirmwareSummaryByMoidRequest) Execute() (FirmwareFirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10735,7 +10783,6 @@ func (r apiGetFirmwareFirmwareSummaryListRequest) Execute() (FirmwareFirmwareSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10745,7 +10792,6 @@ func (r apiGetFirmwareFirmwareSummaryListRequest) Execute() (FirmwareFirmwareSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10755,7 +10801,6 @@ func (r apiGetFirmwareFirmwareSummaryListRequest) Execute() (FirmwareFirmwareSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10765,7 +10810,6 @@ func (r apiGetFirmwareFirmwareSummaryListRequest) Execute() (FirmwareFirmwareSum
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10881,7 +10925,6 @@ func (r apiGetFirmwareGpuDescriptorByMoidRequest) Execute() (FirmwareGpuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10891,7 +10934,6 @@ func (r apiGetFirmwareGpuDescriptorByMoidRequest) Execute() (FirmwareGpuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10901,7 +10943,6 @@ func (r apiGetFirmwareGpuDescriptorByMoidRequest) Execute() (FirmwareGpuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10911,7 +10952,6 @@ func (r apiGetFirmwareGpuDescriptorByMoidRequest) Execute() (FirmwareGpuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11122,7 +11162,6 @@ func (r apiGetFirmwareGpuDescriptorListRequest) Execute() (FirmwareGpuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11132,7 +11171,6 @@ func (r apiGetFirmwareGpuDescriptorListRequest) Execute() (FirmwareGpuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11142,7 +11180,6 @@ func (r apiGetFirmwareGpuDescriptorListRequest) Execute() (FirmwareGpuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11152,7 +11189,6 @@ func (r apiGetFirmwareGpuDescriptorListRequest) Execute() (FirmwareGpuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11268,7 +11304,6 @@ func (r apiGetFirmwareHbaDescriptorByMoidRequest) Execute() (FirmwareHbaDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11278,7 +11313,6 @@ func (r apiGetFirmwareHbaDescriptorByMoidRequest) Execute() (FirmwareHbaDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11288,7 +11322,6 @@ func (r apiGetFirmwareHbaDescriptorByMoidRequest) Execute() (FirmwareHbaDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11298,7 +11331,6 @@ func (r apiGetFirmwareHbaDescriptorByMoidRequest) Execute() (FirmwareHbaDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11509,7 +11541,6 @@ func (r apiGetFirmwareHbaDescriptorListRequest) Execute() (FirmwareHbaDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11519,7 +11550,6 @@ func (r apiGetFirmwareHbaDescriptorListRequest) Execute() (FirmwareHbaDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11529,7 +11559,6 @@ func (r apiGetFirmwareHbaDescriptorListRequest) Execute() (FirmwareHbaDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11539,7 +11568,6 @@ func (r apiGetFirmwareHbaDescriptorListRequest) Execute() (FirmwareHbaDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11655,7 +11683,6 @@ func (r apiGetFirmwareIomDescriptorByMoidRequest) Execute() (FirmwareIomDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11665,7 +11692,6 @@ func (r apiGetFirmwareIomDescriptorByMoidRequest) Execute() (FirmwareIomDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11675,7 +11701,6 @@ func (r apiGetFirmwareIomDescriptorByMoidRequest) Execute() (FirmwareIomDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11685,7 +11710,6 @@ func (r apiGetFirmwareIomDescriptorByMoidRequest) Execute() (FirmwareIomDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11896,7 +11920,6 @@ func (r apiGetFirmwareIomDescriptorListRequest) Execute() (FirmwareIomDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11906,7 +11929,6 @@ func (r apiGetFirmwareIomDescriptorListRequest) Execute() (FirmwareIomDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11916,7 +11938,6 @@ func (r apiGetFirmwareIomDescriptorListRequest) Execute() (FirmwareIomDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11926,7 +11947,6 @@ func (r apiGetFirmwareIomDescriptorListRequest) Execute() (FirmwareIomDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12042,7 +12062,6 @@ func (r apiGetFirmwareMswitchDescriptorByMoidRequest) Execute() (FirmwareMswitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12052,7 +12071,6 @@ func (r apiGetFirmwareMswitchDescriptorByMoidRequest) Execute() (FirmwareMswitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12062,7 +12080,6 @@ func (r apiGetFirmwareMswitchDescriptorByMoidRequest) Execute() (FirmwareMswitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12072,7 +12089,6 @@ func (r apiGetFirmwareMswitchDescriptorByMoidRequest) Execute() (FirmwareMswitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12283,7 +12299,6 @@ func (r apiGetFirmwareMswitchDescriptorListRequest) Execute() (FirmwareMswitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12293,7 +12308,6 @@ func (r apiGetFirmwareMswitchDescriptorListRequest) Execute() (FirmwareMswitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12303,7 +12317,6 @@ func (r apiGetFirmwareMswitchDescriptorListRequest) Execute() (FirmwareMswitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12313,7 +12326,6 @@ func (r apiGetFirmwareMswitchDescriptorListRequest) Execute() (FirmwareMswitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12429,7 +12441,6 @@ func (r apiGetFirmwareNxosDescriptorByMoidRequest) Execute() (FirmwareNxosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12439,7 +12450,6 @@ func (r apiGetFirmwareNxosDescriptorByMoidRequest) Execute() (FirmwareNxosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12449,7 +12459,6 @@ func (r apiGetFirmwareNxosDescriptorByMoidRequest) Execute() (FirmwareNxosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12459,7 +12468,6 @@ func (r apiGetFirmwareNxosDescriptorByMoidRequest) Execute() (FirmwareNxosDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12670,7 +12678,6 @@ func (r apiGetFirmwareNxosDescriptorListRequest) Execute() (FirmwareNxosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12680,7 +12687,6 @@ func (r apiGetFirmwareNxosDescriptorListRequest) Execute() (FirmwareNxosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12690,7 +12696,6 @@ func (r apiGetFirmwareNxosDescriptorListRequest) Execute() (FirmwareNxosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12700,7 +12705,6 @@ func (r apiGetFirmwareNxosDescriptorListRequest) Execute() (FirmwareNxosDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12816,7 +12820,6 @@ func (r apiGetFirmwarePcieDescriptorByMoidRequest) Execute() (FirmwarePcieDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12826,7 +12829,6 @@ func (r apiGetFirmwarePcieDescriptorByMoidRequest) Execute() (FirmwarePcieDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12836,7 +12838,6 @@ func (r apiGetFirmwarePcieDescriptorByMoidRequest) Execute() (FirmwarePcieDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12846,7 +12847,6 @@ func (r apiGetFirmwarePcieDescriptorByMoidRequest) Execute() (FirmwarePcieDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13057,7 +13057,6 @@ func (r apiGetFirmwarePcieDescriptorListRequest) Execute() (FirmwarePcieDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13067,7 +13066,6 @@ func (r apiGetFirmwarePcieDescriptorListRequest) Execute() (FirmwarePcieDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13077,7 +13075,6 @@ func (r apiGetFirmwarePcieDescriptorListRequest) Execute() (FirmwarePcieDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13087,7 +13084,6 @@ func (r apiGetFirmwarePcieDescriptorListRequest) Execute() (FirmwarePcieDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13203,7 +13199,6 @@ func (r apiGetFirmwarePsuDescriptorByMoidRequest) Execute() (FirmwarePsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13213,7 +13208,6 @@ func (r apiGetFirmwarePsuDescriptorByMoidRequest) Execute() (FirmwarePsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13223,7 +13217,6 @@ func (r apiGetFirmwarePsuDescriptorByMoidRequest) Execute() (FirmwarePsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13233,7 +13226,6 @@ func (r apiGetFirmwarePsuDescriptorByMoidRequest) Execute() (FirmwarePsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13444,7 +13436,6 @@ func (r apiGetFirmwarePsuDescriptorListRequest) Execute() (FirmwarePsuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13454,7 +13445,6 @@ func (r apiGetFirmwarePsuDescriptorListRequest) Execute() (FirmwarePsuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13464,7 +13454,6 @@ func (r apiGetFirmwarePsuDescriptorListRequest) Execute() (FirmwarePsuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13474,7 +13463,6 @@ func (r apiGetFirmwarePsuDescriptorListRequest) Execute() (FirmwarePsuDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13590,7 +13578,6 @@ func (r apiGetFirmwareRunningFirmwareByMoidRequest) Execute() (FirmwareRunningFi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13600,7 +13587,6 @@ func (r apiGetFirmwareRunningFirmwareByMoidRequest) Execute() (FirmwareRunningFi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13610,7 +13596,6 @@ func (r apiGetFirmwareRunningFirmwareByMoidRequest) Execute() (FirmwareRunningFi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13620,7 +13605,6 @@ func (r apiGetFirmwareRunningFirmwareByMoidRequest) Execute() (FirmwareRunningFi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13831,7 +13815,6 @@ func (r apiGetFirmwareRunningFirmwareListRequest) Execute() (FirmwareRunningFirm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13841,7 +13824,6 @@ func (r apiGetFirmwareRunningFirmwareListRequest) Execute() (FirmwareRunningFirm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13851,7 +13833,6 @@ func (r apiGetFirmwareRunningFirmwareListRequest) Execute() (FirmwareRunningFirm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13861,7 +13842,6 @@ func (r apiGetFirmwareRunningFirmwareListRequest) Execute() (FirmwareRunningFirm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13977,7 +13957,6 @@ func (r apiGetFirmwareSasExpanderDescriptorByMoidRequest) Execute() (FirmwareSas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13987,7 +13966,6 @@ func (r apiGetFirmwareSasExpanderDescriptorByMoidRequest) Execute() (FirmwareSas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13997,7 +13975,6 @@ func (r apiGetFirmwareSasExpanderDescriptorByMoidRequest) Execute() (FirmwareSas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14007,7 +13984,6 @@ func (r apiGetFirmwareSasExpanderDescriptorByMoidRequest) Execute() (FirmwareSas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14218,7 +14194,6 @@ func (r apiGetFirmwareSasExpanderDescriptorListRequest) Execute() (FirmwareSasEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14228,7 +14203,6 @@ func (r apiGetFirmwareSasExpanderDescriptorListRequest) Execute() (FirmwareSasEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14238,7 +14212,6 @@ func (r apiGetFirmwareSasExpanderDescriptorListRequest) Execute() (FirmwareSasEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14248,7 +14221,6 @@ func (r apiGetFirmwareSasExpanderDescriptorListRequest) Execute() (FirmwareSasEx
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14364,7 +14336,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableByMoidRequest) Exec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14374,7 +14345,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableByMoidRequest) Exec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14384,7 +14354,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableByMoidRequest) Exec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14394,7 +14363,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableByMoidRequest) Exec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14605,7 +14573,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableListRequest) Execut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14615,7 +14582,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableListRequest) Execut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14625,7 +14591,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableListRequest) Execut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14635,7 +14600,6 @@ func (r apiGetFirmwareServerConfigurationUtilityDistributableListRequest) Execut
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14751,7 +14715,6 @@ func (r apiGetFirmwareStorageControllerDescriptorByMoidRequest) Execute() (Firmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14761,7 +14724,6 @@ func (r apiGetFirmwareStorageControllerDescriptorByMoidRequest) Execute() (Firmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14771,7 +14733,6 @@ func (r apiGetFirmwareStorageControllerDescriptorByMoidRequest) Execute() (Firmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14781,7 +14742,6 @@ func (r apiGetFirmwareStorageControllerDescriptorByMoidRequest) Execute() (Firmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14992,7 +14952,6 @@ func (r apiGetFirmwareStorageControllerDescriptorListRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15002,7 +14961,6 @@ func (r apiGetFirmwareStorageControllerDescriptorListRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15012,7 +14970,6 @@ func (r apiGetFirmwareStorageControllerDescriptorListRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15022,7 +14979,6 @@ func (r apiGetFirmwareStorageControllerDescriptorListRequest) Execute() (Firmwar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15138,7 +15094,6 @@ func (r apiGetFirmwareSwitchUpgradeByMoidRequest) Execute() (FirmwareSwitchUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15148,7 +15103,6 @@ func (r apiGetFirmwareSwitchUpgradeByMoidRequest) Execute() (FirmwareSwitchUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15158,7 +15112,6 @@ func (r apiGetFirmwareSwitchUpgradeByMoidRequest) Execute() (FirmwareSwitchUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15168,7 +15121,6 @@ func (r apiGetFirmwareSwitchUpgradeByMoidRequest) Execute() (FirmwareSwitchUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15379,7 +15331,6 @@ func (r apiGetFirmwareSwitchUpgradeListRequest) Execute() (FirmwareSwitchUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15389,7 +15340,6 @@ func (r apiGetFirmwareSwitchUpgradeListRequest) Execute() (FirmwareSwitchUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15399,7 +15349,6 @@ func (r apiGetFirmwareSwitchUpgradeListRequest) Execute() (FirmwareSwitchUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15409,7 +15358,385 @@ func (r apiGetFirmwareSwitchUpgradeListRequest) Execute() (FirmwareSwitchUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetFirmwareUnsupportedVersionUpgradeByMoidRequest struct {
+	ctx        _context.Context
+	apiService *FirmwareApiService
+	moid       string
+}
+
+/*
+GetFirmwareUnsupportedVersionUpgradeByMoid Read a 'firmware.UnsupportedVersionUpgrade' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiGetFirmwareUnsupportedVersionUpgradeByMoidRequest
+*/
+func (a *FirmwareApiService) GetFirmwareUnsupportedVersionUpgradeByMoid(ctx _context.Context, moid string) apiGetFirmwareUnsupportedVersionUpgradeByMoidRequest {
+	return apiGetFirmwareUnsupportedVersionUpgradeByMoidRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return FirmwareUnsupportedVersionUpgrade
+*/
+func (r apiGetFirmwareUnsupportedVersionUpgradeByMoidRequest) Execute() (FirmwareUnsupportedVersionUpgrade, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FirmwareUnsupportedVersionUpgrade
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "FirmwareApiService.GetFirmwareUnsupportedVersionUpgradeByMoid")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/firmware/UnsupportedVersionUpgrades/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetFirmwareUnsupportedVersionUpgradeListRequest struct {
+	ctx         _context.Context
+	apiService  *FirmwareApiService
+	filter      *string
+	orderby     *string
+	top         *int32
+	skip        *int32
+	select_     *string
+	expand      *string
+	apply       *string
+	count       *bool
+	inlinecount *string
+	at          *string
+	tags        *string
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Filter(filter string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.filter = &filter
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Orderby(orderby string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.orderby = &orderby
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Top(top int32) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.top = &top
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Skip(skip int32) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.skip = &skip
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Select_(select_ string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.select_ = &select_
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Expand(expand string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.expand = &expand
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Apply(apply string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.apply = &apply
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Count(count bool) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.count = &count
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Inlinecount(inlinecount string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.inlinecount = &inlinecount
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) At(at string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.at = &at
+	return r
+}
+
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Tags(tags string) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	r.tags = &tags
+	return r
+}
+
+/*
+GetFirmwareUnsupportedVersionUpgradeList Read a 'firmware.UnsupportedVersionUpgrade' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiGetFirmwareUnsupportedVersionUpgradeListRequest
+*/
+func (a *FirmwareApiService) GetFirmwareUnsupportedVersionUpgradeList(ctx _context.Context) apiGetFirmwareUnsupportedVersionUpgradeListRequest {
+	return apiGetFirmwareUnsupportedVersionUpgradeListRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return FirmwareUnsupportedVersionUpgradeResponse
+*/
+func (r apiGetFirmwareUnsupportedVersionUpgradeListRequest) Execute() (FirmwareUnsupportedVersionUpgradeResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FirmwareUnsupportedVersionUpgradeResponse
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "FirmwareApiService.GetFirmwareUnsupportedVersionUpgradeList")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/firmware/UnsupportedVersionUpgrades"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.filter != nil {
+		localVarQueryParams.Add("$filter", parameterToString(*r.filter, ""))
+	}
+	if r.orderby != nil {
+		localVarQueryParams.Add("$orderby", parameterToString(*r.orderby, ""))
+	}
+	if r.top != nil {
+		localVarQueryParams.Add("$top", parameterToString(*r.top, ""))
+	}
+	if r.skip != nil {
+		localVarQueryParams.Add("$skip", parameterToString(*r.skip, ""))
+	}
+	if r.select_ != nil {
+		localVarQueryParams.Add("$select", parameterToString(*r.select_, ""))
+	}
+	if r.expand != nil {
+		localVarQueryParams.Add("$expand", parameterToString(*r.expand, ""))
+	}
+	if r.apply != nil {
+		localVarQueryParams.Add("$apply", parameterToString(*r.apply, ""))
+	}
+	if r.count != nil {
+		localVarQueryParams.Add("$count", parameterToString(*r.count, ""))
+	}
+	if r.inlinecount != nil {
+		localVarQueryParams.Add("$inlinecount", parameterToString(*r.inlinecount, ""))
+	}
+	if r.at != nil {
+		localVarQueryParams.Add("at", parameterToString(*r.at, ""))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json", "text/csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15525,7 +15852,6 @@ func (r apiGetFirmwareUpgradeByMoidRequest) Execute() (FirmwareUpgrade, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15535,7 +15861,6 @@ func (r apiGetFirmwareUpgradeByMoidRequest) Execute() (FirmwareUpgrade, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15545,7 +15870,6 @@ func (r apiGetFirmwareUpgradeByMoidRequest) Execute() (FirmwareUpgrade, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15555,7 +15879,6 @@ func (r apiGetFirmwareUpgradeByMoidRequest) Execute() (FirmwareUpgrade, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15671,7 +15994,6 @@ func (r apiGetFirmwareUpgradeImpactStatusByMoidRequest) Execute() (FirmwareUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15681,7 +16003,6 @@ func (r apiGetFirmwareUpgradeImpactStatusByMoidRequest) Execute() (FirmwareUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15691,7 +16012,6 @@ func (r apiGetFirmwareUpgradeImpactStatusByMoidRequest) Execute() (FirmwareUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15701,7 +16021,6 @@ func (r apiGetFirmwareUpgradeImpactStatusByMoidRequest) Execute() (FirmwareUpgra
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15912,7 +16231,6 @@ func (r apiGetFirmwareUpgradeImpactStatusListRequest) Execute() (FirmwareUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15922,7 +16240,6 @@ func (r apiGetFirmwareUpgradeImpactStatusListRequest) Execute() (FirmwareUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15932,7 +16249,6 @@ func (r apiGetFirmwareUpgradeImpactStatusListRequest) Execute() (FirmwareUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15942,7 +16258,6 @@ func (r apiGetFirmwareUpgradeImpactStatusListRequest) Execute() (FirmwareUpgrade
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16153,7 +16468,6 @@ func (r apiGetFirmwareUpgradeListRequest) Execute() (FirmwareUpgradeResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16163,7 +16477,6 @@ func (r apiGetFirmwareUpgradeListRequest) Execute() (FirmwareUpgradeResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16173,7 +16486,6 @@ func (r apiGetFirmwareUpgradeListRequest) Execute() (FirmwareUpgradeResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16183,7 +16495,6 @@ func (r apiGetFirmwareUpgradeListRequest) Execute() (FirmwareUpgradeResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16299,7 +16610,6 @@ func (r apiGetFirmwareUpgradeStatusByMoidRequest) Execute() (FirmwareUpgradeStat
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16309,7 +16619,6 @@ func (r apiGetFirmwareUpgradeStatusByMoidRequest) Execute() (FirmwareUpgradeStat
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16319,7 +16628,6 @@ func (r apiGetFirmwareUpgradeStatusByMoidRequest) Execute() (FirmwareUpgradeStat
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16329,7 +16637,6 @@ func (r apiGetFirmwareUpgradeStatusByMoidRequest) Execute() (FirmwareUpgradeStat
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16540,7 +16847,6 @@ func (r apiGetFirmwareUpgradeStatusListRequest) Execute() (FirmwareUpgradeStatus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16550,7 +16856,6 @@ func (r apiGetFirmwareUpgradeStatusListRequest) Execute() (FirmwareUpgradeStatus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16560,7 +16865,6 @@ func (r apiGetFirmwareUpgradeStatusListRequest) Execute() (FirmwareUpgradeStatus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16570,7 +16874,6 @@ func (r apiGetFirmwareUpgradeStatusListRequest) Execute() (FirmwareUpgradeStatus
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16707,7 +17010,6 @@ func (r apiPatchFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16717,7 +17019,6 @@ func (r apiPatchFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16727,7 +17028,6 @@ func (r apiPatchFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16737,7 +17037,6 @@ func (r apiPatchFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16874,7 +17173,6 @@ func (r apiPatchFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBoa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16884,7 +17182,6 @@ func (r apiPatchFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBoa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16894,7 +17191,6 @@ func (r apiPatchFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBoa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16904,7 +17200,6 @@ func (r apiPatchFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBoa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17041,7 +17336,6 @@ func (r apiPatchFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17051,7 +17345,6 @@ func (r apiPatchFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17061,7 +17354,6 @@ func (r apiPatchFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17071,7 +17363,6 @@ func (r apiPatchFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17208,7 +17499,6 @@ func (r apiPatchFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17218,7 +17508,6 @@ func (r apiPatchFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17228,7 +17517,6 @@ func (r apiPatchFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17238,7 +17526,6 @@ func (r apiPatchFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17375,7 +17662,6 @@ func (r apiPatchFirmwareDistributableRequest) Execute() (FirmwareDistributable, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17385,7 +17671,6 @@ func (r apiPatchFirmwareDistributableRequest) Execute() (FirmwareDistributable, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17395,7 +17680,6 @@ func (r apiPatchFirmwareDistributableRequest) Execute() (FirmwareDistributable, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17405,7 +17689,6 @@ func (r apiPatchFirmwareDistributableRequest) Execute() (FirmwareDistributable, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17542,7 +17825,6 @@ func (r apiPatchFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17552,7 +17834,6 @@ func (r apiPatchFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17562,7 +17843,6 @@ func (r apiPatchFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17572,7 +17852,6 @@ func (r apiPatchFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17709,7 +17988,6 @@ func (r apiPatchFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17719,7 +17997,6 @@ func (r apiPatchFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17729,7 +18006,6 @@ func (r apiPatchFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17739,7 +18015,6 @@ func (r apiPatchFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17876,7 +18151,6 @@ func (r apiPatchFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17886,7 +18160,6 @@ func (r apiPatchFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17896,7 +18169,6 @@ func (r apiPatchFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17906,7 +18178,6 @@ func (r apiPatchFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18043,7 +18314,6 @@ func (r apiPatchFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18053,7 +18323,6 @@ func (r apiPatchFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18063,7 +18332,6 @@ func (r apiPatchFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18073,7 +18341,6 @@ func (r apiPatchFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18210,7 +18477,6 @@ func (r apiPatchFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18220,7 +18486,6 @@ func (r apiPatchFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18230,7 +18495,6 @@ func (r apiPatchFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18240,7 +18504,6 @@ func (r apiPatchFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18377,7 +18640,6 @@ func (r apiPatchFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18387,7 +18649,6 @@ func (r apiPatchFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18397,7 +18658,6 @@ func (r apiPatchFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18407,7 +18667,6 @@ func (r apiPatchFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18544,7 +18803,6 @@ func (r apiPatchFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18554,7 +18812,6 @@ func (r apiPatchFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18564,7 +18821,6 @@ func (r apiPatchFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18574,7 +18830,6 @@ func (r apiPatchFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18711,7 +18966,6 @@ func (r apiPatchFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18721,7 +18975,6 @@ func (r apiPatchFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18731,7 +18984,6 @@ func (r apiPatchFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18741,7 +18993,6 @@ func (r apiPatchFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescriptor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18878,7 +19129,6 @@ func (r apiPatchFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18888,7 +19138,6 @@ func (r apiPatchFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18898,7 +19147,6 @@ func (r apiPatchFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18908,7 +19156,6 @@ func (r apiPatchFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19045,7 +19292,6 @@ func (r apiPatchFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmwa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19055,7 +19301,6 @@ func (r apiPatchFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmwa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19065,7 +19310,6 @@ func (r apiPatchFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmwa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19075,7 +19319,6 @@ func (r apiPatchFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmwa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19212,7 +19455,6 @@ func (r apiPatchFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExpa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19222,7 +19464,6 @@ func (r apiPatchFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExpa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19232,7 +19473,6 @@ func (r apiPatchFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExpa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19242,7 +19482,6 @@ func (r apiPatchFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExpa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19379,7 +19618,6 @@ func (r apiPatchFirmwareServerConfigurationUtilityDistributableRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19389,7 +19627,6 @@ func (r apiPatchFirmwareServerConfigurationUtilityDistributableRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19399,7 +19636,6 @@ func (r apiPatchFirmwareServerConfigurationUtilityDistributableRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19409,7 +19645,6 @@ func (r apiPatchFirmwareServerConfigurationUtilityDistributableRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19546,7 +19781,6 @@ func (r apiPatchFirmwareStorageControllerDescriptorRequest) Execute() (FirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19556,7 +19790,6 @@ func (r apiPatchFirmwareStorageControllerDescriptorRequest) Execute() (FirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19566,7 +19799,6 @@ func (r apiPatchFirmwareStorageControllerDescriptorRequest) Execute() (FirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19576,7 +19808,169 @@ func (r apiPatchFirmwareStorageControllerDescriptorRequest) Execute() (FirmwareS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiPatchFirmwareUnsupportedVersionUpgradeRequest struct {
+	ctx                               _context.Context
+	apiService                        *FirmwareApiService
+	moid                              string
+	firmwareUnsupportedVersionUpgrade *FirmwareUnsupportedVersionUpgrade
+	ifMatch                           *string
+}
+
+func (r apiPatchFirmwareUnsupportedVersionUpgradeRequest) FirmwareUnsupportedVersionUpgrade(firmwareUnsupportedVersionUpgrade FirmwareUnsupportedVersionUpgrade) apiPatchFirmwareUnsupportedVersionUpgradeRequest {
+	r.firmwareUnsupportedVersionUpgrade = &firmwareUnsupportedVersionUpgrade
+	return r
+}
+
+func (r apiPatchFirmwareUnsupportedVersionUpgradeRequest) IfMatch(ifMatch string) apiPatchFirmwareUnsupportedVersionUpgradeRequest {
+	r.ifMatch = &ifMatch
+	return r
+}
+
+/*
+PatchFirmwareUnsupportedVersionUpgrade Update a 'firmware.UnsupportedVersionUpgrade' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiPatchFirmwareUnsupportedVersionUpgradeRequest
+*/
+func (a *FirmwareApiService) PatchFirmwareUnsupportedVersionUpgrade(ctx _context.Context, moid string) apiPatchFirmwareUnsupportedVersionUpgradeRequest {
+	return apiPatchFirmwareUnsupportedVersionUpgradeRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return FirmwareUnsupportedVersionUpgrade
+*/
+func (r apiPatchFirmwareUnsupportedVersionUpgradeRequest) Execute() (FirmwareUnsupportedVersionUpgrade, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPatch
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FirmwareUnsupportedVersionUpgrade
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "FirmwareApiService.PatchFirmwareUnsupportedVersionUpgrade")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/firmware/UnsupportedVersionUpgrades/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.firmwareUnsupportedVersionUpgrade == nil {
+		return localVarReturnValue, nil, reportError("firmwareUnsupportedVersionUpgrade is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/json-patch+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ifMatch != nil {
+		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
+	}
+	// body params
+	localVarPostBody = r.firmwareUnsupportedVersionUpgrade
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19713,7 +20107,6 @@ func (r apiUpdateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19723,7 +20116,6 @@ func (r apiUpdateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19733,7 +20125,6 @@ func (r apiUpdateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19743,7 +20134,6 @@ func (r apiUpdateFirmwareBiosDescriptorRequest) Execute() (FirmwareBiosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19880,7 +20270,6 @@ func (r apiUpdateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19890,7 +20279,6 @@ func (r apiUpdateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19900,7 +20288,6 @@ func (r apiUpdateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19910,7 +20297,6 @@ func (r apiUpdateFirmwareBoardControllerDescriptorRequest) Execute() (FirmwareBo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20047,7 +20433,6 @@ func (r apiUpdateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20057,7 +20442,6 @@ func (r apiUpdateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20067,7 +20451,6 @@ func (r apiUpdateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20077,7 +20460,6 @@ func (r apiUpdateFirmwareCimcDescriptorRequest) Execute() (FirmwareCimcDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20214,7 +20596,6 @@ func (r apiUpdateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20224,7 +20605,6 @@ func (r apiUpdateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20234,7 +20614,6 @@ func (r apiUpdateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20244,7 +20623,6 @@ func (r apiUpdateFirmwareDimmDescriptorRequest) Execute() (FirmwareDimmDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20381,7 +20759,6 @@ func (r apiUpdateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20391,7 +20768,6 @@ func (r apiUpdateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20401,7 +20777,6 @@ func (r apiUpdateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20411,7 +20786,6 @@ func (r apiUpdateFirmwareDistributableRequest) Execute() (FirmwareDistributable,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20548,7 +20922,6 @@ func (r apiUpdateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20558,7 +20931,6 @@ func (r apiUpdateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20568,7 +20940,6 @@ func (r apiUpdateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20578,7 +20949,6 @@ func (r apiUpdateFirmwareDriveDescriptorRequest) Execute() (FirmwareDriveDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20715,7 +21085,6 @@ func (r apiUpdateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20725,7 +21094,6 @@ func (r apiUpdateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20735,7 +21103,6 @@ func (r apiUpdateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20745,7 +21112,6 @@ func (r apiUpdateFirmwareDriverDistributableRequest) Execute() (FirmwareDriverDi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20882,7 +21248,6 @@ func (r apiUpdateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20892,7 +21257,6 @@ func (r apiUpdateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20902,7 +21266,6 @@ func (r apiUpdateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20912,7 +21275,6 @@ func (r apiUpdateFirmwareGpuDescriptorRequest) Execute() (FirmwareGpuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21049,7 +21411,6 @@ func (r apiUpdateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21059,7 +21420,6 @@ func (r apiUpdateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21069,7 +21429,6 @@ func (r apiUpdateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21079,7 +21438,6 @@ func (r apiUpdateFirmwareHbaDescriptorRequest) Execute() (FirmwareHbaDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21216,7 +21574,6 @@ func (r apiUpdateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21226,7 +21583,6 @@ func (r apiUpdateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21236,7 +21592,6 @@ func (r apiUpdateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21246,7 +21601,6 @@ func (r apiUpdateFirmwareIomDescriptorRequest) Execute() (FirmwareIomDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21383,7 +21737,6 @@ func (r apiUpdateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21393,7 +21746,6 @@ func (r apiUpdateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21403,7 +21755,6 @@ func (r apiUpdateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21413,7 +21764,6 @@ func (r apiUpdateFirmwareMswitchDescriptorRequest) Execute() (FirmwareMswitchDes
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21550,7 +21900,6 @@ func (r apiUpdateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21560,7 +21909,6 @@ func (r apiUpdateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21570,7 +21918,6 @@ func (r apiUpdateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21580,7 +21927,6 @@ func (r apiUpdateFirmwareNxosDescriptorRequest) Execute() (FirmwareNxosDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21717,7 +22063,6 @@ func (r apiUpdateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21727,7 +22072,6 @@ func (r apiUpdateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21737,7 +22081,6 @@ func (r apiUpdateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21747,7 +22090,6 @@ func (r apiUpdateFirmwarePcieDescriptorRequest) Execute() (FirmwarePcieDescripto
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21884,7 +22226,6 @@ func (r apiUpdateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21894,7 +22235,6 @@ func (r apiUpdateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21904,7 +22244,6 @@ func (r apiUpdateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21914,7 +22253,6 @@ func (r apiUpdateFirmwarePsuDescriptorRequest) Execute() (FirmwarePsuDescriptor,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -22051,7 +22389,6 @@ func (r apiUpdateFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -22061,7 +22398,6 @@ func (r apiUpdateFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -22071,7 +22407,6 @@ func (r apiUpdateFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -22081,7 +22416,6 @@ func (r apiUpdateFirmwareRunningFirmwareRequest) Execute() (FirmwareRunningFirmw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -22218,7 +22552,6 @@ func (r apiUpdateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -22228,7 +22561,6 @@ func (r apiUpdateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -22238,7 +22570,6 @@ func (r apiUpdateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -22248,7 +22579,6 @@ func (r apiUpdateFirmwareSasExpanderDescriptorRequest) Execute() (FirmwareSasExp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -22385,7 +22715,6 @@ func (r apiUpdateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -22395,7 +22724,6 @@ func (r apiUpdateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -22405,7 +22733,6 @@ func (r apiUpdateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -22415,7 +22742,6 @@ func (r apiUpdateFirmwareServerConfigurationUtilityDistributableRequest) Execute
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -22552,7 +22878,6 @@ func (r apiUpdateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -22562,7 +22887,6 @@ func (r apiUpdateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -22572,7 +22896,6 @@ func (r apiUpdateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -22582,7 +22905,169 @@ func (r apiUpdateFirmwareStorageControllerDescriptorRequest) Execute() (Firmware
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+		}
+		var v Error
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiUpdateFirmwareUnsupportedVersionUpgradeRequest struct {
+	ctx                               _context.Context
+	apiService                        *FirmwareApiService
+	moid                              string
+	firmwareUnsupportedVersionUpgrade *FirmwareUnsupportedVersionUpgrade
+	ifMatch                           *string
+}
+
+func (r apiUpdateFirmwareUnsupportedVersionUpgradeRequest) FirmwareUnsupportedVersionUpgrade(firmwareUnsupportedVersionUpgrade FirmwareUnsupportedVersionUpgrade) apiUpdateFirmwareUnsupportedVersionUpgradeRequest {
+	r.firmwareUnsupportedVersionUpgrade = &firmwareUnsupportedVersionUpgrade
+	return r
+}
+
+func (r apiUpdateFirmwareUnsupportedVersionUpgradeRequest) IfMatch(ifMatch string) apiUpdateFirmwareUnsupportedVersionUpgradeRequest {
+	r.ifMatch = &ifMatch
+	return r
+}
+
+/*
+UpdateFirmwareUnsupportedVersionUpgrade Update a 'firmware.UnsupportedVersionUpgrade' resource.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param moid The unique Moid identifier of a resource instance.
+@return apiUpdateFirmwareUnsupportedVersionUpgradeRequest
+*/
+func (a *FirmwareApiService) UpdateFirmwareUnsupportedVersionUpgrade(ctx _context.Context, moid string) apiUpdateFirmwareUnsupportedVersionUpgradeRequest {
+	return apiUpdateFirmwareUnsupportedVersionUpgradeRequest{
+		apiService: a,
+		ctx:        ctx,
+		moid:       moid,
+	}
+}
+
+/*
+Execute executes the request
+ @return FirmwareUnsupportedVersionUpgrade
+*/
+func (r apiUpdateFirmwareUnsupportedVersionUpgradeRequest) Execute() (FirmwareUnsupportedVersionUpgrade, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FirmwareUnsupportedVersionUpgrade
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "FirmwareApiService.UpdateFirmwareUnsupportedVersionUpgrade")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/firmware/UnsupportedVersionUpgrades/{Moid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"Moid"+"}", _neturl.QueryEscape(parameterToString(r.moid, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.firmwareUnsupportedVersionUpgrade == nil {
+		return localVarReturnValue, nil, reportError("firmwareUnsupportedVersionUpgrade is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "application/json-patch+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ifMatch != nil {
+		localVarHeaderParams["If-Match"] = parameterToString(*r.ifMatch, "")
+	}
+	// body params
+	localVarPostBody = r.firmwareUnsupportedVersionUpgrade
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

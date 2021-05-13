@@ -16,7 +16,8 @@ GO_BUILD_CMD := $(GO_CMD) build -v
 GO_BUILD_FLAGS := -ldflags "-X main.commit=`git rev-parse HEAD`"
 GO_PATH ?= $(shell go env GOPATH)
 
-OPENAPI_GENERATOR_CLI_IMAGE_TAG := @sha256:bcc4e88bd375b749b6b2555048f9853e8005829c0baa9394f9028e9bc5c224fe
+#OPENAPI_GENERATOR_CLI_IMAGE_TAG := @sha256:bcc4e88bd375b749b6b2555048f9853e8005829c0baa9394f9028e9bc5c224fe
+OPENAPI_GENERATOR_CLI_IMAGE_TAG := :v5.1.1
 
 all: build/isctl build/generator-postprocess openapi/operations.yaml cmd/cli.go
 .PHONY: all
@@ -40,7 +41,7 @@ functional-test: build/isctl
 
 openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
 > mkdir -p $(@D)
-> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go-experimental -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go-experimental
+> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go-experimental
 > rm openapi/go.mod openapi/go.sum
 > mv openapi/README.md openapi/operations.yaml
 > $(GO_PATH)/bin/goimports -l -w openapi

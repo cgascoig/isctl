@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "server.ConfigResult"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "server.ConfigResult"]
-**Profile** | Pointer to [**ServerProfileRelationship**](server.Profile.Relationship.md) |  | [optional] 
-**ResultEntries** | Pointer to [**[]ServerConfigResultEntryRelationship**](server.ConfigResultEntry.Relationship.md) | An array of relationships to serverConfigResultEntry resources. | [optional] 
+**Profile** | Pointer to [**ServerProfileRelationship**](ServerProfileRelationship.md) |  | [optional] 
+**ResultEntries** | Pointer to [**[]ServerConfigResultEntryRelationship**](ServerConfigResultEntryRelationship.md) | An array of relationships to serverConfigResultEntry resources. | [optional] 
 
 ## Methods
 

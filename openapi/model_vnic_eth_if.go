@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -26,6 +26,11 @@ type VnicEthIf struct {
 	Cdn        NullableVnicCdn `json:"Cdn,omitempty" yaml:"Cdn,omitempty"`
 	// Setting this to true esnures that the traffic failsover from one uplink to another auotmatically in case of an uplink failure. It is applicable for Cisco VIC adapters only which are connected to Fabric Interconnect cluster. The uplink if specified determines the primary uplink in case of a failover.
 	FailoverEnabled *bool `json:"FailoverEnabled,omitempty" yaml:"FailoverEnabled,omitempty"`
+	// Static/Pool/DHCP Type of IP address allocated to the vNIC. It is derived from iSCSI boot policy IP Address type. * `None` - Type indicates that there is no IP associated to an vnic. * `DHCP` - The IP address is assigned using DHCP, if available. * `Static` - Static IPv4 address is assigned to the iSCSI boot interface based on the information entered in this area. * `Pool` - An IPv4 address is assigned to the iSCSI boot interface from the management IP address pool.
+	IscsiIpV4AddressAllocationType *string                  `json:"IscsiIpV4AddressAllocationType,omitempty" yaml:"IscsiIpV4AddressAllocationType,omitempty"`
+	IscsiIpV4Config                NullableIppoolIpV4Config `json:"IscsiIpV4Config,omitempty" yaml:"IscsiIpV4Config,omitempty"`
+	// IP address associated to the vNIC.
+	IscsiIpv4Address *string `json:"IscsiIpv4Address,omitempty" yaml:"IscsiIpv4Address,omitempty"`
 	// The MAC address that is assigned to the vNIC based on the MAC pool that has been assigned to the LAN Connectivity Policy.
 	MacAddress *string `json:"MacAddress,omitempty" yaml:"MacAddress,omitempty"`
 	// Type of allocation selected to assign a MAC address for the vnic. * `POOL` - The user selects a pool from which the mac/wwn address will be leased for the Virtual Interface. * `STATIC` - The user assigns a static mac/wwn address for the Virtual Interface.
@@ -49,6 +54,8 @@ type VnicEthIf struct {
 	FabricEthNetworkControlPolicy *FabricEthNetworkControlPolicyRelationship `json:"FabricEthNetworkControlPolicy,omitempty" yaml:"FabricEthNetworkControlPolicy,omitempty"`
 	// An array of relationships to fabricEthNetworkGroupPolicy resources.
 	FabricEthNetworkGroupPolicy []FabricEthNetworkGroupPolicyRelationship `json:"FabricEthNetworkGroupPolicy,omitempty" yaml:"FabricEthNetworkGroupPolicy,omitempty"`
+	IpLease                     *IppoolIpLeaseRelationship                `json:"IpLease,omitempty" yaml:"IpLease,omitempty"`
+	IscsiBootPolicy             *VnicIscsiBootPolicyRelationship          `json:"IscsiBootPolicy,omitempty" yaml:"IscsiBootPolicy,omitempty"`
 	LanConnectivityPolicy       *VnicLanConnectivityPolicyRelationship    `json:"LanConnectivityPolicy,omitempty" yaml:"LanConnectivityPolicy,omitempty"`
 	LcpVnic                     *VnicEthIfRelationship                    `json:"LcpVnic,omitempty" yaml:"LcpVnic,omitempty"`
 	MacLease                    *MacpoolLeaseRelationship                 `json:"MacLease,omitempty" yaml:"MacLease,omitempty"`
@@ -68,6 +75,8 @@ func NewVnicEthIf(classId string, objectType string) *VnicEthIf {
 	this.ObjectType = objectType
 	var failoverEnabled bool = false
 	this.FailoverEnabled = &failoverEnabled
+	var iscsiIpV4AddressAllocationType string = "None"
+	this.IscsiIpV4AddressAllocationType = &iscsiIpV4AddressAllocationType
 	var macAddressType string = "POOL"
 	this.MacAddressType = &macAddressType
 	return &this
@@ -84,6 +93,8 @@ func NewVnicEthIfWithDefaults() *VnicEthIf {
 	this.ObjectType = objectType
 	var failoverEnabled bool = false
 	this.FailoverEnabled = &failoverEnabled
+	var iscsiIpV4AddressAllocationType string = "None"
+	this.IscsiIpV4AddressAllocationType = &iscsiIpV4AddressAllocationType
 	var macAddressType string = "POOL"
 	this.MacAddressType = &macAddressType
 	return &this
@@ -210,6 +221,113 @@ func (o *VnicEthIf) HasFailoverEnabled() bool {
 // SetFailoverEnabled gets a reference to the given bool and assigns it to the FailoverEnabled field.
 func (o *VnicEthIf) SetFailoverEnabled(v bool) {
 	o.FailoverEnabled = &v
+}
+
+// GetIscsiIpV4AddressAllocationType returns the IscsiIpV4AddressAllocationType field value if set, zero value otherwise.
+func (o *VnicEthIf) GetIscsiIpV4AddressAllocationType() string {
+	if o == nil || o.IscsiIpV4AddressAllocationType == nil {
+		var ret string
+		return ret
+	}
+	return *o.IscsiIpV4AddressAllocationType
+}
+
+// GetIscsiIpV4AddressAllocationTypeOk returns a tuple with the IscsiIpV4AddressAllocationType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicEthIf) GetIscsiIpV4AddressAllocationTypeOk() (*string, bool) {
+	if o == nil || o.IscsiIpV4AddressAllocationType == nil {
+		return nil, false
+	}
+	return o.IscsiIpV4AddressAllocationType, true
+}
+
+// HasIscsiIpV4AddressAllocationType returns a boolean if a field has been set.
+func (o *VnicEthIf) HasIscsiIpV4AddressAllocationType() bool {
+	if o != nil && o.IscsiIpV4AddressAllocationType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIscsiIpV4AddressAllocationType gets a reference to the given string and assigns it to the IscsiIpV4AddressAllocationType field.
+func (o *VnicEthIf) SetIscsiIpV4AddressAllocationType(v string) {
+	o.IscsiIpV4AddressAllocationType = &v
+}
+
+// GetIscsiIpV4Config returns the IscsiIpV4Config field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VnicEthIf) GetIscsiIpV4Config() IppoolIpV4Config {
+	if o == nil || o.IscsiIpV4Config.Get() == nil {
+		var ret IppoolIpV4Config
+		return ret
+	}
+	return *o.IscsiIpV4Config.Get()
+}
+
+// GetIscsiIpV4ConfigOk returns a tuple with the IscsiIpV4Config field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VnicEthIf) GetIscsiIpV4ConfigOk() (*IppoolIpV4Config, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IscsiIpV4Config.Get(), o.IscsiIpV4Config.IsSet()
+}
+
+// HasIscsiIpV4Config returns a boolean if a field has been set.
+func (o *VnicEthIf) HasIscsiIpV4Config() bool {
+	if o != nil && o.IscsiIpV4Config.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIscsiIpV4Config gets a reference to the given NullableIppoolIpV4Config and assigns it to the IscsiIpV4Config field.
+func (o *VnicEthIf) SetIscsiIpV4Config(v IppoolIpV4Config) {
+	o.IscsiIpV4Config.Set(&v)
+}
+
+// SetIscsiIpV4ConfigNil sets the value for IscsiIpV4Config to be an explicit nil
+func (o *VnicEthIf) SetIscsiIpV4ConfigNil() {
+	o.IscsiIpV4Config.Set(nil)
+}
+
+// UnsetIscsiIpV4Config ensures that no value is present for IscsiIpV4Config, not even an explicit nil
+func (o *VnicEthIf) UnsetIscsiIpV4Config() {
+	o.IscsiIpV4Config.Unset()
+}
+
+// GetIscsiIpv4Address returns the IscsiIpv4Address field value if set, zero value otherwise.
+func (o *VnicEthIf) GetIscsiIpv4Address() string {
+	if o == nil || o.IscsiIpv4Address == nil {
+		var ret string
+		return ret
+	}
+	return *o.IscsiIpv4Address
+}
+
+// GetIscsiIpv4AddressOk returns a tuple with the IscsiIpv4Address field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicEthIf) GetIscsiIpv4AddressOk() (*string, bool) {
+	if o == nil || o.IscsiIpv4Address == nil {
+		return nil, false
+	}
+	return o.IscsiIpv4Address, true
+}
+
+// HasIscsiIpv4Address returns a boolean if a field has been set.
+func (o *VnicEthIf) HasIscsiIpv4Address() bool {
+	if o != nil && o.IscsiIpv4Address != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIscsiIpv4Address gets a reference to the given string and assigns it to the IscsiIpv4Address field.
+func (o *VnicEthIf) SetIscsiIpv4Address(v string) {
+	o.IscsiIpv4Address = &v
 }
 
 // GetMacAddress returns the MacAddress field value if set, zero value otherwise.
@@ -726,6 +844,70 @@ func (o *VnicEthIf) SetFabricEthNetworkGroupPolicy(v []FabricEthNetworkGroupPoli
 	o.FabricEthNetworkGroupPolicy = v
 }
 
+// GetIpLease returns the IpLease field value if set, zero value otherwise.
+func (o *VnicEthIf) GetIpLease() IppoolIpLeaseRelationship {
+	if o == nil || o.IpLease == nil {
+		var ret IppoolIpLeaseRelationship
+		return ret
+	}
+	return *o.IpLease
+}
+
+// GetIpLeaseOk returns a tuple with the IpLease field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicEthIf) GetIpLeaseOk() (*IppoolIpLeaseRelationship, bool) {
+	if o == nil || o.IpLease == nil {
+		return nil, false
+	}
+	return o.IpLease, true
+}
+
+// HasIpLease returns a boolean if a field has been set.
+func (o *VnicEthIf) HasIpLease() bool {
+	if o != nil && o.IpLease != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIpLease gets a reference to the given IppoolIpLeaseRelationship and assigns it to the IpLease field.
+func (o *VnicEthIf) SetIpLease(v IppoolIpLeaseRelationship) {
+	o.IpLease = &v
+}
+
+// GetIscsiBootPolicy returns the IscsiBootPolicy field value if set, zero value otherwise.
+func (o *VnicEthIf) GetIscsiBootPolicy() VnicIscsiBootPolicyRelationship {
+	if o == nil || o.IscsiBootPolicy == nil {
+		var ret VnicIscsiBootPolicyRelationship
+		return ret
+	}
+	return *o.IscsiBootPolicy
+}
+
+// GetIscsiBootPolicyOk returns a tuple with the IscsiBootPolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *VnicEthIf) GetIscsiBootPolicyOk() (*VnicIscsiBootPolicyRelationship, bool) {
+	if o == nil || o.IscsiBootPolicy == nil {
+		return nil, false
+	}
+	return o.IscsiBootPolicy, true
+}
+
+// HasIscsiBootPolicy returns a boolean if a field has been set.
+func (o *VnicEthIf) HasIscsiBootPolicy() bool {
+	if o != nil && o.IscsiBootPolicy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIscsiBootPolicy gets a reference to the given VnicIscsiBootPolicyRelationship and assigns it to the IscsiBootPolicy field.
+func (o *VnicEthIf) SetIscsiBootPolicy(v VnicIscsiBootPolicyRelationship) {
+	o.IscsiBootPolicy = &v
+}
+
 // GetLanConnectivityPolicy returns the LanConnectivityPolicy field value if set, zero value otherwise.
 func (o *VnicEthIf) GetLanConnectivityPolicy() VnicLanConnectivityPolicyRelationship {
 	if o == nil || o.LanConnectivityPolicy == nil {
@@ -941,6 +1123,15 @@ func (o VnicEthIf) MarshalJSON() ([]byte, error) {
 	if o.FailoverEnabled != nil {
 		toSerialize["FailoverEnabled"] = o.FailoverEnabled
 	}
+	if o.IscsiIpV4AddressAllocationType != nil {
+		toSerialize["IscsiIpV4AddressAllocationType"] = o.IscsiIpV4AddressAllocationType
+	}
+	if o.IscsiIpV4Config.IsSet() {
+		toSerialize["IscsiIpV4Config"] = o.IscsiIpV4Config.Get()
+	}
+	if o.IscsiIpv4Address != nil {
+		toSerialize["IscsiIpv4Address"] = o.IscsiIpv4Address
+	}
 	if o.MacAddress != nil {
 		toSerialize["MacAddress"] = o.MacAddress
 	}
@@ -985,6 +1176,12 @@ func (o VnicEthIf) MarshalJSON() ([]byte, error) {
 	}
 	if o.FabricEthNetworkGroupPolicy != nil {
 		toSerialize["FabricEthNetworkGroupPolicy"] = o.FabricEthNetworkGroupPolicy
+	}
+	if o.IpLease != nil {
+		toSerialize["IpLease"] = o.IpLease
+	}
+	if o.IscsiBootPolicy != nil {
+		toSerialize["IscsiBootPolicy"] = o.IscsiBootPolicy
 	}
 	if o.LanConnectivityPolicy != nil {
 		toSerialize["LanConnectivityPolicy"] = o.LanConnectivityPolicy

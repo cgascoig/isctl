@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "macpool.Pool"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "macpool.Pool"]
-**MacBlocks** | Pointer to [**[]MacpoolBlock**](macpool.Block.md) |  | [optional] 
-**BlockHeads** | Pointer to [**[]MacpoolIdBlockRelationship**](macpool.IdBlock.Relationship.md) | An array of relationships to macpoolIdBlock resources. | [optional] [readonly] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**MacBlocks** | Pointer to [**[]MacpoolBlock**](MacpoolBlock.md) |  | [optional] 
+**BlockHeads** | Pointer to [**[]MacpoolIdBlockRelationship**](MacpoolIdBlockRelationship.md) | An array of relationships to macpoolIdBlock resources. | [optional] [readonly] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 

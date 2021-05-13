@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niatelemetry.NexusDashboardDetails"]
 **NexusDashboardName** | Pointer to **string** | Name of the NexusDashboard. | [optional] 
 **NexusDashboardSerialNumber** | Pointer to **string** | Serial number of NexusDashboard. | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

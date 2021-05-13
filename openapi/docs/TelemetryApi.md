@@ -36,7 +36,7 @@ import (
 )
 
 func main() {
-    telemetryDruidDataSourceMetadataRequest := openapiclient.telemetry.DruidDataSourceMetadataRequest{QueryType: "QueryType_example", DataSource: openapiclient.telemetry.DruidDataSource{Type: "Type_example", Name: "Name_example", DataSources: []string{"DataSources_example"), Query: openapiclient.telemetry.DruidGroupByRequest{QueryType: "QueryType_example", DataSource: openapiclient.telemetry.DruidDataSource{Type: "Type_example", Name: "Name_example", DataSources: []string{"DataSources_example"), Query: openapiclient.telemetry.DruidGroupByRequest{QueryType: "QueryType_example", DataSource: , Dimensions: []TelemetryDruidDimensionSpec{openapiclient.telemetry.DruidDimensionSpec{Type: "Type_example", Dimension: "Dimension_example", OutputName: "OutputName_example", OutputType: "OutputType_example", ExtractionFn: 123}), LimitSpec: openapiclient.telemetry.DruidDefaultLimitSpec{Type: "Type_example", Limit: 123, Columns: []TelemetryDruidOrderByColumnSpec{openapiclient.telemetry.DruidOrderByColumnSpec{Dimension: "Dimension_example", Direction: "Direction_example", DimensionOrder: "DimensionOrder_example"})}, Having: openapiclient.telemetry.DruidHavingFilter{Type: "Type_example", Filter: openapiclient.telemetry.DruidFilter{Type: "Type_example", ExtractionFn: 123, Dimension: "Dimension_example", Value: "Value_example", Dimensions: []TelemetryDruidDimensionSpec{openapiclient.telemetry.DruidDimensionSpec{Type: "Type_example", Dimension: "Dimension_example", OutputName: "OutputName_example", OutputType: "OutputType_example", ExtractionFn: 123}), Pattern: "Pattern_example", Fields: []TelemetryDruidFilter{openapiclient.telemetry.DruidFilter{Type: "Type_example", ExtractionFn: 123, Dimension: "Dimension_example", Value: "Value_example", Dimensions: []TelemetryDruidDimensionSpec{), Pattern: "Pattern_example", Fields: []TelemetryDruidFilter{), Field: }), Field: }, Aggregation: "Aggregation_example", Value: 123, Dimension: "Dimension_example"}, Granularity: openapiclient.telemetry.DruidGranularity{Type: "Type_example", Duration: int64(123), Origin: "TODO", Period: "Period_example", TimeZone: "TimeZone_example"}, Filter: , Aggregations: []TelemetryDruidAggregator{openapiclient.telemetry.DruidAggregator{Type: "Type_example", Name: "Name_example", FieldName: "FieldName_example", MaxStringBytes: 123, Size: 123, Filter: , Aggregator: openapiclient.telemetry.DruidAggregator{Type: "Type_example", Name: "Name_example", FieldName: "FieldName_example", MaxStringBytes: 123, Size: 123, Filter: , Aggregator: }}), PostAggregations: []TelemetryDruidPostAggregator{openapiclient.telemetry.DruidPostAggregator{Type: "Type_example", Name: "Name_example", Fn: "Fn_example", Fields: []string{"Fields_example"), Ordering: "Ordering_example", FieldName: "FieldName_example", Value: 123, Field: "Field_example", Func: "Func_example", Size: 123}), Intervals: []string{"Intervals_example"), SubtotalsSpec: 123, Context: openapiclient.telemetry.DruidQueryContext{GrandTotal: false, SkipEmptyBuckets: false, Timeout: 123, Priority: 123, QueryId: "QueryId_example", UseCache: false, PopulateCache: false, UseResultLevelCache: false, PopulateResultLevelCache: false, BySegment: false, Finalize: false, ChunkPeriod: "ChunkPeriod_example", MaxScatterGatherBytes: 123, MaxQueuedBytes: 123, SerializeDateTimeAsLong: false, SerializeDateTimeAsLongInner: false, EnableParallelMerge: false, ParallelMergeParallelism: 123, ParallelMergeInitialYieldRows: 123, ParallelMergeSmallBatchRows: 123}}, Lookup: "Lookup_example", Left: "Left_example", Right: "Right_example", RightPrefix: "RightPrefix_example", Condition: "Condition_example", JoinType: "JoinType_example", ColumnNames: []string{"ColumnNames_example"), Rows: [][]string{[]string{"Rows_example"))}, Dimensions: []TelemetryDruidDimensionSpec{), LimitSpec: openapiclient.telemetry.DruidDefaultLimitSpec{Type: "Type_example", Limit: 123, Columns: []TelemetryDruidOrderByColumnSpec{openapiclient.telemetry.DruidOrderByColumnSpec{Dimension: "Dimension_example", Direction: "Direction_example", DimensionOrder: "DimensionOrder_example"})}, Having: openapiclient.telemetry.DruidHavingFilter{Type: "Type_example", Filter: , Aggregation: "Aggregation_example", Value: 123, Dimension: "Dimension_example"}, Granularity: openapiclient.telemetry.DruidGranularity{Type: "Type_example", Duration: int64(123), Origin: "TODO", Period: "Period_example", TimeZone: "TimeZone_example"}, Filter: , Aggregations: []TelemetryDruidAggregator{), PostAggregations: []TelemetryDruidPostAggregator{openapiclient.telemetry.DruidPostAggregator{Type: "Type_example", Name: "Name_example", Fn: "Fn_example", Fields: []string{"Fields_example"), Ordering: "Ordering_example", FieldName: "FieldName_example", Value: 123, Field: "Field_example", Func: "Func_example", Size: 123}), Intervals: []string{"Intervals_example"), SubtotalsSpec: 123, Context: openapiclient.telemetry.DruidQueryContext{GrandTotal: false, SkipEmptyBuckets: false, Timeout: 123, Priority: 123, QueryId: "QueryId_example", UseCache: false, PopulateCache: false, UseResultLevelCache: false, PopulateResultLevelCache: false, BySegment: false, Finalize: false, ChunkPeriod: "ChunkPeriod_example", MaxScatterGatherBytes: 123, MaxQueuedBytes: 123, SerializeDateTimeAsLong: false, SerializeDateTimeAsLongInner: false, EnableParallelMerge: false, ParallelMergeParallelism: 123, ParallelMergeInitialYieldRows: 123, ParallelMergeSmallBatchRows: 123}}, Lookup: "Lookup_example", Left: "Left_example", Right: "Right_example", RightPrefix: "RightPrefix_example", Condition: "Condition_example", JoinType: "JoinType_example", ColumnNames: []string{"ColumnNames_example"), Rows: [][]string{[]string{"Rows_example"))}, Context: } // TelemetryDruidDataSourceMetadataRequest | The Druid request schema for time series queries.
+    telemetryDruidDataSourceMetadataRequest := *openapiclient.NewTelemetryDruidDataSourceMetadataRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}) // TelemetryDruidDataSourceMetadataRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -65,11 +65,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidDataSourceMetadataResult**](telemetry.DruidDataSourceMetadataResult.md)
+[**[]TelemetryDruidDataSourceMetadataResult**](TelemetryDruidDataSourceMetadataResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -102,7 +102,7 @@ import (
 )
 
 func main() {
-    telemetryDruidGroupByRequest :=  // TelemetryDruidGroupByRequest | The Druid request schema for time series queries.
+    telemetryDruidGroupByRequest := *openapiclient.NewTelemetryDruidGroupByRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}, []openapiclient.TelemetryDruidDimensionSpec{openapiclient.telemetry.DruidDimensionSpec{TelemetryDruidDefaultDimensionSpec: openapiclient.NewTelemetryDruidDefaultDimensionSpec("Type_example", "Dimension_example", "OutputName_example", "OutputType_example")}}, openapiclient.telemetry.DruidGranularity{TelemetryDruidDurationGranularity: openapiclient.NewTelemetryDruidDurationGranularity("Type_example", int64(123))}, []string{"Intervals_example"}) // TelemetryDruidGroupByRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -131,11 +131,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidGroupByResult**](telemetry.DruidGroupByResult.md)
+[**[]TelemetryDruidGroupByResult**](TelemetryDruidGroupByResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -168,7 +168,7 @@ import (
 )
 
 func main() {
-    telemetryDruidScanRequest := openapiclient.telemetry.DruidScanRequest{QueryType: "QueryType_example", DataSource: , Intervals: []string{"Intervals_example"), ResultFormat: "ResultFormat_example", Filter: , Columns: []string{"Columns_example"), BatchSize: 123, Limit: 123, Order: "Order_example", Legacy: false, Context: } // TelemetryDruidScanRequest | The Druid request schema for time series queries.
+    telemetryDruidScanRequest := *openapiclient.NewTelemetryDruidScanRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}, []string{"Intervals_example"}) // TelemetryDruidScanRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -197,11 +197,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidScanResult**](telemetry.DruidScanResult.md)
+[**[]TelemetryDruidScanResult**](TelemetryDruidScanResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -234,7 +234,7 @@ import (
 )
 
 func main() {
-    telemetryDruidSearchRequest := openapiclient.telemetry.DruidSearchRequest{QueryType: "QueryType_example", DataSource: , Intervals: []string{"Intervals_example"), Granularity: , Filter: , Aggregations: []TelemetryDruidAggregator{), SearchDimensions: []string{"SearchDimensions_example"), Query: openapiclient.telemetry.DruidAggregateSearchSpec{Type: "Type_example", Value: "Value_example", Values: []string{"Values_example"), CaseSensitive: false, Regex: "Regex_example"}, Limit: 123, Context: } // TelemetryDruidSearchRequest | The Druid request schema for time series queries.
+    telemetryDruidSearchRequest := *openapiclient.NewTelemetryDruidSearchRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}, []string{"Intervals_example"}, openapiclient.telemetry.DruidGranularity{TelemetryDruidDurationGranularity: openapiclient.NewTelemetryDruidDurationGranularity("Type_example", int64(123))}) // TelemetryDruidSearchRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -263,11 +263,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidSearchResult**](telemetry.DruidSearchResult.md)
+[**[]TelemetryDruidSearchResult**](TelemetryDruidSearchResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -300,7 +300,7 @@ import (
 )
 
 func main() {
-    telemetryDruidSegmentMetadataRequest := openapiclient.telemetry.DruidSegmentMetadataRequest{QueryType: "QueryType_example", DataSource: , Intervals: []string{"Intervals_example"), ToInclude: 123, Merge: false, Context: , AnalysisTypes: []string{"AnalysisTypes_example"), LenientAggregatorMerge: false} // TelemetryDruidSegmentMetadataRequest | The Druid request schema for time series queries.
+    telemetryDruidSegmentMetadataRequest := *openapiclient.NewTelemetryDruidSegmentMetadataRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}) // TelemetryDruidSegmentMetadataRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -329,11 +329,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidSegmentMetadataResult**](telemetry.DruidSegmentMetadataResult.md)
+[**[]TelemetryDruidSegmentMetadataResult**](TelemetryDruidSegmentMetadataResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -366,7 +366,7 @@ import (
 )
 
 func main() {
-    telemetryDruidTimeBoundaryRequest := openapiclient.telemetry.DruidTimeBoundaryRequest{QueryType: "QueryType_example", DataSource: , Bound: "Bound_example", Filter: , Context: } // TelemetryDruidTimeBoundaryRequest | The Druid request schema for time series queries.
+    telemetryDruidTimeBoundaryRequest := *openapiclient.NewTelemetryDruidTimeBoundaryRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}) // TelemetryDruidTimeBoundaryRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -395,11 +395,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidTimeBoundaryResult**](telemetry.DruidTimeBoundaryResult.md)
+[**[]TelemetryDruidTimeBoundaryResult**](TelemetryDruidTimeBoundaryResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -432,7 +432,7 @@ import (
 )
 
 func main() {
-    telemetryDruidTimeSeriesRequest := openapiclient.telemetry.DruidTimeSeriesRequest{QueryType: "QueryType_example", DataSource: , Descending: false, Intervals: []string{"Intervals_example"), Granularity: , Filter: , Aggregations: []TelemetryDruidAggregator{), PostAggregations: []TelemetryDruidPostAggregator{), Limit: 123, Context: } // TelemetryDruidTimeSeriesRequest | The Druid request schema for time series queries.
+    telemetryDruidTimeSeriesRequest := *openapiclient.NewTelemetryDruidTimeSeriesRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}, []string{"Intervals_example"}, openapiclient.telemetry.DruidGranularity{TelemetryDruidDurationGranularity: openapiclient.NewTelemetryDruidDurationGranularity("Type_example", int64(123))}) // TelemetryDruidTimeSeriesRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -461,11 +461,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidIntervalResult**](telemetry.DruidIntervalResult.md)
+[**[]TelemetryDruidIntervalResult**](TelemetryDruidIntervalResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -498,7 +498,7 @@ import (
 )
 
 func main() {
-    telemetryDruidTopNRequest := openapiclient.telemetry.DruidTopNRequest{QueryType: "QueryType_example", DataSource: , Intervals: []string{"Intervals_example"), Granularity: , Filter: , Aggregations: []TelemetryDruidAggregator{), PostAggregations: []TelemetryDruidPostAggregator{), Dimension: , Threshold: 123, Metric: openapiclient.telemetry.DruidTopNMetricSpec{Type: "Type_example", Metric: openapiclient.telemetry.DruidTopNMetricSpec{Type: "Type_example", Metric: , Ordering: "Ordering_example", PreviousStop: "PreviousStop_example"}, Ordering: "Ordering_example", PreviousStop: "PreviousStop_example"}, Context: } // TelemetryDruidTopNRequest | The Druid request schema for time series queries.
+    telemetryDruidTopNRequest := *openapiclient.NewTelemetryDruidTopNRequest("QueryType_example", openapiclient.telemetry.DruidDataSource{TelemetryDruidInlineDataSource: openapiclient.NewTelemetryDruidInlineDataSource("Type_example", []string{"ColumnNames_example"}, [][]string{[]string{"Rows_example"}})}, []string{"Intervals_example"}, openapiclient.telemetry.DruidGranularity{TelemetryDruidDurationGranularity: openapiclient.NewTelemetryDruidDurationGranularity("Type_example", int64(123))}, openapiclient.telemetry.DruidDimensionSpec{TelemetryDruidDefaultDimensionSpec: openapiclient.NewTelemetryDruidDefaultDimensionSpec("Type_example", "Dimension_example", "OutputName_example", "OutputType_example")}, int32(123), openapiclient.telemetry.DruidTopNMetricSpec{TelemetryDruidDimensionTopNMetricSpec: openapiclient.NewTelemetryDruidDimensionTopNMetricSpec("Type_example")}) // TelemetryDruidTopNRequest | The Druid request schema for time series queries.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -527,11 +527,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TelemetryDruidTopNResult**](telemetry.DruidTopNResult.md)
+[**[]TelemetryDruidTopNResult**](TelemetryDruidTopNResult.md)
 
 ### Authorization
 
-[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2)
+[cookieAuth](../README.md#cookieAuth), [http_signature](../README.md#http_signature), [oAuth2](../README.md#oAuth2), [oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 

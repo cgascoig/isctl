@@ -7,8 +7,10 @@ Name | Type | Description | Notes
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type. | [default to "kubernetes.VirtualMachineNodeProfile"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. The enum values provides the list of concrete types that can be instantiated from this abstract type. | [default to "kubernetes.VirtualMachineNodeProfile"]
 **CloudProvider** | Pointer to **string** | Cloud provider for this node profile. * &#x60;noProvider&#x60; - Enables the use of no cloud provider. * &#x60;external&#x60; - Out of tree cloud provider, e.g. CPI for vsphere. | [optional] [default to "noProvider"]
-**NodeGroup** | Pointer to [**KubernetesNodeGroupProfileRelationship**](kubernetes.NodeGroupProfile.Relationship.md) |  | [optional] 
-**Target** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ConfigResult** | Pointer to [**KubernetesConfigResultRelationship**](KubernetesConfigResultRelationship.md) |  | [optional] 
+**NodeGroup** | Pointer to [**KubernetesNodeGroupProfileRelationship**](KubernetesNodeGroupProfileRelationship.md) |  | [optional] 
+**Target** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**Version** | Pointer to [**KubernetesVersionRelationship**](KubernetesVersionRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -94,6 +96,31 @@ SetCloudProvider sets CloudProvider field to given value.
 
 HasCloudProvider returns a boolean if a field has been set.
 
+### GetConfigResult
+
+`func (o *KubernetesNodeProfile) GetConfigResult() KubernetesConfigResultRelationship`
+
+GetConfigResult returns the ConfigResult field if non-nil, zero value otherwise.
+
+### GetConfigResultOk
+
+`func (o *KubernetesNodeProfile) GetConfigResultOk() (*KubernetesConfigResultRelationship, bool)`
+
+GetConfigResultOk returns a tuple with the ConfigResult field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigResult
+
+`func (o *KubernetesNodeProfile) SetConfigResult(v KubernetesConfigResultRelationship)`
+
+SetConfigResult sets ConfigResult field to given value.
+
+### HasConfigResult
+
+`func (o *KubernetesNodeProfile) HasConfigResult() bool`
+
+HasConfigResult returns a boolean if a field has been set.
+
 ### GetNodeGroup
 
 `func (o *KubernetesNodeProfile) GetNodeGroup() KubernetesNodeGroupProfileRelationship`
@@ -143,6 +170,31 @@ SetTarget sets Target field to given value.
 `func (o *KubernetesNodeProfile) HasTarget() bool`
 
 HasTarget returns a boolean if a field has been set.
+
+### GetVersion
+
+`func (o *KubernetesNodeProfile) GetVersion() KubernetesVersionRelationship`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *KubernetesNodeProfile) GetVersionOk() (*KubernetesVersionRelationship, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *KubernetesNodeProfile) SetVersion(v KubernetesVersionRelationship)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *KubernetesNodeProfile) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

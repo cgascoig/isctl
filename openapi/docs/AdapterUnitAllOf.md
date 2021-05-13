@@ -15,18 +15,18 @@ Name | Type | Description | Notes
 **PartNumber** | Pointer to **string** | Part number of an adapter unit. | [optional] [readonly] 
 **PciSlot** | Pointer to **string** | PCIe slot of the adapter in the server. | [optional] [readonly] 
 **Power** | Pointer to **string** | Power state of an adapter unit. | [optional] [readonly] 
-**Presence** | Pointer to **string** | Adapter Unit presence or absence. | [optional] [readonly] 
 **Thermal** | Pointer to **string** | Thermal state of an adapter unit. | [optional] [readonly] 
 **Vid** | Pointer to **string** | Virtual Id of the adapter in the server. | [optional] [readonly] 
-**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
-**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
-**Controller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
-**ExtEthIfs** | Pointer to [**[]AdapterExtEthInterfaceRelationship**](adapter.ExtEthInterface.Relationship.md) | An array of relationships to adapterExtEthInterface resources. | [optional] [readonly] 
-**HostEthIfs** | Pointer to [**[]AdapterHostEthInterfaceRelationship**](adapter.HostEthInterface.Relationship.md) | An array of relationships to adapterHostEthInterface resources. | [optional] [readonly] 
-**HostFcIfs** | Pointer to [**[]AdapterHostFcInterfaceRelationship**](adapter.HostFcInterface.Relationship.md) | An array of relationships to adapterHostFcInterface resources. | [optional] [readonly] 
-**HostIscsiIfs** | Pointer to [**[]AdapterHostIscsiInterfaceRelationship**](adapter.HostIscsiInterface.Relationship.md) | An array of relationships to adapterHostIscsiInterface resources. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**AdapterUnitExpander** | Pointer to [**AdapterUnitExpanderRelationship**](AdapterUnitExpanderRelationship.md) |  | [optional] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](ComputeBladeRelationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](ComputeRackUnitRelationship.md) |  | [optional] 
+**Controller** | Pointer to [**ManagementControllerRelationship**](ManagementControllerRelationship.md) |  | [optional] 
+**ExtEthIfs** | Pointer to [**[]AdapterExtEthInterfaceRelationship**](AdapterExtEthInterfaceRelationship.md) | An array of relationships to adapterExtEthInterface resources. | [optional] [readonly] 
+**HostEthIfs** | Pointer to [**[]AdapterHostEthInterfaceRelationship**](AdapterHostEthInterfaceRelationship.md) | An array of relationships to adapterHostEthInterface resources. | [optional] [readonly] 
+**HostFcIfs** | Pointer to [**[]AdapterHostFcInterfaceRelationship**](AdapterHostFcInterfaceRelationship.md) | An array of relationships to adapterHostFcInterface resources. | [optional] [readonly] 
+**HostIscsiIfs** | Pointer to [**[]AdapterHostIscsiInterfaceRelationship**](AdapterHostIscsiInterfaceRelationship.md) | An array of relationships to adapterHostIscsiInterface resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -312,31 +312,6 @@ SetPower sets Power field to given value.
 
 HasPower returns a boolean if a field has been set.
 
-### GetPresence
-
-`func (o *AdapterUnitAllOf) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *AdapterUnitAllOf) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *AdapterUnitAllOf) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *AdapterUnitAllOf) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
-
 ### GetThermal
 
 `func (o *AdapterUnitAllOf) GetThermal() string`
@@ -386,6 +361,31 @@ SetVid sets Vid field to given value.
 `func (o *AdapterUnitAllOf) HasVid() bool`
 
 HasVid returns a boolean if a field has been set.
+
+### GetAdapterUnitExpander
+
+`func (o *AdapterUnitAllOf) GetAdapterUnitExpander() AdapterUnitExpanderRelationship`
+
+GetAdapterUnitExpander returns the AdapterUnitExpander field if non-nil, zero value otherwise.
+
+### GetAdapterUnitExpanderOk
+
+`func (o *AdapterUnitAllOf) GetAdapterUnitExpanderOk() (*AdapterUnitExpanderRelationship, bool)`
+
+GetAdapterUnitExpanderOk returns a tuple with the AdapterUnitExpander field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdapterUnitExpander
+
+`func (o *AdapterUnitAllOf) SetAdapterUnitExpander(v AdapterUnitExpanderRelationship)`
+
+SetAdapterUnitExpander sets AdapterUnitExpander field to given value.
+
+### HasAdapterUnitExpander
+
+`func (o *AdapterUnitAllOf) HasAdapterUnitExpander() bool`
+
+HasAdapterUnitExpander returns a boolean if a field has been set.
 
 ### GetComputeBlade
 

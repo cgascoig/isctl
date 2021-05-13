@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiPort"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiPort"]
 **FabricMode** | Pointer to **bool** | Fabric mode of the port. true, Set. false, Not set. | [optional] [readonly] 
-**Ipv4Address** | Pointer to **string** | IPv4 address. | [optional] [readonly] 
+**Ipv4Address** | Pointer to **string** | IPv4 address of Hitachi Port. | [optional] [readonly] 
 **Ipv6GlobalAddress** | Pointer to **string** | IPv6 global address value. | [optional] [readonly] 
 **Ipv6LinkLocalAddress** | Pointer to **string** | IPv6 link local address value. | [optional] [readonly] 
 **IsIpv6Enable** | Pointer to **bool** | IPv6 mode. | [optional] [readonly] 
@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **PortLunSecurity** | Pointer to **bool** | LUN security setting for the port. | [optional] [readonly] 
 **ShortportId** | Pointer to **string** | Port ID (short) of the port. | [optional] [readonly] 
 **TcpMtu** | Pointer to **int64** | Value of MTU for iSCSI communication. | [optional] [readonly] 
-**Array** | Pointer to [**StorageHitachiArrayRelationship**](storage.HitachiArray.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Array** | Pointer to [**StorageHitachiArrayRelationship**](StorageHitachiArrayRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -146,7 +146,6 @@ func (r apiCreateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -156,7 +155,6 @@ func (r apiCreateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -166,7 +164,6 @@ func (r apiCreateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -176,7 +173,6 @@ func (r apiCreateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -318,7 +314,6 @@ func (r apiCreateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -328,7 +323,6 @@ func (r apiCreateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -338,7 +332,6 @@ func (r apiCreateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -348,7 +341,6 @@ func (r apiCreateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -490,7 +482,6 @@ func (r apiCreateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -500,7 +491,6 @@ func (r apiCreateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -510,7 +500,6 @@ func (r apiCreateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -520,7 +509,6 @@ func (r apiCreateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -662,7 +650,6 @@ func (r apiCreateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -672,7 +659,6 @@ func (r apiCreateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -682,7 +668,6 @@ func (r apiCreateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -692,7 +677,6 @@ func (r apiCreateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -834,7 +818,6 @@ func (r apiCreateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -844,7 +827,6 @@ func (r apiCreateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -854,7 +836,6 @@ func (r apiCreateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -864,7 +845,6 @@ func (r apiCreateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1006,7 +986,6 @@ func (r apiCreateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1016,7 +995,6 @@ func (r apiCreateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1026,7 +1004,6 @@ func (r apiCreateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1036,7 +1013,6 @@ func (r apiCreateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1178,7 +1154,6 @@ func (r apiCreateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1188,7 +1163,6 @@ func (r apiCreateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1198,7 +1172,6 @@ func (r apiCreateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1208,7 +1181,6 @@ func (r apiCreateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1350,7 +1322,6 @@ func (r apiCreateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1360,7 +1331,6 @@ func (r apiCreateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1370,7 +1340,6 @@ func (r apiCreateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1380,7 +1349,6 @@ func (r apiCreateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1522,7 +1490,6 @@ func (r apiCreateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1532,7 +1499,6 @@ func (r apiCreateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1542,7 +1508,6 @@ func (r apiCreateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1552,7 +1517,6 @@ func (r apiCreateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1694,7 +1658,6 @@ func (r apiCreateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1704,7 +1667,6 @@ func (r apiCreateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1714,7 +1676,6 @@ func (r apiCreateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1724,7 +1685,6 @@ func (r apiCreateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1866,7 +1826,6 @@ func (r apiCreateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1876,7 +1835,6 @@ func (r apiCreateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1886,7 +1844,6 @@ func (r apiCreateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1896,7 +1853,6 @@ func (r apiCreateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2038,7 +1994,6 @@ func (r apiCreateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2048,7 +2003,6 @@ func (r apiCreateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2058,7 +2012,6 @@ func (r apiCreateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2068,7 +2021,6 @@ func (r apiCreateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2210,7 +2162,6 @@ func (r apiCreateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2220,7 +2171,6 @@ func (r apiCreateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2230,7 +2180,6 @@ func (r apiCreateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2240,7 +2189,6 @@ func (r apiCreateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2382,7 +2330,6 @@ func (r apiCreateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2392,7 +2339,6 @@ func (r apiCreateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2402,7 +2348,6 @@ func (r apiCreateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2412,7 +2357,6 @@ func (r apiCreateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2554,7 +2498,6 @@ func (r apiCreateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2564,7 +2507,6 @@ func (r apiCreateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2574,7 +2516,6 @@ func (r apiCreateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2584,7 +2525,6 @@ func (r apiCreateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2726,7 +2666,6 @@ func (r apiCreateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2736,7 +2675,6 @@ func (r apiCreateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2746,7 +2684,6 @@ func (r apiCreateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2756,7 +2693,6 @@ func (r apiCreateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2898,7 +2834,6 @@ func (r apiCreateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2908,7 +2843,6 @@ func (r apiCreateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2918,7 +2852,6 @@ func (r apiCreateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2928,7 +2861,6 @@ func (r apiCreateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3070,7 +3002,6 @@ func (r apiCreateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3080,7 +3011,6 @@ func (r apiCreateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3090,7 +3020,6 @@ func (r apiCreateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3100,7 +3029,6 @@ func (r apiCreateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3242,7 +3170,6 @@ func (r apiCreateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3252,7 +3179,6 @@ func (r apiCreateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3262,7 +3188,6 @@ func (r apiCreateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3272,7 +3197,6 @@ func (r apiCreateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3414,7 +3338,6 @@ func (r apiCreateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3424,7 +3347,6 @@ func (r apiCreateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3434,7 +3356,6 @@ func (r apiCreateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3444,7 +3365,6 @@ func (r apiCreateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3559,7 +3479,6 @@ func (r apiDeleteCapabilityAdapterUnitDescriptorRequest) Execute() (*_nethttp.Re
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3569,7 +3488,6 @@ func (r apiDeleteCapabilityAdapterUnitDescriptorRequest) Execute() (*_nethttp.Re
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3579,7 +3497,6 @@ func (r apiDeleteCapabilityAdapterUnitDescriptorRequest) Execute() (*_nethttp.Re
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3589,7 +3506,6 @@ func (r apiDeleteCapabilityAdapterUnitDescriptorRequest) Execute() (*_nethttp.Re
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3695,7 +3611,6 @@ func (r apiDeleteCapabilityChassisDescriptorRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3705,7 +3620,6 @@ func (r apiDeleteCapabilityChassisDescriptorRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3715,7 +3629,6 @@ func (r apiDeleteCapabilityChassisDescriptorRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3725,7 +3638,6 @@ func (r apiDeleteCapabilityChassisDescriptorRequest) Execute() (*_nethttp.Respon
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3831,7 +3743,6 @@ func (r apiDeleteCapabilityChassisManufacturingDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3841,7 +3752,6 @@ func (r apiDeleteCapabilityChassisManufacturingDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3851,7 +3761,6 @@ func (r apiDeleteCapabilityChassisManufacturingDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3861,7 +3770,6 @@ func (r apiDeleteCapabilityChassisManufacturingDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3967,7 +3875,6 @@ func (r apiDeleteCapabilityCimcFirmwareDescriptorRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3977,7 +3884,6 @@ func (r apiDeleteCapabilityCimcFirmwareDescriptorRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3987,7 +3893,6 @@ func (r apiDeleteCapabilityCimcFirmwareDescriptorRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3997,7 +3902,6 @@ func (r apiDeleteCapabilityCimcFirmwareDescriptorRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4103,7 +4007,6 @@ func (r apiDeleteCapabilityEquipmentPhysicalDefRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4113,7 +4016,6 @@ func (r apiDeleteCapabilityEquipmentPhysicalDefRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4123,7 +4025,6 @@ func (r apiDeleteCapabilityEquipmentPhysicalDefRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4133,7 +4034,6 @@ func (r apiDeleteCapabilityEquipmentPhysicalDefRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4239,7 +4139,6 @@ func (r apiDeleteCapabilityEquipmentSlotArrayRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4249,7 +4148,6 @@ func (r apiDeleteCapabilityEquipmentSlotArrayRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4259,7 +4157,6 @@ func (r apiDeleteCapabilityEquipmentSlotArrayRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4269,7 +4166,6 @@ func (r apiDeleteCapabilityEquipmentSlotArrayRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4375,7 +4271,6 @@ func (r apiDeleteCapabilityFanModuleDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4385,7 +4280,6 @@ func (r apiDeleteCapabilityFanModuleDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4395,7 +4289,6 @@ func (r apiDeleteCapabilityFanModuleDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4405,7 +4298,6 @@ func (r apiDeleteCapabilityFanModuleDescriptorRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4511,7 +4403,6 @@ func (r apiDeleteCapabilityFanModuleManufacturingDefRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4521,7 +4412,6 @@ func (r apiDeleteCapabilityFanModuleManufacturingDefRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4531,7 +4421,6 @@ func (r apiDeleteCapabilityFanModuleManufacturingDefRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4541,7 +4430,6 @@ func (r apiDeleteCapabilityFanModuleManufacturingDefRequest) Execute() (*_nethtt
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4647,7 +4535,6 @@ func (r apiDeleteCapabilityIoCardCapabilityDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4657,7 +4544,6 @@ func (r apiDeleteCapabilityIoCardCapabilityDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4667,7 +4553,6 @@ func (r apiDeleteCapabilityIoCardCapabilityDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4677,7 +4562,6 @@ func (r apiDeleteCapabilityIoCardCapabilityDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4783,7 +4667,6 @@ func (r apiDeleteCapabilityIoCardDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4793,7 +4676,6 @@ func (r apiDeleteCapabilityIoCardDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4803,7 +4685,6 @@ func (r apiDeleteCapabilityIoCardDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4813,7 +4694,6 @@ func (r apiDeleteCapabilityIoCardDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4919,7 +4799,6 @@ func (r apiDeleteCapabilityIoCardManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4929,7 +4808,6 @@ func (r apiDeleteCapabilityIoCardManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4939,7 +4817,6 @@ func (r apiDeleteCapabilityIoCardManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4949,7 +4826,6 @@ func (r apiDeleteCapabilityIoCardManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5055,7 +4931,6 @@ func (r apiDeleteCapabilityPortGroupAggregationDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5065,7 +4940,6 @@ func (r apiDeleteCapabilityPortGroupAggregationDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5075,7 +4949,6 @@ func (r apiDeleteCapabilityPortGroupAggregationDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5085,7 +4958,6 @@ func (r apiDeleteCapabilityPortGroupAggregationDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5191,7 +5063,6 @@ func (r apiDeleteCapabilityPsuDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5201,7 +5072,6 @@ func (r apiDeleteCapabilityPsuDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5211,7 +5081,6 @@ func (r apiDeleteCapabilityPsuDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5221,7 +5090,6 @@ func (r apiDeleteCapabilityPsuDescriptorRequest) Execute() (*_nethttp.Response, 
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5327,7 +5195,6 @@ func (r apiDeleteCapabilityPsuManufacturingDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5337,7 +5204,6 @@ func (r apiDeleteCapabilityPsuManufacturingDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5347,7 +5213,6 @@ func (r apiDeleteCapabilityPsuManufacturingDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5357,7 +5222,6 @@ func (r apiDeleteCapabilityPsuManufacturingDefRequest) Execute() (*_nethttp.Resp
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5463,7 +5327,6 @@ func (r apiDeleteCapabilitySiocModuleCapabilityDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5473,7 +5336,6 @@ func (r apiDeleteCapabilitySiocModuleCapabilityDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5483,7 +5345,6 @@ func (r apiDeleteCapabilitySiocModuleCapabilityDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5493,7 +5354,6 @@ func (r apiDeleteCapabilitySiocModuleCapabilityDefRequest) Execute() (*_nethttp.
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5599,7 +5459,6 @@ func (r apiDeleteCapabilitySiocModuleDescriptorRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5609,7 +5468,6 @@ func (r apiDeleteCapabilitySiocModuleDescriptorRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5619,7 +5477,6 @@ func (r apiDeleteCapabilitySiocModuleDescriptorRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5629,7 +5486,6 @@ func (r apiDeleteCapabilitySiocModuleDescriptorRequest) Execute() (*_nethttp.Res
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5735,7 +5591,6 @@ func (r apiDeleteCapabilitySiocModuleManufacturingDefRequest) Execute() (*_netht
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5745,7 +5600,6 @@ func (r apiDeleteCapabilitySiocModuleManufacturingDefRequest) Execute() (*_netht
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5755,7 +5609,6 @@ func (r apiDeleteCapabilitySiocModuleManufacturingDefRequest) Execute() (*_netht
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5765,7 +5618,6 @@ func (r apiDeleteCapabilitySiocModuleManufacturingDefRequest) Execute() (*_netht
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5871,7 +5723,6 @@ func (r apiDeleteCapabilitySwitchCapabilityRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5881,7 +5732,6 @@ func (r apiDeleteCapabilitySwitchCapabilityRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5891,7 +5741,6 @@ func (r apiDeleteCapabilitySwitchCapabilityRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5901,7 +5750,6 @@ func (r apiDeleteCapabilitySwitchCapabilityRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6007,7 +5855,6 @@ func (r apiDeleteCapabilitySwitchDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6017,7 +5864,6 @@ func (r apiDeleteCapabilitySwitchDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6027,7 +5873,6 @@ func (r apiDeleteCapabilitySwitchDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6037,7 +5882,6 @@ func (r apiDeleteCapabilitySwitchDescriptorRequest) Execute() (*_nethttp.Respons
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6143,7 +5987,6 @@ func (r apiDeleteCapabilitySwitchManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6153,7 +5996,6 @@ func (r apiDeleteCapabilitySwitchManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6163,7 +6005,6 @@ func (r apiDeleteCapabilitySwitchManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6173,7 +6014,6 @@ func (r apiDeleteCapabilitySwitchManufacturingDefRequest) Execute() (*_nethttp.R
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6280,7 +6120,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorByMoidRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6290,7 +6129,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorByMoidRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6300,7 +6138,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorByMoidRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6310,7 +6147,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorByMoidRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6521,7 +6357,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorListRequest) Execute() (CapabilityA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6531,7 +6366,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorListRequest) Execute() (CapabilityA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6541,7 +6375,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorListRequest) Execute() (CapabilityA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6551,7 +6384,6 @@ func (r apiGetCapabilityAdapterUnitDescriptorListRequest) Execute() (CapabilityA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6667,7 +6499,6 @@ func (r apiGetCapabilityCatalogByMoidRequest) Execute() (CapabilityCatalog, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6677,7 +6508,6 @@ func (r apiGetCapabilityCatalogByMoidRequest) Execute() (CapabilityCatalog, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6687,7 +6517,6 @@ func (r apiGetCapabilityCatalogByMoidRequest) Execute() (CapabilityCatalog, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6697,7 +6526,6 @@ func (r apiGetCapabilityCatalogByMoidRequest) Execute() (CapabilityCatalog, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6908,7 +6736,6 @@ func (r apiGetCapabilityCatalogListRequest) Execute() (CapabilityCatalogResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6918,7 +6745,6 @@ func (r apiGetCapabilityCatalogListRequest) Execute() (CapabilityCatalogResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6928,7 +6754,6 @@ func (r apiGetCapabilityCatalogListRequest) Execute() (CapabilityCatalogResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6938,7 +6763,6 @@ func (r apiGetCapabilityCatalogListRequest) Execute() (CapabilityCatalogResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7054,7 +6878,6 @@ func (r apiGetCapabilityChassisDescriptorByMoidRequest) Execute() (CapabilityCha
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7064,7 +6887,6 @@ func (r apiGetCapabilityChassisDescriptorByMoidRequest) Execute() (CapabilityCha
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7074,7 +6896,6 @@ func (r apiGetCapabilityChassisDescriptorByMoidRequest) Execute() (CapabilityCha
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7084,7 +6905,6 @@ func (r apiGetCapabilityChassisDescriptorByMoidRequest) Execute() (CapabilityCha
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7295,7 +7115,6 @@ func (r apiGetCapabilityChassisDescriptorListRequest) Execute() (CapabilityChass
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7305,7 +7124,6 @@ func (r apiGetCapabilityChassisDescriptorListRequest) Execute() (CapabilityChass
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7315,7 +7133,6 @@ func (r apiGetCapabilityChassisDescriptorListRequest) Execute() (CapabilityChass
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7325,7 +7142,6 @@ func (r apiGetCapabilityChassisDescriptorListRequest) Execute() (CapabilityChass
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7441,7 +7257,6 @@ func (r apiGetCapabilityChassisManufacturingDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7451,7 +7266,6 @@ func (r apiGetCapabilityChassisManufacturingDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7461,7 +7275,6 @@ func (r apiGetCapabilityChassisManufacturingDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7471,7 +7284,6 @@ func (r apiGetCapabilityChassisManufacturingDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7682,7 +7494,6 @@ func (r apiGetCapabilityChassisManufacturingDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7692,7 +7503,6 @@ func (r apiGetCapabilityChassisManufacturingDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7702,7 +7512,6 @@ func (r apiGetCapabilityChassisManufacturingDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7712,7 +7521,6 @@ func (r apiGetCapabilityChassisManufacturingDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7828,7 +7636,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -7838,7 +7645,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -7848,7 +7654,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -7858,7 +7663,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8069,7 +7873,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8079,7 +7882,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8089,7 +7891,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8099,7 +7900,6 @@ func (r apiGetCapabilityCimcFirmwareDescriptorListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8215,7 +8015,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8225,7 +8024,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8235,7 +8033,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8245,7 +8042,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8456,7 +8252,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefListRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8466,7 +8261,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefListRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8476,7 +8270,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefListRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8486,7 +8279,6 @@ func (r apiGetCapabilityEquipmentPhysicalDefListRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8602,7 +8394,6 @@ func (r apiGetCapabilityEquipmentSlotArrayByMoidRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8612,7 +8403,6 @@ func (r apiGetCapabilityEquipmentSlotArrayByMoidRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8622,7 +8412,6 @@ func (r apiGetCapabilityEquipmentSlotArrayByMoidRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8632,7 +8421,6 @@ func (r apiGetCapabilityEquipmentSlotArrayByMoidRequest) Execute() (CapabilityEq
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8843,7 +8631,6 @@ func (r apiGetCapabilityEquipmentSlotArrayListRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8853,7 +8640,6 @@ func (r apiGetCapabilityEquipmentSlotArrayListRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -8863,7 +8649,6 @@ func (r apiGetCapabilityEquipmentSlotArrayListRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -8873,7 +8658,6 @@ func (r apiGetCapabilityEquipmentSlotArrayListRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -8989,7 +8773,6 @@ func (r apiGetCapabilityFanModuleDescriptorByMoidRequest) Execute() (CapabilityF
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -8999,7 +8782,6 @@ func (r apiGetCapabilityFanModuleDescriptorByMoidRequest) Execute() (CapabilityF
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9009,7 +8791,6 @@ func (r apiGetCapabilityFanModuleDescriptorByMoidRequest) Execute() (CapabilityF
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9019,7 +8800,6 @@ func (r apiGetCapabilityFanModuleDescriptorByMoidRequest) Execute() (CapabilityF
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9230,7 +9010,6 @@ func (r apiGetCapabilityFanModuleDescriptorListRequest) Execute() (CapabilityFan
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9240,7 +9019,6 @@ func (r apiGetCapabilityFanModuleDescriptorListRequest) Execute() (CapabilityFan
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9250,7 +9028,6 @@ func (r apiGetCapabilityFanModuleDescriptorListRequest) Execute() (CapabilityFan
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9260,7 +9037,6 @@ func (r apiGetCapabilityFanModuleDescriptorListRequest) Execute() (CapabilityFan
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9376,7 +9152,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefByMoidRequest) Execute() (Capab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9386,7 +9161,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefByMoidRequest) Execute() (Capab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9396,7 +9170,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefByMoidRequest) Execute() (Capab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9406,7 +9179,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefByMoidRequest) Execute() (Capab
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9617,7 +9389,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefListRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9627,7 +9398,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefListRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9637,7 +9407,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefListRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9647,7 +9416,6 @@ func (r apiGetCapabilityFanModuleManufacturingDefListRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -9763,7 +9531,6 @@ func (r apiGetCapabilityIoCardCapabilityDefByMoidRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -9773,7 +9540,6 @@ func (r apiGetCapabilityIoCardCapabilityDefByMoidRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -9783,7 +9549,6 @@ func (r apiGetCapabilityIoCardCapabilityDefByMoidRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -9793,7 +9558,6 @@ func (r apiGetCapabilityIoCardCapabilityDefByMoidRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10004,7 +9768,6 @@ func (r apiGetCapabilityIoCardCapabilityDefListRequest) Execute() (CapabilityIoC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10014,7 +9777,6 @@ func (r apiGetCapabilityIoCardCapabilityDefListRequest) Execute() (CapabilityIoC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10024,7 +9786,6 @@ func (r apiGetCapabilityIoCardCapabilityDefListRequest) Execute() (CapabilityIoC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10034,7 +9795,6 @@ func (r apiGetCapabilityIoCardCapabilityDefListRequest) Execute() (CapabilityIoC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10150,7 +9910,6 @@ func (r apiGetCapabilityIoCardDescriptorByMoidRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10160,7 +9919,6 @@ func (r apiGetCapabilityIoCardDescriptorByMoidRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10170,7 +9928,6 @@ func (r apiGetCapabilityIoCardDescriptorByMoidRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10180,7 +9937,6 @@ func (r apiGetCapabilityIoCardDescriptorByMoidRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10391,7 +10147,6 @@ func (r apiGetCapabilityIoCardDescriptorListRequest) Execute() (CapabilityIoCard
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10401,7 +10156,6 @@ func (r apiGetCapabilityIoCardDescriptorListRequest) Execute() (CapabilityIoCard
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10411,7 +10165,6 @@ func (r apiGetCapabilityIoCardDescriptorListRequest) Execute() (CapabilityIoCard
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10421,7 +10174,6 @@ func (r apiGetCapabilityIoCardDescriptorListRequest) Execute() (CapabilityIoCard
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10537,7 +10289,6 @@ func (r apiGetCapabilityIoCardManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10547,7 +10298,6 @@ func (r apiGetCapabilityIoCardManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10557,7 +10307,6 @@ func (r apiGetCapabilityIoCardManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10567,7 +10316,6 @@ func (r apiGetCapabilityIoCardManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10778,7 +10526,6 @@ func (r apiGetCapabilityIoCardManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10788,7 +10535,6 @@ func (r apiGetCapabilityIoCardManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10798,7 +10544,6 @@ func (r apiGetCapabilityIoCardManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10808,7 +10553,6 @@ func (r apiGetCapabilityIoCardManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -10924,7 +10668,6 @@ func (r apiGetCapabilityPortGroupAggregationDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -10934,7 +10677,6 @@ func (r apiGetCapabilityPortGroupAggregationDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -10944,7 +10686,6 @@ func (r apiGetCapabilityPortGroupAggregationDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -10954,7 +10695,6 @@ func (r apiGetCapabilityPortGroupAggregationDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11165,7 +10905,6 @@ func (r apiGetCapabilityPortGroupAggregationDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11175,7 +10914,6 @@ func (r apiGetCapabilityPortGroupAggregationDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11185,7 +10923,6 @@ func (r apiGetCapabilityPortGroupAggregationDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11195,7 +10932,6 @@ func (r apiGetCapabilityPortGroupAggregationDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11311,7 +11047,6 @@ func (r apiGetCapabilityPsuDescriptorByMoidRequest) Execute() (CapabilityPsuDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11321,7 +11056,6 @@ func (r apiGetCapabilityPsuDescriptorByMoidRequest) Execute() (CapabilityPsuDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11331,7 +11065,6 @@ func (r apiGetCapabilityPsuDescriptorByMoidRequest) Execute() (CapabilityPsuDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11341,7 +11074,6 @@ func (r apiGetCapabilityPsuDescriptorByMoidRequest) Execute() (CapabilityPsuDesc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11552,7 +11284,6 @@ func (r apiGetCapabilityPsuDescriptorListRequest) Execute() (CapabilityPsuDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11562,7 +11293,6 @@ func (r apiGetCapabilityPsuDescriptorListRequest) Execute() (CapabilityPsuDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11572,7 +11302,6 @@ func (r apiGetCapabilityPsuDescriptorListRequest) Execute() (CapabilityPsuDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11582,7 +11311,6 @@ func (r apiGetCapabilityPsuDescriptorListRequest) Execute() (CapabilityPsuDescri
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11698,7 +11426,6 @@ func (r apiGetCapabilityPsuManufacturingDefByMoidRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11708,7 +11435,6 @@ func (r apiGetCapabilityPsuManufacturingDefByMoidRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11718,7 +11444,6 @@ func (r apiGetCapabilityPsuManufacturingDefByMoidRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11728,7 +11453,6 @@ func (r apiGetCapabilityPsuManufacturingDefByMoidRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -11939,7 +11663,6 @@ func (r apiGetCapabilityPsuManufacturingDefListRequest) Execute() (CapabilityPsu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -11949,7 +11672,6 @@ func (r apiGetCapabilityPsuManufacturingDefListRequest) Execute() (CapabilityPsu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -11959,7 +11681,6 @@ func (r apiGetCapabilityPsuManufacturingDefListRequest) Execute() (CapabilityPsu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -11969,7 +11690,6 @@ func (r apiGetCapabilityPsuManufacturingDefListRequest) Execute() (CapabilityPsu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12085,7 +11805,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12095,7 +11814,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12105,7 +11823,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12115,7 +11832,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefByMoidRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12326,7 +12042,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12336,7 +12051,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12346,7 +12060,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12356,7 +12069,6 @@ func (r apiGetCapabilitySiocModuleCapabilityDefListRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12472,7 +12184,6 @@ func (r apiGetCapabilitySiocModuleDescriptorByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12482,7 +12193,6 @@ func (r apiGetCapabilitySiocModuleDescriptorByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12492,7 +12202,6 @@ func (r apiGetCapabilitySiocModuleDescriptorByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12502,7 +12211,6 @@ func (r apiGetCapabilitySiocModuleDescriptorByMoidRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12713,7 +12421,6 @@ func (r apiGetCapabilitySiocModuleDescriptorListRequest) Execute() (CapabilitySi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12723,7 +12430,6 @@ func (r apiGetCapabilitySiocModuleDescriptorListRequest) Execute() (CapabilitySi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12733,7 +12439,6 @@ func (r apiGetCapabilitySiocModuleDescriptorListRequest) Execute() (CapabilitySi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12743,7 +12448,6 @@ func (r apiGetCapabilitySiocModuleDescriptorListRequest) Execute() (CapabilitySi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -12859,7 +12563,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefByMoidRequest) Execute() (Capa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -12869,7 +12572,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefByMoidRequest) Execute() (Capa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -12879,7 +12581,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefByMoidRequest) Execute() (Capa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -12889,7 +12590,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefByMoidRequest) Execute() (Capa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13100,7 +12800,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefListRequest) Execute() (Capabi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13110,7 +12809,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefListRequest) Execute() (Capabi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13120,7 +12818,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefListRequest) Execute() (Capabi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13130,7 +12827,6 @@ func (r apiGetCapabilitySiocModuleManufacturingDefListRequest) Execute() (Capabi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13246,7 +12942,6 @@ func (r apiGetCapabilitySwitchCapabilityByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13256,7 +12951,6 @@ func (r apiGetCapabilitySwitchCapabilityByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13266,7 +12960,6 @@ func (r apiGetCapabilitySwitchCapabilityByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13276,7 +12969,6 @@ func (r apiGetCapabilitySwitchCapabilityByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13487,7 +13179,6 @@ func (r apiGetCapabilitySwitchCapabilityListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13497,7 +13188,6 @@ func (r apiGetCapabilitySwitchCapabilityListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13507,7 +13197,6 @@ func (r apiGetCapabilitySwitchCapabilityListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13517,7 +13206,6 @@ func (r apiGetCapabilitySwitchCapabilityListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13633,7 +13321,6 @@ func (r apiGetCapabilitySwitchDescriptorByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13643,7 +13330,6 @@ func (r apiGetCapabilitySwitchDescriptorByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13653,7 +13339,6 @@ func (r apiGetCapabilitySwitchDescriptorByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13663,7 +13348,6 @@ func (r apiGetCapabilitySwitchDescriptorByMoidRequest) Execute() (CapabilitySwit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -13874,7 +13558,6 @@ func (r apiGetCapabilitySwitchDescriptorListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -13884,7 +13567,6 @@ func (r apiGetCapabilitySwitchDescriptorListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -13894,7 +13576,6 @@ func (r apiGetCapabilitySwitchDescriptorListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -13904,7 +13585,6 @@ func (r apiGetCapabilitySwitchDescriptorListRequest) Execute() (CapabilitySwitch
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14020,7 +13700,6 @@ func (r apiGetCapabilitySwitchManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14030,7 +13709,6 @@ func (r apiGetCapabilitySwitchManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14040,7 +13718,6 @@ func (r apiGetCapabilitySwitchManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14050,7 +13727,6 @@ func (r apiGetCapabilitySwitchManufacturingDefByMoidRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14261,7 +13937,6 @@ func (r apiGetCapabilitySwitchManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14271,7 +13946,6 @@ func (r apiGetCapabilitySwitchManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14281,7 +13955,6 @@ func (r apiGetCapabilitySwitchManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14291,7 +13964,6 @@ func (r apiGetCapabilitySwitchManufacturingDefListRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14428,7 +14100,6 @@ func (r apiPatchCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAda
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14438,7 +14109,6 @@ func (r apiPatchCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAda
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14448,7 +14118,6 @@ func (r apiPatchCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAda
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14458,7 +14127,6 @@ func (r apiPatchCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAda
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14595,7 +14263,6 @@ func (r apiPatchCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14605,7 +14272,6 @@ func (r apiPatchCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14615,7 +14281,6 @@ func (r apiPatchCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14625,7 +14290,6 @@ func (r apiPatchCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14762,7 +14426,6 @@ func (r apiPatchCapabilityChassisDescriptorRequest) Execute() (CapabilityChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14772,7 +14435,6 @@ func (r apiPatchCapabilityChassisDescriptorRequest) Execute() (CapabilityChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14782,7 +14444,6 @@ func (r apiPatchCapabilityChassisDescriptorRequest) Execute() (CapabilityChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14792,7 +14453,6 @@ func (r apiPatchCapabilityChassisDescriptorRequest) Execute() (CapabilityChassis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -14929,7 +14589,6 @@ func (r apiPatchCapabilityChassisManufacturingDefRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -14939,7 +14598,6 @@ func (r apiPatchCapabilityChassisManufacturingDefRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -14949,7 +14607,6 @@ func (r apiPatchCapabilityChassisManufacturingDefRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -14959,7 +14616,6 @@ func (r apiPatchCapabilityChassisManufacturingDefRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15096,7 +14752,6 @@ func (r apiPatchCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityCi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15106,7 +14761,6 @@ func (r apiPatchCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityCi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15116,7 +14770,6 @@ func (r apiPatchCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityCi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15126,7 +14779,6 @@ func (r apiPatchCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityCi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15263,7 +14915,6 @@ func (r apiPatchCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15273,7 +14924,6 @@ func (r apiPatchCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15283,7 +14933,6 @@ func (r apiPatchCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15293,7 +14942,6 @@ func (r apiPatchCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqui
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15430,7 +15078,6 @@ func (r apiPatchCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquipm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15440,7 +15087,6 @@ func (r apiPatchCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquipm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15450,7 +15096,6 @@ func (r apiPatchCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquipm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15460,7 +15105,6 @@ func (r apiPatchCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquipm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15597,7 +15241,6 @@ func (r apiPatchCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15607,7 +15250,6 @@ func (r apiPatchCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15617,7 +15259,6 @@ func (r apiPatchCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15627,7 +15268,6 @@ func (r apiPatchCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanMo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15764,7 +15404,6 @@ func (r apiPatchCapabilityFanModuleManufacturingDefRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15774,7 +15413,6 @@ func (r apiPatchCapabilityFanModuleManufacturingDefRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15784,7 +15422,6 @@ func (r apiPatchCapabilityFanModuleManufacturingDefRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15794,7 +15431,6 @@ func (r apiPatchCapabilityFanModuleManufacturingDefRequest) Execute() (Capabilit
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -15931,7 +15567,6 @@ func (r apiPatchCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -15941,7 +15576,6 @@ func (r apiPatchCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -15951,7 +15585,6 @@ func (r apiPatchCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -15961,7 +15594,6 @@ func (r apiPatchCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCar
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16098,7 +15730,6 @@ func (r apiPatchCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16108,7 +15739,6 @@ func (r apiPatchCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16118,7 +15748,6 @@ func (r apiPatchCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16128,7 +15757,6 @@ func (r apiPatchCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16265,7 +15893,6 @@ func (r apiPatchCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16275,7 +15902,6 @@ func (r apiPatchCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16285,7 +15911,6 @@ func (r apiPatchCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16295,7 +15920,6 @@ func (r apiPatchCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityIo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16432,7 +16056,6 @@ func (r apiPatchCapabilityPortGroupAggregationDefRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16442,7 +16065,6 @@ func (r apiPatchCapabilityPortGroupAggregationDefRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16452,7 +16074,6 @@ func (r apiPatchCapabilityPortGroupAggregationDefRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16462,7 +16083,6 @@ func (r apiPatchCapabilityPortGroupAggregationDefRequest) Execute() (CapabilityP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16599,7 +16219,6 @@ func (r apiPatchCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16609,7 +16228,6 @@ func (r apiPatchCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16619,7 +16237,6 @@ func (r apiPatchCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16629,7 +16246,6 @@ func (r apiPatchCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescript
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16766,7 +16382,6 @@ func (r apiPatchCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuMa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16776,7 +16391,6 @@ func (r apiPatchCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuMa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16786,7 +16400,6 @@ func (r apiPatchCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuMa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16796,7 +16409,6 @@ func (r apiPatchCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuMa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -16933,7 +16545,6 @@ func (r apiPatchCapabilitySiocModuleCapabilityDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -16943,7 +16554,6 @@ func (r apiPatchCapabilitySiocModuleCapabilityDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -16953,7 +16563,6 @@ func (r apiPatchCapabilitySiocModuleCapabilityDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -16963,7 +16572,6 @@ func (r apiPatchCapabilitySiocModuleCapabilityDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17100,7 +16708,6 @@ func (r apiPatchCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySioc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17110,7 +16717,6 @@ func (r apiPatchCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySioc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17120,7 +16726,6 @@ func (r apiPatchCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySioc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17130,7 +16735,6 @@ func (r apiPatchCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySioc
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17267,7 +16871,6 @@ func (r apiPatchCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17277,7 +16880,6 @@ func (r apiPatchCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17287,7 +16889,6 @@ func (r apiPatchCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17297,7 +16898,6 @@ func (r apiPatchCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17434,7 +17034,6 @@ func (r apiPatchCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17444,7 +17043,6 @@ func (r apiPatchCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17454,7 +17052,6 @@ func (r apiPatchCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17464,7 +17061,6 @@ func (r apiPatchCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17601,7 +17197,6 @@ func (r apiPatchCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17611,7 +17206,6 @@ func (r apiPatchCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17621,7 +17215,6 @@ func (r apiPatchCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17631,7 +17224,6 @@ func (r apiPatchCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchDe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17768,7 +17360,6 @@ func (r apiPatchCapabilitySwitchManufacturingDefRequest) Execute() (CapabilitySw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17778,7 +17369,6 @@ func (r apiPatchCapabilitySwitchManufacturingDefRequest) Execute() (CapabilitySw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17788,7 +17378,6 @@ func (r apiPatchCapabilitySwitchManufacturingDefRequest) Execute() (CapabilitySw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17798,7 +17387,6 @@ func (r apiPatchCapabilitySwitchManufacturingDefRequest) Execute() (CapabilitySw
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -17935,7 +17523,6 @@ func (r apiUpdateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -17945,7 +17532,6 @@ func (r apiUpdateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -17955,7 +17541,6 @@ func (r apiUpdateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -17965,7 +17550,6 @@ func (r apiUpdateCapabilityAdapterUnitDescriptorRequest) Execute() (CapabilityAd
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18102,7 +17686,6 @@ func (r apiUpdateCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_netht
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18112,7 +17695,6 @@ func (r apiUpdateCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_netht
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18122,7 +17704,6 @@ func (r apiUpdateCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_netht
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18132,7 +17713,6 @@ func (r apiUpdateCapabilityCatalogRequest) Execute() (CapabilityCatalog, *_netht
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18269,7 +17849,6 @@ func (r apiUpdateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18279,7 +17858,6 @@ func (r apiUpdateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18289,7 +17867,6 @@ func (r apiUpdateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18299,7 +17876,6 @@ func (r apiUpdateCapabilityChassisDescriptorRequest) Execute() (CapabilityChassi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18436,7 +18012,6 @@ func (r apiUpdateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18446,7 +18021,6 @@ func (r apiUpdateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18456,7 +18030,6 @@ func (r apiUpdateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18466,7 +18039,6 @@ func (r apiUpdateCapabilityChassisManufacturingDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18603,7 +18175,6 @@ func (r apiUpdateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18613,7 +18184,6 @@ func (r apiUpdateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18623,7 +18193,6 @@ func (r apiUpdateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18633,7 +18202,6 @@ func (r apiUpdateCapabilityCimcFirmwareDescriptorRequest) Execute() (CapabilityC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18770,7 +18338,6 @@ func (r apiUpdateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18780,7 +18347,6 @@ func (r apiUpdateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18790,7 +18356,6 @@ func (r apiUpdateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18800,7 +18365,6 @@ func (r apiUpdateCapabilityEquipmentPhysicalDefRequest) Execute() (CapabilityEqu
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -18937,7 +18501,6 @@ func (r apiUpdateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -18947,7 +18510,6 @@ func (r apiUpdateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -18957,7 +18519,6 @@ func (r apiUpdateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -18967,7 +18528,6 @@ func (r apiUpdateCapabilityEquipmentSlotArrayRequest) Execute() (CapabilityEquip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19104,7 +18664,6 @@ func (r apiUpdateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19114,7 +18673,6 @@ func (r apiUpdateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19124,7 +18682,6 @@ func (r apiUpdateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19134,7 +18691,6 @@ func (r apiUpdateCapabilityFanModuleDescriptorRequest) Execute() (CapabilityFanM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19271,7 +18827,6 @@ func (r apiUpdateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19281,7 +18836,6 @@ func (r apiUpdateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19291,7 +18845,6 @@ func (r apiUpdateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19301,7 +18854,6 @@ func (r apiUpdateCapabilityFanModuleManufacturingDefRequest) Execute() (Capabili
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19438,7 +18990,6 @@ func (r apiUpdateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19448,7 +18999,6 @@ func (r apiUpdateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19458,7 +19008,6 @@ func (r apiUpdateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19468,7 +19017,6 @@ func (r apiUpdateCapabilityIoCardCapabilityDefRequest) Execute() (CapabilityIoCa
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19605,7 +19153,6 @@ func (r apiUpdateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19615,7 +19162,6 @@ func (r apiUpdateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19625,7 +19171,6 @@ func (r apiUpdateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19635,7 +19180,6 @@ func (r apiUpdateCapabilityIoCardDescriptorRequest) Execute() (CapabilityIoCardD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19772,7 +19316,6 @@ func (r apiUpdateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19782,7 +19325,6 @@ func (r apiUpdateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19792,7 +19334,6 @@ func (r apiUpdateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19802,7 +19343,6 @@ func (r apiUpdateCapabilityIoCardManufacturingDefRequest) Execute() (CapabilityI
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -19939,7 +19479,6 @@ func (r apiUpdateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -19949,7 +19488,6 @@ func (r apiUpdateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -19959,7 +19497,6 @@ func (r apiUpdateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -19969,7 +19506,6 @@ func (r apiUpdateCapabilityPortGroupAggregationDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20106,7 +19642,6 @@ func (r apiUpdateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20116,7 +19651,6 @@ func (r apiUpdateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20126,7 +19660,6 @@ func (r apiUpdateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20136,7 +19669,6 @@ func (r apiUpdateCapabilityPsuDescriptorRequest) Execute() (CapabilityPsuDescrip
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20273,7 +19805,6 @@ func (r apiUpdateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20283,7 +19814,6 @@ func (r apiUpdateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20293,7 +19823,6 @@ func (r apiUpdateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20303,7 +19832,6 @@ func (r apiUpdateCapabilityPsuManufacturingDefRequest) Execute() (CapabilityPsuM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20440,7 +19968,6 @@ func (r apiUpdateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20450,7 +19977,6 @@ func (r apiUpdateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20460,7 +19986,6 @@ func (r apiUpdateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20470,7 +19995,6 @@ func (r apiUpdateCapabilitySiocModuleCapabilityDefRequest) Execute() (Capability
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20607,7 +20131,6 @@ func (r apiUpdateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20617,7 +20140,6 @@ func (r apiUpdateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20627,7 +20149,6 @@ func (r apiUpdateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20637,7 +20158,6 @@ func (r apiUpdateCapabilitySiocModuleDescriptorRequest) Execute() (CapabilitySio
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20774,7 +20294,6 @@ func (r apiUpdateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20784,7 +20303,6 @@ func (r apiUpdateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20794,7 +20312,6 @@ func (r apiUpdateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20804,7 +20321,6 @@ func (r apiUpdateCapabilitySiocModuleManufacturingDefRequest) Execute() (Capabil
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -20941,7 +20457,6 @@ func (r apiUpdateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -20951,7 +20466,6 @@ func (r apiUpdateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -20961,7 +20475,6 @@ func (r apiUpdateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -20971,7 +20484,6 @@ func (r apiUpdateCapabilitySwitchCapabilityRequest) Execute() (CapabilitySwitchC
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21108,7 +20620,6 @@ func (r apiUpdateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21118,7 +20629,6 @@ func (r apiUpdateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21128,7 +20638,6 @@ func (r apiUpdateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21138,7 +20647,6 @@ func (r apiUpdateCapabilitySwitchDescriptorRequest) Execute() (CapabilitySwitchD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -21275,7 +20783,6 @@ func (r apiUpdateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -21285,7 +20792,6 @@ func (r apiUpdateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -21295,7 +20801,6 @@ func (r apiUpdateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -21305,7 +20810,6 @@ func (r apiUpdateCapabilitySwitchManufacturingDefRequest) Execute() (CapabilityS
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

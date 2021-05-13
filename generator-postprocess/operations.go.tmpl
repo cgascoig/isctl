@@ -42,7 +42,7 @@ import (
         {{ if ne .BodyParamType "" }}
         ret := []string{}
         {{ range .BodyParamVars }}
-        {{ if eq .DataType "string" "bool" "[]string" }}{{ else }}{{ if not .Ignore }}
+        {{ if eq .DataType "string" "bool" "[]string" "float64" }}{{ else }}{{ if not .Ignore }}
             if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
                 if refStr, ok := v.(string); ok {
                     paramVal := openapi.{{ .DataType }}{}
@@ -84,7 +84,7 @@ import (
         log.Tracef("SetBodyParams: input params: %v", params)
 
         {{ range .BodyParamVars }}
-        {{ if eq .DataType "string" "bool" "[]string" }}{{ else }}{{ if not .Ignore }}
+        {{ if eq .DataType "string" "bool" "[]string" "float64" }}{{ else }}{{ if not .Ignore }}
             if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
                 if refStr, ok := v.(string); ok {
                     paramVal := openapi.{{ .DataType }}{}

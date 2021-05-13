@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** | Pointer to [**TelemetryDruidGroupByRequest**](telemetry.DruidGroupByRequest.md) |  | 
+**Query** | Pointer to [**TelemetryDruidGroupByRequest**](TelemetryDruidGroupByRequest.md) |  | 
 
 ## Methods
 

@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -30,17 +30,17 @@ type EquipmentIdentitySummaryAllOf struct {
 	AdminActionState *string `json:"AdminActionState,omitempty" yaml:"AdminActionState,omitempty"`
 	// Chassis Identifier of a blade server.
 	ChassisId *int64 `json:"ChassisId,omitempty" yaml:"ChassisId,omitempty"`
-	// FI Device registration Mo ID.
-	DeviceMoId *string `json:"DeviceMoId,omitempty" yaml:"DeviceMoId,omitempty"`
+	// Describes whether the running CIMC version supports Intersight managed mode. * `Unknown` - The running firmware version is unknown. * `Supported` - The running firmware version is known and supports IMM mode. * `NotSupported` - The running firmware version is known and does not support IMM mode.
+	FirmwareSupportability *string `json:"FirmwareSupportability,omitempty" yaml:"FirmwareSupportability,omitempty"`
 	// Numeric Identifier assigned by the management system to the equipment.
 	Identifier         *int64                    `json:"Identifier,omitempty" yaml:"Identifier,omitempty"`
 	IoCardIdentityList []EquipmentIoCardIdentity `json:"IoCardIdentityList,omitempty" yaml:"IoCardIdentityList,omitempty"`
-	// The equipment's lifecycle status. * `None` - Default state of an equipment. This should be an initial state when no state is defined for an equipment. * `Active` - Default Lifecycle State for a physical entity. * `Decommissioned` - Decommission Lifecycle state. * `DecommissionInProgress` - Decommission Inprogress Lifecycle state. * `RecommissionInProgress` - Recommission Inprogress Lifecycle state. * `OperationFailed` - Failed Operation Lifecycle state. * `ReackInProgress` - ReackInProgress Lifecycle state. * `RemoveInProgress` - RemoveInProgress Lifecycle state. * `Discovered` - Discovered Lifecycle state. * `DiscoveryInProgress` - DiscoveryInProgress Lifecycle state. * `DiscoveryFailed` - DiscoveryFailed Lifecycle state. * `FirmwareUpgradeInProgress` - Firmware upgrade is in progress on given physical entity.
+	// The equipment's lifecycle status. * `None` - Default state of an equipment. This should be an initial state when no state is defined for an equipment. * `Active` - Default Lifecycle State for a physical entity. * `Decommissioned` - Decommission Lifecycle state. * `DecommissionInProgress` - Decommission Inprogress Lifecycle state. * `RecommissionInProgress` - Recommission Inprogress Lifecycle state. * `OperationFailed` - Failed Operation Lifecycle state. * `ReackInProgress` - ReackInProgress Lifecycle state. * `RemoveInProgress` - RemoveInProgress Lifecycle state. * `Discovered` - Discovered Lifecycle state. * `DiscoveryInProgress` - DiscoveryInProgress Lifecycle state. * `DiscoveryFailed` - DiscoveryFailed Lifecycle state. * `FirmwareUpgradeInProgress` - Firmware upgrade is in progress on given physical entity. * `BladeMigrationInProgress` - Server slot migration is in progress on given physical entity.
 	Lifecycle *string `json:"Lifecycle,omitempty" yaml:"Lifecycle,omitempty"`
 	// The vendor provided model name for the equipment.
 	Model *string `json:"Model,omitempty" yaml:"Model,omitempty"`
-	// Value to indicate if discovery needs to be triggered after some event (ex. device connector reconnect).
-	PendingDiscovery *string `json:"PendingDiscovery,omitempty" yaml:"PendingDiscovery,omitempty"`
+	// The presence state of the blade server. * `Unknown` - The default presence state. * `Equipped` - The server is equipped in the slot. * `EquippedMismatch` - The slot is equipped, but there is another server currently inventoried in the slot. * `Missing` - The server is not present in the given slot.
+	Presence *string `json:"Presence,omitempty" yaml:"Presence,omitempty"`
 	// The serial number of the equipment.
 	Serial *string `json:"Serial,omitempty" yaml:"Serial,omitempty"`
 	// Chassis slot number of a blade server.
@@ -50,8 +50,8 @@ type EquipmentIdentitySummaryAllOf struct {
 	// Switch ID to which Fabric Extender is connected, ID can be either 1 or 2, equalent to A or B.
 	SwitchId *int64 `json:"SwitchId,omitempty" yaml:"SwitchId,omitempty"`
 	// The manufacturer of the equipment.
-	Vendor             *string                              `json:"Vendor,omitempty" yaml:"Vendor,omitempty"`
-	DeviceRegistration *AssetDeviceRegistrationRelationship `json:"DeviceRegistration,omitempty" yaml:"DeviceRegistration,omitempty"`
+	Vendor           *string                              `json:"Vendor,omitempty" yaml:"Vendor,omitempty"`
+	RegisteredDevice *AssetDeviceRegistrationRelationship `json:"RegisteredDevice,omitempty" yaml:"RegisteredDevice,omitempty"`
 }
 
 // NewEquipmentIdentitySummaryAllOf instantiates a new EquipmentIdentitySummaryAllOf object
@@ -66,8 +66,12 @@ func NewEquipmentIdentitySummaryAllOf(classId string, objectType string) *Equipm
 	this.AdminAction = &adminAction
 	var adminActionState string = "None"
 	this.AdminActionState = &adminActionState
+	var firmwareSupportability string = "Unknown"
+	this.FirmwareSupportability = &firmwareSupportability
 	var lifecycle string = "None"
 	this.Lifecycle = &lifecycle
+	var presence string = "Unknown"
+	this.Presence = &presence
 	return &this
 }
 
@@ -84,8 +88,12 @@ func NewEquipmentIdentitySummaryAllOfWithDefaults() *EquipmentIdentitySummaryAll
 	this.AdminAction = &adminAction
 	var adminActionState string = "None"
 	this.AdminActionState = &adminActionState
+	var firmwareSupportability string = "Unknown"
+	this.FirmwareSupportability = &firmwareSupportability
 	var lifecycle string = "None"
 	this.Lifecycle = &lifecycle
+	var presence string = "Unknown"
+	this.Presence = &presence
 	return &this
 }
 
@@ -265,36 +273,36 @@ func (o *EquipmentIdentitySummaryAllOf) SetChassisId(v int64) {
 	o.ChassisId = &v
 }
 
-// GetDeviceMoId returns the DeviceMoId field value if set, zero value otherwise.
-func (o *EquipmentIdentitySummaryAllOf) GetDeviceMoId() string {
-	if o == nil || o.DeviceMoId == nil {
+// GetFirmwareSupportability returns the FirmwareSupportability field value if set, zero value otherwise.
+func (o *EquipmentIdentitySummaryAllOf) GetFirmwareSupportability() string {
+	if o == nil || o.FirmwareSupportability == nil {
 		var ret string
 		return ret
 	}
-	return *o.DeviceMoId
+	return *o.FirmwareSupportability
 }
 
-// GetDeviceMoIdOk returns a tuple with the DeviceMoId field value if set, nil otherwise
+// GetFirmwareSupportabilityOk returns a tuple with the FirmwareSupportability field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EquipmentIdentitySummaryAllOf) GetDeviceMoIdOk() (*string, bool) {
-	if o == nil || o.DeviceMoId == nil {
+func (o *EquipmentIdentitySummaryAllOf) GetFirmwareSupportabilityOk() (*string, bool) {
+	if o == nil || o.FirmwareSupportability == nil {
 		return nil, false
 	}
-	return o.DeviceMoId, true
+	return o.FirmwareSupportability, true
 }
 
-// HasDeviceMoId returns a boolean if a field has been set.
-func (o *EquipmentIdentitySummaryAllOf) HasDeviceMoId() bool {
-	if o != nil && o.DeviceMoId != nil {
+// HasFirmwareSupportability returns a boolean if a field has been set.
+func (o *EquipmentIdentitySummaryAllOf) HasFirmwareSupportability() bool {
+	if o != nil && o.FirmwareSupportability != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetDeviceMoId gets a reference to the given string and assigns it to the DeviceMoId field.
-func (o *EquipmentIdentitySummaryAllOf) SetDeviceMoId(v string) {
-	o.DeviceMoId = &v
+// SetFirmwareSupportability gets a reference to the given string and assigns it to the FirmwareSupportability field.
+func (o *EquipmentIdentitySummaryAllOf) SetFirmwareSupportability(v string) {
+	o.FirmwareSupportability = &v
 }
 
 // GetIdentifier returns the Identifier field value if set, zero value otherwise.
@@ -426,36 +434,36 @@ func (o *EquipmentIdentitySummaryAllOf) SetModel(v string) {
 	o.Model = &v
 }
 
-// GetPendingDiscovery returns the PendingDiscovery field value if set, zero value otherwise.
-func (o *EquipmentIdentitySummaryAllOf) GetPendingDiscovery() string {
-	if o == nil || o.PendingDiscovery == nil {
+// GetPresence returns the Presence field value if set, zero value otherwise.
+func (o *EquipmentIdentitySummaryAllOf) GetPresence() string {
+	if o == nil || o.Presence == nil {
 		var ret string
 		return ret
 	}
-	return *o.PendingDiscovery
+	return *o.Presence
 }
 
-// GetPendingDiscoveryOk returns a tuple with the PendingDiscovery field value if set, nil otherwise
+// GetPresenceOk returns a tuple with the Presence field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EquipmentIdentitySummaryAllOf) GetPendingDiscoveryOk() (*string, bool) {
-	if o == nil || o.PendingDiscovery == nil {
+func (o *EquipmentIdentitySummaryAllOf) GetPresenceOk() (*string, bool) {
+	if o == nil || o.Presence == nil {
 		return nil, false
 	}
-	return o.PendingDiscovery, true
+	return o.Presence, true
 }
 
-// HasPendingDiscovery returns a boolean if a field has been set.
-func (o *EquipmentIdentitySummaryAllOf) HasPendingDiscovery() bool {
-	if o != nil && o.PendingDiscovery != nil {
+// HasPresence returns a boolean if a field has been set.
+func (o *EquipmentIdentitySummaryAllOf) HasPresence() bool {
+	if o != nil && o.Presence != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetPendingDiscovery gets a reference to the given string and assigns it to the PendingDiscovery field.
-func (o *EquipmentIdentitySummaryAllOf) SetPendingDiscovery(v string) {
-	o.PendingDiscovery = &v
+// SetPresence gets a reference to the given string and assigns it to the Presence field.
+func (o *EquipmentIdentitySummaryAllOf) SetPresence(v string) {
+	o.Presence = &v
 }
 
 // GetSerial returns the Serial field value if set, zero value otherwise.
@@ -618,36 +626,36 @@ func (o *EquipmentIdentitySummaryAllOf) SetVendor(v string) {
 	o.Vendor = &v
 }
 
-// GetDeviceRegistration returns the DeviceRegistration field value if set, zero value otherwise.
-func (o *EquipmentIdentitySummaryAllOf) GetDeviceRegistration() AssetDeviceRegistrationRelationship {
-	if o == nil || o.DeviceRegistration == nil {
+// GetRegisteredDevice returns the RegisteredDevice field value if set, zero value otherwise.
+func (o *EquipmentIdentitySummaryAllOf) GetRegisteredDevice() AssetDeviceRegistrationRelationship {
+	if o == nil || o.RegisteredDevice == nil {
 		var ret AssetDeviceRegistrationRelationship
 		return ret
 	}
-	return *o.DeviceRegistration
+	return *o.RegisteredDevice
 }
 
-// GetDeviceRegistrationOk returns a tuple with the DeviceRegistration field value if set, nil otherwise
+// GetRegisteredDeviceOk returns a tuple with the RegisteredDevice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EquipmentIdentitySummaryAllOf) GetDeviceRegistrationOk() (*AssetDeviceRegistrationRelationship, bool) {
-	if o == nil || o.DeviceRegistration == nil {
+func (o *EquipmentIdentitySummaryAllOf) GetRegisteredDeviceOk() (*AssetDeviceRegistrationRelationship, bool) {
+	if o == nil || o.RegisteredDevice == nil {
 		return nil, false
 	}
-	return o.DeviceRegistration, true
+	return o.RegisteredDevice, true
 }
 
-// HasDeviceRegistration returns a boolean if a field has been set.
-func (o *EquipmentIdentitySummaryAllOf) HasDeviceRegistration() bool {
-	if o != nil && o.DeviceRegistration != nil {
+// HasRegisteredDevice returns a boolean if a field has been set.
+func (o *EquipmentIdentitySummaryAllOf) HasRegisteredDevice() bool {
+	if o != nil && o.RegisteredDevice != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetDeviceRegistration gets a reference to the given AssetDeviceRegistrationRelationship and assigns it to the DeviceRegistration field.
-func (o *EquipmentIdentitySummaryAllOf) SetDeviceRegistration(v AssetDeviceRegistrationRelationship) {
-	o.DeviceRegistration = &v
+// SetRegisteredDevice gets a reference to the given AssetDeviceRegistrationRelationship and assigns it to the RegisteredDevice field.
+func (o *EquipmentIdentitySummaryAllOf) SetRegisteredDevice(v AssetDeviceRegistrationRelationship) {
+	o.RegisteredDevice = &v
 }
 
 func (o EquipmentIdentitySummaryAllOf) MarshalJSON() ([]byte, error) {
@@ -670,8 +678,8 @@ func (o EquipmentIdentitySummaryAllOf) MarshalJSON() ([]byte, error) {
 	if o.ChassisId != nil {
 		toSerialize["ChassisId"] = o.ChassisId
 	}
-	if o.DeviceMoId != nil {
-		toSerialize["DeviceMoId"] = o.DeviceMoId
+	if o.FirmwareSupportability != nil {
+		toSerialize["FirmwareSupportability"] = o.FirmwareSupportability
 	}
 	if o.Identifier != nil {
 		toSerialize["Identifier"] = o.Identifier
@@ -685,8 +693,8 @@ func (o EquipmentIdentitySummaryAllOf) MarshalJSON() ([]byte, error) {
 	if o.Model != nil {
 		toSerialize["Model"] = o.Model
 	}
-	if o.PendingDiscovery != nil {
-		toSerialize["PendingDiscovery"] = o.PendingDiscovery
+	if o.Presence != nil {
+		toSerialize["Presence"] = o.Presence
 	}
 	if o.Serial != nil {
 		toSerialize["Serial"] = o.Serial
@@ -703,8 +711,8 @@ func (o EquipmentIdentitySummaryAllOf) MarshalJSON() ([]byte, error) {
 	if o.Vendor != nil {
 		toSerialize["Vendor"] = o.Vendor
 	}
-	if o.DeviceRegistration != nil {
-		toSerialize["DeviceRegistration"] = o.DeviceRegistration
+	if o.RegisteredDevice != nil {
+		toSerialize["RegisteredDevice"] = o.RegisteredDevice
 	}
 	return json.Marshal(toSerialize)
 }

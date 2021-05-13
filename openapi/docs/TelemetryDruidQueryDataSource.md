@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | The type of data source. | 
-**Query** | Pointer to [**TelemetryDruidGroupByRequest**](telemetry.DruidGroupByRequest.md) |  | 
+**Query** | Pointer to [**TelemetryDruidGroupByRequest**](TelemetryDruidGroupByRequest.md) |  | 
 
 ## Methods
 

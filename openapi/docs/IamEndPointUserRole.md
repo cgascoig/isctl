@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Enabled** | Pointer to **bool** | Enables the user account on the endpoint. | [optional] 
 **IsPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;password&#39; property has been set. | [optional] [readonly] [default to false]
 **Password** | Pointer to **string** | Valid login password of the user. | [optional] 
-**EndPointRole** | Pointer to [**[]IamEndPointRoleRelationship**](iam.EndPointRole.Relationship.md) | An array of relationships to iamEndPointRole resources. | [optional] 
-**EndPointUser** | Pointer to [**IamEndPointUserRelationship**](iam.EndPointUser.Relationship.md) |  | [optional] 
-**EndPointUserPolicy** | Pointer to [**IamEndPointUserPolicyRelationship**](iam.EndPointUserPolicy.Relationship.md) |  | [optional] 
+**EndPointRole** | Pointer to [**[]IamEndPointRoleRelationship**](IamEndPointRoleRelationship.md) | An array of relationships to iamEndPointRole resources. | [optional] 
+**EndPointUser** | Pointer to [**IamEndPointUserRelationship**](IamEndPointUserRelationship.md) |  | [optional] 
+**EndPointUserPolicy** | Pointer to [**IamEndPointUserPolicyRelationship**](IamEndPointUserPolicyRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.NetAppExportPolicy"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.NetAppExportPolicy"]
-**NetAppExportPolicyRule** | Pointer to [**[]StorageNetAppExportPolicyRule**](storage.NetAppExportPolicyRule.md) |  | [optional] 
+**ClusterUuid** | Pointer to **string** | Unique identity of the device. | [optional] [readonly] 
+**NetAppExportPolicyRule** | Pointer to [**[]StorageNetAppExportPolicyRule**](StorageNetAppExportPolicyRule.md) |  | [optional] 
 **PolicyId** | Pointer to **int64** | ID for the Export Policy. | [optional] [readonly] 
-**Array** | Pointer to [**StorageNetAppClusterRelationship**](storage.NetAppCluster.Relationship.md) |  | [optional] 
-**Tenant** | Pointer to [**StorageNetAppStorageVmRelationship**](storage.NetAppStorageVm.Relationship.md) |  | [optional] 
+**Array** | Pointer to [**StorageNetAppClusterRelationship**](StorageNetAppClusterRelationship.md) |  | [optional] 
+**Tenant** | Pointer to [**StorageNetAppStorageVmRelationship**](StorageNetAppStorageVmRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -69,6 +70,31 @@ and a boolean to check if the value has been set.
 
 SetObjectType sets ObjectType field to given value.
 
+
+### GetClusterUuid
+
+`func (o *StorageNetAppExportPolicyAllOf) GetClusterUuid() string`
+
+GetClusterUuid returns the ClusterUuid field if non-nil, zero value otherwise.
+
+### GetClusterUuidOk
+
+`func (o *StorageNetAppExportPolicyAllOf) GetClusterUuidOk() (*string, bool)`
+
+GetClusterUuidOk returns a tuple with the ClusterUuid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterUuid
+
+`func (o *StorageNetAppExportPolicyAllOf) SetClusterUuid(v string)`
+
+SetClusterUuid sets ClusterUuid field to given value.
+
+### HasClusterUuid
+
+`func (o *StorageNetAppExportPolicyAllOf) HasClusterUuid() bool`
+
+HasClusterUuid returns a boolean if a field has been set.
 
 ### GetNetAppExportPolicyRule
 

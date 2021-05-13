@@ -13,12 +13,12 @@ Name | Type | Description | Notes
 **PolicyMoid** | Pointer to **string** | Deployed network policy moid. | [optional] [readonly] 
 **ProfileMoid** | Pointer to **string** | Deployed cluster profile moid. | [optional] [readonly] 
 **ReplicationBandwidthMbps** | Pointer to **int64** | Bandwidth for the Replication network in Mbps. | [optional] [readonly] [default to 0]
-**ReplicationIpranges** | Pointer to [**[]HyperflexIpAddrRange**](hyperflex.IpAddrRange.md) |  | [optional] 
+**ReplicationIpranges** | Pointer to [**[]HyperflexIpAddrRange**](HyperflexIpAddrRange.md) |  | [optional] 
 **ReplicationMtu** | Pointer to **int64** | MTU for the Replication network. | [optional] [readonly] [default to 1500]
-**ReplicationVlan** | Pointer to [**NullableHyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
+**ReplicationVlan** | Pointer to [**NullableHyperflexNamedVlan**](HyperflexNamedVlan.md) |  | [optional] 
 **RequestId** | Pointer to **string** | Unique request ID allowing retry of the same logical request following a transient communication failure. | [optional] [readonly] 
-**Cluster** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**Cluster** | Pointer to [**HyperflexClusterRelationship**](HyperflexClusterRelationship.md) |  | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 

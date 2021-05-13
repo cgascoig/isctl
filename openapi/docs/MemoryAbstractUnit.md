@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **Latency** | Pointer to **string** | This represents the latency of the memory unit on a server. | [optional] [readonly] 
 **Location** | Pointer to **string** | This represents the location of the memory unit on a server. | [optional] [readonly] 
 **OperPowerState** | Pointer to **string** | This represents the operational power state of the memory unit on a server. | [optional] [readonly] 
+**OperReason** | Pointer to **[]string** |  | [optional] 
 **OperState** | Pointer to **string** | This represents the operational state of the memory unit on a server. | [optional] [readonly] 
 **Operability** | Pointer to **string** | This represents the operability of the memory unit on a server. | [optional] [readonly] 
-**Presence** | Pointer to **string** | This represents the presence state of the memory unit on a server. | [optional] [readonly] 
 **Set** | Pointer to **int64** | This represents the set of the memory unit on a server. | [optional] [readonly] 
 **Speed** | Pointer to **string** | This represents the speed of the memory unit on a server. | [optional] [readonly] 
 **Thermal** | Pointer to **string** | This represents the thremal state of the memory unit on a server. | [optional] [readonly] 
@@ -309,6 +309,41 @@ SetOperPowerState sets OperPowerState field to given value.
 
 HasOperPowerState returns a boolean if a field has been set.
 
+### GetOperReason
+
+`func (o *MemoryAbstractUnit) GetOperReason() []string`
+
+GetOperReason returns the OperReason field if non-nil, zero value otherwise.
+
+### GetOperReasonOk
+
+`func (o *MemoryAbstractUnit) GetOperReasonOk() (*[]string, bool)`
+
+GetOperReasonOk returns a tuple with the OperReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperReason
+
+`func (o *MemoryAbstractUnit) SetOperReason(v []string)`
+
+SetOperReason sets OperReason field to given value.
+
+### HasOperReason
+
+`func (o *MemoryAbstractUnit) HasOperReason() bool`
+
+HasOperReason returns a boolean if a field has been set.
+
+### SetOperReasonNil
+
+`func (o *MemoryAbstractUnit) SetOperReasonNil(b bool)`
+
+ SetOperReasonNil sets the value for OperReason to be an explicit nil
+
+### UnsetOperReason
+`func (o *MemoryAbstractUnit) UnsetOperReason()`
+
+UnsetOperReason ensures that no value is present for OperReason, not even an explicit nil
 ### GetOperState
 
 `func (o *MemoryAbstractUnit) GetOperState() string`
@@ -358,31 +393,6 @@ SetOperability sets Operability field to given value.
 `func (o *MemoryAbstractUnit) HasOperability() bool`
 
 HasOperability returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *MemoryAbstractUnit) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *MemoryAbstractUnit) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *MemoryAbstractUnit) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *MemoryAbstractUnit) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetSet
 

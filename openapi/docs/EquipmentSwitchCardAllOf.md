@@ -12,16 +12,17 @@ Name | Type | Description | Notes
 **NumPorts** | Pointer to **int64** | Number of ports present in this switch hardware. | [optional] [readonly] 
 **OutOfBandIpAddress** | Pointer to **string** | Field specifies this Switch&#39;s Out-of-band IP address. | [optional] [readonly] 
 **OutOfBandIpGateway** | Pointer to **string** | Field specifies this Switch&#39;s default gateway for the out-of-band management interface. | [optional] [readonly] 
-**Presence** | Pointer to **string** | Presence for this switch hardware. | [optional] [readonly] 
+**OutOfBandIpMask** | Pointer to **string** | Field specifies the Netmask for this Switch&#39;s Out-of-band IP address. | [optional] 
 **SlotId** | Pointer to **int64** | Slot identifier of the local Switch slot Interface. | [optional] [readonly] 
 **State** | Pointer to **string** | Operational state of the switch hardware. | [optional] [readonly] 
 **SwitchId** | Pointer to **string** | Switch Identifier that is local to a cluster. | [optional] [readonly] 
-**FcPortChannels** | Pointer to [**[]FcPortChannelRelationship**](fc.PortChannel.Relationship.md) | An array of relationships to fcPortChannel resources. | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**NetworkElement** | Pointer to [**NetworkElementRelationship**](network.Element.Relationship.md) |  | [optional] 
-**PortChannels** | Pointer to [**[]EtherPortChannelRelationship**](ether.PortChannel.Relationship.md) | An array of relationships to etherPortChannel resources. | [optional] 
-**PortGroups** | Pointer to [**[]PortGroupRelationship**](port.Group.Relationship.md) | An array of relationships to portGroup resources. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Thermal** | Pointer to **string** | The Thermal status of the fabric interconnect. * &#x60;unknown&#x60; - The default state of the sensor (in case no data is received). * &#x60;ok&#x60; - State of the sensor indicating the sensor&#39;s temperature range is okay. * &#x60;upper-non-recoverable&#x60; - State of the sensor indicating that the temperature is extremely high above normal range. * &#x60;upper-critical&#x60; - State of the sensor indicating that the temperature is above normal range. * &#x60;upper-non-critical&#x60; - State of the sensor indicating that the temperature is a little above the normal range. * &#x60;lower-non-critical&#x60; - State of the sensor indicating that the temperature is a little below the normal range. * &#x60;lower-critical&#x60; - State of the sensor indicating that the temperature is below normal range. * &#x60;lower-non-recoverable&#x60; - State of the sensor indicating that the temperature is extremely below normal range. | [optional] [default to "unknown"]
+**FcPortChannels** | Pointer to [**[]FcPortChannelRelationship**](FcPortChannelRelationship.md) | An array of relationships to fcPortChannel resources. | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**NetworkElement** | Pointer to [**NetworkElementRelationship**](NetworkElementRelationship.md) |  | [optional] 
+**PortChannels** | Pointer to [**[]EtherPortChannelRelationship**](EtherPortChannelRelationship.md) | An array of relationships to etherPortChannel resources. | [optional] 
+**PortGroups** | Pointer to [**[]PortGroupRelationship**](PortGroupRelationship.md) | An array of relationships to portGroup resources. | [optional] [readonly] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -232,30 +233,30 @@ SetOutOfBandIpGateway sets OutOfBandIpGateway field to given value.
 
 HasOutOfBandIpGateway returns a boolean if a field has been set.
 
-### GetPresence
+### GetOutOfBandIpMask
 
-`func (o *EquipmentSwitchCardAllOf) GetPresence() string`
+`func (o *EquipmentSwitchCardAllOf) GetOutOfBandIpMask() string`
 
-GetPresence returns the Presence field if non-nil, zero value otherwise.
+GetOutOfBandIpMask returns the OutOfBandIpMask field if non-nil, zero value otherwise.
 
-### GetPresenceOk
+### GetOutOfBandIpMaskOk
 
-`func (o *EquipmentSwitchCardAllOf) GetPresenceOk() (*string, bool)`
+`func (o *EquipmentSwitchCardAllOf) GetOutOfBandIpMaskOk() (*string, bool)`
 
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
+GetOutOfBandIpMaskOk returns a tuple with the OutOfBandIpMask field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPresence
+### SetOutOfBandIpMask
 
-`func (o *EquipmentSwitchCardAllOf) SetPresence(v string)`
+`func (o *EquipmentSwitchCardAllOf) SetOutOfBandIpMask(v string)`
 
-SetPresence sets Presence field to given value.
+SetOutOfBandIpMask sets OutOfBandIpMask field to given value.
 
-### HasPresence
+### HasOutOfBandIpMask
 
-`func (o *EquipmentSwitchCardAllOf) HasPresence() bool`
+`func (o *EquipmentSwitchCardAllOf) HasOutOfBandIpMask() bool`
 
-HasPresence returns a boolean if a field has been set.
+HasOutOfBandIpMask returns a boolean if a field has been set.
 
 ### GetSlotId
 
@@ -331,6 +332,31 @@ SetSwitchId sets SwitchId field to given value.
 `func (o *EquipmentSwitchCardAllOf) HasSwitchId() bool`
 
 HasSwitchId returns a boolean if a field has been set.
+
+### GetThermal
+
+`func (o *EquipmentSwitchCardAllOf) GetThermal() string`
+
+GetThermal returns the Thermal field if non-nil, zero value otherwise.
+
+### GetThermalOk
+
+`func (o *EquipmentSwitchCardAllOf) GetThermalOk() (*string, bool)`
+
+GetThermalOk returns a tuple with the Thermal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThermal
+
+`func (o *EquipmentSwitchCardAllOf) SetThermal(v string)`
+
+SetThermal sets Thermal field to given value.
+
+### HasThermal
+
+`func (o *EquipmentSwitchCardAllOf) HasThermal() bool`
+
+HasThermal returns a boolean if a field has been set.
 
 ### GetFcPortChannels
 

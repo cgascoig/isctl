@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -120,7 +120,6 @@ func (r apiGetNiaapiApicCcoPostByMoidRequest) Execute() (NiaapiApicCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -130,7 +129,6 @@ func (r apiGetNiaapiApicCcoPostByMoidRequest) Execute() (NiaapiApicCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -140,7 +138,6 @@ func (r apiGetNiaapiApicCcoPostByMoidRequest) Execute() (NiaapiApicCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -150,7 +147,6 @@ func (r apiGetNiaapiApicCcoPostByMoidRequest) Execute() (NiaapiApicCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -361,7 +357,6 @@ func (r apiGetNiaapiApicCcoPostListRequest) Execute() (NiaapiApicCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -371,7 +366,6 @@ func (r apiGetNiaapiApicCcoPostListRequest) Execute() (NiaapiApicCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -381,7 +375,6 @@ func (r apiGetNiaapiApicCcoPostListRequest) Execute() (NiaapiApicCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -391,7 +384,6 @@ func (r apiGetNiaapiApicCcoPostListRequest) Execute() (NiaapiApicCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -507,7 +499,6 @@ func (r apiGetNiaapiApicFieldNoticeByMoidRequest) Execute() (NiaapiApicFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -517,7 +508,6 @@ func (r apiGetNiaapiApicFieldNoticeByMoidRequest) Execute() (NiaapiApicFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -527,7 +517,6 @@ func (r apiGetNiaapiApicFieldNoticeByMoidRequest) Execute() (NiaapiApicFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -537,7 +526,6 @@ func (r apiGetNiaapiApicFieldNoticeByMoidRequest) Execute() (NiaapiApicFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -748,7 +736,6 @@ func (r apiGetNiaapiApicFieldNoticeListRequest) Execute() (NiaapiApicFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -758,7 +745,6 @@ func (r apiGetNiaapiApicFieldNoticeListRequest) Execute() (NiaapiApicFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -768,7 +754,6 @@ func (r apiGetNiaapiApicFieldNoticeListRequest) Execute() (NiaapiApicFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -778,7 +763,6 @@ func (r apiGetNiaapiApicFieldNoticeListRequest) Execute() (NiaapiApicFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -894,7 +878,6 @@ func (r apiGetNiaapiApicHweolByMoidRequest) Execute() (NiaapiApicHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -904,7 +887,6 @@ func (r apiGetNiaapiApicHweolByMoidRequest) Execute() (NiaapiApicHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -914,7 +896,6 @@ func (r apiGetNiaapiApicHweolByMoidRequest) Execute() (NiaapiApicHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -924,7 +905,6 @@ func (r apiGetNiaapiApicHweolByMoidRequest) Execute() (NiaapiApicHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1135,7 +1115,6 @@ func (r apiGetNiaapiApicHweolListRequest) Execute() (NiaapiApicHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1145,7 +1124,6 @@ func (r apiGetNiaapiApicHweolListRequest) Execute() (NiaapiApicHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1155,7 +1133,6 @@ func (r apiGetNiaapiApicHweolListRequest) Execute() (NiaapiApicHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1165,7 +1142,6 @@ func (r apiGetNiaapiApicHweolListRequest) Execute() (NiaapiApicHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1281,7 +1257,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1291,7 +1266,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1301,7 +1275,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1311,7 +1284,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiA
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1522,7 +1494,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseListRequest) Execute() (NiaapiApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1532,7 +1503,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseListRequest) Execute() (NiaapiApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1542,7 +1512,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseListRequest) Execute() (NiaapiApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1552,7 +1521,6 @@ func (r apiGetNiaapiApicLatestMaintainedReleaseListRequest) Execute() (NiaapiApi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1668,7 +1636,6 @@ func (r apiGetNiaapiApicReleaseRecommendByMoidRequest) Execute() (NiaapiApicRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1678,7 +1645,6 @@ func (r apiGetNiaapiApicReleaseRecommendByMoidRequest) Execute() (NiaapiApicRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1688,7 +1654,6 @@ func (r apiGetNiaapiApicReleaseRecommendByMoidRequest) Execute() (NiaapiApicRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1698,7 +1663,6 @@ func (r apiGetNiaapiApicReleaseRecommendByMoidRequest) Execute() (NiaapiApicRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1909,7 +1873,6 @@ func (r apiGetNiaapiApicReleaseRecommendListRequest) Execute() (NiaapiApicReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1919,7 +1882,6 @@ func (r apiGetNiaapiApicReleaseRecommendListRequest) Execute() (NiaapiApicReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1929,7 +1891,6 @@ func (r apiGetNiaapiApicReleaseRecommendListRequest) Execute() (NiaapiApicReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1939,7 +1900,6 @@ func (r apiGetNiaapiApicReleaseRecommendListRequest) Execute() (NiaapiApicReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2055,7 +2015,6 @@ func (r apiGetNiaapiApicSweolByMoidRequest) Execute() (NiaapiApicSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2065,7 +2024,6 @@ func (r apiGetNiaapiApicSweolByMoidRequest) Execute() (NiaapiApicSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2075,7 +2033,6 @@ func (r apiGetNiaapiApicSweolByMoidRequest) Execute() (NiaapiApicSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2085,7 +2042,6 @@ func (r apiGetNiaapiApicSweolByMoidRequest) Execute() (NiaapiApicSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2296,7 +2252,6 @@ func (r apiGetNiaapiApicSweolListRequest) Execute() (NiaapiApicSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2306,7 +2261,6 @@ func (r apiGetNiaapiApicSweolListRequest) Execute() (NiaapiApicSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2316,7 +2270,6 @@ func (r apiGetNiaapiApicSweolListRequest) Execute() (NiaapiApicSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2326,7 +2279,6 @@ func (r apiGetNiaapiApicSweolListRequest) Execute() (NiaapiApicSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2442,7 +2394,6 @@ func (r apiGetNiaapiDcnmCcoPostByMoidRequest) Execute() (NiaapiDcnmCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2452,7 +2403,6 @@ func (r apiGetNiaapiDcnmCcoPostByMoidRequest) Execute() (NiaapiDcnmCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2462,7 +2412,6 @@ func (r apiGetNiaapiDcnmCcoPostByMoidRequest) Execute() (NiaapiDcnmCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2472,7 +2421,6 @@ func (r apiGetNiaapiDcnmCcoPostByMoidRequest) Execute() (NiaapiDcnmCcoPost, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2683,7 +2631,6 @@ func (r apiGetNiaapiDcnmCcoPostListRequest) Execute() (NiaapiDcnmCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2693,7 +2640,6 @@ func (r apiGetNiaapiDcnmCcoPostListRequest) Execute() (NiaapiDcnmCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2703,7 +2649,6 @@ func (r apiGetNiaapiDcnmCcoPostListRequest) Execute() (NiaapiDcnmCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2713,7 +2658,6 @@ func (r apiGetNiaapiDcnmCcoPostListRequest) Execute() (NiaapiDcnmCcoPostResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2829,7 +2773,6 @@ func (r apiGetNiaapiDcnmFieldNoticeByMoidRequest) Execute() (NiaapiDcnmFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2839,7 +2782,6 @@ func (r apiGetNiaapiDcnmFieldNoticeByMoidRequest) Execute() (NiaapiDcnmFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2849,7 +2791,6 @@ func (r apiGetNiaapiDcnmFieldNoticeByMoidRequest) Execute() (NiaapiDcnmFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2859,7 +2800,6 @@ func (r apiGetNiaapiDcnmFieldNoticeByMoidRequest) Execute() (NiaapiDcnmFieldNoti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3070,7 +3010,6 @@ func (r apiGetNiaapiDcnmFieldNoticeListRequest) Execute() (NiaapiDcnmFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3080,7 +3019,6 @@ func (r apiGetNiaapiDcnmFieldNoticeListRequest) Execute() (NiaapiDcnmFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3090,7 +3028,6 @@ func (r apiGetNiaapiDcnmFieldNoticeListRequest) Execute() (NiaapiDcnmFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3100,7 +3037,6 @@ func (r apiGetNiaapiDcnmFieldNoticeListRequest) Execute() (NiaapiDcnmFieldNotice
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3216,7 +3152,6 @@ func (r apiGetNiaapiDcnmHweolByMoidRequest) Execute() (NiaapiDcnmHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3226,7 +3161,6 @@ func (r apiGetNiaapiDcnmHweolByMoidRequest) Execute() (NiaapiDcnmHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3236,7 +3170,6 @@ func (r apiGetNiaapiDcnmHweolByMoidRequest) Execute() (NiaapiDcnmHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3246,7 +3179,6 @@ func (r apiGetNiaapiDcnmHweolByMoidRequest) Execute() (NiaapiDcnmHweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3457,7 +3389,6 @@ func (r apiGetNiaapiDcnmHweolListRequest) Execute() (NiaapiDcnmHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3467,7 +3398,6 @@ func (r apiGetNiaapiDcnmHweolListRequest) Execute() (NiaapiDcnmHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3477,7 +3407,6 @@ func (r apiGetNiaapiDcnmHweolListRequest) Execute() (NiaapiDcnmHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3487,7 +3416,6 @@ func (r apiGetNiaapiDcnmHweolListRequest) Execute() (NiaapiDcnmHweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3603,7 +3531,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3613,7 +3540,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3623,7 +3549,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3633,7 +3558,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseByMoidRequest) Execute() (NiaapiD
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3844,7 +3768,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseListRequest) Execute() (NiaapiDcn
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3854,7 +3777,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseListRequest) Execute() (NiaapiDcn
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3864,7 +3786,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseListRequest) Execute() (NiaapiDcn
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3874,7 +3795,6 @@ func (r apiGetNiaapiDcnmLatestMaintainedReleaseListRequest) Execute() (NiaapiDcn
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3990,7 +3910,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendByMoidRequest) Execute() (NiaapiDcnmRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4000,7 +3919,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendByMoidRequest) Execute() (NiaapiDcnmRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4010,7 +3928,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendByMoidRequest) Execute() (NiaapiDcnmRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4020,7 +3937,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendByMoidRequest) Execute() (NiaapiDcnmRele
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4231,7 +4147,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendListRequest) Execute() (NiaapiDcnmReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4241,7 +4156,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendListRequest) Execute() (NiaapiDcnmReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4251,7 +4165,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendListRequest) Execute() (NiaapiDcnmReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4261,7 +4174,6 @@ func (r apiGetNiaapiDcnmReleaseRecommendListRequest) Execute() (NiaapiDcnmReleas
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4377,7 +4289,6 @@ func (r apiGetNiaapiDcnmSweolByMoidRequest) Execute() (NiaapiDcnmSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4387,7 +4298,6 @@ func (r apiGetNiaapiDcnmSweolByMoidRequest) Execute() (NiaapiDcnmSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4397,7 +4307,6 @@ func (r apiGetNiaapiDcnmSweolByMoidRequest) Execute() (NiaapiDcnmSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4407,7 +4316,6 @@ func (r apiGetNiaapiDcnmSweolByMoidRequest) Execute() (NiaapiDcnmSweol, *_nethtt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4618,7 +4526,6 @@ func (r apiGetNiaapiDcnmSweolListRequest) Execute() (NiaapiDcnmSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4628,7 +4535,6 @@ func (r apiGetNiaapiDcnmSweolListRequest) Execute() (NiaapiDcnmSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4638,7 +4544,6 @@ func (r apiGetNiaapiDcnmSweolListRequest) Execute() (NiaapiDcnmSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4648,7 +4553,6 @@ func (r apiGetNiaapiDcnmSweolListRequest) Execute() (NiaapiDcnmSweolResponse, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4764,7 +4668,6 @@ func (r apiGetNiaapiFileDownloaderByMoidRequest) Execute() (NiaapiFileDownloader
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4774,7 +4677,6 @@ func (r apiGetNiaapiFileDownloaderByMoidRequest) Execute() (NiaapiFileDownloader
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4784,7 +4686,6 @@ func (r apiGetNiaapiFileDownloaderByMoidRequest) Execute() (NiaapiFileDownloader
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4794,7 +4695,6 @@ func (r apiGetNiaapiFileDownloaderByMoidRequest) Execute() (NiaapiFileDownloader
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5005,7 +4905,6 @@ func (r apiGetNiaapiFileDownloaderListRequest) Execute() (NiaapiFileDownloaderRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5015,7 +4914,6 @@ func (r apiGetNiaapiFileDownloaderListRequest) Execute() (NiaapiFileDownloaderRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5025,7 +4923,6 @@ func (r apiGetNiaapiFileDownloaderListRequest) Execute() (NiaapiFileDownloaderRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5035,7 +4932,6 @@ func (r apiGetNiaapiFileDownloaderListRequest) Execute() (NiaapiFileDownloaderRe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5151,7 +5047,6 @@ func (r apiGetNiaapiNiaMetadataByMoidRequest) Execute() (NiaapiNiaMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5161,7 +5056,6 @@ func (r apiGetNiaapiNiaMetadataByMoidRequest) Execute() (NiaapiNiaMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5171,7 +5065,6 @@ func (r apiGetNiaapiNiaMetadataByMoidRequest) Execute() (NiaapiNiaMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5181,7 +5074,6 @@ func (r apiGetNiaapiNiaMetadataByMoidRequest) Execute() (NiaapiNiaMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5392,7 +5284,6 @@ func (r apiGetNiaapiNiaMetadataListRequest) Execute() (NiaapiNiaMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5402,7 +5293,6 @@ func (r apiGetNiaapiNiaMetadataListRequest) Execute() (NiaapiNiaMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5412,7 +5302,6 @@ func (r apiGetNiaapiNiaMetadataListRequest) Execute() (NiaapiNiaMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5422,7 +5311,6 @@ func (r apiGetNiaapiNiaMetadataListRequest) Execute() (NiaapiNiaMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5538,7 +5426,6 @@ func (r apiGetNiaapiNibFileDownloaderByMoidRequest) Execute() (NiaapiNibFileDown
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5548,7 +5435,6 @@ func (r apiGetNiaapiNibFileDownloaderByMoidRequest) Execute() (NiaapiNibFileDown
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5558,7 +5444,6 @@ func (r apiGetNiaapiNibFileDownloaderByMoidRequest) Execute() (NiaapiNibFileDown
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5568,7 +5453,6 @@ func (r apiGetNiaapiNibFileDownloaderByMoidRequest) Execute() (NiaapiNibFileDown
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5779,7 +5663,6 @@ func (r apiGetNiaapiNibFileDownloaderListRequest) Execute() (NiaapiNibFileDownlo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5789,7 +5672,6 @@ func (r apiGetNiaapiNibFileDownloaderListRequest) Execute() (NiaapiNibFileDownlo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5799,7 +5681,6 @@ func (r apiGetNiaapiNibFileDownloaderListRequest) Execute() (NiaapiNibFileDownlo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5809,7 +5690,6 @@ func (r apiGetNiaapiNibFileDownloaderListRequest) Execute() (NiaapiNibFileDownlo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5925,7 +5805,6 @@ func (r apiGetNiaapiNibMetadataByMoidRequest) Execute() (NiaapiNibMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5935,7 +5814,6 @@ func (r apiGetNiaapiNibMetadataByMoidRequest) Execute() (NiaapiNibMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5945,7 +5823,6 @@ func (r apiGetNiaapiNibMetadataByMoidRequest) Execute() (NiaapiNibMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5955,7 +5832,6 @@ func (r apiGetNiaapiNibMetadataByMoidRequest) Execute() (NiaapiNibMetadata, *_ne
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6166,7 +6042,6 @@ func (r apiGetNiaapiNibMetadataListRequest) Execute() (NiaapiNibMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6176,7 +6051,6 @@ func (r apiGetNiaapiNibMetadataListRequest) Execute() (NiaapiNibMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6186,7 +6060,6 @@ func (r apiGetNiaapiNibMetadataListRequest) Execute() (NiaapiNibMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6196,7 +6069,6 @@ func (r apiGetNiaapiNibMetadataListRequest) Execute() (NiaapiNibMetadataResponse
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6312,7 +6184,6 @@ func (r apiGetNiaapiVersionRegexByMoidRequest) Execute() (NiaapiVersionRegex, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6322,7 +6193,6 @@ func (r apiGetNiaapiVersionRegexByMoidRequest) Execute() (NiaapiVersionRegex, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6332,7 +6202,6 @@ func (r apiGetNiaapiVersionRegexByMoidRequest) Execute() (NiaapiVersionRegex, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6342,7 +6211,6 @@ func (r apiGetNiaapiVersionRegexByMoidRequest) Execute() (NiaapiVersionRegex, *_
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6553,7 +6421,6 @@ func (r apiGetNiaapiVersionRegexListRequest) Execute() (NiaapiVersionRegexRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6563,7 +6430,6 @@ func (r apiGetNiaapiVersionRegexListRequest) Execute() (NiaapiVersionRegexRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6573,7 +6439,6 @@ func (r apiGetNiaapiVersionRegexListRequest) Execute() (NiaapiVersionRegexRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6583,7 +6448,6 @@ func (r apiGetNiaapiVersionRegexListRequest) Execute() (NiaapiVersionRegexRespon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

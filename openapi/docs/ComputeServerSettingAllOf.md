@@ -9,13 +9,17 @@ Name | Type | Description | Notes
 **AdminLocatorLedState** | Pointer to **string** | User configured state of the locator LED for the server. * &#x60;None&#x60; - No operation property for locator led. * &#x60;On&#x60; - The Locator Led is turned on. * &#x60;Off&#x60; - The Locator Led is turned off. | [optional] [default to "None"]
 **AdminPowerState** | Pointer to **string** | User configured power state of the server. * &#x60;Policy&#x60; - Power state is set to the default value in the policy. * &#x60;PowerOn&#x60; - Power state of the server is set to On. * &#x60;PowerOff&#x60; - Power state is the server set to Off. * &#x60;PowerCycle&#x60; - Power state the server is reset. * &#x60;HardReset&#x60; - Power state the server is hard reset. * &#x60;Shutdown&#x60; - Operating system on the server is shut down. * &#x60;Reboot&#x60; - Power state of IMC is rebooted. | [optional] [default to "Policy"]
 **ConfigState** | Pointer to **string** | The configured state of these settings in the target server. The value is any one of Applied, Applying, Failed. Applied - This state denotes that the settings are applied successfully in the target server. Applying - This state denotes that the settings are being applied in the target server. Failed - This state denotes that the settings could not be applied in the target server. * &#x60;Applied&#x60; - User configured settings are in applied state. * &#x60;Applying&#x60; - User settings are being applied on the target server. * &#x60;Failed&#x60; - User configured settings could not be applied. | [optional] [readonly] [default to "Applied"]
+**Name** | Pointer to **string** | The property used to identify the name of the server it is associated with. | [optional] [readonly] 
 **OneTimeBootDevice** | Pointer to **string** | The name of the device chosen by user for configuring One-Time Boot device. | [optional] 
-**PersistentMemoryOperation** | Pointer to [**NullableComputePersistentMemoryOperation**](compute.PersistentMemoryOperation.md) |  | [optional] 
-**ServerConfig** | Pointer to [**NullableComputeServerConfig**](compute.ServerConfig.md) |  | [optional] 
-**LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](equipment.LocatorLed.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**RunningWorkflow** | Pointer to [**WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) |  | [optional] 
-**Server** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
+**PersistentMemoryOperation** | Pointer to [**NullableComputePersistentMemoryOperation**](ComputePersistentMemoryOperation.md) |  | [optional] 
+**ServerConfig** | Pointer to [**NullableComputeServerConfig**](ComputeServerConfig.md) |  | [optional] 
+**StorageControllerOperation** | Pointer to [**NullableComputeStorageControllerOperation**](ComputeStorageControllerOperation.md) |  | [optional] 
+**StoragePhysicalDriveOperation** | Pointer to [**NullableComputeStoragePhysicalDriveOperation**](ComputeStoragePhysicalDriveOperation.md) |  | [optional] 
+**StorageVirtualDriveOperation** | Pointer to [**NullableComputeStorageVirtualDriveOperation**](ComputeStorageVirtualDriveOperation.md) |  | [optional] 
+**LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](EquipmentLocatorLedRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**RunningWorkflow** | Pointer to [**WorkflowWorkflowInfoRelationship**](WorkflowWorkflowInfoRelationship.md) |  | [optional] 
+**Server** | Pointer to [**ComputePhysicalRelationship**](ComputePhysicalRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -151,6 +155,31 @@ SetConfigState sets ConfigState field to given value.
 
 HasConfigState returns a boolean if a field has been set.
 
+### GetName
+
+`func (o *ComputeServerSettingAllOf) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ComputeServerSettingAllOf) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ComputeServerSettingAllOf) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *ComputeServerSettingAllOf) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
 ### GetOneTimeBootDevice
 
 `func (o *ComputeServerSettingAllOf) GetOneTimeBootDevice() string`
@@ -246,6 +275,111 @@ HasServerConfig returns a boolean if a field has been set.
 `func (o *ComputeServerSettingAllOf) UnsetServerConfig()`
 
 UnsetServerConfig ensures that no value is present for ServerConfig, not even an explicit nil
+### GetStorageControllerOperation
+
+`func (o *ComputeServerSettingAllOf) GetStorageControllerOperation() ComputeStorageControllerOperation`
+
+GetStorageControllerOperation returns the StorageControllerOperation field if non-nil, zero value otherwise.
+
+### GetStorageControllerOperationOk
+
+`func (o *ComputeServerSettingAllOf) GetStorageControllerOperationOk() (*ComputeStorageControllerOperation, bool)`
+
+GetStorageControllerOperationOk returns a tuple with the StorageControllerOperation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageControllerOperation
+
+`func (o *ComputeServerSettingAllOf) SetStorageControllerOperation(v ComputeStorageControllerOperation)`
+
+SetStorageControllerOperation sets StorageControllerOperation field to given value.
+
+### HasStorageControllerOperation
+
+`func (o *ComputeServerSettingAllOf) HasStorageControllerOperation() bool`
+
+HasStorageControllerOperation returns a boolean if a field has been set.
+
+### SetStorageControllerOperationNil
+
+`func (o *ComputeServerSettingAllOf) SetStorageControllerOperationNil(b bool)`
+
+ SetStorageControllerOperationNil sets the value for StorageControllerOperation to be an explicit nil
+
+### UnsetStorageControllerOperation
+`func (o *ComputeServerSettingAllOf) UnsetStorageControllerOperation()`
+
+UnsetStorageControllerOperation ensures that no value is present for StorageControllerOperation, not even an explicit nil
+### GetStoragePhysicalDriveOperation
+
+`func (o *ComputeServerSettingAllOf) GetStoragePhysicalDriveOperation() ComputeStoragePhysicalDriveOperation`
+
+GetStoragePhysicalDriveOperation returns the StoragePhysicalDriveOperation field if non-nil, zero value otherwise.
+
+### GetStoragePhysicalDriveOperationOk
+
+`func (o *ComputeServerSettingAllOf) GetStoragePhysicalDriveOperationOk() (*ComputeStoragePhysicalDriveOperation, bool)`
+
+GetStoragePhysicalDriveOperationOk returns a tuple with the StoragePhysicalDriveOperation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStoragePhysicalDriveOperation
+
+`func (o *ComputeServerSettingAllOf) SetStoragePhysicalDriveOperation(v ComputeStoragePhysicalDriveOperation)`
+
+SetStoragePhysicalDriveOperation sets StoragePhysicalDriveOperation field to given value.
+
+### HasStoragePhysicalDriveOperation
+
+`func (o *ComputeServerSettingAllOf) HasStoragePhysicalDriveOperation() bool`
+
+HasStoragePhysicalDriveOperation returns a boolean if a field has been set.
+
+### SetStoragePhysicalDriveOperationNil
+
+`func (o *ComputeServerSettingAllOf) SetStoragePhysicalDriveOperationNil(b bool)`
+
+ SetStoragePhysicalDriveOperationNil sets the value for StoragePhysicalDriveOperation to be an explicit nil
+
+### UnsetStoragePhysicalDriveOperation
+`func (o *ComputeServerSettingAllOf) UnsetStoragePhysicalDriveOperation()`
+
+UnsetStoragePhysicalDriveOperation ensures that no value is present for StoragePhysicalDriveOperation, not even an explicit nil
+### GetStorageVirtualDriveOperation
+
+`func (o *ComputeServerSettingAllOf) GetStorageVirtualDriveOperation() ComputeStorageVirtualDriveOperation`
+
+GetStorageVirtualDriveOperation returns the StorageVirtualDriveOperation field if non-nil, zero value otherwise.
+
+### GetStorageVirtualDriveOperationOk
+
+`func (o *ComputeServerSettingAllOf) GetStorageVirtualDriveOperationOk() (*ComputeStorageVirtualDriveOperation, bool)`
+
+GetStorageVirtualDriveOperationOk returns a tuple with the StorageVirtualDriveOperation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageVirtualDriveOperation
+
+`func (o *ComputeServerSettingAllOf) SetStorageVirtualDriveOperation(v ComputeStorageVirtualDriveOperation)`
+
+SetStorageVirtualDriveOperation sets StorageVirtualDriveOperation field to given value.
+
+### HasStorageVirtualDriveOperation
+
+`func (o *ComputeServerSettingAllOf) HasStorageVirtualDriveOperation() bool`
+
+HasStorageVirtualDriveOperation returns a boolean if a field has been set.
+
+### SetStorageVirtualDriveOperationNil
+
+`func (o *ComputeServerSettingAllOf) SetStorageVirtualDriveOperationNil(b bool)`
+
+ SetStorageVirtualDriveOperationNil sets the value for StorageVirtualDriveOperation to be an explicit nil
+
+### UnsetStorageVirtualDriveOperation
+`func (o *ComputeServerSettingAllOf) UnsetStorageVirtualDriveOperation()`
+
+UnsetStorageVirtualDriveOperation ensures that no value is present for StorageVirtualDriveOperation, not even an explicit nil
 ### GetLocatorLed
 
 `func (o *ComputeServerSettingAllOf) GetLocatorLed() EquipmentLocatorLedRelationship`

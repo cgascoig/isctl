@@ -6,16 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "server.Profile"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "server.Profile"]
-**ConfigChanges** | Pointer to [**NullablePolicyConfigChange**](policy.ConfigChange.md) |  | [optional] 
+**ConfigChangeContext** | Pointer to [**NullablePolicyConfigChangeContext**](PolicyConfigChangeContext.md) |  | [optional] 
+**ConfigChanges** | Pointer to [**NullablePolicyConfigChange**](PolicyConfigChange.md) |  | [optional] 
 **IsPmcDeployedSecurePassphraseSet** | Pointer to **bool** | Indicates whether the value of the &#39;pmcDeployedSecurePassphrase&#39; property has been set. | [optional] [readonly] [default to false]
 **PmcDeployedSecurePassphrase** | Pointer to **string** | Secure passphrase that is already deployed on all the Persistent Memory Modules on the server. This deployed passphrase is required during deploy of server profile if secure passphrase is changed or security is disabled in the attached persistent memory policy. | [optional] 
-**TargetPlatform** | Pointer to **string** | The platform for which the server profile is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight. * &#x60;Standalone&#x60; - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected. * &#x60;FIAttached&#x60; - Servers which are connected to a Fabric Interconnect that is managed by Intersight. | [optional] [default to "Standalone"]
-**AssignedServer** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
-**AssociatedServer** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
-**ConfigChangeDetails** | Pointer to [**[]ServerConfigChangeDetailRelationship**](server.ConfigChangeDetail.Relationship.md) | An array of relationships to serverConfigChangeDetail resources. | [optional] [readonly] 
-**ConfigResult** | Pointer to [**ServerConfigResultRelationship**](server.ConfigResult.Relationship.md) |  | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
-**RunningWorkflows** | Pointer to [**[]WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) | An array of relationships to workflowWorkflowInfo resources. | [optional] [readonly] 
+**AssignedServer** | Pointer to [**ComputePhysicalRelationship**](ComputePhysicalRelationship.md) |  | [optional] 
+**AssociatedServer** | Pointer to [**ComputePhysicalRelationship**](ComputePhysicalRelationship.md) |  | [optional] 
+**ConfigChangeDetails** | Pointer to [**[]ServerConfigChangeDetailRelationship**](ServerConfigChangeDetailRelationship.md) | An array of relationships to serverConfigChangeDetail resources. | [optional] [readonly] 
+**ConfigResult** | Pointer to [**ServerConfigResultRelationship**](ServerConfigResultRelationship.md) |  | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
+**RunningWorkflows** | Pointer to [**[]WorkflowWorkflowInfoRelationship**](WorkflowWorkflowInfoRelationship.md) | An array of relationships to workflowWorkflowInfo resources. | [optional] [readonly] 
 
 ## Methods
 
@@ -76,6 +76,41 @@ and a boolean to check if the value has been set.
 SetObjectType sets ObjectType field to given value.
 
 
+### GetConfigChangeContext
+
+`func (o *ServerProfileAllOf) GetConfigChangeContext() PolicyConfigChangeContext`
+
+GetConfigChangeContext returns the ConfigChangeContext field if non-nil, zero value otherwise.
+
+### GetConfigChangeContextOk
+
+`func (o *ServerProfileAllOf) GetConfigChangeContextOk() (*PolicyConfigChangeContext, bool)`
+
+GetConfigChangeContextOk returns a tuple with the ConfigChangeContext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigChangeContext
+
+`func (o *ServerProfileAllOf) SetConfigChangeContext(v PolicyConfigChangeContext)`
+
+SetConfigChangeContext sets ConfigChangeContext field to given value.
+
+### HasConfigChangeContext
+
+`func (o *ServerProfileAllOf) HasConfigChangeContext() bool`
+
+HasConfigChangeContext returns a boolean if a field has been set.
+
+### SetConfigChangeContextNil
+
+`func (o *ServerProfileAllOf) SetConfigChangeContextNil(b bool)`
+
+ SetConfigChangeContextNil sets the value for ConfigChangeContext to be an explicit nil
+
+### UnsetConfigChangeContext
+`func (o *ServerProfileAllOf) UnsetConfigChangeContext()`
+
+UnsetConfigChangeContext ensures that no value is present for ConfigChangeContext, not even an explicit nil
 ### GetConfigChanges
 
 `func (o *ServerProfileAllOf) GetConfigChanges() PolicyConfigChange`
@@ -160,31 +195,6 @@ SetPmcDeployedSecurePassphrase sets PmcDeployedSecurePassphrase field to given v
 `func (o *ServerProfileAllOf) HasPmcDeployedSecurePassphrase() bool`
 
 HasPmcDeployedSecurePassphrase returns a boolean if a field has been set.
-
-### GetTargetPlatform
-
-`func (o *ServerProfileAllOf) GetTargetPlatform() string`
-
-GetTargetPlatform returns the TargetPlatform field if non-nil, zero value otherwise.
-
-### GetTargetPlatformOk
-
-`func (o *ServerProfileAllOf) GetTargetPlatformOk() (*string, bool)`
-
-GetTargetPlatformOk returns a tuple with the TargetPlatform field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTargetPlatform
-
-`func (o *ServerProfileAllOf) SetTargetPlatform(v string)`
-
-SetTargetPlatform sets TargetPlatform field to given value.
-
-### HasTargetPlatform
-
-`func (o *ServerProfileAllOf) HasTargetPlatform() bool`
-
-HasTargetPlatform returns a boolean if a field has been set.
 
 ### GetAssignedServer
 

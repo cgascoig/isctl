@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Enabled** | Pointer to **bool** | State of the Virtual Media service on the endpoint. | [optional] [default to true]
 **Encryption** | Pointer to **bool** | If enabled, allows encryption of all Virtual Media communications. | [optional] 
 **LowPowerUsb** | Pointer to **bool** | If enabled, the virtual drives appear on the boot selection menu after mapping the image and rebooting the host. | [optional] [default to true]
-**Mappings** | Pointer to [**[]VmediaMapping**](vmedia.Mapping.md) |  | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
-**Profiles** | Pointer to [**[]PolicyAbstractConfigProfileRelationship**](policy.AbstractConfigProfile.Relationship.md) | An array of relationships to policyAbstractConfigProfile resources. | [optional] 
+**Mappings** | Pointer to [**[]VmediaMapping**](VmediaMapping.md) |  | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
+**Profiles** | Pointer to [**[]PolicyAbstractConfigProfileRelationship**](PolicyAbstractConfigProfileRelationship.md) | An array of relationships to policyAbstractConfigProfile resources. | [optional] 
 
 ## Methods
 

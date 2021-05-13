@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -24,8 +24,10 @@ type KubernetesNodeProfileAllOf struct {
 	ObjectType string `json:"ObjectType" yaml:"ObjectType"`
 	// Cloud provider for this node profile. * `noProvider` - Enables the use of no cloud provider. * `external` - Out of tree cloud provider, e.g. CPI for vsphere.
 	CloudProvider *string                                 `json:"CloudProvider,omitempty" yaml:"CloudProvider,omitempty"`
+	ConfigResult  *KubernetesConfigResultRelationship     `json:"ConfigResult,omitempty" yaml:"ConfigResult,omitempty"`
 	NodeGroup     *KubernetesNodeGroupProfileRelationship `json:"NodeGroup,omitempty" yaml:"NodeGroup,omitempty"`
 	Target        *AssetDeviceRegistrationRelationship    `json:"Target,omitempty" yaml:"Target,omitempty"`
+	Version       *KubernetesVersionRelationship          `json:"Version,omitempty" yaml:"Version,omitempty"`
 }
 
 // NewKubernetesNodeProfileAllOf instantiates a new KubernetesNodeProfileAllOf object
@@ -135,6 +137,38 @@ func (o *KubernetesNodeProfileAllOf) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
+// GetConfigResult returns the ConfigResult field value if set, zero value otherwise.
+func (o *KubernetesNodeProfileAllOf) GetConfigResult() KubernetesConfigResultRelationship {
+	if o == nil || o.ConfigResult == nil {
+		var ret KubernetesConfigResultRelationship
+		return ret
+	}
+	return *o.ConfigResult
+}
+
+// GetConfigResultOk returns a tuple with the ConfigResult field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KubernetesNodeProfileAllOf) GetConfigResultOk() (*KubernetesConfigResultRelationship, bool) {
+	if o == nil || o.ConfigResult == nil {
+		return nil, false
+	}
+	return o.ConfigResult, true
+}
+
+// HasConfigResult returns a boolean if a field has been set.
+func (o *KubernetesNodeProfileAllOf) HasConfigResult() bool {
+	if o != nil && o.ConfigResult != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigResult gets a reference to the given KubernetesConfigResultRelationship and assigns it to the ConfigResult field.
+func (o *KubernetesNodeProfileAllOf) SetConfigResult(v KubernetesConfigResultRelationship) {
+	o.ConfigResult = &v
+}
+
 // GetNodeGroup returns the NodeGroup field value if set, zero value otherwise.
 func (o *KubernetesNodeProfileAllOf) GetNodeGroup() KubernetesNodeGroupProfileRelationship {
 	if o == nil || o.NodeGroup == nil {
@@ -199,6 +233,38 @@ func (o *KubernetesNodeProfileAllOf) SetTarget(v AssetDeviceRegistrationRelation
 	o.Target = &v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *KubernetesNodeProfileAllOf) GetVersion() KubernetesVersionRelationship {
+	if o == nil || o.Version == nil {
+		var ret KubernetesVersionRelationship
+		return ret
+	}
+	return *o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KubernetesNodeProfileAllOf) GetVersionOk() (*KubernetesVersionRelationship, bool) {
+	if o == nil || o.Version == nil {
+		return nil, false
+	}
+	return o.Version, true
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *KubernetesNodeProfileAllOf) HasVersion() bool {
+	if o != nil && o.Version != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given KubernetesVersionRelationship and assigns it to the Version field.
+func (o *KubernetesNodeProfileAllOf) SetVersion(v KubernetesVersionRelationship) {
+	o.Version = &v
+}
+
 func (o KubernetesNodeProfileAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -210,11 +276,17 @@ func (o KubernetesNodeProfileAllOf) MarshalJSON() ([]byte, error) {
 	if o.CloudProvider != nil {
 		toSerialize["CloudProvider"] = o.CloudProvider
 	}
+	if o.ConfigResult != nil {
+		toSerialize["ConfigResult"] = o.ConfigResult
+	}
 	if o.NodeGroup != nil {
 		toSerialize["NodeGroup"] = o.NodeGroup
 	}
 	if o.Target != nil {
 		toSerialize["Target"] = o.Target
+	}
+	if o.Version != nil {
+		toSerialize["Version"] = o.Version
 	}
 	return json.Marshal(toSerialize)
 }

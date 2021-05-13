@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
 **AdminPowerState** | Pointer to **string** | The desired power state of the server. | [optional] [readonly] 
-**AlarmSummary** | Pointer to [**NullableComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
+**AlarmSummary** | Pointer to [**NullableComputeAlarmSummary**](ComputeAlarmSummary.md) |  | [optional] 
 **AssetTag** | Pointer to **string** | The user defined asset tag assigned to the server. | [optional] [readonly] 
 **AvailableMemory** | Pointer to **int64** | The amount of memory available on the server. | [optional] [readonly] 
 **BiosPostComplete** | Pointer to **bool** | The BIOS POST completion status of the server. | [optional] 
 **FaultSummary** | Pointer to **int64** | The fault summary for the server. | [optional] 
-**KvmIpAddresses** | Pointer to [**[]ComputeIpAddress**](compute.IpAddress.md) |  | [optional] 
+**KvmIpAddresses** | Pointer to [**[]ComputeIpAddress**](ComputeIpAddress.md) |  | [optional] 
 **ManagementMode** | Pointer to **string** | The management mode of the server. * &#x60;IntersightStandalone&#x60; - Intersight Standalone mode of operation. * &#x60;UCSM&#x60; - Unified Computing System Manager mode of operation. * &#x60;Intersight&#x60; - Intersight managed mode of operation. | [optional] [default to "IntersightStandalone"]
 **MemorySpeed** | Pointer to **string** | The maximum memory speed in MHz available on the server. | [optional] [readonly] 
 **MgmtIpAddress** | Pointer to **string** | Management address of the server. | [optional] 
@@ -24,28 +24,28 @@ Name | Type | Description | Notes
 **NumFcHostInterfaces** | Pointer to **int64** | The total number of vHBAs which are visible to a host on the server. | [optional] [readonly] 
 **NumThreads** | Pointer to **int64** | The total number of threads the server is capable of handling. | [optional] [readonly] 
 **OperPowerState** | Pointer to **string** | The actual power state of the server. | [optional] [readonly] 
+**OperReason** | Pointer to **[]string** |  | [optional] 
 **OperState** | Pointer to **string** | The operational state of the server. | [optional] [readonly] 
 **Operability** | Pointer to **string** | The operability of the server. | [optional] [readonly] 
 **PlatformType** | Pointer to **string** | The platform type of the registered device - whether managed by UCSM or operating in standalone mode. | [optional] 
-**Presence** | Pointer to **string** | Indicates if a server is present in a slot and is applicable for blade servers. | [optional] [readonly] 
 **ServiceProfile** | Pointer to **string** | The distinguished name of the service profile to which the server is associated to. It is applicable only for servers which are managed via UCSM. | [optional] [readonly] 
 **TotalMemory** | Pointer to **int64** | The total memory available on the server. | [optional] [readonly] 
 **UserLabel** | Pointer to **string** | The user defined label assigned to the server. | [optional] [readonly] 
 **Uuid** | Pointer to **string** | The universally unique identity of the server. | [optional] [readonly] 
-**BootCddDevices** | Pointer to [**[]BootCddDeviceRelationship**](boot.CddDevice.Relationship.md) | An array of relationships to bootCddDevice resources. | [optional] 
-**BootDeviceBootSecurity** | Pointer to [**BootDeviceBootSecurityRelationship**](boot.DeviceBootSecurity.Relationship.md) |  | [optional] 
-**BootHddDevices** | Pointer to [**[]BootHddDeviceRelationship**](boot.HddDevice.Relationship.md) | An array of relationships to bootHddDevice resources. | [optional] 
-**BootIscsiDevices** | Pointer to [**[]BootIscsiDeviceRelationship**](boot.IscsiDevice.Relationship.md) | An array of relationships to bootIscsiDevice resources. | [optional] 
-**BootNvmeDevices** | Pointer to [**[]BootNvmeDeviceRelationship**](boot.NvmeDevice.Relationship.md) | An array of relationships to bootNvmeDevice resources. | [optional] 
-**BootPchStorageDevices** | Pointer to [**[]BootPchStorageDeviceRelationship**](boot.PchStorageDevice.Relationship.md) | An array of relationships to bootPchStorageDevice resources. | [optional] 
-**BootPxeDevices** | Pointer to [**[]BootPxeDeviceRelationship**](boot.PxeDevice.Relationship.md) | An array of relationships to bootPxeDevice resources. | [optional] 
-**BootSanDevices** | Pointer to [**[]BootSanDeviceRelationship**](boot.SanDevice.Relationship.md) | An array of relationships to bootSanDevice resources. | [optional] 
-**BootSdDevices** | Pointer to [**[]BootSdDeviceRelationship**](boot.SdDevice.Relationship.md) | An array of relationships to bootSdDevice resources. | [optional] 
-**BootUefiShellDevices** | Pointer to [**[]BootUefiShellDeviceRelationship**](boot.UefiShellDevice.Relationship.md) | An array of relationships to bootUefiShellDevice resources. | [optional] 
-**BootUsbDevices** | Pointer to [**[]BootUsbDeviceRelationship**](boot.UsbDevice.Relationship.md) | An array of relationships to bootUsbDevice resources. | [optional] 
-**BootVmediaDevices** | Pointer to [**[]BootVmediaDeviceRelationship**](boot.VmediaDevice.Relationship.md) | An array of relationships to bootVmediaDevice resources. | [optional] 
-**MgmtIdentity** | Pointer to [**EquipmentPhysicalIdentityRelationship**](equipment.PhysicalIdentity.Relationship.md) |  | [optional] 
-**Vmedia** | Pointer to [**ComputeVmediaRelationship**](compute.Vmedia.Relationship.md) |  | [optional] 
+**BootCddDevices** | Pointer to [**[]BootCddDeviceRelationship**](BootCddDeviceRelationship.md) | An array of relationships to bootCddDevice resources. | [optional] 
+**BootDeviceBootSecurity** | Pointer to [**BootDeviceBootSecurityRelationship**](BootDeviceBootSecurityRelationship.md) |  | [optional] 
+**BootHddDevices** | Pointer to [**[]BootHddDeviceRelationship**](BootHddDeviceRelationship.md) | An array of relationships to bootHddDevice resources. | [optional] 
+**BootIscsiDevices** | Pointer to [**[]BootIscsiDeviceRelationship**](BootIscsiDeviceRelationship.md) | An array of relationships to bootIscsiDevice resources. | [optional] 
+**BootNvmeDevices** | Pointer to [**[]BootNvmeDeviceRelationship**](BootNvmeDeviceRelationship.md) | An array of relationships to bootNvmeDevice resources. | [optional] 
+**BootPchStorageDevices** | Pointer to [**[]BootPchStorageDeviceRelationship**](BootPchStorageDeviceRelationship.md) | An array of relationships to bootPchStorageDevice resources. | [optional] 
+**BootPxeDevices** | Pointer to [**[]BootPxeDeviceRelationship**](BootPxeDeviceRelationship.md) | An array of relationships to bootPxeDevice resources. | [optional] 
+**BootSanDevices** | Pointer to [**[]BootSanDeviceRelationship**](BootSanDeviceRelationship.md) | An array of relationships to bootSanDevice resources. | [optional] 
+**BootSdDevices** | Pointer to [**[]BootSdDeviceRelationship**](BootSdDeviceRelationship.md) | An array of relationships to bootSdDevice resources. | [optional] 
+**BootUefiShellDevices** | Pointer to [**[]BootUefiShellDeviceRelationship**](BootUefiShellDeviceRelationship.md) | An array of relationships to bootUefiShellDevice resources. | [optional] 
+**BootUsbDevices** | Pointer to [**[]BootUsbDeviceRelationship**](BootUsbDeviceRelationship.md) | An array of relationships to bootUsbDevice resources. | [optional] 
+**BootVmediaDevices** | Pointer to [**[]BootVmediaDeviceRelationship**](BootVmediaDeviceRelationship.md) | An array of relationships to bootVmediaDevice resources. | [optional] 
+**MgmtIdentity** | Pointer to [**EquipmentPhysicalIdentityRelationship**](EquipmentPhysicalIdentityRelationship.md) |  | [optional] 
+**Vmedia** | Pointer to [**ComputeVmediaRelationship**](ComputeVmediaRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -576,6 +576,41 @@ SetOperPowerState sets OperPowerState field to given value.
 
 HasOperPowerState returns a boolean if a field has been set.
 
+### GetOperReason
+
+`func (o *ComputePhysicalAllOf) GetOperReason() []string`
+
+GetOperReason returns the OperReason field if non-nil, zero value otherwise.
+
+### GetOperReasonOk
+
+`func (o *ComputePhysicalAllOf) GetOperReasonOk() (*[]string, bool)`
+
+GetOperReasonOk returns a tuple with the OperReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperReason
+
+`func (o *ComputePhysicalAllOf) SetOperReason(v []string)`
+
+SetOperReason sets OperReason field to given value.
+
+### HasOperReason
+
+`func (o *ComputePhysicalAllOf) HasOperReason() bool`
+
+HasOperReason returns a boolean if a field has been set.
+
+### SetOperReasonNil
+
+`func (o *ComputePhysicalAllOf) SetOperReasonNil(b bool)`
+
+ SetOperReasonNil sets the value for OperReason to be an explicit nil
+
+### UnsetOperReason
+`func (o *ComputePhysicalAllOf) UnsetOperReason()`
+
+UnsetOperReason ensures that no value is present for OperReason, not even an explicit nil
 ### GetOperState
 
 `func (o *ComputePhysicalAllOf) GetOperState() string`
@@ -650,31 +685,6 @@ SetPlatformType sets PlatformType field to given value.
 `func (o *ComputePhysicalAllOf) HasPlatformType() bool`
 
 HasPlatformType returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *ComputePhysicalAllOf) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *ComputePhysicalAllOf) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *ComputePhysicalAllOf) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *ComputePhysicalAllOf) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetServiceProfile
 

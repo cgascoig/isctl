@@ -108,9 +108,11 @@ Provide resource body as JSON on standard input{{ end }}`,
             cmd.Flags().StringSliceVar(&{{ .Name }}, "{{ .Name }}", []string{}, "{{ .Name }}")
         {{ else if not .Ignore }}
             //Skipping var {{ .Name }} with unknown data type {{ .DataType }}
+            {{ if ne .DataType "float64" }}
             if isMoRef(openapi.{{ .DataType }}{}) {
                 cmd.Flags().String("{{ .Name }}", "", "{{ .Name }}")
             }
+            {{ end }}
         {{ end }}
     {{ end }}
 

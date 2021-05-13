@@ -1,9 +1,9 @@
 /*
  * Cisco Intersight
  *
- * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-01-11T18:30:19Z.
+ * Cisco Intersight is a management platform delivered as a service with embedded analytics for your Cisco and 3rd party IT infrastructure. This platform offers an intelligent level of management that enables IT organizations to analyze, simplify, and automate their environments in more advanced ways than the prior generations of tools. Cisco Intersight provides an integrated and intuitive management experience for resources in the traditional data center as well as at the edge. With flexible deployment options to address complex security needs, getting started with Intersight is quick and easy. Cisco Intersight has deep integration with Cisco UCS and HyperFlex systems allowing for remote deployment, configuration, and ongoing maintenance. The model-based deployment works for a single system in a remote location or hundreds of systems in a data center and enables rapid, standardized configuration and deployment. It also streamlines maintaining those systems whether you are working with small or very large configurations. The Intersight OpenAPI document defines the complete set of properties that are returned in the HTTP response. From that perspective, a client can expect that no additional properties are returned, unless these properties are explicitly defined in the OpenAPI document. However, when a client uses an older version of the Intersight OpenAPI document, the server may send additional properties because the software is more recent than the client. In that case, the client may receive properties that it does not know about. Some generated SDKs perform a strict validation of the HTTP response body against the OpenAPI document. This document was created on 2021-04-28T13:03:38Z.
  *
- * API version: 1.0.9-3252
+ * API version: 1.0.9-4267
  * Contact: intersight@cisco.com
  */
 
@@ -146,7 +146,6 @@ func (r apiCreateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -156,7 +155,6 @@ func (r apiCreateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -166,7 +164,6 @@ func (r apiCreateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -176,7 +173,6 @@ func (r apiCreateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -291,7 +287,6 @@ func (r apiDeleteMemoryPersistentMemoryPolicyRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -301,7 +296,6 @@ func (r apiDeleteMemoryPersistentMemoryPolicyRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -311,7 +305,6 @@ func (r apiDeleteMemoryPersistentMemoryPolicyRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -321,7 +314,6 @@ func (r apiDeleteMemoryPersistentMemoryPolicyRequest) Execute() (*_nethttp.Respo
 				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -428,7 +420,6 @@ func (r apiGetMemoryArrayByMoidRequest) Execute() (MemoryArray, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -438,7 +429,6 @@ func (r apiGetMemoryArrayByMoidRequest) Execute() (MemoryArray, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -448,7 +438,6 @@ func (r apiGetMemoryArrayByMoidRequest) Execute() (MemoryArray, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -458,7 +447,6 @@ func (r apiGetMemoryArrayByMoidRequest) Execute() (MemoryArray, *_nethttp.Respon
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -669,7 +657,6 @@ func (r apiGetMemoryArrayListRequest) Execute() (MemoryArrayResponse, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -679,7 +666,6 @@ func (r apiGetMemoryArrayListRequest) Execute() (MemoryArrayResponse, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -689,7 +675,6 @@ func (r apiGetMemoryArrayListRequest) Execute() (MemoryArrayResponse, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -699,7 +684,6 @@ func (r apiGetMemoryArrayListRequest) Execute() (MemoryArrayResponse, *_nethttp.
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -815,7 +799,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultByMoidRequest) Execute() (Memory
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -825,7 +808,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultByMoidRequest) Execute() (Memory
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -835,7 +817,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultByMoidRequest) Execute() (Memory
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -845,7 +826,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultByMoidRequest) Execute() (Memory
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1056,7 +1036,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultListRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1066,7 +1045,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultListRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1076,7 +1054,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultListRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1086,7 +1063,6 @@ func (r apiGetMemoryPersistentMemoryConfigResultListRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1202,7 +1178,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationByMoidRequest) Execute() (Memor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1212,7 +1187,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationByMoidRequest) Execute() (Memor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1222,7 +1196,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationByMoidRequest) Execute() (Memor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1232,7 +1205,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationByMoidRequest) Execute() (Memor
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1443,7 +1415,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationListRequest) Execute() (MemoryP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1453,7 +1424,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationListRequest) Execute() (MemoryP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1463,7 +1433,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationListRequest) Execute() (MemoryP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1473,7 +1442,6 @@ func (r apiGetMemoryPersistentMemoryConfigurationListRequest) Execute() (MemoryP
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1589,7 +1557,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceByMoidRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1599,7 +1566,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceByMoidRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1609,7 +1575,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceByMoidRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1619,7 +1584,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceByMoidRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1735,7 +1699,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultByMoidRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1745,7 +1708,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultByMoidRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1755,7 +1717,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultByMoidRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -1765,7 +1726,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultByMoidRequest) Execute(
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1976,7 +1936,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultListRequest) Execute() 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -1986,7 +1945,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultListRequest) Execute() 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -1996,7 +1954,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultListRequest) Execute() 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2006,7 +1963,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceConfigResultListRequest) Execute() 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2217,7 +2173,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceListRequest) Execute() (MemoryPersi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2227,7 +2182,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceListRequest) Execute() (MemoryPersi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2237,7 +2191,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceListRequest) Execute() (MemoryPersi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2247,7 +2200,6 @@ func (r apiGetMemoryPersistentMemoryNamespaceListRequest) Execute() (MemoryPersi
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2363,7 +2315,6 @@ func (r apiGetMemoryPersistentMemoryPolicyByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2373,7 +2324,6 @@ func (r apiGetMemoryPersistentMemoryPolicyByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2383,7 +2333,6 @@ func (r apiGetMemoryPersistentMemoryPolicyByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2393,7 +2342,6 @@ func (r apiGetMemoryPersistentMemoryPolicyByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2604,7 +2552,6 @@ func (r apiGetMemoryPersistentMemoryPolicyListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2614,7 +2561,6 @@ func (r apiGetMemoryPersistentMemoryPolicyListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2624,7 +2570,6 @@ func (r apiGetMemoryPersistentMemoryPolicyListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2634,7 +2579,6 @@ func (r apiGetMemoryPersistentMemoryPolicyListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2750,7 +2694,6 @@ func (r apiGetMemoryPersistentMemoryRegionByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -2760,7 +2703,6 @@ func (r apiGetMemoryPersistentMemoryRegionByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -2770,7 +2712,6 @@ func (r apiGetMemoryPersistentMemoryRegionByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -2780,7 +2721,6 @@ func (r apiGetMemoryPersistentMemoryRegionByMoidRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2991,7 +2931,6 @@ func (r apiGetMemoryPersistentMemoryRegionListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3001,7 +2940,6 @@ func (r apiGetMemoryPersistentMemoryRegionListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3011,7 +2949,6 @@ func (r apiGetMemoryPersistentMemoryRegionListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3021,7 +2958,6 @@ func (r apiGetMemoryPersistentMemoryRegionListRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3137,7 +3073,6 @@ func (r apiGetMemoryPersistentMemoryUnitByMoidRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3147,7 +3082,6 @@ func (r apiGetMemoryPersistentMemoryUnitByMoidRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3157,7 +3091,6 @@ func (r apiGetMemoryPersistentMemoryUnitByMoidRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3167,7 +3100,6 @@ func (r apiGetMemoryPersistentMemoryUnitByMoidRequest) Execute() (MemoryPersiste
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3378,7 +3310,6 @@ func (r apiGetMemoryPersistentMemoryUnitListRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3388,7 +3319,6 @@ func (r apiGetMemoryPersistentMemoryUnitListRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3398,7 +3328,6 @@ func (r apiGetMemoryPersistentMemoryUnitListRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3408,7 +3337,6 @@ func (r apiGetMemoryPersistentMemoryUnitListRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3524,7 +3452,6 @@ func (r apiGetMemoryUnitByMoidRequest) Execute() (MemoryUnit, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3534,7 +3461,6 @@ func (r apiGetMemoryUnitByMoidRequest) Execute() (MemoryUnit, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3544,7 +3470,6 @@ func (r apiGetMemoryUnitByMoidRequest) Execute() (MemoryUnit, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3554,7 +3479,6 @@ func (r apiGetMemoryUnitByMoidRequest) Execute() (MemoryUnit, *_nethttp.Response
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3765,7 +3689,6 @@ func (r apiGetMemoryUnitListRequest) Execute() (MemoryUnitResponse, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3775,7 +3698,6 @@ func (r apiGetMemoryUnitListRequest) Execute() (MemoryUnitResponse, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3785,7 +3707,6 @@ func (r apiGetMemoryUnitListRequest) Execute() (MemoryUnitResponse, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3795,7 +3716,6 @@ func (r apiGetMemoryUnitListRequest) Execute() (MemoryUnitResponse, *_nethttp.Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3932,7 +3852,6 @@ func (r apiPatchMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -3942,7 +3861,6 @@ func (r apiPatchMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -3952,7 +3870,6 @@ func (r apiPatchMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -3962,7 +3879,6 @@ func (r apiPatchMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4099,7 +4015,6 @@ func (r apiPatchMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPers
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4109,7 +4024,6 @@ func (r apiPatchMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPers
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4119,7 +4033,6 @@ func (r apiPatchMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPers
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4129,7 +4042,6 @@ func (r apiPatchMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPers
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4266,7 +4178,6 @@ func (r apiPatchMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4276,7 +4187,6 @@ func (r apiPatchMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4286,7 +4196,6 @@ func (r apiPatchMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4296,7 +4205,6 @@ func (r apiPatchMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4433,7 +4341,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersist
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4443,7 +4350,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersist
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4453,7 +4359,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersist
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4463,7 +4368,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersist
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4600,7 +4504,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (M
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4610,7 +4513,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (M
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4620,7 +4522,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (M
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4630,7 +4531,6 @@ func (r apiPatchMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (M
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4767,7 +4667,6 @@ func (r apiPatchMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4777,7 +4676,6 @@ func (r apiPatchMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4787,7 +4685,6 @@ func (r apiPatchMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4797,7 +4694,6 @@ func (r apiPatchMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4934,7 +4830,6 @@ func (r apiPatchMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -4944,7 +4839,6 @@ func (r apiPatchMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -4954,7 +4848,6 @@ func (r apiPatchMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -4964,7 +4857,6 @@ func (r apiPatchMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersistent
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5101,7 +4993,6 @@ func (r apiPatchMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5111,7 +5002,6 @@ func (r apiPatchMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5121,7 +5011,6 @@ func (r apiPatchMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5131,7 +5020,6 @@ func (r apiPatchMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentMe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5268,7 +5156,6 @@ func (r apiPatchMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, er
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5278,7 +5165,6 @@ func (r apiPatchMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, er
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5288,7 +5174,6 @@ func (r apiPatchMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, er
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5298,7 +5183,6 @@ func (r apiPatchMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, er
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5435,7 +5319,6 @@ func (r apiUpdateMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5445,7 +5328,6 @@ func (r apiUpdateMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5455,7 +5337,6 @@ func (r apiUpdateMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5465,7 +5346,6 @@ func (r apiUpdateMemoryArrayRequest) Execute() (MemoryArray, *_nethttp.Response,
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5602,7 +5482,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5612,7 +5491,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5622,7 +5500,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5632,7 +5509,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigResultRequest) Execute() (MemoryPer
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5769,7 +5645,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5779,7 +5654,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5789,7 +5663,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5799,7 +5672,6 @@ func (r apiUpdateMemoryPersistentMemoryConfigurationRequest) Execute() (MemoryPe
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5936,7 +5808,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -5946,7 +5817,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -5956,7 +5826,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -5966,7 +5835,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceRequest) Execute() (MemoryPersis
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6103,7 +5971,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6113,7 +5980,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6123,7 +5989,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6133,7 +5998,6 @@ func (r apiUpdateMemoryPersistentMemoryNamespaceConfigResultRequest) Execute() (
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6270,7 +6134,6 @@ func (r apiUpdateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6280,7 +6143,6 @@ func (r apiUpdateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6290,7 +6152,6 @@ func (r apiUpdateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6300,7 +6161,6 @@ func (r apiUpdateMemoryPersistentMemoryPolicyRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6437,7 +6297,6 @@ func (r apiUpdateMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6447,7 +6306,6 @@ func (r apiUpdateMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6457,7 +6315,6 @@ func (r apiUpdateMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6467,7 +6324,6 @@ func (r apiUpdateMemoryPersistentMemoryRegionRequest) Execute() (MemoryPersisten
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6604,7 +6460,6 @@ func (r apiUpdateMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6614,7 +6469,6 @@ func (r apiUpdateMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6624,7 +6478,6 @@ func (r apiUpdateMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6634,7 +6487,6 @@ func (r apiUpdateMemoryPersistentMemoryUnitRequest) Execute() (MemoryPersistentM
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6771,7 +6623,6 @@ func (r apiUpdateMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, e
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v Error
@@ -6781,7 +6632,6 @@ func (r apiUpdateMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, e
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
@@ -6791,7 +6641,6 @@ func (r apiUpdateMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, e
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
@@ -6801,7 +6650,6 @@ func (r apiUpdateMemoryUnitRequest) Execute() (MemoryUnit, *_nethttp.Response, e
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v Error
 		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))

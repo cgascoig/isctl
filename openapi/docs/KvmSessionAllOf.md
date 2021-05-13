@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **OneTimePassword** | Pointer to **string** | Temporary one-time password for KVM access. | [optional] 
 **SsoSupported** | Pointer to **bool** | Indicates if KVM SSO is supported on the server. | [optional] [readonly] 
 **Username** | Pointer to **string** | Username used for KVM access. | [optional] 
-**Device** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**Server** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
-**Session** | Pointer to [**IamSessionRelationship**](iam.Session.Relationship.md) |  | [optional] 
-**Tunnel** | Pointer to [**KvmTunnelRelationship**](kvm.Tunnel.Relationship.md) |  | [optional] 
+**Device** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**Server** | Pointer to [**ComputePhysicalRelationship**](ComputePhysicalRelationship.md) |  | [optional] 
+**Session** | Pointer to [**IamSessionRelationship**](IamSessionRelationship.md) |  | [optional] 
+**Tunnel** | Pointer to [**KvmTunnelRelationship**](KvmTunnelRelationship.md) |  | [optional] 
 
 ## Methods
 

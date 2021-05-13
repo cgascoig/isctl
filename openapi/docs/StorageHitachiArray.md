@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **DeviceId** | Pointer to **string** | ID of the Storage device. | [optional] [readonly] 
 **SvpIp** | Pointer to **string** | IP address of the SVP. | [optional] [readonly] 
 **TargetCtl** | Pointer to **string** | Controller operated by the REST API. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

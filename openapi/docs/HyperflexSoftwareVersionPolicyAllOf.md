@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **HxdpVersion** | Pointer to **string** | Desired HyperFlex Data Platform software version to apply on the HyperFlex cluster. | [optional] 
 **HypervisorVersion** | Pointer to **string** | Desired  hypervisor version to apply for all the nodes on the HyperFlex cluster. | [optional] 
 **ServerFirmwareVersion** | Pointer to **string** | Desired server firmware version to apply on the HyperFlex Cluster. | [optional] 
-**ServerFirmwareVersions** | Pointer to [**[]HyperflexServerFirmwareVersionInfo**](hyperflex.ServerFirmwareVersionInfo.md) |  | [optional] 
+**ServerFirmwareVersions** | Pointer to [**[]HyperflexServerFirmwareVersionInfo**](HyperflexServerFirmwareVersionInfo.md) |  | [optional] 
 **UpgradeTypes** | Pointer to **[]string** |  | [optional] 
-**ClusterProfiles** | Pointer to [**[]HyperflexClusterProfileRelationship**](hyperflex.ClusterProfile.Relationship.md) | An array of relationships to hyperflexClusterProfile resources. | [optional] 
-**HxdpVersionInfo** | Pointer to [**SoftwareHyperflexDistributableRelationship**](software.HyperflexDistributable.Relationship.md) |  | [optional] 
-**HypervisorVersionInfo** | Pointer to [**SoftwareHyperflexDistributableRelationship**](software.HyperflexDistributable.Relationship.md) |  | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
-**ServerFirmwareVersionInfo** | Pointer to [**FirmwareDistributableRelationship**](firmware.Distributable.Relationship.md) |  | [optional] 
+**ClusterProfiles** | Pointer to [**[]HyperflexClusterProfileRelationship**](HyperflexClusterProfileRelationship.md) | An array of relationships to hyperflexClusterProfile resources. | [optional] 
+**HxdpVersionInfo** | Pointer to [**SoftwareHyperflexDistributableRelationship**](SoftwareHyperflexDistributableRelationship.md) |  | [optional] 
+**HypervisorVersionInfo** | Pointer to [**SoftwareHyperflexDistributableRelationship**](SoftwareHyperflexDistributableRelationship.md) |  | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
+**ServerFirmwareVersionInfo** | Pointer to [**FirmwareDistributableRelationship**](FirmwareDistributableRelationship.md) |  | [optional] 
 
 ## Methods
 

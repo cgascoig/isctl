@@ -9,17 +9,17 @@ Name | Type | Description | Notes
 **ConnectionStatus** | Pointer to **string** | Connectivity Status of FEX/IOM to Switch - A or B or AB. | [optional] 
 **Description** | Pointer to **string** | This field is to provide description for the iocard module model. | [optional] [readonly] 
 **ModuleId** | Pointer to **int64** | Module Identifier for the IO module. | [optional] [readonly] 
+**OperReason** | Pointer to **[]string** |  | [optional] 
 **OperState** | Pointer to **string** | Operational state of IO card or fabric extender. | [optional] [readonly] 
 **PartNumber** | Pointer to **string** | Part Number identifier for the IO module. | [optional] [readonly] 
 **Pid** | Pointer to **string** | This field identifies the Product ID for the IO module. | [optional] [readonly] 
-**Presence** | Pointer to **string** | This field identifies the Presence state of the IO card module. | [optional] [readonly] 
 **ProductName** | Pointer to **string** | This field identifies the Product Name for the iocard module model. | [optional] [readonly] 
 **Sku** | Pointer to **string** | This field identifies the Stock Keeping Unit for the IO card module. | [optional] [readonly] 
 **Version** | Pointer to **string** | This field identifies the version of the IO card module. | [optional] [readonly] 
 **Vid** | Pointer to **string** | This field identifies the Vendor ID for the IO card module. | [optional] [readonly] 
-**HostPorts** | Pointer to [**[]EtherHostPortRelationship**](ether.HostPort.Relationship.md) | An array of relationships to etherHostPort resources. | [optional] 
-**MgmtController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
-**NetworkPorts** | Pointer to [**[]EtherNetworkPortRelationship**](ether.NetworkPort.Relationship.md) | An array of relationships to etherNetworkPort resources. | [optional] 
+**HostPorts** | Pointer to [**[]EtherHostPortRelationship**](EtherHostPortRelationship.md) | An array of relationships to etherHostPort resources. | [optional] 
+**MgmtController** | Pointer to [**ManagementControllerRelationship**](ManagementControllerRelationship.md) |  | [optional] 
+**NetworkPorts** | Pointer to [**[]EtherNetworkPortRelationship**](EtherNetworkPortRelationship.md) | An array of relationships to etherNetworkPort resources. | [optional] 
 
 ## Methods
 
@@ -155,6 +155,41 @@ SetModuleId sets ModuleId field to given value.
 
 HasModuleId returns a boolean if a field has been set.
 
+### GetOperReason
+
+`func (o *EquipmentIoCardBaseAllOf) GetOperReason() []string`
+
+GetOperReason returns the OperReason field if non-nil, zero value otherwise.
+
+### GetOperReasonOk
+
+`func (o *EquipmentIoCardBaseAllOf) GetOperReasonOk() (*[]string, bool)`
+
+GetOperReasonOk returns a tuple with the OperReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperReason
+
+`func (o *EquipmentIoCardBaseAllOf) SetOperReason(v []string)`
+
+SetOperReason sets OperReason field to given value.
+
+### HasOperReason
+
+`func (o *EquipmentIoCardBaseAllOf) HasOperReason() bool`
+
+HasOperReason returns a boolean if a field has been set.
+
+### SetOperReasonNil
+
+`func (o *EquipmentIoCardBaseAllOf) SetOperReasonNil(b bool)`
+
+ SetOperReasonNil sets the value for OperReason to be an explicit nil
+
+### UnsetOperReason
+`func (o *EquipmentIoCardBaseAllOf) UnsetOperReason()`
+
+UnsetOperReason ensures that no value is present for OperReason, not even an explicit nil
 ### GetOperState
 
 `func (o *EquipmentIoCardBaseAllOf) GetOperState() string`
@@ -229,31 +264,6 @@ SetPid sets Pid field to given value.
 `func (o *EquipmentIoCardBaseAllOf) HasPid() bool`
 
 HasPid returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *EquipmentIoCardBaseAllOf) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *EquipmentIoCardBaseAllOf) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *EquipmentIoCardBaseAllOf) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *EquipmentIoCardBaseAllOf) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetProductName
 

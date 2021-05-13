@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **ConfigName** | Pointer to **string** | The configuration name for this VM. This maybe the same as the guest hostname. | [optional] 
 **ConnectionState** | Pointer to **string** | Shows if virtual machine is connected to vCenter. Values are Connected, Disconnected, Orphaned, Inaccessible, and Invalid. | [optional] 
 **CpuHotAddEnabled** | Pointer to **bool** | Indicates if the capability to add CPUs to a running VM is enabled. | [optional] 
-**CpuShares** | Pointer to [**NullableVirtualizationVmwareVmCpuShareInfo**](virtualization.VmwareVmCpuShareInfo.md) |  | [optional] 
-**CpuSocketInfo** | Pointer to [**NullableVirtualizationVmwareVmCpuSocketInfo**](virtualization.VmwareVmCpuSocketInfo.md) |  | [optional] 
+**CpuShares** | Pointer to [**NullableVirtualizationVmwareVmCpuShareInfo**](VirtualizationVmwareVmCpuShareInfo.md) |  | [optional] 
+**CpuSocketInfo** | Pointer to [**NullableVirtualizationVmwareVmCpuSocketInfo**](VirtualizationVmwareVmCpuSocketInfo.md) |  | [optional] 
 **CustomAttributes** | Pointer to **[]string** |  | [optional] 
 **DefaultPowerOffType** | Pointer to **string** | Indicates how the VM will be powered off (soft, hard etc.). | [optional] 
 **DhcpEnabled** | Pointer to **bool** | Shows if DHCP is used for IP/DNS on this VM. | [optional] 
-**DiskCommitInfo** | Pointer to [**NullableVirtualizationVmwareVmDiskCommitInfo**](virtualization.VmwareVmDiskCommitInfo.md) |  | [optional] 
+**DiskCommitInfo** | Pointer to [**NullableVirtualizationVmwareVmDiskCommitInfo**](VirtualizationVmwareVmDiskCommitInfo.md) |  | [optional] 
 **DnsServerList** | Pointer to **[]string** |  | [optional] 
 **DnsSuffixList** | Pointer to **[]string** |  | [optional] 
 **Folder** | Pointer to **string** | The folder name associated with this VM. | [optional] 
@@ -25,28 +25,30 @@ Name | Type | Description | Notes
 **InventoryPath** | Pointer to **string** | Inventory path to the VM. Example - /DC/vm/folder/VMName. | [optional] 
 **IsTemplate** | Pointer to **bool** | If true, indicates that the entity refers to a template of a virtual machine and not a real virtual machine. | [optional] 
 **MacAddress** | Pointer to **[]string** |  | [optional] 
-**MemShares** | Pointer to [**NullableVirtualizationVmwareVmMemoryShareInfo**](virtualization.VmwareVmMemoryShareInfo.md) |  | [optional] 
+**MemShares** | Pointer to [**NullableVirtualizationVmwareVmMemoryShareInfo**](VirtualizationVmwareVmMemoryShareInfo.md) |  | [optional] 
 **MemoryHotAddEnabled** | Pointer to **bool** | Adding memory to a running VM. | [optional] 
 **NetworkCount** | Pointer to **int64** | Indicates how many networks are used by this VM. | [optional] 
 **PortGroups** | Pointer to **[]string** |  | [optional] 
 **ProtectedVm** | Pointer to **bool** | Shows if this is a protected VM. VMs can be in protection groups. | [optional] 
-**RemoteDisplayInfo** | Pointer to [**NullableVirtualizationVmwareRemoteDisplayInfo**](virtualization.VmwareRemoteDisplayInfo.md) |  | [optional] 
+**RemoteDisplayInfo** | Pointer to [**NullableVirtualizationVmwareRemoteDisplayInfo**](VirtualizationVmwareRemoteDisplayInfo.md) |  | [optional] 
 **RemoteDisplayVncEnabled** | Pointer to **bool** | Shows if support for a remote VNC access is enabled. | [optional] 
 **ResourcePool** | Pointer to **string** | Name of the resource pool to which this VM belongs (optional). | [optional] 
 **ResourcePoolOwner** | Pointer to **string** | Who owns the resource pool. | [optional] 
 **ResourcePoolParent** | Pointer to **string** | The parent of the current resource pool to which this VM belongs. | [optional] 
 **ToolRunningStatus** | Pointer to **string** | Indicates if guest tools are running on this VM. Could be set to guestToolNotRunning or guestToolsRunning. | [optional] 
 **ToolsVersion** | Pointer to **string** | The version of the guest tools, usually not specified. | [optional] 
+**VirtualDisks** | Pointer to **[]int64** |  | [optional] 
 **VmDiskCount** | Pointer to **int64** | Shows the number of disks assigned to this VM. | [optional] 
 **VmOverallStatus** | Pointer to **string** | The operational state of the VM. Could be Available, Provisioned, Maintenance mode, Deleting, etc. | [optional] 
-**VmPath** | Pointer to **string** | Example - [datastore3] VCSA-134/VCSA-134.vmx. | [optional] 
+**VmPath** | Pointer to **string** | Path to the vmx file of the VM. Example - [datastore3] VCSA-134/VCSA-134.vmx. | [optional] 
 **VmVersion** | Pointer to **string** | Information about the version of this VM (vmx-09, vmx-11 etc.). | [optional] 
 **VmVnicCount** | Pointer to **int64** | How many vnics are present. | [optional] 
 **VnicDeviceConfigId** | Pointer to **string** | Information related to the guest info&#39;s VNIC virtual device. It is a comma-separated list. | [optional] 
-**Cluster** | Pointer to [**VirtualizationVmwareClusterRelationship**](virtualization.VmwareCluster.Relationship.md) |  | [optional] 
-**Datacenter** | Pointer to [**VirtualizationVmwareDatacenterRelationship**](virtualization.VmwareDatacenter.Relationship.md) |  | [optional] 
-**Datastores** | Pointer to [**[]VirtualizationVmwareDatastoreRelationship**](virtualization.VmwareDatastore.Relationship.md) | An array of relationships to virtualizationVmwareDatastore resources. | [optional] [readonly] 
-**Host** | Pointer to [**VirtualizationVmwareHostRelationship**](virtualization.VmwareHost.Relationship.md) |  | [optional] 
+**Cluster** | Pointer to [**VirtualizationVmwareClusterRelationship**](VirtualizationVmwareClusterRelationship.md) |  | [optional] 
+**Datacenter** | Pointer to [**VirtualizationVmwareDatacenterRelationship**](VirtualizationVmwareDatacenterRelationship.md) |  | [optional] 
+**Datastores** | Pointer to [**[]VirtualizationVmwareDatastoreRelationship**](VirtualizationVmwareDatastoreRelationship.md) | An array of relationships to virtualizationVmwareDatastore resources. | [optional] [readonly] 
+**Host** | Pointer to [**VirtualizationVmwareHostRelationship**](VirtualizationVmwareHostRelationship.md) |  | [optional] 
+**ParentFolder** | Pointer to [**VirtualizationVmwareFolderRelationship**](VirtualizationVmwareFolderRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -982,6 +984,41 @@ SetToolsVersion sets ToolsVersion field to given value.
 
 HasToolsVersion returns a boolean if a field has been set.
 
+### GetVirtualDisks
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetVirtualDisks() []int64`
+
+GetVirtualDisks returns the VirtualDisks field if non-nil, zero value otherwise.
+
+### GetVirtualDisksOk
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetVirtualDisksOk() (*[]int64, bool)`
+
+GetVirtualDisksOk returns a tuple with the VirtualDisks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVirtualDisks
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetVirtualDisks(v []int64)`
+
+SetVirtualDisks sets VirtualDisks field to given value.
+
+### HasVirtualDisks
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) HasVirtualDisks() bool`
+
+HasVirtualDisks returns a boolean if a field has been set.
+
+### SetVirtualDisksNil
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetVirtualDisksNil(b bool)`
+
+ SetVirtualDisksNil sets the value for VirtualDisks to be an explicit nil
+
+### UnsetVirtualDisks
+`func (o *VirtualizationVmwareVirtualMachineAllOf) UnsetVirtualDisks()`
+
+UnsetVirtualDisks ensures that no value is present for VirtualDisks, not even an explicit nil
 ### GetVmDiskCount
 
 `func (o *VirtualizationVmwareVirtualMachineAllOf) GetVmDiskCount() int64`
@@ -1241,6 +1278,31 @@ SetHost sets Host field to given value.
 `func (o *VirtualizationVmwareVirtualMachineAllOf) HasHost() bool`
 
 HasHost returns a boolean if a field has been set.
+
+### GetParentFolder
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetParentFolder() VirtualizationVmwareFolderRelationship`
+
+GetParentFolder returns the ParentFolder field if non-nil, zero value otherwise.
+
+### GetParentFolderOk
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) GetParentFolderOk() (*VirtualizationVmwareFolderRelationship, bool)`
+
+GetParentFolderOk returns a tuple with the ParentFolder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentFolder
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) SetParentFolder(v VirtualizationVmwareFolderRelationship)`
+
+SetParentFolder sets ParentFolder field to given value.
+
+### HasParentFolder
+
+`func (o *VirtualizationVmwareVirtualMachineAllOf) HasParentFolder() bool`
+
+HasParentFolder returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

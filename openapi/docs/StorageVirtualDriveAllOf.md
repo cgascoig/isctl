@@ -23,7 +23,6 @@ Name | Type | Description | Notes
 **OperState** | Pointer to **string** | The current operational state of Virtual drive. | [optional] [readonly] 
 **Operability** | Pointer to **string** | The current operability state of Virtual drive. | [optional] [readonly] 
 **PhysicalBlockSize** | Pointer to **string** | The block size of the the virtual drive. | [optional] [readonly] 
-**Presence** | Pointer to **string** | The presence status of the virtual drive. | [optional] [readonly] 
 **ReadPolicy** | Pointer to **string** | The read-ahead cache mode of the virtual drive. | [optional] [readonly] 
 **SecurityFlags** | Pointer to **string** | The security flags set for this virtual drive. | [optional] [readonly] 
 **Size** | Pointer to **string** | The size of the virtual drive in MB. | [optional] [readonly] 
@@ -32,14 +31,14 @@ Name | Type | Description | Notes
 **Uuid** | Pointer to **string** | The uuid of the virtual drive. | [optional] [readonly] 
 **VendorUuid** | Pointer to **string** | The UUID value of the vendor. | [optional] [readonly] 
 **VirtualDriveId** | Pointer to **string** | The identifier for this Virtual drive. | [optional] [readonly] 
-**DiskGroup** | Pointer to [**StorageDiskGroupRelationship**](storage.DiskGroup.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**PhysicalDiskUsages** | Pointer to [**[]StoragePhysicalDiskUsageRelationship**](storage.PhysicalDiskUsage.Relationship.md) | An array of relationships to storagePhysicalDiskUsage resources. | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**StorageController** | Pointer to [**StorageControllerRelationship**](storage.Controller.Relationship.md) |  | [optional] 
-**StorageVirtualDriveContainer** | Pointer to [**StorageVirtualDriveContainerRelationship**](storage.VirtualDriveContainer.Relationship.md) |  | [optional] 
-**VdMemberEps** | Pointer to [**[]StorageVdMemberEpRelationship**](storage.VdMemberEp.Relationship.md) | An array of relationships to storageVdMemberEp resources. | [optional] [readonly] 
-**VirtualDriveExtension** | Pointer to [**StorageVirtualDriveExtensionRelationship**](storage.VirtualDriveExtension.Relationship.md) |  | [optional] 
+**DiskGroup** | Pointer to [**StorageDiskGroupRelationship**](StorageDiskGroupRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**PhysicalDiskUsages** | Pointer to [**[]StoragePhysicalDiskUsageRelationship**](StoragePhysicalDiskUsageRelationship.md) | An array of relationships to storagePhysicalDiskUsage resources. | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**StorageController** | Pointer to [**StorageControllerRelationship**](StorageControllerRelationship.md) |  | [optional] 
+**StorageVirtualDriveContainer** | Pointer to [**StorageVirtualDriveContainerRelationship**](StorageVirtualDriveContainerRelationship.md) |  | [optional] 
+**VdMemberEps** | Pointer to [**[]StorageVdMemberEpRelationship**](StorageVdMemberEpRelationship.md) | An array of relationships to storageVdMemberEp resources. | [optional] [readonly] 
+**VirtualDriveExtension** | Pointer to [**StorageVirtualDriveExtensionRelationship**](StorageVirtualDriveExtensionRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -524,31 +523,6 @@ SetPhysicalBlockSize sets PhysicalBlockSize field to given value.
 `func (o *StorageVirtualDriveAllOf) HasPhysicalBlockSize() bool`
 
 HasPhysicalBlockSize returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *StorageVirtualDriveAllOf) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *StorageVirtualDriveAllOf) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *StorageVirtualDriveAllOf) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *StorageVirtualDriveAllOf) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetReadPolicy
 

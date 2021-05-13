@@ -7,13 +7,14 @@ Name | Type | Description | Notes
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.AppCatalog"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.AppCatalog"]
 **Version** | Pointer to **string** | The catalog version used in HyperFlex cluster configuration service. | [optional] 
-**FeatureLimitExternal** | Pointer to [**HyperflexFeatureLimitExternalRelationship**](hyperflex.FeatureLimitExternal.Relationship.md) |  | [optional] 
-**FeatureLimitInternal** | Pointer to [**HyperflexFeatureLimitInternalRelationship**](hyperflex.FeatureLimitInternal.Relationship.md) |  | [optional] 
-**HxdpVersions** | Pointer to [**[]HyperflexHxdpVersionRelationship**](hyperflex.HxdpVersion.Relationship.md) | An array of relationships to hyperflexHxdpVersion resources. | [optional] 
-**HyperflexCapabilityInfos** | Pointer to [**[]HyperflexCapabilityInfoRelationship**](hyperflex.CapabilityInfo.Relationship.md) | An array of relationships to hyperflexCapabilityInfo resources. | [optional] 
-**HyperflexSoftwareCompatibilityInfos** | Pointer to [**[]HclHyperflexSoftwareCompatibilityInfoRelationship**](hcl.HyperflexSoftwareCompatibilityInfo.Relationship.md) | An array of relationships to hclHyperflexSoftwareCompatibilityInfo resources. | [optional] 
-**ServerFirmwareVersion** | Pointer to [**HyperflexServerFirmwareVersionRelationship**](hyperflex.ServerFirmwareVersion.Relationship.md) |  | [optional] 
-**ServerModel** | Pointer to [**HyperflexServerModelRelationship**](hyperflex.ServerModel.Relationship.md) |  | [optional] 
+**FeatureLimitExternal** | Pointer to [**HyperflexFeatureLimitExternalRelationship**](HyperflexFeatureLimitExternalRelationship.md) |  | [optional] 
+**FeatureLimitInternal** | Pointer to [**HyperflexFeatureLimitInternalRelationship**](HyperflexFeatureLimitInternalRelationship.md) |  | [optional] 
+**HxdpVersions** | Pointer to [**[]HyperflexHxdpVersionRelationship**](HyperflexHxdpVersionRelationship.md) | An array of relationships to hyperflexHxdpVersion resources. | [optional] 
+**HyperflexCapabilityInfos** | Pointer to [**[]HyperflexCapabilityInfoRelationship**](HyperflexCapabilityInfoRelationship.md) | An array of relationships to hyperflexCapabilityInfo resources. | [optional] 
+**HyperflexSoftwareCompatibilityInfos** | Pointer to [**[]HclHyperflexSoftwareCompatibilityInfoRelationship**](HclHyperflexSoftwareCompatibilityInfoRelationship.md) | An array of relationships to hclHyperflexSoftwareCompatibilityInfo resources. | [optional] 
+**ServerFirmwareVersion** | Pointer to [**HyperflexServerFirmwareVersionRelationship**](HyperflexServerFirmwareVersionRelationship.md) |  | [optional] 
+**ServerModel** | Pointer to [**HyperflexServerModelRelationship**](HyperflexServerModelRelationship.md) |  | [optional] 
+**SoftwareDistributions** | Pointer to [**[]HyperflexSoftwareDistributionEntryRelationship**](HyperflexSoftwareDistributionEntryRelationship.md) | An array of relationships to hyperflexSoftwareDistributionEntry resources. | [optional] 
 
 ## Methods
 
@@ -304,6 +305,41 @@ SetServerModel sets ServerModel field to given value.
 
 HasServerModel returns a boolean if a field has been set.
 
+### GetSoftwareDistributions
+
+`func (o *HyperflexAppCatalogAllOf) GetSoftwareDistributions() []HyperflexSoftwareDistributionEntryRelationship`
+
+GetSoftwareDistributions returns the SoftwareDistributions field if non-nil, zero value otherwise.
+
+### GetSoftwareDistributionsOk
+
+`func (o *HyperflexAppCatalogAllOf) GetSoftwareDistributionsOk() (*[]HyperflexSoftwareDistributionEntryRelationship, bool)`
+
+GetSoftwareDistributionsOk returns a tuple with the SoftwareDistributions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSoftwareDistributions
+
+`func (o *HyperflexAppCatalogAllOf) SetSoftwareDistributions(v []HyperflexSoftwareDistributionEntryRelationship)`
+
+SetSoftwareDistributions sets SoftwareDistributions field to given value.
+
+### HasSoftwareDistributions
+
+`func (o *HyperflexAppCatalogAllOf) HasSoftwareDistributions() bool`
+
+HasSoftwareDistributions returns a boolean if a field has been set.
+
+### SetSoftwareDistributionsNil
+
+`func (o *HyperflexAppCatalogAllOf) SetSoftwareDistributionsNil(b bool)`
+
+ SetSoftwareDistributionsNil sets the value for SoftwareDistributions to be an explicit nil
+
+### UnsetSoftwareDistributions
+`func (o *HyperflexAppCatalogAllOf) UnsetSoftwareDistributions()`
+
+UnsetSoftwareDistributions ensures that no value is present for SoftwareDistributions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

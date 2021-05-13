@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Type** | Pointer to **string** | The type of data source. | 
 **Name** | Pointer to **string** | The name of a data source. | 
 **DataSources** | Pointer to **[]string** | A list of data sources. | 
-**Query** | Pointer to [**TelemetryDruidGroupByRequest**](telemetry.DruidGroupByRequest.md) |  | 
+**Query** | Pointer to [**TelemetryDruidGroupByRequest**](TelemetryDruidGroupByRequest.md) |  | 
 **Lookup** | Pointer to **string** | the name of the lookup object. | 
 **Left** | Pointer to **string** | Left-hand datasource. Must be of type table, join, lookup, query, or inline. Placing another join as the left datasource allows you to join arbitrarily many datasources. | 
 **Right** | Pointer to **string** | Right-hand datasource. Must be of type lookup, query, or inline. | 

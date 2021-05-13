@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiHost"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiHost"]
-**AuthenticationMode** | Pointer to **string** | Authentication mode for the iSCSI target. * &#x60;N/A&#x60; - Not available. * &#x60;CHAP&#x60; - CHAP-authentication mode. * &#x60;NONE&#x60; - No-authentication mode. * &#x60;BOTH&#x60; - Comply with Host Setting. | [optional] [readonly] [default to "N/A"]
+**AuthenticationMode** | Pointer to **string** | Authentication mode for the iSCSI target. * &#x60;N/A&#x60; - Authentication Mode is not available. * &#x60;CHAP&#x60; - CHAP-authentication mode. * &#x60;NONE&#x60; - Authentication mode is not set. * &#x60;BOTH&#x60; - Comply with Host Setting. | [optional] [readonly] [default to "N/A"]
 **HostGroupId** | Pointer to **string** | ID of the host group. | [optional] [readonly] 
 **HostGroupNumber** | Pointer to **int64** | Host group number for this host. | [optional] 
 **HostModeOptions** | Pointer to **[]int64** |  | [optional] 
@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **PortLunSecurity** | Pointer to **bool** | LUN security setting for the port. | [optional] [readonly] 
 **Type** | Pointer to **string** | Host Group type, it can be FC or iSCSI. * &#x60;FC&#x60; - Port supports fibre channel protocol. * &#x60;iSCSI&#x60; - Port supports iSCSI protocol. * &#x60;FCoE&#x60; - Port supports fibre channel over ethernet protocol. | [optional] [readonly] [default to "FC"]
 **Wwn** | Pointer to **string** | World wide port name, 64 bit address represented in hexa decimal notation. | [optional] [readonly] 
-**Array** | Pointer to [**StorageHitachiArrayRelationship**](storage.HitachiArray.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Array** | Pointer to [**StorageHitachiArrayRelationship**](StorageHitachiArrayRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

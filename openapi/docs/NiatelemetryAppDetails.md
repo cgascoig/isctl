@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AppName** | Pointer to **string** | Names of apps running on ND. | [optional] 
 **AppStatus** | Pointer to **string** | Status of apps running on ND. | [optional] 
 **AppVersion** | Pointer to **string** | Versions of apps running on ND. | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

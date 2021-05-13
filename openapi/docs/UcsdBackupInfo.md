@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **BackupLocation** | Pointer to **string** | Backup location that contains the backup images for end device which can be used for restore operation. | [optional] [readonly] 
 **BackupServerIp** | Pointer to **string** | Backup server where backup images are maintained. | [optional] [readonly] 
 **BackupSize** | Pointer to **int64** | Size of the backup image in bytes. | [optional] [readonly] 
-**Connectors** | Pointer to [**[]UcsdConnectorPack**](ucsd.ConnectorPack.md) |  | [optional] 
+**Connectors** | Pointer to [**[]UcsdConnectorPack**](UcsdConnectorPack.md) |  | [optional] 
 **Duration** | Pointer to **int64** | Time taken for the backup to be completed. | [optional] [readonly] 
 **EncryptionKey** | Pointer to **string** | The key used for encrypting the backup file. | [optional] 
 **FailureReason** | Pointer to **string** | Reason for backup failure. | [optional] [readonly] 

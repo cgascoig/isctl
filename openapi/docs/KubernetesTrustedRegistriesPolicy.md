@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.TrustedRegistriesPolicy"]
 **RootCaRegistries** | Pointer to **[]string** |  | [optional] 
 **UnsignedRegistries** | Pointer to **[]string** |  | [optional] 
-**ClusterProfiles** | Pointer to [**[]KubernetesClusterProfileRelationship**](kubernetes.ClusterProfile.Relationship.md) | An array of relationships to kubernetesClusterProfile resources. | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**ClusterProfiles** | Pointer to [**[]KubernetesClusterProfileRelationship**](KubernetesClusterProfileRelationship.md) | An array of relationships to kubernetesClusterProfile resources. | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 

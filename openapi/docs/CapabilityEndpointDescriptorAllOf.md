@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Model** | Pointer to **string** | The model of the endpoint, for which this capability information is applicable. | [optional] 
 **Vendor** | Pointer to **string** | The vendor of the endpoint, for which this capability information is applicable. | [optional] 
 **Version** | Pointer to **string** | The firmware or software version of the endpoint, for which this capability information is applicable. | [optional] 
-**Capabilities** | Pointer to [**[]CapabilityCapabilityRelationship**](capability.Capability.Relationship.md) | An array of relationships to capabilityCapability resources. | [optional] 
+**Capabilities** | Pointer to [**[]CapabilityCapabilityRelationship**](CapabilityCapabilityRelationship.md) | An array of relationships to capabilityCapability resources. | [optional] 
 
 ## Methods
 

@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "tam.SecurityAdvisory"]
 **ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "tam.SecurityAdvisory"]
-**Actions** | Pointer to [**[]TamAction**](tam.Action.md) |  | [optional] 
+**Actions** | Pointer to [**[]TamAction**](TamAction.md) |  | [optional] 
 **AdvisoryId** | Pointer to **string** | Cisco generated identifier for the published security advisory. | [optional] 
-**ApiDataSources** | Pointer to [**[]TamApiDataSource**](tam.ApiDataSource.md) |  | [optional] 
+**ApiDataSources** | Pointer to [**[]TamApiDataSource**](TamApiDataSource.md) |  | [optional] 
 **BaseScore** | Pointer to **float32** | CVSS version 3 base score for the security Advisory. | [optional] 
 **CveIds** | Pointer to **[]string** |  | [optional] 
 **DatePublished** | Pointer to [**time.Time**](time.Time.md) | Date when the security advisory was first published by Cisco. | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **TemporalScore** | Pointer to **float32** | CVSS version 3 temporal score for the security Advisory. | [optional] 
 **Version** | Pointer to **string** | Cisco assigned advisory version after latest revision. | [optional] 
 **Workaround** | Pointer to **string** | Workarounds available for the advisory. | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 
