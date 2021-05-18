@@ -55,6 +55,7 @@ cmd/cli.go: build/generator-postprocess openapi/operations.yaml $(shell find gen
 > go fmt $(shell find cmd -name \*.go -type f)
 
 build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
+> $(GO_PATH)/bin/goimports -l -w cmd
 > $(GO_BUILD_CMD) -o "$@" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 
 crossarch: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod

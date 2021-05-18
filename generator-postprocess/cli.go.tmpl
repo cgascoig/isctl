@@ -31,9 +31,9 @@ func () *cobra.Command {
 
             {{ if eq .Parameter "name" }}
             // Lookup moid from name
-            getOp := getGetOperationForClassID("{{ .Operation.OperationClassID }}")
+            getOp := getGetOperationForClassID("{{ .Operation.ReturnClassID }}")
             if getOp == nil {
-                resultHandler(nil, nil, fmt.Errorf("FATAL: No operation to lookup Moid from '{{ .Operation.OperationClassID }}'"))
+                resultHandler(nil, nil, fmt.Errorf("FATAL: No operation to lookup Moid from '{{ .Operation.ReturnClassID }}'"))
                 return
             }
             res, _, err := getOp.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", args[0])})

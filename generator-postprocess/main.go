@@ -66,6 +66,34 @@ func (o *Operation) DeleteOperationDataType() string {
 	return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
 }
 
+func (o *Operation) ReturnClassID() string {
+	regExpClassID := regexp.MustCompile(`\.`)
+	if regExpClassID.MatchString(o.ReturnBaseType) {
+		// ReturnBaseType is not empty and contains a "." - so it must be a classID
+		return o.ReturnBaseType
+	}
+
+	if regexp.MustCompile(`^Delete`).MatchString(o.OperationID) {
+		return o.DeleteOperationDataType()
+	}
+
+	re := fmt.Sprintf(`^%s(\w+)$`, o.BaseName)
+	r := regexp.MustCompile(re)
+	m := r.FindStringSubmatch(o.ReturnBaseType)
+	if len(m) == 2 {
+		r = regexp.MustCompile(`^(\w+)Response$`)
+		m2 := r.FindStringSubmatch(m[1])
+		if len(m2) == 2 {
+			return fmt.Sprintf("%s.%s.Response", strings.ToLower(o.BaseName),m2[1])
+		} else {
+			return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
+		}
+	} else {
+		return ""
+	}
+	
+}
+
 func (o *Operation) OperationClassID() string {
 	if o.ReturnBaseType != "" {
 		r := regexp.MustCompile(`^(\w+\.\w+)\.Response$`)

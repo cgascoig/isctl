@@ -242,6 +242,9 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 		processing[classID] = false
 
 		op := getUpdateOperationForClassID(classID)
+		if op == nil {
+			return nil, fmt.Errorf("Unable to get update operation for ClassID: %v", classID)
+		}
 
 		deps, err := op.GetReferencedClasses(mo)
 		if err != nil {

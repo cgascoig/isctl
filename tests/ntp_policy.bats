@@ -56,6 +56,22 @@ TEST_SECTION="NTP Policy CRUD"
     ! ./build/isctl get ntp policy | grep "${TEST_NTP_POLICY_NAME}"
 }
 
+@test "${TEST_SECTION}: test delete NTP policy by name" {
+    DELBYNAME_POLICY_NAME="${TEST_NTP_POLICY_NAME}-delbyname"
+
+    # create the policy
+    ./build/isctl create ntp policy --Name "${DELBYNAME_POLICY_NAME}" --NtpServers 1.1.1.1,2.2.2.2 --Organization default
+
+    # check that the policy exists
+    ./build/isctl get ntp policy | grep "${DELBYNAME_POLICY_NAME}"
+
+    # delete by name
+    ./build/isctl delete ntp policy name "${DELBYNAME_POLICY_NAME}"
+
+    # check that the policy no longer exists
+    ! ./build/isctl get ntp policy | grep "${DELBYNAME_POLICY_NAME}"
+}
+
 
 setup_file() {
     # delete the test policy if it already exists. Don't check the exit code. 

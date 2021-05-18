@@ -23,15 +23,15 @@ import (
     func (o *{{ .Operation.OperationID }}) GetBody() *openapi.{{ .BodyParamType }} {
         if o.body == nil {
             o.body = openapi.New{{ .BodyParamType }}(
-                {{ $classid := .Operation.ReturnBaseType }}
+                {{ $classid := .Operation.ReturnClassID }}
                 {{ range .RequiredBodyParamVars }}
                     {{ if .Required }}{{ if eq .Name "ObjectType" "ClassId" }}"{{ $classid }}",{{ end }}{{ end }}
                 {{ end }}
                 )
             
             //Set class id and object type by default
-            o.body.ClassId = "{{ .Operation.ReturnBaseType }}"
-            o.body.ObjectType = "{{ .Operation.ReturnBaseType }}"
+            o.body.ClassId = "{{ .Operation.ReturnClassID }}"
+            o.body.ObjectType = "{{ .Operation.ReturnClassID }}"
         }
 
         return o.body
@@ -213,9 +213,10 @@ func getOperationForRelationship(relationship string) Operation {
 
 func getGetOperationForClassID(classID string) Operation {
     classID = fmt.Sprintf("%s.Response", classID)
+
     switch classID {
     {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsListOperation }}
-        case "{{ .ReturnBaseType }}":
+        case "{{ .ReturnClassID }}":
             return &{{ .OperationID }}{}
     {{ end }}{{ end }}{{ end }}
     }
@@ -226,7 +227,7 @@ func getGetOperationForClassID(classID string) Operation {
 func getUpdateOperationForClassID(classID string) Operation {
     switch classID {
     {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsUpdateOperation }}
-        case "{{ .ReturnBaseType }}":
+        case "{{ .ReturnClassID }}":
             return &{{ .OperationID }}{}
     {{ end }}{{ end }}{{ end }}
     }
@@ -237,7 +238,7 @@ func getUpdateOperationForClassID(classID string) Operation {
 func getCreateOperationForClassID(classID string) Operation {
     switch classID {
     {{ range .Operations }}{{ if ne .ReturnType "" }}{{ if .IsCreateOperation }}
-        case "{{ .ReturnBaseType }}":
+        case "{{ .ReturnClassID }}":
             return &{{ .OperationID }}{}
     {{ end }}{{ end }}{{ end }}
     }
