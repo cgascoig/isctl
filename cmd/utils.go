@@ -44,27 +44,27 @@ func parseMoRef(moref string) (string, string, bool) {
 	var r *regexp.Regexp
 	var m []string
 
-	r = regexp.MustCompile(`MoRef:(\w+)\[(\w+):([0-9A-Za-z_-]+)\]`)
+	r = regexp.MustCompile(`MoRef:(\w+)\[(\w+):([0-9A-Za-z_\-\.]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
 		return fmt.Sprintf("%s eq '%s'", m[2], m[3]), m[1], true
 	}
 
-	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_-]+)\]`)
+	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_\-\.]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
 		return fmt.Sprintf("%s eq '%s'", m[1], m[2]), "", true
 	}
 
-	r = regexp.MustCompile(`^MoRef:(\w+)\[([0-9A-Za-z_-]+)\]`)
+	r = regexp.MustCompile(`^MoRef:(\w+)\[([0-9A-Za-z_\-\.]+)\]`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
 		return fmt.Sprintf("Name eq '%s'", m[2]), m[1], true
 	}
 
-	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_-]+)\]`)
+	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.]+)\]`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
 		return fmt.Sprintf("Name eq '%s'", m[1]), "", true
@@ -197,4 +197,12 @@ func getMoid(res interface{}) (string, bool) {
 	}
 
 	return reflect.Indirect(result.FieldByName("Moid")).String(), true
+}
+
+func safeStringP(s *string) string {
+	if s == nil {
+		return ""
+	}
+
+	return *s
 }
