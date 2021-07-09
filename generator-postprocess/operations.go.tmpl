@@ -22,12 +22,7 @@ import (
     {{ if ne .BodyParamType "" }}
     func (o *{{ .Operation.OperationID }}) GetBody() *openapi.{{ .BodyParamType }} {
         if o.body == nil {
-            o.body = openapi.New{{ .BodyParamType }}(
-                {{ $classid := .Operation.ReturnClassID }}
-                {{ range .RequiredBodyParamVars }}
-                    {{ if .Required }}{{ if eq .Name "ObjectType" "ClassId" }}"{{ $classid }}",{{ end }}{{ end }}
-                {{ end }}
-                )
+            o.body = &openapi.{{ .BodyParamType }}{}
             
             //Set class id and object type by default
             o.body.ClassId = "{{ .Operation.ReturnClassID }}"
@@ -42,10 +37,10 @@ import (
         {{ if ne .BodyParamType "" }}
         ret := []string{}
         {{ range .BodyParamVars }}
-        {{ if eq .DataType "string" "bool" "[]string" "float64" }}{{ else }}{{ if not .Ignore }}
-            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
+        {{ if eq .DataType "string" "bool" "[]string" "int64" "[]int64" "int32" "float64" "float32" }}{{ else }}{{ if .ValidGenericType }}
+            if v, ok := params["{{ .Name }}"]; ok && isMoRef({{ .NormalisedType }}{}) {
                 if refStr, ok := v.(string); ok {
-                    paramVal := openapi.{{ .DataType }}{}
+                    paramVal := {{ .NormalisedType }}{}
 
                     if _, _, isMoFilter := parseMoRef(refStr); isMoFilter {
                         ret = append(ret, goTypeNameToIntersightClassID[getReferredTypeName(reflect.ValueOf(paramVal).Type())])
@@ -82,32 +77,47 @@ import (
         body := o.GetBody()
 
         log.Tracef("SetBodyParams: input params: %v", params)
+        params["ClassId"] = "{{ .Operation.ReturnClassID }}"
+        params["ObjectType"] = "{{ .Operation.ReturnClassID }}"
 
         {{ range .BodyParamVars }}
-        {{ if eq .DataType "string" "bool" "[]string" "float64" }}{{ else }}{{ if not .Ignore }}
-            if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .DataType }}{}) {
-                if refStr, ok := v.(string); ok {
-                    paramVal := openapi.{{ .DataType }}{}
+        {{ if eq .DataType "string" "bool" "[]string" "int64" "[]int64" "int32" "float64" "float32" }}{{ else }}{{ if .ValidGenericType }}
+            if v, ok := params["{{ .Name }}"]; ok {
+                if complexValue, ok := v.(*ComplexValue); ok {
+                    paramVal := {{ .NormalisedType }}{}
 
-                    filter, datatype, isMoFilter := parseMoRef(refStr)
-                    if isMoFilter {
-                        var ok bool
-                        if datatype != "" {
-                            ok = setMoMoRefByFilter(client, &paramVal, datatype, filter)
-                        } else {
-                            ok = setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
-                        }
+                    err := json.Unmarshal([]byte(complexValue.String()), &paramVal)
+                    if err != nil {
+                        return fmt.Errorf("Error parsing complex (JSON) value: %v", err)
+                    }
 
-                        if ok {
-                            params["{{ .Name }}"] = &paramVal
+                    params["{{ .Name }}"] = &paramVal
+                } else if isMoRef({{ .NormalisedType }}{}) {
+                    if refStr, ok := v.(string); ok {
+                        paramVal := {{ .NormalisedType }}{}
+
+                        filter, datatype, isMoFilter := parseMoRef(refStr)
+                        if isMoFilter {
+                            var ok bool
+                            if datatype != "" {
+                                ok = setMoMoRefByFilter(client, &paramVal, datatype, filter)
+                            } else {
+                                ok = setMoMoRefByFilter(client, &paramVal, "{{ .DataType }}", filter)
+                            }
+
+                            if ok {
+                                params["{{ .Name }}"] = &paramVal
+                            } else {
+                                return fmt.Errorf("Error retreiving relationship: %s", refStr)
+                            }
                         } else {
-                            return fmt.Errorf("Error retreiving relationship: %s", refStr)
+                            return fmt.Errorf("Error parsing relationship: %s", refStr)
                         }
-                    } else {
-                        return fmt.Errorf("Error parsing relationship: %s", refStr)
                     }
                 }
             }
+
+            
         {{ end }}{{ if .IsList }}
             // handle list
             if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .ListElementType }}{}) {

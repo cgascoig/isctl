@@ -206,3 +206,23 @@ func safeStringP(s *string) string {
 
 	return *s
 }
+
+type ComplexValue struct {
+	js string
+}
+
+func (v *ComplexValue) String() string {
+	if v == nil {
+		return ""
+	}
+	return v.js
+}
+
+func (v *ComplexValue) Set(s string) error {
+	v.js = s
+	return nil
+}
+
+func (v *ComplexValue) Type() string {
+	return "json"
+}

@@ -151,6 +151,34 @@ func (v *Var) ListElementType() string {
 	return m[1]
 }
 
+func (v *Var) ValidGenericType() bool {
+	validTypeRegExp := regexp.MustCompile(`^(\[\])?([a-zA-Z0-9]+)?([a-zA-Z0-9]+)$`)
+	return validTypeRegExp.MatchString(v.DataType)
+}
+
+func (v *Var) NormalisedType() string {
+	var t string
+	isList := false
+	if v.IsList() {
+		isList = true
+		t = v.ListElementType()
+	} else {
+		t = v.DataType
+	}
+
+	// if type is already in pkg.type, do not change, otherwise change type to openapi.type
+	qualifiedTypeRegExp := regexp.MustCompile(`^([a-zA-Z0-9]+)\.([a-zA-Z0-9]+)$`)
+	if !qualifiedTypeRegExp.MatchString(t) {
+		t = fmt.Sprintf("openapi.%s", t)
+	}
+
+	if isList {
+		return fmt.Sprintf("[]%s", t)
+	} else {
+		return t
+	}
+}
+
 func generate(templateFilename string, outputFilename string, data interface{}) {
 	log.Printf("Generating '%s' using template file '%s'", outputFilename, templateFilename)
 

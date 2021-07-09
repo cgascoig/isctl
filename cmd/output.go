@@ -94,18 +94,29 @@ func removeWrappers(result interface{}) interface{} {
 
 	ret = result
 
-	// see if input is of form result[XX]["Results"] -> []interface{},
+	// see if input is of form result[XX]["Results"] -> []interface{} or result["Results"]->[]interface{},
 	//  if so, just keep the []interface{}
 	if m, ok := result.(map[string]interface{}); ok {
-		// if the input is a map of strings, go through each item to see if it is also a map:
-		for _, v := range m {
-			if m2, ok := v.(map[string]interface{}); ok {
-				if r, ok := m2["Results"]; ok {
-					if res, ok := r.([]interface{}); ok {
-						if len(res) == 1 {
-							ret = res[0]
-						} else {
-							ret = res
+		if r, ok := m["Results"]; ok {
+			// the input is of form result["Results"]->[]interface{}
+			if res, ok := r.([]interface{}); ok {
+				if len(res) == 1 {
+					ret = res[0]
+				} else {
+					ret = res
+				}
+			}
+		} else {
+			// if the input is a map of strings, go through each item to see if it is also a map:
+			for _, v := range m {
+				if m2, ok := v.(map[string]interface{}); ok {
+					if r, ok := m2["Results"]; ok {
+						if res, ok := r.([]interface{}); ok {
+							if len(res) == 1 {
+								ret = res[0]
+							} else {
+								ret = res
+							}
 						}
 					}
 				}
