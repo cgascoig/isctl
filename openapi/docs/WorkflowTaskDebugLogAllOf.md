@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.TaskDebugLog"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.TaskDebugLog"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.TaskDebugLog"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.TaskDebugLog"]
 **RetryCount** | Pointer to **int64** | A counter for number of retries. | [optional] [readonly] 
 **TaskDebugLogEntries** | Pointer to **interface{}** | Holds information helpful in isolating task failures. | [optional] [readonly] 
 **TaskInstId** | Pointer to **string** | The unique identifier for task instance. | [optional] [readonly] 

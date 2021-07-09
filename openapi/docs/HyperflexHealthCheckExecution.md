@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HealthCheckExecution"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HealthCheckExecution"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HealthCheckExecution"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HealthCheckExecution"]
 **Category** | Pointer to **string** | Category that the HyperFlex health check Definition belongs to. | [optional] [readonly] 
 **Cause** | Pointer to **string** | Information detailing the possible cause of the healthcheck failure, if the check fails. | [optional] 
-**CompletionTime** | Pointer to [**time.Time**](time.Time.md) | Health check execution completion time. | [optional] [readonly] 
+**CompletionTime** | Pointer to **time.Time** | Health check execution completion time. | [optional] [readonly] 
 **HealthCheckDetails** | Pointer to **string** | Details of the health check execution result. | [optional] [readonly] 
 **HealthCheckExecutionErrorDetails** | Pointer to **string** | Error details of a script execution failure. | [optional] [readonly] 
 **HealthCheckExecutionErrorSummary** | Pointer to **string** | Error summary of a script execution failure. | [optional] [readonly] 

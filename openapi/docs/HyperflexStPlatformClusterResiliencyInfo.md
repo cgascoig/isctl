@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.StPlatformClusterResiliencyInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.StPlatformClusterResiliencyInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.StPlatformClusterResiliencyInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.StPlatformClusterResiliencyInfo"]
 **HddFailuresTolerable** | Pointer to **int64** | The number of persistent storage device failures tolerable before the storage cluster becomes offline. | [optional] [readonly] 
 **Messages** | Pointer to **[]string** |  | [optional] 
 **MessagesIterator** | Pointer to **interface{}** | The current message describing the auto-healing process of the cluster. | [optional] [readonly] 

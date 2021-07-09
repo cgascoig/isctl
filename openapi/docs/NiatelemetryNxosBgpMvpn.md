@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niatelemetry.NxosBgpMvpn"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niatelemetry.NxosBgpMvpn"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niatelemetry.NxosBgpMvpn"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niatelemetry.NxosBgpMvpn"]
 **CapablePeers** | Pointer to **int64** | Return count of BGP MVPN table capable peers. | [optional] 
 **ConfiguredPeers** | Pointer to **int64** | Return count of BGP MVPN configured peers. | [optional] 
 **MemoryUsed** | Pointer to **int64** | Return value of BGP MVPN memory used. | [optional] 

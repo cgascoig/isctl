@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.CliCommand"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.CliCommand"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.CliCommand"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.CliCommand"]
 **Command** | Pointer to **string** | The command to run on the device connector. | [optional] 
 **EndPrompt** | Pointer to **string** | The regex string that identifies the end of the command response. | [optional] 
 **ExpectPrompts** | Pointer to [**[]WorkflowExpectPrompt**](WorkflowExpectPrompt.md) |  | [optional] 

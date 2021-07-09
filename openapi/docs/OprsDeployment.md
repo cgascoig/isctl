@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "oprs.Deployment"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "oprs.Deployment"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "oprs.Deployment"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "oprs.Deployment"]
 **AvailableReplicas** | Pointer to **int64** | Available number of replicas. | [optional] 
 **DesiredReplicas** | Pointer to **int64** | The expected number of replicas. | [optional] 
 **Event** | Pointer to **string** | The type of event which was triggered. | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Agent name for which the event is triggered. | [optional] 
 **Namespace** | Pointer to **string** | Name space in which the agents are running. | [optional] 
 **Status** | Pointer to **string** | Status which shows if the resource is healthy or not. * &#x60;&#x60; - An Unknown status indicates that the resource status is not known. * &#x60;Healthy&#x60; - A healthy status indicates that the resource is healthy and running as per spec. * &#x60;Unhealthy&#x60; - An unhealthy status indicates that the resource is down. | [optional] [default to ""]
-**TimeStamp** | Pointer to [**time.Time**](time.Time.md) | The time at which the event was generated. Date is accurate to Intersights clock. This time will be used to identify order of events. | [optional] 
+**TimeStamp** | Pointer to **time.Time** | The time at which the event was generated. Date is accurate to Intersights clock. This time will be used to identify order of events. | [optional] 
 **UnavailableReplicas** | Pointer to **int64** | Number of replicas Unavailable. | [optional] 
 **Assist** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 

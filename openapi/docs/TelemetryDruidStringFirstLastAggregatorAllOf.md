@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Output name for the minimum/maximum timestamp value. | 
-**FieldName** | Pointer to **string** | Name of the metric column. | 
+**Name** | **string** | Output name for the minimum/maximum timestamp value. | 
+**FieldName** | **string** | Name of the metric column. | 
 **MaxStringBytes** | Pointer to **int32** | null | [optional] [default to 1024]
 
 ## Methods

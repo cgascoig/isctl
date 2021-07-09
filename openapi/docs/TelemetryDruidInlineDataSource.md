@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The type of data source. | 
-**ColumnNames** | Pointer to **[]string** | the column names. | 
-**Rows** | Pointer to [**[][]string**](array.md) | an array of rows. | 
+**Type** | **string** | The type of data source. | 
+**ColumnNames** | **[]string** | the column names. | 
+**Rows** | **[][]string** | an array of rows. | 
 
 ## Methods
 

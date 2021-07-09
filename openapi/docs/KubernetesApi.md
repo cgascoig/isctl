@@ -178,7 +178,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesAciCniApic(context.Background(), kubernetesAciCniApic).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesAciCniApic(context.Background()).KubernetesAciCniApic(kubernetesAciCniApic).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesAciCniApic``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -246,7 +246,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesAciCniProfile(context.Background(), kubernetesAciCniProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesAciCniProfile(context.Background()).KubernetesAciCniProfile(kubernetesAciCniProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesAciCniProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -314,7 +314,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesAciCniTenantClusterAllocation(context.Background(), kubernetesAciCniTenantClusterAllocation).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesAciCniTenantClusterAllocation(context.Background()).KubernetesAciCniTenantClusterAllocation(kubernetesAciCniTenantClusterAllocation).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesAciCniTenantClusterAllocation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -382,7 +382,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesAddonDefinition(context.Background(), kubernetesAddonDefinition).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesAddonDefinition(context.Background()).KubernetesAddonDefinition(kubernetesAddonDefinition).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesAddonDefinition``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -450,7 +450,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesAddonPolicy(context.Background(), kubernetesAddonPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesAddonPolicy(context.Background()).KubernetesAddonPolicy(kubernetesAddonPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesAddonPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -518,7 +518,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesAddonRepository(context.Background(), kubernetesAddonRepository).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesAddonRepository(context.Background()).KubernetesAddonRepository(kubernetesAddonRepository).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesAddonRepository``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -586,7 +586,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesCluster(context.Background(), kubernetesCluster).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesCluster(context.Background()).KubernetesCluster(kubernetesCluster).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesCluster``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -654,7 +654,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesClusterAddonProfile(context.Background(), kubernetesClusterAddonProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesClusterAddonProfile(context.Background()).KubernetesClusterAddonProfile(kubernetesClusterAddonProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesClusterAddonProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -722,7 +722,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesClusterProfile(context.Background(), kubernetesClusterProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesClusterProfile(context.Background()).KubernetesClusterProfile(kubernetesClusterProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesClusterProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -790,7 +790,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesContainerRuntimePolicy(context.Background(), kubernetesContainerRuntimePolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesContainerRuntimePolicy(context.Background()).KubernetesContainerRuntimePolicy(kubernetesContainerRuntimePolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesContainerRuntimePolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -858,7 +858,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesNetworkPolicy(context.Background(), kubernetesNetworkPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesNetworkPolicy(context.Background()).KubernetesNetworkPolicy(kubernetesNetworkPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesNetworkPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -926,7 +926,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesNodeGroupProfile(context.Background(), kubernetesNodeGroupProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesNodeGroupProfile(context.Background()).KubernetesNodeGroupProfile(kubernetesNodeGroupProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesNodeGroupProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -994,7 +994,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesSysConfigPolicy(context.Background(), kubernetesSysConfigPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesSysConfigPolicy(context.Background()).KubernetesSysConfigPolicy(kubernetesSysConfigPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesSysConfigPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1062,7 +1062,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesTrustedRegistriesPolicy(context.Background(), kubernetesTrustedRegistriesPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesTrustedRegistriesPolicy(context.Background()).KubernetesTrustedRegistriesPolicy(kubernetesTrustedRegistriesPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesTrustedRegistriesPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1130,7 +1130,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesVersion(context.Background(), kubernetesVersion).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesVersion(context.Background()).KubernetesVersion(kubernetesVersion).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1198,7 +1198,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesVersionPolicy(context.Background(), kubernetesVersionPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesVersionPolicy(context.Background()).KubernetesVersionPolicy(kubernetesVersionPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesVersionPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1266,7 +1266,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineInfraConfigPolicy(context.Background(), kubernetesVirtualMachineInfraConfigPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineInfraConfigPolicy(context.Background()).KubernetesVirtualMachineInfraConfigPolicy(kubernetesVirtualMachineInfraConfigPolicy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesVirtualMachineInfraConfigPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1334,7 +1334,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineInfrastructureProvider(context.Background(), kubernetesVirtualMachineInfrastructureProvider).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineInfrastructureProvider(context.Background()).KubernetesVirtualMachineInfrastructureProvider(kubernetesVirtualMachineInfrastructureProvider).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesVirtualMachineInfrastructureProvider``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1402,7 +1402,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineInstanceType(context.Background(), kubernetesVirtualMachineInstanceType).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineInstanceType(context.Background()).KubernetesVirtualMachineInstanceType(kubernetesVirtualMachineInstanceType).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesVirtualMachineInstanceType``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1470,7 +1470,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineNodeProfile(context.Background(), kubernetesVirtualMachineNodeProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.CreateKubernetesVirtualMachineNodeProfile(context.Background()).KubernetesVirtualMachineNodeProfile(kubernetesVirtualMachineNodeProfile).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.CreateKubernetesVirtualMachineNodeProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3290,7 +3290,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3330,7 +3330,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesAciCniApicList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesAciCniApicList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesAciCniApicList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3374,7 +3374,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3442,7 +3442,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3482,7 +3482,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesAciCniProfileList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesAciCniProfileList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesAciCniProfileList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3526,7 +3526,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3594,7 +3594,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3634,7 +3634,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesAciCniTenantClusterAllocationList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesAciCniTenantClusterAllocationList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesAciCniTenantClusterAllocationList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3678,7 +3678,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3746,7 +3746,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3786,7 +3786,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesAddonDefinitionList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesAddonDefinitionList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesAddonDefinitionList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3830,7 +3830,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3898,7 +3898,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3938,7 +3938,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesAddonPolicyList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesAddonPolicyList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesAddonPolicyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3982,7 +3982,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4050,7 +4050,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4090,7 +4090,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesAddonRepositoryList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesAddonRepositoryList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesAddonRepositoryList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4134,7 +4134,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4202,7 +4202,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4242,7 +4242,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesCatalogList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesCatalogList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesCatalogList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4286,7 +4286,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4354,7 +4354,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4394,7 +4394,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesClusterAddonProfileList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesClusterAddonProfileList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesClusterAddonProfileList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4438,7 +4438,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4506,7 +4506,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4546,7 +4546,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesClusterList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesClusterList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesClusterList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4590,7 +4590,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4658,7 +4658,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4698,7 +4698,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesClusterProfileList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesClusterProfileList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesClusterProfileList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4742,7 +4742,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4810,7 +4810,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4878,7 +4878,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4918,7 +4918,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesConfigResultEntryList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesConfigResultEntryList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesConfigResultEntryList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4962,7 +4962,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5002,7 +5002,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesConfigResultList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesConfigResultList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesConfigResultList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5046,7 +5046,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5114,7 +5114,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5154,7 +5154,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesContainerRuntimePolicyList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesContainerRuntimePolicyList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesContainerRuntimePolicyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5198,7 +5198,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5266,7 +5266,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5306,7 +5306,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesDaemonSetList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesDaemonSetList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesDaemonSetList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5350,7 +5350,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5418,7 +5418,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5458,7 +5458,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesDeploymentList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesDeploymentList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesDeploymentList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5502,7 +5502,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5570,7 +5570,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5610,7 +5610,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesIngressList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesIngressList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesIngressList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5654,7 +5654,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5722,7 +5722,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5762,7 +5762,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesNetworkPolicyList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesNetworkPolicyList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesNetworkPolicyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5806,7 +5806,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5874,7 +5874,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5942,7 +5942,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5982,7 +5982,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesNodeGroupProfileList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesNodeGroupProfileList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesNodeGroupProfileList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6026,7 +6026,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6066,7 +6066,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesNodeList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesNodeList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesNodeList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6110,7 +6110,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6178,7 +6178,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6218,7 +6218,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesPodList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesPodList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesPodList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6262,7 +6262,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6330,7 +6330,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6370,7 +6370,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesServiceList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesServiceList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesServiceList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6414,7 +6414,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6482,7 +6482,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6522,7 +6522,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesStatefulSetList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesStatefulSetList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesStatefulSetList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6566,7 +6566,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6634,7 +6634,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6674,7 +6674,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesSysConfigPolicyList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesSysConfigPolicyList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesSysConfigPolicyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6718,7 +6718,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6786,7 +6786,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6826,7 +6826,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesTrustedRegistriesPolicyList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesTrustedRegistriesPolicyList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesTrustedRegistriesPolicyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6870,7 +6870,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6938,7 +6938,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6978,7 +6978,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesVersionList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesVersionList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesVersionList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7022,7 +7022,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7090,7 +7090,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7130,7 +7130,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesVersionPolicyList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesVersionPolicyList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesVersionPolicyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7174,7 +7174,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7242,7 +7242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7282,7 +7282,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineInfraConfigPolicyList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineInfraConfigPolicyList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesVirtualMachineInfraConfigPolicyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7326,7 +7326,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7394,7 +7394,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7434,7 +7434,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineInfrastructureProviderList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineInfrastructureProviderList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesVirtualMachineInfrastructureProviderList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7478,7 +7478,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7546,7 +7546,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7586,7 +7586,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineInstanceTypeList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineInstanceTypeList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesVirtualMachineInstanceTypeList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7630,7 +7630,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7698,7 +7698,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7738,7 +7738,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineNodeProfileList(context.Background(), ).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
+    resp, r, err := api_client.KubernetesApi.GetKubernetesVirtualMachineNodeProfileList(context.Background()).Filter(filter).Orderby(orderby).Top(top).Skip(skip).Select_(select_).Expand(expand).Apply(apply).Count(count).Inlinecount(inlinecount).At(at).Tags(tags).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.GetKubernetesVirtualMachineNodeProfileList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7782,7 +7782,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/jsontext/csvapplication/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+- **Accept**: application/json, text/csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7814,7 +7814,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesAciCniApic(context.Background(), moid, kubernetesAciCniApic).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesAciCniApic(context.Background(), moid).KubernetesAciCniApic(kubernetesAciCniApic).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesAciCniApic``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7853,7 +7853,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -7886,7 +7886,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesAciCniProfile(context.Background(), moid, kubernetesAciCniProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesAciCniProfile(context.Background(), moid).KubernetesAciCniProfile(kubernetesAciCniProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesAciCniProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7925,7 +7925,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -7958,7 +7958,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesAciCniTenantClusterAllocation(context.Background(), moid, kubernetesAciCniTenantClusterAllocation).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesAciCniTenantClusterAllocation(context.Background(), moid).KubernetesAciCniTenantClusterAllocation(kubernetesAciCniTenantClusterAllocation).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesAciCniTenantClusterAllocation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7997,7 +7997,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8030,7 +8030,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesAddonDefinition(context.Background(), moid, kubernetesAddonDefinition).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesAddonDefinition(context.Background(), moid).KubernetesAddonDefinition(kubernetesAddonDefinition).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesAddonDefinition``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8069,7 +8069,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8102,7 +8102,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesAddonPolicy(context.Background(), moid, kubernetesAddonPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesAddonPolicy(context.Background(), moid).KubernetesAddonPolicy(kubernetesAddonPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesAddonPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8141,7 +8141,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8174,7 +8174,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesAddonRepository(context.Background(), moid, kubernetesAddonRepository).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesAddonRepository(context.Background(), moid).KubernetesAddonRepository(kubernetesAddonRepository).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesAddonRepository``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8213,7 +8213,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8246,7 +8246,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesCluster(context.Background(), moid, kubernetesCluster).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesCluster(context.Background(), moid).KubernetesCluster(kubernetesCluster).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesCluster``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8285,7 +8285,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8318,7 +8318,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesClusterAddonProfile(context.Background(), moid, kubernetesClusterAddonProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesClusterAddonProfile(context.Background(), moid).KubernetesClusterAddonProfile(kubernetesClusterAddonProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesClusterAddonProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8357,7 +8357,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8390,7 +8390,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesClusterProfile(context.Background(), moid, kubernetesClusterProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesClusterProfile(context.Background(), moid).KubernetesClusterProfile(kubernetesClusterProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesClusterProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8429,7 +8429,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8462,7 +8462,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesContainerRuntimePolicy(context.Background(), moid, kubernetesContainerRuntimePolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesContainerRuntimePolicy(context.Background(), moid).KubernetesContainerRuntimePolicy(kubernetesContainerRuntimePolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesContainerRuntimePolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8501,7 +8501,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8534,7 +8534,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesNetworkPolicy(context.Background(), moid, kubernetesNetworkPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesNetworkPolicy(context.Background(), moid).KubernetesNetworkPolicy(kubernetesNetworkPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesNetworkPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8573,7 +8573,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8606,7 +8606,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesNodeGroupProfile(context.Background(), moid, kubernetesNodeGroupProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesNodeGroupProfile(context.Background(), moid).KubernetesNodeGroupProfile(kubernetesNodeGroupProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesNodeGroupProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8645,7 +8645,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8678,7 +8678,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesSysConfigPolicy(context.Background(), moid, kubernetesSysConfigPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesSysConfigPolicy(context.Background(), moid).KubernetesSysConfigPolicy(kubernetesSysConfigPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesSysConfigPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8717,7 +8717,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8750,7 +8750,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesTrustedRegistriesPolicy(context.Background(), moid, kubernetesTrustedRegistriesPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesTrustedRegistriesPolicy(context.Background(), moid).KubernetesTrustedRegistriesPolicy(kubernetesTrustedRegistriesPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesTrustedRegistriesPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8789,7 +8789,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8822,7 +8822,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesVersion(context.Background(), moid, kubernetesVersion).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesVersion(context.Background(), moid).KubernetesVersion(kubernetesVersion).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8861,7 +8861,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8894,7 +8894,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesVersionPolicy(context.Background(), moid, kubernetesVersionPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesVersionPolicy(context.Background(), moid).KubernetesVersionPolicy(kubernetesVersionPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesVersionPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8933,7 +8933,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -8966,7 +8966,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineInfraConfigPolicy(context.Background(), moid, kubernetesVirtualMachineInfraConfigPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineInfraConfigPolicy(context.Background(), moid).KubernetesVirtualMachineInfraConfigPolicy(kubernetesVirtualMachineInfraConfigPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesVirtualMachineInfraConfigPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9005,7 +9005,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9038,7 +9038,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineInfrastructureProvider(context.Background(), moid, kubernetesVirtualMachineInfrastructureProvider).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineInfrastructureProvider(context.Background(), moid).KubernetesVirtualMachineInfrastructureProvider(kubernetesVirtualMachineInfrastructureProvider).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesVirtualMachineInfrastructureProvider``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9077,7 +9077,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9110,7 +9110,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineInstanceType(context.Background(), moid, kubernetesVirtualMachineInstanceType).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineInstanceType(context.Background(), moid).KubernetesVirtualMachineInstanceType(kubernetesVirtualMachineInstanceType).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesVirtualMachineInstanceType``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9149,7 +9149,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9182,7 +9182,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineNodeProfile(context.Background(), moid, kubernetesVirtualMachineNodeProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.PatchKubernetesVirtualMachineNodeProfile(context.Background(), moid).KubernetesVirtualMachineNodeProfile(kubernetesVirtualMachineNodeProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.PatchKubernetesVirtualMachineNodeProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9221,7 +9221,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9254,7 +9254,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAciCniApic(context.Background(), moid, kubernetesAciCniApic).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAciCniApic(context.Background(), moid).KubernetesAciCniApic(kubernetesAciCniApic).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesAciCniApic``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9293,7 +9293,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9326,7 +9326,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAciCniProfile(context.Background(), moid, kubernetesAciCniProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAciCniProfile(context.Background(), moid).KubernetesAciCniProfile(kubernetesAciCniProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesAciCniProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9365,7 +9365,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9398,7 +9398,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAciCniTenantClusterAllocation(context.Background(), moid, kubernetesAciCniTenantClusterAllocation).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAciCniTenantClusterAllocation(context.Background(), moid).KubernetesAciCniTenantClusterAllocation(kubernetesAciCniTenantClusterAllocation).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesAciCniTenantClusterAllocation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9437,7 +9437,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9470,7 +9470,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAddonDefinition(context.Background(), moid, kubernetesAddonDefinition).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAddonDefinition(context.Background(), moid).KubernetesAddonDefinition(kubernetesAddonDefinition).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesAddonDefinition``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9509,7 +9509,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9542,7 +9542,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAddonPolicy(context.Background(), moid, kubernetesAddonPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAddonPolicy(context.Background(), moid).KubernetesAddonPolicy(kubernetesAddonPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesAddonPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9581,7 +9581,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9614,7 +9614,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAddonRepository(context.Background(), moid, kubernetesAddonRepository).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesAddonRepository(context.Background(), moid).KubernetesAddonRepository(kubernetesAddonRepository).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesAddonRepository``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9653,7 +9653,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9686,7 +9686,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesCluster(context.Background(), moid, kubernetesCluster).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesCluster(context.Background(), moid).KubernetesCluster(kubernetesCluster).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesCluster``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9725,7 +9725,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9758,7 +9758,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesClusterAddonProfile(context.Background(), moid, kubernetesClusterAddonProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesClusterAddonProfile(context.Background(), moid).KubernetesClusterAddonProfile(kubernetesClusterAddonProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesClusterAddonProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9797,7 +9797,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9830,7 +9830,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesClusterProfile(context.Background(), moid, kubernetesClusterProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesClusterProfile(context.Background(), moid).KubernetesClusterProfile(kubernetesClusterProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesClusterProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9869,7 +9869,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9902,7 +9902,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesContainerRuntimePolicy(context.Background(), moid, kubernetesContainerRuntimePolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesContainerRuntimePolicy(context.Background(), moid).KubernetesContainerRuntimePolicy(kubernetesContainerRuntimePolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesContainerRuntimePolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9941,7 +9941,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -9974,7 +9974,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesNetworkPolicy(context.Background(), moid, kubernetesNetworkPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesNetworkPolicy(context.Background(), moid).KubernetesNetworkPolicy(kubernetesNetworkPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesNetworkPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10013,7 +10013,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10046,7 +10046,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesNodeGroupProfile(context.Background(), moid, kubernetesNodeGroupProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesNodeGroupProfile(context.Background(), moid).KubernetesNodeGroupProfile(kubernetesNodeGroupProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesNodeGroupProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10085,7 +10085,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10118,7 +10118,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesSysConfigPolicy(context.Background(), moid, kubernetesSysConfigPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesSysConfigPolicy(context.Background(), moid).KubernetesSysConfigPolicy(kubernetesSysConfigPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesSysConfigPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10157,7 +10157,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10190,7 +10190,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesTrustedRegistriesPolicy(context.Background(), moid, kubernetesTrustedRegistriesPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesTrustedRegistriesPolicy(context.Background(), moid).KubernetesTrustedRegistriesPolicy(kubernetesTrustedRegistriesPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesTrustedRegistriesPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10229,7 +10229,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10262,7 +10262,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVersion(context.Background(), moid, kubernetesVersion).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVersion(context.Background(), moid).KubernetesVersion(kubernetesVersion).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10301,7 +10301,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10334,7 +10334,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVersionPolicy(context.Background(), moid, kubernetesVersionPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVersionPolicy(context.Background(), moid).KubernetesVersionPolicy(kubernetesVersionPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesVersionPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10373,7 +10373,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10406,7 +10406,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineInfraConfigPolicy(context.Background(), moid, kubernetesVirtualMachineInfraConfigPolicy).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineInfraConfigPolicy(context.Background(), moid).KubernetesVirtualMachineInfraConfigPolicy(kubernetesVirtualMachineInfraConfigPolicy).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesVirtualMachineInfraConfigPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10445,7 +10445,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10478,7 +10478,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineInfrastructureProvider(context.Background(), moid, kubernetesVirtualMachineInfrastructureProvider).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineInfrastructureProvider(context.Background(), moid).KubernetesVirtualMachineInfrastructureProvider(kubernetesVirtualMachineInfrastructureProvider).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesVirtualMachineInfrastructureProvider``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10517,7 +10517,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10550,7 +10550,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineInstanceType(context.Background(), moid, kubernetesVirtualMachineInstanceType).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineInstanceType(context.Background(), moid).KubernetesVirtualMachineInstanceType(kubernetesVirtualMachineInstanceType).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesVirtualMachineInstanceType``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10589,7 +10589,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -10622,7 +10622,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineNodeProfile(context.Background(), moid, kubernetesVirtualMachineNodeProfile).IfMatch(ifMatch).Execute()
+    resp, r, err := api_client.KubernetesApi.UpdateKubernetesVirtualMachineNodeProfile(context.Background(), moid).KubernetesVirtualMachineNodeProfile(kubernetesVirtualMachineNodeProfile).IfMatch(ifMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `KubernetesApi.UpdateKubernetesVirtualMachineNodeProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10661,7 +10661,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/jsonapplication/json-patch+json
+- **Content-Type**: application/json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

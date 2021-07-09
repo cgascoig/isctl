@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.TrackedDisk"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.TrackedDisk"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.TrackedDisk"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.TrackedDisk"]
 **DiskFiles** | Pointer to [**[]HyperflexTrackedFile**](HyperflexTrackedFile.md) |  | [optional] 
 **DiskType** | Pointer to **string** | Disk type for a vm virtual disk. * &#x60;NONE&#x60; - The disk type for this VM is None. * &#x60;NATIVE&#x60; - The disk type for this VM is Native. * &#x60;NONNATIVE&#x60; - The disk type for this VM is Non-Native. | [optional] [readonly] [default to "NONE"]
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.ClusterAddonProfile"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.ClusterAddonProfile"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.ClusterAddonProfile"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.ClusterAddonProfile"]
 **Addons** | Pointer to [**[]KubernetesAddon**](KubernetesAddon.md) |  | [optional] 
 **Name** | Pointer to **string** | Name of the cluster addon profile. | [optional] 
 **AssociatedCluster** | Pointer to [**KubernetesClusterRelationship**](KubernetesClusterRelationship.md) |  | [optional] 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Period** | Pointer to **string** | The period in ISO 8601 format. Examples are P2W, P3M, PT1H30M, PT0.750S. | 
+**Period** | **string** | The period in ISO 8601 format. Examples are P2W, P3M, PT1H30M, PT0.750S. | 
 **TimeZone** | Pointer to **string** | An optional value specifying the time zone. Standard [IANA time zones](http://joda-time.sourceforge.net/timezones.html) are supported. | [optional] 
 
 ## Methods

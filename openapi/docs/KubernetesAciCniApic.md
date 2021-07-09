@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.AciCniApic"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.AciCniApic"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.AciCniApic"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.AciCniApic"]
 **AssetApicMoid** | Pointer to **string** | The Moid of the apic device under the asset service. | [optional] 
 **NumAciCniProfiles** | Pointer to **int64** | The number of ACI CNI profiles configured for this APIC. | [optional] 
 **AciCniProfiles** | Pointer to [**[]KubernetesAciCniProfileRelationship**](KubernetesAciCniProfileRelationship.md) | An array of relationships to kubernetesAciCniProfile resources. | [optional] 

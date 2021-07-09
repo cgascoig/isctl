@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.MacAddrPrefixRange"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.MacAddrPrefixRange"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.MacAddrPrefixRange"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.MacAddrPrefixRange"]
 **EndAddr** | Pointer to **string** | The end MAC address prefix of a MAC address prefix range in the form of 00:25:B5:XX. | [optional] 
 **StartAddr** | Pointer to **string** | The start MAC address prefix of a MAC address prefix range in the form of 00:25:B5:XX. | [optional] 
 

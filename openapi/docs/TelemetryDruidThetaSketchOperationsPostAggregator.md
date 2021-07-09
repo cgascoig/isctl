@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The post-aggregator type. | 
+**Type** | **string** | The post-aggregator type. | 
 **Name** | Pointer to **string** | Output name for the post-aggregator. | [optional] 
 **Func** | Pointer to **string** |  | [optional] 
 **Fields** | Pointer to **[]string** | array of fieldAccess type post aggregators to access the thetaSketch aggregators or thetaSketchSetOp type post aggregators to allow arbitrary combination of set operations. | [optional] 

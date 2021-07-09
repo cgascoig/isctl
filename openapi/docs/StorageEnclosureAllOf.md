@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.Enclosure"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.Enclosure"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.Enclosure"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.Enclosure"]
 **ChassisId** | Pointer to **int64** | This represent the chassis-ID that houses the storage enclosure. | [optional] [readonly] 
 **Description** | Pointer to **string** | This represnets the description for the storage enclosure. | [optional] [readonly] 
 **EnclosureId** | Pointer to **int64** | This represnets the Identifier for the storage enclosure. | [optional] [readonly] 

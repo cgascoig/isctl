@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "vrf.Vrf"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "vrf.Vrf"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "vrf.Vrf"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "vrf.Vrf"]
 **Description** | Pointer to **string** | Description to help identify or describe this VRF. | [optional] 
 **Name** | Pointer to **string** | Name of the Virtual Routing and Forwarding Instance. | [optional] 
 **Account** | Pointer to [**IamAccountRelationship**](IamAccountRelationship.md) |  | [optional] 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "cloud.SkuVolumeType"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "cloud.SkuVolumeType"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "cloud.SkuVolumeType"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "cloud.SkuVolumeType"]
 **IopsUnit** | Pointer to **string** | The units to measure IOPS. | [optional] 
 **IsBootable** | Pointer to **bool** | Indicates if this volume can be used as a boot volume. | [optional] 
 **IsDefault** | Pointer to **bool** | Flag to indicate if this is a default volume. Default volumes will be used when an instance type is launched unless another volume type is specified. | [optional] 

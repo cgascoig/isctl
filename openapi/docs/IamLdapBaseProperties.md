@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.LdapBaseProperties"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.LdapBaseProperties"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.LdapBaseProperties"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.LdapBaseProperties"]
 **Attribute** | Pointer to **string** | Role and locale information of the user. | [optional] 
 **BaseDn** | Pointer to **string** | Base Distinguished Name (DN). Starting point from where server will search for users and groups. | [optional] 
 **BindDn** | Pointer to **string** | Distinguished Name (DN) of the user, that is used to authenticate against LDAP servers. | [optional] 

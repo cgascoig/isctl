@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.GuestInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.GuestInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.GuestInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.GuestInfo"]
 **Hostname** | Pointer to **string** | Name provided to the host OS (example, ubuntu6410, test-gateway, etc.). | [optional] 
 **IpAddress** | Pointer to **string** | Primary IP address of the guest os. | [optional] 
 **Name** | Pointer to **string** | The name of the guest running on this VM. This may not be the same as the hostname. | [optional] 

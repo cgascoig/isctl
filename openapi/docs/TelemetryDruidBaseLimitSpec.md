@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The limit spec type. | 
+**Type** | **string** | The limit spec type. | 
 
 ## Methods
 

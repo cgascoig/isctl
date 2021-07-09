@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Metric** | Pointer to **string** | The name of the metric to sort topN results. | 
+**Metric** | **string** | The name of the metric to sort topN results. | 
 
 ## Methods
 

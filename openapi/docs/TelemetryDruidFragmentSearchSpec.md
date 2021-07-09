@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | null | 
-**Values** | Pointer to **[]string** | The value to match.  If any part of a dimension value contains all of the values specified in this search query spec a \&quot;match\&quot; occurs. | 
+**Type** | **string** | null | 
+**Values** | **[]string** | The value to match.  If any part of a dimension value contains all of the values specified in this search query spec a \&quot;match\&quot; occurs. | 
 **CaseSensitive** | Pointer to **bool** | Whether or not search is case sensitive | [optional] 
 
 ## Methods

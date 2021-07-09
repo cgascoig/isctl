@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.VirtualMachineInstanceType"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.VirtualMachineInstanceType"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.VirtualMachineInstanceType"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.VirtualMachineInstanceType"]
 **Cpu** | Pointer to **int64** | Number of CPUs allocated to virtual machine. | [optional] [default to 4]
 **DiskSize** | Pointer to **int64** | Ephemeral disk capacity to be provided with units example - 10Gi. | [optional] 
 **Memory** | Pointer to **int64** | Virtual machine memory defined in mebibytes (MiB). | [optional] [default to 16384]

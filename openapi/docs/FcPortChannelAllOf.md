@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fc.PortChannel"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fc.PortChannel"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fc.PortChannel"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fc.PortChannel"]
 **AdminSpeed** | Pointer to **string** | Administrator configured Speed applied on the port channel. | [optional] 
 **AdminState** | Pointer to **string** | Administratively configured state (enabled/disabled) for this portchannel. | [optional] [readonly] 
 **Mode** | Pointer to **string** | Mode information N_proxy, F or E associated to the Fibre Channel portchannel. | [optional] 

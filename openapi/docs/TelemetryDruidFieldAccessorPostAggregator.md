@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The post-aggregator type. | 
+**Type** | **string** | The post-aggregator type. | 
 **Name** | Pointer to **string** | Output name for the post-aggregator. | [optional] 
 **FieldName** | Pointer to **string** | Name of the metric column. | [optional] 
 

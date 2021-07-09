@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Output name for the first/last value. | 
-**FieldName** | Pointer to **string** | Name of the metric column. | 
+**Name** | **string** | Output name for the first/last value. | 
+**FieldName** | **string** | Name of the metric column. | 
 
 ## Methods
 

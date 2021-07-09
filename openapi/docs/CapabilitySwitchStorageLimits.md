@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchStorageLimits"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchStorageLimits"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchStorageLimits"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchStorageLimits"]
 **MaximumUserZoneCount** | Pointer to **int64** | Maximum user zones per Switch/Fabric-Interconnect. | [optional] 
 **MaximumVirtualFcInterfaces** | Pointer to **int64** | Maximum configurable Virtual Fibre Channel interfaces on Switch/Fabric-Interconnect. | [optional] 
 **MaximumVirtualFcInterfacesPerBladeServer** | Pointer to **int64** | Maximum configurable Virtual Fibre Channel interfaces per blade. | [optional] 

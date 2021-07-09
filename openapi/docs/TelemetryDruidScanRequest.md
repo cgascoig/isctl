@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QueryType** | Pointer to **string** | null | 
-**DataSource** | Pointer to [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
-**Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
+**QueryType** | **string** | null | 
+**DataSource** | [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
+**Intervals** | **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
 **ResultFormat** | Pointer to **string** | How the results are represented, list, compactedList or valueVector. Currently only list is supported. | [optional] [default to "list"]
 **Filter** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | [optional] 
 **Columns** | Pointer to **[]string** | A String array of dimensions and metrics to scan. If left empty, all dimensions and metrics are returned. | [optional] 

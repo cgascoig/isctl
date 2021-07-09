@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryConfiguration"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryConfiguration"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryConfiguration"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryConfiguration"]
 **MemoryCapacity** | Pointer to **string** | Memory capacity in GiB of a Persistent Memory configuration on a server. | [optional] [readonly] 
 **NumOfModules** | Pointer to **string** | Number of Persistent Memory Modules on a server. | [optional] [readonly] 
 **NumOfRegions** | Pointer to **string** | Number of Persistent Memory Regions on a server. | [optional] [readonly] 

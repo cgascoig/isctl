@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.PortGroupAggregationDef"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.PortGroupAggregationDef"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.PortGroupAggregationDef"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.PortGroupAggregationDef"]
 **AggregationCap** | Pointer to **string** | Aggregation capability for port group. | [optional] 
 **Hw40GPortGroupCap** | Pointer to **bool** | Indicates support for 40G port group capability. | [optional] 
 **Pgtype** | Pointer to **string** | The type of port group for which this capability is defined. | [optional] 

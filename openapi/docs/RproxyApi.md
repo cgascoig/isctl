@@ -33,7 +33,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RproxyApi.CreateRproxyReverseProxy(context.Background(), rproxyReverseProxy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.RproxyApi.CreateRproxyReverseProxy(context.Background()).RproxyReverseProxy(rproxyReverseProxy).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RproxyApi.CreateRproxyReverseProxy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "cloud.SkuInstanceType"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "cloud.SkuInstanceType"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "cloud.SkuInstanceType"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "cloud.SkuInstanceType"]
 **ArchitectureType** | Pointer to **string** | Indicates if the instance type supports 32 or 64 bit or both. * &#x60;64Bit&#x60; - Enum to indicate that the instance type suppports only 64 bit architecture. * &#x60;32Bit&#x60; - Enum to indicate that the instance type supports only 32 bit architecture. * &#x60;both&#x60; - Enum to indicate that the instance type supports both 32 and 64 bit architecture. | [optional] [default to "64Bit"]
 **CpuUnit** | Pointer to **string** | The cpu unit for this instance type. * &#x60;VIRTUAL_CPU&#x60; - The CPU unit used for virtual machines. * &#x60;MILLI_CPU&#x60; - The CPU unit used by containers. | [optional] [default to "VIRTUAL_CPU"]
 **CudaSupport** | Pointer to **bool** | Does the instanceType support CUDA architecture. | [optional] 

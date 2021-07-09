@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The type of data source. | 
-**Name** | Pointer to **string** | The name of a data source. | 
+**Type** | **string** | The type of data source. | 
+**Name** | **string** | The name of a data source. | 
 
 ## Methods
 

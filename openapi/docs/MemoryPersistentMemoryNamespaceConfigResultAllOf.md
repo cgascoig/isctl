@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryNamespaceConfigResult"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryNamespaceConfigResult"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryNamespaceConfigResult"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryNamespaceConfigResult"]
 **ConfigStatus** | Pointer to **string** | Status of the Persistent Memory Namespace needed to be configured. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of a Persistent Memory Namespace that needed to be configured. | [optional] [readonly] 
 **SocketId** | Pointer to **string** | Socket ID in which the Persistent Memory Namespace needed to be configured. | [optional] [readonly] 

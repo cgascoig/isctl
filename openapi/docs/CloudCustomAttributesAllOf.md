@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "cloud.CustomAttributes"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "cloud.CustomAttributes"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "cloud.CustomAttributes"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "cloud.CustomAttributes"]
 **AttributeName** | Pointer to **string** | The name of an attribute. If used as a key-value pair then this field represents the key. | [optional] 
 **AttributeType** | Pointer to **string** | The data type for attributeValue. For e.g. string, int, float. | [optional] 
 **AttributeValue** | Pointer to **string** | The attribute value. If used as a key-value pair then this field represents the value. | [optional] 

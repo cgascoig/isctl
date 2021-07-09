@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "equipment.SystemIoController"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "equipment.SystemIoController"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "equipment.SystemIoController"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "equipment.SystemIoController"]
 **ChassisId** | Pointer to **string** | The assigned identifier for a chassis. | [optional] [readonly] 
 **ConnectionPath** | Pointer to **string** | Connection Path identifies the data path available between IOModule and FI. | [optional] [readonly] 
 **ConnectionStatus** | Pointer to **string** | Connection status identifies the status of data path. | [optional] [readonly] 

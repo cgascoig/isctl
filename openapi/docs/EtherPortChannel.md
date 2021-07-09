@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ether.PortChannel"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ether.PortChannel"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ether.PortChannel"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ether.PortChannel"]
 **AccessVlan** | Pointer to **string** | Access VLANs for this port-channel, on this FI. | [optional] 
 **AdminState** | Pointer to **string** | Administratively configured state (enabled/disabled) for this port-channel. | [optional] 
 **AllowedVlans** | Pointer to **string** | Allowed VLANs on this port-channel, on this FI. | [optional] 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "softwarerepository.DownloadSpec"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "softwarerepository.DownloadSpec"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "softwarerepository.DownloadSpec"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "softwarerepository.DownloadSpec"]
 **AuthToken** | Pointer to **string** | The OAuth2 token that will be used during image download by the endpoint to authenticate with file server. | [optional] 
 **Certificate** | Pointer to **string** | The certificate of file server that will be used by the endpoint to validate the server before starting the file download. | [optional] 
 **Filename** | Pointer to **string** | The name of the firmware image. | [optional] 

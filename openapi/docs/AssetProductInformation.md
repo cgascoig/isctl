@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.ProductInformation"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.ProductInformation"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.ProductInformation"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.ProductInformation"]
 **BillTo** | Pointer to [**NullableAssetAddressInformation**](AssetAddressInformation.md) |  | [optional] 
 **Description** | Pointer to **string** | Short description of the Cisco product that helps identify the product easily. example \&quot;DISTI:UCS 6248UP 1RU Fabric Int/No PSU/32 UP/ 12p LIC\&quot;. | [optional] [readonly] 
 **Family** | Pointer to **string** | Family that the product belongs to. Example \&quot;UCSB\&quot;. | [optional] [readonly] 

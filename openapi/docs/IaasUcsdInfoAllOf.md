@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.UcsdInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.UcsdInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.UcsdInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.UcsdInfo"]
 **DeviceId** | Pointer to **string** | Moid of the UCS Director device connector&#39;s asset.DeviceRegistration. | [optional] [readonly] 
 **Guid** | Pointer to **string** | Unique ID of UCS Director getting registerd with Intersight. | [optional] [readonly] 
 **HostName** | Pointer to **string** | The UCS Director hostname for management. | [optional] [readonly] 
 **Ip** | Pointer to **string** | The UCS Director IP address for management. | [optional] [readonly] 
-**LastBackup** | Pointer to [**time.Time**](time.Time.md) | Last successful backup created for this UCS Director appliance if backup is configured. | [optional] [readonly] 
+**LastBackup** | Pointer to **time.Time** | Last successful backup created for this UCS Director appliance if backup is configured. | [optional] [readonly] 
 **NodeType** | Pointer to **string** | NodeType specifies if UCS Director is deployed in Stand-alone or Multi Node. | [optional] [readonly] 
 **ProductName** | Pointer to **string** | The UCS Director product name. | [optional] [readonly] 
 **ProductVendor** | Pointer to **string** | The UCS Director product vendor. | [optional] [readonly] 

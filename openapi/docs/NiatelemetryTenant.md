@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niatelemetry.Tenant"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niatelemetry.Tenant"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niatelemetry.Tenant"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niatelemetry.Tenant"]
 **BfdIfPolCount** | Pointer to **int64** | Number of Bidirectional Forwarding Detection bfdIfPol Model Objects. | [optional] 
 **BfdIfpCount** | Pointer to **int64** | Number of objects with Bidirectional Forwarding Detection Interface Policy. | [optional] 
 **DhcpRsProvCount** | Pointer to **int64** | Number of tenants with Dynamic Host Configuration Protocol enabled. | [optional] 

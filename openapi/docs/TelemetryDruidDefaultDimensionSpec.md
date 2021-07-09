@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | the dimension spec type. | 
-**Dimension** | Pointer to **string** | null | 
-**OutputName** | Pointer to **string** | null | 
-**OutputType** | Pointer to **string** | null | [default to "STRING"]
+**Type** | **string** | the dimension spec type. | 
+**Dimension** | **string** | null | 
+**OutputName** | **string** | null | 
+**OutputType** | **string** | null | [default to "STRING"]
 
 ## Methods
 

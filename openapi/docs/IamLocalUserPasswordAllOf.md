@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.LocalUserPassword"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.LocalUserPassword"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.LocalUserPassword"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.LocalUserPassword"]
 **CurrentPassword** | Pointer to **string** | User-entered passsord to be compared to password for change password function. | [optional] 
 **IsCurrentPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;currentPassword&#39; property has been set. | [optional] [readonly] [default to false]
 **IsNewPasswordSet** | Pointer to **bool** | Indicates whether the value of the &#39;newPassword&#39; property has been set. | [optional] [readonly] [default to false]

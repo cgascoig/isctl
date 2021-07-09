@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The post-aggregator type. | 
+**Type** | **string** | The post-aggregator type. | 
 **Name** | Pointer to **string** | Output name for the post-aggregator. | [optional] 
 **Fields** | Pointer to **string** | the fields that are used to compute the greatest or least value. | [optional] 
 

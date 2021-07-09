@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HealthCheckPackageChecksum"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HealthCheckPackageChecksum"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HealthCheckPackageChecksum"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HealthCheckPackageChecksum"]
 **Checksum** | Pointer to **string** | SHA512 checksum of the health check package. | [optional] 
 **Name** | Pointer to **string** | Name of the health check Debian package. | [optional] 
 **PackageName** | Pointer to **string** | HyperFlex health check Debian package file name. | [optional] 
-**Timestamp** | Pointer to [**time.Time**](time.Time.md) | Timestamp of last update of HyperFlex health check package checksum. | [optional] 
+**Timestamp** | Pointer to **time.Time** | Timestamp of last update of HyperFlex health check package checksum. | [optional] 
 **Version** | Pointer to **string** | HyperFlex health check Debian Package Version. | [optional] 
 
 ## Methods

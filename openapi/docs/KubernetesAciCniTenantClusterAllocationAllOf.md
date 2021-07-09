@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.AciCniTenantClusterAllocation"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.AciCniTenantClusterAllocation"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.AciCniTenantClusterAllocation"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.AciCniTenantClusterAllocation"]
 **NodeSvcIpSubnet** | Pointer to **string** | CIDR allocated for ACI node service IPs in this tenant cluster. | [optional] [readonly] 
 **PodIpSubnet** | Pointer to **string** | CIDR allocated for pod IPs in this tenant cluster. | [optional] [readonly] 
 **VlanEnd** | Pointer to **string** | End of VLAN range allocated to this tenant cluster. | [optional] [readonly] 

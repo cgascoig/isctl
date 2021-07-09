@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Dimension** | Pointer to **string** | dimension | 
-**Value** | Pointer to **float64** | null | 
+**Dimension** | **string** | dimension | 
+**Value** | **float64** | null | 
 
 ## Methods
 

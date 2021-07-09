@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.StoragePhysicalDriveOperation"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.StoragePhysicalDriveOperation"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.StoragePhysicalDriveOperation"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.StoragePhysicalDriveOperation"]
 **AdminAction** | Pointer to **string** | Administrative actions that can be performed on the Storage Physical Drives. * &#x60;None&#x60; - No action on the selected Storage Physical Drives. * &#x60;SetJbod&#x60; - Set Jbod action state on the selected Storage Physical Drives. * &#x60;SetUnconfiguredGood&#x60; - Set Unconfigured Good action state on the selected Storage Physical Drives. | [optional] [default to "None"]
 **ControllerId** | Pointer to **string** | Storage Controller Id of the storage Physical Drives of the server. | [optional] 
 **PhysicalDrives** | Pointer to [**[]ComputeStoragePhysicalDrive**](ComputeStoragePhysicalDrive.md) |  | [optional] 

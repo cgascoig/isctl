@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The having filter type. | 
-**Dimension** | Pointer to **string** | dimension | 
-**Value** | Pointer to **float64** | null | 
+**Type** | **string** | The having filter type. | 
+**Dimension** | **string** | dimension | 
+**Value** | **float64** | null | 
 
 ## Methods
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QueryType** | Pointer to **string** | null | 
+**QueryType** | **string** | null | 
 
 ## Methods
 

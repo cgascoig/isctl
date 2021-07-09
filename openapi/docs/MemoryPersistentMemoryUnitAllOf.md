@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryUnit"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryUnit"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryUnit"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryUnit"]
 **AppDirectCapacity** | Pointer to **string** | AppDirect capacity in GiB of the Persistent Memory Module on a server. | [optional] [readonly] 
 **CountStatus** | Pointer to **string** | Count status of the Persistent Memory Module on a server. | [optional] [readonly] 
 **FirmwareVersion** | Pointer to **string** | Firmware version of the firware running on the Persistent Memory Module on a server. | [optional] [readonly] 

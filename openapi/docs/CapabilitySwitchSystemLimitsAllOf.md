@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchSystemLimits"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchSystemLimits"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchSystemLimits"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchSystemLimits"]
 **MaximumChassisCount** | Pointer to **int64** | Maximum UCS chassis that can be connected to this Switch/Fabric-Interconnect. | [optional] 
 **MaximumFexPerDomain** | Pointer to **int64** | Maximum UCS Fabric-extenders (FEX) per Switch/Fabric-Interconnect. | [optional] 
 **MaximumServersPerDomain** | Pointer to **int64** | Maximum UCS servers per Switch/Fabric-Interconnect. | [optional] 

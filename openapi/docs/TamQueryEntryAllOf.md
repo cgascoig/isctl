@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "tam.QueryEntry"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "tam.QueryEntry"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "tam.QueryEntry"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "tam.QueryEntry"]
 **Name** | Pointer to **string** | Name is used to unique identify and result of the given query which can be used by subsequent queries as input data source. | [optional] 
 **Priority** | Pointer to **int64** | An integer value depicting the priority of the query among the queries that are part of the same QueryEntry collection. | [optional] 
 **Query** | Pointer to **string** | A SparkSQL query to be used on a given data source. | [optional] 

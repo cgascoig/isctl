@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.WorkloadOptimizerAmazonWebServicesBillingOptions"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.WorkloadOptimizerAmazonWebServicesBillingOptions"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.WorkloadOptimizerAmazonWebServicesBillingOptions"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.WorkloadOptimizerAmazonWebServicesBillingOptions"]
 **CostAndUsageReportBucket** | Pointer to **string** | Name of S3 bucket that contains the Amazon web service Cost and Usage report to get cloud service spend. | [optional] 
 **CostAndUsageReportPath** | Pointer to **string** | Report path prefix for the Amazon web service cost and usage report to get cloud service spend. | [optional] 
 **CostAndUsageReportRegion** | Pointer to **string** | Region for S3 bucket that contains the Amazon web service Cost and Usage report to get cloud service spend. | [optional] 

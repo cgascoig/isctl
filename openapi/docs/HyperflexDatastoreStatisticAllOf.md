@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.DatastoreStatistic"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.DatastoreStatistic"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.DatastoreStatistic"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.DatastoreStatistic"]
 **AccessibilitySummary** | Pointer to **string** | HyperFlex datastore accessibility summary. * &#x60;ACCESSIBLE&#x60; - The HyperFlex Accessibility Summary is Accessible. * &#x60;NOT_ACCESSIBLE&#x60; - The HyperFlex Accessibility Summary is Not Accessible. * &#x60;PARTIALLY_ACCESSIBLE&#x60; - The HyperFlex Accessibility Summary is Partially Accessible. | [optional] [readonly] [default to "ACCESSIBLE"]
 **CreationTime** | Pointer to **string** | Timestamp the datastore object was created. | [optional] [readonly] 
 **DatastoreStatus** | Pointer to **string** | HyperFlex datastore status. * &#x60;NORMAL&#x60; - The HyperFlex datastore status is normal. * &#x60;ALERT&#x60; - The HyperFlex datastore status is alert. * &#x60;FAILED&#x60; - The HyperFlex datastore status is failed. | [optional] [readonly] [default to "NORMAL"]

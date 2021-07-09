@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.Target"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.Target"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.Target"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.Target"]
 **ClaimedByUserName** | Pointer to **string** | The name or email id of the user who claimed the target. | [optional] [readonly] 
 **Connections** | Pointer to [**[]AssetConnection**](AssetConnection.md) |  | [optional] 
 **ConnectorVersion** | Pointer to **string** | The Device Connector version for target types which are managed by via embedded Device Connector. | [optional] [readonly] 

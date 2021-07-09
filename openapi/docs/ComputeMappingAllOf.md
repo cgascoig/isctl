@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.Mapping"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.Mapping"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.Mapping"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.Mapping"]
 **FileLocation** | Pointer to **string** | Remote image location from where the image is uploaded to server. | [optional] 
 **Identifier** | Pointer to **string** | The identity assigned to this Virtual Media Image by server. | [optional] [readonly] 
 **ImageName** | Pointer to **string** | Image name of uploaded Virtual Media Image. | [optional] [readonly] 

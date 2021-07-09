@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The type of data source. | 
-**Query** | Pointer to [**TelemetryDruidGroupByRequest**](TelemetryDruidGroupByRequest.md) |  | 
+**Type** | **string** | The type of data source. | 
+**Query** | [**TelemetryDruidGroupByRequest**](TelemetryDruidGroupByRequest.md) |  | 
 
 ## Methods
 

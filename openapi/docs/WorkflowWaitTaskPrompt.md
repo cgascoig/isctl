@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.WaitTaskPrompt"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.WaitTaskPrompt"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.WaitTaskPrompt"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.WaitTaskPrompt"]
 **Description** | Pointer to **string** | Description that give more details about what it means to pick this prompt option for the wait task. | [optional] 
 **Label** | Pointer to **string** | User friendly label for the prompt. This label will be shown to the user as one of available options for the wait task. | [optional] 
 **Name** | Pointer to **string** | Name for the wait prompt. | [optional] 

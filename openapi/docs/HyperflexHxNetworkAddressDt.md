@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxNetworkAddressDt"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxNetworkAddressDt"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxNetworkAddressDt"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxNetworkAddressDt"]
 **Address** | Pointer to **string** | The network address as an FQDN or IPv4 address. | [optional] [readonly] 
 **Fqdn** | Pointer to **string** | The fully qualified domain name for the network address. | [optional] [readonly] 
 **Ip** | Pointer to **string** | The network address as an IPv4 address. | [optional] [readonly] 

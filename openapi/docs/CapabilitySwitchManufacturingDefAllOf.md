@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchManufacturingDef"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchManufacturingDef"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchManufacturingDef"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchManufacturingDef"]
 **Caption** | Pointer to **string** | Caption for Switch/Fabric-Interconnect. | [optional] 
 **Description** | Pointer to **string** | Description for Switch/Fabric-Interconnect. | [optional] 
 **PartNumber** | Pointer to **string** | Part Number for Switch/Fabric-Interconnect. | [optional] 

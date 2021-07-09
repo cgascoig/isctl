@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxPlatformDatastoreConfigDt"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxPlatformDatastoreConfigDt"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxPlatformDatastoreConfigDt"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxPlatformDatastoreConfigDt"]
 **DataBlockSize** | Pointer to **int64** | Size of datablock for this HyperFlex datastore. | [optional] [readonly] 
 **Name** | Pointer to **string** | Unique name for the datastore. | [optional] [readonly] 
 **NumMirrors** | Pointer to **int64** | Number of copies of data maintained for data redundancy. | [optional] [readonly] 

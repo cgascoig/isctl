@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiArray"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiArray"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiArray"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiArray"]
 **Ctl1Ip** | Pointer to **string** | IP address of controller 1 of the storage system. | [optional] [readonly] 
 **Ctl1MicroVersion** | Pointer to **string** | GUM (Gateway for Unified Management) version of the controller 1. | [optional] [readonly] 
 **Ctl2Ip** | Pointer to **string** | IP address of controller 2 of the storage system. | [optional] [readonly] 

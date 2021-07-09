@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fault.Instance"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fault.Instance"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fault.Instance"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fault.Instance"]
 **Acknowledged** | Pointer to **string** | The user acknowledgement state of the fault. | [optional] [readonly] 
 **AffectedDn** | Pointer to **string** | The Distinguished Name of the Managed object which was affected. | [optional] [readonly] 
 **AffectedMoId** | Pointer to **string** | Managed object Id which was affected. | [optional] [readonly] 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | the dimension spec type. | 
+**Type** | **string** | the dimension spec type. | 
 
 ## Methods
 

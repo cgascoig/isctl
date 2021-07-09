@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Dimension** | Pointer to **string** | null | 
-**OutputName** | Pointer to **string** | null | 
-**OutputType** | Pointer to **string** | null | [default to "STRING"]
+**Dimension** | **string** | null | 
+**OutputName** | **string** | null | 
+**OutputType** | **string** | null | [default to "STRING"]
 
 ## Methods
 

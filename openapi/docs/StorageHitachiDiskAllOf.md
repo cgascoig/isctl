@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiDisk"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiDisk"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiDisk"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiDisk"]
 **DriveTypeCode** | Pointer to **string** | Drive type code. | [optional] [readonly] 
 **ParityGroupId** | Pointer to **string** | Parity group number. When the drive does not belong to any parity group, an empty character string is output. | [optional] [readonly] 
 **TypeDetail** | Pointer to **string** | Drive type. * &#x60;N/A&#x60; - Drive Type is not available. * &#x60;SAS&#x60; - SAS. * &#x60;SSD(MLC)&#x60; - SSD (MLC). * &#x60;SSD(FMC)&#x60; - SSD (FMC). * &#x60;SSD(FMD)&#x60; - SSD (FMD). * &#x60;SSD(SLC)&#x60; - SSD (SLC). * &#x60;SSD&#x60; - SSD. * &#x60;SSD(RI)&#x60; - SSD (RI). | [optional] [readonly] [default to "N/A"]

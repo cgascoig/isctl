@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HyperFlexStorageContainer"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HyperFlexStorageContainer"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HyperFlexStorageContainer"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HyperFlexStorageContainer"]
 **CapacityUtilization** | Pointer to **float32** | Capacity Utilization of Storage Container. | [optional] [readonly] 
 **DataBlockSize** | Pointer to **int64** | Storage Container data block size | [optional] [readonly] 
 **InUse** | Pointer to **bool** | Indicates whether the Storage Container has Volumes. | [optional] [readonly] 
-**LastAccessTime** | Pointer to [**time.Time**](time.Time.md) | Storage container&#39;s last access time. | [optional] [readonly] 
-**LastModifiedTime** | Pointer to [**time.Time**](time.Time.md) | Storage container&#39;s last modified time. | [optional] [readonly] 
+**LastAccessTime** | Pointer to **time.Time** | Storage container&#39;s last access time. | [optional] [readonly] 
+**LastModifiedTime** | Pointer to **time.Time** | Storage container&#39;s last modified time. | [optional] [readonly] 
 **ProvisionedCapacity** | Pointer to **int64** | Provisioned Capacity of the Storage container. | [optional] [readonly] 
 **ProvisionedVolumeCapacityUtilization** | Pointer to **float32** | Provisioned Capacity Utilization of All Volumes associated with the Storage Container. | [optional] [readonly] 
 **Type** | Pointer to **string** | Storage Container type (SMB/NFS/iSCSI). * &#x60;NFS&#x60; - Storage container created/accesed through NFS protocol. * &#x60;SMB&#x60; - Storage container created/accessed through SMB protocol. * &#x60;iSCSI&#x60; - Storage container created/accessed through iSCSI protocol. | [optional] [readonly] [default to "NFS"]

@@ -36,7 +36,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskApi.CreateTaskHitachiScopedInventory(context.Background(), taskHitachiScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.TaskApi.CreateTaskHitachiScopedInventory(context.Background()).TaskHitachiScopedInventory(taskHitachiScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TaskApi.CreateTaskHitachiScopedInventory``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -104,7 +104,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskApi.CreateTaskHxapScopedInventory(context.Background(), taskHxapScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.TaskApi.CreateTaskHxapScopedInventory(context.Background()).TaskHxapScopedInventory(taskHxapScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TaskApi.CreateTaskHxapScopedInventory``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -172,7 +172,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskApi.CreateTaskNetAppScopedInventory(context.Background(), taskNetAppScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.TaskApi.CreateTaskNetAppScopedInventory(context.Background()).TaskNetAppScopedInventory(taskNetAppScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TaskApi.CreateTaskNetAppScopedInventory``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -240,7 +240,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskApi.CreateTaskPureScopedInventory(context.Background(), taskPureScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
+    resp, r, err := api_client.TaskApi.CreateTaskPureScopedInventory(context.Background()).TaskPureScopedInventory(taskPureScopedInventory).IfMatch(ifMatch).IfNoneMatch(ifNoneMatch).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TaskApi.CreateTaskPureScopedInventory``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.User"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.User"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.User"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.User"]
 **ClientIpAddress** | Pointer to **string** | IP address from which the user last logged in to Intersight. | [optional] [readonly] 
 **Email** | Pointer to **string** | Email of the user. Users are added to Intersight using the email configured in the IdP. | [optional] 
 **FirstName** | Pointer to **string** | First name of the user. This field is populated from the IdP attributes received after authentication. | [optional] [readonly] 
-**LastLoginTime** | Pointer to [**time.Time**](time.Time.md) | Last successful login time for user. | [optional] [readonly] 
+**LastLoginTime** | Pointer to **time.Time** | Last successful login time for user. | [optional] [readonly] 
 **LastName** | Pointer to **string** | Last name of the user. This field is populated from the IdP attributes received after authentication. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name as configured in the IdP. | [optional] [readonly] 
 **UserIdOrEmail** | Pointer to **string** | UserID or email as configured in the IdP. | [optional] 

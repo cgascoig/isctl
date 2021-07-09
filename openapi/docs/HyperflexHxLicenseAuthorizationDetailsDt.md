@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxLicenseAuthorizationDetailsDt"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxLicenseAuthorizationDetailsDt"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxLicenseAuthorizationDetailsDt"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxLicenseAuthorizationDetailsDt"]
 **CommunicationDeadlineDate** | Pointer to **string** | Deadline date for next communication | [optional] [readonly] 
 **EvaluationPeriodExpiredAt** | Pointer to **string** | Evaluation period expired date | [optional] [readonly] 
 **EvaluationPeriodRemaining** | Pointer to **string** | Remaining evaluation period | [optional] [readonly] 

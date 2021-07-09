@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexUtilVirtualDrive"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexUtilVirtualDrive"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexUtilVirtualDrive"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexUtilVirtualDrive"]
 **DriveStatus** | Pointer to **string** | Status of the Flex Util virtual drive. | [optional] 
 **DriveType** | Pointer to **string** | Type of virtual drive managed by flex util controller. | [optional] 
 **PartitionId** | Pointer to **string** | Disk Partition Id of virtual drive managed by flex util controller. | [optional] 

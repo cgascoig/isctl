@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxRegistrationDetailsDt"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxRegistrationDetailsDt"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxRegistrationDetailsDt"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxRegistrationDetailsDt"]
 **InitialRegistrationDate** | Pointer to **string** | Initial Registration Date | [optional] [readonly] 
 **LastRenewalAttemptDate** | Pointer to **string** | Last License Renewal attempted Date | [optional] [readonly] 
 **NextRenewalAttemptDate** | Pointer to **string** | Next Attempt Date for License Renewal | [optional] [readonly] 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.EntityReference"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.EntityReference"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.EntityReference"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.EntityReference"]
 **Confignum** | Pointer to **int64** | Configuration number for this reference. | [optional] [readonly] 
 **Id** | Pointer to **string** | Uuid of the entity for this reference. | [optional] [readonly] 
 **Idtype** | Pointer to **string** | Type of entity id for this reference. * &#x60;VCMOID&#x60; - The entity reference ID type is VC MOID. * &#x60;VMBIOSUUID&#x60; - The entity reference ID type is VM Bios UUID. * &#x60;VMDSPATH&#x60; - The entity reference ID type is VM Datastore Path. * &#x60;VMINSTANCEUUID&#x60; - The entity reference ID type is VM Instance UUID. * &#x60;VMNAME&#x60; - The entity reference ID type is VM Name. | [optional] [readonly] [default to "VCMOID"]

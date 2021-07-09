@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ls.ServiceProfile"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ls.ServiceProfile"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ls.ServiceProfile"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ls.ServiceProfile"]
 **AssignState** | Pointer to **string** | Assignment state of the service profile. | [optional] [readonly] 
 **AssocState** | Pointer to **string** | Association state of the service profile. | [optional] [readonly] 
 **AssociatedServer** | Pointer to **string** | Server to which the UCS Manager service profile is associated to. | [optional] [readonly] 

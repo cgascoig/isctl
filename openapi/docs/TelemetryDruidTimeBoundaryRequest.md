@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QueryType** | Pointer to **string** | null | 
-**DataSource** | Pointer to [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
+**QueryType** | **string** | null | 
+**DataSource** | [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
 **Bound** | Pointer to **string** | Optional, set to maxTime or minTime to return only the latest or earliest timestamp. Default to returning both if not set. | [optional] 
 **Filter** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | [optional] 
 **Context** | Pointer to [**TelemetryDruidQueryContext**](TelemetryDruidQueryContext.md) |  | [optional] 

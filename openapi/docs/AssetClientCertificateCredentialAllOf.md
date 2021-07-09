@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.ClientCertificateCredential"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.ClientCertificateCredential"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.ClientCertificateCredential"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.ClientCertificateCredential"]
 **ClientCertificate** | Pointer to **string** | PEM encoded x509 client certificate used to authenticate with the target. | [optional] 
 **ClientKey** | Pointer to **string** | PEM encoded private key used to authenticate with the target. | [optional] 
 **IsClientKeySet** | Pointer to **bool** | Indicates whether the value of the &#39;clientKey&#39; property has been set. | [optional] [readonly] [default to false]

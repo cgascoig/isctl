@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Dimension** | Pointer to **string** | null | 
-**Pattern** | Pointer to **string** | null | 
+**Dimension** | **string** | null | 
+**Pattern** | **string** | null | 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "adapter.AdapterConfig"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "adapter.AdapterConfig"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "adapter.AdapterConfig"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "adapter.AdapterConfig"]
 **DceInterfaceSettings** | Pointer to [**[]AdapterDceInterfaceSettings**](AdapterDceInterfaceSettings.md) |  | [optional] 
 **EthSettings** | Pointer to [**NullableAdapterEthSettings**](AdapterEthSettings.md) |  | [optional] 
 **FcSettings** | Pointer to [**NullableAdapterFcSettings**](AdapterFcSettings.md) |  | [optional] 

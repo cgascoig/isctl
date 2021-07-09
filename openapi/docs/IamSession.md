@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.Session"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.Session"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.Session"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.Session"]
 **AccountPermissions** | Pointer to [**[]IamAccountPermissions**](IamAccountPermissions.md) |  | [optional] 
 **ClientIpAddress** | Pointer to **string** | The user agent IP address from which the session is launched. | [optional] [readonly] 
-**Expiration** | Pointer to [**time.Time**](time.Time.md) | Expiration time for the session. | [optional] [readonly] 
-**IdleTimeExpiration** | Pointer to [**time.Time**](time.Time.md) | Idle time expiration for the session. | [optional] [readonly] 
+**Expiration** | Pointer to **time.Time** | Expiration time for the session. | [optional] [readonly] 
+**IdleTimeExpiration** | Pointer to **time.Time** | Idle time expiration for the session. | [optional] [readonly] 
 **LastLoginClient** | Pointer to **string** | The client address from which last login is initiated. | [optional] [readonly] 
-**LastLoginTime** | Pointer to [**time.Time**](time.Time.md) | The last login time for user. | [optional] [readonly] 
+**LastLoginTime** | Pointer to **time.Time** | The last login time for user. | [optional] [readonly] 
 **SessionId** | Pointer to **string** | Session token shared with the user agent which is used to identify the user session when API requests are received to perform authorization. | [optional] 
 **Permission** | Pointer to [**IamPermissionRelationship**](IamPermissionRelationship.md) |  | [optional] 
 **User** | Pointer to [**IamUserRelationship**](IamUserRelationship.md) |  | [optional] 

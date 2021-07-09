@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVirtualMachine"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVirtualMachine"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVirtualMachine"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVirtualMachine"]
 **Annotation** | Pointer to **string** | List of annotations provided to this VM by user. Can be long. | [optional] 
-**BootTime** | Pointer to [**time.Time**](time.Time.md) | Time when this VM booted up. | [optional] 
+**BootTime** | Pointer to **time.Time** | Time when this VM booted up. | [optional] 
 **ConfigName** | Pointer to **string** | The configuration name for this VM. This maybe the same as the guest hostname. | [optional] 
 **ConnectionState** | Pointer to **string** | Shows if virtual machine is connected to vCenter. Values are Connected, Disconnected, Orphaned, Inaccessible, and Invalid. | [optional] 
 **CpuHotAddEnabled** | Pointer to **bool** | Indicates if the capability to add CPUs to a running VM is enabled. | [optional] 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Limit** | Pointer to **int32** | How many rows to return. If not specified, all rows will be returned. | 
-**Columns** | Pointer to [**[]TelemetryDruidOrderByColumnSpec**](TelemetryDruidOrderByColumnSpec.md) | null | 
+**Limit** | **int32** | How many rows to return. If not specified, all rows will be returned. | 
+**Columns** | [**[]TelemetryDruidOrderByColumnSpec**](TelemetryDruidOrderByColumnSpec.md) | null | 
 
 ## Methods
 

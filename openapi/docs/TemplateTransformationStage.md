@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "template.TransformationStage"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "template.TransformationStage"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "template.TransformationStage"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "template.TransformationStage"]
 **Function** | Pointer to **string** | The function to be executed. | [optional] 
 **FunctionArguments** | Pointer to **interface{}** | A collection of arguments for the function being executed. | [optional] 
 **Name** | Pointer to **string** | The unique name by which the output of this transformation stage can be accessed in further stages. Only alphanumeric characters are allowed. | [optional] 

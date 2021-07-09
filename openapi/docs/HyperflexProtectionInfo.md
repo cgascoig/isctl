@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ProtectionInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ProtectionInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ProtectionInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ProtectionInfo"]
 **VmCurrentProtectionInfo** | Pointer to [**NullableHyperflexSnapshotInfoBrief**](HyperflexSnapshotInfoBrief.md) |  | [optional] 
 **VmLastSuccessfulProtectionInfo** | Pointer to [**NullableHyperflexSnapshotInfoBrief**](HyperflexSnapshotInfoBrief.md) |  | [optional] 
 **VmSpaceUsage** | Pointer to [**NullableHyperflexVmProtectionSpaceUsage**](HyperflexVmProtectionSpaceUsage.md) |  | [optional] 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.NodeGroupProfile"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.NodeGroupProfile"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.NodeGroupProfile"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.NodeGroupProfile"]
 **Currentsize** | Pointer to **int64** | Current number of nodes in this node group at any given point in time. | [optional] [readonly] 
 **Desiredsize** | Pointer to **int64** | Desired number of nodes in this node group, same as minsize initially and is updated by the auto-scaler. | [optional] [default to 3]
 **Labels** | Pointer to [**[]KubernetesNodeGroupLabel**](KubernetesNodeGroupLabel.md) |  | [optional] 

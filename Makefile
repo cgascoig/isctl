@@ -41,7 +41,7 @@ functional-test: build/isctl
 
 openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
 > mkdir -p $(@D)
-> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go-experimental
+> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go
 > rm openapi/go.mod openapi/go.sum
 > mv openapi/README.md openapi/operations.yaml
 > $(GO_PATH)/bin/goimports -l -w openapi

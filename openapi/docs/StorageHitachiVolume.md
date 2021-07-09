@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiVolume"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiVolume"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiVolume"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiVolume"]
 **Attributes** | Pointer to **[]string** |  | [optional] 
 **ClprId** | Pointer to **int64** | CLPR (Cache Logical Partition) number of this volume. | [optional] [readonly] 
 **DataReductionMode** | Pointer to **string** | Setting of the capacity saving function (dedupe and compression). * &#x60;N/A&#x60; - The capacity saving function is not available. * &#x60;Compression&#x60; - The capacity saving function (compression) is enabled. * &#x60;Compression Deduplication&#x60; - The capacity saving function (compression and deduplication) is enabled. * &#x60;Disabled&#x60; - The capacity saving function (compression and deduplication) is disabled. | [optional] [readonly] [default to "N/A"]

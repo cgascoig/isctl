@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareFolder"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareFolder"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareFolder"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareFolder"]
 **Internal** | Pointer to **bool** | If a folder is internal, it will be set to true. | [optional] 
 **InventoryPath** | Pointer to **string** | Inventory path to the folder. Example - /DC/myFolder. | [optional] 
 **TypeofFolder** | Pointer to **string** | Determines the type of folder. e.g. vCenter folder, VM and Templete Folder, StorageFolder, NetworkFolder, Host and Cluster Folder. * &#x60;Unknown&#x60; - The type of the folder is unknown. It may not represent that the folder does not exist but indicates that something might be wrong. * &#x60;VMTemplateFolder&#x60; - The folder contains VMs and VM templates. * &#x60;StorageFolder&#x60; - The folder contains storage devices. * &#x60;HostClusterFolder&#x60; - The folder contains hosts and clusters. * &#x60;NetworkFolder&#x60; - The folder contains network items. * &#x60;VcenterFolder&#x60; - The folder created under a vCenter or vCenter folder. | [optional] [default to "Unknown"]

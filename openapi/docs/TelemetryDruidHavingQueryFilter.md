@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The having filter type. | 
-**Filter** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
+**Type** | **string** | The having filter type. | 
+**Filter** | [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
 
 ## Methods
 

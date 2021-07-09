@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "os.ValidationInformation"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "os.ValidationInformation"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "os.ValidationInformation"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "os.ValidationInformation"]
 **ErrorMsg** | Pointer to **string** | Validation error message. | [optional] [readonly] 
 **Status** | Pointer to **string** | The status of the validation step. * &#x60;NotValidated&#x60; - The validation not started. * &#x60;Valid&#x60; - The step status marked as valid when respective step validation condition is successful. * &#x60;Invalid&#x60; - The step status marked as invalid when respective step validation condition is failed. * &#x60;InProgress&#x60; - The validation is in progress. | [optional] [readonly] [default to "NotValidated"]
 **StepName** | Pointer to **string** | The validation step name. * &#x60;OS Install Schema Validation&#x60; - The step to validate the CSV file schema. * &#x60;OS Image Validation&#x60; - The Operating System Image parameter validation step. * &#x60;SCU Image Validation&#x60; - The SCU Image parameter validation step. * &#x60;Configuration source and file validation&#x60; - The Configuration Source and Configuration file validation step. * &#x60;Server level data validation&#x60; - The server level parameters validation. | [optional] [readonly] [default to "OS Install Schema Validation"]

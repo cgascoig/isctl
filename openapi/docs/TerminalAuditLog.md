@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "terminal.AuditLog"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "terminal.AuditLog"]
-**EndTime** | Pointer to [**time.Time**](time.Time.md) | The time the terminal was closed. If terminal has not closed, value is zero time. | [optional] [readonly] 
-**StartTime** | Pointer to [**time.Time**](time.Time.md) | The time the terminal session was opened. | [optional] [readonly] 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "terminal.AuditLog"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "terminal.AuditLog"]
+**EndTime** | Pointer to **time.Time** | The time the terminal was closed. If terminal has not closed, value is zero time. | [optional] [readonly] 
+**StartTime** | Pointer to **time.Time** | The time the terminal session was opened. | [optional] [readonly] 
 **DeviceRegistration** | Pointer to [**AssetDeviceConnectionRelationship**](AssetDeviceConnectionRelationship.md) |  | [optional] 
 **User** | Pointer to [**IamUserRelationship**](IamUserRelationship.md) |  | [optional] 
 

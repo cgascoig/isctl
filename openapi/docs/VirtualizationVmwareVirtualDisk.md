@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVirtualDisk"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVirtualDisk"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVirtualDisk"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVirtualDisk"]
 **CompatibilityMode** | Pointer to **string** | Compatibility mode of the raw disk mapping (RDM). * &#x60;notApplicable&#x60; - Value specified for any disk which is not of raw device mapping type. * &#x60;physicalMode&#x60; - A disk device backed by a physical compatibility mode raw disk mapping cannot use disk modes, and commands are passed straight through to the LUN indicated by the raw disk mapping. * &#x60;virtualMode&#x60; - A disk device backed by a virtual compatibility mode raw disk mapping can use disk modes. | [optional] [default to "notApplicable"]
 **ControllerKey** | Pointer to **int64** | Key of the controller on which the disk is created. | [optional] 
 **DeviceName** | Pointer to **string** | Host-specific device the LUN is being accessed through. If the target LUN is not available on the host then it is empty. For example, this could happen if it has accidentally been masked out. | [optional] 

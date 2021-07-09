@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchNetworkLimits"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchNetworkLimits"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.SwitchNetworkLimits"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.SwitchNetworkLimits"]
 **MaxCompressedPortVlanCount** | Pointer to **int64** | Maximum Compressed configurable VLANs on Switch/Fabric-Interconnect. | [optional] 
 **MaxUncompressedPortVlanCount** | Pointer to **int64** | Maximum configurable VLANs on Switch/Fabric-Interconnect. | [optional] 
 **MaximumActiveTrafficMonitoringSessions** | Pointer to **int64** | Maximum configured and enabled Traffic Monitoring sessions on this Switch/Fabric-Interconnect. | [optional] 

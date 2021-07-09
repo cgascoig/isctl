@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The having filter type. | 
-**Filter** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
-**Aggregation** | Pointer to **string** | aggregate metric | 
-**Value** | Pointer to **float64** | null | 
-**Dimension** | Pointer to **string** | dimension | 
+**Type** | **string** | The having filter type. | 
+**Filter** | [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
+**Aggregation** | **string** | aggregate metric | 
+**Value** | **float64** | null | 
+**Dimension** | **string** | dimension | 
 
 ## Methods
 

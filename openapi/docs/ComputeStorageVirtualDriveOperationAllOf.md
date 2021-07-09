@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.StorageVirtualDriveOperation"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.StorageVirtualDriveOperation"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.StorageVirtualDriveOperation"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.StorageVirtualDriveOperation"]
 **AdminAction** | Pointer to **string** | Administrative actions that can be performed on the Storage Virtual Drives. * &#x60;None&#x60; - No action on the selected Storage virtual Drives. * &#x60;Delete&#x60; - Delete action on the selected Storage Virtual Drives. | [optional] [default to "None"]
 **ControllerId** | Pointer to **string** | Storage Controller Id of the storage Virtual Drives of the server. | [optional] 
 **VirtualDrives** | Pointer to [**[]ComputeStorageVirtualDrive**](ComputeStorageVirtualDrive.md) |  | [optional] 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "bios.Policy"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "bios.Policy"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "bios.Policy"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "bios.Policy"]
 **AcsControlGpu1state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-1 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
 **AcsControlGpu2state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-2 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]
 **AcsControlGpu3state** | Pointer to **string** | BIOS Token for setting ACS Control GPU-3 configuration. * &#x60;platform-default&#x60; - Default value used by the platform for the BIOS setting. * &#x60;enabled&#x60; - Enables the BIOS setting. * &#x60;disabled&#x60; - Disables the BIOS setting. | [optional] [default to "platform-default"]

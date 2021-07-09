@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVmDiskCommitInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVmDiskCommitInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVmDiskCommitInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVmDiskCommitInfo"]
 **CommittedDisk** | Pointer to **int64** | Disk committed in bytes on this virtual machine (disk space used up). | [optional] 
 **UnCommittedDisk** | Pointer to **int64** | Total uncommitted disk space that is available for use (in bytes). | [optional] 
 **UnsharedDisk** | Pointer to **int64** | Total unshared disk space (in bytes). | [optional] 

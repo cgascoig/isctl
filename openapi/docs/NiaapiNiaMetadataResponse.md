@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectType** | Pointer to **string** | A discriminator value to disambiguate the schema of a HTTP GET response body. | 
+**ObjectType** | **string** | A discriminator value to disambiguate the schema of a HTTP GET response body. | 
 **Count** | Pointer to **int32** | The total number of &#39;niaapi.NiaMetadata&#39; resources matching the request, accross all pages. The &#39;Count&#39; attribute is included when the HTTP GET request includes the &#39;$inlinecount&#39; parameter. | [optional] 
 **Results** | Pointer to [**[]MoTagKeySummary**](MoTagKeySummary.md) |  | [optional] 
 

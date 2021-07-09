@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.IpAddress"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.IpAddress"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.IpAddress"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.IpAddress"]
 **Address** | Pointer to **string** | IP Address to be used for KVM. | [optional] [readonly] 
 **Category** | Pointer to **string** | Category of the Kvm IP Address. * &#x60;Equipment&#x60; - Ip Address assigned to an equipment. * &#x60;ServiceProfile&#x60; - Ip Address assigned to a Service Profile. | [optional] [readonly] [default to "Equipment"]
 **DefaultGateway** | Pointer to **string** | Default gateway property of KVM IP Address. | [optional] [readonly] 

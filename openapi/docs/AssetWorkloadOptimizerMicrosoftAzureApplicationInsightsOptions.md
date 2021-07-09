@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.WorkloadOptimizerMicrosoftAzureApplicationInsightsOptions"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.WorkloadOptimizerMicrosoftAzureApplicationInsightsOptions"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.WorkloadOptimizerMicrosoftAzureApplicationInsightsOptions"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.WorkloadOptimizerMicrosoftAzureApplicationInsightsOptions"]
 **EnrollmentNumber** | Pointer to **string** | Enrollment number of this Azure account. | [optional] 
 **OfferId** | Pointer to **string** | The offer ID of this account. Default value is \&quot;MS-AZR-0003P\&quot;, a pay-as-you-go subscription lets you pay for the services and resources that you use on a monthly basis. | [optional] 
 **SubscriptionId** | Pointer to **string** | The Azure Subscription ID. | [optional] 

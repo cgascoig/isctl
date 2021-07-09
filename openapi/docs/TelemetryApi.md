@@ -40,7 +40,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetryDatasourceMetadata(context.Background(), telemetryDruidDataSourceMetadataRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetryDatasourceMetadata(context.Background()).TelemetryDruidDataSourceMetadataRequest(telemetryDruidDataSourceMetadataRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetryDatasourceMetadata``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -106,7 +106,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetryGroupBy(context.Background(), telemetryDruidGroupByRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetryGroupBy(context.Background()).TelemetryDruidGroupByRequest(telemetryDruidGroupByRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetryGroupBy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -172,7 +172,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetryScan(context.Background(), telemetryDruidScanRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetryScan(context.Background()).TelemetryDruidScanRequest(telemetryDruidScanRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetryScan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -238,7 +238,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetrySearch(context.Background(), telemetryDruidSearchRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetrySearch(context.Background()).TelemetryDruidSearchRequest(telemetryDruidSearchRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetrySearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -304,7 +304,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetrySegmentMetadata(context.Background(), telemetryDruidSegmentMetadataRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetrySegmentMetadata(context.Background()).TelemetryDruidSegmentMetadataRequest(telemetryDruidSegmentMetadataRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetrySegmentMetadata``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -370,7 +370,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetryTimeBoundary(context.Background(), telemetryDruidTimeBoundaryRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetryTimeBoundary(context.Background()).TelemetryDruidTimeBoundaryRequest(telemetryDruidTimeBoundaryRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetryTimeBoundary``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,7 +436,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetryTimeSeries(context.Background(), telemetryDruidTimeSeriesRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetryTimeSeries(context.Background()).TelemetryDruidTimeSeriesRequest(telemetryDruidTimeSeriesRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetryTimeSeries``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -502,7 +502,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TelemetryApi.QueryTelemetryTopN(context.Background(), telemetryDruidTopNRequest).Execute()
+    resp, r, err := api_client.TelemetryApi.QueryTelemetryTopN(context.Background()).TelemetryDruidTopNRequest(telemetryDruidTopNRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TelemetryApi.QueryTelemetryTopN``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.EsxiVmConfiguration"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.EsxiVmConfiguration"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.EsxiVmConfiguration"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.EsxiVmConfiguration"]
 **Annotation** | Pointer to **string** | Specify annotation (optional) for the virtual machine. | [optional] 
 **Compute** | Pointer to [**NullableVirtualizationEsxiVmComputeConfiguration**](VirtualizationEsxiVmComputeConfiguration.md) |  | [optional] 
 **Customspec** | Pointer to [**NullableVirtualizationBaseCustomSpec**](VirtualizationBaseCustomSpec.md) |  | [optional] 

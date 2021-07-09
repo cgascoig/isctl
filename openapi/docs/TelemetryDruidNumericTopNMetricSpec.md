@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The dimension spec type. | 
-**Metric** | Pointer to **string** | The name of the metric to sort topN results. | 
+**Type** | **string** | The dimension spec type. | 
+**Metric** | **string** | The name of the metric to sort topN results. | 
 
 ## Methods
 

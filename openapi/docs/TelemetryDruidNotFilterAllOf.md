@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Field** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
+**Field** | [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
 
 ## Methods
 

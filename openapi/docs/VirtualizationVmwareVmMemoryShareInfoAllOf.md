@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVmMemoryShareInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVmMemoryShareInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareVmMemoryShareInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareVmMemoryShareInfo"]
 **MemLimit** | Pointer to **int64** | Limit on the memory sharing imposed (in Mbytes). | [optional] 
 **MemOverheadLimit** | Pointer to **int64** | Limit on memory overhead imposed (in Mbytes). | [optional] 
 **MemReservation** | Pointer to **int64** | Similar to CPU reservations (Mbytes). | [optional] 

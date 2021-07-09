@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | the type of granularity. | 
-**Duration** | Pointer to **int64** | The duration in milliseconds. | 
-**Origin** | Pointer to [**time.Time**](time.Time.md) | An optional value specifying when to start counting time buckets from. The default value is 1970-01-01T00:00:00Z. | [optional] 
+**Type** | **string** | the type of granularity. | 
+**Duration** | **int64** | The duration in milliseconds. | 
+**Origin** | Pointer to **time.Time** | An optional value specifying when to start counting time buckets from. The default value is 1970-01-01T00:00:00Z. | [optional] 
 
 ## Methods
 

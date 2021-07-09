@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ClusterBackupPolicy"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ClusterBackupPolicy"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ClusterBackupPolicy"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ClusterBackupPolicy"]
 **BackupDataStoreName** | Pointer to **string** | Backup datastore name prefix used during the auto creation of the datastore. All VMs created in this datastore will be automatically backed up. | [optional] [default to "backup-source-ds"]
 **BackupDataStoreSize** | Pointer to **int64** | Replication data store size in backupDataStoreSizeUnit. | [optional] [default to 2]
 **BackupDataStoreSizeUnit** | Pointer to **string** | Replication data store size. | [optional] [default to "TB"]

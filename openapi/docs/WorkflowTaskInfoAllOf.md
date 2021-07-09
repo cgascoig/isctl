@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.TaskInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.TaskInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.TaskInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.TaskInfo"]
 **Description** | Pointer to **string** | The task description and this is the description that was added when the task was included into the workflow. | [optional] [readonly] 
-**EndTime** | Pointer to [**time.Time**](time.Time.md) | The time stamp when the task reached a final state. | [optional] [readonly] 
+**EndTime** | Pointer to **time.Time** | The time stamp when the task reached a final state. | [optional] [readonly] 
 **FailureReason** | Pointer to **string** | Description of the reason why the task failed. | [optional] [readonly] 
 **Input** | Pointer to **interface{}** | The input data that was sent to the task at the start of execution. | [optional] [readonly] 
 **InstId** | Pointer to **string** | The instance ID of the task running in the workflow engine. | [optional] [readonly] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **RetryCount** | Pointer to **int64** | A counter for number of retries. | [optional] [readonly] 
 **RollbackDisabled** | Pointer to **bool** | The task is disabled/enabled for rollback operation in this workflow if the task has rollback support. | [optional] [readonly] [default to false]
 **RunningInstId** | Pointer to **string** | The instance ID of the task that is currently being executed. When retrying a workflow with failed tasks, the task in workflow engine will have a new instance ID, but the task may still be in-progress. In this case, the task instId reflects the instance ID in the workflow engine, while runningInstId reflects the instance ID of the instance that is currently being executed. | [optional] [readonly] 
-**StartTime** | Pointer to [**time.Time**](time.Time.md) | The time stamp when the task started execution. | [optional] [readonly] 
+**StartTime** | Pointer to **time.Time** | The time stamp when the task started execution. | [optional] [readonly] 
 **Status** | Pointer to **string** | The status of the task and this will specify if the task is running or has reached a final state. | [optional] 
 **TaskInstIdList** | Pointer to [**[]WorkflowTaskRetryInfo**](WorkflowTaskRetryInfo.md) |  | [optional] 
 **SubWorkflowInfo** | Pointer to [**WorkflowWorkflowInfoRelationship**](WorkflowWorkflowInfoRelationship.md) |  | [optional] 

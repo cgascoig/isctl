@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "os.ValidInstallTarget"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "os.ValidInstallTarget"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "os.ValidInstallTarget"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "os.ValidInstallTarget"]
 **Error** | Pointer to **string** | Error message if any errors are encountered while fetching and validating Install targets for the server. | [optional] [readonly] 
 **M2Jbod** | Pointer to [**[]OsPhysicalDiskResponse**](OsPhysicalDiskResponse.md) |  | [optional] 
 **M2VirtualDrives** | Pointer to [**[]OsVirtualDriveResponse**](OsVirtualDriveResponse.md) |  | [optional] 

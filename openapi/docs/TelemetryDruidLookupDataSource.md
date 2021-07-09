@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The type of data source. | 
-**Lookup** | Pointer to **string** | the name of the lookup object. | 
+**Type** | **string** | The type of data source. | 
+**Lookup** | **string** | the name of the lookup object. | 
 
 ## Methods
 

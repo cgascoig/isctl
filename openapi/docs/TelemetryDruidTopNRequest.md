@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QueryType** | Pointer to **string** | null | 
-**DataSource** | Pointer to [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
-**Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
-**Granularity** | Pointer to [**TelemetryDruidGranularity**](TelemetryDruidGranularity.md) |  | 
+**QueryType** | **string** | null | 
+**DataSource** | [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
+**Intervals** | **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
+**Granularity** | [**TelemetryDruidGranularity**](TelemetryDruidGranularity.md) |  | 
 **Filter** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | [optional] 
 **Aggregations** | Pointer to [**[]TelemetryDruidAggregator**](TelemetryDruidAggregator.md) | Aggregation functions are used to summarize data in buckets. Summarization functions include counting rows, calculating the min/max/sum of metrics and retrieving the first/last value of metrics for each bucket. Additional summarization functions are available with extensions. If no aggregator is provided, the results will be empty for each bucket. | [optional] 
 **PostAggregations** | Pointer to [**[]TelemetryDruidPostAggregator**](TelemetryDruidPostAggregator.md) | Post-aggregations are specifications of processing that should happen on aggregated values as they come out of Apache Druid. If you include a post aggregation as part of a query, make sure to include all aggregators the post-aggregator requires. | [optional] 
-**Dimension** | Pointer to [**TelemetryDruidDimensionSpec**](TelemetryDruidDimensionSpec.md) |  | 
-**Threshold** | Pointer to **int32** | An integer defining the N in the topN (i.e. how many results you want in the top list). | 
-**Metric** | Pointer to [**TelemetryDruidTopNMetricSpec**](TelemetryDruidTopNMetricSpec.md) |  | 
+**Dimension** | [**TelemetryDruidDimensionSpec**](TelemetryDruidDimensionSpec.md) |  | 
+**Threshold** | **int32** | An integer defining the N in the topN (i.e. how many results you want in the top list). | 
+**Metric** | [**TelemetryDruidTopNMetricSpec**](TelemetryDruidTopNMetricSpec.md) |  | 
 **Context** | Pointer to [**TelemetryDruidQueryContext**](TelemetryDruidQueryContext.md) |  | [optional] 
 
 ## Methods

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataSource** | Pointer to [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
+**DataSource** | [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
 **Context** | Pointer to [**TelemetryDruidQueryContext**](TelemetryDruidQueryContext.md) |  | [optional] 
 
 ## Methods

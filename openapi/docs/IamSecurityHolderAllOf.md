@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.SecurityHolder"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.SecurityHolder"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.SecurityHolder"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.SecurityHolder"]
 **Account** | Pointer to [**IamAccountRelationship**](IamAccountRelationship.md) |  | [optional] 
 **IpRulesConfiguration** | Pointer to [**IamIpAccessManagementRelationship**](IamIpAccessManagementRelationship.md) |  | [optional] 
 **ResourcePermissions** | Pointer to [**[]IamResourcePermissionRelationship**](IamResourcePermissionRelationship.md) | An array of relationships to iamResourcePermission resources. | [optional] [readonly] 

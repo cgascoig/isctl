@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The aggregator type. | 
+**Type** | **string** | The aggregator type. | 
 **Name** | Pointer to **string** | the output name | [optional] 
 
 ## Methods

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "os.GlobalConfig"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "os.GlobalConfig"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "os.GlobalConfig"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "os.GlobalConfig"]
 **ConfigurationFileName** | Pointer to **string** | Name of the Configuration file. | [optional] [readonly] 
 **ConfigurationSource** | Pointer to **string** | Configuration source for the OS Installation. | [optional] [readonly] 
 **InstallMethod** | Pointer to **string** | The install method to be used for OS installation - vMedia, iPXE. Only vMedia is supported as of now. | [optional] [readonly] 

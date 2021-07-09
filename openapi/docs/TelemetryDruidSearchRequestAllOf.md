@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataSource** | Pointer to [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
-**Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
-**Granularity** | Pointer to [**TelemetryDruidGranularity**](TelemetryDruidGranularity.md) |  | 
+**DataSource** | [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
+**Intervals** | **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
+**Granularity** | [**TelemetryDruidGranularity**](TelemetryDruidGranularity.md) |  | 
 **Filter** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | [optional] 
 **Aggregations** | Pointer to [**[]TelemetryDruidAggregator**](TelemetryDruidAggregator.md) | Aggregation functions are used to summarize data in buckets. Summarization functions include counting rows, calculating the min/max/sum of metrics and retrieving the first/last value of metrics for each bucket. Additional summarization functions are available with extensions. If no aggregator is provided, the results will be empty for each bucket. | [optional] 
 **SearchDimensions** | Pointer to **[]string** | The list of dimensions to run the search over. Excluding this means the search is run over all dimensions. | [optional] 

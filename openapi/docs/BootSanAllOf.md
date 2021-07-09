@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "boot.San"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "boot.San"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "boot.San"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "boot.San"]
 **Bootloader** | Pointer to [**NullableBootBootloader**](BootBootloader.md) |  | [optional] 
 **InterfaceName** | Pointer to **string** | The name of the underlying vHBA interface to be used by the SAN boot device. | [optional] 
 **Lun** | Pointer to **int64** | The Logical Unit Number (LUN) of the device. | [optional] [default to 0]

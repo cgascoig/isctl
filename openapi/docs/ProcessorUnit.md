@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "processor.Unit"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "processor.Unit"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "processor.Unit"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "processor.Unit"]
 **Architecture** | Pointer to **string** | The architecture of the installed processor. | [optional] [readonly] 
 **NumCores** | Pointer to **int64** | The number of cores present in a given processor. | [optional] [readonly] 
 **NumCoresEnabled** | Pointer to **string** | The number of enabled cores in the installed processor. | [optional] [readonly] 

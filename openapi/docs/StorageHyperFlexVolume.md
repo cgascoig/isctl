@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HyperFlexVolume"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HyperFlexVolume"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HyperFlexVolume"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HyperFlexVolume"]
 **Capacity** | Pointer to **int64** | Provisioned Capacity of the Storage container in Bytes. | [optional] [readonly] 
 **ClientId** | Pointer to **string** | Client ID to which the volume belongs. | [optional] [readonly] 
-**LastModifiedTime** | Pointer to [**time.Time**](time.Time.md) | Last modified time as UTC of the volume. | [optional] [readonly] 
+**LastModifiedTime** | Pointer to **time.Time** | Last modified time as UTC of the volume. | [optional] [readonly] 
 **LunUuid** | Pointer to **string** | UUID of Lun associated with the volume. | [optional] [readonly] 
 **SerialNumber** | Pointer to **string** | Serial number of the volume. | [optional] [readonly] 
 **Uuid** | Pointer to **string** | UUID of the Datastore/Storage Containter. | [optional] [readonly] 

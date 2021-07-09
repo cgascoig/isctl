@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxResiliencyInfoDt"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxResiliencyInfoDt"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxResiliencyInfoDt"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxResiliencyInfoDt"]
 **DataReplicationFactor** | Pointer to **string** | The number of copies of data replicated by the cluster. * &#x60;ONE_COPY&#x60; - The HyperFlex cluster does not replicate data. * &#x60;TWO_COPIES&#x60; - The HyperFlex cluster keeps 2 copies of data. * &#x60;THREE_COPIES&#x60; - The HyperFlex cluster keeps 3 copies of data. * &#x60;FOUR_COPIES&#x60; - The HyperFlex cluster keeps 4 copies of data. * &#x60;SIX_COPIES&#x60; - The HyperFlex cluster keeps 6 copies of data. | [optional] [readonly] [default to "ONE_COPY"]
 **HddFailuresTolerable** | Pointer to **int64** | The number of persistent device disruptions the HyperFlex storage cluster can handle at this point in time. | [optional] [readonly] 
 **Messages** | Pointer to **[]string** |  | [optional] 

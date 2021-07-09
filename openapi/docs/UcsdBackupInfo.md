@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ucsd.BackupInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ucsd.BackupInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ucsd.BackupInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ucsd.BackupInfo"]
 **BackupFileName** | Pointer to **string** | Auto generated backup File Name with combination of file prefix given an user input and the timestamp. | [optional] [readonly] 
 **BackupLocation** | Pointer to **string** | Backup location that contains the backup images for end device which can be used for restore operation. | [optional] [readonly] 
 **BackupServerIp** | Pointer to **string** | Backup server where backup images are maintained. | [optional] [readonly] 
@@ -15,12 +15,12 @@ Name | Type | Description | Notes
 **EncryptionKey** | Pointer to **string** | The key used for encrypting the backup file. | [optional] 
 **FailureReason** | Pointer to **string** | Reason for backup failure. | [optional] [readonly] 
 **IsPurged** | Pointer to **bool** | Backup image got purged or not. The backup images get purged based on the retention count set by the user in the backup config policy. | [optional] [readonly] 
-**LastModified** | Pointer to [**time.Time**](time.Time.md) | Last modified time when this backup record got updated. | [optional] [readonly] 
+**LastModified** | Pointer to **time.Time** | Last modified time when this backup record got updated. | [optional] [readonly] 
 **PercentageCompletion** | Pointer to **int64** | Backup current precentage completion status information. | [optional] [readonly] 
 **ProductVersion** | Pointer to **string** | The end device product version when the backup image was taken. | [optional] 
 **Protocol** | Pointer to **string** | Protocol used for the remote backup. possible values are FTP, SCP and SFTP. Not applicable for the localhost (127.0.0.1). | [optional] [readonly] 
 **StageCompletion** | Pointer to **string** | Backup current status stage information. | [optional] [readonly] 
-**StartTime** | Pointer to [**time.Time**](time.Time.md) | Start time of backup when it got initiated. | [optional] [readonly] 
+**StartTime** | Pointer to **time.Time** | Start time of backup when it got initiated. | [optional] [readonly] 
 **Status** | Pointer to **string** | Current status of Backup current. | [optional] [readonly] 
 
 ## Methods
