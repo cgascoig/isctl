@@ -338,6 +338,10 @@ Organization: MoRef[Name:isctl-test]
 Organization: MoRef:OrganizationOrganizationRelationship[Name:isctl-test] 
 ```
 
+# Intersight Kubernetes Service
+
+See [here](docs/iks.md) for detailed documentation on using `isctl` with Intersight Kubernetes Service. 
+
 # Development
 
 ## How is this built?
