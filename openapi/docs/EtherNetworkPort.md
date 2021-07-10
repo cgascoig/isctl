@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ether.NetworkPort"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ether.NetworkPort"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "ether.NetworkPort"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "ether.NetworkPort"]
 **ModuleId** | Pointer to **int64** | Febric extender identifier for this port. | [optional] 
 **PeerDn** | Pointer to **string** | Peer DN for network host port of fabric extender. | [optional] 
 **PortId** | Pointer to **int64** | Switch physical port identifier. | [optional] 
 **SlotId** | Pointer to **int64** | Switch expansion slot module identifier. | [optional] 
 **Speed** | Pointer to **string** | Network Port Speed of IO card or fabric extender. | [optional] [readonly] 
 **SwitchId** | Pointer to **string** | Switch Identifier that is local to a cluster. | [optional] 
-**EquipmentIoCardBase** | Pointer to [**EquipmentIoCardBaseRelationship**](equipment.IoCardBase.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**EquipmentIoCardBase** | Pointer to [**EquipmentIoCardBaseRelationship**](EquipmentIoCardBaseRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

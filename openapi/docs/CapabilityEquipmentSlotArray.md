@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.EquipmentSlotArray"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.EquipmentSlotArray"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.EquipmentSlotArray"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.EquipmentSlotArray"]
 **FirstIndex** | Pointer to **float32** | First Index information for a Switch/Fabric-Interconnect hardware. | [optional] 
 **Height** | Pointer to **float32** | Height information for a Switch/Fabric-Interconnect hardware. | [optional] 
 **HorizontalStartOffset** | Pointer to **float32** | Horizontal Start Offset information for a Switch/Fabric-Interconnect hardware. | [optional] 

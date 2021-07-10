@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
 **Description** | Pointer to **string** | Detailed information about the endpoint. | [optional] 
 **Model** | Pointer to **string** | The model of the endpoint, for which this capability information is applicable. | [optional] 
 **Vendor** | Pointer to **string** | The vendor of the endpoint, for which this capability information is applicable. | [optional] 
 **Version** | Pointer to **string** | The firmware or software version of the endpoint, for which this capability information is applicable. | [optional] 
-**Capabilities** | Pointer to [**[]CapabilityCapabilityRelationship**](capability.Capability.Relationship.md) | An array of relationships to capabilityCapability resources. | [optional] 
+**Capabilities** | Pointer to [**[]CapabilityCapabilityRelationship**](CapabilityCapabilityRelationship.md) | An array of relationships to capabilityCapability resources. | [optional] 
 
 ## Methods
 

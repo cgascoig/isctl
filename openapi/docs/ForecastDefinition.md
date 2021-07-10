@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "forecast.Definition"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "forecast.Definition"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "forecast.Definition"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "forecast.Definition"]
 **AlertThresholdInPercentage** | Pointer to **int64** | Threshold above which user needs to be indicated through alarm/alert. | [optional] [readonly] 
 **DataSource** | Pointer to **string** | Data source from where we get the data for the metrics to compute regression model. For example Druid. | [optional] [readonly] 
 **MetricName** | Pointer to **string** | Metric for which forecast prediction is done. Metrics are defined in the catalog file. Currently its only HyperFlex cluster storage capacity usage. | [optional] [readonly] 
 **MinNumOfDaysOfData** | Pointer to **int64** | Minimum number of days of data required for computing forecast model. | [optional] [readonly] 
 **NumOfDaysOfHistoricalData** | Pointer to **int64** | Number of days of data queried from the data source (example Druid ) which is used as input data for computing forecast model. | [optional] [readonly] 
 **PlatformType** | Pointer to **string** | The platform type for which we want to compute forecast. For example HyperFlex, NetworkElement. | [optional] [readonly] 
-**Catalog** | Pointer to [**ForecastCatalogRelationship**](forecast.Catalog.Relationship.md) |  | [optional] 
+**Catalog** | Pointer to [**ForecastCatalogRelationship**](ForecastCatalogRelationship.md) |  | [optional] 
 
 ## Methods
 

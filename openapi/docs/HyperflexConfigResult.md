@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ConfigResult"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ConfigResult"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ConfigResult"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ConfigResult"]
 **ConfigProgress** | Pointer to **string** | The progress percentage of the running configuration or workflow. | [optional] 
 **Duration** | Pointer to **string** | The duration of the running configuration or workflow. | [optional] 
 **StartTime** | Pointer to **string** | The start time of the configuration or workflow. | [optional] 
-**ClusterProfile** | Pointer to [**HyperflexClusterProfileRelationship**](hyperflex.ClusterProfile.Relationship.md) |  | [optional] 
-**ResultEntries** | Pointer to [**[]HyperflexConfigResultEntryRelationship**](hyperflex.ConfigResultEntry.Relationship.md) | An array of relationships to hyperflexConfigResultEntry resources. | [optional] 
+**ClusterProfile** | Pointer to [**HyperflexClusterProfileRelationship**](HyperflexClusterProfileRelationship.md) |  | [optional] 
+**ResultEntries** | Pointer to [**[]HyperflexConfigResultEntryRelationship**](HyperflexConfigResultEntryRelationship.md) | An array of relationships to hyperflexConfigResultEntry resources. | [optional] 
 
 ## Methods
 

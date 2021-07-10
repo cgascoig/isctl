@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "appliance.NodeStatus"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "appliance.NodeStatus"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "appliance.NodeStatus"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "appliance.NodeStatus"]
 **CpuUsage** | Pointer to **float32** | Percentage of CPU currently in use. | [optional] [readonly] 
 **MemUsage** | Pointer to **float32** | Percentage of memory currently in use. | [optional] [readonly] 
 **NodeId** | Pointer to **int64** | System assigned unique ID of the Intersight Appliance node. The system incrementally assigns identifiers to each node in the Intersight Appliance cluster starting with a value of 1. | [optional] [readonly] 
 **NodeState** | Pointer to **string** | State of the node in terms of its readiness to host Kubernetes pods. * &#x60;Down&#x60; - The node is yet to come up and join as a member of theKubernetes cluster. * &#x60;Preparing&#x60; - The node has come up and joined the Kubernetes cluster,preparing to host Kubernetes pods. * &#x60;Ready&#x60; - The node is ready to host Kubernetes pods. | [optional] [readonly] [default to "Down"]
 **OperationalStatus** | Pointer to **string** | Operational status of the Intersight Appliance node. Operational status is based on the result of the status checks. If result of any check is Critical, then its value is Impaired. Otherwise, if result of any check is Warning, then its value is AttentionNeeded. If all checks are OK, then its value is Operational. * &#x60;Unknown&#x60; - Operational status of the Intersight Appliance entity is Unknown. * &#x60;Operational&#x60; - Operational status of the Intersight Appliance entity is Operational. * &#x60;Impaired&#x60; - Operational status of the Intersight Appliance entity is Impaired. * &#x60;AttentionNeeded&#x60; - Operational status of the Intersight Appliance entity is AttentionNeeded. | [optional] [readonly] [default to "Unknown"]
-**StatusChecks** | Pointer to [**[]ApplianceStatusCheck**](appliance.StatusCheck.md) |  | [optional] 
-**FileSystemStatuses** | Pointer to [**[]ApplianceFileSystemStatusRelationship**](appliance.FileSystemStatus.Relationship.md) | An array of relationships to applianceFileSystemStatus resources. | [optional] [readonly] 
-**NodeInfo** | Pointer to [**ApplianceNodeInfoRelationship**](appliance.NodeInfo.Relationship.md) |  | [optional] 
-**SystemStatus** | Pointer to [**ApplianceSystemStatusRelationship**](appliance.SystemStatus.Relationship.md) |  | [optional] 
+**StatusChecks** | Pointer to [**[]ApplianceStatusCheck**](ApplianceStatusCheck.md) |  | [optional] 
+**FileSystemStatuses** | Pointer to [**[]ApplianceFileSystemStatusRelationship**](ApplianceFileSystemStatusRelationship.md) | An array of relationships to applianceFileSystemStatus resources. | [optional] [readonly] 
+**NodeInfo** | Pointer to [**ApplianceNodeInfoRelationship**](ApplianceNodeInfoRelationship.md) |  | [optional] 
+**SystemStatus** | Pointer to [**ApplianceSystemStatusRelationship**](ApplianceSystemStatusRelationship.md) |  | [optional] 
 
 ## Methods
 

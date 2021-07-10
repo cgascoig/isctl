@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "uuidpool.Pool"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "uuidpool.Pool"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "uuidpool.Pool"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "uuidpool.Pool"]
 **Prefix** | Pointer to **string** | The UUID prefix must be in hexadecimal format xxxxxxxx-xxxx-xxxx. | [optional] 
-**UuidSuffixBlocks** | Pointer to [**[]UuidpoolUuidBlock**](uuidpool.UuidBlock.md) |  | [optional] 
-**BlockHeads** | Pointer to [**[]UuidpoolBlockRelationship**](uuidpool.Block.Relationship.md) | An array of relationships to uuidpoolBlock resources. | [optional] [readonly] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**UuidSuffixBlocks** | Pointer to [**[]UuidpoolUuidBlock**](UuidpoolUuidBlock.md) |  | [optional] 
+**BlockHeads** | Pointer to [**[]UuidpoolBlockRelationship**](UuidpoolBlockRelationship.md) | An array of relationships to uuidpoolBlock resources. | [optional] [readonly] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 

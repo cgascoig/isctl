@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "sdwan.Profile"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "sdwan.Profile"]
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
-**RouterNodes** | Pointer to [**[]SdwanRouterNodeRelationship**](sdwan.RouterNode.Relationship.md) | An array of relationships to sdwanRouterNode resources. | [optional] 
-**RouterPolicy** | Pointer to [**SdwanRouterPolicyRelationship**](sdwan.RouterPolicy.Relationship.md) |  | [optional] 
-**VmanageAccount** | Pointer to [**SdwanVmanageAccountPolicyRelationship**](sdwan.VmanageAccountPolicy.Relationship.md) |  | [optional] 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "sdwan.Profile"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "sdwan.Profile"]
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
+**RouterNodes** | Pointer to [**[]SdwanRouterNodeRelationship**](SdwanRouterNodeRelationship.md) | An array of relationships to sdwanRouterNode resources. | [optional] 
+**RouterPolicy** | Pointer to [**SdwanRouterPolicyRelationship**](SdwanRouterPolicyRelationship.md) |  | [optional] 
+**VmanageAccount** | Pointer to [**SdwanVmanageAccountPolicyRelationship**](SdwanVmanageAccountPolicyRelationship.md) |  | [optional] 
 
 ## Methods
 

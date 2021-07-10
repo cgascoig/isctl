@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexFlashController"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexFlashController"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexFlashController"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexFlashController"]
 **ControllerState** | Pointer to **string** | State of the Flex Flash Storage Controller. | [optional] [readonly] 
 **FfControllerId** | Pointer to **string** | Identifier for the Flex Flash Storage Controller. | [optional] [readonly] 
-**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
-**FlexFlashControllerProps** | Pointer to [**[]StorageFlexFlashControllerPropsRelationship**](storage.FlexFlashControllerProps.Relationship.md) | An array of relationships to storageFlexFlashControllerProps resources. | [optional] [readonly] 
-**FlexFlashPhysicalDrives** | Pointer to [**[]StorageFlexFlashPhysicalDriveRelationship**](storage.FlexFlashPhysicalDrive.Relationship.md) | An array of relationships to storageFlexFlashPhysicalDrive resources. | [optional] [readonly] 
-**FlexFlashVirtualDrives** | Pointer to [**[]StorageFlexFlashVirtualDriveRelationship**](storage.FlexFlashVirtualDrive.Relationship.md) | An array of relationships to storageFlexFlashVirtualDrive resources. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**RunningFirmware** | Pointer to [**[]FirmwareRunningFirmwareRelationship**](firmware.RunningFirmware.Relationship.md) | An array of relationships to firmwareRunningFirmware resources. | [optional] [readonly] 
+**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](ComputeBoardRelationship.md) |  | [optional] 
+**FlexFlashControllerProps** | Pointer to [**[]StorageFlexFlashControllerPropsRelationship**](StorageFlexFlashControllerPropsRelationship.md) | An array of relationships to storageFlexFlashControllerProps resources. | [optional] [readonly] 
+**FlexFlashPhysicalDrives** | Pointer to [**[]StorageFlexFlashPhysicalDriveRelationship**](StorageFlexFlashPhysicalDriveRelationship.md) | An array of relationships to storageFlexFlashPhysicalDrive resources. | [optional] [readonly] 
+**FlexFlashVirtualDrives** | Pointer to [**[]StorageFlexFlashVirtualDriveRelationship**](StorageFlexFlashVirtualDriveRelationship.md) | An array of relationships to storageFlexFlashVirtualDrive resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**RunningFirmware** | Pointer to [**[]FirmwareRunningFirmwareRelationship**](FirmwareRunningFirmwareRelationship.md) | An array of relationships to firmwareRunningFirmware resources. | [optional] [readonly] 
 
 ## Methods
 

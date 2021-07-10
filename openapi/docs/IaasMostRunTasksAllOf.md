@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.MostRunTasks"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.MostRunTasks"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.MostRunTasks"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.MostRunTasks"]
 **TaskCategory** | Pointer to **string** | A functional area to which a task belongs to. | [optional] [readonly] 
 **TaskExecutionCount** | Pointer to **int64** | Number of times this task has executed. | [optional] [readonly] 
 **TaskName** | Pointer to **string** | Name of the task executed in UCSD. | [optional] [readonly] 
 **TaskType** | Pointer to **string** | Type of the task whether it is system task or custom task. | [optional] [readonly] 
-**Guid** | Pointer to [**IaasUcsdInfoRelationship**](iaas.UcsdInfo.Relationship.md) |  | [optional] 
+**Guid** | Pointer to [**IaasUcsdInfoRelationship**](IaasUcsdInfoRelationship.md) |  | [optional] 
 
 ## Methods
 

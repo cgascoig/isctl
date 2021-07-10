@@ -4,19 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.SasExpander"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.SasExpander"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.SasExpander"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.SasExpander"]
 **ExpanderId** | Pointer to **int64** | Unique Identifier of the storage expander. | [optional] [readonly] 
 **Name** | Pointer to **string** | The name  of the installed storage expander. | [optional] 
 **OperState** | Pointer to **string** | The operational state of the storage expander. | [optional] [readonly] 
 **Operability** | Pointer to **string** | The operability status of the storage expander. | [optional] [readonly] 
-**Presence** | Pointer to **string** | The availability of the storage expander. | [optional] [readonly] 
 **SasAddress** | Pointer to **string** | The SAS address of the SAS expander. | [optional] [readonly] 
-**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
-**Controller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
-**EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](ComputeRackUnitRelationship.md) |  | [optional] 
+**Controller** | Pointer to [**ManagementControllerRelationship**](ManagementControllerRelationship.md) |  | [optional] 
+**EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](EquipmentChassisRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -176,31 +175,6 @@ SetOperability sets Operability field to given value.
 `func (o *StorageSasExpander) HasOperability() bool`
 
 HasOperability returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *StorageSasExpander) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *StorageSasExpander) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *StorageSasExpander) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *StorageSasExpander) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetSasAddress
 

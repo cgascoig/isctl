@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QueryType** | Pointer to **string** | null | 
-**DataSource** | Pointer to [**TelemetryDruidDataSource**](telemetry.DruidDataSource.md) |  | 
-**Intervals** | Pointer to **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
-**Granularity** | Pointer to [**TelemetryDruidGranularity**](telemetry.DruidGranularity.md) |  | 
-**Filter** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | [optional] 
-**Aggregations** | Pointer to [**[]TelemetryDruidAggregator**](telemetry.DruidAggregator.md) | Aggregation functions are used to summarize data in buckets. Summarization functions include counting rows, calculating the min/max/sum of metrics and retrieving the first/last value of metrics for each bucket. Additional summarization functions are available with extensions. If no aggregator is provided, the results will be empty for each bucket. | [optional] 
+**QueryType** | **string** | null | 
+**DataSource** | [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
+**Intervals** | **[]string** | A JSON Object representing ISO-8601 Intervals. This defines the time ranges to run the query over. | 
+**Granularity** | [**TelemetryDruidGranularity**](TelemetryDruidGranularity.md) |  | 
+**Filter** | Pointer to [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | [optional] 
+**Aggregations** | Pointer to [**[]TelemetryDruidAggregator**](TelemetryDruidAggregator.md) | Aggregation functions are used to summarize data in buckets. Summarization functions include counting rows, calculating the min/max/sum of metrics and retrieving the first/last value of metrics for each bucket. Additional summarization functions are available with extensions. If no aggregator is provided, the results will be empty for each bucket. | [optional] 
 **SearchDimensions** | Pointer to **[]string** | The list of dimensions to run the search over. Excluding this means the search is run over all dimensions. | [optional] 
-**Query** | Pointer to [**TelemetryDruidAggregateSearchSpec**](telemetry.DruidAggregateSearchSpec.md) |  | [optional] 
+**Query** | Pointer to [**TelemetryDruidAggregateSearchSpec**](TelemetryDruidAggregateSearchSpec.md) |  | [optional] 
 **Limit** | Pointer to **int32** | An integer that limits the number of results. The default is unlimited. | [optional] 
-**Context** | Pointer to [**TelemetryDruidQueryContext**](telemetry.DruidQueryContext.md) |  | [optional] 
+**Context** | Pointer to [**TelemetryDruidQueryContext**](TelemetryDruidQueryContext.md) |  | [optional] 
 
 ## Methods
 

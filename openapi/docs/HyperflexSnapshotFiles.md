@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.SnapshotFiles"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.SnapshotFiles"]
-**NameTrackedFiles** | Pointer to [**[]HyperflexFilePath**](hyperflex.FilePath.md) |  | [optional] 
-**UuidTrackedDisksMap** | Pointer to [**[]HyperflexMapUuidToTrackedDisk**](hyperflex.MapUuidToTrackedDisk.md) |  | [optional] 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.SnapshotFiles"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.SnapshotFiles"]
+**NameTrackedFiles** | Pointer to [**[]HyperflexFilePath**](HyperflexFilePath.md) |  | [optional] 
+**UuidTrackedDisksMap** | Pointer to [**[]HyperflexMapUuidToTrackedDisk**](HyperflexMapUuidToTrackedDisk.md) |  | [optional] 
 
 ## Methods
 

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiParityGroup"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiParityGroup"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiParityGroup"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiParityGroup"]
 **DiskSpeed** | Pointer to **string** | Speed (rpm) of the disk belonging to the parity group. | [optional] [readonly] 
 **DiskType** | Pointer to **string** | Type of the disk belonging to the parity group. | [optional] [readonly] 
 **IsAcceleratedCompressionEnabled** | Pointer to **bool** | Value of the accelerated compression of the parity group. true, Accelerated compression for the parity group is enabled. false, Accelerated compression for the parity group is disabled. | [optional] [readonly] 
 **IsCopyBackModeEnabled** | Pointer to **bool** | Value of the copy back mode setting of the parity group. true, Copy back mode is enabled. false, Copy back mode is disabled. | [optional] [readonly] 
 **IsEncryptionEnabled** | Pointer to **bool** | Value of the encryption setting of the parity group. true, Encryption is enabled. false, Encryption is disabled. | [optional] [readonly] 
-**Array** | Pointer to [**StorageHitachiArrayRelationship**](storage.HitachiArray.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Array** | Pointer to [**StorageHitachiArrayRelationship**](StorageHitachiArrayRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.OAuthToken"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.OAuthToken"]
-**AccessExpirationTime** | Pointer to [**time.Time**](time.Time.md) | Expiration time for the JWT token to which it can be used for api calls. | [optional] [readonly] 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.OAuthToken"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.OAuthToken"]
+**AccessExpirationTime** | Pointer to **time.Time** | Expiration time for the JWT token to which it can be used for api calls. | [optional] [readonly] 
 **ClientId** | Pointer to **string** | The identifier of the registered application to which the token belongs. | [optional] 
 **ClientIpAddress** | Pointer to **string** | The user agent IP address from which the auth token is launched. | [optional] [readonly] 
 **ClientName** | Pointer to **string** | The name of the registered application to which the token belongs. | [optional] 
-**ExpirationTime** | Pointer to [**time.Time**](time.Time.md) | Expiration time for the JWT token to which it can be refreshed. | [optional] [readonly] 
+**ExpirationTime** | Pointer to **time.Time** | Expiration time for the JWT token to which it can be refreshed. | [optional] [readonly] 
 **LastLoginClient** | Pointer to **string** | The client address from which last login is initiated. | [optional] [readonly] 
-**LastLoginTime** | Pointer to [**time.Time**](time.Time.md) | The last login time for user. | [optional] [readonly] 
+**LastLoginTime** | Pointer to **time.Time** | The last login time for user. | [optional] [readonly] 
 **TokenId** | Pointer to **string** | Token identifier. Not the Access Token itself. | [optional] [readonly] 
-**UserMeta** | Pointer to [**NullableIamClientMeta**](iam.ClientMeta.md) |  | [optional] 
-**AppRegistration** | Pointer to [**IamAppRegistrationRelationship**](iam.AppRegistration.Relationship.md) |  | [optional] 
-**Permission** | Pointer to [**IamPermissionRelationship**](iam.Permission.Relationship.md) |  | [optional] 
-**User** | Pointer to [**IamUserRelationship**](iam.User.Relationship.md) |  | [optional] 
+**UserMeta** | Pointer to [**NullableIamClientMeta**](IamClientMeta.md) |  | [optional] 
+**AppRegistration** | Pointer to [**IamAppRegistrationRelationship**](IamAppRegistrationRelationship.md) |  | [optional] 
+**Permission** | Pointer to [**IamPermissionRelationship**](IamPermissionRelationship.md) |  | [optional] 
+**User** | Pointer to [**IamUserRelationship**](IamUserRelationship.md) |  | [optional] 
 
 ## Methods
 

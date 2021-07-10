@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.OauthBearerTokenCredential"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.OauthBearerTokenCredential"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.OauthBearerTokenCredential"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.OauthBearerTokenCredential"]
 **IsTokenSet** | Pointer to **bool** | Indicates whether the value of the &#39;token&#39; property has been set. | [optional] [readonly] [default to false]
 **ScopeType** | Pointer to **string** | Scope type for the crendetial i.e. User, Organization, Team. | [optional] 
 **ScopeValue** | Pointer to **string** | Scope value for the credential i.e. username, organization name or team name. | [optional] 

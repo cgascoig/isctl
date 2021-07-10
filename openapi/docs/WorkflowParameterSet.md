@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.ParameterSet"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.ParameterSet"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.ParameterSet"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.ParameterSet"]
 **Condition** | Pointer to **string** | The condition to be evaluated. * &#x60;eq&#x60; - Checks if the values of the two parameters are equal. * &#x60;ne&#x60; - Checks if the values of the two parameters are not equal. * &#x60;contains&#x60; - Checks if the second parameter string value is a substring of the first parameter string value. * &#x60;matchesPattern&#x60; - Checks if a string matches a regular expression. | [optional] [default to "eq"]
 **ControlParameter** | Pointer to **string** | Name of the controlling entity, whose value will be used for evaluating the parameter set. | [optional] 
 **EnableParameters** | Pointer to **[]string** |  | [optional] 

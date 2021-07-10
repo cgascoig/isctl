@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "appliance.UpgradePolicy"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "appliance.UpgradePolicy"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "appliance.UpgradePolicy"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "appliance.UpgradePolicy"]
 **AutoUpgrade** | Pointer to **bool** | Indicates if the upgrade service is set to automatically start the software upgrade or not. If autoUpgrade is true, then the value of the schedule field is ignored. | [optional] 
 **BlackoutDatesEnabled** | Pointer to **bool** | If enabled, allows the user to define a blackout period during which the appliance will not be upgraded. | [optional] 
-**BlackoutEndDate** | Pointer to [**time.Time**](time.Time.md) | End date of the black out period. | [optional] 
-**BlackoutStartDate** | Pointer to [**time.Time**](time.Time.md) | Start date of the black out period. The appliance will not be upgraded during this period. | [optional] 
-**Schedule** | Pointer to [**NullableOnpremSchedule**](onprem.Schedule.md) |  | [optional] 
-**Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
+**BlackoutEndDate** | Pointer to **time.Time** | End date of the black out period. | [optional] 
+**BlackoutStartDate** | Pointer to **time.Time** | Start date of the black out period. The appliance will not be upgraded during this period. | [optional] 
+**EnableMetaDataSync** | Pointer to **bool** | Indicates if the updated metadata files should be synced immediately or at the next upgrade. | [optional] [default to true]
+**Schedule** | Pointer to [**NullableOnpremSchedule**](OnpremSchedule.md) |  | [optional] 
+**Account** | Pointer to [**IamAccountRelationship**](IamAccountRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -171,6 +172,31 @@ SetBlackoutStartDate sets BlackoutStartDate field to given value.
 `func (o *ApplianceUpgradePolicy) HasBlackoutStartDate() bool`
 
 HasBlackoutStartDate returns a boolean if a field has been set.
+
+### GetEnableMetaDataSync
+
+`func (o *ApplianceUpgradePolicy) GetEnableMetaDataSync() bool`
+
+GetEnableMetaDataSync returns the EnableMetaDataSync field if non-nil, zero value otherwise.
+
+### GetEnableMetaDataSyncOk
+
+`func (o *ApplianceUpgradePolicy) GetEnableMetaDataSyncOk() (*bool, bool)`
+
+GetEnableMetaDataSyncOk returns a tuple with the EnableMetaDataSync field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableMetaDataSync
+
+`func (o *ApplianceUpgradePolicy) SetEnableMetaDataSync(v bool)`
+
+SetEnableMetaDataSync sets EnableMetaDataSync field to given value.
+
+### HasEnableMetaDataSync
+
+`func (o *ApplianceUpgradePolicy) HasEnableMetaDataSync() bool`
+
+HasEnableMetaDataSync returns a boolean if a field has been set.
 
 ### GetSchedule
 

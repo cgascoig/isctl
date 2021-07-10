@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.Version"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.Version"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.Version"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.Version"]
 **KubernetesVersion** | Pointer to **string** | Desired Kubernetes version. | [optional] 
 **Name** | Pointer to **string** | The name of this IKS kubernetes version. | [optional] 
-**BootIso** | Pointer to [**SoftwareSolutionDistributableRelationship**](software.SolutionDistributable.Relationship.md) |  | [optional] 
-**Catalog** | Pointer to [**KubernetesCatalogRelationship**](kubernetes.Catalog.Relationship.md) |  | [optional] 
-**OvaImageTemplate** | Pointer to [**SoftwareSolutionDistributableRelationship**](software.SolutionDistributable.Relationship.md) |  | [optional] 
-**Qcow2NodeTemplate** | Pointer to [**SoftwareSolutionDistributableRelationship**](software.SolutionDistributable.Relationship.md) |  | [optional] 
-**Qcow2VirtualMachineTemplate** | Pointer to [**SoftwareSolutionDistributableRelationship**](software.SolutionDistributable.Relationship.md) |  | [optional] 
+**BootIso** | Pointer to [**SoftwareSolutionDistributableRelationship**](SoftwareSolutionDistributableRelationship.md) |  | [optional] 
+**Catalog** | Pointer to [**KubernetesCatalogRelationship**](KubernetesCatalogRelationship.md) |  | [optional] 
+**OvaImageTemplate** | Pointer to [**SoftwareSolutionDistributableRelationship**](SoftwareSolutionDistributableRelationship.md) |  | [optional] 
+**Qcow2NodeTemplate** | Pointer to [**SoftwareSolutionDistributableRelationship**](SoftwareSolutionDistributableRelationship.md) |  | [optional] 
+**Qcow2VirtualMachineTemplate** | Pointer to [**SoftwareSolutionDistributableRelationship**](SoftwareSolutionDistributableRelationship.md) |  | [optional] 
 
 ## Methods
 

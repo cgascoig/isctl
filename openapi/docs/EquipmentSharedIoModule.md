@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "equipment.SharedIoModule"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "equipment.SharedIoModule"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "equipment.SharedIoModule"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "equipment.SharedIoModule"]
 **ConfigState** | Pointer to **string** | This field identifies the configuration state for this SIOM Unit. | [optional] [readonly] 
 **Discovery** | Pointer to **string** | This field identifies the discovery state of SIOM. | [optional] [readonly] 
 **MacOfSharedIomAside** | Pointer to **string** | This field identifies the MAC of IOM-A side. | [optional] [readonly] 
@@ -15,11 +15,11 @@ Name | Type | Description | Notes
 **Reachability** | Pointer to **string** | This field identifies the reachability to FI-A and B side. | [optional] [readonly] 
 **UsrLbl** | Pointer to **string** | User label configured for the SIOM. | [optional] [readonly] 
 **Vid** | Pointer to **string** | This field identifies the vendor id for this SIOM Unit. | [optional] [readonly] 
-**Controller** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
-**EquipmentSystemIoController** | Pointer to [**EquipmentSystemIoControllerRelationship**](equipment.SystemIoController.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**PortGroups** | Pointer to [**[]PortGroupRelationship**](port.Group.Relationship.md) | An array of relationships to portGroup resources. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Controller** | Pointer to [**ManagementControllerRelationship**](ManagementControllerRelationship.md) |  | [optional] 
+**EquipmentSystemIoController** | Pointer to [**EquipmentSystemIoControllerRelationship**](EquipmentSystemIoControllerRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**PortGroups** | Pointer to [**[]PortGroupRelationship**](PortGroupRelationship.md) | An array of relationships to portGroup resources. | [optional] [readonly] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The aggregator type. | 
-**Filter** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | 
-**Aggregator** | Pointer to [**TelemetryDruidAggregator**](telemetry.DruidAggregator.md) |  | 
+**Type** | **string** | The aggregator type. | 
+**Filter** | [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
+**Aggregator** | [**TelemetryDruidAggregator**](TelemetryDruidAggregator.md) |  | 
 
 ## Methods
 

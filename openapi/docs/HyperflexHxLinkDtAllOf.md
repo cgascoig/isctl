@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxLinkDt"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxLinkDt"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HxLinkDt"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HxLinkDt"]
 **Comments** | Pointer to **string** | Comment for this HyperFlex resource. | [optional] [readonly] 
 **Href** | Pointer to **string** | URI of resource. Target URL for making REST call. | [optional] [readonly] 
 **Method** | Pointer to **string** | HTTP verb that this HyperFlex link DT is referring to. * &#x60;POST&#x60; - HTTP verb POST for this task definition. * &#x60;GET&#x60; - HTTP verb GET for this task definition. * &#x60;PUT&#x60; - HTTP verb PUT for this task definition. * &#x60;DELETE&#x60; - HTTP verb DELETE for this task definition. | [optional] [readonly] [default to "POST"]

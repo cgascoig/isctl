@@ -55,6 +55,12 @@ func TestParseMoRef(t *testing.T) {
 			datatype: "KubernetesInfrastructureProviderRelationship",
 			ok:       true,
 		},
+		{
+			moref:    "MoRef[Name:cg-k8s-1.18.2]",
+			filter:   "Name eq 'cg-k8s-1.18.2'",
+			datatype: "",
+			ok:       true,
+		},
 	}
 
 	for _, test := range tests {

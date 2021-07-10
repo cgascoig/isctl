@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**QueryType** | Pointer to **string** | null | 
-**DataSource** | Pointer to [**TelemetryDruidDataSource**](telemetry.DruidDataSource.md) |  | 
-**Context** | Pointer to [**TelemetryDruidQueryContext**](telemetry.DruidQueryContext.md) |  | [optional] 
+**QueryType** | **string** | null | 
+**DataSource** | [**TelemetryDruidDataSource**](TelemetryDruidDataSource.md) |  | 
+**Context** | Pointer to [**TelemetryDruidQueryContext**](TelemetryDruidQueryContext.md) |  | [optional] 
 
 ## Methods
 

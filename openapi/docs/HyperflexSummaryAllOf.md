@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.Summary"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.Summary"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.Summary"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.Summary"]
 **ActiveNodes** | Pointer to **string** | The number of nodes currently participating in the storage cluster. | [optional] [readonly] 
 **Address** | Pointer to **string** | The data IP address of the HyperFlex cluster. | [optional] [readonly] 
 **Boottime** | Pointer to **int64** | The time taken during last cluster startup in seconds. | [optional] [readonly] 
@@ -16,11 +16,11 @@ Name | Type | Description | Notes
 **DeduplicationSavings** | Pointer to **float64** | The percentage of storage space saved using data deduplication. | [optional] [readonly] 
 **Downtime** | Pointer to **string** | The amount of time the HyperFlex cluster has been offline. | [optional] [readonly] 
 **FreeCapacity** | Pointer to **int64** | The amount of storage capacity currently not in use, represented in bytes. | [optional] [readonly] 
-**HealingInfo** | Pointer to [**NullableHyperflexStPlatformClusterHealingInfo**](hyperflex.StPlatformClusterHealingInfo.md) |  | [optional] 
+**HealingInfo** | Pointer to [**NullableHyperflexStPlatformClusterHealingInfo**](HyperflexStPlatformClusterHealingInfo.md) |  | [optional] 
 **Name** | Pointer to **string** | The name of the HyperFlex cluster. | [optional] [readonly] 
-**ResiliencyDetails** | Pointer to **map[string]interface{}** | The details about the resiliency health of the cluster. Includes information about the cluster healing status and the storage cluster health. | [optional] [readonly] 
+**ResiliencyDetails** | Pointer to **interface{}** | The details about the resiliency health of the cluster. Includes information about the cluster healing status and the storage cluster health. | [optional] [readonly] 
 **ResiliencyDetailsSize** | Pointer to **int64** | The number of elements in the resiliency details property. | [optional] [readonly] 
-**ResiliencyInfo** | Pointer to [**NullableHyperflexStPlatformClusterResiliencyInfo**](hyperflex.StPlatformClusterResiliencyInfo.md) |  | [optional] 
+**ResiliencyInfo** | Pointer to [**NullableHyperflexStPlatformClusterResiliencyInfo**](HyperflexStPlatformClusterResiliencyInfo.md) |  | [optional] 
 **SpaceStatus** | Pointer to **string** | The space utilization status of the HyperFlex cluster. | [optional] [readonly] 
 **State** | Pointer to **string** | The operational state of the HyperFlex cluster. | [optional] [readonly] 
 **TotalCapacity** | Pointer to **int64** | The total amount of storage capacity available for the HyperFlex cluster, represented in bytes. | [optional] [readonly] 
@@ -399,20 +399,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetResiliencyDetails
 
-`func (o *HyperflexSummaryAllOf) GetResiliencyDetails() map[string]interface{}`
+`func (o *HyperflexSummaryAllOf) GetResiliencyDetails() interface{}`
 
 GetResiliencyDetails returns the ResiliencyDetails field if non-nil, zero value otherwise.
 
 ### GetResiliencyDetailsOk
 
-`func (o *HyperflexSummaryAllOf) GetResiliencyDetailsOk() (*map[string]interface{}, bool)`
+`func (o *HyperflexSummaryAllOf) GetResiliencyDetailsOk() (*interface{}, bool)`
 
 GetResiliencyDetailsOk returns a tuple with the ResiliencyDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResiliencyDetails
 
-`func (o *HyperflexSummaryAllOf) SetResiliencyDetails(v map[string]interface{})`
+`func (o *HyperflexSummaryAllOf) SetResiliencyDetails(v interface{})`
 
 SetResiliencyDetails sets ResiliencyDetails field to given value.
 
@@ -422,6 +422,16 @@ SetResiliencyDetails sets ResiliencyDetails field to given value.
 
 HasResiliencyDetails returns a boolean if a field has been set.
 
+### SetResiliencyDetailsNil
+
+`func (o *HyperflexSummaryAllOf) SetResiliencyDetailsNil(b bool)`
+
+ SetResiliencyDetailsNil sets the value for ResiliencyDetails to be an explicit nil
+
+### UnsetResiliencyDetails
+`func (o *HyperflexSummaryAllOf) UnsetResiliencyDetails()`
+
+UnsetResiliencyDetails ensures that no value is present for ResiliencyDetails, not even an explicit nil
 ### GetResiliencyDetailsSize
 
 `func (o *HyperflexSummaryAllOf) GetResiliencyDetailsSize() int64`

@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "meta.RelationshipDefinition"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "meta.RelationshipDefinition"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "meta.RelationshipDefinition"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "meta.RelationshipDefinition"]
 **ApiAccess** | Pointer to **string** | API access definition for this relationship. * &#x60;NoAccess&#x60; - The property is not accessible from the API. * &#x60;ReadOnly&#x60; - The value of the property is read-only.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa ReadOnly property. * &#x60;CreateOnly&#x60; - The value of the property can be set when the REST resource is created. It cannot be changed after object creation.An HTTP 4xx status code is returned when the user sends a POST/PUT/PATCH request that containsa CreateOnly property.CreateOnly properties are returned in the response body of HTTP GET requests. * &#x60;ReadWrite&#x60; - The property has read/write access. * &#x60;WriteOnly&#x60; - The value of the property can be set but it is never returned in the response body of supported HTTP methods.This settings is used for sensitive properties such as passwords. * &#x60;ReadOnCreate&#x60; - The value of the property is returned in the HTTP POST response body when the REST resource is created.The property is not writeable and cannot be queried through a GET request after the resource has been created. | [optional] [readonly] [default to "NoAccess"]
 **Collection** | Pointer to **bool** | Specifies whether the relationship is a collection. | [optional] [readonly] 
 **Export** | Pointer to **bool** | When turned off, the peer MO is not exported when the local MO is exported. | [optional] [readonly] 
 **ExportWithPeer** | Pointer to **bool** | When turned on, the local MO is exported when the peer is exported. | [optional] [readonly] 
 **Name** | Pointer to **string** | The name of the relationship. | [optional] [readonly] 
 **PeerRelName** | Pointer to **string** | Name of relationship in peer managed object. | [optional] [readonly] 
+**PeerSync** | Pointer to **bool** | When turned on, peer MO corresponding to the reference provided in relation is updated with a reference to the current MO. | [optional] [readonly] 
 **Type** | Pointer to **string** | Fully qualified type of the peer managed object. | [optional] [readonly] 
 
 ## Methods
@@ -222,6 +223,31 @@ SetPeerRelName sets PeerRelName field to given value.
 `func (o *MetaRelationshipDefinition) HasPeerRelName() bool`
 
 HasPeerRelName returns a boolean if a field has been set.
+
+### GetPeerSync
+
+`func (o *MetaRelationshipDefinition) GetPeerSync() bool`
+
+GetPeerSync returns the PeerSync field if non-nil, zero value otherwise.
+
+### GetPeerSyncOk
+
+`func (o *MetaRelationshipDefinition) GetPeerSyncOk() (*bool, bool)`
+
+GetPeerSyncOk returns a tuple with the PeerSync field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeerSync
+
+`func (o *MetaRelationshipDefinition) SetPeerSync(v bool)`
+
+SetPeerSync sets PeerSync field to given value.
+
+### HasPeerSync
+
+`func (o *MetaRelationshipDefinition) HasPeerSync() bool`
+
+HasPeerSync returns a boolean if a field has been set.
 
 ### GetType
 

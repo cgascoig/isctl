@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ColumnNames** | Pointer to **[]string** | the column names. | 
-**Rows** | Pointer to [**[][]string**](array.md) | an array of rows. | 
+**ColumnNames** | **[]string** | the column names. | 
+**Rows** | **[][]string** | an array of rows. | 
 
 ## Methods
 

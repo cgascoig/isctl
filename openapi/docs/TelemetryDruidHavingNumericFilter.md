@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The having filter type. | 
-**Aggregation** | Pointer to **string** | aggregate metric | 
-**Value** | Pointer to **float64** | null | 
+**Type** | **string** | The having filter type. | 
+**Aggregation** | **string** | aggregate metric | 
+**Value** | **float64** | null | 
 
 ## Methods
 

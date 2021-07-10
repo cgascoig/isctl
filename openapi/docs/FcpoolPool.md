@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fcpool.Pool"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fcpool.Pool"]
-**IdBlocks** | Pointer to [**[]FcpoolBlock**](fcpool.Block.md) |  | [optional] 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fcpool.Pool"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fcpool.Pool"]
+**IdBlocks** | Pointer to [**[]FcpoolBlock**](FcpoolBlock.md) |  | [optional] 
 **PoolPurpose** | Pointer to **string** | Purpose of this WWN pool. | [optional] 
-**BlockHeads** | Pointer to [**[]FcpoolFcBlockRelationship**](fcpool.FcBlock.Relationship.md) | An array of relationships to fcpoolFcBlock resources. | [optional] [readonly] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**BlockHeads** | Pointer to [**[]FcpoolFcBlockRelationship**](FcpoolFcBlockRelationship.md) | An array of relationships to fcpoolFcBlock resources. | [optional] [readonly] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 

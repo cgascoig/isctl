@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiVolume"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiVolume"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.HitachiVolume"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.HitachiVolume"]
 **Attributes** | Pointer to **[]string** |  | [optional] 
 **ClprId** | Pointer to **int64** | CLPR (Cache Logical Partition) number of this volume. | [optional] [readonly] 
-**DataReductionMode** | Pointer to **string** | Setting of the capacity saving function (dedupe and compression). * &#x60;N/A&#x60; - Not available. * &#x60;compression&#x60; - The capacity saving function (compression) is enabled. * &#x60;compression_deduplication&#x60; - The capacity saving function (compression and deduplication) is enabled. * &#x60;disabled&#x60; - The capacity saving function (compression and deduplication) is disabled. | [optional] [readonly] [default to "N/A"]
-**DataReductionStatus** | Pointer to **string** | Status of the capacity saving function. * &#x60;N/A&#x60; - Not available. * &#x60;ENABLED&#x60; - The capacity saving function is enabled. * &#x60;DISABLED&#x60; - The capacity saving function is disabled. * &#x60;ENABLING&#x60; - The capacity saving function is being enabled. * &#x60;REHYDRATING&#x60; - The capacity saving function is being disabled. * &#x60;DELETING&#x60; - The volumes for which the capacity saving function is enabled are being deleted. * &#x60;FAILED&#x60; - An attempt to enable the capacity saving function failed. | [optional] [readonly] [default to "N/A"]
+**DataReductionMode** | Pointer to **string** | Setting of the capacity saving function (dedupe and compression). * &#x60;N/A&#x60; - The capacity saving function is not available. * &#x60;Compression&#x60; - The capacity saving function (compression) is enabled. * &#x60;Compression Deduplication&#x60; - The capacity saving function (compression and deduplication) is enabled. * &#x60;Disabled&#x60; - The capacity saving function (compression and deduplication) is disabled. | [optional] [readonly] [default to "N/A"]
+**DataReductionStatus** | Pointer to **string** | Status of the capacity saving function. * &#x60;N/A&#x60; - The capacity saving function is not available. * &#x60;Enabled&#x60; - The capacity saving function is enabled. * &#x60;Disabled&#x60; - The capacity saving function is disabled. * &#x60;Enabling&#x60; - The capacity saving function is being enabled. * &#x60;Rehydrating&#x60; - The capacity saving function is being disabled. * &#x60;Deleting&#x60; - The volumes for which the capacity saving function is enabled are being deleted. * &#x60;Failed&#x60; - An attempt to enable the capacity saving function failed. | [optional] [readonly] [default to "N/A"]
 **DriveType** | Pointer to **string** | Code indicating the drive type of the drive belonging to the volume. | [optional] [readonly] 
 **EmulationType** | Pointer to **string** | The volume emulation type or the volume status information. * &#x60;N/A&#x60; - Not available. * &#x60;NOT DEFINED&#x60; - The volume is not implemented. * &#x60;DEFINING&#x60; - The volume is being created. * &#x60;REMOVING&#x60; - The volume is being removed. * &#x60;OPEN-V&#x60; - To be provided by Hitachi. | [optional] [readonly] [default to "N/A"]
 **IsFullAllocationEnabled** | Pointer to **bool** | Whether pages are reserved by the FullAllocation functionality. | [optional] [readonly] 
@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 **NumOfPaths** | Pointer to **int64** | Number of paths set for the volume. | [optional] [readonly] 
 **ParityGroupIds** | Pointer to **[]string** |  | [optional] 
 **PoolId** | Pointer to **string** | ID of the pool with which the volume is associated. | [optional] [readonly] 
-**RaidLevel** | Pointer to **string** | RAID level for the volume. * &#x60;N/A&#x60; - Not available. * &#x60;RAID1&#x60; - RAID1. * &#x60;RAID5&#x60; - RAID5. * &#x60;RAID6&#x60; - RAID6. | [optional] [readonly] [default to "N/A"]
+**RaidLevel** | Pointer to **string** | RAID level for the volume. * &#x60;N/A&#x60; - RAID level is unknown or multiple RAID levels are being used. * &#x60;RAID1&#x60; - RAID1. * &#x60;RAID5&#x60; - RAID5. * &#x60;RAID6&#x60; - RAID6. | [optional] [readonly] [default to "N/A"]
 **RaidType** | Pointer to **string** | RAID type drive configuration. | [optional] [readonly] 
-**Status** | Pointer to **string** | Status information of the volume. * &#x60;N/A&#x60; - Not available. * &#x60;NML&#x60; - The volume is in normal status. * &#x60;BLK&#x60; - The volume is blocked. * &#x60;BSY&#x60; - The volume status is being changed. * &#x60;Unknown&#x60; - The volume status is unknown (not supported). | [optional] [readonly] [default to "N/A"]
-**Array** | Pointer to [**StorageHitachiArrayRelationship**](storage.HitachiArray.Relationship.md) |  | [optional] 
-**ParityGroups** | Pointer to [**[]StorageHitachiParityGroupRelationship**](storage.HitachiParityGroup.Relationship.md) | An array of relationships to storageHitachiParityGroup resources. | [optional] [readonly] 
-**Pool** | Pointer to [**StorageHitachiPoolRelationship**](storage.HitachiPool.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Status** | Pointer to **string** | Status information of the volume. * &#x60;N/A&#x60; - The volume status is not available. * &#x60;NML&#x60; - The volume is in normal status. * &#x60;BLK&#x60; - The volume is in blocked state. * &#x60;BSY&#x60; - The volume status is being changed. * &#x60;Unknown&#x60; - The volume status is unknown (not supported). | [optional] [readonly] [default to "N/A"]
+**Array** | Pointer to [**StorageHitachiArrayRelationship**](StorageHitachiArrayRelationship.md) |  | [optional] 
+**ParityGroups** | Pointer to [**[]StorageHitachiParityGroupRelationship**](StorageHitachiParityGroupRelationship.md) | An array of relationships to storageHitachiParityGroup resources. | [optional] [readonly] 
+**Pool** | Pointer to [**StorageHitachiPoolRelationship**](StorageHitachiPoolRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

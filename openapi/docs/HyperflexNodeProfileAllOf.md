@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.NodeProfile"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.NodeProfile"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.NodeProfile"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.NodeProfile"]
 **HxdpDataIp** | Pointer to **string** | IP address for storage data network (Controller VM interface). | [optional] 
 **HxdpMgmtIp** | Pointer to **string** | IP address for HyperFlex management network. | [optional] 
 **HypervisorControlIp** | Pointer to **string** | IP address for hypervisor control such as VM migration or pod management. | [optional] 
 **HypervisorDataIp** | Pointer to **string** | IP address for storage data network (Hypervisor interface). | [optional] 
 **HypervisorMgmtIp** | Pointer to **string** | IP address for Hypervisor management network. | [optional] 
-**AssignedServer** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
-**ClusterProfile** | Pointer to [**HyperflexClusterProfileRelationship**](hyperflex.ClusterProfile.Relationship.md) |  | [optional] 
+**AssignedServer** | Pointer to [**ComputePhysicalRelationship**](ComputePhysicalRelationship.md) |  | [optional] 
+**ClusterProfile** | Pointer to [**HyperflexClusterProfileRelationship**](HyperflexClusterProfileRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -200,20 +200,20 @@ HasHypervisorMgmtIp returns a boolean if a field has been set.
 
 ### GetAssignedServer
 
-`func (o *HyperflexNodeProfileAllOf) GetAssignedServer() ComputeRackUnitRelationship`
+`func (o *HyperflexNodeProfileAllOf) GetAssignedServer() ComputePhysicalRelationship`
 
 GetAssignedServer returns the AssignedServer field if non-nil, zero value otherwise.
 
 ### GetAssignedServerOk
 
-`func (o *HyperflexNodeProfileAllOf) GetAssignedServerOk() (*ComputeRackUnitRelationship, bool)`
+`func (o *HyperflexNodeProfileAllOf) GetAssignedServerOk() (*ComputePhysicalRelationship, bool)`
 
 GetAssignedServerOk returns a tuple with the AssignedServer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssignedServer
 
-`func (o *HyperflexNodeProfileAllOf) SetAssignedServer(v ComputeRackUnitRelationship)`
+`func (o *HyperflexNodeProfileAllOf) SetAssignedServer(v ComputePhysicalRelationship)`
 
 SetAssignedServer sets AssignedServer field to given value.
 

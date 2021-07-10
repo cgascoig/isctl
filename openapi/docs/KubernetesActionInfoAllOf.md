@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.ActionInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.ActionInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.ActionInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.ActionInfo"]
 **FailureReason** | Pointer to **string** | Description of failure i.e. derived from the workflow failure message. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the Action performed on a resource like VM, Disk etc. | [optional] [readonly] 
 **Status** | Pointer to **string** | Status of the Action like InProgress, Success, Failure etc. * &#x60;None&#x60; - A place holder for the default value. * &#x60;InProgress&#x60; - Action triggered on the resource is still running. * &#x60;Success&#x60; - Action triggered on the resource is completed successfully. * &#x60;Failure&#x60; - Action triggered on the resource is failed. | [optional] [readonly] [default to "None"]

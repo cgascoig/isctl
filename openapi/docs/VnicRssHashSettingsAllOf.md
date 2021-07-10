@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "vnic.RssHashSettings"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "vnic.RssHashSettings"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "vnic.RssHashSettings"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "vnic.RssHashSettings"]
 **Ipv4Hash** | Pointer to **bool** | When enabled, the IPv4 address is used for traffic distribution. | [optional] [default to true]
 **Ipv6ExtHash** | Pointer to **bool** | When enabled, the IPv6 extensions are used for traffic distribution. | [optional] [default to false]
 **Ipv6Hash** | Pointer to **bool** | When enabled, the IPv6 address is used for traffic distribution. | [optional] [default to true]

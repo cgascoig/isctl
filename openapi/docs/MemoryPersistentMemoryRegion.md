@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryRegion"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryRegion"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryRegion"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryRegion"]
 **FreeCapacity** | Pointer to **string** | Free capacity in GiB of the Persistent Memory Region. | [optional] [readonly] 
 **HealthState** | Pointer to **string** | Health state of the Persistent Memory Region. | [optional] [readonly] 
 **InterleavedSetId** | Pointer to **string** | ID of the Interleaved Set formed for this Persistent Memory Region. | [optional] [readonly] 
@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **SocketId** | Pointer to **string** | Socket ID of the Persistent Memory Region. | [optional] [readonly] 
 **SocketMemoryId** | Pointer to **string** | Socket Memory ID of the Persistent Memory Region. | [optional] [readonly] 
 **TotalCapacity** | Pointer to **string** | Total capacity in GiB of the Persistent Memory Region. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**MemoryPersistentMemoryConfiguration** | Pointer to [**MemoryPersistentMemoryConfigurationRelationship**](memory.PersistentMemoryConfiguration.Relationship.md) |  | [optional] 
-**PersistentMemoryNamespaces** | Pointer to [**[]MemoryPersistentMemoryNamespaceRelationship**](memory.PersistentMemoryNamespace.Relationship.md) | An array of relationships to memoryPersistentMemoryNamespace resources. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**MemoryPersistentMemoryConfiguration** | Pointer to [**MemoryPersistentMemoryConfigurationRelationship**](MemoryPersistentMemoryConfigurationRelationship.md) |  | [optional] 
+**PersistentMemoryNamespaces** | Pointer to [**[]MemoryPersistentMemoryNamespaceRelationship**](MemoryPersistentMemoryNamespaceRelationship.md) | An array of relationships to memoryPersistentMemoryNamespace resources. | [optional] [readonly] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

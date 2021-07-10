@@ -2,5 +2,7 @@
     "isGoSubmodule": true,
     "withGoCodegenComment": true,
     "hideGenerationTimestamp": true,
-    "structPrefix": true
+    "structPrefix": true,
+    "disallowAdditionalPropertiesIfNotPresent": false,
+    "useOneOfDiscriminatorLookup": true
 }

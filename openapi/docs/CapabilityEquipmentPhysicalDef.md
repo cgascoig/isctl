@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.EquipmentPhysicalDef"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.EquipmentPhysicalDef"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "capability.EquipmentPhysicalDef"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "capability.EquipmentPhysicalDef"]
 **Depth** | Pointer to **float32** | Depth information for a Switch/Fabric-Interconnect. | [optional] 
 **Height** | Pointer to **float32** | Height information for a Switch/Fabric-Interconnect. | [optional] 
 **MaxPower** | Pointer to **int64** | Max Power information for a Switch/Fabric-Interconnect. | [optional] 

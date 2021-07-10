@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.ConnectorPack"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.ConnectorPack"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.ConnectorPack"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.ConnectorPack"]
 **CompleteVersion** | Pointer to **string** | Complete version of the connector pack including build number. | [optional] [readonly] 
 **DependencyNames** | Pointer to **[]string** |  | [optional] 
 **DownloadedVersion** | Pointer to **string** | Version of the connector pack that is last downloaded successfully to UCSD. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the connector pack running on the UCSD. | [optional] [readonly] 
 **State** | Pointer to **string** | State of the connector pack whether it is enabled or disabled. | [optional] [readonly] 
 **Version** | Pointer to **string** | Version of the connector pack. | [optional] [readonly] 
-**Guid** | Pointer to [**IaasUcsdInfoRelationship**](iaas.UcsdInfo.Relationship.md) |  | [optional] 
+**Guid** | Pointer to [**IaasUcsdInfoRelationship**](IaasUcsdInfoRelationship.md) |  | [optional] 
 
 ## Methods
 

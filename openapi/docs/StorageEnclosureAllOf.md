@@ -4,23 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.Enclosure"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.Enclosure"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.Enclosure"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.Enclosure"]
 **ChassisId** | Pointer to **int64** | This represent the chassis-ID that houses the storage enclosure. | [optional] [readonly] 
 **Description** | Pointer to **string** | This represnets the description for the storage enclosure. | [optional] [readonly] 
 **EnclosureId** | Pointer to **int64** | This represnets the Identifier for the storage enclosure. | [optional] [readonly] 
 **NumSlots** | Pointer to **int64** | This represent the number of slots present in storage enclosure. | [optional] [readonly] 
-**Presence** | Pointer to **string** | This represent the availability of storage enclosure. | [optional] [readonly] 
 **ServerId** | Pointer to **int64** | This represent the server-ID that houses the storage enclosure. | [optional] [readonly] 
 **Type** | Pointer to **string** | This represent the type of storage enclosure. | [optional] [readonly] 
-**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
-**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
-**EnclosureDiskSlots** | Pointer to [**[]StorageEnclosureDiskSlotEpRelationship**](storage.EnclosureDiskSlotEp.Relationship.md) | An array of relationships to storageEnclosureDiskSlotEp resources. | [optional] [readonly] 
-**EnclosureDisks** | Pointer to [**[]StorageEnclosureDiskRelationship**](storage.EnclosureDisk.Relationship.md) | An array of relationships to storageEnclosureDisk resources. | [optional] [readonly] 
-**EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](equipment.Chassis.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**PhysicalDisks** | Pointer to [**[]StoragePhysicalDiskRelationship**](storage.PhysicalDisk.Relationship.md) | An array of relationships to storagePhysicalDisk resources. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](ComputeBladeRelationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](ComputeRackUnitRelationship.md) |  | [optional] 
+**EnclosureDiskSlots** | Pointer to [**[]StorageEnclosureDiskSlotEpRelationship**](StorageEnclosureDiskSlotEpRelationship.md) | An array of relationships to storageEnclosureDiskSlotEp resources. | [optional] [readonly] 
+**EnclosureDisks** | Pointer to [**[]StorageEnclosureDiskRelationship**](StorageEnclosureDiskRelationship.md) | An array of relationships to storageEnclosureDisk resources. | [optional] [readonly] 
+**EquipmentChassis** | Pointer to [**EquipmentChassisRelationship**](EquipmentChassisRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**PhysicalDisks** | Pointer to [**[]StoragePhysicalDiskRelationship**](StoragePhysicalDiskRelationship.md) | An array of relationships to storagePhysicalDisk resources. | [optional] [readonly] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -180,31 +179,6 @@ SetNumSlots sets NumSlots field to given value.
 `func (o *StorageEnclosureAllOf) HasNumSlots() bool`
 
 HasNumSlots returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *StorageEnclosureAllOf) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *StorageEnclosureAllOf) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *StorageEnclosureAllOf) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *StorageEnclosureAllOf) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetServerId
 

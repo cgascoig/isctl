@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.CertificateRequest"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.CertificateRequest"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iam.CertificateRequest"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iam.CertificateRequest"]
 **EmailAddress** | Pointer to **string** | User input email address, an optional part of the subject of the certificate request. | [optional] 
 **Name** | Pointer to **string** | Name of the certificate request. | [optional] 
 **Request** | Pointer to **string** | Generated certificate signing request (CSR) in PEM format. | [optional] [readonly] 
 **SelfSigned** | Pointer to **bool** | Whether the user wants the generated CSR to be self-signed by the appliance. | [optional] 
-**Subject** | Pointer to [**NullablePkixDistinguishedName**](pkix.DistinguishedName.md) |  | [optional] 
-**SubjectAlternateName** | Pointer to [**NullablePkixSubjectAlternateName**](pkix.SubjectAlternateName.md) |  | [optional] 
-**Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
-**Certificate** | Pointer to [**IamCertificateRelationship**](iam.Certificate.Relationship.md) |  | [optional] 
-**PrivateKeySpec** | Pointer to [**IamPrivateKeySpecRelationship**](iam.PrivateKeySpec.Relationship.md) |  | [optional] 
+**Subject** | Pointer to [**NullablePkixDistinguishedName**](PkixDistinguishedName.md) |  | [optional] 
+**SubjectAlternateName** | Pointer to [**NullablePkixSubjectAlternateName**](PkixSubjectAlternateName.md) |  | [optional] 
+**Account** | Pointer to [**IamAccountRelationship**](IamAccountRelationship.md) |  | [optional] 
+**Certificate** | Pointer to [**IamCertificateRelationship**](IamCertificateRelationship.md) |  | [optional] 
+**PrivateKeySpec** | Pointer to [**IamPrivateKeySpecRelationship**](IamPrivateKeySpecRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.CalicoConfig"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.CalicoConfig"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kubernetes.CalicoConfig"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kubernetes.CalicoConfig"]
 **IpVersion** | Pointer to **string** | IP version that can take on values v4 or v6. * &#x60;v4&#x60; - This refers to the IPv4 address. * &#x60;v6&#x60; - This refers to the IPv6 address. | [optional] [default to "v4"]
 **Mtu** | Pointer to **int64** | Workload interface maximum transmission unit (MTU). | [optional] 
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The having filter type. | 
+**Type** | **string** | The having filter type. | 
 
 ## Methods
 

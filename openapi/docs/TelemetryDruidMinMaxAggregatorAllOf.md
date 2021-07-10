@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Output name for the min/max value. | 
-**FieldName** | Pointer to **string** | Name of the metric column. | 
+**Name** | **string** | Output name for the min/max value. | 
+**FieldName** | **string** | Name of the metric column. | 
 
 ## Methods
 

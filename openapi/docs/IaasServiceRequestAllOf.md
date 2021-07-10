@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.ServiceRequest"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.ServiceRequest"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.ServiceRequest"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.ServiceRequest"]
 **Duration** | Pointer to **string** | Service request duration. | [optional] [readonly] 
 **InitiatingUser** | Pointer to **string** | Service Request initiating user. | [optional] [readonly] 
 **RequestEndTime** | Pointer to **string** | Service request end time. | [optional] [readonly] 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **RequestType** | Pointer to **string** | Service request type of an SR. | [optional] [readonly] 
 **Status** | Pointer to **string** | UCSD service request status. | [optional] [readonly] 
 **WorkflowName** | Pointer to **string** | Executed workflow name for an SR. | [optional] [readonly] 
-**WorkflowSteps** | Pointer to [**[]IaasWorkflowSteps**](iaas.WorkflowSteps.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**WorkflowSteps** | Pointer to [**[]IaasWorkflowSteps**](IaasWorkflowSteps.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

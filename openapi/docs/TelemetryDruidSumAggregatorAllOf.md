@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Output name for the summed value. | 
-**FieldName** | Pointer to **string** | Name of the metric column to sum over. | 
+**Name** | **string** | Output name for the summed value. | 
+**FieldName** | **string** | Name of the metric column to sum over. | 
 
 ## Methods
 

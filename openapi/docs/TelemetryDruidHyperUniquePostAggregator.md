@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The post-aggregator type. | 
+**Type** | **string** | The post-aggregator type. | 
 **Name** | Pointer to **string** | Output name for the post-aggregator. | [optional] 
 **FieldName** | Pointer to **string** | The name field value of the hyperUnique aggregator. | [optional] 
 

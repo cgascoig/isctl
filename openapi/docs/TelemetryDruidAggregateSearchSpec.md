@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | null | 
-**Value** | Pointer to **string** | The value to match.  If any part of a dimension value contains the value specified in this search query spec, regardless of case, a \&quot;match\&quot; occurs. | 
-**Values** | Pointer to **[]string** | The value to match.  If any part of a dimension value contains all of the values specified in this search query spec a \&quot;match\&quot; occurs. | 
+**Type** | **string** | null | 
+**Value** | **string** | The value to match.  If any part of a dimension value contains the value specified in this search query spec, regardless of case, a \&quot;match\&quot; occurs. | 
+**Values** | **[]string** | The value to match.  If any part of a dimension value contains all of the values specified in this search query spec a \&quot;match\&quot; occurs. | 
 **CaseSensitive** | Pointer to **bool** | Whether or not search is case sensitive | [optional] 
-**Regex** | Pointer to **string** | The regular expression to match.  If any part of a dimension value contains the pattern specified in this search query a \&quot;match\&quot; occurs. | 
+**Regex** | **string** | The regular expression to match.  If any part of a dimension value contains the pattern specified in this search query a \&quot;match\&quot; occurs. | 
 
 ## Methods
 

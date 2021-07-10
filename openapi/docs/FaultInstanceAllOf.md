@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fault.Instance"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fault.Instance"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fault.Instance"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fault.Instance"]
 **Acknowledged** | Pointer to **string** | The user acknowledgement state of the fault. | [optional] [readonly] 
 **AffectedDn** | Pointer to **string** | The Distinguished Name of the Managed object which was affected. | [optional] [readonly] 
 **AffectedMoId** | Pointer to **string** | Managed object Id which was affected. | [optional] [readonly] 
@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **PreviousSeverity** | Pointer to **string** | The Severity of the fault prior to user update. | [optional] [readonly] 
 **Rule** | Pointer to **string** | The rule that is responsible for generation of the fault. | [optional] [readonly] 
 **Severity** | Pointer to **string** | Severity of the fault found. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

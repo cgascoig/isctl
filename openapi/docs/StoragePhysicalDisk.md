@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.PhysicalDisk"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.PhysicalDisk"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.PhysicalDisk"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.PhysicalDisk"]
 **BlockSize** | Pointer to **string** | The block size of the physical disk in bytes. | [optional] [readonly] 
 **Bootable** | Pointer to **string** | This field identifies the disk drive as bootable if set to true. | [optional] [readonly] 
 **ConfigurationCheckpoint** | Pointer to **string** | The current configuration checkpoint of the physical disk. | [optional] [readonly] 
@@ -21,11 +21,10 @@ Name | Type | Description | Notes
 **LinkState** | Pointer to **string** | The current link state of the physical disk. | [optional] [readonly] 
 **NumBlocks** | Pointer to **string** | The number of blocks present on the physical disk. | [optional] [readonly] 
 **OperPowerState** | Pointer to **string** | Operational power of the physical disk. | [optional] [readonly] 
-**OperQualifierReason** | Pointer to **string** | This reason for the operational status of the disk. | [optional] [readonly] 
+**OperQualifierReason** | Pointer to **string** | For certain states, indicates the reason why the operState is in that state. | [optional] [readonly] 
 **Operability** | Pointer to **string** | This field identifies the disk operability of the disk. | [optional] [readonly] 
 **PhysicalBlockSize** | Pointer to **string** | The block size of the installed physical disk. | [optional] [readonly] 
 **Pid** | Pointer to **string** | This field identifies the Product ID for physicalDisk. | [optional] [readonly] 
-**Presence** | Pointer to **string** | The presence state of the physical disk. | [optional] [readonly] 
 **Protocol** | Pointer to **string** | This field identifies the disk protocol used for communication. | [optional] [readonly] 
 **RawSize** | Pointer to **string** | The raw size of the physical disk in MB. | [optional] [readonly] 
 **Secured** | Pointer to **string** | This field identifies whether the disk is encrypted. | [optional] 
@@ -33,14 +32,14 @@ Name | Type | Description | Notes
 **Thermal** | Pointer to **string** | Thermal state of the physical disk. | [optional] [readonly] 
 **Type** | Pointer to **string** | This field identifies the type of the physical disk. | [optional] [readonly] 
 **VariantType** | Pointer to **string** | The variant type of the physical disk. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](equipment.LocatorLed.Relationship.md) |  | [optional] 
-**PhysicalDiskExtensions** | Pointer to [**[]StoragePhysicalDiskExtensionRelationship**](storage.PhysicalDiskExtension.Relationship.md) | An array of relationships to storagePhysicalDiskExtension resources. | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**RunningFirmware** | Pointer to [**[]FirmwareRunningFirmwareRelationship**](firmware.RunningFirmware.Relationship.md) | An array of relationships to firmwareRunningFirmware resources. | [optional] [readonly] 
-**SasPorts** | Pointer to [**[]StorageSasPortRelationship**](storage.SasPort.Relationship.md) | An array of relationships to storageSasPort resources. | [optional] [readonly] 
-**StorageController** | Pointer to [**StorageControllerRelationship**](storage.Controller.Relationship.md) |  | [optional] 
-**StorageEnclosure** | Pointer to [**StorageEnclosureRelationship**](storage.Enclosure.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**LocatorLed** | Pointer to [**EquipmentLocatorLedRelationship**](EquipmentLocatorLedRelationship.md) |  | [optional] 
+**PhysicalDiskExtensions** | Pointer to [**[]StoragePhysicalDiskExtensionRelationship**](StoragePhysicalDiskExtensionRelationship.md) | An array of relationships to storagePhysicalDiskExtension resources. | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**RunningFirmware** | Pointer to [**[]FirmwareRunningFirmwareRelationship**](FirmwareRunningFirmwareRelationship.md) | An array of relationships to firmwareRunningFirmware resources. | [optional] [readonly] 
+**SasPorts** | Pointer to [**[]StorageSasPortRelationship**](StorageSasPortRelationship.md) | An array of relationships to storageSasPort resources. | [optional] [readonly] 
+**StorageController** | Pointer to [**StorageControllerRelationship**](StorageControllerRelationship.md) |  | [optional] 
+**StorageEnclosure** | Pointer to [**StorageEnclosureRelationship**](StorageEnclosureRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -575,31 +574,6 @@ SetPid sets Pid field to given value.
 `func (o *StoragePhysicalDisk) HasPid() bool`
 
 HasPid returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *StoragePhysicalDisk) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *StoragePhysicalDisk) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *StoragePhysicalDisk) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *StoragePhysicalDisk) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetProtocol
 

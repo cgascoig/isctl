@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The post-aggregator type. | 
+**Type** | **string** | The post-aggregator type. | 
 
 ## Methods
 

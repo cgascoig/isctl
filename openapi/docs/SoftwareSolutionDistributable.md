@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "software.SolutionDistributable"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "software.SolutionDistributable"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "software.SolutionDistributable"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "software.SolutionDistributable"]
 **FilePath** | Pointer to **string** | The path of the file in S3/minio bucket. | [optional] [readonly] 
 **SolutionName** | Pointer to **string** | The name of the solution in which the image belongs. | [optional] 
 **SubType** | Pointer to **string** | The type of the file like OS image, Script etc. * &#x60;osimage&#x60; - The solution OS image for deployment. * &#x60;script&#x60; - The Python script for the solution VM configuration and deployment. | [optional] [default to "osimage"]
-**Var0Version** | Pointer to [**KubernetesVersionRelationship**](kubernetes.Version.Relationship.md) |  | [optional] 
-**Var1Version** | Pointer to [**KubernetesVersionRelationship**](kubernetes.Version.Relationship.md) |  | [optional] 
-**Var2Version** | Pointer to [**KubernetesVersionRelationship**](kubernetes.Version.Relationship.md) |  | [optional] 
-**Var3Version** | Pointer to [**KubernetesVersionRelationship**](kubernetes.Version.Relationship.md) |  | [optional] 
-**Catalog** | Pointer to [**SoftwarerepositoryCatalogRelationship**](softwarerepository.Catalog.Relationship.md) |  | [optional] 
+**Var0Version** | Pointer to [**KubernetesVersionRelationship**](KubernetesVersionRelationship.md) |  | [optional] 
+**Var1Version** | Pointer to [**KubernetesVersionRelationship**](KubernetesVersionRelationship.md) |  | [optional] 
+**Var2Version** | Pointer to [**KubernetesVersionRelationship**](KubernetesVersionRelationship.md) |  | [optional] 
+**Var3Version** | Pointer to [**KubernetesVersionRelationship**](KubernetesVersionRelationship.md) |  | [optional] 
+**Catalog** | Pointer to [**SoftwarerepositoryCatalogRelationship**](SoftwarerepositoryCatalogRelationship.md) |  | [optional] 
 
 ## Methods
 

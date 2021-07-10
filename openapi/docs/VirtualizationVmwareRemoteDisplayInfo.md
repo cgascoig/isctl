@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareRemoteDisplayInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareRemoteDisplayInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.VmwareRemoteDisplayInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.VmwareRemoteDisplayInfo"]
 **RemoteDisplayPassword** | Pointer to **string** | The password used for remote access. It is stored base64 encoded. | [optional] 
 **RemoteDisplayVncKey** | Pointer to **string** | The access key for the remote display, potentially a long string. | [optional] 
 **RemoteDisplayVncPort** | Pointer to **int64** | Applies only when remoteDisplayvnc is enabled. | [optional] 

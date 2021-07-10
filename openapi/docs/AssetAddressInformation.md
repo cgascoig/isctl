@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.AddressInformation"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.AddressInformation"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "asset.AddressInformation"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "asset.AddressInformation"]
 **Address1** | Pointer to **string** | Address Line one of the address information. example \&quot;PO BOX 641570\&quot;. | [optional] [readonly] 
 **Address2** | Pointer to **string** | Address Line two of the address information. example \&quot;Cisco Systems\&quot;. | [optional] [readonly] 
 **Address3** | Pointer to **string** | Address Line three of the address information. example \&quot;Cisco Systems\&quot;. | [optional] [readonly] 

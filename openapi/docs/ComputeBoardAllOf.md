@@ -4,27 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.Board"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.Board"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "compute.Board"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "compute.Board"]
 **BoardId** | Pointer to **int64** | Unique identifier of the mother board present in the server. | [optional] [readonly] 
 **CpuTypeController** | Pointer to **string** | The type of central processing unit on the mother board. | [optional] [readonly] 
 **OperPowerState** | Pointer to **string** | Current power state of the mother board of the server. | [optional] [readonly] 
-**Presence** | Pointer to **string** | Identifies the presence of the mother board of the server. | [optional] [readonly] 
-**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
-**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
-**EquipmentTpms** | Pointer to [**[]EquipmentTpmRelationship**](equipment.Tpm.Relationship.md) | An array of relationships to equipmentTpm resources. | [optional] [readonly] 
-**GraphicsCards** | Pointer to [**[]GraphicsCardRelationship**](graphics.Card.Relationship.md) | An array of relationships to graphicsCard resources. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**MemoryArrays** | Pointer to [**[]MemoryArrayRelationship**](memory.Array.Relationship.md) | An array of relationships to memoryArray resources. | [optional] [readonly] 
-**PciCoprocessorCards** | Pointer to [**[]PciCoprocessorCardRelationship**](pci.CoprocessorCard.Relationship.md) | An array of relationships to pciCoprocessorCard resources. | [optional] [readonly] 
-**PciSwitch** | Pointer to [**[]PciSwitchRelationship**](pci.Switch.Relationship.md) | An array of relationships to pciSwitch resources. | [optional] [readonly] 
-**PersistentMemoryConfiguration** | Pointer to [**MemoryPersistentMemoryConfigurationRelationship**](memory.PersistentMemoryConfiguration.Relationship.md) |  | [optional] 
-**Processors** | Pointer to [**[]ProcessorUnitRelationship**](processor.Unit.Relationship.md) | An array of relationships to processorUnit resources. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**SecurityUnits** | Pointer to [**[]SecurityUnitRelationship**](security.Unit.Relationship.md) | An array of relationships to securityUnit resources. | [optional] [readonly] 
-**StorageControllers** | Pointer to [**[]StorageControllerRelationship**](storage.Controller.Relationship.md) | An array of relationships to storageController resources. | [optional] [readonly] 
-**StorageFlexFlashControllers** | Pointer to [**[]StorageFlexFlashControllerRelationship**](storage.FlexFlashController.Relationship.md) | An array of relationships to storageFlexFlashController resources. | [optional] [readonly] 
-**StorageFlexUtilControllers** | Pointer to [**[]StorageFlexUtilControllerRelationship**](storage.FlexUtilController.Relationship.md) | An array of relationships to storageFlexUtilController resources. | [optional] [readonly] 
+**OperReason** | Pointer to **[]string** |  | [optional] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](ComputeBladeRelationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](ComputeRackUnitRelationship.md) |  | [optional] 
+**EquipmentTpms** | Pointer to [**[]EquipmentTpmRelationship**](EquipmentTpmRelationship.md) | An array of relationships to equipmentTpm resources. | [optional] [readonly] 
+**GraphicsCards** | Pointer to [**[]GraphicsCardRelationship**](GraphicsCardRelationship.md) | An array of relationships to graphicsCard resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**MemoryArrays** | Pointer to [**[]MemoryArrayRelationship**](MemoryArrayRelationship.md) | An array of relationships to memoryArray resources. | [optional] [readonly] 
+**PciCoprocessorCards** | Pointer to [**[]PciCoprocessorCardRelationship**](PciCoprocessorCardRelationship.md) | An array of relationships to pciCoprocessorCard resources. | [optional] [readonly] 
+**PciSwitch** | Pointer to [**[]PciSwitchRelationship**](PciSwitchRelationship.md) | An array of relationships to pciSwitch resources. | [optional] [readonly] 
+**PersistentMemoryConfiguration** | Pointer to [**MemoryPersistentMemoryConfigurationRelationship**](MemoryPersistentMemoryConfigurationRelationship.md) |  | [optional] 
+**Processors** | Pointer to [**[]ProcessorUnitRelationship**](ProcessorUnitRelationship.md) | An array of relationships to processorUnit resources. | [optional] [readonly] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**SecurityUnits** | Pointer to [**[]SecurityUnitRelationship**](SecurityUnitRelationship.md) | An array of relationships to securityUnit resources. | [optional] [readonly] 
+**StorageControllers** | Pointer to [**[]StorageControllerRelationship**](StorageControllerRelationship.md) | An array of relationships to storageController resources. | [optional] [readonly] 
+**StorageFlexFlashControllers** | Pointer to [**[]StorageFlexFlashControllerRelationship**](StorageFlexFlashControllerRelationship.md) | An array of relationships to storageFlexFlashController resources. | [optional] [readonly] 
+**StorageFlexUtilControllers** | Pointer to [**[]StorageFlexUtilControllerRelationship**](StorageFlexUtilControllerRelationship.md) | An array of relationships to storageFlexUtilController resources. | [optional] [readonly] 
 
 ## Methods
 
@@ -160,31 +160,41 @@ SetOperPowerState sets OperPowerState field to given value.
 
 HasOperPowerState returns a boolean if a field has been set.
 
-### GetPresence
+### GetOperReason
 
-`func (o *ComputeBoardAllOf) GetPresence() string`
+`func (o *ComputeBoardAllOf) GetOperReason() []string`
 
-GetPresence returns the Presence field if non-nil, zero value otherwise.
+GetOperReason returns the OperReason field if non-nil, zero value otherwise.
 
-### GetPresenceOk
+### GetOperReasonOk
 
-`func (o *ComputeBoardAllOf) GetPresenceOk() (*string, bool)`
+`func (o *ComputeBoardAllOf) GetOperReasonOk() (*[]string, bool)`
 
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
+GetOperReasonOk returns a tuple with the OperReason field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPresence
+### SetOperReason
 
-`func (o *ComputeBoardAllOf) SetPresence(v string)`
+`func (o *ComputeBoardAllOf) SetOperReason(v []string)`
 
-SetPresence sets Presence field to given value.
+SetOperReason sets OperReason field to given value.
 
-### HasPresence
+### HasOperReason
 
-`func (o *ComputeBoardAllOf) HasPresence() bool`
+`func (o *ComputeBoardAllOf) HasOperReason() bool`
 
-HasPresence returns a boolean if a field has been set.
+HasOperReason returns a boolean if a field has been set.
 
+### SetOperReasonNil
+
+`func (o *ComputeBoardAllOf) SetOperReasonNil(b bool)`
+
+ SetOperReasonNil sets the value for OperReason to be an explicit nil
+
+### UnsetOperReason
+`func (o *ComputeBoardAllOf) UnsetOperReason()`
+
+UnsetOperReason ensures that no value is present for OperReason, not even an explicit nil
 ### GetComputeBlade
 
 `func (o *ComputeBoardAllOf) GetComputeBlade() ComputeBladeRelationship`

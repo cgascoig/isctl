@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Dimension** | Pointer to **string** | The name of a dimension. | 
-**Value** | Pointer to **string** | The value of a dimension. | 
+**Dimension** | **string** | The name of a dimension. | 
+**Value** | **string** | The value of a dimension. | 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "connector.StartStreamFromDevice"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "connector.StartStreamFromDevice"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "connector.StartStreamFromDevice"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "connector.StartStreamFromDevice"]
 **MemberId** | Pointer to **string** | The asset.ClusterMember member identity that is opening this stream. | [optional] 
 **MemberStream** | Pointer to **bool** | The stream is to be started against the cluster member. | [optional] 
 **StreamConfig** | Pointer to **interface{}** | Any extra configuration needed to open/identify a stream. | [optional] 

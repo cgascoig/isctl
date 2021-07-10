@@ -4,19 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niatelemetry.Lc"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niatelemetry.Lc"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niatelemetry.Lc"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niatelemetry.Lc"]
 **Description** | Pointer to **string** | Description of the line cards present. | [optional] 
 **Dn** | Pointer to **string** | Dn value for the line cards present. | [optional] 
 **HardwareVersion** | Pointer to **string** | Hardware version of the line cards present. | [optional] 
 **Model** | Pointer to **string** | Model of the line cards present. | [optional] 
+**NodeId** | Pointer to **int64** | Node Id of the line card present. | [optional] 
 **OperationalState** | Pointer to **string** | Opretaional state of the line cards present. | [optional] 
 **PowerState** | Pointer to **string** | Power state of the line cards present. | [optional] 
 **RecordType** | Pointer to **string** | Type of record DCNM / APIC / SE. This determines the type of platform where inventory was collected. | [optional] 
 **RecordVersion** | Pointer to **string** | Version of record being pushed. This determines what was the API version for data available from the device. | [optional] 
 **RedundancyState** | Pointer to **string** | Redundancy state of the line cards present. | [optional] 
+**SerialNumber** | Pointer to **string** | Serial number of the line card present. | [optional] 
 **SiteName** | Pointer to **string** | The Site name represents an APIC cluster. Service Engine can onboard multiple APIC clusters / sites. | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Vid** | Pointer to **string** | VID for the line card in the inventory. | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -177,6 +180,31 @@ SetModel sets Model field to given value.
 
 HasModel returns a boolean if a field has been set.
 
+### GetNodeId
+
+`func (o *NiatelemetryLcAllOf) GetNodeId() int64`
+
+GetNodeId returns the NodeId field if non-nil, zero value otherwise.
+
+### GetNodeIdOk
+
+`func (o *NiatelemetryLcAllOf) GetNodeIdOk() (*int64, bool)`
+
+GetNodeIdOk returns a tuple with the NodeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNodeId
+
+`func (o *NiatelemetryLcAllOf) SetNodeId(v int64)`
+
+SetNodeId sets NodeId field to given value.
+
+### HasNodeId
+
+`func (o *NiatelemetryLcAllOf) HasNodeId() bool`
+
+HasNodeId returns a boolean if a field has been set.
+
 ### GetOperationalState
 
 `func (o *NiatelemetryLcAllOf) GetOperationalState() string`
@@ -302,6 +330,31 @@ SetRedundancyState sets RedundancyState field to given value.
 
 HasRedundancyState returns a boolean if a field has been set.
 
+### GetSerialNumber
+
+`func (o *NiatelemetryLcAllOf) GetSerialNumber() string`
+
+GetSerialNumber returns the SerialNumber field if non-nil, zero value otherwise.
+
+### GetSerialNumberOk
+
+`func (o *NiatelemetryLcAllOf) GetSerialNumberOk() (*string, bool)`
+
+GetSerialNumberOk returns a tuple with the SerialNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSerialNumber
+
+`func (o *NiatelemetryLcAllOf) SetSerialNumber(v string)`
+
+SetSerialNumber sets SerialNumber field to given value.
+
+### HasSerialNumber
+
+`func (o *NiatelemetryLcAllOf) HasSerialNumber() bool`
+
+HasSerialNumber returns a boolean if a field has been set.
+
 ### GetSiteName
 
 `func (o *NiatelemetryLcAllOf) GetSiteName() string`
@@ -326,6 +379,31 @@ SetSiteName sets SiteName field to given value.
 `func (o *NiatelemetryLcAllOf) HasSiteName() bool`
 
 HasSiteName returns a boolean if a field has been set.
+
+### GetVid
+
+`func (o *NiatelemetryLcAllOf) GetVid() string`
+
+GetVid returns the Vid field if non-nil, zero value otherwise.
+
+### GetVidOk
+
+`func (o *NiatelemetryLcAllOf) GetVidOk() (*string, bool)`
+
+GetVidOk returns a tuple with the Vid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVid
+
+`func (o *NiatelemetryLcAllOf) SetVid(v string)`
+
+SetVid sets Vid field to given value.
+
+### HasVid
+
+`func (o *NiatelemetryLcAllOf) HasVid() bool`
+
+HasVid returns a boolean if a field has been set.
 
 ### GetRegisteredDevice
 

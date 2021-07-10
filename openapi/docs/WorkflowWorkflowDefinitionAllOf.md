@@ -4,27 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.WorkflowDefinition"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.WorkflowDefinition"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.WorkflowDefinition"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.WorkflowDefinition"]
 **DefaultVersion** | Pointer to **bool** | When true this will be the workflow version that is used when a specific workflow definition version is not specified. The default version is used when user executes a workflow without specifying a version or when workflow is included in another workflow without a specific version. The very first workflow definition created with a name will be set as the default version, after that user can explicitly set any version of the workflow definition as the default version. | [optional] 
 **Description** | Pointer to **string** | The description for this workflow. | [optional] 
-**InputDefinition** | Pointer to [**[]WorkflowBaseDataType**](workflow.BaseDataType.md) |  | [optional] 
-**InputParameterSet** | Pointer to [**[]WorkflowParameterSet**](workflow.ParameterSet.md) |  | [optional] 
+**InputDefinition** | Pointer to [**[]WorkflowBaseDataType**](WorkflowBaseDataType.md) |  | [optional] 
+**InputParameterSet** | Pointer to [**[]WorkflowParameterSet**](WorkflowParameterSet.md) |  | [optional] 
 **Label** | Pointer to **string** | A user friendly short name to identify the workflow. Label can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.), colon (:), space ( ) or an underscore (_). | [optional] 
 **LicenseEntitlement** | Pointer to **string** | License entitlement required to run this workflow. It is calculated based on the highest license requirement of all its tasks. * &#x60;Base&#x60; - Base as a License type. It is default license type. * &#x60;Essential&#x60; - Essential as a License type. * &#x60;Standard&#x60; - Standard as a License type. * &#x60;Advantage&#x60; - Advantage as a License type. * &#x60;Premier&#x60; - Premier as a License type. * &#x60;IWO-Essential&#x60; - IWO-Essential as a License type. * &#x60;IWO-Advantage&#x60; - IWO-Advantage as a License type. * &#x60;IWO-Premier&#x60; - IWO-Premier as a License type. | [optional] [readonly] [default to "Base"]
 **MaxTaskCount** | Pointer to **int64** | The maximum number of tasks that can be executed on this workflow. | [optional] [readonly] 
 **MaxWorkerTaskCount** | Pointer to **int64** | The maximum number of external (worker) tasks that can be executed on this workflow. | [optional] [readonly] 
 **Name** | Pointer to **string** | The name for this workflow. You can have multiple versions of the workflow with the same name. Name can only contain letters (a-z, A-Z), numbers (0-9), hyphen (-), period (.) or an underscore (_). | [optional] 
-**OutputDefinition** | Pointer to [**[]WorkflowBaseDataType**](workflow.BaseDataType.md) |  | [optional] 
-**OutputParameters** | Pointer to **interface{}** | The output mappings for the workflow. The outputs for worflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is &#39;${Source.output.JsonPath}&#39;. &#39;Source&#39; is the name of the task within the workflow. You can map any task output to a workflow output as long as the types are compatible. Following this is JSON path expression to extract JSON fragment from source&#39;s output. | [optional] 
-**Properties** | Pointer to [**NullableWorkflowWorkflowProperties**](workflow.WorkflowProperties.md) |  | [optional] 
-**Tasks** | Pointer to [**[]WorkflowWorkflowTask**](workflow.WorkflowTask.md) |  | [optional] 
-**UiInputFilters** | Pointer to [**[]WorkflowUiInputFilter**](workflow.UiInputFilter.md) |  | [optional] 
+**OutputDefinition** | Pointer to [**[]WorkflowBaseDataType**](WorkflowBaseDataType.md) |  | [optional] 
+**OutputParameters** | Pointer to **interface{}** | The output mappings for the workflow. The outputs for workflows will generally be task output variables that we want to export out at the end of the workflow. The format to specify the mapping is &#39;${Source.output.JsonPath}&#39;, where &#39;Source&#39; is the name of the task within the workflow. Any task output can be mapped to a workflow output as long as the types are compatible. It&#39;s followed by a JSON path expression to extract JSON fragment from source&#39;s output. | [optional] 
+**Properties** | Pointer to [**NullableWorkflowWorkflowProperties**](WorkflowWorkflowProperties.md) |  | [optional] 
+**Tasks** | Pointer to [**[]WorkflowWorkflowTask**](WorkflowWorkflowTask.md) |  | [optional] 
+**UiInputFilters** | Pointer to [**[]WorkflowUiInputFilter**](WorkflowUiInputFilter.md) |  | [optional] 
 **UiRenderingData** | Pointer to **interface{}** | This will hold the data needed for workflow to be rendered in the user interface. | [optional] 
-**ValidationInformation** | Pointer to [**NullableWorkflowValidationInformation**](workflow.ValidationInformation.md) |  | [optional] 
+**ValidationInformation** | Pointer to [**NullableWorkflowValidationInformation**](WorkflowValidationInformation.md) |  | [optional] 
 **Version** | Pointer to **int64** | The version of the workflow to support multiple versions. | [optional] [default to 1]
-**Catalog** | Pointer to [**WorkflowCatalogRelationship**](workflow.Catalog.Relationship.md) |  | [optional] 
-**WorkflowMetadata** | Pointer to [**WorkflowWorkflowMetadataRelationship**](workflow.WorkflowMetadata.Relationship.md) |  | [optional] 
+**Catalog** | Pointer to [**WorkflowCatalogRelationship**](WorkflowCatalogRelationship.md) |  | [optional] 
+**ClonedFrom** | Pointer to [**WorkflowWorkflowDefinitionRelationship**](WorkflowWorkflowDefinitionRelationship.md) |  | [optional] 
+**WorkflowMetadata** | Pointer to [**WorkflowWorkflowMetadataRelationship**](WorkflowWorkflowMetadataRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -624,6 +625,31 @@ SetCatalog sets Catalog field to given value.
 `func (o *WorkflowWorkflowDefinitionAllOf) HasCatalog() bool`
 
 HasCatalog returns a boolean if a field has been set.
+
+### GetClonedFrom
+
+`func (o *WorkflowWorkflowDefinitionAllOf) GetClonedFrom() WorkflowWorkflowDefinitionRelationship`
+
+GetClonedFrom returns the ClonedFrom field if non-nil, zero value otherwise.
+
+### GetClonedFromOk
+
+`func (o *WorkflowWorkflowDefinitionAllOf) GetClonedFromOk() (*WorkflowWorkflowDefinitionRelationship, bool)`
+
+GetClonedFromOk returns a tuple with the ClonedFrom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClonedFrom
+
+`func (o *WorkflowWorkflowDefinitionAllOf) SetClonedFrom(v WorkflowWorkflowDefinitionRelationship)`
+
+SetClonedFrom sets ClonedFrom field to given value.
+
+### HasClonedFrom
+
+`func (o *WorkflowWorkflowDefinitionAllOf) HasClonedFrom() bool`
+
+HasClonedFrom returns a boolean if a field has been set.
 
 ### GetWorkflowMetadata
 

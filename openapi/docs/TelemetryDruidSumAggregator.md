@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The aggregator type. | 
-**Name** | Pointer to **string** | Output name for the summed value. | 
-**FieldName** | Pointer to **string** | Name of the metric column to sum over. | 
+**Type** | **string** | The aggregator type. | 
+**Name** | **string** | Output name for the summed value. | 
+**FieldName** | **string** | Name of the metric column to sum over. | 
 
 ## Methods
 

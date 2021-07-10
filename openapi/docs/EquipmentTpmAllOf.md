@@ -4,18 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "equipment.Tpm"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "equipment.Tpm"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "equipment.Tpm"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "equipment.Tpm"]
 **ActivationStatus** | Pointer to **string** | Identifies the activation status of the TPM. | [optional] [readonly] 
 **AdminState** | Pointer to **string** | Identifies the admin configured state of the TPM. | [optional] [readonly] 
 **FirmwareVersion** | Pointer to **string** | Firmware Version of the Trusted Platform Module. | [optional] 
 **Ownership** | Pointer to **string** | Identifies the ownership information of the TPM. | [optional] [readonly] 
-**Presence** | Pointer to **string** | Identifies the presence of the trusted platform module. | [optional] [readonly] 
 **TpmId** | Pointer to **int64** | Enter  the ID of the trusted platform module. | [optional] [readonly] 
 **Version** | Pointer to **string** | Identifies the version of the Trusted Platform Module. | [optional] [readonly] 
-**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](ComputeBoardRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -175,31 +174,6 @@ SetOwnership sets Ownership field to given value.
 `func (o *EquipmentTpmAllOf) HasOwnership() bool`
 
 HasOwnership returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *EquipmentTpmAllOf) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *EquipmentTpmAllOf) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *EquipmentTpmAllOf) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *EquipmentTpmAllOf) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetTpmId
 

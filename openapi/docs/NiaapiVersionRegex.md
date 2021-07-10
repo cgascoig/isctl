@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niaapi.VersionRegex"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niaapi.VersionRegex"]
-**Apic** | Pointer to [**NullableNiaapiVersionRegexPlatform**](niaapi.VersionRegexPlatform.md) |  | [optional] 
-**Dcnm** | Pointer to [**NullableNiaapiVersionRegexPlatform**](niaapi.VersionRegexPlatform.md) |  | [optional] 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "niaapi.VersionRegex"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "niaapi.VersionRegex"]
+**Apic** | Pointer to [**NullableNiaapiVersionRegexPlatform**](NiaapiVersionRegexPlatform.md) |  | [optional] 
+**Dcnm** | Pointer to [**NullableNiaapiVersionRegexPlatform**](NiaapiVersionRegexPlatform.md) |  | [optional] 
 **Version** | Pointer to **string** | Version number for the Version Regex data, also used as identity. | [optional] 
 
 ## Methods

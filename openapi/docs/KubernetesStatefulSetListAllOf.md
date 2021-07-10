@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Count** | Pointer to **int32** | The total number of &#39;kubernetes.StatefulSet&#39; resources matching the request, accross all pages. The &#39;Count&#39; attribute is included when the HTTP GET request includes the &#39;$inlinecount&#39; parameter. | [optional] 
-**Results** | Pointer to [**[]KubernetesStatefulSet**](kubernetes.StatefulSet.md) | The array of &#39;kubernetes.StatefulSet&#39; resources matching the request. | [optional] 
+**Results** | Pointer to [**[]KubernetesStatefulSet**](KubernetesStatefulSet.md) | The array of &#39;kubernetes.StatefulSet&#39; resources matching the request. | [optional] 
 
 ## Methods
 

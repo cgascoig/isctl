@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "network.ElementSummary"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "network.ElementSummary"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "network.ElementSummary"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "network.ElementSummary"]
 **AdminEvacState** | Pointer to **string** | Administratively configured state of Fabric Evacuation feature, for this switch. | [optional] [readonly] 
 **AdminInbandInterfaceState** | Pointer to **string** | The administrative state of the network Element inband management interface. | [optional] [readonly] 
-**AlarmSummary** | Pointer to [**NullableComputeAlarmSummary**](compute.AlarmSummary.md) |  | [optional] 
+**AlarmSummary** | Pointer to [**NullableComputeAlarmSummary**](ComputeAlarmSummary.md) |  | [optional] 
 **AvailableMemory** | Pointer to **string** | Available memory (un-used) on this switch platform. | [optional] [readonly] 
 **DeviceMoId** | Pointer to **string** | The database identifier of the registered device of an object. | [optional] [readonly] 
 **Dn** | Pointer to **string** | The Distinguished Name unambiguously identifies an object in the system. | [optional] [readonly] 
@@ -45,15 +45,17 @@ Name | Type | Description | Notes
 **OutOfBandIpv6Gateway** | Pointer to **string** | The default IPv6 gateway of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandIpv6Prefix** | Pointer to **string** | The network mask of the network Element out-of-band management interface. | [optional] [readonly] 
 **OutOfBandMac** | Pointer to **string** | The MAC address of the network Element out-of-band management interface. | [optional] [readonly] 
+**Presence** | Pointer to **string** | This field identifies the presence (equipped) or absence of the given component. | [optional] [readonly] 
 **Revision** | Pointer to **string** | This field identifies the revision of the given component. | [optional] [readonly] 
 **Rn** | Pointer to **string** | The Relative Name uniquely identifies an object within a given context. | [optional] [readonly] 
 **Serial** | Pointer to **string** | This field identifies the serial of the given component. | [optional] [readonly] 
 **SourceObjectType** | Pointer to **string** | The source object type of this view MO. | [optional] [readonly] 
 **SwitchId** | Pointer to **string** | The Switch Id of the network Element. | [optional] [readonly] 
+**Thermal** | Pointer to **string** | The Thermal status of the fabric interconnect. * &#x60;unknown&#x60; - The default state of the sensor (in case no data is received). * &#x60;ok&#x60; - State of the sensor indicating the sensor&#39;s temperature range is okay. * &#x60;upper-non-recoverable&#x60; - State of the sensor indicating that the temperature is extremely high above normal range. * &#x60;upper-critical&#x60; - State of the sensor indicating that the temperature is above normal range. * &#x60;upper-non-critical&#x60; - State of the sensor indicating that the temperature is a little above the normal range. * &#x60;lower-non-critical&#x60; - State of the sensor indicating that the temperature is a little below the normal range. * &#x60;lower-critical&#x60; - State of the sensor indicating that the temperature is below normal range. * &#x60;lower-non-recoverable&#x60; - State of the sensor indicating that the temperature is extremely below normal range. | [optional] [readonly] [default to "unknown"]
 **TotalMemory** | Pointer to **int64** | Total available memory on this switch platform. | [optional] [readonly] 
 **Vendor** | Pointer to **string** | This field identifies the vendor of the given component. | [optional] [readonly] 
 **Version** | Pointer to **string** | Version holds the firmware version related information. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -1099,6 +1101,31 @@ SetOutOfBandMac sets OutOfBandMac field to given value.
 
 HasOutOfBandMac returns a boolean if a field has been set.
 
+### GetPresence
+
+`func (o *NetworkElementSummaryAllOf) GetPresence() string`
+
+GetPresence returns the Presence field if non-nil, zero value otherwise.
+
+### GetPresenceOk
+
+`func (o *NetworkElementSummaryAllOf) GetPresenceOk() (*string, bool)`
+
+GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPresence
+
+`func (o *NetworkElementSummaryAllOf) SetPresence(v string)`
+
+SetPresence sets Presence field to given value.
+
+### HasPresence
+
+`func (o *NetworkElementSummaryAllOf) HasPresence() bool`
+
+HasPresence returns a boolean if a field has been set.
+
 ### GetRevision
 
 `func (o *NetworkElementSummaryAllOf) GetRevision() string`
@@ -1223,6 +1250,31 @@ SetSwitchId sets SwitchId field to given value.
 `func (o *NetworkElementSummaryAllOf) HasSwitchId() bool`
 
 HasSwitchId returns a boolean if a field has been set.
+
+### GetThermal
+
+`func (o *NetworkElementSummaryAllOf) GetThermal() string`
+
+GetThermal returns the Thermal field if non-nil, zero value otherwise.
+
+### GetThermalOk
+
+`func (o *NetworkElementSummaryAllOf) GetThermalOk() (*string, bool)`
+
+GetThermalOk returns a tuple with the Thermal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThermal
+
+`func (o *NetworkElementSummaryAllOf) SetThermal(v string)`
+
+SetThermal sets Thermal field to given value.
+
+### HasThermal
+
+`func (o *NetworkElementSummaryAllOf) HasThermal() bool`
+
+HasThermal returns a boolean if a field has been set.
 
 ### GetTotalMemory
 

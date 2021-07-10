@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "connector.HttpRequest"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "connector.HttpRequest"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "connector.HttpRequest"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "connector.HttpRequest"]
 **AssetTargetMoid** | Pointer to **string** | The Target endpoint Moid which is used to fetch the previously persisted Target information in Intersight to create HTTP request along with any authentication info specifed. | [optional] 
 **Body** | Pointer to **string** | Contents of the request body to send for PUT/PATCH/POST requests. | [optional] 
 **DialTimeout** | Pointer to **int64** | The timeout for establishing the TCP connection to the target host. If not set the request timeout value is used. | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Internal** | Pointer to **bool** | The request is for an internal platform API that requires authentication to be inserted by the platform implementation. | [optional] 
 **Method** | Pointer to **string** | Method specifies the HTTP method (GET, POST, PUT, etc.). For client requests an empty string means GET. | [optional] 
 **Timeout** | Pointer to **int64** | The timeout for the HTTP request to complete, from connection establishment to response body read complete. If not set a default timeout of five minutes is used. | [optional] 
-**Url** | Pointer to [**NullableConnectorUrl**](connector.Url.md) |  | [optional] 
+**Url** | Pointer to [**NullableConnectorUrl**](ConnectorUrl.md) |  | [optional] 
 
 ## Methods
 

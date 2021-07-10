@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "license.LicenseReservationOp"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "license.LicenseReservationOp"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "license.LicenseReservationOp"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "license.LicenseReservationOp"]
 **AuthCode** | Pointer to **string** | Revervation code used to install the license. | [optional] 
 **AuthCodeInstalled** | Pointer to **bool** | Flag to indicate whether authorization code is installed. | [optional] [readonly] 
 **ConfirmCode** | Pointer to **string** | Confirm code used to complete the license update on smart license account. | [optional] [readonly] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **GenerateReturnCode** | Pointer to **bool** | Trigger the generation of return code for specific license reservation. | [optional] 
 **RequestCode** | Pointer to **string** | Revervation code used to generate authorization code from CSSM. | [optional] [readonly] 
 **ReturnCode** | Pointer to **string** | Return code used to return the reserved license to smart license account. | [optional] [readonly] 
-**Account** | Pointer to [**IamAccountRelationship**](iam.Account.Relationship.md) |  | [optional] 
+**Account** | Pointer to [**IamAccountRelationship**](IamAccountRelationship.md) |  | [optional] 
 
 ## Methods
 

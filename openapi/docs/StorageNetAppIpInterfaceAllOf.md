@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.NetAppIpInterface"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.NetAppIpInterface"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.NetAppIpInterface"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.NetAppIpInterface"]
 **Enabled** | Pointer to **string** | IP interface is enabled or not. | [optional] [readonly] 
 **HomeNode** | Pointer to **string** | Name of home node of IP interface. | [optional] [readonly] 
 **HomePort** | Pointer to **string** | Name of home port of IP interface. | [optional] [readonly] 
@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 **Services** | Pointer to **[]string** |  | [optional] 
 **State** | Pointer to **string** | State of IP interface. * &#x60;down&#x60; - An inactive port is listed as Down. * &#x60;up&#x60; - An active port is listed as Up. * &#x60;present&#x60; - An active port is listed as present. | [optional] [readonly] [default to "down"]
 **Uuid** | Pointer to **string** | Uuid of  NetApp IP Interface. | [optional] [readonly] 
-**ArrayController** | Pointer to [**StorageNetAppNodeRelationship**](storage.NetAppNode.Relationship.md) |  | [optional] 
-**NetAppEthernetPort** | Pointer to [**StorageNetAppEthernetPortRelationship**](storage.NetAppEthernetPort.Relationship.md) |  | [optional] 
-**Tenant** | Pointer to [**StorageNetAppStorageVmRelationship**](storage.NetAppStorageVm.Relationship.md) |  | [optional] 
+**ArrayController** | Pointer to [**StorageNetAppNodeRelationship**](StorageNetAppNodeRelationship.md) |  | [optional] 
+**NetAppEthernetPort** | Pointer to [**StorageNetAppEthernetPortRelationship**](StorageNetAppEthernetPortRelationship.md) |  | [optional] 
+**Tenant** | Pointer to [**StorageNetAppStorageVmRelationship**](StorageNetAppStorageVmRelationship.md) |  | [optional] 
 
 ## Methods
 

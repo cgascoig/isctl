@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "onprem.ImagePackage"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "onprem.ImagePackage"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "onprem.ImagePackage"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "onprem.ImagePackage"]
 **FilePath** | Pointer to **string** | Optional file path of the image package. | [optional] [readonly] 
 **FileSha** | Pointer to **string** | Image file&#39;s fingerprint. Fingerprint is calculated using SHA256 algorithm. | [optional] [readonly] 
 **FileSize** | Pointer to **int64** | Image file size in bytes. | [optional] [readonly] 
-**FileTime** | Pointer to [**time.Time**](time.Time.md) | Image file&#39;s last modified date and time. | [optional] [readonly] 
+**FileTime** | Pointer to **time.Time** | Image file&#39;s last modified date and time. | [optional] [readonly] 
 **Filename** | Pointer to **string** | Filename of the image package. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the software image package. | [optional] [readonly] 
 **PackageType** | Pointer to **string** | Image package type (e.g. service, system etc.). | [optional] [readonly] 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "adapter.HostIscsiInterface"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "adapter.HostIscsiInterface"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "adapter.HostIscsiInterface"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "adapter.HostIscsiInterface"]
 **AdminState** | Pointer to **string** | Admin Configured State of Host ISCSI Interface. | [optional] [readonly] 
 **EpDn** | Pointer to **string** | The Endpoint Config Dn of the Host ISCSI Interface. | [optional] [readonly] 
 **HostIscsiInterfaceId** | Pointer to **int64** | Identifier of the Host ISCSI Interface. | [optional] [readonly] 
@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **OperState** | Pointer to **string** | Operational State of Host ISCSI Interface. | [optional] [readonly] 
 **Operability** | Pointer to **string** | Operability status of Host ISCSI Interface. | [optional] [readonly] 
 **PeerDn** | Pointer to **string** | PeerPort Dn of Host ISCSI Interface. | [optional] [readonly] 
-**AdapterUnit** | Pointer to [**AdapterUnitRelationship**](adapter.Unit.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**AdapterUnit** | Pointer to [**AdapterUnitRelationship**](AdapterUnitRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

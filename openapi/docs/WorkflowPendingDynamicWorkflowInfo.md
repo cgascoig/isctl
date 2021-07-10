@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.PendingDynamicWorkflowInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.PendingDynamicWorkflowInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "workflow.PendingDynamicWorkflowInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "workflow.PendingDynamicWorkflowInfo"]
 **Input** | Pointer to **interface{}** | The inputs of the workflow. | [optional] 
 **Name** | Pointer to **string** | A name for the pending dynamic workflow. | [optional] 
 **PendingServices** | Pointer to **[]string** |  | [optional] 
 **Src** | Pointer to **string** | The src is workflow owner service. | [optional] 
 **Status** | Pointer to **string** | The current status of the PendingDynamicWorkflowInfo. * &#x60;GatheringTasks&#x60; - Dynamic workflow is gathering tasks before workflow can start execution. * &#x60;Waiting&#x60; - Dynamic workflow is in waiting state and not yet started execution. | [optional] [default to "GatheringTasks"]
 **WaitOnDuplicate** | Pointer to **bool** | When set to true workflow engine will wait for a duplicate to finish before starting a new one. | [optional] 
-**WorkflowActionTaskLists** | Pointer to [**[]WorkflowDynamicWorkflowActionTaskList**](workflow.DynamicWorkflowActionTaskList.md) |  | [optional] 
-**WorkflowCtx** | Pointer to [**NullableWorkflowWorkflowCtx**](workflow.WorkflowCtx.md) |  | [optional] 
+**WorkflowActionTaskLists** | Pointer to [**[]WorkflowDynamicWorkflowActionTaskList**](WorkflowDynamicWorkflowActionTaskList.md) |  | [optional] 
+**WorkflowCtx** | Pointer to [**NullableWorkflowWorkflowCtx**](WorkflowWorkflowCtx.md) |  | [optional] 
 **WorkflowKey** | Pointer to **string** | This key contains workflow, initiator and target name. Workflow engine uses the key to do workflow dedup. | [optional] 
 **WorkflowMeta** | Pointer to **interface{}** | The metadata of the workflow. | [optional] 
-**WorkflowInfo** | Pointer to [**WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) |  | [optional] 
+**WorkflowInfo** | Pointer to [**WorkflowWorkflowInfoRelationship**](WorkflowWorkflowInfoRelationship.md) |  | [optional] 
 
 ## Methods
 

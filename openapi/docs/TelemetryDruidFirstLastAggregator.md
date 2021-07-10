@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The aggregator type. | 
-**Name** | Pointer to **string** | Output name for the first/last value. | 
-**FieldName** | Pointer to **string** | Name of the metric column. | 
+**Type** | **string** | The aggregator type. | 
+**Name** | **string** | Output name for the first/last value. | 
+**FieldName** | **string** | Name of the metric column. | 
 
 ## Methods
 

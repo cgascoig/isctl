@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryNamespace"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryNamespace"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.PersistentMemoryNamespace"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.PersistentMemoryNamespace"]
 **Capacity** | Pointer to **string** | Capacity in GiB of the Persistent Memory Namespace. | [optional] [readonly] 
 **HealthState** | Pointer to **string** | Health state of the Persistent Memory Namespace. | [optional] [readonly] 
 **LabelVersion** | Pointer to **string** | Label version of the Persistent Memory Namespace. | [optional] [readonly] 
 **Mode** | Pointer to **string** | Mode of the Persistent Memory Namespace. | [optional] [readonly] 
 **Name** | Pointer to **string** | Name of the Persistent Memory Namespace. | [optional] [readonly] 
 **Uuid** | Pointer to **string** | UUID of the Persistent Memory Namespace. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**MemoryPersistentMemoryRegion** | Pointer to [**MemoryPersistentMemoryRegionRelationship**](memory.PersistentMemoryRegion.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**MemoryPersistentMemoryRegion** | Pointer to [**MemoryPersistentMemoryRegionRelationship**](MemoryPersistentMemoryRegionRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

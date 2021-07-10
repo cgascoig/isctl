@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ClusterBackupPolicyDeployment"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ClusterBackupPolicyDeployment"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ClusterBackupPolicyDeployment"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ClusterBackupPolicyDeployment"]
 **BackupDataStoreName** | Pointer to **string** | Backup data store name used during the auto creation of the datastore. All VMs created in this data store will be automatically backed up. | [optional] [readonly] [default to "backup-source-ds"]
 **BackupDataStoreSize** | Pointer to **int64** | Replication data store size in backupDataStoreSizeUnit. | [optional] [readonly] [default to 2]
 **BackupDataStoreSizeUnit** | Pointer to **string** | Replication data store size. | [optional] [readonly] [default to "TB"]
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **PolicyMoid** | Pointer to **string** | Deployed cluster policy moid. | [optional] [readonly] 
 **ProfileMoid** | Pointer to **string** | Deployed cluster profile moid. | [optional] [readonly] 
 **ReplicationPairNamePrefix** | Pointer to **string** | Replication cluster pairing name prefix. | [optional] [readonly] [default to "backup"]
-**ReplicationSchedule** | Pointer to [**NullableHyperflexReplicationSchedule**](hyperflex.ReplicationSchedule.md) |  | [optional] 
+**ReplicationSchedule** | Pointer to [**NullableHyperflexReplicationSchedule**](HyperflexReplicationSchedule.md) |  | [optional] 
 **SnapshotRetentionCount** | Pointer to **int64** | Number of snapshots that will be retained as part of the Multi Point in Time support. | [optional] [readonly] [default to 4]
 **SourceDetached** | Pointer to **bool** | True if policy was detached from source Hyperflex Cluster. | [optional] 
 **SourceRequestId** | Pointer to **string** | Unique source cluster request ID allowing retry of the same logical request following a transient communication failure. | [optional] [readonly] 
@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 **TargetDetached** | Pointer to **bool** | True if policy was detached from target Hyperflex Cluster. | [optional] 
 **TargetRequestId** | Pointer to **string** | Unique target cluster request ID allowing retry of the same logical request following a transient communication failure. | [optional] [readonly] 
 **TargetUuid** | Pointer to **string** | Uuid of the target Hyperflex Cluster. | [optional] [readonly] 
-**BackupTarget** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
-**SourceCluster** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
+**BackupTarget** | Pointer to [**HyperflexClusterRelationship**](HyperflexClusterRelationship.md) |  | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
+**SourceCluster** | Pointer to [**HyperflexClusterRelationship**](HyperflexClusterRelationship.md) |  | [optional] 
 
 ## Methods
 

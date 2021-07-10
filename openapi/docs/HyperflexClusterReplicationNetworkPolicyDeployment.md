@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ClusterReplicationNetworkPolicyDeployment"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ClusterReplicationNetworkPolicyDeployment"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.ClusterReplicationNetworkPolicyDeployment"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.ClusterReplicationNetworkPolicyDeployment"]
 **ClusterUuid** | Pointer to **string** | Uuid of the HyperFlex cluster. | [optional] [readonly] 
 **Description** | Pointer to **string** | Description from corresponding ClusterReplicationNetworkPolicy. | [optional] [readonly] 
 **Discovered** | Pointer to **bool** | True if record created by discovery on HyperFlex cluster. | [optional] 
@@ -13,12 +13,12 @@ Name | Type | Description | Notes
 **PolicyMoid** | Pointer to **string** | Deployed network policy moid. | [optional] [readonly] 
 **ProfileMoid** | Pointer to **string** | Deployed cluster profile moid. | [optional] [readonly] 
 **ReplicationBandwidthMbps** | Pointer to **int64** | Bandwidth for the Replication network in Mbps. | [optional] [readonly] [default to 0]
-**ReplicationIpranges** | Pointer to [**[]HyperflexIpAddrRange**](hyperflex.IpAddrRange.md) |  | [optional] 
+**ReplicationIpranges** | Pointer to [**[]HyperflexIpAddrRange**](HyperflexIpAddrRange.md) |  | [optional] 
 **ReplicationMtu** | Pointer to **int64** | MTU for the Replication network. | [optional] [readonly] [default to 1500]
-**ReplicationVlan** | Pointer to [**NullableHyperflexNamedVlan**](hyperflex.NamedVlan.md) |  | [optional] 
+**ReplicationVlan** | Pointer to [**NullableHyperflexNamedVlan**](HyperflexNamedVlan.md) |  | [optional] 
 **RequestId** | Pointer to **string** | Unique request ID allowing retry of the same logical request following a transient communication failure. | [optional] [readonly] 
-**Cluster** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**Cluster** | Pointer to [**HyperflexClusterRelationship**](HyperflexClusterRelationship.md) |  | [optional] 
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 

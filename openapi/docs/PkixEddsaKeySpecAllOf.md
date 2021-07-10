@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "pkix.EddsaKeySpec"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "pkix.EddsaKeySpec"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "pkix.EddsaKeySpec"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "pkix.EddsaKeySpec"]
 **Algorithm** | Pointer to **string** | The EdDSA algorithm, as defined in RFC 8032. * &#x60;Ed25519&#x60; - The edwards25519 curve, as defined in RFC 8032 section 5.1. * &#x60;Ed25519ph&#x60; - The edwards25519 curve for the PureEdDSA variant. * &#x60;Ed25519ctx&#x60; - The edwards25519 curve for the HashEdDSA variant. | [optional] [default to "Ed25519"]
 
 ## Methods

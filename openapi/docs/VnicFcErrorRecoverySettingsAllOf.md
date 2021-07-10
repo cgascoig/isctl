@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "vnic.FcErrorRecoverySettings"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "vnic.FcErrorRecoverySettings"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "vnic.FcErrorRecoverySettings"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "vnic.FcErrorRecoverySettings"]
 **Enabled** | Pointer to **bool** | Enables Fibre Channel Error recovery. | [optional] 
 **IoRetryCount** | Pointer to **int64** | The number of times an I/O request to a port is retried because the port is busy before the system decides the port is unavailable. | [optional] [default to 8]
 **IoRetryTimeout** | Pointer to **int64** | The number of seconds the adapter waits before aborting the pending command and resending the same IO request. | [optional] [default to 5]

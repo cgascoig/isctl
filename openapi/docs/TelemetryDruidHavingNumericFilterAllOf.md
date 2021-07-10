@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Aggregation** | Pointer to **string** | aggregate metric | 
-**Value** | Pointer to **float64** | null | 
+**Aggregation** | **string** | aggregate metric | 
+**Value** | **float64** | null | 
 
 ## Methods
 

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kvm.Session"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kvm.Session"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "kvm.Session"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "kvm.Session"]
 **OneTimePassword** | Pointer to **string** | Temporary one-time password for KVM access. | [optional] 
 **SsoSupported** | Pointer to **bool** | Indicates if KVM SSO is supported on the server. | [optional] [readonly] 
 **Username** | Pointer to **string** | Username used for KVM access. | [optional] 
-**Device** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**Server** | Pointer to [**ComputePhysicalRelationship**](compute.Physical.Relationship.md) |  | [optional] 
-**Session** | Pointer to [**IamSessionRelationship**](iam.Session.Relationship.md) |  | [optional] 
-**Tunnel** | Pointer to [**KvmTunnelRelationship**](kvm.Tunnel.Relationship.md) |  | [optional] 
+**Device** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**Server** | Pointer to [**ComputePhysicalRelationship**](ComputePhysicalRelationship.md) |  | [optional] 
+**Session** | Pointer to [**IamSessionRelationship**](IamSessionRelationship.md) |  | [optional] 
+**Tunnel** | Pointer to [**KvmTunnelRelationship**](KvmTunnelRelationship.md) |  | [optional] 
 
 ## Methods
 

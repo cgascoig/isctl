@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fabric.MulticastPolicy"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fabric.MulticastPolicy"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "fabric.MulticastPolicy"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "fabric.MulticastPolicy"]
 **QuerierIpAddress** | Pointer to **string** | Used to define the IGMP Querier IP address. | [optional] 
 **QuerierIpAddressPeer** | Pointer to **string** | Used to define the IGMP Querier IP address of the peer switch. | [optional] 
-**QuerierState** | Pointer to **string** | Administrative state of the IGMP Querier for this VLAN. * &#x60;Disabled&#x60; - IGMP Querier Disabled State. * &#x60;Enabled&#x60; - IGMP Querier Enabled State. | [optional] [default to "Disabled"]
-**SnoopingState** | Pointer to **string** | Administrative state of the IGMP Snooping for this VLAN. * &#x60;Enabled&#x60; - IGMP Snooping Enabled State. * &#x60;Disabled&#x60; - IGMP Snooping Disabled State. | [optional] [default to "Enabled"]
-**Organization** | Pointer to [**OrganizationOrganizationRelationship**](organization.Organization.Relationship.md) |  | [optional] 
+**QuerierState** | Pointer to **string** | Administrative state of the IGMP Querier for this VLAN. * &#x60;Disabled&#x60; - Admin configured Disabled State. * &#x60;Enabled&#x60; - Admin configured Enabled State. | [optional] [default to "Disabled"]
+**SnoopingState** | Pointer to **string** | Administrative state of the IGMP Snooping for this VLAN. * &#x60;Enabled&#x60; - Admin configured Enabled State. * &#x60;Disabled&#x60; - Admin configured Disabled State. | [optional] [default to "Enabled"]
+**Organization** | Pointer to [**OrganizationOrganizationRelationship**](OrganizationOrganizationRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -66,6 +66,34 @@ func (o *Operation) DeleteOperationDataType() string {
 	return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
 }
 
+func (o *Operation) ReturnClassID() string {
+	regExpClassID := regexp.MustCompile(`\.`)
+	if regExpClassID.MatchString(o.ReturnBaseType) {
+		// ReturnBaseType is not empty and contains a "." - so it must be a classID
+		return o.ReturnBaseType
+	}
+
+	if regexp.MustCompile(`^Delete`).MatchString(o.OperationID) {
+		return o.DeleteOperationDataType()
+	}
+
+	re := fmt.Sprintf(`^%s(\w+)$`, o.BaseName)
+	r := regexp.MustCompile(re)
+	m := r.FindStringSubmatch(o.ReturnBaseType)
+	if len(m) == 2 {
+		r = regexp.MustCompile(`^(\w+)Response$`)
+		m2 := r.FindStringSubmatch(m[1])
+		if len(m2) == 2 {
+			return fmt.Sprintf("%s.%s.Response", strings.ToLower(o.BaseName),m2[1])
+		} else {
+			return fmt.Sprintf("%s.%s", strings.ToLower(o.BaseName),m[1])
+		}
+	} else {
+		return ""
+	}
+	
+}
+
 func (o *Operation) OperationClassID() string {
 	if o.ReturnBaseType != "" {
 		r := regexp.MustCompile(`^(\w+\.\w+)\.Response$`)
@@ -121,6 +149,34 @@ func (v *Var) ListElementType() string {
 	validTypeRegExp := regexp.MustCompile(`^\[\]([a-zA-Z0-9]+)$`)
 	m := validTypeRegExp.FindStringSubmatch(v.DataType)
 	return m[1]
+}
+
+func (v *Var) ValidGenericType() bool {
+	validTypeRegExp := regexp.MustCompile(`^(\[\])?([a-zA-Z0-9]+)?([a-zA-Z0-9]+)$`)
+	return validTypeRegExp.MatchString(v.DataType)
+}
+
+func (v *Var) NormalisedType() string {
+	var t string
+	isList := false
+	if v.IsList() {
+		isList = true
+		t = v.ListElementType()
+	} else {
+		t = v.DataType
+	}
+
+	// if type is already in pkg.type, do not change, otherwise change type to openapi.type
+	qualifiedTypeRegExp := regexp.MustCompile(`^([a-zA-Z0-9]+)\.([a-zA-Z0-9]+)$`)
+	if !qualifiedTypeRegExp.MatchString(t) {
+		t = fmt.Sprintf("openapi.%s", t)
+	}
+
+	if isList {
+		return fmt.Sprintf("[]%s", t)
+	} else {
+		return t
+	}
 }
 
 func generate(templateFilename string, outputFilename string, data interface{}) {

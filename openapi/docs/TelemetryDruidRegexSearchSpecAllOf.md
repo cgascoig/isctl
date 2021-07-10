@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Regex** | Pointer to **string** | The regular expression to match.  If any part of a dimension value contains the pattern specified in this search query a \&quot;match\&quot; occurs. | 
+**Regex** | **string** | The regular expression to match.  If any part of a dimension value contains the pattern specified in this search query a \&quot;match\&quot; occurs. | 
 
 ## Methods
 

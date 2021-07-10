@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectType** | Pointer to **string** | A discriminator value to disambiguate the schema of a HTTP GET response body. | 
+**ObjectType** | **string** | A discriminator value to disambiguate the schema of a HTTP GET response body. | 
 
 ## Methods
 

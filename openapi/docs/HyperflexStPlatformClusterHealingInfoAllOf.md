@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.StPlatformClusterHealingInfo"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.StPlatformClusterHealingInfo"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.StPlatformClusterHealingInfo"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.StPlatformClusterHealingInfo"]
 **EstimatedCompletionTimeInSeconds** | Pointer to **int64** | The estimated time in seconds it will take to complete the auto-healing process. | [optional] [readonly] 
 **InProgress** | Pointer to **bool** | The status of the cluster&#39;s auto-healing process. If &#39;true&#39;, auto-healing is in progress for the cluster. | [optional] [readonly] 
 **Messages** | Pointer to **[]string** |  | [optional] 

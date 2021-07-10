@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.Alarm"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.Alarm"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.Alarm"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.Alarm"]
 **Acknowledged** | Pointer to **bool** | The acknowledgement state of the alarm. It is &#39;true&#39; when the alarm is acknowledged and false otherwise. | [optional] [readonly] 
 **AcknowledgedBy** | Pointer to **string** | The username of the user who acknowledged the alarm. | [optional] [readonly] 
 **AcknowledgedTime** | Pointer to **int64** | The time when the alarm was acknowledged, represented as a Unix timestamp. | [optional] [readonly] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **TriggeredTime** | Pointer to **int64** | The time when alarm was triggered as a Unix timestamp. | [optional] [readonly] 
 **TriggeredTimeAsUtc** | Pointer to **string** | The time when alarm was triggered in ISO 6801 UTC format. | [optional] [readonly] 
 **Uuid** | Pointer to **string** | The unique identifier for this alarm instance. | [optional] [readonly] 
-**Cluster** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
+**Cluster** | Pointer to [**HyperflexClusterRelationship**](HyperflexClusterRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "top.System"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "top.System"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "top.System"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "top.System"]
 **Ipv4Address** | Pointer to **string** | The IPv4 address of system. | [optional] [readonly] 
 **Ipv6Address** | Pointer to **string** | The IPv6 address of system. | [optional] [readonly] 
 **Mode** | Pointer to **string** | The current mode of the system. | [optional] [readonly] 
 **Name** | Pointer to **string** | The admin configured name of the system. | [optional] [readonly] 
 **TimeZone** | Pointer to **string** | The operational timezone of the system, empty indicates no timezone has been set specifically. | [optional] 
-**ComputeBlades** | Pointer to [**[]ComputeBladeRelationship**](compute.Blade.Relationship.md) | An array of relationships to computeBlade resources. | [optional] 
-**ComputeRackUnits** | Pointer to [**[]ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) | An array of relationships to computeRackUnit resources. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**ManagementController** | Pointer to [**ManagementControllerRelationship**](management.Controller.Relationship.md) |  | [optional] 
-**NetworkElements** | Pointer to [**[]NetworkElementRelationship**](network.Element.Relationship.md) | An array of relationships to networkElement resources. | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ComputeBlades** | Pointer to [**[]ComputeBladeRelationship**](ComputeBladeRelationship.md) | An array of relationships to computeBlade resources. | [optional] 
+**ComputeRackUnits** | Pointer to [**[]ComputeRackUnitRelationship**](ComputeRackUnitRelationship.md) | An array of relationships to computeRackUnit resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**ManagementController** | Pointer to [**ManagementControllerRelationship**](ManagementControllerRelationship.md) |  | [optional] 
+**NetworkElements** | Pointer to [**[]NetworkElementRelationship**](NetworkElementRelationship.md) | An array of relationships to networkElement resources. | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

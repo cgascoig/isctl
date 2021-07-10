@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**TelemetryDruidFilter**](telemetry.DruidFilter.md) |  | 
-**Aggregator** | Pointer to [**TelemetryDruidAggregator**](telemetry.DruidAggregator.md) |  | 
+**Filter** | [**TelemetryDruidFilter**](TelemetryDruidFilter.md) |  | 
+**Aggregator** | [**TelemetryDruidAggregator**](TelemetryDruidAggregator.md) |  | 
 
 ## Methods
 

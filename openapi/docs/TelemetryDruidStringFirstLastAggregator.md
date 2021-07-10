@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The aggregator type. | 
-**Name** | Pointer to **string** | Output name for the minimum/maximum timestamp value. | 
-**FieldName** | Pointer to **string** | Name of the metric column. | 
+**Type** | **string** | The aggregator type. | 
+**Name** | **string** | Output name for the minimum/maximum timestamp value. | 
+**FieldName** | **string** | Name of the metric column. | 
 **MaxStringBytes** | Pointer to **int32** | null | [optional] [default to 1024]
 
 ## Methods

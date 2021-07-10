@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.DevicePackageDownloadState"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.DevicePackageDownloadState"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.DevicePackageDownloadState"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.DevicePackageDownloadState"]
 **Checksum** | Pointer to **string** | Checksum of HyperFlex health check Debian package installed on the HyperFlex Device. | [optional] 
 **HxDeviceName** | Pointer to **string** | HyperFlex Device Name for which the package download state is tracked. | [optional] [readonly] 
 **HxNodes** | Pointer to **[]string** |  | [optional] 
-**Timestamp** | Pointer to [**time.Time**](time.Time.md) | Timestamp of the last health check Debian package installation on the HyperFlex Device. | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**Timestamp** | Pointer to **time.Time** | Timestamp of the last health check Debian package installation on the HyperFlex Device. | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

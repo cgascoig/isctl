@@ -4,17 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "forecast.Instance"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "forecast.Instance"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "forecast.Instance"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "forecast.Instance"]
 **AltModel** | Pointer to **[]float32** |  | [optional] 
 **DeviceId** | Pointer to **string** | The Moid of the Intersight managed device instance for which regression model is derived. | [optional] [readonly] 
 **FullCapDays** | Pointer to **int64** | The number of days remaining before the device reaches its full functional capacity. | [optional] [readonly] 
+**LastModelUpdateTime** | Pointer to **time.Time** | The time when the forecast model was last updated. | [optional] [readonly] 
 **MetricName** | Pointer to **string** | The name of the metric for which regression model is generated. | [optional] [readonly] 
 **MinDaysForForecast** | Pointer to **int64** | The minimum number of days the HyperFlex cluster should be up for computing forecast. | [optional] [readonly] 
-**Model** | Pointer to [**NullableForecastModel**](forecast.Model.md) |  | [optional] 
+**Model** | Pointer to [**NullableForecastModel**](ForecastModel.md) |  | [optional] 
 **ThresholdDays** | Pointer to **int64** | The number of days remaining before the device reaches the specified threshold for the metric as defined in definition. | [optional] [readonly] [default to 2147483647]
-**ForecastDef** | Pointer to [**ForecastDefinitionRelationship**](forecast.Definition.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ForecastDef** | Pointer to [**ForecastDefinitionRelationship**](ForecastDefinitionRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -159,6 +160,31 @@ SetFullCapDays sets FullCapDays field to given value.
 `func (o *ForecastInstance) HasFullCapDays() bool`
 
 HasFullCapDays returns a boolean if a field has been set.
+
+### GetLastModelUpdateTime
+
+`func (o *ForecastInstance) GetLastModelUpdateTime() time.Time`
+
+GetLastModelUpdateTime returns the LastModelUpdateTime field if non-nil, zero value otherwise.
+
+### GetLastModelUpdateTimeOk
+
+`func (o *ForecastInstance) GetLastModelUpdateTimeOk() (*time.Time, bool)`
+
+GetLastModelUpdateTimeOk returns a tuple with the LastModelUpdateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastModelUpdateTime
+
+`func (o *ForecastInstance) SetLastModelUpdateTime(v time.Time)`
+
+SetLastModelUpdateTime sets LastModelUpdateTime field to given value.
+
+### HasLastModelUpdateTime
+
+`func (o *ForecastInstance) HasLastModelUpdateTime() bool`
+
+HasLastModelUpdateTime returns a boolean if a field has been set.
 
 ### GetMetricName
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.Array"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.Array"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "memory.Array"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "memory.Array"]
 **ArrayId** | Pointer to **int64** | The instance number of the memory array. | [optional] [readonly] 
 **CpuId** | Pointer to **int64** | ID of the CPU that access this memory array. | [optional] [readonly] 
 **CurrentCapacity** | Pointer to **string** | Current capacity of all the memory units on a server. | [optional] [readonly] 
@@ -13,14 +13,13 @@ Name | Type | Description | Notes
 **MaxCapacity** | Pointer to **string** | Maximum capacity of all the memory units on a server. | [optional] [readonly] 
 **MaxDevices** | Pointer to **string** | The maximum number of slots or sockets available for memory devices in the memory array. | [optional] [readonly] 
 **OperPowerState** | Pointer to **string** | The power state indicator of the memory array. | [optional] [readonly] 
-**Presence** | Pointer to **string** | The presence of atleast one memory device in the array. Valid values are &#39;equipped&#39; and &#39;absent&#39;. | [optional] [readonly] 
-**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](compute.Blade.Relationship.md) |  | [optional] 
-**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
-**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](compute.RackUnit.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**PersistentMemoryUnits** | Pointer to [**[]MemoryPersistentMemoryUnitRelationship**](memory.PersistentMemoryUnit.Relationship.md) | An array of relationships to memoryPersistentMemoryUnit resources. | [optional] [readonly] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**Units** | Pointer to [**[]MemoryUnitRelationship**](memory.Unit.Relationship.md) | An array of relationships to memoryUnit resources. | [optional] [readonly] 
+**ComputeBlade** | Pointer to [**ComputeBladeRelationship**](ComputeBladeRelationship.md) |  | [optional] 
+**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](ComputeBoardRelationship.md) |  | [optional] 
+**ComputeRackUnit** | Pointer to [**ComputeRackUnitRelationship**](ComputeRackUnitRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**PersistentMemoryUnits** | Pointer to [**[]MemoryPersistentMemoryUnitRelationship**](MemoryPersistentMemoryUnitRelationship.md) | An array of relationships to memoryPersistentMemoryUnit resources. | [optional] [readonly] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**Units** | Pointer to [**[]MemoryUnitRelationship**](MemoryUnitRelationship.md) | An array of relationships to memoryUnit resources. | [optional] [readonly] 
 
 ## Methods
 
@@ -255,31 +254,6 @@ SetOperPowerState sets OperPowerState field to given value.
 `func (o *MemoryArrayAllOf) HasOperPowerState() bool`
 
 HasOperPowerState returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *MemoryArrayAllOf) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *MemoryArrayAllOf) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *MemoryArrayAllOf) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *MemoryArrayAllOf) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetComputeBlade
 

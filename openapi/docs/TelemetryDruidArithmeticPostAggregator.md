@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | The post-aggregator type. | 
+**Type** | **string** | The post-aggregator type. | 
 **Name** | Pointer to **string** | Output name for the minimum/maximum timestamp value. | [optional] 
 **Fn** | Pointer to **string** | null | [optional] 
 **Fields** | Pointer to **[]string** | null | [optional] 

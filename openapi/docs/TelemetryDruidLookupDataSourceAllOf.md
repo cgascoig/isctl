@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Lookup** | Pointer to **string** | the name of the lookup object. | 
+**Lookup** | **string** | the name of the lookup object. | 
 
 ## Methods
 

@@ -4,21 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "security.Unit"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "security.Unit"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "security.Unit"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "security.Unit"]
 **OperState** | Pointer to **string** | Operational state of the security unit. | [optional] [readonly] 
 **Operability** | Pointer to **string** | Operability state of the security unit. | [optional] [readonly] 
 **PartNumber** | Pointer to **string** | The part number of the security unit. | [optional] [readonly] 
 **PciSlot** | Pointer to **string** | PCIe slot of the security unit in the server. | [optional] [readonly] 
 **Power** | Pointer to **string** | Power state of the security unit. | [optional] [readonly] 
-**Presence** | Pointer to **string** | Security unit presence (equipped) or absence. | [optional] [readonly] 
 **Thermal** | Pointer to **string** | Thermal state of the security unit. | [optional] [readonly] 
 **UnitId** | Pointer to **int64** | The unique identifier assigned to the security unit within the server. | [optional] [readonly] 
 **Vid** | Pointer to **string** | The vendor identifier of the security unit. | [optional] [readonly] 
 **Voltage** | Pointer to **string** | The voltage state of the security unit. | [optional] [readonly] 
-**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](ComputeBoardRelationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -203,31 +202,6 @@ SetPower sets Power field to given value.
 `func (o *SecurityUnit) HasPower() bool`
 
 HasPower returns a boolean if a field has been set.
-
-### GetPresence
-
-`func (o *SecurityUnit) GetPresence() string`
-
-GetPresence returns the Presence field if non-nil, zero value otherwise.
-
-### GetPresenceOk
-
-`func (o *SecurityUnit) GetPresenceOk() (*string, bool)`
-
-GetPresenceOk returns a tuple with the Presence field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPresence
-
-`func (o *SecurityUnit) SetPresence(v string)`
-
-SetPresence sets Presence field to given value.
-
-### HasPresence
-
-`func (o *SecurityUnit) HasPresence() bool`
-
-HasPresence returns a boolean if a field has been set.
 
 ### GetThermal
 

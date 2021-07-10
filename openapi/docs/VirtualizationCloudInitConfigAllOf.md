@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.CloudInitConfig"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.CloudInitConfig"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "virtualization.CloudInitConfig"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "virtualization.CloudInitConfig"]
 **ConfigType** | Pointer to **string** | Virtual machine cloud init configuration type. * &#x60;&#x60; - No cloud init specified. Cloud-init configurations are not sent to hypervisor, if none is selected. * &#x60;NoCloudSource&#x60; - Allows the user to provide user-data to the instance without running a network service. * &#x60;CloudConfigDrive&#x60; - Allows the user to provide user-data and network-data from cloud. | [optional] [default to ""]
 **NetworkData** | Pointer to **string** | Network configuration data for a virtual machine. | [optional] 
 **NetworkDataBase64Encoded** | Pointer to **bool** | Set to true, if the cloud init network data is in base64 format. | [optional] 

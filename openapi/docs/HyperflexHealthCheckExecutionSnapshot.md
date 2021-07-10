@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HealthCheckExecutionSnapshot"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HealthCheckExecutionSnapshot"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "hyperflex.HealthCheckExecutionSnapshot"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "hyperflex.HealthCheckExecutionSnapshot"]
 **Category** | Pointer to **string** | Category that the HyperFlex health check Definition belongs to. | [optional] [readonly] 
 **Cause** | Pointer to **string** | Information detailing the possible cause of the healthcheck failure, if the check fails. | [optional] 
-**CompletionTime** | Pointer to [**time.Time**](time.Time.md) | Health check execution completion time. | [optional] [readonly] 
+**CompletionTime** | Pointer to **time.Time** | Health check execution completion time. | [optional] [readonly] 
 **HealthCheckDetails** | Pointer to **string** | Details of the health check execution result. | [optional] [readonly] 
 **HealthCheckExecutionErrorDetails** | Pointer to **string** | Error details of a script execution failure. | [optional] [readonly] 
 **HealthCheckExecutionErrorSummary** | Pointer to **string** | Error summary of a script execution failure. | [optional] [readonly] 
@@ -16,10 +16,11 @@ Name | Type | Description | Notes
 **HealthCheckResult** | Pointer to **string** | Health check execution result. Valid only if HealthCheckExecutionStatus is SUCCEEDED. * &#x60;UNKNOWN&#x60; - Indicates that the health check results could not be determined. * &#x60;PASS&#x60; - Indicates that the health check passed. * &#x60;FAIL&#x60; - Indicates that the health check failed. * &#x60;WARN&#x60; - Indicates that the health check completed with a warning. * &#x60;NOT_APPLICABLE&#x60; - Indicates that the health check is either unsupported, or not applicable on the Cluster. | [optional] [readonly] [default to "UNKNOWN"]
 **HealthCheckSummary** | Pointer to **string** | A brief summary of health check results. | [optional] [readonly] 
 **HxDeviceName** | Pointer to **string** | HyperFlex Device Name where the healthcheck is executed. | [optional] [readonly] 
-**HealthCheckDefinition** | Pointer to [**HyperflexHealthCheckDefinitionRelationship**](hyperflex.HealthCheckDefinition.Relationship.md) |  | [optional] 
-**HxCluster** | Pointer to [**HyperflexClusterRelationship**](hyperflex.Cluster.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**Workflow** | Pointer to [**WorkflowWorkflowInfoRelationship**](workflow.WorkflowInfo.Relationship.md) |  | [optional] 
+**SuggestedResolution** | Pointer to **string** | Information detailing a suggegsted resolution for the healthcheck failure, if the check fails. | [optional] 
+**HealthCheckDefinition** | Pointer to [**HyperflexHealthCheckDefinitionRelationship**](HyperflexHealthCheckDefinitionRelationship.md) |  | [optional] 
+**HxCluster** | Pointer to [**HyperflexClusterRelationship**](HyperflexClusterRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**Workflow** | Pointer to [**WorkflowWorkflowInfoRelationship**](WorkflowWorkflowInfoRelationship.md) |  | [optional] 
 
 ## Methods
 
@@ -329,6 +330,31 @@ SetHxDeviceName sets HxDeviceName field to given value.
 `func (o *HyperflexHealthCheckExecutionSnapshot) HasHxDeviceName() bool`
 
 HasHxDeviceName returns a boolean if a field has been set.
+
+### GetSuggestedResolution
+
+`func (o *HyperflexHealthCheckExecutionSnapshot) GetSuggestedResolution() string`
+
+GetSuggestedResolution returns the SuggestedResolution field if non-nil, zero value otherwise.
+
+### GetSuggestedResolutionOk
+
+`func (o *HyperflexHealthCheckExecutionSnapshot) GetSuggestedResolutionOk() (*string, bool)`
+
+GetSuggestedResolutionOk returns a tuple with the SuggestedResolution field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuggestedResolution
+
+`func (o *HyperflexHealthCheckExecutionSnapshot) SetSuggestedResolution(v string)`
+
+SetSuggestedResolution sets SuggestedResolution field to given value.
+
+### HasSuggestedResolution
+
+`func (o *HyperflexHealthCheckExecutionSnapshot) HasSuggestedResolution() bool`
+
+HasSuggestedResolution returns a boolean if a field has been set.
 
 ### GetHealthCheckDefinition
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexUtilPhysicalDrive"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexUtilPhysicalDrive"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexUtilPhysicalDrive"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexUtilPhysicalDrive"]
 **BlockSize** | Pointer to **string** | Block size of the FlexUtil Physical drive. | [optional] 
 **Capacity** | Pointer to **string** | Capacity of the FlexUtil Physical drive. | [optional] 
 **Controller** | Pointer to **string** | Type of the Physical Drive Controller. | [optional] 
@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 **WriteEnabled** | Pointer to **string** | Write access state of the FlexUtil Physical Drive. | [optional] 
 **WriteErrorCount** | Pointer to **string** | Write error count of the FlexUtil Physical Drive. | [optional] 
 **WriteErrorThreshold** | Pointer to **string** | Write error threshold for FlexUtil Physical Drive. | [optional] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
-**StorageFlexUtilController** | Pointer to [**StorageFlexUtilControllerRelationship**](storage.FlexUtilController.Relationship.md) |  | [optional] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
+**StorageFlexUtilController** | Pointer to [**StorageFlexUtilControllerRelationship**](StorageFlexUtilControllerRelationship.md) |  | [optional] 
 
 ## Methods
 

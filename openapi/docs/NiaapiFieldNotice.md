@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. The enum values provides the list of concrete types that can be instantiated from this abstract type. | 
 **Bugid** | Pointer to **string** | Bug Id associated with this notice. | [optional] 
 **FieldNoticeDesc** | Pointer to **string** | Field notice Description. | [optional] 
 **FieldNoticeId** | Pointer to **string** | Fieldnotice Id of this notice. | [optional] 
 **FieldNoticeUrl** | Pointer to **string** | Field notice URL link to the notice webpage. | [optional] 
 **Headline** | Pointer to **string** | The headline of this field notice. | [optional] 
 **Hwpid** | Pointer to **string** | Hardware PID for affected models. | [optional] 
-**RevisionInfo** | Pointer to [**[]NiaapiRevisionInfo**](niaapi.RevisionInfo.md) |  | [optional] 
+**RevisionInfo** | Pointer to [**[]NiaapiRevisionInfo**](NiaapiRevisionInfo.md) |  | [optional] 
 **SwRelease** | Pointer to **string** | Software Release number for affected versions. | [optional] 
 **WorkaroundUrl** | Pointer to **string** | URL of workaround of this notice. | [optional] 
 

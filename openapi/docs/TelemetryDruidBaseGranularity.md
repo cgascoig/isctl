@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | the type of granularity. | 
+**Type** | **string** | the type of granularity. | 
 
 ## Methods
 

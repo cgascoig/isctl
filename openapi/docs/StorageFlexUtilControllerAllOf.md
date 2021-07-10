@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexUtilController"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexUtilController"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "storage.FlexUtilController"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "storage.FlexUtilController"]
 **ControllerName** | Pointer to **string** | Name of the Flex Util Controller. | [optional] 
 **ControllerStatus** | Pointer to **string** | The current status of the controller. | [optional] 
 **FfControllerId** | Pointer to **string** | Identifier for the Storage Flex Util Controller. | [optional] 
 **InternalState** | Pointer to **string** | The internal state of the controller. | [optional] 
-**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](compute.Board.Relationship.md) |  | [optional] 
-**FlexUtilPhysicalDrives** | Pointer to [**[]StorageFlexUtilPhysicalDriveRelationship**](storage.FlexUtilPhysicalDrive.Relationship.md) | An array of relationships to storageFlexUtilPhysicalDrive resources. | [optional] [readonly] 
-**FlexUtilVirtualDrives** | Pointer to [**[]StorageFlexUtilVirtualDriveRelationship**](storage.FlexUtilVirtualDrive.Relationship.md) | An array of relationships to storageFlexUtilVirtualDrive resources. | [optional] [readonly] 
-**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](inventory.DeviceInfo.Relationship.md) |  | [optional] 
-**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](asset.DeviceRegistration.Relationship.md) |  | [optional] 
+**ComputeBoard** | Pointer to [**ComputeBoardRelationship**](ComputeBoardRelationship.md) |  | [optional] 
+**FlexUtilPhysicalDrives** | Pointer to [**[]StorageFlexUtilPhysicalDriveRelationship**](StorageFlexUtilPhysicalDriveRelationship.md) | An array of relationships to storageFlexUtilPhysicalDrive resources. | [optional] [readonly] 
+**FlexUtilVirtualDrives** | Pointer to [**[]StorageFlexUtilVirtualDriveRelationship**](StorageFlexUtilVirtualDriveRelationship.md) | An array of relationships to storageFlexUtilVirtualDrive resources. | [optional] [readonly] 
+**InventoryDeviceInfo** | Pointer to [**InventoryDeviceInfoRelationship**](InventoryDeviceInfoRelationship.md) |  | [optional] 
+**RegisteredDevice** | Pointer to [**AssetDeviceRegistrationRelationship**](AssetDeviceRegistrationRelationship.md) |  | [optional] 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassId** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.UcsdManagedInfra"]
-**ObjectType** | Pointer to **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.UcsdManagedInfra"]
+**ClassId** | **string** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to "iaas.UcsdManagedInfra"]
+**ObjectType** | **string** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to "iaas.UcsdManagedInfra"]
 **AdvancedCatalogCount** | Pointer to **int64** | Total advanced catalogs in UCSD. | [optional] [readonly] 
 **BmCatalogCount** | Pointer to **int64** | Total bare metal catalogs in UCSD. | [optional] [readonly] 
 **ContainerCatalogCount** | Pointer to **int64** | Total service container catalogs in UCSD. | [optional] [readonly] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **UserCount** | Pointer to **int64** | Total user accounts in UCSD. | [optional] [readonly] 
 **VdcCount** | Pointer to **int64** | Total virtual datacenters in UCSD. | [optional] [readonly] 
 **VmCount** | Pointer to **int64** | Total Virtual machines in UCSD. | [optional] [readonly] 
-**Guid** | Pointer to [**IaasUcsdInfoRelationship**](iaas.UcsdInfo.Relationship.md) |  | [optional] 
+**Guid** | Pointer to [**IaasUcsdInfoRelationship**](IaasUcsdInfoRelationship.md) |  | [optional] 
 
 ## Methods
 
