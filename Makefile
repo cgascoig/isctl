@@ -19,7 +19,7 @@ GO_PATH ?= $(shell go env GOPATH)
 #OPENAPI_GENERATOR_CLI_IMAGE_TAG := @sha256:bcc4e88bd375b749b6b2555048f9853e8005829c0baa9394f9028e9bc5c224fe
 OPENAPI_GENERATOR_CLI_IMAGE_TAG := :v5.1.1
 
-all: build/isctl build/generator-postprocess openapi/operations.yaml cmd/cli.go
+all: build/isctl build/generator-postprocess  cmd/cli.go
 .PHONY: all
 
 generate: cmd/cli.go
@@ -39,19 +39,19 @@ functional-test: build/isctl
 > bats tests
 .PHONY: functional-test
 
-openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
-> mkdir -p $(@D)
-> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go
-> rm openapi/go.mod openapi/go.sum
-> mv openapi/README.md openapi/operations.yaml
-> $(GO_PATH)/bin/goimports -l -w openapi
+#openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
+#> mkdir -p $(@D)
+#> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go
+#> rm openapi/go.mod openapi/go.sum
+#> mv openapi/README.md openapi/operations.yaml
+#> $(GO_PATH)/bin/goimports -l -w openapi
 
-build/generator-postprocess: $(shell find generator-postprocess -name \*.go -type f) go.mod
+build/generator: $(shell find generator -name \*.go -type f) go.mod
 > mkdir -p $(@D)
-> go build -v -o "$@" $(GO_MODULE)/generator-postprocess 
+> go build -v -o "$@" $(GO_MODULE)/generator 
 
-cmd/cli.go: build/generator-postprocess openapi/operations.yaml $(shell find generator-postprocess -name \*.go.tmpl -type f)
-> build/generator-postprocess --operations openapi/operations.yaml --template generator-postprocess/cli.go.tmpl --output "$@"
+cmd/cli.go: build/generator $(shell find generator -name \*.go.tmpl -type f)
+> build/generator --operations spec/openapi.yaml
 > go fmt $(shell find cmd -name \*.go -type f)
 
 build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod

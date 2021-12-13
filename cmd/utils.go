@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"regexp"
 
-	"github.com/cgascoig/isctl/openapi"
+	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
 	log "github.com/sirupsen/logrus"
 	yaml "gopkg.in/yaml.v2"
 )

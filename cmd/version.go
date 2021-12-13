@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/cgascoig/isctl/openapi"
+	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
 	"github.com/spf13/cobra"
 )
 
