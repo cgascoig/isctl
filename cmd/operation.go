@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/cgascoig/isctl/openapi"
+	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
 )
 
 // Operation is a generic interface for Intersight Operations

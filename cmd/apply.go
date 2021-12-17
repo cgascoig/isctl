@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/cgascoig/isctl/openapi"
+	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	yaml "gopkg.in/yaml.v3"
