@@ -176,6 +176,40 @@ func (v *Var) NormalisedType() string {
 	}
 }
 
+type TemplateData struct {
+	CliTree    *CliItem
+	Operations []Operation
+	Models     map[string]Model
+}
+
+func (t TemplateData) GetTypeToIntersightClassIDMapping() map[string]string {
+	ret := map[string]string{}
+
+	for modelName, model := range t.Models {
+		ret[modelName] = getModelClassID(t.Models, model)
+	}
+
+	return ret
+}
+
+func getModelClassID(models map[string]Model, model Model) string {
+	for _, v := range model.Vars {
+		if v.Name == "ClassId" {
+			return v.Default
+		}
+	}
+
+	for _, p := range model.Parents {
+		m := models[p]
+		classID := getModelClassID(models, m)
+		if classID != "" && classID != "<nil>" {
+			return classID
+		}
+	}
+
+	return ""
+}
+
 func generate(templateFilename string, outputFilename string, data interface{}) {
 	log.Printf("Generating '%s' using template file '%s'", outputFilename, templateFilename)
 
@@ -207,11 +241,7 @@ func main() {
 
 	cliTree := generateCliTree(opData)
 
-	data := struct {
-		CliTree    *CliItem
-		Operations []Operation
-		Models     map[string]Model
-	}{
+	data := TemplateData{
 		CliTree:    cliTree,
 		Operations: opData.Operations,
 		Models:     opData.Models,

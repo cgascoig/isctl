@@ -46,7 +46,7 @@ func ReadOpenAPIFile(filename string) (*OperationsFile, error) {
 				}
 				ret.Operations = append(ret.Operations, newOp)
 
-				fmt.Printf("Added operation: %v\n", newOp)
+				fmt.Printf("Added operation: %v\n", newOp.OperationID)
 			}
 
 		}
@@ -97,7 +97,6 @@ func GetParams(op *openapi3.Operation, requiredTypes *TypeList) []Param {
 
 			ret = append(ret, newParam)
 			requiredTypes.AddType(newParam.DataType)
-			fmt.Printf("\n->%s\n", newParam.DataType)
 		} else {
 			panic("Unimplemented")
 		}
@@ -116,7 +115,6 @@ func GetParams(op *openapi3.Operation, requiredTypes *TypeList) []Param {
 
 		ret = append(ret, newParam)
 		requiredTypes.AddType(newParam.DataType)
-		fmt.Printf("\n->%s\n", newParam.DataType)
 	}
 
 	return ret
@@ -142,6 +140,10 @@ func SchemaRefToType(sr *openapi3.SchemaRef) string {
 		return ""
 	}
 
+	if sr.Ref == "" && sr.Value != nil {
+		return sr.Value.Type
+	}
+
 	return SchemaNameToType(sr.Ref)
 }
 
@@ -149,6 +151,7 @@ func SchemaNameToType(sn string) string {
 	regex := regexp.MustCompile(`^#/components/schemas/([^/]+)$`)
 	m := regex.FindStringSubmatch(sn)
 	if m == nil || len(m) != 2 {
+		fmt.Printf("WARN: SchemaNameToType returning unknown for '%s'", sn)
 		return ""
 	}
 
@@ -190,6 +193,50 @@ func GetModelFromSchemaRef(schemaName string, schema *openapi3.SchemaRef) (strin
 
 }
 
+func SchemaRefToDataType(sr *openapi3.SchemaRef) string {
+	if sr.Ref == "" && sr.Value == nil {
+		fmt.Printf("ERROR: SchemaRefToDataType - both Ref and Value are empty")
+		return ""
+	}
+
+	// if sr.Ref != "" && sr.Value != nil {
+	// 	fmt.Printf("ERROR: SchemaRefToDataType - both Ref and Value are non-empty")
+	// 	return ""
+	// }
+
+	if sr.Ref != "" {
+		return SchemaNameToType(sr.Ref)
+	}
+
+	if sr.Value != nil {
+		switch sr.Value.Type {
+		case "array":
+			return fmt.Sprintf("[]%s", SchemaRefToDataType(sr.Value.Items))
+		case "integer":
+			return "int64"
+		case "boolean":
+			return "bool"
+		case "number":
+			return "float32"
+		case "string":
+			return "string"
+		case "object":
+			if sr.Ref != "" {
+				return SchemaNameToType(sr.Ref)
+			} else {
+				fmt.Printf("ERROR: object type without Ref")
+				return ""
+			}
+		case "":
+			fmt.Printf("WARN: empty type")
+			return ""
+		}
+	}
+
+	panic(fmt.Sprintf("Shouldn't get here: %v", sr.Value.Type))
+	return ""
+}
+
 func SchemaToVars(schema *openapi3.Schema) []Var {
 	if schema.Type != "object" {
 		fmt.Printf("FATAL: unhandled schema type. Schema: %v\n", schema)
@@ -203,25 +250,10 @@ func SchemaToVars(schema *openapi3.Schema) []Var {
 		}
 		newVar := Var{
 			Name:     k,
-			DataType: v.Value.Type,
+			DataType: SchemaRefToDataType(v), //v.Value.Type,
 			ReadOnly: v.Value.ReadOnly,
 			Nullable: v.Value.Nullable,
 			Default:  fmt.Sprintf("%v", v.Value.Default),
-		}
-
-		switch v.Value.Type {
-		case "array":
-			newVar.DataType = fmt.Sprintf("[]%s", SchemaRefToType(v.Value.Items))
-		case "integer":
-			newVar.DataType = "int64"
-		case "boolean":
-			newVar.DataType = "bool"
-		case "number":
-			newVar.DataType = "float32"
-		case "object":
-			if v.Ref != "" {
-				newVar.DataType = SchemaNameToType(v.Ref)
-			}
 		}
 
 		for _, req := range schema.Required {

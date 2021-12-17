@@ -3,6 +3,6 @@
 package main
 
 var goTypeNameToIntersightClassID = map[string]string{
-    {{ range $modelName, $model := .Models}}
-    "{{ $modelName}}": "{{ range $model.Vars}}{{ if eq .Name "ClassId" }}{{ .Default }}{{ end }}{{ end }}",{{ end }}
+    {{ range $typeName, $classID := .GetTypeToIntersightClassIDMapping }}"{{ $typeName }}": "{{ $classID }}",
+    {{ end }} 
 }

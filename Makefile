@@ -16,8 +16,7 @@ GO_BUILD_CMD := $(GO_CMD) build -v
 GO_BUILD_FLAGS := -ldflags "-X main.commit=`git rev-parse HEAD`"
 GO_PATH ?= $(shell go env GOPATH)
 
-#OPENAPI_GENERATOR_CLI_IMAGE_TAG := @sha256:bcc4e88bd375b749b6b2555048f9853e8005829c0baa9394f9028e9bc5c224fe
-OPENAPI_GENERATOR_CLI_IMAGE_TAG := :v5.1.1
+INTERSIGHT_SDK_VERSION := $(shell cat intersight-sdk-version)
 
 all: build/isctl build/generator-postprocess  cmd/cli.go
 .PHONY: all
@@ -26,7 +25,8 @@ generate: cmd/cli.go
 .PHONY: generate
 
 clean:
-> rm -Rf openapi build
+> rm -Rf build
+> rm cmd/cli.go cmd/operations.go cmd/types.go
 .PHONY: clean
 
 # Go unit tests
@@ -39,18 +39,19 @@ functional-test: build/isctl
 > bats tests
 .PHONY: functional-test
 
-#openapi/operations.yaml: spec/intersight-openapi-v3.json generator-templates/go-experimental-generator-config.json $(shell find generator-templates -type f)
-#> mkdir -p $(@D)
-#> docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli$(OPENAPI_GENERATOR_CLI_IMAGE_TAG) generate  -g go -c /local/generator-templates/go-experimental-generator-config.json -i /local/spec/intersight-openapi-v3.json -o /local/openapi --template-dir /local/generator-templates/go
-#> rm openapi/go.mod openapi/go.sum
-#> mv openapi/README.md openapi/operations.yaml
-#> $(GO_PATH)/bin/goimports -l -w openapi
+spec/openapi.yaml: intersight-sdk-version
+> curl -o "$@" --location "https://github.com/cgascoig/intersight-go-sdk/raw/intersight/$(INTERSIGHT_SDK_VERSION)/intersight/api/openapi.yaml"
+
+go.mod: intersight-sdk-version
+> go get github.com/cgascoig/intersight-go-sdk/intersight@$(INTERSIGHT_SDK_VERSION)
+> go mod tidy
+> touch "$@"
 
 build/generator: $(shell find generator -name \*.go -type f) go.mod
 > mkdir -p $(@D)
 > go build -v -o "$@" $(GO_MODULE)/generator 
 
-cmd/cli.go: build/generator $(shell find generator -name \*.go.tmpl -type f)
+cmd/cli.go: build/generator $(shell find generator -name \*.go.tmpl -type f) spec/openapi.yaml
 > build/generator --operations spec/openapi.yaml
 > go fmt $(shell find cmd -name \*.go -type f)
 

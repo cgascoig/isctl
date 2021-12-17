@@ -65,7 +65,7 @@ func () *cobra.Command {
             }
 
             queryParams := map[string]string{}
-            {{ if eq .Operation.HTTPMethod "Get" }}
+            {{ if eq .Operation.HTTPMethod "GET" }}
                 {{ if not .Parameter }}
                     queryParams = getQueryParams(cmd.Flags())
                 {{ end }}
@@ -110,6 +110,8 @@ Provide resource body as JSON on standard input{{ end }}`,
             cmd.Flags().Float64("{{ .Name }}", 0, "{{ .Name }}")
         {{ else if eq .DataType "float32" }}
             cmd.Flags().Float32("{{ .Name }}", 0, "{{ .Name }}")
+        {{ else if eq .DataType "[]float32" }}
+            cmd.Flags().Float32Slice("{{ .Name }}", []float32{}, "{{ .Name }}")
         {{ else if .ValidGenericType }}
             if isMoRef({{ .NormalisedType }}{}) {
                 cmd.Flags().String("{{ .Name }}", "", "{{ .Name }}")
@@ -121,7 +123,7 @@ Provide resource body as JSON on standard input{{ end }}`,
     {{ end }}
 
     {{ if .Operation }}
-        {{ if eq .Operation.HTTPMethod "Get" }}
+        {{ if eq .Operation.HTTPMethod "GET" }}
             {{ if not .Parameter }}
                 cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
                 cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
