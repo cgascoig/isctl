@@ -30,7 +30,7 @@ If you don't use Homebew:
 The easiest way is using the [scoop.sh](https://scoop.sh/) installer:
 
 ```
-scoop install https://github.com/cgascoig/isctl/scoop.json
+scoop install https://github.com/cgascoig/isctl/raw/devel/isctl.json
 ```
 
 Otherwise:
