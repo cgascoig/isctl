@@ -557,7 +557,7 @@ func (config *iksConfig) clusterUndeploy(cmd *cobra.Command, args []string) {
 			if status == "Undeploying" || status == "Deployed" || status == "NotReady" || status == "Deleting" {
 				log.Info("Still waiting for cluster undeployment ...")
 				continue
-			} else if status == "Configuring" || status == "Terminated" {
+			} else if status == "Configuring" || status == "Terminated" || status == "Undeployed" {
 				log.Info("Cluster undeployment complete. ")
 				return
 			} else {
