@@ -27,6 +27,14 @@ If you don't use Homebew:
 
 ## Windows
 
+The easiest way is using the [scoop.sh](https://scoop.sh/) installer:
+
+```
+scoop install https://github.com/cgascoig/isctl/scoop.json
+```
+
+Otherwise:
+
 * Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
 * Unzip and move the `isctl.exe` binary somewhere that is on your path. 
 
