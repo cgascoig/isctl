@@ -1,5 +1,3 @@
-![Build](https://github.com/cgascoig/isctl/workflows/Build/badge.svg)
-
 # isctl - CLI for Cisco Intersight
 `isctl` is a `kubectl`-insipired CLI for the Cisco Intersight service. 
 
