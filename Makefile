@@ -18,7 +18,7 @@ GO_PATH ?= $(shell go env GOPATH)
 
 INTERSIGHT_SDK_VERSION := $(shell cat intersight-sdk-version)
 
-all: build/isctl build/generator-postprocess  cmd/cli.go
+all: build/isctl
 .PHONY: all
 
 generate: cmd/cli.go
@@ -54,9 +54,9 @@ build/generator: $(shell find generator -name \*.go -type f) go.mod
 cmd/cli.go: build/generator $(shell find generator -name \*.go.tmpl -type f) spec/openapi.yaml
 > build/generator --operations spec/openapi.yaml
 > go fmt $(shell find cmd -name \*.go -type f)
+> $(GO_PATH)/bin/goimports -l -w cmd
 
 build/isctl: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod
-> $(GO_PATH)/bin/goimports -l -w cmd
 > $(GO_BUILD_CMD) -o "$@" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 
 crossarch: cmd/cli.go $(shell find cmd -name \*.go -type f) go.mod

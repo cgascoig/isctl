@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"regexp"
+	"sort"
 	"strings"
 	"text/template"
 )
@@ -238,6 +239,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error reading OpenAPI spec: %v", err)
 	}
+
+	// Sort some stuff so the generated code doesn't change when generated multiple times
+	for _, m := range opData.Models {
+		sort.Slice(m.Vars, func(i, j int) bool { return m.Vars[i].Name < m.Vars[j].Name })
+	}
+	sort.Slice(opData.Operations, func(i, j int) bool { return opData.Operations[i].OperationID < opData.Operations[j].OperationID })
 
 	cliTree := generateCliTree(opData)
 
