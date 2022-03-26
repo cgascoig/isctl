@@ -204,8 +204,11 @@ func prepareResultTable(in interface{}) ([][]string, []string) {
 			if outHeaders[j] == "Name" {
 				return false
 			}
-			if outHeaders[i] == "Moid" && outHeaders[j] != "Name" {
+			if outHeaders[i] == "Moid" {
 				return true
+			}
+			if outHeaders[j] == "Moid" {
+				return false
 			}
 			return outHeaders[i] < outHeaders[j]
 		})

@@ -234,11 +234,12 @@ func TestPrepareResultTable(t *testing.T) {
 	expectedData = [][]string{
 		{"1234567", "NtpTest", "True", "1.1.1.1, 1.1.1.2"},
 	}
-	expectedHeaders = []string{"Moid", "Name", "Enabled", "NtpServers"}
+	expectedHeaders = []string{"Name", "Moid", "Enabled", "NtpServers"}
 
 	outData, outHeaders = prepareResultTable(in)
 
-	assert.ElementsMatch(t, expectedHeaders, outHeaders)
+	assert.Equal(t, expectedHeaders, outHeaders)
+	// assert.ElementsMatch(t, expectedHeaders, outHeaders)
 	for i := range expectedData {
 		assert.ElementsMatch(t, expectedData[i], outData[i])
 	}
