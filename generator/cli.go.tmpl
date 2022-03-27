@@ -126,6 +126,7 @@ Provide resource body as JSON on standard input{{ end }}`,
         {{ if eq .Operation.HTTPMethod "GET" }}
             {{ if not .Parameter }}
                 cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
+                cmd.Flags().String("select", "", "Select which attributes the API should return")
                 cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
             {{ end }}
         {{ end }}
@@ -139,6 +140,10 @@ func getQueryParams(flagset *pflag.FlagSet) map[string]string {
 
     if filter, err := flagset.GetString("filter"); err == nil && filter != "" {
         queryParams["filter"] = filter
+    }
+
+    if sel, err := flagset.GetString("select"); err == nil && sel != "" {
+        queryParams["select"] = sel
     }
 
     if name, err := flagset.GetString("name"); err == nil && name != "" {

@@ -281,8 +281,8 @@ func printResultDefault(result interface{}) {
 		return
 	}
 
-	// If the result is just 1 item also fall back to YAML but we
-	if len(tableData) == 1 {
+	// If the result is just 1 item also fall back to YAML unless table is explicitly specified
+	if len(tableData) == 1 && outputFormat != "table" {
 		log.Println("Single result, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.")
 		printResultYAML(result)
 		return

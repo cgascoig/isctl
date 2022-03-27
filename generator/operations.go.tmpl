@@ -188,6 +188,10 @@ import (
                     req = req.Filter(filter)
                 }
 
+                if sel, ok := queryParams["select"]; ok && sel != "" {
+                    req = req.Select_(sel)
+                }
+
                 if name, ok := queryParams["name"]; ok && name != "" {
                     req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
                 }

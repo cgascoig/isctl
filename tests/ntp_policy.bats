@@ -49,6 +49,12 @@ TEST_SECTION="NTP Policy CRUD"
     [ "${ENABLED}" == "true" ]
 }
 
+@test "${TEST_SECTION}: filter NTP policy and select" {
+    run ./build/isctl get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o table --select Name,Enabled
+    assert_line --index 1 --regexp '^\s+Name\s+Moid\s+Enabled\s*$'
+    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+[0-9a-f]{24}\s+True\s*$"
+}
+
 @test "${TEST_SECTION}: delete NTP policy" {
     ./build/isctl delete ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid')
 
@@ -76,4 +82,9 @@ TEST_SECTION="NTP Policy CRUD"
 setup_file() {
     # delete the test policy if it already exists. Don't check the exit code. 
     run ./build/isctl delete ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid')
+}
+
+setup() {
+    load 'test_helper/bats-support/load' # this is required by bats-assert!
+    load 'test_helper/bats-assert/load'
 }
