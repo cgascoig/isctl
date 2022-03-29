@@ -167,6 +167,10 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	if keyFile == "" {
 		return fmt.Errorf("%s is not set", keyFileConfigKey)
 	}
+	// try doing ~ expansion on the keyFile path
+	if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {
+		keyFile = expandedKeyFile
+	}
 
 	authConfig := openapi.HttpSignatureAuth{
 		KeyId:          keyID,
