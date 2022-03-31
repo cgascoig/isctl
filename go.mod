@@ -5,7 +5,7 @@ go 1.14
 require (
 	github.com/PaesslerAG/jsonpath v0.1.1
 	github.com/bndr/gotabulate v1.1.2
-	github.com/cgascoig/intersight-go-sdk/intersight v1.0.9-5517
+	github.com/cgascoig/intersight-go-sdk/intersight v1.0.9-5808
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/getkin/kin-openapi v0.85.0
 	github.com/kr/pretty v0.2.0 // indirect
