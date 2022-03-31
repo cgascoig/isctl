@@ -23,7 +23,19 @@ func logHTTPResponse(httpResponse *http.Response) {
 	log.Debugf("HTTP Response: %d %v", httpResponse.StatusCode, httpResponse.Status)
 }
 
-func resultHandler(result interface{}, httpResponse *http.Response, err error) {
+type ResultOpt struct {
+	SingleResult *bool
+}
+
+func resultHandler(result interface{}, httpResponse *http.Response, err error, options ...ResultOpt) {
+	var singleResult bool
+
+	for _, opt := range options {
+		if opt.SingleResult != nil {
+			singleResult = *opt.SingleResult
+		}
+	}
+
 	if err != nil || verbose {
 		logHTTPResponse(httpResponse)
 	}
@@ -32,7 +44,7 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error) {
 		log.Fatalf("ERROR: %v\n", err)
 	}
 
-	result, err = applyJSONPathFilter(result, jsonPathFilter)
+	result, err = applyJSONPathFilter(result, jsonPathFilter, singleResult)
 	if err != nil {
 		log.Fatalf("ERROR applying jsonPath filter: %v", err)
 	}
@@ -89,7 +101,7 @@ func collapseReferences(mo *map[string]interface{}) {
 	}
 }
 
-func removeWrappers(result interface{}) interface{} {
+func removeWrappers(result interface{}, singleResult bool) interface{} {
 	var ret interface{}
 
 	ret = result
@@ -100,7 +112,7 @@ func removeWrappers(result interface{}) interface{} {
 		if r, ok := m["Results"]; ok {
 			// the input is of form result["Results"]->[]interface{}
 			if res, ok := r.([]interface{}); ok {
-				if len(res) == 1 {
+				if singleResult && len(res) == 1 {
 					ret = res[0]
 				} else {
 					ret = res
@@ -112,7 +124,7 @@ func removeWrappers(result interface{}) interface{} {
 				if m2, ok := v.(map[string]interface{}); ok {
 					if r, ok := m2["Results"]; ok {
 						if res, ok := r.([]interface{}); ok {
-							if len(res) == 1 {
+							if singleResult && len(res) == 1 {
 								ret = res[0]
 							} else {
 								ret = res
@@ -230,7 +242,7 @@ func prepareResultTable(in interface{}) ([][]string, []string) {
 	return outData, outHeaders
 }
 
-func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{}, error) {
+func applyJSONPathFilter(result interface{}, jsonpathQuery string, singleResult bool) (interface{}, error) {
 	buf, err := json.Marshal(result)
 	if err != nil {
 		return nil, fmt.Errorf("JSON marshalling error: %v", err)
@@ -242,7 +254,7 @@ func applyJSONPathFilter(result interface{}, jsonpathQuery string) (interface{},
 		return nil, fmt.Errorf("JSON unmarshalling error: %v", err)
 	}
 
-	js = removeWrappers(js)
+	js = removeWrappers(js, singleResult)
 
 	if jsonpathQuery == "" {
 		return js, nil

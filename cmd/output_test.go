@@ -36,7 +36,7 @@ func TestApplyJSONPathFilter(t *testing.T) {
 	var expected interface{}
 
 	//Test with empty filter
-	expected = map[string]interface{}{
+	expectedSingleResult := map[string]interface{}{
 		"ClassId":    "ntp.Policy",
 		"ObjectType": "ntp.Policy",
 		"Moid":       "1234567",
@@ -44,24 +44,34 @@ func TestApplyJSONPathFilter(t *testing.T) {
 		"Enabled":    true,
 		"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
 	}
+	expected = []interface{}{
+		expectedSingleResult,
+	}
 
-	out, err := applyJSONPathFilter(in, "")
+	out, err := applyJSONPathFilter(in, "", false)
 	assert.NoError(t, err)
-
 	assert.Equal(t, expected, out)
+
+	out, err = applyJSONPathFilter(in, "", true)
+	assert.NoError(t, err)
+	assert.Equal(t, expectedSingleResult, out)
 
 	//Test with common filter
+	expected = []interface{}{"NtpTest"}
 
-	expected = "NtpTest"
-
-	out, err = applyJSONPathFilter(in, "$.Name")
+	out, err = applyJSONPathFilter(in, "$[*].Name", false)
 	assert.NoError(t, err)
 	assert.Equal(t, expected, out)
+
+	out, err = applyJSONPathFilter(in, "$.Name", true)
+	assert.NoError(t, err)
+	assert.Equal(t, "NtpTest", out)
 }
 
 type simplifyResultTestCase struct {
-	In  interface{}
-	Out interface{}
+	In           interface{}
+	Out          interface{}
+	SingleResult bool
 }
 
 func TestRemoveWrapper(t *testing.T) {
@@ -133,7 +143,48 @@ func TestRemoveWrapper(t *testing.T) {
 			},
 		},
 
-		// Single result should return just a map[string]
+		// Single result should return just a slice of map[string] when singleResult=false
+		{
+			In: map[string]interface{}{
+				"MoDocumentCount": nil,
+				"NtpPolicyList": map[string]interface{}{
+					"ObjectType": "ntp.Policy.List",
+					"Results": []interface{}{
+						map[string]interface{}{
+							"ClassId":    "ntp.Policy",
+							"ObjectType": "ntp.Policy",
+							"Moid":       "1234567",
+							"Name":       "NtpTest",
+							"Enabled":    true,
+							"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+							"TestRef": map[string]interface{}{
+								"ClassId":    "mo.MoRef",
+								"ObjectType": "TestRefType",
+								"Moid":       "7654321",
+							},
+						},
+					},
+				},
+			},
+			Out: []interface{}{
+				map[string]interface{}{
+					"ClassId":    "ntp.Policy",
+					"ObjectType": "ntp.Policy",
+					"Moid":       "1234567",
+					"Name":       "NtpTest",
+					"Enabled":    true,
+					"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+					"TestRef": map[string]interface{}{
+						"ClassId":    "mo.MoRef",
+						"ObjectType": "TestRefType",
+						"Moid":       "7654321",
+					},
+				},
+			},
+			SingleResult: false,
+		},
+
+		// Single result should return just a map[string] when singleResult=true
 		{
 			In: map[string]interface{}{
 				"MoDocumentCount": nil,
@@ -169,11 +220,12 @@ func TestRemoveWrapper(t *testing.T) {
 					"Moid":       "7654321",
 				},
 			},
+			SingleResult: true,
 		},
 	}
 
 	for _, testCase := range testCases {
-		out := removeWrappers(testCase.In)
+		out := removeWrappers(testCase.In, testCase.SingleResult)
 
 		assert.Equal(t, testCase.Out, out)
 	}

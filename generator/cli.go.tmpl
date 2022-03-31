@@ -23,7 +23,11 @@ func () *cobra.Command {
         Run: func(cmd *cobra.Command, args []string) {
             client.GetConfig().Debug = verbose
 
+            // singleResult is true if the query should return a single result - used to decide whether to collapse the result into an object or single entry list for display/jsonpath processing
+            var singleResult = false
+
             {{ if eq .Parameter "name" }}
+            singleResult = true
             // Lookup moid from name
             getOp := getGetOperationForClassID("{{ .Operation.ReturnClassID }}")
             if getOp == nil {
@@ -68,11 +72,14 @@ func () *cobra.Command {
             {{ if eq .Operation.HTTPMethod "GET" }}
                 {{ if not .Parameter }}
                     queryParams = getQueryParams(cmd.Flags())
+                    if _, ok := queryParams["name"]; ok {
+                        singleResult = true
+                    }
                 {{ end }}
             {{ end }}
 
             res, httpResponse, err := operation.Execute(client, args, queryParams)
-            resultHandler(res, httpResponse, err)
+            resultHandler(res, httpResponse, err, ResultOpt{SingleResult: &singleResult})
         }, 
         {{ end }}
         {{ if .Parameter }}
@@ -245,7 +252,7 @@ func runCmd(cmd *cobra.Command, args []string) {
 }
 
 // ResultHandler is the function signature to handle API results
-type ResultHandler = func(result interface{}, httpResponse *http.Response, err error)
+type ResultHandler = func(result interface{}, httpResponse *http.Response, err error, opts ...ResultOpt)
 
 // GetCommands returns the cobra command tree for the API
 func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.Command {
