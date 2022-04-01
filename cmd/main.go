@@ -62,9 +62,10 @@ func main() {
 	viper.BindPFlag(serverConfigKey, rootCmd.PersistentFlags().Lookup(serverConfigKey))
 
 	configCmd := &cobra.Command{
-		Use:   "configure",
-		Run:   configure,
-		Short: "Configure the isctl command",
+		Use:               "configure",
+		Run:               configure,
+		Short:             "Configure the isctl command",
+		PersistentPreRunE: func(cmd *cobra.Command, args []string) error { return nil },
 	}
 	rootCmd.AddCommand(configCmd)
 	// rootCmd.AddCommand(newCmdApply(client))
@@ -149,11 +150,6 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	if verbose {
 		log.SetLevel(log.DebugLevel)
 		log.Debug("Logging level set to debug(verbose)")
-	}
-
-	// Skip validation for config command
-	if cmd.Use == "configure" || cmd.Use == "version" {
-		return nil
 	}
 
 	var err error

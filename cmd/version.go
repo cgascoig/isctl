@@ -16,9 +16,10 @@ const ()
 
 func newCmdVersion(client *openapi.APIClient) *cobra.Command {
 	return &cobra.Command{
-		Use:   "version",
-		Run:   runCmdVersion,
-		Short: "Print the version information",
+		Use:               "version",
+		Run:               runCmdVersion,
+		Short:             "Print the version information",
+		PersistentPreRunE: func(cmd *cobra.Command, args []string) error { return nil },
 	}
 }
 

@@ -14,6 +14,11 @@ TEST_NAME=isctl-bats-test-1
     assert_output --regexp "^Intersight Kubernetes Service cluster commands"
 }
 
+@test "${TEST_SECTION}: get kubernetes version" {
+    run ./build/isctl get kubernetes version
+    assert_success
+}
+
 @test "${TEST_SECTION}: create IP Pool" {
     run ./build/isctl create ippool pool --Name "${TEST_NAME}" --IpV4Blocks '[{"From": "10.67.28.230", "To": "10.67.28.234"}]' --IpV4Config '{"Gateway": "10.67.28.129", "Netmask": "255.255.255.128", "PrimaryDns": "10.67.28.130"}' --Organization default
     assert_success
