@@ -192,10 +192,15 @@ import (
                     req = req.Select_(sel)
                 }
 
+                if expand, ok := queryParams["expand"]; ok && expand != "" {
+                    req = req.Expand(expand)
+                }
+
                 if name, ok := queryParams["name"]; ok && name != "" {
                     req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
                 }
             {{ end }}
+
         {{ end }}
 
         {{ if ne .Operation.ReturnType "" }}

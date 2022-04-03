@@ -134,6 +134,7 @@ Provide resource body as JSON on standard input{{ end }}`,
             {{ if not .Parameter }}
                 cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
                 cmd.Flags().String("select", "", "Select which attributes the API should return")
+                cmd.Flags().String("expand", "", "Expand query https://intersight.com/apidocs/introduction/query/#expand-query-option-returning-related-resources")
                 cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
             {{ end }}
         {{ end }}
@@ -151,6 +152,10 @@ func getQueryParams(flagset *pflag.FlagSet) map[string]string {
 
     if sel, err := flagset.GetString("select"); err == nil && sel != "" {
         queryParams["select"] = sel
+    }
+
+    if expand, err := flagset.GetString("expand"); err == nil && expand != "" {
+        queryParams["expand"] = expand
     }
 
     if name, err := flagset.GetString("name"); err == nil && name != "" {
