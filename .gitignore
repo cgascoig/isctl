@@ -1,5 +1,6 @@
 /scrap/
 .vscode/
+/.idea/
 /build/
 gon.hcl
 /dist/
