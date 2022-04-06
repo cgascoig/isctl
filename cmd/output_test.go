@@ -288,7 +288,7 @@ func TestPrepareResultTable(t *testing.T) {
 	}
 	expectedHeaders = []string{"Name", "Moid", "Enabled", "NtpServers"}
 
-	outData, outHeaders = prepareResultTable(in)
+	outData, outHeaders = prepareResultTable(in, true)
 
 	assert.Equal(t, expectedHeaders, outHeaders)
 	// assert.ElementsMatch(t, expectedHeaders, outHeaders)
@@ -306,7 +306,7 @@ func TestPrepareResultTable(t *testing.T) {
 		{"456"},
 	}
 	expectedHeaders = []string{}
-	outData, outHeaders = prepareResultTable(in)
+	outData, outHeaders = prepareResultTable(in, true)
 
 	assert.ElementsMatch(t, expectedHeaders, outHeaders)
 	for i := range expectedData {
@@ -319,12 +319,18 @@ func TestPrepareResultTable(t *testing.T) {
 		{"123"},
 	}
 	expectedHeaders = []string{}
-	outData, outHeaders = prepareResultTable(in)
+	outData, outHeaders = prepareResultTable(in, true)
 
 	assert.ElementsMatch(t, expectedHeaders, outHeaders)
 	for i := range expectedData {
 		assert.ElementsMatch(t, expectedData[i], outData[i])
 	}
+}
+
+func TestRelaxedJSONPathExpression(t *testing.T) {
+	assert.Equal(t, "$.Name", relaxedJSONPathExpression("$.Name"))
+	assert.Equal(t, "$.Name", relaxedJSONPathExpression(".Name"))
+	assert.Equal(t, "$.Name[0].Tags", relaxedJSONPathExpression("$.Name[0].Tags"))
 }
 
 func optionalStr(s string) *string {

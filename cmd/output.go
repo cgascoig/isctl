@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -49,11 +50,20 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 		log.Fatalf("ERROR applying jsonPath filter: %v", err)
 	}
 
-	switch outputFormat := strings.ToLower(viper.GetString(keyOutputConfigKey)); {
-	case outputFormat == "yaml":
+	outputConfig := viper.GetString(keyOutputConfigKey)
+	outputConfigParts := strings.SplitN(outputConfig, "=", 2)
+
+	switch outputConfigParts[0] {
+	case "yaml":
 		printResultYAML(result)
-	case outputFormat == "json":
+	case "json":
 		printResultJSON(result)
+	case "custom-columns":
+		if len(outputConfigParts) != 2 {
+			log.Fatalf("custom-columns format specified but no custom columns given")
+		}
+		printResultCustomColumns(result, outputConfigParts[1])
+
 	default:
 		printResultDefault(result)
 	}
@@ -184,7 +194,7 @@ func stringify(in interface{}) string {
 	return fmt.Sprintf("%v", in)
 }
 
-func prepareResultTable(in interface{}) ([][]string, []string) {
+func prepareResultTable(in interface{}, sortHeaders bool) ([][]string, []string) {
 	outHeaders := []string{}
 	outData := [][]string{}
 
@@ -209,21 +219,23 @@ func prepareResultTable(in interface{}) ([][]string, []string) {
 			}
 		}
 
-		sort.Slice(outHeaders, func(i, j int) bool {
-			if outHeaders[i] == "Name" {
-				return true
-			}
-			if outHeaders[j] == "Name" {
-				return false
-			}
-			if outHeaders[i] == "Moid" {
-				return true
-			}
-			if outHeaders[j] == "Moid" {
-				return false
-			}
-			return outHeaders[i] < outHeaders[j]
-		})
+		if sortHeaders {
+			sort.Slice(outHeaders, func(i, j int) bool {
+				if outHeaders[i] == "Name" {
+					return true
+				}
+				if outHeaders[j] == "Name" {
+					return false
+				}
+				if outHeaders[i] == "Moid" {
+					return true
+				}
+				if outHeaders[j] == "Moid" {
+					return false
+				}
+				return outHeaders[i] < outHeaders[j]
+			})
+		}
 
 		for _, row := range inList {
 			if rowMap, ok := row.(map[string]interface{}); ok {
@@ -273,7 +285,7 @@ const defaultOutputMaxColumns int = 10
 func printResultDefault(result interface{}) {
 	result = filterAttributes(result)
 
-	tableData, tableHeaders := prepareResultTable(result)
+	tableData, tableHeaders := prepareResultTable(result, true)
 
 	if len(tableHeaders) == 0 {
 		for _, row := range tableData {
@@ -302,6 +314,7 @@ func printResultDefault(result interface{}) {
 
 	t := gotabulate.Create(tableData)
 	t.SetHeaders(tableHeaders)
+	t.SetDenseMode()
 
 	fmt.Println(t.Render("simple"))
 }
@@ -324,4 +337,62 @@ func printResultJSON(result interface{}) {
 	}
 
 	fmt.Println(string(out))
+}
+
+func relaxedJSONPathExpression(exp string) string {
+	re := regexp.MustCompile(`^\..+`)
+	if re.MatchString(exp) {
+		exp = fmt.Sprintf("$%s", exp)
+	}
+
+	return exp
+}
+
+func printResultCustomColumns(result interface{}, template string) {
+	columnTmpls := strings.Split(template, ",")
+
+	type columnSpec struct {
+		Name string
+		Spec string
+	}
+
+	columns := []columnSpec{}
+
+	for _, columnTmpl := range columnTmpls {
+		columnSpecSplit := strings.SplitN(columnTmpl, ":", 2)
+		if len(columnSpecSplit) != 2 {
+			log.Fatalf("unexpected custom-columns spec: %s, expected <header>:<json-path-expr>", columnTmpl)
+		}
+		columns = append(columns, columnSpec{Name: columnSpecSplit[0], Spec: relaxedJSONPathExpression(columnSpecSplit[1])})
+	}
+
+	newResult := []interface{}{}
+
+	// If in is not a slice, make it a 1 length slice
+	if _, ok := result.([]interface{}); !ok {
+		result = []interface{}{
+			result,
+		}
+	}
+
+	if inList, ok := result.([]interface{}); ok {
+		for _, row := range inList {
+			rowData := map[string]interface{}{}
+			for _, column := range columns {
+				coldata, err := jsonpath.Get(column.Spec, row)
+				if err != nil {
+					coldata = "<none>"
+				}
+				rowData[column.Name] = coldata
+			}
+			newResult = append(newResult, rowData)
+		}
+	}
+
+	tableData, tableHeaders := prepareResultTable(newResult, false)
+	t := gotabulate.Create(tableData)
+	t.SetHeaders(tableHeaders)
+	t.SetDenseMode()
+
+	fmt.Println(t.Render("simple"))
 }
