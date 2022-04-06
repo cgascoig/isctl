@@ -68,6 +68,13 @@ TEST_SECTION="NTP Policy CRUD"
   assert_equal "${ORG}" "default"
 }
 
+@test "${TEST_SECTION}: custom-columns" {
+    run ./build/isctl get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,ENABLED:.Enabled'
+    assert_success
+    assert_line --index 1 --regexp '^\s+NAME\s+ENABLED\s*$'
+    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+True\s*$"
+}
+
 @test "${TEST_SECTION}: delete NTP policy" {
     ./build/isctl delete ntp policy moid $(./build/isctl get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid')
 
