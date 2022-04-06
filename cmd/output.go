@@ -314,6 +314,7 @@ func printResultDefault(result interface{}) {
 
 	t := gotabulate.Create(tableData)
 	t.SetHeaders(tableHeaders)
+	t.SetDenseMode()
 
 	fmt.Println(t.Render("simple"))
 }
@@ -391,6 +392,7 @@ func printResultCustomColumns(result interface{}, template string) {
 	tableData, tableHeaders := prepareResultTable(newResult, false)
 	t := gotabulate.Create(tableData)
 	t.SetHeaders(tableHeaders)
+	t.SetDenseMode()
 
 	fmt.Println(t.Render("simple"))
 }
