@@ -3,7 +3,7 @@ TEST_NTP_POLICY_NAME=isctl-bats-test-ntp-policy-1
 TEST_SECTION="NTP Policy CRUD"
 
 @test "${TEST_SECTION}: create new NTP policy" {
-    ./build/isctl create ntp policy --Name "${TEST_NTP_POLICY_NAME}" --NtpServers 1.1.1.1,2.2.2.2 --Organization default
+    ./build/isctl create ntp policy --Name "${TEST_NTP_POLICY_NAME}" --NtpServers 1.1.1.1,2.2.2.2 --Organization default --Tags '[{"Key":"tag1", "Value":"value1"},{"Key":"tag2", "Value":"value2"}]'
 }
 
 # Intersight API now seems to allow this without error
@@ -73,6 +73,13 @@ TEST_SECTION="NTP Policy CRUD"
     assert_success
     assert_line --index 1 --regexp '^\s+NAME\s+ENABLED\s*$'
     assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+True\s*$"
+}
+
+@test "${TEST_SECTION}: tag output formatted correctly" {
+    run ./build/isctl get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,TAGS:.Tags'
+    assert_success
+    assert_line --index 1 --regexp '^\s+NAME\s+TAGS\s*$'
+    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+tag1: value1, tag2: value2\s*$"
 }
 
 @test "${TEST_SECTION}: delete NTP policy" {
