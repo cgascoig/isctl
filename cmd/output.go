@@ -175,12 +175,19 @@ func filterAttributes(result interface{}) interface{} {
 }
 
 func stringify(in interface{}) string {
-	if in, ok := in.(bool); ok {
-		if in {
+	switch v := in.(type) {
+	case bool:
+		if v {
 			return "True"
 		}
 
 		return "False"
+	case map[string]interface{}:
+		key, hasKey := v["Key"]
+		value, hasValue := v["Value"]
+		if hasKey && hasValue && len(v) == 2 {
+			return fmt.Sprintf("%v: %v", key, value)
+		}
 	}
 
 	if in, ok := in.([]interface{}); ok {
