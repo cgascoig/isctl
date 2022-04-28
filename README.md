@@ -1,3 +1,4 @@
+[![Build status](https://dev.azure.com/cgascoig/isctl/_apis/build/status/Full%20test?branchName=devel)](https://dev.azure.com/cgascoig/isctl/_build/latest?definitionId=2)
 # isctl - CLI for Cisco Intersight
 `isctl` is a `kubectl`-insipired CLI for the Cisco Intersight service. 
 
