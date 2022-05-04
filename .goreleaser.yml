@@ -6,7 +6,7 @@ before:
     # You may remove this if you don't use go modules.
     - go mod download
     # you may remove this if you don't need go generate
-    - gmake generate
+    # - gmake generate
 builds:
 - id: isctl
   binary: isctl
