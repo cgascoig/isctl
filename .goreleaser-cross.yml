@@ -1,0 +1,63 @@
+# This is an example goreleaser.yaml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod download
+    # you may remove this if you don't need go generate
+    # - gmake generate
+builds:
+- id: isctl-macos-amd64
+  binary: isctl
+  main: ./cmd
+  env:
+  - CC=o64-clang
+  - CXX=o64-clang++
+  goos:
+    - darwin
+  goarch:
+    - amd64
+- id: isctl-macos-arm64
+  binary: isctl
+  main: ./cmd
+  env:
+  - CC=oa64-clang
+  - CXX=oa64-clang++
+  goos:
+    - darwin
+  goarch:
+    - arm64
+- id: isctl-windows-amd64
+  binary: isctl
+  main: ./cmd
+  env:
+  - CC=x86_64-w64-mingw32-gcc
+  - CXX=x86_64-w64-mingw32-g++
+  goos:
+    - windows
+  goarch:
+    - amd64
+- id: isctl-linux-amd64
+  binary: isctl
+  main: ./cmd
+  env:
+  - CC=gcc
+  - CXX=g++
+  goos:
+    - linux
+  goarch:
+    - amd64
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: "{{ .Tag }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
