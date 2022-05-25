@@ -3,7 +3,10 @@ package main
 import (
 	"bufio"
 	"context"
+	"crypto/tls"
 	"fmt"
+	"net/http/httptrace"
+	"net/textproto"
 	"os"
 	"path/filepath"
 
@@ -18,6 +21,7 @@ var (
 	configFile     string
 	jsonPathFilter string
 	verbose        bool
+	httpTrace      bool
 
 	authCtx context.Context
 
@@ -47,6 +51,8 @@ func main() {
 	rootCmd.PersistentFlags().StringVar(&configFile, "config", "", "config file (default is $HOME/.isctl.yaml)")
 
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose logging")
+	rootCmd.PersistentFlags().BoolVar(&httpTrace, "trace", false, "Enable HTTP tracing")
+	rootCmd.PersistentFlags().MarkHidden("trace")
 
 	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID")
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
@@ -191,6 +197,76 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	authCtx = context.WithValue(authCtx, openapi.ContextServerVariables, map[string]string{
 		"server": viper.GetString(serverConfigKey),
 	})
+
+	if httpTrace {
+		trace := &httptrace.ClientTrace{
+			GetConn: func(hostPort string) {
+				log.Printf("Get Conn: %v\n", hostPort)
+			},
+			GotConn: func(connInfo httptrace.GotConnInfo) {
+				log.Printf("Got Conn: %+v\n", connInfo)
+			},
+
+			PutIdleConn: func(err error) {
+				log.Printf("PutIdleConn: err: %v\n", err)
+			},
+
+			GotFirstResponseByte: func() {
+				log.Printf("GotFirstResponseByte\n")
+			},
+
+			Got100Continue: func() {
+				log.Printf("Got100Continue\n")
+			},
+
+			Got1xxResponse: func(code int, header textproto.MIMEHeader) error {
+				log.Printf("Got1xxResponse code: %v header %v\n", code, header)
+				return nil
+			},
+
+			DNSStart: func(dsi httptrace.DNSStartInfo) {
+				log.Printf("DNSStart %v\n", dsi)
+			},
+
+			DNSDone: func(dnsInfo httptrace.DNSDoneInfo) {
+				log.Printf("DNS Info: %+v\n", dnsInfo)
+			},
+
+			ConnectStart: func(network, addr string) {
+				log.Printf("ConnectStart network: %v, addr: %v\n", network, addr)
+			},
+
+			ConnectDone: func(network, addr string, err error) {
+				log.Printf("ConnectDone network: %v addr %v err %v\n", network, addr, err)
+			},
+
+			TLSHandshakeStart: func() {
+				log.Printf("TLSHandshakeStart\n")
+			},
+
+			TLSHandshakeDone: func(cs tls.ConnectionState, err error) {
+				log.Printf("TLSHandshakeDone connectionstate %v err %v\n", cs, err)
+			},
+
+			WroteHeaderField: func(key string, value []string) {
+				log.Printf("WroteHeaderField key %v value %v\n", key, value)
+			},
+
+			WroteHeaders: func() {
+				log.Printf("WroteHeaders\n")
+			},
+
+			Wait100Continue: func() {
+				log.Printf("Wait100Continue\n")
+			},
+
+			WroteRequest: func(wri httptrace.WroteRequestInfo) {
+				log.Printf("WroteRequest %v\n", wri)
+			},
+		}
+
+		authCtx = httptrace.WithClientTrace(authCtx, trace)
+	}
 
 	return nil
 }
