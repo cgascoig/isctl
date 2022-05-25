@@ -135,6 +135,9 @@ Provide resource body as JSON on standard input{{ end }}`,
                 cmd.Flags().String("filter", "", "Filter query (e.g. \"Name eq 'Bob'\" - note the inner quotes must be single-quotes)")
                 cmd.Flags().String("select", "", "Select which attributes the API should return")
                 cmd.Flags().String("expand", "", "Expand query https://intersight.com/apidocs/introduction/query/#expand-query-option-returning-related-resources")
+                cmd.Flags().String("orderby", "", "Sort returned results (e.g. \"CreateTime desc\")")
+                cmd.Flags().String("top", "", "Maximum number of results to return. Use with --skip for pagination of results")
+                cmd.Flags().String("skip", "", "Number of objects to skip and not include in results. Use with --top for pagination of results")
                 cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
             {{ end }}
         {{ end }}
@@ -156,6 +159,18 @@ func getQueryParams(flagset *pflag.FlagSet) map[string]string {
 
     if expand, err := flagset.GetString("expand"); err == nil && expand != "" {
         queryParams["expand"] = expand
+    }
+
+    if orderby, err := flagset.GetString("orderby"); err == nil && orderby != "" {
+        queryParams["orderby"] = orderby
+    }
+
+    if top, err := flagset.GetString("top"); err == nil && top != "" {
+        queryParams["top"] = top
+    }
+
+    if skip, err := flagset.GetString("skip"); err == nil && skip != "" {
+        queryParams["skip"] = skip
     }
 
     if name, err := flagset.GetString("name"); err == nil && name != "" {
