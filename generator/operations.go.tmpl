@@ -196,6 +196,28 @@ import (
                     req = req.Expand(expand)
                 }
 
+                if orderby, ok := queryParams["orderby"]; ok && orderby != "" {
+                    req = req.Orderby(orderby)
+                }
+
+                if top, ok := queryParams["top"]; ok && top != "" {
+                    topInt, err := strconv.Atoi(top)
+                    if err == nil {
+                        req = req.Top(int32(topInt))
+                    } else {
+                        log.Fatalf("top must be an integer")
+                    }
+                }
+
+                if skip, ok := queryParams["skip"]; ok && skip != "" {
+                    skipInt, err := strconv.Atoi(skip)
+                    if err == nil {
+                        req = req.Skip(int32(skipInt))
+                    } else {
+                        log.Fatalf("skip must be an integer")
+                    }
+                }
+
                 if name, ok := queryParams["name"]; ok && name != "" {
                     req = req.Filter(fmt.Sprintf("Name eq '%s'", name))
                 }

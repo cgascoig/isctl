@@ -1,4 +1,6 @@
 TEST_NTP_POLICY_NAME=isctl-bats-test-ntp-policy-1
+TEST_NTP_POLICY_NAME_2=isctl-bats-test-ntp-policy-2
+TEST_NTP_POLICY_NAME_BASE=isctl-bats-test-ntp-policy-
 
 TEST_SECTION="NTP Policy CRUD"
 
@@ -57,6 +59,19 @@ TEST_SECTION="NTP Policy CRUD"
     [ "${ENABLED}" == "true" ]
 }
 
+@test "${TEST_SECTION}: orderby, top and skip options" {
+    # Create a second policy to test with
+    ./build/isctl ${ISCTL_OPTIONS} create ntp policy --Name "${TEST_NTP_POLICY_NAME_2}" --NtpServers 1.1.1.1,2.2.2.2 --Organization default --Tags '[{"Key":"tag1", "Value":"value1"},{"Key":"tag2", "Value":"value2"}]'
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "startswith(Name, '${TEST_NTP_POLICY_NAME_BASE}')" -o table --select Name --orderby Name --top 1
+    assert_success
+    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+"
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "startswith(Name, '${TEST_NTP_POLICY_NAME_BASE}')" -o table --select Name --orderby Name --top 1 --skip 1
+    assert_success
+    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME_2}\s+"
+}
+
 @test "${TEST_SECTION}: filter NTP policy and select" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o table --select Name,Enabled
     assert_line --index 1 --regexp '^\s+Name\s+Moid\s+Enabled\s*$'
@@ -109,6 +124,7 @@ TEST_SECTION="NTP Policy CRUD"
 setup_file() {
     # delete the test policy if it already exists. Don't check the exit code. 
     run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid')
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME_2}" --jsonpath '$.Moid')
 }
 
 setup() {
