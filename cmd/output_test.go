@@ -327,6 +327,34 @@ func TestPrepareResultTable(t *testing.T) {
 	}
 }
 
+func TestPrepareResultTableCustomColums(t *testing.T) {
+	var in interface{}
+	var expectedData, outData [][]string
+	var expectedHeaders, outHeaders []string
+
+	// Test normal scenario - result is a slice of maps
+	in = []interface{}{
+		map[string]interface{}{
+			"Moid":       "1234567",
+			"Name":       "NtpTest",
+			"Enabled":    true,
+			"NtpServers": []interface{}{"1.1.1.1", "1.1.1.2"},
+		},
+	}
+
+	expectedHeaders = []string{"NAME", "MOID", "ENABLED"}
+	expectedData = [][]string{
+		{"NtpTest", "1234567", "True"},
+	}
+
+	outData, outHeaders = prepareResultTableCustomColumns(in, "NAME:.Name,MOID:.Moid,ENABLED:.Enabled")
+
+	assert.Equal(t, expectedHeaders, outHeaders)
+	for i := range expectedData {
+		assert.Equal(t, expectedData[i], outData[i])
+	}
+}
+
 func TestRelaxedJSONPathExpression(t *testing.T) {
 	assert.Equal(t, "$.Name", relaxedJSONPathExpression("$.Name"))
 	assert.Equal(t, "$.Name", relaxedJSONPathExpression(".Name"))
