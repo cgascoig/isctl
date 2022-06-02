@@ -65,17 +65,17 @@ TEST_SECTION="NTP Policy CRUD"
 
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "startswith(Name, '${TEST_NTP_POLICY_NAME_BASE}')" -o table --select Name --orderby Name --top 1
     assert_success
-    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+"
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +"
 
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "startswith(Name, '${TEST_NTP_POLICY_NAME_BASE}')" -o table --select Name --orderby Name --top 1 --skip 1
     assert_success
-    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME_2}\s+"
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME_2} +"
 }
 
 @test "${TEST_SECTION}: filter NTP policy and select" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o table --select Name,Enabled
-    assert_line --index 1 --regexp '^\s+Name\s+Moid\s+Enabled\s*$'
-    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+[0-9a-f]{24}\s+True\s*$"
+    assert_line --index 1 --regexp '^ +Name +Moid +Enabled *$'
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +[0-9a-f]{24} +True *$"
 }
 
 @test "${TEST_SECTION}: expand organisation name" {
@@ -86,15 +86,25 @@ TEST_SECTION="NTP Policy CRUD"
 @test "${TEST_SECTION}: custom-columns" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,ENABLED:.Enabled'
     assert_success
-    assert_line --index 1 --regexp '^\s+NAME\s+ENABLED\s*$'
-    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+True\s*$"
+    assert_line --index 1 --regexp '^ +NAME +ENABLED *$'
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +True *$"
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,ENABLED:.Enabled'
+    assert_success
+    assert_line --index 1 --regexp '^ +NAME +ENABLED *$'
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +True *$"
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,ENABLED:.Enabled'
+    assert_success
+    assert_line --index 1 --regexp '^ +NAME +ENABLED *$'
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +True *$"
 }
 
 @test "${TEST_SECTION}: tag output formatted correctly" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,TAGS:.Tags'
     assert_success
-    assert_line --index 1 --regexp '^\s+NAME\s+TAGS\s*$'
-    assert_line --index 3 --regexp "^\s+${TEST_NTP_POLICY_NAME}\s+tag1: value1, tag2: value2\s*$"
+    assert_line --index 1 --regexp '^ +NAME +TAGS *$'
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +tag1: value1, tag2: value2 *$"
 }
 
 @test "${TEST_SECTION}: delete NTP policy" {

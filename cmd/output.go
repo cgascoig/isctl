@@ -355,7 +355,7 @@ func relaxedJSONPathExpression(exp string) string {
 	return exp
 }
 
-func printResultCustomColumns(result interface{}, template string) {
+func prepareResultTableCustomColumns(result interface{}, template string) ([][]string, []string) {
 	columnTmpls := strings.Split(template, ",")
 
 	type columnSpec struct {
@@ -364,6 +364,8 @@ func printResultCustomColumns(result interface{}, template string) {
 	}
 
 	columns := []columnSpec{}
+	tableData := [][]string{}
+	tableHeaders := []string{}
 
 	for _, columnTmpl := range columnTmpls {
 		columnSpecSplit := strings.SplitN(columnTmpl, ":", 2)
@@ -371,9 +373,10 @@ func printResultCustomColumns(result interface{}, template string) {
 			log.Fatalf("unexpected custom-columns spec: %s, expected <header>:<json-path-expr>", columnTmpl)
 		}
 		columns = append(columns, columnSpec{Name: columnSpecSplit[0], Spec: relaxedJSONPathExpression(columnSpecSplit[1])})
+		tableHeaders = append(tableHeaders, columnSpecSplit[0])
 	}
 
-	newResult := []interface{}{}
+	// newResult := []interface{}{}
 
 	// If in is not a slice, make it a 1 length slice
 	if _, ok := result.([]interface{}); !ok {
@@ -384,19 +387,24 @@ func printResultCustomColumns(result interface{}, template string) {
 
 	if inList, ok := result.([]interface{}); ok {
 		for _, row := range inList {
-			rowData := map[string]interface{}{}
+			rowData := []string{}
 			for _, column := range columns {
 				coldata, err := jsonpath.Get(column.Spec, row)
 				if err != nil {
 					coldata = "<none>"
 				}
-				rowData[column.Name] = coldata
+				rowData = append(rowData, stringify(coldata))
 			}
-			newResult = append(newResult, rowData)
+			tableData = append(tableData, rowData)
 		}
 	}
 
-	tableData, tableHeaders := prepareResultTable(newResult, false)
+	return tableData, tableHeaders
+}
+
+func printResultCustomColumns(result interface{}, template string) {
+
+	tableData, tableHeaders := prepareResultTableCustomColumns(result, template)
 	t := gotabulate.Create(tableData)
 	t.SetHeaders(tableHeaders)
 	t.SetDenseMode()
