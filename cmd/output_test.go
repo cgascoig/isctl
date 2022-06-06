@@ -353,6 +353,15 @@ func TestPrepareResultTableCustomColums(t *testing.T) {
 	for i := range expectedData {
 		assert.Equal(t, expectedData[i], outData[i])
 	}
+
+	outData, outHeaders = prepareResultTableCustomColumns(in, "")
+	expectedHeaders = []string{"Name", "Moid", "Enabled", "NtpServers"}
+	expectedData = [][]string{{"NtpTest", "1234567", "True", "1.1.1.1, 1.1.1.2"}}
+
+	assert.Equal(t, expectedHeaders, outHeaders)
+	for i := range expectedData {
+		assert.Equal(t, expectedData[i], outData[i])
+	}
 }
 
 func TestRelaxedJSONPathExpression(t *testing.T) {

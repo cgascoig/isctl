@@ -63,6 +63,12 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 			log.Fatalf("custom-columns format specified but no custom columns given")
 		}
 		printResultCustomColumns(result, outputConfigParts[1])
+	case "csv":
+		if len(outputConfigParts) == 2 {
+			printResultCSV(result, outputConfigParts[1])
+		} else {
+			printResultCSV(result, "")
+		}
 
 	default:
 		printResultDefault(result)
@@ -356,7 +362,12 @@ func relaxedJSONPathExpression(exp string) string {
 }
 
 func prepareResultTableCustomColumns(result interface{}, template string) ([][]string, []string) {
-	columnTmpls := strings.Split(template, ",")
+	// If in is not a slice, make it a 1 length slice
+	if _, ok := result.([]interface{}); !ok {
+		result = []interface{}{
+			result,
+		}
+	}
 
 	type columnSpec struct {
 		Name string
@@ -367,22 +378,54 @@ func prepareResultTableCustomColumns(result interface{}, template string) ([][]s
 	tableData := [][]string{}
 	tableHeaders := []string{}
 
-	for _, columnTmpl := range columnTmpls {
-		columnSpecSplit := strings.SplitN(columnTmpl, ":", 2)
-		if len(columnSpecSplit) != 2 {
-			log.Fatalf("unexpected custom-columns spec: %s, expected <header>:<json-path-expr>", columnTmpl)
+	if template == "" {
+		// If there is no template, get all the column spec from the first object returned
+
+		if inList, ok := result.([]interface{}); ok {
+			// Get the headers from the first element
+			firstRow := inList[0]
+			if rowMap, ok := firstRow.(map[string]interface{}); ok {
+				for k := range rowMap {
+					columns = append(columns, columnSpec{Name: k, Spec: fmt.Sprintf("$.%s", k)})
+				}
+			}
 		}
-		columns = append(columns, columnSpec{Name: columnSpecSplit[0], Spec: relaxedJSONPathExpression(columnSpecSplit[1])})
-		tableHeaders = append(tableHeaders, columnSpecSplit[0])
+
+		sort.Slice(columns, func(i, j int) bool {
+			if columns[i].Name == "Name" {
+				return true
+			}
+			if columns[j].Name == "Name" {
+				return false
+			}
+			if columns[i].Name == "Moid" {
+				return true
+			}
+			if columns[j].Name == "Moid" {
+				return false
+			}
+			return columns[i].Name < columns[j].Name
+		})
+
+		for _, col := range columns {
+			tableHeaders = append(tableHeaders, col.Name)
+		}
+	} else {
+		// create the columns spec from the template
+		columnTmpls := strings.Split(template, ",")
+
+		for _, columnTmpl := range columnTmpls {
+			columnSpecSplit := strings.SplitN(columnTmpl, ":", 2)
+			if len(columnSpecSplit) != 2 {
+				log.Fatalf("unexpected custom-columns spec: %s, expected <header>:<json-path-expr>", columnTmpl)
+			}
+			columns = append(columns, columnSpec{Name: columnSpecSplit[0], Spec: relaxedJSONPathExpression(columnSpecSplit[1])})
+			tableHeaders = append(tableHeaders, columnSpecSplit[0])
+		}
 	}
 
-	// newResult := []interface{}{}
-
-	// If in is not a slice, make it a 1 length slice
-	if _, ok := result.([]interface{}); !ok {
-		result = []interface{}{
-			result,
-		}
+	if len(columns) < 1 {
+		log.Fatal("no columns for output")
 	}
 
 	if inList, ok := result.([]interface{}); ok {
@@ -410,4 +453,21 @@ func printResultCustomColumns(result interface{}, template string) {
 	t.SetDenseMode()
 
 	fmt.Println(t.Render("simple"))
+}
+
+func printCSVLine(fields []string) {
+	qfields := []string{}
+	for _, f := range fields {
+		qfields = append(qfields, fmt.Sprintf("\"%s\"", f))
+	}
+	fmt.Println(strings.Join(qfields, ","))
+}
+
+func printResultCSV(result interface{}, template string) {
+	tableData, tableHeaders := prepareResultTableCustomColumns(result, template)
+
+	printCSVLine(tableHeaders)
+	for _, row := range tableData {
+		printCSVLine(row)
+	}
 }

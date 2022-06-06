@@ -100,6 +100,18 @@ TEST_SECTION="NTP Policy CRUD"
     assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +True *$"
 }
 
+@test "${TEST_SECTION}: csv output" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o csv --select Name
+    assert_success
+    assert_line --index 0 --regexp '^"Name","Moid","ClassId","ObjectType"$'
+    assert_line --index 1 --regexp "^\"${TEST_NTP_POLICY_NAME}\",\"[0-9a-f]{24}\",\"ntp.Policy\",\"ntp.Policy\"$"
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o csv='NAME:.Name,ENABLED:.Enabled'
+    assert_success
+    assert_line --index 0 --regexp '^"NAME","ENABLED"$'
+    assert_line --index 1 --regexp "^\"${TEST_NTP_POLICY_NAME}\",\"True\"$"
+}
+
 @test "${TEST_SECTION}: tag output formatted correctly" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,TAGS:.Tags'
     assert_success
