@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"regexp"
 	"sort"
@@ -41,8 +42,18 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 		logHTTPResponse(httpResponse)
 	}
 
+	// if there is an error try to display something helpful
 	if err != nil {
-		log.Fatalf("ERROR: %v\n", err)
+		if httpResponse != nil {
+			body, err2 := ioutil.ReadAll(httpResponse.Body)
+			if err2 != nil {
+				log.Fatalf("ERROR: %v", err)
+			} else {
+				log.Fatalf("ERROR: %v: %s", err, string(body))
+			}
+		} else {
+			log.Fatalf("ERROR: %v", err)
+		}
 	}
 
 	result, err = applyJSONPathFilter(result, jsonPathFilter, singleResult)
