@@ -5,6 +5,7 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
+	"net/http"
 	"net/http/httptrace"
 	"net/textproto"
 	"os"
@@ -22,6 +23,7 @@ var (
 	jsonPathFilter string
 	verbose        bool
 	httpTrace      bool
+	httpsInsecure  bool
 
 	authCtx context.Context
 
@@ -58,6 +60,7 @@ func main() {
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
 
 	rootCmd.PersistentFlags().String(serverConfigKey, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\")")
+	rootCmd.PersistentFlags().BoolVarP(&httpsInsecure, "insecure", "k", false, "Allow insecure server connections (disable SSL certificate validation)")
 
 	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", "Output format. One of: default, yaml, json, table")
 	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.Name\")")
@@ -172,6 +175,10 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	// try doing ~ expansion on the keyFile path
 	if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {
 		keyFile = expandedKeyFile
+	}
+
+	if httpsInsecure {
+		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	}
 
 	authConfig := openapi.HttpSignatureAuth{
