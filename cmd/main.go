@@ -49,6 +49,7 @@ func main() {
 	client := openapi.NewAPIClient(config)
 
 	rootCmd := GetCommands(client, resultHandler)
+	rootCmd.Use = "isctl"
 
 	rootCmd.PersistentFlags().StringVar(&configFile, "config", "", "config file (default is $HOME/.isctl.yaml)")
 
