@@ -42,12 +42,17 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 		logHTTPResponse(httpResponse)
 	}
 
+	// if there is an error try to display something helpful
 	if err != nil {
-		body, err2 := ioutil.ReadAll(httpResponse.Body)
-		if err2 != nil {
-			log.Fatalf("ERROR: %v", err)
+		if httpResponse != nil {
+			body, err2 := ioutil.ReadAll(httpResponse.Body)
+			if err2 != nil {
+				log.Fatalf("ERROR: %v", err)
+			} else {
+				log.Fatalf("ERROR: %v: %s", err, string(body))
+			}
 		} else {
-			log.Fatalf("ERROR: %v: %s", err, string(body))
+			log.Fatalf("ERROR: %v", err)
 		}
 	}
 
