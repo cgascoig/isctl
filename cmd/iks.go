@@ -5,11 +5,11 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
-	"os/user"
 	"path/filepath"
 	"time"
 
 	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
+	homedir "github.com/mitchellh/go-homedir"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
@@ -144,8 +144,9 @@ func getCreateCommand(config iksConfig) *cobra.Command {
 	flags.String(vmInstanceTypeFlag, "", "Name of VM Instance Type Policy ")
 
 	var homeDir string = ""
-	if usr, err := user.Current(); err == nil {
-		homeDir = usr.HomeDir
+	homeDir, err := homedir.Dir()
+	if err != nil {
+		log.Fatalln(err)
 	}
 
 	flags.String(sshUserFlag, "iksadmin", "Name of user account to create on Kubernetes nodes for SSH access")
