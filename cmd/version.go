@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -15,6 +16,7 @@ var (
 const ()
 
 func newCmdVersion(client *openapi.APIClient) *cobra.Command {
+	log.Trace("Running version cmd generator")
 	return &cobra.Command{
 		Use:               "version",
 		Run:               runCmdVersion,

@@ -22,6 +22,7 @@ type iksConfig struct {
 }
 
 func newCmdIKS(client *openapi.APIClient) *cobra.Command {
+	log.Trace("Running iks cmd generator")
 	config := iksConfig{
 		client: client,
 	}

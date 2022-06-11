@@ -23,6 +23,7 @@ type applyConfig struct {
 }
 
 func newCmdApply(client *openapi.APIClient) *cobra.Command {
+	log.Trace("Running apply cmd generator")
 	config := applyConfig{
 		client: client,
 	}

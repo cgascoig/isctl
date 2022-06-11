@@ -22,7 +22,6 @@ var (
 	configFile     string
 	jsonPathFilter string
 	verbose        bool
-	httpTrace      bool
 	httpsInsecure  bool
 
 	authCtx context.Context
@@ -39,23 +38,33 @@ const (
 	keyOutputConfigKey = "output"
 
 	serverConfigKey = "server"
+
+	traceEnvName = "ISCTL_TRACE"
 )
 
 func main() {
+	if os.Getenv(traceEnvName) != "" {
+		log.SetLevel(log.TraceLevel)
+	}
+
+	log.Trace("isctl starting")
+
 	cobra.OnInitialize(initConfig)
 
 	config := openapi.NewConfiguration()
 
 	client := openapi.NewAPIClient(config)
 
+	log.Trace("Got intersight API client")
+
 	rootCmd := GetCommands(client, resultHandler)
 	rootCmd.Use = "isctl"
+
+	log.Trace("Got generated commands")
 
 	rootCmd.PersistentFlags().StringVar(&configFile, "config", "", "config file (default is $HOME/.isctl.yaml)")
 
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose logging")
-	rootCmd.PersistentFlags().BoolVar(&httpTrace, "trace", false, "Enable HTTP tracing")
-	rootCmd.PersistentFlags().MarkHidden("trace")
 
 	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID")
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
@@ -79,17 +88,23 @@ func main() {
 	}
 	rootCmd.AddCommand(configCmd)
 	// rootCmd.AddCommand(newCmdApply(client))
+
+	log.Trace("Running auxCommandGenerators")
 	for _, cmdGen := range auxCommandsGenerators {
 		rootCmd.AddCommand(cmdGen(client))
 	}
+	log.Trace("Finished auxCommandGenerators")
+
 	rootCmd.PersistentPreRunE = validateFlags
 
+	log.Trace("CLI building complete")
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatalln(err)
 	}
 }
 
 func initConfig() {
+	log.Trace("Starting initConfig")
 	if configFile != "" {
 		// Use config file from the flag.
 		viper.SetConfigFile(configFile)
@@ -120,9 +135,11 @@ func initConfig() {
 			log.Fatalf("ERROR Invalid config file: %v", err)
 		}
 	}
+	log.Trace("Finished initConfig")
 }
 
 func configure(cmd *cobra.Command, args []string) {
+	log.Trace("Starting configure")
 	scanner := bufio.NewScanner(os.Stdin)
 
 	// configure keyID
@@ -153,11 +170,13 @@ func configure(cmd *cobra.Command, args []string) {
 	if err := viper.WriteConfig(); err != nil {
 		log.Fatalf("Error occurred writing config file: %v", err)
 	}
+	log.Trace("Finished configure")
 }
 
 func validateFlags(cmd *cobra.Command, args []string) error {
+	log.Trace("Starting validateFlags")
 	// Setup logging
-	if verbose {
+	if verbose && os.Getenv(traceEnvName) == "" {
 		log.SetLevel(log.DebugLevel)
 		log.Debug("Logging level set to debug(verbose)")
 	}
@@ -206,7 +225,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		"server": viper.GetString(serverConfigKey),
 	})
 
-	if httpTrace {
+	if os.Getenv(traceEnvName) != "" {
 		trace := &httptrace.ClientTrace{
 			GetConn: func(hostPort string) {
 				log.Printf("Get Conn: %v\n", hostPort)
@@ -275,6 +294,8 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 		authCtx = httptrace.WithClientTrace(authCtx, trace)
 	}
+
+	log.Trace("Finished validateFlags")
 
 	return nil
 }
