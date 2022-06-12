@@ -1,5 +1,7 @@
 # Basic Intersight Queries
 
+## Basic queries
+
 To retrieve resources from Intersight, use the `isctl get ...` commands. 
 
 For example, to query all objects of a certain type:
@@ -42,7 +44,29 @@ NtpServers:
 ```
 Notice that when displaying a single object, table format is not used. 
 
-The default outputs above automatically hide many of the boilerplate attributes of the objects (e.g. `ClassId`, `Organization`, etc.). If you specify JSON or YAML as the output format all attributes will be included. For example:
+## Filtering results
+
+The Intersight API can filter results before returning them to the client. To specify the filter query, use `--filter <filter_expression>`. See the [Intersight API Guide](https://intersight.com/apidocs/introduction/query/#filter-query-option-filtering-the-resources) for details on the `<filter_expression>` syntax. Some examples are below.
+
+Filter on exact name:
+```
+isctl get ntp policy --filter "Name eq 'cg-tf-ntp-test'"
+```
+
+Filter objects where name starts with "cg-":
+```
+isctl get ntp policy --filter "startsWith(Name, 'cg-')"
+```
+
+## Output customisation
+
+By default, `isctl` will try to produce human readable output. Typically, this will be a table format with boilerplate attributes (e.g. `ClassId`, `Organization`, etc.) hidden for brevity. If the output table would have too many columns, `isctl` will fall back to a "vertical" output (essentially YAML). If you want to disable this behaviour and force the table format (even though it will be very wide), use `--output table`. 
+
+There are a number of other options to customise the output described below.
+
+### JSON/YAML
+
+Using `--output json` or `--output yaml` will cause the output to use the chosen format and will disable the hiding of any "boilerplate" attributes:
 
 ```
 isctl get ntp policy moid 5ee1aa076275722d3122a944 --output json
@@ -88,7 +112,20 @@ Output:
 }
 ```
 
-You can use JSONPath to filter/transform the returned data - to output just the name attribute of all the returned objects:
+This can be useful to feed the structured output to another tool, for example `jq`:
+
+```
+isctl get ntp policy -o json | jq -r '.[].Name'
+```
+Output:
+```
+NTP_ESL
+CiscoNTP
+BA-NTP
+```
+
+### JSONPath
+You can use [JSONPath](https://goessner.net/articles/JsonPath/) to filter/transform the returned data. For example, to output just the name attribute of all the returned objects:
 
 ```
 isctl get ntp policy -o yaml --jsonpath '$[*].Name'
@@ -109,3 +146,41 @@ Output:
 cg-tf-ntp-test-1
 True
 ```
+
+### Cusom Columns
+To customise the table output, "custom-columns" output can be used. The syntax is `--output custom-columns=<spec>` where `<spec>` is a comma separated list of `<column_title>:<value_path>` column specifications. The `<value_path>` is a simplified JSONPath expression that specifies how to extract the column value from a returned item. For example:
+
+```
+isctl get ntp policy --output custom-columns=NAME:.Name,ENABLED:.Enabled
+```
+Output:
+```
+-------------  ------------
+        NAME       ENABLED
+-------------  ------------
+     NTP_ESL          True
+    CiscoNTP          True
+      BA-NTP          True
+-------------  ------------
+```
+
+### CSV
+The output can be formatted as a CSV for easy importing into spreadsheets or other applications. The syntax for CSV output is similar to custom-columns above - `--output csv=<spec>`. For example:
+
+```
+isctl get ntp policy --output csv=NAME:.Name,ENABLED:.Enabled
+```
+Output:
+```
+"NAME","ENABLED"
+"NTP_ESL","True"
+"CiscoNTP","True"
+"BA-NTP","True"
+```
+
+A common way to use this with the default spreadsheet application is:
+
+```
+isctl get ntp policy --output csv=NAME:.Name,ENABLED:.Enabled  > /tmp/ntp.csv && open /tmp/ntp.csv
+```
+
