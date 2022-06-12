@@ -1,4 +1,4 @@
-# Using `isctl` with Intersight Kubernetes Service
+# Intersight Kubernetes Service
 
 ## Deploying a cluster
 
