@@ -44,3 +44,12 @@ Output:
          tf-iks-cpoc-demo-1                         1.20.14-iks.4
                cg-hcrs-demo                         1.21.11-iks.2
 ```
+
+## Performing consistent updates on many managed objects
+
+This example shows how to iterate over all NTP Policy managed objects (using `--filter` to select a subset is probably advised) and update the NtpServers attribute on all of them:
+```
+for moid in $(isctl get ntp policy --jsonpath '$[*].Moid'); do 
+  isctl update ntp policy moid ${moid} --NtpServers 1.1.1.1
+done
+```
