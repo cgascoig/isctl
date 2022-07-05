@@ -44,6 +44,18 @@ func parseMoRef(moref string) (string, string, bool) {
 	var r *regexp.Regexp
 	var m []string
 
+	r = regexp.MustCompile(`MoRef\[\$filter:(.+)\]`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return m[1], "", true
+	}
+
+	r = regexp.MustCompile(`MoRef:(\w+)\[\$filter:(.+)\]`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return m[2], m[1], true
+	}
+
 	r = regexp.MustCompile(`MoRef:(\w+)\[(\w+):([0-9A-Za-z_\-\.]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
