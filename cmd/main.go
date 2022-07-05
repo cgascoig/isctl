@@ -72,7 +72,7 @@ func main() {
 	rootCmd.PersistentFlags().String(serverConfigKey, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\")")
 	rootCmd.PersistentFlags().BoolVarP(&httpsInsecure, "insecure", "k", false, "Allow insecure server connections (disable SSL certificate validation)")
 
-	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", "Output format. One of: default, yaml, json, table")
+	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", "Output format. One of: default|yaml|json|table|jsonpath|custom-columns|csv See [https://isctl.netlify.app/1-basic-queries/#output-customisation]")
 	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.Name\")")
 
 	viper.BindPFlag(keyIDConfigKey, rootCmd.PersistentFlags().Lookup(keyIDConfigKey))

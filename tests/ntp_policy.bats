@@ -39,6 +39,20 @@ TEST_SECTION="NTP Policy CRUD"
     assert_output "${TEST_NTP_POLICY_NAME}"
 }
 
+@test "${TEST_SECTION}: -o jsonpath" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Name'
+    assert_output "${TEST_NTP_POLICY_NAME}"
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o jsonpath='$[*].Name'
+    assert_output "${TEST_NTP_POLICY_NAME}"
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy name "${TEST_NTP_POLICY_NAME}" -o jsonpath='.Name'
+    assert_output "${TEST_NTP_POLICY_NAME}"
+
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o jsonpath='[*].Name'
+    assert_output "${TEST_NTP_POLICY_NAME}"
+}
+
 @test "${TEST_SECTION}: update NTP policy by moid" {
     # update the NTP policy with Enabled=False
     ./build/isctl ${ISCTL_OPTIONS} update ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
