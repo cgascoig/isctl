@@ -20,6 +20,18 @@ func TestParseMoRef(t *testing.T) {
 			ok:       true,
 		},
 		{
+			moref:    "MoRef[$filter:DeviceHostname eq 'XYZ' and PlatformType eq 'IWE']",
+			filter:   "DeviceHostname eq 'XYZ' and PlatformType eq 'IWE'",
+			datatype: "",
+			ok:       true,
+		},
+		{
+			moref:    "MoRef:KubernetesVirtualMachineInfraConfigPolicyRelationship[$filter:DeviceHostname eq 'XYZ' and PlatformType eq 'IWE']",
+			filter:   "DeviceHostname eq 'XYZ' and PlatformType eq 'IWE'",
+			datatype: "KubernetesVirtualMachineInfraConfigPolicyRelationship",
+			ok:       true,
+		},
+		{
 			moref:    "{\"ClassId\": \"Organization\"}",
 			filter:   "",
 			datatype: "",
