@@ -368,6 +368,7 @@ func TestRelaxedJSONPathExpression(t *testing.T) {
 	assert.Equal(t, "$.Name", relaxedJSONPathExpression("$.Name"))
 	assert.Equal(t, "$.Name", relaxedJSONPathExpression(".Name"))
 	assert.Equal(t, "$.Name[0].Tags", relaxedJSONPathExpression("$.Name[0].Tags"))
+	assert.Equal(t, "$[*].Tags", relaxedJSONPathExpression("[*].Tags"))
 }
 
 func optionalStr(s string) *string {

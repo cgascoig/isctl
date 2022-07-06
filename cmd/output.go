@@ -56,6 +56,9 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 		}
 	}
 
+	if jsonPathFilter != "" {
+		log.Warn("--jsonpath is deprecated and will be removed in the future. Please use -o jsonpath=<expr>. ")
+	}
 	result, err = applyJSONPathFilter(result, jsonPathFilter, singleResult)
 	if err != nil {
 		log.Fatalf("ERROR applying jsonPath filter: %v", err)
@@ -80,6 +83,11 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 		} else {
 			printResultCSV(result, "")
 		}
+	case "jsonpath":
+		if jsonPathFilter != "" {
+			log.Warn("Using -o jsonpath and --jsonpath together may produce unpredictable results")
+		}
+		printResultJSONPath(result, outputConfigParts[1])
 
 	default:
 		printResultDefault(result)
@@ -364,7 +372,7 @@ func printResultJSON(result interface{}) {
 }
 
 func relaxedJSONPathExpression(exp string) string {
-	re := regexp.MustCompile(`^\..+`)
+	re := regexp.MustCompile(`^(\.|\[).+`)
 	if re.MatchString(exp) {
 		exp = fmt.Sprintf("$%s", exp)
 	}
@@ -480,5 +488,21 @@ func printResultCSV(result interface{}, template string) {
 	printCSVLine(tableHeaders)
 	for _, row := range tableData {
 		printCSVLine(row)
+	}
+}
+
+func printResultJSONPath(result interface{}, template string) {
+	jp, err := jsonpath.Get(relaxedJSONPathExpression(template), result)
+	if err != nil {
+		log.Fatalf("JSONPath parsing error: %v", err)
+	}
+
+	switch res := jp.(type) {
+	case []interface{}:
+		for _, v := range res {
+			fmt.Printf("%v\n", v)
+		}
+	default:
+		fmt.Printf("%v\n", res)
 	}
 }

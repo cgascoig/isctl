@@ -128,18 +128,18 @@ BA-NTP
 You can use [JSONPath](https://goessner.net/articles/JsonPath/) to filter/transform the returned data. For example, to output just the name attribute of all the returned objects:
 
 ```
-isctl get ntp policy -o yaml --jsonpath '$[*].Name'
+isctl get ntp policy -o jsonpath='[*].Name'
 ```
 Output:
 ```
-- test-ntp-policy
-- cg-tf-ntp-test-1
+test-ntp-policy
+cg-tf-ntp-test-1
 ```
 
 Or even to get multiple attributes from the returned objects:
 
 ```
-isctl get ntp policy moid 5ee1aa076275722d3122a944 --jsonpath '$["Name","Enabled"]'
+isctl get ntp policy moid 5ee1aa076275722d3122a944 -o jsonpath='$["Name","Enabled"]'
 ```
 Output:
 ```
