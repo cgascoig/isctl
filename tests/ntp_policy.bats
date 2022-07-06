@@ -33,10 +33,12 @@ TEST_SECTION="NTP Policy CRUD"
 
 @test "${TEST_SECTION}: jsonpath" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Name'
-    assert_output "${TEST_NTP_POLICY_NAME}"
+    assert_line --partial "--jsonpath is deprecated"
+    assert_line "${TEST_NTP_POLICY_NAME}"
 
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" --jsonpath '$[*].Name'
-    assert_output "${TEST_NTP_POLICY_NAME}"
+    assert_line --partial "--jsonpath is deprecated"
+    assert_line "${TEST_NTP_POLICY_NAME}"
 }
 
 @test "${TEST_SECTION}: -o jsonpath" {
