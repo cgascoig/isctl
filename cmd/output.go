@@ -203,10 +203,10 @@ func stringify(in interface{}) string {
 	switch v := in.(type) {
 	case bool:
 		if v {
-			return "True"
+			return "true"
 		}
 
-		return "False"
+		return "false"
 	case map[string]interface{}:
 		key, hasKey := v["Key"]
 		value, hasValue := v["Value"]
