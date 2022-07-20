@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
+	openapi "github.com/CiscoDevNet/intersight-go"
 	"github.com/stretchr/testify/assert"
 )
 

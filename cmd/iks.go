@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"time"
 
-	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
+	openapi "github.com/CiscoDevNet/intersight-go"
 	homedir "github.com/mitchellh/go-homedir"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

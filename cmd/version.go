@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	openapi "github.com/cgascoig/intersight-go-sdk/intersight"
+	openapi "github.com/CiscoDevNet/intersight-go"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
