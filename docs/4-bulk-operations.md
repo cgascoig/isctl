@@ -87,3 +87,5 @@ Organization: MoRef[Name:isctl-test]
 Organization: MoRef:OrganizationOrganizationRelationship[Name:isctl-test] 
 ```
 
+## Renaming
+For each object in your YAML file, the Name attribute is used to check if the object already exists and determine whether to apply an update or create operation for that object. For this reason, you cannot rename an existing object - isctl will not know about the original name for the object and will simply create a new object and leave the original untouched. 
