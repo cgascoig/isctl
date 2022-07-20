@@ -22,7 +22,6 @@ var (
 	configFile     string
 	jsonPathFilter string
 	verbose        bool
-	httpsInsecure  bool
 
 	authCtx context.Context
 
@@ -37,7 +36,8 @@ const (
 
 	keyOutputConfigKey = "output"
 
-	serverConfigKey = "server"
+	serverConfigKey   = "server"
+	insecureConfigKey = "insecure"
 
 	traceEnvName = "ISCTL_TRACE"
 )
@@ -70,7 +70,7 @@ func main() {
 	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
 
 	rootCmd.PersistentFlags().String(serverConfigKey, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\")")
-	rootCmd.PersistentFlags().BoolVarP(&httpsInsecure, "insecure", "k", false, "Allow insecure server connections (disable SSL certificate validation)")
+	rootCmd.PersistentFlags().BoolP(insecureConfigKey, "k", false, "Allow insecure server connections (disable SSL certificate validation)")
 
 	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", `Output format. One of default|yaml|json|table|jsonpath|custom-columns|csv. Examples:
 	Get Name attribute from all NTP policies: isctl get ntp policy -o jsonpath="[*].Name"
@@ -82,6 +82,7 @@ func main() {
 	viper.BindPFlag(keyFileConfigKey, rootCmd.PersistentFlags().Lookup(keyFileConfigKey))
 	viper.BindPFlag(keyOutputConfigKey, rootCmd.PersistentFlags().Lookup(keyOutputConfigKey))
 	viper.BindPFlag(serverConfigKey, rootCmd.PersistentFlags().Lookup(serverConfigKey))
+	viper.BindPFlag(insecureConfigKey, rootCmd.PersistentFlags().Lookup(insecureConfigKey))
 
 	configCmd := &cobra.Command{
 		Use:               "configure",
@@ -200,7 +201,9 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		keyFile = expandedKeyFile
 	}
 
+	httpsInsecure := viper.GetBool(insecureConfigKey)
 	if httpsInsecure {
+		log.Trace("Disabled server certificate verification")
 		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	}
 
