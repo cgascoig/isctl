@@ -91,7 +91,7 @@ TEST_SECTION="NTP Policy CRUD"
 @test "${TEST_SECTION}: filter NTP policy and select" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o table --select Name,Enabled
     assert_line --index 1 --regexp '^ +Name +Moid +Enabled *$'
-    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +[0-9a-f]{24} +True *$"
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +[0-9a-f]{24} +true *$"
 }
 
 @test "${TEST_SECTION}: expand organisation name" {
@@ -103,17 +103,17 @@ TEST_SECTION="NTP Policy CRUD"
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,ENABLED:.Enabled'
     assert_success
     assert_line --index 1 --regexp '^ +NAME +ENABLED *$'
-    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +True *$"
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +true *$"
 
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,ENABLED:.Enabled'
     assert_success
     assert_line --index 1 --regexp '^ +NAME +ENABLED *$'
-    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +True *$"
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +true *$"
 
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o custom-columns='NAME:.Name,ENABLED:.Enabled'
     assert_success
     assert_line --index 1 --regexp '^ +NAME +ENABLED *$'
-    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +True *$"
+    assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +true *$"
 }
 
 @test "${TEST_SECTION}: csv output" {
@@ -125,7 +125,7 @@ TEST_SECTION="NTP Policy CRUD"
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o csv='NAME:.Name,ENABLED:.Enabled'
     assert_success
     assert_line --index 0 --regexp '^"NAME","ENABLED"$'
-    assert_line --index 1 --regexp "^\"${TEST_NTP_POLICY_NAME}\",\"True\"$"
+    assert_line --index 1 --regexp "^\"${TEST_NTP_POLICY_NAME}\",\"true\"$"
 }
 
 @test "${TEST_SECTION}: tag output formatted correctly" {
