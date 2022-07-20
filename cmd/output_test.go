@@ -284,7 +284,7 @@ func TestPrepareResultTable(t *testing.T) {
 	}
 
 	expectedData = [][]string{
-		{"1234567", "NtpTest", "True", "1.1.1.1, 1.1.1.2"},
+		{"1234567", "NtpTest", "true", "1.1.1.1, 1.1.1.2"},
 	}
 	expectedHeaders = []string{"Name", "Moid", "Enabled", "NtpServers"}
 
@@ -344,7 +344,7 @@ func TestPrepareResultTableCustomColums(t *testing.T) {
 
 	expectedHeaders = []string{"NAME", "MOID", "ENABLED"}
 	expectedData = [][]string{
-		{"NtpTest", "1234567", "True"},
+		{"NtpTest", "1234567", "true"},
 	}
 
 	outData, outHeaders = prepareResultTableCustomColumns(in, "NAME:.Name,MOID:.Moid,ENABLED:.Enabled")
@@ -356,7 +356,7 @@ func TestPrepareResultTableCustomColums(t *testing.T) {
 
 	outData, outHeaders = prepareResultTableCustomColumns(in, "")
 	expectedHeaders = []string{"Name", "Moid", "Enabled", "NtpServers"}
-	expectedData = [][]string{{"NtpTest", "1234567", "True", "1.1.1.1, 1.1.1.2"}}
+	expectedData = [][]string{{"NtpTest", "1234567", "true", "1.1.1.1, 1.1.1.2"}}
 
 	assert.Equal(t, expectedHeaders, outHeaders)
 	for i := range expectedData {
