@@ -348,7 +348,7 @@ func (config *iksConfig) getClusterProfileByName(name string) (*openapi.Kubernet
 	}
 
 	switch result := res.(type) {
-	case openapi.KubernetesClusterProfileResponse:
+	case *openapi.KubernetesClusterProfileResponse:
 		if len(result.KubernetesClusterProfileList.Results) != 1 {
 			return nil, fmt.Errorf("Query did not return exactly 1 cluster")
 		}
@@ -357,7 +357,7 @@ func (config *iksConfig) getClusterProfileByName(name string) (*openapi.Kubernet
 
 		return &profile, nil
 	default:
-		return nil, fmt.Errorf("Malformed response")
+		return nil, fmt.Errorf("Cluster query returned unexpected type: %T", res)
 	}
 }
 
@@ -595,7 +595,7 @@ func (config *iksConfig) clusterStatus(cmd *cobra.Command, args []string) {
 		}
 
 		switch result := res.(type) {
-		case openapi.KubernetesNodeGroupProfile:
+		case *openapi.KubernetesNodeGroupProfile:
 			fmt.Printf("  Node Group Name: %s\n", safeStringP(result.Name))
 			fmt.Printf("  Type: %s\n", safeStringP(result.NodeType))
 			fmt.Printf("  Desired Size: %d\n", *result.Desiredsize)
@@ -637,7 +637,7 @@ func (config *iksConfig) clusterStatus(cmd *cobra.Command, args []string) {
 			}
 			fmt.Println("  -----------------")
 		default:
-			log.Warn("Unexpected response for Node Group Profile")
+			log.Warnf("Unexpected response for Node Group Profile: %T", res)
 		}
 	}
 }
@@ -652,10 +652,12 @@ func (config *iksConfig) clusterList(cmd *cobra.Command, args []string) {
 	}
 
 	switch result := res.(type) {
-	case openapi.KubernetesClusterProfileResponse:
+	case *openapi.KubernetesClusterProfileResponse:
 		for _, profile := range result.KubernetesClusterProfileList.Results {
 			fmt.Printf("%s\n", safeStringP(profile.Name))
 		}
+	default:
+		log.Errorf("Cluster list query returned unexpected type: %T", res)
 	}
 }
 
