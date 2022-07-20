@@ -3,7 +3,7 @@ module github.com/cgascoig/isctl
 go 1.14
 
 require (
-	github.com/CiscoDevNet/intersight-go v0.0.0-20220506102601-fb24f593557a
+	github.com/CiscoDevNet/intersight-go v0.0.0-20220715042242-56b852c82cab
 	github.com/PaesslerAG/jsonpath v0.1.1
 	github.com/bndr/gotabulate v1.1.3-0.20210209140143-7b841ac46153
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
@@ -17,7 +17,6 @@ require (
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.4.0
 	github.com/stretchr/testify v1.7.0
-	golang.org/x/oauth2 v0.0.0-20220630143837-2104d58473e0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
