@@ -117,3 +117,8 @@ Finally, delete the Cluster Profile:
 isctl delete kubernetes clusterprofile name <CLUSTER NAME>
 ```
 
+# Other tasks
+
+## Script to repair IKS cluster and vCenter target linkage
+
+[This](https://github.com/cgascoig/isctl/blob/devel/examples/scripts/iks-fix-vcenter-target.sh) example script will re-establish the linkage between a deployed IKS cluster and a vCenter target. This is useful in scenarios where the vCenter target was removed and re-added while an IKS cluster was deployed. 
