@@ -131,19 +131,17 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 	if !ok {
 		return false
 	}
+	classId, ok := getClassId(res)
+	if !ok {
+		return false
+	}
 
-	log.Debugf("Got Moid %s", moid)
+	log.Debugf("Got Moid and ClassId: %s, %s", moid, classId)
 
 	moref.Moid = &moid
+	moref.ObjectType = classId
 
 	val := reflect.ValueOf(v).Elem()
-
-	// Here we are trying to find the type of the field other than MoMoRef (e.g. OrganizationOrganization)
-	// i.e. the type that this MoRef refers to
-	t := val.Type()
-	referredTypeName := getReferredTypeName(t)
-
-	moref.ObjectType = goTypeNameToIntersightClassID[referredTypeName]
 
 	val.FieldByName("MoMoRef").Set(reflect.ValueOf(moref))
 
@@ -209,6 +207,68 @@ func getMoid(res interface{}) (string, bool) {
 	}
 
 	return reflect.Indirect(result.FieldByName("Moid")).String(), true
+}
+
+//TODO: Refactor this to remove duplicate code in getMoid
+// getClassId takes a "<objecttype>.List" structure, checks there was exactly 1 match and returns the ClassId of that match
+func getClassId(res interface{}) (string, bool) {
+	val := reflect.Indirect(reflect.ValueOf(res))
+	valType := val.Type()
+	if valType.Kind() != reflect.Struct {
+		log.Tracef("getClassId: res not struct")
+		return "", false
+	}
+
+	// Find the ...List field
+	r := regexp.MustCompile(`List$`)
+	var listFieldName string
+	for i := 0; i < valType.NumField(); i++ {
+		if r.MatchString(valType.Field(i).Name) {
+			listFieldName = valType.Field(i).Name
+		}
+	}
+
+	if listFieldName == "" {
+		log.Tracef("getClassId: no ...List field")
+		return "", false
+	}
+
+	listStruct := reflect.Indirect(val.FieldByName(listFieldName))
+
+	if listStruct.Kind() != reflect.Struct {
+		log.Tracef("getClassId: ..List not struct")
+		return "", false
+	}
+
+	_, ok := listStruct.Type().FieldByName("Results")
+	if !ok {
+		log.Tracef("getClassId: no Results field (original res: %+v)", res)
+		return "", false
+	}
+
+	results := listStruct.FieldByName("Results")
+	if results.Kind() != reflect.Slice && results.Kind() != reflect.Array {
+		log.Tracef("getClassId: Results field not slice/array")
+		return "", false
+	}
+
+	if results.Len() != 1 {
+		log.Tracef("getClassId: number of results doesn't exactly equal 1")
+		return "", false
+	}
+
+	result := results.Index(0)
+	if result.Kind() != reflect.Struct {
+		log.Tracef("getClassId: single result is not struct")
+		return "", false
+	}
+
+	if _, ok := result.Type().FieldByName("ClassId"); !ok {
+		log.Tracef("getClassId: single result doesn't have ClassId field")
+		return "", false
+	}
+
+	return reflect.Indirect(result.FieldByName("ClassId")).String(), true
 }
 
 func safeStringP(s *string) string {
