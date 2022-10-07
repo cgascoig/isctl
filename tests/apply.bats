@@ -31,8 +31,8 @@ TEST_SECTION="Apply"
 
 
 @test "${TEST_SECTION}: delete NTP policy" {
-    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NAME}" --jsonpath '$.Moid')
-    ./build/isctl ${ISCTL_OPTIONS} delete organization organization moid $(./build/isctl ${ISCTL_OPTIONS} get organization organization --name "${TEST_NAME}" --jsonpath '$.Moid')
+    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NAME}" -o jsonpath='$.Moid')
+    ./build/isctl ${ISCTL_OPTIONS} delete organization organization moid $(./build/isctl ${ISCTL_OPTIONS} get organization organization --name "${TEST_NAME}" -o jsonpath='$.Moid')
 
     # check that the policy no longer exists
     ! ./build/isctl ${ISCTL_OPTIONS} get ntp policy | grep "${TEST_NAME}"
@@ -42,6 +42,6 @@ TEST_SECTION="Apply"
 
 setup_file() {
     # delete the test objects if they already exist. Don't check the exit code. 
-    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NAME}" --jsonpath '$.Moid')
-    run ./build/isctl ${ISCTL_OPTIONS} delete organization organization moid $(./build/isctl ${ISCTL_OPTIONS} get organization organization --name "${TEST_NAME}" --jsonpath '$.Moid')
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NAME}" -o jsonpath='$.Moid')
+    run ./build/isctl ${ISCTL_OPTIONS} delete organization organization moid $(./build/isctl ${ISCTL_OPTIONS} get organization organization --name "${TEST_NAME}" -o jsonpath='$.Moid')
 }

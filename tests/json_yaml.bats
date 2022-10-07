@@ -22,7 +22,7 @@ TEST_SECTION="Passing body as YAML/JSON"
 
 # @test "${TEST_SECTION}: update NTP policy - JSON" {
 #     # update the NTP policy with Enabled=False
-#     ./build/isctl ${ISCTL_OPTIONS} update ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
+#     ./build/isctl ${ISCTL_OPTIONS} update ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid') --Enabled=False
 
 #     # Check Enabled=False
 #     ENABLED=$( ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json | jq -r .Enabled )
@@ -31,7 +31,7 @@ TEST_SECTION="Passing body as YAML/JSON"
 # }
 
 @test "${TEST_SECTION}: delete NTP policy - JSON" {
-    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${JSON_POLICY_NAME}" --jsonpath '$.Moid')
+    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${JSON_POLICY_NAME}" -o jsonpath='$.Moid')
 
     # check that the policy no longer exists
     ! ./build/isctl ${ISCTL_OPTIONS} get ntp policy | grep "${JSON_POLICY_NAME}"
@@ -51,7 +51,7 @@ TEST_SECTION="Passing body as YAML/JSON"
 
 # @test "${TEST_SECTION}: update NTP policy - YAML" {
 #     # update the NTP policy with Enabled=False
-#     ./build/isctl ${ISCTL_OPTIONS} update ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
+#     ./build/isctl ${ISCTL_OPTIONS} update ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid') --Enabled=False
 
 #     # Check Enabled=False
 #     ENABLED=$( ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json | jq -r .Enabled )
@@ -60,7 +60,7 @@ TEST_SECTION="Passing body as YAML/JSON"
 # }
 
 @test "${TEST_SECTION}: delete NTP policy - YAML" {
-    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${YAML_POLICY_NAME}" --jsonpath '$.Moid')
+    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${YAML_POLICY_NAME}" -o jsonpath='$.Moid')
 
     # check that the policy no longer exists
     ! ./build/isctl ${ISCTL_OPTIONS} get ntp policy | grep "${YAML_POLICY_NAME}"
@@ -69,6 +69,6 @@ TEST_SECTION="Passing body as YAML/JSON"
 
 setup_file() {
     # delete the test policy if it already exists. Don't check the exit code. 
-    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${JSON_POLICY_NAME}" --jsonpath '$.Moid')
-    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${YAML_POLICY_NAME}" --jsonpath '$.Moid')
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${JSON_POLICY_NAME}" -o jsonpath='$.Moid')
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${YAML_POLICY_NAME}" -o jsonpath='$.Moid')
 }

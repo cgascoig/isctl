@@ -57,7 +57,7 @@ TEST_SECTION="NTP Policy CRUD"
 
 @test "${TEST_SECTION}: update NTP policy by moid" {
     # update the NTP policy with Enabled=False
-    ./build/isctl ${ISCTL_OPTIONS} update ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid') --Enabled=False
+    ./build/isctl ${ISCTL_OPTIONS} update ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid') --Enabled=False
 
     # Check Enabled=False
     ENABLED=$( ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json | jq -r .Enabled )
@@ -136,7 +136,7 @@ TEST_SECTION="NTP Policy CRUD"
 }
 
 @test "${TEST_SECTION}: delete NTP policy" {
-    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid')
+    ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid')
 
     # check that the policy no longer exists
     ! ./build/isctl ${ISCTL_OPTIONS} get ntp policy | grep "${TEST_NTP_POLICY_NAME}"
@@ -161,8 +161,8 @@ TEST_SECTION="NTP Policy CRUD"
 
 setup_file() {
     # delete the test policy if it already exists. Don't check the exit code. 
-    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --jsonpath '$.Moid')
-    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME_2}" --jsonpath '$.Moid')
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid')
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME_2}" -o jsonpath='$.Moid')
 }
 
 setup() {
