@@ -78,7 +78,7 @@ TEST_NAME=isctl-bats-test-1
     run ./build/isctl ${ISCTL_OPTIONS} iks cluster status "${TEST_NAME}"
     assert_success
     assert_line --index 0 "Cluster Name: ${TEST_NAME}"
-    assert_line --index 1 "Status: Undeployed"
+    assert_line --index 1 --regexp "Status: \w+"
 }
 
 @test "${TEST_SECTION}: test cluster deployment" {
