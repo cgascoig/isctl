@@ -3,7 +3,7 @@ module github.com/cgascoig/isctl
 go 1.14
 
 require (
-	github.com/CiscoDevNet/intersight-go v0.0.0-20220901074033-273b34d32f1c
+	github.com/CiscoDevNet/intersight-go v0.0.0-20221018142651-48246b2c8485
 	github.com/PaesslerAG/jsonpath v0.1.1
 	github.com/bndr/gotabulate v1.1.3-0.20210209140143-7b841ac46153
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
