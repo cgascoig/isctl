@@ -120,6 +120,20 @@ import (
             }
 
             
+        {{ end }}{{ if eq .DataType "" }}
+            // if DataType is empty it can be any complex type so parse as JSON
+            if v, ok := params["{{ .Name }}"]; ok {
+                if complexValue, ok := v.(*ComplexValue); ok {
+                    var paramVal interface{}
+
+                    err := json.Unmarshal([]byte(complexValue.String()), &paramVal)
+                    if err != nil {
+                        return fmt.Errorf("Error parsing complex (JSON) value: %v", err)
+                    }
+
+                    params["{{ .Name }}"] = &paramVal
+                }
+            }
         {{ end }}{{ if .IsList }}
             // handle list
             if v, ok := params["{{ .Name }}"]; ok && isMoRef(openapi.{{ .ListElementType }}{}) {
