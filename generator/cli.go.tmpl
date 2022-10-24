@@ -125,7 +125,9 @@ Provide resource body as JSON on standard input{{ end }}`,
             } else {
                 cmd.Flags().Var(&ComplexValue{}, "{{ .Name }}", "{{ .Name }} as JSON")
             }
-        {{ else }} //Skipping unhandled param type {{ .DataType }}
+        {{ else if eq .DataType "" }}
+            cmd.Flags().Var(&ComplexValue{}, "{{ .Name }}", "{{ .Name }} as JSON")
+        {{ else }} //Skipping unhandled param '{{ .Name }}' with type '{{ .DataType }}'
         {{ end }}
     {{ end }}
 
