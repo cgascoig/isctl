@@ -85,6 +85,16 @@ Organization: MoRef[Name:isctl-test]
 
 # this is only needed where the field has a relationship to an abstract class and you need to specify which concrete class
 Organization: MoRef:OrganizationOrganizationRelationship[Name:isctl-test] 
+
+# a common use-case for this is the PolicyBucket attribute which is a list of references to different policy types. For example, to manage a Server Profile Template:
+Name: cgascoig-isctl-test
+ClassId: server.ProfileTemplate
+Organization: default
+PolicyBucket:
+  - MoRef:BiosPolicyRelationship[cgascoig-bios-policy]
+  - MoRef:IamLdapPolicyRelationship[cgascoig-ldap-policy] 
+  - MoRef:DeviceconnectorPolicyRelationship[cgascoig-deviceconnector-policy] 
+  - MoRef:IpmioverlanPolicyRelationship[cgascoig-ipmi-policy]
 ```
 
 ## Renaming
