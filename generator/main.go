@@ -23,8 +23,19 @@ type OperationsFile struct {
 	Models     map[string]Model `yaml:"models"`
 }
 
+type MoRef struct {
+	DataType string
+	Path     []string
+}
+
+func (mor *MoRef) IsList() bool {
+	r := regexp.MustCompile(`^\[\]`)
+	return r.MatchString(mor.DataType)
+}
+
 // Operation represents the YAML of one operation
 type Operation struct {
+	Path           string  `yaml:"path"`
 	OperationID    string  `yaml:"operationId"`
 	HTTPMethod     string  `yaml:"httpMethod"`
 	ReturnType     string  `yaml:"returnType"`
@@ -32,6 +43,8 @@ type Operation struct {
 	Summary        string  `yaml:"summary"`
 	BaseName       string  `yaml:"baseName"`
 	Params         []Param `yaml:"params"`
+
+	MoRefs []MoRef
 }
 
 func (o *Operation) IsListOperation() bool {

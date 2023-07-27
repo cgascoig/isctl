@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/http/httputil"
 	"regexp"
 	"sort"
 	"strings"
@@ -505,4 +506,31 @@ func printResultJSONPath(result interface{}, template string) {
 	default:
 		fmt.Printf("%v\n", res)
 	}
+}
+
+type loggingTransport struct{}
+
+func newLoggingTransport() http.RoundTripper {
+	return &loggingTransport{}
+}
+
+func (t *loggingTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	outreq, err := httputil.DumpRequestOut(req, true)
+	if err != nil {
+		return nil, err
+	}
+	log.Debugf("Sending API request:\n%s\n", string(outreq))
+
+	res, err := http.DefaultTransport.RoundTrip(req)
+	if err != nil {
+		return res, err
+	}
+
+	outres, err := httputil.DumpResponse(res, true)
+	if err != nil {
+		return nil, err
+	}
+
+	log.Debugf("Received API response:\n%s\n", string(outres))
+	return res, nil
 }

@@ -9,7 +9,6 @@ import (
     "regexp"
 
     log "github.com/sirupsen/logrus"
-    openapi "github.com/CiscoDevNet/intersight-go"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 )
@@ -21,7 +20,7 @@ func () *cobra.Command {
         Use: "{{ .Token }}",
         {{ if .Operation }}
         Run: func(cmd *cobra.Command, args []string) {
-            client.GetConfig().Debug = verbose
+            // client.GetConfig().Debug = verbose
 
             // singleResult is true if the query should return a single result - used to decide whether to collapse the result into an object or single entry list for display/jsonpath processing
             var singleResult = false
@@ -72,7 +71,7 @@ func () *cobra.Command {
             {{ if eq .Operation.HTTPMethod "GET" }}
                 {{ if not .Parameter }}
                     queryParams = getQueryParams(cmd.Flags())
-                    if _, ok := queryParams["name"]; ok {
+                    if isFlagPassed(cmd.Flags(), "name") {
                         singleResult = true
                     }
                 {{ end }}
@@ -120,7 +119,7 @@ Provide resource body as JSON on standard input{{ end }}`,
         {{ else if eq .DataType "[]float32" }}
             cmd.Flags().Float32Slice("{{ .Name }}", []float32{}, "{{ .Name }}")
         {{ else if .ValidGenericType }}
-            if isMoRef({{ .NormalisedType }}{}) {
+            if false /*isMoRef({{ .NormalisedType }}{})*/ { // TODO - need to fix isMoRef
                 cmd.Flags().String("{{ .Name }}", "", "{{ .Name }}")
             } else {
                 cmd.Flags().Var(&ComplexValue{}, "{{ .Name }}", "{{ .Name }} as JSON")
@@ -176,7 +175,7 @@ func getQueryParams(flagset *pflag.FlagSet) map[string]string {
     }
 
     if name, err := flagset.GetString("name"); err == nil && name != "" {
-        queryParams["name"] = name
+        queryParams["filter"] = fmt.Sprintf("Name eq '%s'", name)
     }
 
     return queryParams
@@ -209,7 +208,14 @@ func flagSetToMap(flagset *pflag.FlagSet, ret *map[string]interface{}) {
         case "float32":
             (*ret)[f.Name], _ = flagset.GetFloat32(f.Name)
         case "json":
-            (*ret)[f.Name] = f.Value
+            var paramVal any
+
+            err := json.Unmarshal([]byte(f.Value.String()), &paramVal)
+            if err == nil {
+                (*ret)[f.Name] = paramVal
+            } else {
+                (*ret)[f.Name] = f.Value.String()
+            }
         default:
             log.Warnf("Unknown type for %s flag", f.Name )
         }
@@ -228,47 +234,6 @@ func isFlagPassed(flagset *pflag.FlagSet, name string) bool {
     return found
 }
 
-func isMoRef(v interface{}) bool {
-    val := reflect.Indirect(reflect.ValueOf(v))
-	t := val.Type()
-	if t.Kind() != reflect.Struct {
-		return false
-	}
-
-	_, ok := t.FieldByName("MoMoRef")
-
-	return ok
-}
-
-func setMoRefSelector(v interface{}, selector string) bool {
-    if !isMoRef(v) {
-        return false
-    }
-
-    moref := new(openapi.MoMoRef)
-    moref.ClassId = "mo.MoRef"
-    moref.Selector = &selector
-
-    val := reflect.ValueOf(v).Elem()
-
-    // Here we are trying to find the type of the field other than MoMoRef (e.g. OrganizationOrganization)
-    // i.e. the type that this MoRef refers to
-    t := val.Type()
-    var referredTypeName string
-    for i := 0; i < t.NumField(); i++ {
-        if t.Field(i).Name == "MoMoRef" {
-            continue
-        }
-        referredTypeName = t.Field(i).Type.Elem().Name()
-    }
-
-    moref.ObjectType = goTypeNameToIntersightClassID[referredTypeName]
-
-    val.FieldByName("MoMoRef").Set(reflect.ValueOf(moref))
-
-    return true
-}
-
 func runCmd(cmd *cobra.Command, args []string) {
     log.Printf("Running command %s with args %v", cmd.Use, args)
 }
@@ -277,7 +242,7 @@ func runCmd(cmd *cobra.Command, args []string) {
 type ResultHandler = func(result interface{}, httpResponse *http.Response, err error, opts ...ResultOpt)
 
 // GetCommands returns the cobra command tree for the API
-func GetCommands(client *openapi.APIClient, resultHandler ResultHandler) *cobra.Command {
+func GetCommands(client *isctlClient, resultHandler ResultHandler) *cobra.Command {
     rootCmd := {{ template "cliitem" .CliTree }}()
     return rootCmd
 }

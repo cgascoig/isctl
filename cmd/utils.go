@@ -3,11 +3,12 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"net/url"
 	"os"
 	"reflect"
 	"regexp"
 
-	openapi "github.com/CiscoDevNet/intersight-go"
+	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
 	yaml "gopkg.in/yaml.v2"
 )
@@ -38,9 +39,10 @@ func readBody(bodyFormat string, bodyParamMap interface{}) error {
 	return nil
 }
 
-//Parse the MoRef string and return:
+// Parse the MoRef string and return:
 // (filter string, relationshipDataType string, ok bool)
 func parseMoRef(moref string) (string, string, bool) {
+	log.Tracef("Parsing moRef %s", moref)
 	var r *regexp.Regexp
 	var m []string
 
@@ -91,8 +93,8 @@ func parseMoRef(moref string) (string, string, bool) {
 	return "", "", false
 }
 
-func setMoMoRefByName(client *openapi.APIClient, v interface{}, relationship string, name string) bool {
-	return setMoMoRefByFilter(client, v, relationship, fmt.Sprintf("Name eq '%s'", name))
+func setMoMoRefByName(client *isctlClient, relationship string, name string) map[string]any {
+	return setMoMoRefByFilter(client, relationship, fmt.Sprintf("Name eq '%s'", name))
 }
 
 func getReferredTypeName(t reflect.Type) string {
@@ -107,16 +109,13 @@ func getReferredTypeName(t reflect.Type) string {
 	return referredTypeName
 }
 
-func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship string, filter string) bool {
-	if !isMoRef(v) {
-		return false
-	}
+func setMoMoRefByFilter(client *isctlClient, relationship string, filter string) map[string]any {
 
 	log.Debugf("Looking up MoMoRef %s with filter %s", relationship, filter)
 
-	moref := new(openapi.MoMoRef)
-	moref.ClassId = "mo.MoRef"
-
+	moref := map[string]any{
+		"ClassId": "mo.MoRef",
+	}
 	op := getOperationForRelationship(relationship)
 	if op == nil {
 		log.Fatalf("FATAL: No operation for relationship: %s", relationship)
@@ -124,151 +123,77 @@ func setMoMoRefByFilter(client *openapi.APIClient, v interface{}, relationship s
 	res, _, err := op.Execute(client, nil, map[string]string{"filter": filter})
 	if err != nil {
 		log.Errorf("Error executing lookup query: %v", err)
-		return false
+		return nil
 	}
 
 	moid, ok := getMoid(res)
 	if !ok {
-		return false
+		return nil
 	}
 	classId, ok := getClassId(res)
 	if !ok {
-		return false
+		return nil
 	}
 
 	log.Debugf("Got Moid and ClassId: %s, %s", moid, classId)
 
-	moref.Moid = &moid
-	moref.ObjectType = classId
+	moref["Moid"] = moid
+	moref["ObjectType"] = classId
 
-	val := reflect.ValueOf(v).Elem()
-
-	val.FieldByName("MoMoRef").Set(reflect.ValueOf(moref))
-
-	return true
+	return moref
 }
 
 // getMoid takes a "<objecttype>.List" structure, checks there was exactly 1 match and returns the Moid of that match
 func getMoid(res interface{}) (string, bool) {
-	val := reflect.Indirect(reflect.ValueOf(res))
-	valType := val.Type()
-	if valType.Kind() != reflect.Struct {
-		log.Tracef("getMoid: res not struct")
-		return "", false
-	}
-
-	// Find the ...List field
-	r := regexp.MustCompile(`List$`)
-	var listFieldName string
-	for i := 0; i < valType.NumField(); i++ {
-		if r.MatchString(valType.Field(i).Name) {
-			listFieldName = valType.Field(i).Name
-		}
-	}
-
-	if listFieldName == "" {
-		log.Tracef("getMoid: no ...List field")
-		return "", false
-	}
-
-	listStruct := reflect.Indirect(val.FieldByName(listFieldName))
-
-	if listStruct.Kind() != reflect.Struct {
-		log.Tracef("getMoid: ..List not struct")
-		return "", false
-	}
-
-	_, ok := listStruct.Type().FieldByName("Results")
-	if !ok {
+	results, err := dyno.GetSlice(res, "Results")
+	if err != nil {
 		log.Tracef("getMoid: no Results field (original res: %+v)", res)
 		return "", false
 	}
 
-	results := listStruct.FieldByName("Results")
-	if results.Kind() != reflect.Slice && results.Kind() != reflect.Array {
-		log.Tracef("getMoid: Results field not slice/array")
-		return "", false
-	}
-
-	if results.Len() != 1 {
+	if len(results) != 1 {
 		log.Tracef("getMoid: number of results doesn't exactly equal 1")
 		return "", false
 	}
 
-	result := results.Index(0)
-	if result.Kind() != reflect.Struct {
-		log.Tracef("getMoid: single result is not struct")
-		return "", false
-	}
-
-	if _, ok := result.Type().FieldByName("Moid"); !ok {
+	moid, err := dyno.GetString(results, 0, "Moid")
+	if err != nil {
 		log.Tracef("getMoid: single result doesn't have Moid field")
 		return "", false
 	}
 
-	return reflect.Indirect(result.FieldByName("Moid")).String(), true
+	return moid, true
 }
 
-//TODO: Refactor this to remove duplicate code in getMoid
+// TODO: Refactor this to remove duplicate code in getMoid
 // getClassId takes a "<objecttype>.List" structure, checks there was exactly 1 match and returns the ClassId of that match
 func getClassId(res interface{}) (string, bool) {
-	val := reflect.Indirect(reflect.ValueOf(res))
-	valType := val.Type()
-	if valType.Kind() != reflect.Struct {
-		log.Tracef("getClassId: res not struct")
-		return "", false
-	}
+	log.Tracef("getClassId for: %#v", res)
 
-	// Find the ...List field
-	r := regexp.MustCompile(`List$`)
-	var listFieldName string
-	for i := 0; i < valType.NumField(); i++ {
-		if r.MatchString(valType.Field(i).Name) {
-			listFieldName = valType.Field(i).Name
-		}
-	}
-
-	if listFieldName == "" {
-		log.Tracef("getClassId: no ...List field")
-		return "", false
-	}
-
-	listStruct := reflect.Indirect(val.FieldByName(listFieldName))
-
-	if listStruct.Kind() != reflect.Struct {
-		log.Tracef("getClassId: ..List not struct")
-		return "", false
-	}
-
-	_, ok := listStruct.Type().FieldByName("Results")
+	resMap, ok := res.(map[string]any)
 	if !ok {
-		log.Tracef("getClassId: no Results field (original res: %+v)", res)
+		log.Tracef("getClassId: res is not map[string]any")
 		return "", false
 	}
 
-	results := listStruct.FieldByName("Results")
-	if results.Kind() != reflect.Slice && results.Kind() != reflect.Array {
-		log.Tracef("getClassId: Results field not slice/array")
+	resList, err := dyno.GetSlice(resMap, "Results")
+	if err != nil {
+		log.Tracef("getClassId: res does not contain list of results: %v", err)
 		return "", false
 	}
 
-	if results.Len() != 1 {
-		log.Tracef("getClassId: number of results doesn't exactly equal 1")
+	if len(resList) != 1 {
+		log.Tracef("getClassId: res does not contain list of exactly 1 item")
 		return "", false
 	}
 
-	result := results.Index(0)
-	if result.Kind() != reflect.Struct {
-		log.Tracef("getClassId: single result is not struct")
+	classId, err := dyno.GetString(resList, 0, "ClassId")
+	if err != nil {
+		log.Tracef("getClassId: could not get ClassId from first item: %v", err)
 		return "", false
 	}
 
-	if _, ok := result.Type().FieldByName("ClassId"); !ok {
-		log.Tracef("getClassId: single result doesn't have ClassId field")
-		return "", false
-	}
-
-	return reflect.Indirect(result.FieldByName("ClassId")).String(), true
+	return classId, true
 }
 
 func safeStringP(s *string) string {
@@ -297,4 +222,52 @@ func (v *ComplexValue) Set(s string) error {
 
 func (v *ComplexValue) Type() string {
 	return "json"
+}
+
+func ReplaceArgs(s string, args []string) (string, error) {
+	var err error = nil
+
+	re := regexp.MustCompile(`{\w+}`)
+
+	ret := re.ReplaceAllStringFunc(s, func(s string) string {
+		if len(args) < 1 {
+			err = fmt.Errorf("ReplaceArgs: insufficient args supplied")
+			return ""
+		}
+
+		r := args[0]
+		args = args[1:]
+		return r
+	})
+
+	if err != nil {
+		return "", err
+	}
+
+	return ret, nil
+}
+
+func EncodeQueryParams(queryParams map[string]string) string {
+	vals := url.Values{}
+	for k, v := range queryParams {
+		vals.Add(fmt.Sprintf("$%s", k), v)
+	}
+
+	return vals.Encode()
+}
+
+func relationshipToIntersightClassId(relationship string) string {
+	// Strip "Relationship" at the end if needed
+	r := regexp.MustCompile(`Relationship$`)
+	relationship = r.ReplaceAllString(relationship, "")
+
+	// Strip "[]" at the start if needed
+	r2 := regexp.MustCompile(`^\[\]`)
+	relationship = r2.ReplaceAllString(relationship, "")
+
+	if cls, ok := goTypeNameToIntersightClassID[relationship]; ok {
+		return cls
+	}
+
+	return ""
 }

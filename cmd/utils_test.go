@@ -82,3 +82,27 @@ func TestParseMoRef(t *testing.T) {
 		assert.Equal(t, test.ok, ok)
 	}
 }
+
+func TestGetMoid(t *testing.T) {
+	var moid string
+	var ok bool
+
+	moid, ok = getMoid(map[string]interface{}{
+		"ObjectType": "ntp.Policy.List",
+		"Results": []any{
+			map[string]any{
+				"Moid": "12345",
+			},
+		},
+	})
+	assert.Equal(t, true, ok)
+	assert.Equal(t, "12345", moid)
+}
+
+func TestReplaceArgs(t *testing.T) {
+	var s string
+	var e error
+	s, e = ReplaceArgs("api/{Moid}", []string{"12345"})
+	assert.NoError(t, e)
+	assert.Equal(t, "api/12345", s)
+}

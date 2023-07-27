@@ -43,7 +43,6 @@ spec/openapi.yaml: intersight-sdk-version
 > curl -o "$@" --location "https://github.com/CiscoDevNet/intersight-go/raw/$(INTERSIGHT_SDK_VERSION)/api/openapi.yaml"
 
 go.mod: intersight-sdk-version
-> go get github.com/CiscoDevNet/intersight-go@$(INTERSIGHT_SDK_VERSION)
 > go mod tidy
 > touch "$@"
 

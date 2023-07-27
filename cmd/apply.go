@@ -5,7 +5,6 @@ import (
 	"os"
 	"path/filepath"
 
-	openapi "github.com/CiscoDevNet/intersight-go"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	yaml "gopkg.in/yaml.v3"
@@ -19,10 +18,10 @@ var (
 type rawMO map[string]interface{}
 
 type applyConfig struct {
-	client *openapi.APIClient
+	client *isctlClient
 }
 
-func newCmdApply(client *openapi.APIClient) *cobra.Command {
+func newCmdApply(client *isctlClient) *cobra.Command {
 	log.Trace("Running apply cmd generator")
 	config := applyConfig{
 		client: client,
@@ -45,7 +44,7 @@ func init() {
 }
 
 func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
-	config.client.GetConfig().Debug = verbose
+	// config.client.GetConfig().Debug = verbose
 
 	rawMOs, err := loadRawMOs(applyFilenames)
 	if err != nil {
@@ -76,7 +75,7 @@ func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
 	}
 }
 
-func destroyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
+func destroyMOs(client *isctlClient, rawMOs []rawMO) error {
 	// when destroying we process in reverse order
 	for i := len(rawMOs) - 1; i >= 0; i-- {
 		mo := rawMOs[i]
@@ -116,7 +115,7 @@ func destroyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
 	return nil
 }
 
-func applyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
+func applyMOs(client *isctlClient, rawMOs []rawMO) error {
 	for _, mo := range rawMOs {
 		classID, err := mo.getString("ClassId")
 		if err != nil {
