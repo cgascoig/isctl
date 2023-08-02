@@ -5,6 +5,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
+	"github.com/cgascoig/isctl/pkg/util"
 )
 
 var (
@@ -14,7 +15,7 @@ var (
 
 const ()
 
-func newCmdVersion(client *isctlClient) *cobra.Command {
+func newCmdVersion(client *util.IsctlClient) *cobra.Command {
 	log.Trace("Running version cmd generator")
 	return &cobra.Command{
 		Use:               "version",

@@ -16,6 +16,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
+	"github.com/cgascoig/isctl/pkg/util"
 )
 
 func logHTTPResponse(httpResponse *http.Response) {
@@ -26,11 +27,7 @@ func logHTTPResponse(httpResponse *http.Response) {
 	log.Debugf("HTTP Response: %d %v", httpResponse.StatusCode, httpResponse.Status)
 }
 
-type ResultOpt struct {
-	SingleResult *bool
-}
-
-func resultHandler(result interface{}, httpResponse *http.Response, err error, options ...ResultOpt) {
+func resultHandler(result interface{}, httpResponse *http.Response, err error, options ...util.ResultOpt) {
 	var singleResult bool
 
 	for _, opt := range options {

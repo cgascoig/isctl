@@ -267,9 +267,9 @@ func main() {
 		Models:     opData.Models,
 	}
 
-	generate("generator/cli.go.tmpl", "cmd/cli.go", data)
-	generate("generator/types.go.tmpl", "cmd/types.go", data)
-	generate("generator/operations.go.tmpl", "cmd/operations.go", data)
+	generate("generator/cli.go.tmpl", "pkg/gen/cli.go", data)
+	generate("generator/types.go.tmpl", "pkg/gen/types.go", data)
+	generate("generator/operations.go.tmpl", "pkg/gen/operations.go", data)
 
 	log.Printf("Finished post processing.")
 }

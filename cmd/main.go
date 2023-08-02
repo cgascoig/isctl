@@ -8,11 +8,14 @@ import (
 	"os"
 	"path/filepath"
 
-	intersight "github.com/cgascoig/intersight-simple-go/intersight"
 	homedir "github.com/mitchellh/go-homedir"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+
+	intersight "github.com/cgascoig/intersight-simple-go/intersight"
+	"github.com/cgascoig/isctl/pkg/util"
+	"github.com/cgascoig/isctl/pkg/gen"
 )
 
 var (
@@ -20,16 +23,14 @@ var (
 	jsonPathFilter string
 	verbose        bool
 
-	client = &isctlClient{}
+	client = &util.IsctlClient{}
 
 	auxCommandsGenerators []commandGenerator
 )
 
-type isctlClient struct {
-	intersightClient *intersight.Client
-}
 
-type commandGenerator func(*isctlClient) *cobra.Command
+
+type commandGenerator func(*util.IsctlClient) *cobra.Command
 
 const (
 	keyIDConfigKey   = "keyID"
@@ -54,7 +55,7 @@ func main() {
 
 	log.Trace("Got intersight API client")
 
-	rootCmd := GetCommands(client, resultHandler)
+	rootCmd := gen.GetCommands(client, resultHandler)
 	rootCmd.Use = "isctl"
 
 	log.Trace("Got generated commands")
@@ -213,7 +214,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("Unable to key file: %v", err)
 	}
 
-	client.intersightClient, err = intersight.NewClient(intersight.Config{
+	client.IntersightClient, err = intersight.NewClient(intersight.Config{
 		KeyID:         keyID,
 		KeyData:       string(keyData),
 		BaseTransport: httpTransport,
