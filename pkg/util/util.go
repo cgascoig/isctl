@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 	"regexp"
-	
+
+	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
 	yaml "gopkg.in/yaml.v2"
-	"github.com/icza/dyno"
 
 	intersight "github.com/cgascoig/intersight-simple-go/intersight"
 )

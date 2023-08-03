@@ -14,8 +14,8 @@ import (
 	"github.com/spf13/viper"
 
 	intersight "github.com/cgascoig/intersight-simple-go/intersight"
-	"github.com/cgascoig/isctl/pkg/util"
 	"github.com/cgascoig/isctl/pkg/gen"
+	"github.com/cgascoig/isctl/pkg/util"
 )
 
 var (
@@ -27,8 +27,6 @@ var (
 
 	auxCommandsGenerators []commandGenerator
 )
-
-
 
 type commandGenerator func(*util.IsctlClient) *cobra.Command
 
