@@ -18,7 +18,7 @@ func ReadOpenAPIFile(filename string) (*OperationsFile, error) {
 	requiredTypes := &TypeList{}
 
 	// Get Operations
-	for _, pathItem := range doc.Paths {
+	for path, pathItem := range doc.Paths {
 		for _, method := range []string{"GET", "PUT", "POST", "PATCH", "DELETE"} {
 			op := pathItem.GetOperation(method)
 
@@ -34,7 +34,10 @@ func ReadOpenAPIFile(filename string) (*OperationsFile, error) {
 					}
 				}
 
+				fmt.Printf("Adding operation: %v\n", op.OperationID)
+
 				newOp := Operation{
+					Path:           path,
 					OperationID:    op.OperationID,
 					HTTPMethod:     method,
 					ReturnType:     returnType,
@@ -102,7 +105,7 @@ func GetParams(op *openapi3.Operation, requiredTypes *TypeList) []Param {
 		}
 	}
 
-	if op.RequestBody != nil {
+	if op.RequestBody != nil && op.RequestBody.Value.Content.Get("application/json") != nil {
 		p := op.RequestBody
 		newParam := Param{
 			ParamName:   SchemaRefToType(p.Value.Content.Get("application/json").Schema),

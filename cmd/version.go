@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	openapi "github.com/CiscoDevNet/intersight-go"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
+	"github.com/cgascoig/isctl/pkg/util"
 )
 
 var (
@@ -15,7 +15,7 @@ var (
 
 const ()
 
-func newCmdVersion(client *openapi.APIClient) *cobra.Command {
+func newCmdVersion(client *util.IsctlClient) *cobra.Command {
 	log.Trace("Running version cmd generator")
 	return &cobra.Command{
 		Use:               "version",

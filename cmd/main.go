@@ -2,20 +2,20 @@ package main
 
 import (
 	"bufio"
-	"context"
 	"crypto/tls"
 	"fmt"
 	"net/http"
-	"net/http/httptrace"
-	"net/textproto"
 	"os"
 	"path/filepath"
 
-	openapi "github.com/CiscoDevNet/intersight-go"
 	homedir "github.com/mitchellh/go-homedir"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+
+	intersight "github.com/cgascoig/intersight-simple-go/intersight"
+	"github.com/cgascoig/isctl/pkg/util"
+	"github.com/cgascoig/isctl/pkg/gen"
 )
 
 var (
@@ -23,12 +23,14 @@ var (
 	jsonPathFilter string
 	verbose        bool
 
-	authCtx context.Context
+	client = &util.IsctlClient{}
 
 	auxCommandsGenerators []commandGenerator
 )
 
-type commandGenerator func(*openapi.APIClient) *cobra.Command
+
+
+type commandGenerator func(*util.IsctlClient) *cobra.Command
 
 const (
 	keyIDConfigKey   = "keyID"
@@ -51,13 +53,9 @@ func main() {
 
 	cobra.OnInitialize(initConfig)
 
-	config := openapi.NewConfiguration()
-
-	client := openapi.NewAPIClient(config)
-
 	log.Trace("Got intersight API client")
 
-	rootCmd := GetCommands(client, resultHandler)
+	rootCmd := gen.GetCommands(client, resultHandler)
 	rootCmd.Use = "isctl"
 
 	log.Trace("Got generated commands")
@@ -179,8 +177,12 @@ func configure(cmd *cobra.Command, args []string) {
 
 func validateFlags(cmd *cobra.Command, args []string) error {
 	log.Trace("Starting validateFlags")
+
+	var httpTransport http.RoundTripper = http.DefaultTransport
+
 	// Setup logging
 	if verbose && os.Getenv(traceEnvName) == "" {
+		httpTransport = newLoggingTransport()
 		log.SetLevel(log.DebugLevel)
 		log.Debug("Logging level set to debug(verbose)")
 	}
@@ -207,99 +209,93 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	}
 
-	authConfig := openapi.HttpSignatureAuth{
-		KeyId:          keyID,
-		PrivateKeyPath: keyFile,
-
-		// Passphrase:           "my-passphrase",
-		SigningScheme: openapi.HttpSigningSchemeRsaSha256,
-		SignedHeaders: []string{
-			openapi.HttpSignatureParameterRequestTarget, // The special (request-target) parameter expresses the HTTP request target.
-			"Host",   // The Host request header specifies the domain name of the server, and optionally the TCP port number.
-			"Date",   // The date and time at which the message was originated.
-			"Digest", // A cryptographic digest of the request body.
-		},
-		SigningAlgorithm: openapi.HttpSigningAlgorithmRsaPKCS1v15,
-	}
-
-	authCtx, err = authConfig.ContextWithValue(context.Background())
+	keyData, err := os.ReadFile(keyFile)
 	if err != nil {
-		return fmt.Errorf("Unable to create request context with authentication: %v", err)
+		return fmt.Errorf("Unable to key file: %v", err)
 	}
 
-	authCtx = context.WithValue(authCtx, openapi.ContextServerVariables, map[string]string{
-		"server": viper.GetString(serverConfigKey),
+	client.IntersightClient, err = intersight.NewClient(intersight.Config{
+		KeyID:         keyID,
+		KeyData:       string(keyData),
+		BaseTransport: httpTransport,
 	})
-
-	if os.Getenv(traceEnvName) != "" {
-		trace := &httptrace.ClientTrace{
-			GetConn: func(hostPort string) {
-				log.Printf("Get Conn: %v\n", hostPort)
-			},
-			GotConn: func(connInfo httptrace.GotConnInfo) {
-				log.Printf("Got Conn: %+v\n", connInfo)
-			},
-
-			PutIdleConn: func(err error) {
-				log.Printf("PutIdleConn: err: %v\n", err)
-			},
-
-			GotFirstResponseByte: func() {
-				log.Printf("GotFirstResponseByte\n")
-			},
-
-			Got100Continue: func() {
-				log.Printf("Got100Continue\n")
-			},
-
-			Got1xxResponse: func(code int, header textproto.MIMEHeader) error {
-				log.Printf("Got1xxResponse code: %v header %v\n", code, header)
-				return nil
-			},
-
-			DNSStart: func(dsi httptrace.DNSStartInfo) {
-				log.Printf("DNSStart %v\n", dsi)
-			},
-
-			DNSDone: func(dnsInfo httptrace.DNSDoneInfo) {
-				log.Printf("DNS Info: %+v\n", dnsInfo)
-			},
-
-			ConnectStart: func(network, addr string) {
-				log.Printf("ConnectStart network: %v, addr: %v\n", network, addr)
-			},
-
-			ConnectDone: func(network, addr string, err error) {
-				log.Printf("ConnectDone network: %v addr %v err %v\n", network, addr, err)
-			},
-
-			TLSHandshakeStart: func() {
-				log.Printf("TLSHandshakeStart\n")
-			},
-
-			TLSHandshakeDone: func(cs tls.ConnectionState, err error) {
-				log.Printf("TLSHandshakeDone connectionstate %v err %v\n", cs, err)
-			},
-
-			WroteHeaderField: func(key string, value []string) {
-				log.Printf("WroteHeaderField key %v value %v\n", key, value)
-			},
-
-			WroteHeaders: func() {
-				log.Printf("WroteHeaders\n")
-			},
-
-			Wait100Continue: func() {
-				log.Printf("Wait100Continue\n")
-			},
-
-			WroteRequest: func(wri httptrace.WroteRequestInfo) {
-				log.Printf("WroteRequest %v\n", wri)
-			},
-		}
-
-		authCtx = httptrace.WithClientTrace(authCtx, trace)
+	if err != nil {
+		return fmt.Errorf("Unable to setup Intersight API client: %v", err)
 	}
+
+	// authCtx = context.WithValue(authCtx, openapi.ContextServerVariables, map[string]string{
+	// 	"server": viper.GetString(serverConfigKey),
+	// })
+
+	// if os.Getenv(traceEnvName) != "" {
+	// 	trace := &httptrace.ClientTrace{
+	// 		GetConn: func(hostPort string) {
+	// 			log.Printf("Get Conn: %v\n", hostPort)
+	// 		},
+	// 		GotConn: func(connInfo httptrace.GotConnInfo) {
+	// 			log.Printf("Got Conn: %+v\n", connInfo)
+	// 		},
+
+	// 		PutIdleConn: func(err error) {
+	// 			log.Printf("PutIdleConn: err: %v\n", err)
+	// 		},
+
+	// 		GotFirstResponseByte: func() {
+	// 			log.Printf("GotFirstResponseByte\n")
+	// 		},
+
+	// 		Got100Continue: func() {
+	// 			log.Printf("Got100Continue\n")
+	// 		},
+
+	// 		Got1xxResponse: func(code int, header textproto.MIMEHeader) error {
+	// 			log.Printf("Got1xxResponse code: %v header %v\n", code, header)
+	// 			return nil
+	// 		},
+
+	// 		DNSStart: func(dsi httptrace.DNSStartInfo) {
+	// 			log.Printf("DNSStart %v\n", dsi)
+	// 		},
+
+	// 		DNSDone: func(dnsInfo httptrace.DNSDoneInfo) {
+	// 			log.Printf("DNS Info: %+v\n", dnsInfo)
+	// 		},
+
+	// 		ConnectStart: func(network, addr string) {
+	// 			log.Printf("ConnectStart network: %v, addr: %v\n", network, addr)
+	// 		},
+
+	// 		ConnectDone: func(network, addr string, err error) {
+	// 			log.Printf("ConnectDone network: %v addr %v err %v\n", network, addr, err)
+	// 		},
+
+	// 		TLSHandshakeStart: func() {
+	// 			log.Printf("TLSHandshakeStart\n")
+	// 		},
+
+	// 		TLSHandshakeDone: func(cs tls.ConnectionState, err error) {
+	// 			log.Printf("TLSHandshakeDone connectionstate %v err %v\n", cs, err)
+	// 		},
+
+	// 		WroteHeaderField: func(key string, value []string) {
+	// 			log.Printf("WroteHeaderField key %v value %v\n", key, value)
+	// 		},
+
+	// 		WroteHeaders: func() {
+	// 			log.Printf("WroteHeaders\n")
+	// 		},
+
+	// 		Wait100Continue: func() {
+	// 			log.Printf("Wait100Continue\n")
+	// 		},
+
+	// 		WroteRequest: func(wri httptrace.WroteRequestInfo) {
+	// 			log.Printf("WroteRequest %v\n", wri)
+	// 		},
+	// 	}
+
+	// 	authCtx = httptrace.WithClientTrace(authCtx, trace)
+	// }
 
 	log.Trace("Finished validateFlags")
 

@@ -5,10 +5,11 @@ import (
 	"os"
 	"path/filepath"
 
-	openapi "github.com/CiscoDevNet/intersight-go"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	yaml "gopkg.in/yaml.v3"
+	"github.com/cgascoig/isctl/pkg/gen"
+	"github.com/cgascoig/isctl/pkg/util"
 )
 
 var (
@@ -19,10 +20,10 @@ var (
 type rawMO map[string]interface{}
 
 type applyConfig struct {
-	client *openapi.APIClient
+	client *util.IsctlClient
 }
 
-func newCmdApply(client *openapi.APIClient) *cobra.Command {
+func newCmdApply(client *util.IsctlClient) *cobra.Command {
 	log.Trace("Running apply cmd generator")
 	config := applyConfig{
 		client: client,
@@ -45,7 +46,7 @@ func init() {
 }
 
 func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
-	config.client.GetConfig().Debug = verbose
+	// config.client.GetConfig().Debug = verbose
 
 	rawMOs, err := loadRawMOs(applyFilenames)
 	if err != nil {
@@ -76,7 +77,7 @@ func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
 	}
 }
 
-func destroyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
+func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 	// when destroying we process in reverse order
 	for i := len(rawMOs) - 1; i >= 0; i-- {
 		mo := rawMOs[i]
@@ -91,17 +92,17 @@ func destroyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
 			return err
 		}
 
-		getOperation := getGetOperationForClassID(classID)
+		getOperation := gen.GetGetOperationForClassID(classID)
 		res, _, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
 		if err != nil {
 			return fmt.Errorf("Error checking if MO already exists: %v", err)
 		}
 
-		moid, ok := getMoid(res)
+		moid, ok := util.GetMoid(res)
 		if ok {
 			log.Printf("Performing delete operation on existing MO (Name: %s, Moid: %s, ClassId: %s)", name, moid, classID)
 
-			delOperation := getDeleteOperationForClassID(classID)
+			delOperation := gen.GetDeleteOperationForClassID(classID)
 
 			_, _, err = delOperation.Execute(client, []string{moid}, nil)
 			if err != nil {
@@ -116,7 +117,7 @@ func destroyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
 	return nil
 }
 
-func applyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
+func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 	for _, mo := range rawMOs {
 		classID, err := mo.getString("ClassId")
 		if err != nil {
@@ -128,23 +129,23 @@ func applyMOs(client *openapi.APIClient, rawMOs []rawMO) error {
 			return err
 		}
 
-		getOperation := getGetOperationForClassID(classID)
+		getOperation := gen.GetGetOperationForClassID(classID)
 		res, _, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
 		if err != nil {
 			return fmt.Errorf("Error checking if MO already exists: %v", err)
 		}
 
 		var args []string
-		var op Operation
+		var op gen.Operation
 
-		moid, ok := getMoid(res)
+		moid, ok := util.GetMoid(res)
 		if ok {
 			log.Printf("Performing update operation on existing MO (Name: %s, Moid: %s, ClassId: %s)", name, moid, classID)
-			op = getUpdateOperationForClassID(classID)
+			op = gen.GetUpdateOperationForClassID(classID)
 			args = []string{moid}
 		} else {
 			log.Printf("Performing create operation on new MO (Name: %s, ClassId: %s)", name, classID)
-			op = getCreateOperationForClassID(classID)
+			op = gen.GetCreateOperationForClassID(classID)
 			args = []string{}
 		}
 
@@ -242,7 +243,7 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 		finalised[classID] = false
 		processing[classID] = false
 
-		op := getUpdateOperationForClassID(classID)
+		op := gen.GetUpdateOperationForClassID(classID)
 		if op == nil {
 			return nil, fmt.Errorf("Unable to get update operation for ClassID: %v", classID)
 		}

@@ -4,31 +4,30 @@ import (
 	"encoding/json"
 	"testing"
 
-	openapi "github.com/CiscoDevNet/intersight-go"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestApplyJSONPathFilter(t *testing.T) {
-	var in openapi.NtpPolicyResponse
+	var in map[string]any
 
 	inStr := `
-	{
-		"ObjectType": "ntp.Policy.List",
-		"Results": [
-		  {
-			"ClassId": "ntp.Policy",
-			"Enabled": true,
-			"Moid": "1234567",
-			"Name": "NtpTest",
-			"NtpServers": [
-			  "1.1.1.1",
-			  "1.1.1.2"
-			],
-			"ObjectType": "ntp.Policy"
-		  }
-		]
-	}
-	`
+ 	{
+ 		"ObjectType": "ntp.Policy.List",
+ 		"Results": [
+ 		  {
+ 			"ClassId": "ntp.Policy",
+ 			"Enabled": true,
+ 			"Moid": "1234567",
+ 			"Name": "NtpTest",
+ 			"NtpServers": [
+ 			  "1.1.1.1",
+ 			  "1.1.1.2"
+ 			],
+ 			"ObjectType": "ntp.Policy"
+ 		  }
+ 		]
+ 	}
+ 	`
 
 	err := json.Unmarshal([]byte(inStr), &in)
 	assert.NoError(t, err)

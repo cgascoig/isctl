@@ -225,9 +225,16 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 		// Check if there is a body param
 		for _, param := range op.Params {
 			if param.IsBodyParam {
+				vars := removeDuplicateBodyParamVars(getBodyParamVars(opData, param.DataType))
 				cliItem.BodyParamType = param.DataType
-				cliItem.BodyParamVars = removeDuplicateBodyParamVars(getBodyParamVars(opData, param.DataType))
+				cliItem.BodyParamVars = vars
 				cliItem.RequiredBodyParamVars = getRequiredBodyParamVars(opData, param.DataType)
+
+				morefs := []MoRef{}
+				for _, v := range vars {
+					morefs = append(morefs, getMoRefs([]string{}, v, opData)...)
+				}
+				op.MoRefs = morefs
 			}
 		}
 
@@ -252,4 +259,23 @@ func generateCliTree(opData *OperationsFile) *CliItem {
 	}
 
 	return &cliTree
+}
+
+// Recursively get the MoRefs for a Var
+func getMoRefs(path []string, v *Var, opData *OperationsFile) []MoRef {
+	morefs := []MoRef{}
+	relationshipRegEx := regexp.MustCompile(`Relationship$`)
+	if relationshipRegEx.MatchString(v.DataType) {
+		morefs = append(morefs, MoRef{
+			DataType: v.DataType,
+			Path:     append(path, v.Name),
+		})
+	}
+
+	childVars := removeDuplicateBodyParamVars(getBodyParamVars(opData, v.DataType))
+	for _, v := range childVars {
+		morefs = append(morefs, getMoRefs(append(path, v.Name), v, opData)...)
+	}
+
+	return morefs
 }

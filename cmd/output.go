@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/http/httputil"
 	"regexp"
 	"sort"
 	"strings"
@@ -15,6 +16,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
+	"github.com/cgascoig/isctl/pkg/util"
 )
 
 func logHTTPResponse(httpResponse *http.Response) {
@@ -25,11 +27,7 @@ func logHTTPResponse(httpResponse *http.Response) {
 	log.Debugf("HTTP Response: %d %v", httpResponse.StatusCode, httpResponse.Status)
 }
 
-type ResultOpt struct {
-	SingleResult *bool
-}
-
-func resultHandler(result interface{}, httpResponse *http.Response, err error, options ...ResultOpt) {
+func resultHandler(result interface{}, httpResponse *http.Response, err error, options ...util.ResultOpt) {
 	var singleResult bool
 
 	for _, opt := range options {
@@ -505,4 +503,31 @@ func printResultJSONPath(result interface{}, template string) {
 	default:
 		fmt.Printf("%v\n", res)
 	}
+}
+
+type loggingTransport struct{}
+
+func newLoggingTransport() http.RoundTripper {
+	return &loggingTransport{}
+}
+
+func (t *loggingTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	outreq, err := httputil.DumpRequestOut(req, true)
+	if err != nil {
+		return nil, err
+	}
+	log.Debugf("Sending API request:\n%s\n", string(outreq))
+
+	res, err := http.DefaultTransport.RoundTrip(req)
+	if err != nil {
+		return res, err
+	}
+
+	outres, err := httputil.DumpResponse(res, true)
+	if err != nil {
+		return nil, err
+	}
+
+	log.Debugf("Received API response:\n%s\n", string(outres))
+	return res, nil
 }
