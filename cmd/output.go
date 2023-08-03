@@ -85,7 +85,11 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 		if jsonPathFilter != "" {
 			log.Warn("Using -o jsonpath and --jsonpath together may produce unpredictable results")
 		}
-		printResultJSONPath(result, outputConfigParts[1])
+		if len(outputConfigParts) == 2 {
+			printResultJSONPath(result, outputConfigParts[1])
+		} else {
+			printResultJSONPath(result, "")
+		}
 
 	default:
 		printResultDefault(result)
