@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -9,13 +10,12 @@ import (
 	"sort"
 	"strings"
 
-	"encoding/json"
-
 	"github.com/PaesslerAG/jsonpath"
 	"github.com/bndr/gotabulate"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
+
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
