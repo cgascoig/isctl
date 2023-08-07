@@ -73,6 +73,12 @@ func TestParseMoRef(t *testing.T) {
 			datatype: "",
 			ok:       true,
 		},
+		{
+			moref:    "59c84e4a16267c0001c23428",
+			filter:   "",
+			datatype: "",
+			ok:       false,
+		},
 	}
 
 	for _, test := range tests {
