@@ -96,6 +96,12 @@ func ParseMoRef(moref string) (string, string, bool) {
 	var r *regexp.Regexp
 	var m []string
 
+	r = regexp.MustCompile(`^[[:xdigit:]]{24}$`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return "", "", false
+	}
+
 	r = regexp.MustCompile(`MoRef\[\$filter:(.+)\]`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
