@@ -180,9 +180,12 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 	// Setup logging
 	if verbose && os.Getenv(traceEnvName) == "" {
-		httpTransport = newLoggingTransport()
 		log.SetLevel(log.DebugLevel)
 		log.Debug("Logging level set to debug(verbose)")
+	}
+
+	if logLevel := log.GetLevel(); logLevel == log.DebugLevel || logLevel == log.TraceLevel {
+		httpTransport = newLoggingTransport()
 	}
 
 	var err error
