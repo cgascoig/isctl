@@ -158,6 +158,10 @@ TEST_SECTION="NTP Policy CRUD"
     ! ./build/isctl ${ISCTL_OPTIONS} get ntp policy | grep "${DELBYNAME_POLICY_NAME}"
 }
 
+@test "${TEST_SECTION}: test API error messages shown" {
+    run ./build/isctl ${ISCTL_OPTIONS} create ntp policy
+    assert_line --partial "400 Bad Request: Cannot set the property 'policy.AbstractPolicy.Name'. The property cannot be empty."
+}
 
 setup_file() {
     # delete the test policy if it already exists. Don't check the exit code. 
