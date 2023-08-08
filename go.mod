@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/PaesslerAG/jsonpath v0.1.1
 	github.com/bndr/gotabulate v1.1.3-0.20210209140143-7b841ac46153
-	github.com/cgascoig/intersight-simple-go v0.4.0
+	github.com/cgascoig/intersight-simple-go v0.5.0
 	github.com/getkin/kin-openapi v0.85.0
 	github.com/icza/dyno v0.0.0-20230330125955-09f820a8d9c0
 	github.com/mitchellh/go-homedir v1.1.0

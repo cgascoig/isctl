@@ -55,6 +55,8 @@ github.com/bndr/gotabulate v1.1.3-0.20210209140143-7b841ac46153/go.mod h1:0+8yUg
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/cgascoig/intersight-simple-go v0.4.0 h1:wdXgAvzAp2wwcowcg80SJVmPsVdsTKpl29DDfGQKAco=
 github.com/cgascoig/intersight-simple-go v0.4.0/go.mod h1:TlpkJWi4kWZw2rZzwS3vMXdO2Rkkwt7kyt8U2tfpxoY=
+github.com/cgascoig/intersight-simple-go v0.5.0 h1:1p94OLrWQR2GbVt9QaiumxkWfgwRM/pDyYUMMlbG5WA=
+github.com/cgascoig/intersight-simple-go v0.5.0/go.mod h1:7pA/YNgn2rxO2uXYu4neMMbV/u5uPmPc4Y7mdrLqYfM=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=
 github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod h1:Q3SI9o4m/ZMnBNeIyt5eFwwo7qiLfzFZmjNmxjkiQlU=
