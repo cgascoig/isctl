@@ -94,7 +94,7 @@ func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 		}
 
 		getOperation := gen.GetGetOperationForClassID(classID)
-		res, _, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
+		res, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
 		if err != nil {
 			return fmt.Errorf("Error checking if MO already exists: %v", err)
 		}
@@ -105,7 +105,7 @@ func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 
 			delOperation := gen.GetDeleteOperationForClassID(classID)
 
-			_, _, err = delOperation.Execute(client, []string{moid}, nil)
+			_, err = delOperation.Execute(client, []string{moid}, nil)
 			if err != nil {
 				return fmt.Errorf("Error executing operation: %v", err)
 			}
@@ -131,7 +131,7 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 		}
 
 		getOperation := gen.GetGetOperationForClassID(classID)
-		res, _, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
+		res, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
 		if err != nil {
 			return fmt.Errorf("Error checking if MO already exists: %v", err)
 		}
@@ -155,7 +155,7 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 			return fmt.Errorf("Error setting up operation body: %v", err)
 		}
 
-		_, _, err = op.Execute(client, args, nil)
+		_, err = op.Execute(client, args, nil)
 		if err != nil {
 			return fmt.Errorf("Error executing operation: %v", err)
 		}

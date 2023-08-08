@@ -149,18 +149,18 @@ import (
         {{ else }}return nil{{ end }}
     }
 
-    func (o *{{ .Operation.OperationID }}) Execute(client *util.IsctlClient, args []string, queryParams map[string]string) (interface{}, *http.Response, error) {
+    func (o *{{ .Operation.OperationID }}) Execute(client *util.IsctlClient, args []string, queryParams map[string]string) (interface{}, error) {
         {{ if ne .BodyParamType "" }}
         js, err := json.Marshal(o.body)
         if err != nil {
-            return nil, nil, fmt.Errorf("unable to marshal request body")
+            return nil, fmt.Errorf("unable to marshal request body")
         }
         {{ else }}
         js := []byte("")
         {{ end }}
         path, err := ReplaceArgs("{{ .Operation.Path }}", args)
         if err != nil {
-            return nil, nil, err
+            return nil, err
         }
         queryString := EncodeQueryParams(queryParams)
         if queryString != "" {
@@ -168,9 +168,9 @@ import (
         }
         res, err := client.IntersightClient.Call("{{ .Operation.HTTPMethod }}", path, js)
         {{ if ne .Operation.ReturnType "" }}
-        return res, nil, err
+        return res, err
         {{ else }}
-        return res, nil, err
+        return res, err
         {{ end }}
     }
 {{ end }}{{ end }}
