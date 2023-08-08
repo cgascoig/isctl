@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"net/http/httputil"
 	"regexp"
@@ -19,15 +18,7 @@ import (
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
-func logHTTPResponse(httpResponse *http.Response) {
-	if httpResponse == nil {
-		return
-	}
-
-	log.Debugf("HTTP Response: %d %v", httpResponse.StatusCode, httpResponse.Status)
-}
-
-func resultHandler(result interface{}, httpResponse *http.Response, err error, options ...util.ResultOpt) {
+func resultHandler(result interface{}, err error, options ...util.ResultOpt) {
 	var singleResult bool
 
 	for _, opt := range options {
@@ -36,22 +27,9 @@ func resultHandler(result interface{}, httpResponse *http.Response, err error, o
 		}
 	}
 
-	if err != nil || verbose {
-		logHTTPResponse(httpResponse)
-	}
-
 	// if there is an error try to display something helpful
 	if err != nil {
-		if httpResponse != nil {
-			body, err2 := ioutil.ReadAll(httpResponse.Body)
-			if err2 != nil {
-				log.Fatalf("ERROR: %v", err)
-			} else {
-				log.Fatalf("ERROR: %v: %s", err, string(body))
-			}
-		} else {
-			log.Fatalf("ERROR: %v", err)
-		}
+		log.Fatalf("ERROR: %v", err)
 	}
 
 	if jsonPathFilter != "" {

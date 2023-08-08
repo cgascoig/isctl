@@ -38,7 +38,7 @@ func setMoMoRefByFilter(client *util.IsctlClient, relationship string, filter st
 	if op == nil {
 		log.Fatalf("FATAL: No operation for relationship: %s", relationship)
 	}
-	res, _, err := op.Execute(client, nil, map[string]string{"filter": filter})
+	res, err := op.Execute(client, nil, map[string]string{"filter": filter})
 	if err != nil {
 		log.Errorf("Error executing lookup query: %v", err)
 		return nil

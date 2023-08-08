@@ -1,8 +1,6 @@
 package gen
 
 import (
-	"net/http"
-
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
@@ -12,5 +10,5 @@ type Operation interface {
 
 	GetReferencedClasses(params map[string]interface{}) ([]string, error)
 
-	Execute(*util.IsctlClient, []string, map[string]string) (interface{}, *http.Response, error)
+	Execute(*util.IsctlClient, []string, map[string]string) (interface{}, error)
 }

@@ -22,7 +22,8 @@ func () *cobra.Command {
         Use: "{{ .Token }}",
         {{ if .Operation }}
         Run: func(cmd *cobra.Command, args []string) {
-            // client.GetConfig().Debug = verbose
+            var res any
+            var err error
 
             // singleResult is true if the query should return a single result - used to decide whether to collapse the result into an object or single entry list for display/jsonpath processing
             var singleResult = false
@@ -32,18 +33,18 @@ func () *cobra.Command {
             // Lookup moid from name
             getOp := GetGetOperationForClassID("{{ .Operation.ReturnClassID }}")
             if getOp == nil {
-                resultHandler(nil, nil, fmt.Errorf("FATAL: No operation to lookup Moid from '{{ .Operation.ReturnClassID }}'"))
+                resultHandler(nil, fmt.Errorf("FATAL: No operation to lookup Moid from '{{ .Operation.ReturnClassID }}'"))
                 return
             }
-            res, _, err := getOp.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", args[0])})
+            res, err = getOp.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", args[0])})
             if err != nil {
-                resultHandler(nil, nil, fmt.Errorf("Error executing query to lookup Moid from Name: %v", err))
+                resultHandler(nil, fmt.Errorf("Error executing query to lookup Moid from Name: %v", err))
                 return 
             }
 
             moid, ok := util.GetMoid(res)
             if !ok {
-                resultHandler(nil, nil, fmt.Errorf("Error executing query to lookup Moid from Name: number of results must exactly equal 1"))
+                resultHandler(nil, fmt.Errorf("Error executing query to lookup Moid from Name: number of results must exactly equal 1"))
                 return 
             }
 
@@ -56,7 +57,7 @@ func () *cobra.Command {
             if err == nil && bodyFormat != "" {
                 err = util.ReadBody(bodyFormat, &bodyParamMap)
                 if err != nil {
-                    resultHandler(nil, nil, fmt.Errorf("Error reading body from standard input: %v", err))
+                    resultHandler(nil, fmt.Errorf("Error reading body from standard input: %v", err))
                     return
                 }
             }
@@ -65,7 +66,7 @@ func () *cobra.Command {
 
             flagSetToMap(cmd.Flags(), &bodyParamMap)
             if err = operation.SetBodyParams(client, bodyParamMap); err != nil {
-                resultHandler(nil, nil, fmt.Errorf("Generating API body: %v", err))
+                resultHandler(nil, fmt.Errorf("Generating API body: %v", err))
                 return
             }
 
@@ -79,8 +80,8 @@ func () *cobra.Command {
                 {{ end }}
             {{ end }}
 
-            res, httpResponse, err := operation.Execute(client, args, queryParams)
-            resultHandler(res, httpResponse, err, util.ResultOpt{SingleResult: &singleResult})
+            res, err = operation.Execute(client, args, queryParams)
+            resultHandler(res, err, util.ResultOpt{SingleResult: &singleResult})
         }, 
         {{ end }}
         {{ if .Parameter }}
@@ -241,7 +242,7 @@ func runCmd(cmd *cobra.Command, args []string) {
 }
 
 // ResultHandler is the function signature to handle API results
-type ResultHandler = func(result interface{}, httpResponse *http.Response, err error, opts ...util.ResultOpt)
+type ResultHandler = func(result interface{}, err error, opts ...util.ResultOpt)
 
 // GetCommands returns the cobra command tree for the API
 func GetCommands(client *util.IsctlClient, resultHandler ResultHandler) *cobra.Command {
