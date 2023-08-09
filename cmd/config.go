@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"strings"
 
 	"github.com/knadh/koanf/maps"
@@ -51,8 +52,10 @@ func initConfig(flags *flag.FlagSet) {
 	log.Tracef("initConfig: config after loading defaults: %#v", gK.All())
 
 	// Load from config file
-	if err := gK.Load(file.Provider(configFile), yaml.Parser(), koanf.WithMergeFunc(aliasReplacingMerge)); err != nil {
-		log.Fatalf("error loading config: %v", err)
+	if _, err := os.Stat(configFile); err == nil {
+		if err := gK.Load(file.Provider(configFile), yaml.Parser(), koanf.WithMergeFunc(aliasReplacingMerge)); err != nil {
+			log.Fatalf("error loading config: %v", err)
+		}
 	}
 	log.Tracef("initConfig: config after loading config file: %#v", gK.All())
 
