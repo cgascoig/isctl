@@ -39,6 +39,16 @@ const (
 	serverConfigKey   = "server"
 	insecureConfigKey = "insecure"
 
+	// New config keys
+	CKIntersightApiKeyId  = "intersight_api_key_id"
+	CKIntersightSecretKey = "intersight_secret_key"
+	CKIntersightFqdn      = "intersight_fqdn"
+
+	// New cmd flags
+	FlagIntersightApiKeyId  = "intersight-api-key-id"
+	FlagIntersightSecretKey = "intersight-secret-key"
+	FlagIntersightFqdn      = "intersight-fqdn"
+
 	traceEnvName = "ISCTL_TRACE"
 )
 
@@ -62,10 +72,15 @@ func main() {
 
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose logging")
 
-	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID")
-	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename")
+	// New config keys
+	rootCmd.PersistentFlags().String(FlagIntersightApiKeyId, "", "Intersight API Key ID")
+	rootCmd.PersistentFlags().String(FlagIntersightSecretKey, "", "Intersight Secret Key (filename)")
+	rootCmd.PersistentFlags().String(FlagIntersightFqdn, "", "Intersight API FQDN (default intersight.com)")
 
-	rootCmd.PersistentFlags().String(serverConfigKey, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\")")
+	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID [deprecated]")
+	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename [deprecated]")
+
+	rootCmd.PersistentFlags().String(serverConfigKey, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\") [deprecated]")
 	rootCmd.PersistentFlags().BoolP(insecureConfigKey, "k", false, "Allow insecure server connections (disable SSL certificate validation)")
 
 	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", `Output format. One of default|yaml|json|table|jsonpath|custom-columns|csv. Examples:
@@ -79,6 +94,18 @@ func main() {
 	viper.BindPFlag(keyOutputConfigKey, rootCmd.PersistentFlags().Lookup(keyOutputConfigKey))
 	viper.BindPFlag(serverConfigKey, rootCmd.PersistentFlags().Lookup(serverConfigKey))
 	viper.BindPFlag(insecureConfigKey, rootCmd.PersistentFlags().Lookup(insecureConfigKey))
+
+	viper.RegisterAlias(CKIntersightApiKeyId, keyIDConfigKey)
+	viper.RegisterAlias(CKIntersightSecretKey, keyFileConfigKey)
+	viper.RegisterAlias(CKIntersightFqdn, serverConfigKey)
+
+	viper.BindPFlag(CKIntersightApiKeyId, rootCmd.Flags().Lookup(FlagIntersightApiKeyId))
+	viper.BindPFlag(CKIntersightSecretKey, rootCmd.Flags().Lookup(FlagIntersightSecretKey))
+	viper.BindPFlag(CKIntersightFqdn, rootCmd.Flags().Lookup(FlagIntersightFqdn))
+
+	viper.BindEnv(keyIDConfigKey, "INTERSIGHT_API_KEY_ID", "intersight_api_key_id")
+	viper.BindEnv(keyFileConfigKey, "INTERSIGHT_SECRET_KEY", "intersight_secret_key")
+	viper.BindEnv(serverConfigKey, "INTERSIGHT_FQDN", "intersight_fqdn")
 
 	configCmd := &cobra.Command{
 		Use:               "configure",
@@ -215,11 +242,14 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("Unable to key file: %v", err)
 	}
 
-	client.IntersightClient, err = intersight.NewClient(intersight.Config{
+	client.IntersightConfig = intersight.Config{
 		KeyID:         keyID,
 		KeyData:       string(keyData),
 		BaseTransport: httpTransport,
-	})
+		Host:          viper.GetString(serverConfigKey),
+	}
+
+	client.IntersightClient, err = intersight.NewClient(client.IntersightConfig)
 	if err != nil {
 		return fmt.Errorf("Unable to setup Intersight API client: %v", err)
 	}
