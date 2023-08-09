@@ -11,11 +11,19 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
 @test "${TEST_SECTION}: config file works" {
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
     assert_success
-    assert_line "keyID: \"configfile_key_id\""
-    assert_line "keyData: \"${DUMMY_RSA_CONFIGFILE}\\n\""
-    assert_line "keyFile: \"\""
-    assert_line "server: \"configfile.intersight.com\""
-    assert_line "insecure: false"
+    assert_line "intersight_api_key_id: \"configfile_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\\n\""
+    assert_line "intersight_fqdn: \"configfile.intersight.com\""
+    assert_line "intersight_insecure: false"
+}
+
+@test "${TEST_SECTION}: config file works with new config names" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE_NEW}" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"configfile_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\\n\""
+    assert_line "intersight_fqdn: \"configfile.intersight.com\""
+    assert_line "intersight_insecure: false"
 }
 
 @test "${TEST_SECTION}: uppercase environment variable overrides" {
@@ -24,11 +32,10 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     export INTERSIGHT_FQDN="envvar.intersight.com"
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
     assert_success
-    assert_line "keyID: \"envvar_key_id\""
-    assert_line "keyData: \"${DUMMY_RSA_ENVVAR}\\n\""
-    assert_line "keyFile: \"\""
-    assert_line "server: \"envvar.intersight.com\""
-    assert_line "insecure: false"
+    assert_line "intersight_api_key_id: \"envvar_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_ENVVAR}\\n\""
+    assert_line "intersight_fqdn: \"envvar.intersight.com\""
+    assert_line "intersight_insecure: false"
 }
 
 @test "${TEST_SECTION}: lowercase environment variable overrides" {
@@ -37,11 +44,10 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     export intersight_fqdn="envvar.intersight.com"
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
     assert_success
-    assert_line "keyID: \"envvar_key_id\""
-    assert_line "keyData: \"${DUMMY_RSA_ENVVAR}\\n\""
-    assert_line "keyFile: \"\""
-    assert_line "server: \"envvar.intersight.com\""
-    assert_line "insecure: false"
+    assert_line "intersight_api_key_id: \"envvar_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_ENVVAR}\\n\""
+    assert_line "intersight_fqdn: \"envvar.intersight.com\""
+    assert_line "intersight_insecure: false"
 }
 
 @test "${TEST_SECTION}: old command line flags override" {
@@ -53,11 +59,10 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     export intersight_fqdn="envvar.intersight.com"
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" --keyID flag_key_id --keyFile "${TEMP_FLAG_KEY_FILE}" --server "flag.intersight.com" --insecure show-configuration
     assert_success
-    assert_line "keyID: \"flag_key_id\""
-    assert_line "keyData: \"${DUMMY_RSA_FLAG}\\n\""
-    assert_line "keyFile: \"\""
-    assert_line "server: \"flag.intersight.com\""
-    assert_line "insecure: true"
+    assert_line "intersight_api_key_id: \"flag_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\\n\""
+    assert_line "intersight_fqdn: \"flag.intersight.com\""
+    assert_line "intersight_insecure: true"
 }
 
 @test "${TEST_SECTION}: new command line flags override" {
@@ -69,11 +74,10 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     export intersight_fqdn="envvar.intersight.com"
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" --intersight-api-key-id flag_key_id --intersight-secret-key "${TEMP_FLAG_KEY_FILE}" --intersight-fqdn "flag.intersight.com" --insecure show-configuration
     assert_success
-    assert_line "keyID: \"flag_key_id\""
-    assert_line "keyData: \"${DUMMY_RSA_FLAG}\\n\""
-    assert_line "keyFile: \"\""
-    assert_line "server: \"flag.intersight.com\""
-    assert_line "insecure: true"
+    assert_line "intersight_api_key_id: \"flag_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\\n\""
+    assert_line "intersight_fqdn: \"flag.intersight.com\""
+    assert_line "intersight_insecure: true"
 }
 
 setup_file() {
@@ -90,10 +94,14 @@ setup_file() {
 
     export TEMP_CONFIG_FILE="${TEMP_DIR}/.isctl.yaml"
     echo -e "keyfile: ${TEMP_KEY_FILE}\nkeyid: configfile_key_id\noutput: default\nserver: configfile.intersight.com" > $TEMP_CONFIG_FILE
+
+    export TEMP_CONFIG_FILE_NEW="${TEMP_DIR}/new.isctl.yaml"
+    echo -e "intersight_secret_key: ${TEMP_KEY_FILE}\nintersight_api_key_id: configfile_key_id\noutput: default\nintersight_fqdn: configfile.intersight.com" > $TEMP_CONFIG_FILE_NEW
 }
 teardown_file() {
     echo "removing temp files ${TEMP_KEY_FILE} ${TEMP_CONFIG_FILE}"
     rm "${TEMP_CONFIG_FILE}"
+    rm "${TEMP_CONFIG_FILE_NEW}"
     rm "${TEMP_KEY_FILE}"
     rm "${TEMP_ENV_KEY_FILE}"
     rm "${TEMP_FLAG_KEY_FILE}"

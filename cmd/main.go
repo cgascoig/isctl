@@ -6,24 +6,20 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"path/filepath"
 
+	"github.com/knadh/koanf/parsers/yaml"
 	homedir "github.com/mitchellh/go-homedir"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 
-	intersight "github.com/cgascoig/intersight-simple-go/intersight"
+	"github.com/cgascoig/intersight-simple-go/intersight"
 	"github.com/cgascoig/isctl/pkg/gen"
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
 var (
-	configFile     string
+	client         = &util.IsctlClient{}
 	jsonPathFilter string
-	verbose        bool
-
-	client = &util.IsctlClient{}
 
 	auxCommandsGenerators []commandGenerator
 )
@@ -31,24 +27,6 @@ var (
 type commandGenerator func(*util.IsctlClient) *cobra.Command
 
 const (
-	keyIDConfigKey   = "keyID"
-	keyFileConfigKey = "keyFile"
-
-	keyOutputConfigKey = "output"
-
-	serverConfigKey   = "server"
-	insecureConfigKey = "insecure"
-
-	// New config keys
-	CKIntersightApiKeyId  = "intersight_api_key_id"
-	CKIntersightSecretKey = "intersight_secret_key"
-	CKIntersightFqdn      = "intersight_fqdn"
-
-	// New cmd flags
-	FlagIntersightApiKeyId  = "intersight-api-key-id"
-	FlagIntersightSecretKey = "intersight-secret-key"
-	FlagIntersightFqdn      = "intersight-fqdn"
-
 	traceEnvName = "ISCTL_TRACE"
 )
 
@@ -59,53 +37,35 @@ func main() {
 
 	log.Trace("isctl starting")
 
-	cobra.OnInitialize(initConfig)
-
-	log.Trace("Got intersight API client")
-
 	rootCmd := gen.GetCommands(client, resultHandler)
 	rootCmd.Use = "isctl"
 
 	log.Trace("Got generated commands")
 
-	rootCmd.PersistentFlags().StringVar(&configFile, "config", "", "config file (default is $HOME/.isctl.yaml)")
+	rootCmd.PersistentFlags().String("config", "", "config file (default is $HOME/.isctl.yaml)")
 
-	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose logging")
+	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "verbose logging")
 
 	// New config keys
 	rootCmd.PersistentFlags().String(FlagIntersightApiKeyId, "", "Intersight API Key ID")
 	rootCmd.PersistentFlags().String(FlagIntersightSecretKey, "", "Intersight Secret Key (filename)")
 	rootCmd.PersistentFlags().String(FlagIntersightFqdn, "", "Intersight API FQDN (default intersight.com)")
 
-	rootCmd.PersistentFlags().String(keyIDConfigKey, "", "API Key ID [deprecated]")
-	rootCmd.PersistentFlags().String(keyFileConfigKey, "", "API Private Key Filename [deprecated]")
+	rootCmd.PersistentFlags().String(CKKeyID, "", "API Key ID [deprecated]")
+	rootCmd.PersistentFlags().String(CKKeyFile, "", "API Private Key Filename [deprecated]")
 
-	rootCmd.PersistentFlags().String(serverConfigKey, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\") [deprecated]")
-	rootCmd.PersistentFlags().BoolP(insecureConfigKey, "k", false, "Allow insecure server connections (disable SSL certificate validation)")
+	rootCmd.PersistentFlags().String(CKServer, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\") [deprecated]")
+	rootCmd.PersistentFlags().BoolP(CKInsecure, "k", false, "Allow insecure server connections (disable SSL certificate validation)")
 
-	rootCmd.PersistentFlags().StringP(keyOutputConfigKey, "o", "default", `Output format. One of default|yaml|json|table|jsonpath|custom-columns|csv. Examples:
+	rootCmd.PersistentFlags().StringP(CKOutputFormat, "o", "default", `Output format. One of default|yaml|json|table|jsonpath|custom-columns|csv. Examples:
 	Get Name attribute from all NTP policies: isctl get ntp policy -o jsonpath="[*].Name"
 	Table with just Name and Enabled attributes: isctl get ntp policy -o custom-columns=NAME:.Name,ENABLED:.Enabled
 	See [https://isctl.netlify.app/1-basic-queries/#output-customisation]`)
 	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.Name\")")
 
-	viper.BindPFlag(keyIDConfigKey, rootCmd.PersistentFlags().Lookup(keyIDConfigKey))
-	viper.BindPFlag(keyFileConfigKey, rootCmd.PersistentFlags().Lookup(keyFileConfigKey))
-	viper.BindPFlag(keyOutputConfigKey, rootCmd.PersistentFlags().Lookup(keyOutputConfigKey))
-	viper.BindPFlag(serverConfigKey, rootCmd.PersistentFlags().Lookup(serverConfigKey))
-	viper.BindPFlag(insecureConfigKey, rootCmd.PersistentFlags().Lookup(insecureConfigKey))
-
-	viper.RegisterAlias(CKIntersightApiKeyId, keyIDConfigKey)
-	viper.RegisterAlias(CKIntersightSecretKey, keyFileConfigKey)
-	viper.RegisterAlias(CKIntersightFqdn, serverConfigKey)
-
-	viper.BindPFlag(CKIntersightApiKeyId, rootCmd.Flags().Lookup(FlagIntersightApiKeyId))
-	viper.BindPFlag(CKIntersightSecretKey, rootCmd.Flags().Lookup(FlagIntersightSecretKey))
-	viper.BindPFlag(CKIntersightFqdn, rootCmd.Flags().Lookup(FlagIntersightFqdn))
-
-	viper.BindEnv(keyIDConfigKey, "INTERSIGHT_API_KEY_ID", "intersight_api_key_id")
-	viper.BindEnv(keyFileConfigKey, "INTERSIGHT_SECRET_KEY", "intersight_secret_key")
-	viper.BindEnv(serverConfigKey, "INTERSIGHT_FQDN", "intersight_fqdn")
+	cobra.OnInitialize(func() {
+		initConfig(rootCmd.PersistentFlags())
+	})
 
 	configCmd := &cobra.Command{
 		Use:               "configure",
@@ -114,7 +74,6 @@ func main() {
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error { return nil },
 	}
 	rootCmd.AddCommand(configCmd)
-	// rootCmd.AddCommand(newCmdApply(client))
 
 	log.Trace("Running auxCommandGenerators")
 	for _, cmdGen := range auxCommandsGenerators {
@@ -130,71 +89,41 @@ func main() {
 	}
 }
 
-func initConfig() {
-	log.Trace("Starting initConfig")
-	if configFile != "" {
-		// Use config file from the flag.
-		viper.SetConfigFile(configFile)
-	} else {
-		// Find home directory.
-		home, err := homedir.Dir()
-		if err != nil {
-			log.Fatalln(err)
-		}
-
-		// Search config in home directory with name ".cobra" (without extension).
-		viper.AddConfigPath(home)
-		viper.SetConfigName(".isctl")
-		configFile = filepath.Join(home, ".isctl.yaml")
-	}
-
-	if err := viper.ReadInConfig(); err != nil {
-		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
-			// Config file not found; ignore error if desired
-			log.Warn("Config file not found, creating empty default.")
-			f, err := os.Create(configFile)
-			if err != nil {
-				log.Fatalf("ERROR while creating empty config file: %v", err)
-			}
-			f.Close()
-		} else {
-			// Config file was found but another error was produced
-			log.Fatalf("ERROR Invalid config file: %v", err)
-		}
-	}
-	log.Trace("Finished initConfig")
-}
-
 func configure(cmd *cobra.Command, args []string) {
 	log.Trace("Starting configure")
 	scanner := bufio.NewScanner(os.Stdin)
 
 	// configure keyID
-	fmt.Printf("%s is currently '%s'\n", keyIDConfigKey, viper.GetString(keyIDConfigKey))
-	fmt.Printf("Enter new %s or press Enter to keep existing: ", keyIDConfigKey)
+	fmt.Printf("%s is currently '%s'\n", CKIntersightApiKeyId, gK.String(CKIntersightApiKeyId))
+	fmt.Printf("Enter new %s or press Enter to keep existing: ", CKIntersightApiKeyId)
 	scanner.Scan()
 	if input := scanner.Text(); input != "" {
-		viper.Set(keyIDConfigKey, input)
+		gK.Set(CKIntersightApiKeyId, input)
 	}
 
 	// configure key file name
-	fmt.Printf("key filename is currently '%s'\n", viper.GetString(keyFileConfigKey))
+	fmt.Printf("%s is currently '%s'\n", CKIntersightSecretKey, gK.String(CKIntersightSecretKey))
 	fmt.Printf("Enter new key file name or press Enter to keep existing: ")
 	scanner.Scan()
 	if input := scanner.Text(); input != "" {
-		viper.Set(keyFileConfigKey, input)
+		gK.Set(CKIntersightSecretKey, input)
 	}
 
 	// configure server
-	fmt.Printf("Intersight API server is currently '%s'\n", viper.GetString(serverConfigKey))
-	fmt.Printf("Enter new Intersight API server or press Enter to keep existing: ")
+	fmt.Printf("%s is currently '%s'\n", CKIntersightFqdn, gK.String(CKIntersightFqdn))
+	fmt.Printf("Enter new Intersight FQDN or press Enter to keep existing: ")
 	scanner.Scan()
 	if input := scanner.Text(); input != "" {
-		viper.Set(serverConfigKey, input)
+		gK.Set(CKIntersightFqdn, input)
 	}
 
 	log.Println("Writing config file")
-	if err := viper.WriteConfig(); err != nil {
+	b, err := gK.Marshal(yaml.Parser())
+	if err != nil {
+		log.Fatalf("Error occurred writing config file: %v", err)
+	}
+	err = os.WriteFile(getConfigFilePath(cmd.PersistentFlags()), b, 0666)
+	if err != nil {
 		log.Fatalf("Error occurred writing config file: %v", err)
 	}
 	log.Trace("Finished configure")
@@ -206,7 +135,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	var httpTransport http.RoundTripper = http.DefaultTransport
 
 	// Setup logging
-	if verbose && os.Getenv(traceEnvName) == "" {
+	if gK.Bool("verbose") && os.Getenv(traceEnvName) == "" {
 		log.SetLevel(log.DebugLevel)
 		log.Debug("Logging level set to debug(verbose)")
 	}
@@ -217,22 +146,21 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 	var err error
 
-	keyID := viper.GetString(keyIDConfigKey)
+	keyID := gK.String(CKIntersightApiKeyId)
 	if keyID == "" {
-		return fmt.Errorf("%s is not set", keyIDConfigKey)
+		return fmt.Errorf("%s is not set", CKIntersightApiKeyId)
 	}
 
-	keyFile := viper.GetString(keyFileConfigKey)
+	keyFile := gK.String(CKIntersightSecretKey)
 	if keyFile == "" {
-		return fmt.Errorf("%s is not set", keyFileConfigKey)
+		return fmt.Errorf("%s is not set", CKIntersightSecretKey)
 	}
 	// try doing ~ expansion on the keyFile path
 	if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {
 		keyFile = expandedKeyFile
 	}
 
-	httpsInsecure := viper.GetBool(insecureConfigKey)
-	if httpsInsecure {
+	if gK.Bool(CKIntersightInsecure) {
 		log.Trace("Disabled server certificate verification")
 		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	}
@@ -246,87 +174,13 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		KeyID:         keyID,
 		KeyData:       string(keyData),
 		BaseTransport: httpTransport,
-		Host:          viper.GetString(serverConfigKey),
+		Host:          gK.String(CKIntersightFqdn),
 	}
 
 	client.IntersightClient, err = intersight.NewClient(client.IntersightConfig)
 	if err != nil {
 		return fmt.Errorf("Unable to setup Intersight API client: %v", err)
 	}
-
-	// authCtx = context.WithValue(authCtx, openapi.ContextServerVariables, map[string]string{
-	// 	"server": viper.GetString(serverConfigKey),
-	// })
-
-	// if os.Getenv(traceEnvName) != "" {
-	// 	trace := &httptrace.ClientTrace{
-	// 		GetConn: func(hostPort string) {
-	// 			log.Printf("Get Conn: %v\n", hostPort)
-	// 		},
-	// 		GotConn: func(connInfo httptrace.GotConnInfo) {
-	// 			log.Printf("Got Conn: %+v\n", connInfo)
-	// 		},
-
-	// 		PutIdleConn: func(err error) {
-	// 			log.Printf("PutIdleConn: err: %v\n", err)
-	// 		},
-
-	// 		GotFirstResponseByte: func() {
-	// 			log.Printf("GotFirstResponseByte\n")
-	// 		},
-
-	// 		Got100Continue: func() {
-	// 			log.Printf("Got100Continue\n")
-	// 		},
-
-	// 		Got1xxResponse: func(code int, header textproto.MIMEHeader) error {
-	// 			log.Printf("Got1xxResponse code: %v header %v\n", code, header)
-	// 			return nil
-	// 		},
-
-	// 		DNSStart: func(dsi httptrace.DNSStartInfo) {
-	// 			log.Printf("DNSStart %v\n", dsi)
-	// 		},
-
-	// 		DNSDone: func(dnsInfo httptrace.DNSDoneInfo) {
-	// 			log.Printf("DNS Info: %+v\n", dnsInfo)
-	// 		},
-
-	// 		ConnectStart: func(network, addr string) {
-	// 			log.Printf("ConnectStart network: %v, addr: %v\n", network, addr)
-	// 		},
-
-	// 		ConnectDone: func(network, addr string, err error) {
-	// 			log.Printf("ConnectDone network: %v addr %v err %v\n", network, addr, err)
-	// 		},
-
-	// 		TLSHandshakeStart: func() {
-	// 			log.Printf("TLSHandshakeStart\n")
-	// 		},
-
-	// 		TLSHandshakeDone: func(cs tls.ConnectionState, err error) {
-	// 			log.Printf("TLSHandshakeDone connectionstate %v err %v\n", cs, err)
-	// 		},
-
-	// 		WroteHeaderField: func(key string, value []string) {
-	// 			log.Printf("WroteHeaderField key %v value %v\n", key, value)
-	// 		},
-
-	// 		WroteHeaders: func() {
-	// 			log.Printf("WroteHeaders\n")
-	// 		},
-
-	// 		Wait100Continue: func() {
-	// 			log.Printf("Wait100Continue\n")
-	// 		},
-
-	// 		WroteRequest: func(wri httptrace.WroteRequestInfo) {
-	// 			log.Printf("WroteRequest %v\n", wri)
-	// 		},
-	// 	}
-
-	// 	authCtx = httptrace.WithClientTrace(authCtx, trace)
-	// }
 
 	log.Trace("Finished validateFlags")
 

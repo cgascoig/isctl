@@ -12,7 +12,6 @@ import (
 	"github.com/PaesslerAG/jsonpath"
 	"github.com/bndr/gotabulate"
 	log "github.com/sirupsen/logrus"
-	"github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 
 	"github.com/cgascoig/isctl/pkg/util"
@@ -40,7 +39,7 @@ func resultHandler(result interface{}, err error, options ...util.ResultOpt) {
 		log.Fatalf("ERROR applying jsonPath filter: %v", err)
 	}
 
-	outputConfig := viper.GetString(keyOutputConfigKey)
+	outputConfig := gK.String(CKOutputFormat)
 	outputConfigParts := strings.SplitN(outputConfig, "=", 2)
 
 	switch outputConfigParts[0] {
@@ -310,7 +309,7 @@ func printResultDefault(result interface{}) {
 	}
 
 	// Pretty rough but if the output will be very wide fall back to YAML formatting the output unless the output format is explicitly set to "table"
-	outputFormat := strings.ToLower(viper.GetString(keyOutputConfigKey))
+	outputFormat := strings.ToLower(gK.String(CKOutputFormat))
 	if (len(tableHeaders) > defaultOutputMaxColumns) && outputFormat != "table" {
 		log.Println("Too many columns for table format, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.")
 		printResultYAML(result)

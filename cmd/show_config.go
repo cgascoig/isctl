@@ -5,7 +5,6 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 
 	"github.com/cgascoig/isctl/pkg/util"
 )
@@ -23,11 +22,10 @@ func newCmdShowConfig(client *util.IsctlClient) *cobra.Command {
 }
 
 func runCmdShowConfig(client *util.IsctlClient, cmd *cobra.Command, args []string) {
-	fmt.Printf("%s: %#v\n", keyIDConfigKey, client.IntersightConfig.KeyID)
-	fmt.Printf("%s: %#v\n", keyFileConfigKey, client.IntersightConfig.KeyFile)
-	fmt.Printf("keyData: %#v\n", client.IntersightConfig.KeyData)
-	fmt.Printf("%s: %#v\n", serverConfigKey, client.IntersightConfig.Host)
-	fmt.Printf("%s: %#v\n", insecureConfigKey, viper.GetBool(insecureConfigKey))
+	fmt.Printf("%s: %#v\n", CKIntersightApiKeyId, client.IntersightConfig.KeyID)
+	fmt.Printf("%s: %#v\n", CKIntersightSecretKey, client.IntersightConfig.KeyData)
+	fmt.Printf("%s: %#v\n", CKIntersightFqdn, client.IntersightConfig.Host)
+	fmt.Printf("%s: %#v\n", CKIntersightInsecure, gK.Bool(CKIntersightInsecure))
 }
 
 func init() {
