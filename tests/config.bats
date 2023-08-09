@@ -80,7 +80,10 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     assert_line "intersight_insecure: true"
 }
 
-setup_file() {
+setup() {
+    load 'test_helper/bats-support/load' # this is required by bats-assert!
+    load 'test_helper/bats-assert/load'
+
     export TEMP_DIR=$(mktemp -d)
 
     export TEMP_FLAG_KEY_FILE="${TEMP_DIR}/flagkey.pem"
@@ -98,7 +101,8 @@ setup_file() {
     export TEMP_CONFIG_FILE_NEW="${TEMP_DIR}/new.isctl.yaml"
     echo -e "intersight_secret_key: ${TEMP_KEY_FILE}\nintersight_api_key_id: configfile_key_id\noutput: default\nintersight_fqdn: configfile.intersight.com" > $TEMP_CONFIG_FILE_NEW
 }
-teardown_file() {
+
+teardown() {
     echo "removing temp files ${TEMP_KEY_FILE} ${TEMP_CONFIG_FILE}"
     rm "${TEMP_CONFIG_FILE}"
     rm "${TEMP_CONFIG_FILE_NEW}"
@@ -106,9 +110,4 @@ teardown_file() {
     rm "${TEMP_ENV_KEY_FILE}"
     rm "${TEMP_FLAG_KEY_FILE}"
     rmdir "${TEMP_DIR}"
-}
-
-setup() {
-    load 'test_helper/bats-support/load' # this is required by bats-assert!
-    load 'test_helper/bats-assert/load'
 }
