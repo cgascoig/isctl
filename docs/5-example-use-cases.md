@@ -29,22 +29,6 @@ Output:
 ----------------  ----------------  ----------------  ---------------------  --------------- 
 ```
 
-## Check version and support status of Kubernetes clusters
-
-```
-isctl get kubernetes clusterprofile --expand 'NodeGroups($expand=KubernetesVersion($expand=Version))' -o custom-columns='Name:.Name,Version:.NodeGroups[0].KubernetesVersion.Version.Name,Tags:.NodeGroups[0].KubernetesVersion.Version.Tags'
-```
-Output:
-```
-----------------------------  ------------------------------------  ---------------------------------------------------------
-                       Name                               Version                                                       Tags
-----------------------------  ------------------------------------  ---------------------------------------------------------
-             cisg-team-call                         1.19.16-iks.0       intersight.kubernetes.SupportStatus: UpgradeRequired
-            grscarle-cpoc-1                         1.21.10-iks.0            intersight.kubernetes.SupportStatus: Deprecated
-         tf-iks-cpoc-demo-1                         1.20.14-iks.4
-               cg-hcrs-demo                         1.21.11-iks.2
-```
-
 ## Performing consistent updates on many managed objects
 
 This example shows how to iterate over all NTP Policy managed objects (using `--filter` to select a subset is probably advised) and update the NtpServers attribute on all of them:
@@ -53,7 +37,3 @@ for moid in $(isctl get ntp policy --jsonpath '$[*].Moid'); do
   isctl update ntp policy moid ${moid} --NtpServers 1.1.1.1
 done
 ```
-
-## Script to repair IKS cluster and vCenter target linkage
-
-[This](https://github.com/cgascoig/isctl/blob/devel/examples/scripts/iks-fix-vcenter-target.sh) example script will re-establish the linkage between a deployed IKS cluster and a vCenter target. This is useful in scenarios where the vCenter target was removed and re-added while an IKS cluster was deployed. 
