@@ -12,7 +12,7 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
     assert_success
     assert_line "intersight_api_key_id: \"configfile_key_id\""
-    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\\n\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\""
     assert_line "intersight_fqdn: \"configfile.intersight.com\""
     assert_line "intersight_insecure: false"
 }
@@ -21,7 +21,7 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     run ./build/isctl --config "${TEMP_CONFIG_FILE_NEW}" show-configuration
     assert_success
     assert_line "intersight_api_key_id: \"configfile_key_id\""
-    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\\n\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\""
     assert_line "intersight_fqdn: \"configfile.intersight.com\""
     assert_line "intersight_insecure: false"
 }
@@ -33,7 +33,7 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
     assert_success
     assert_line "intersight_api_key_id: \"envvar_key_id\""
-    assert_line "intersight_secret_key: \"${DUMMY_RSA_ENVVAR}\\n\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_ENVVAR}\""
     assert_line "intersight_fqdn: \"envvar.intersight.com\""
     assert_line "intersight_insecure: false"
 }
@@ -45,7 +45,7 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
     assert_success
     assert_line "intersight_api_key_id: \"envvar_key_id\""
-    assert_line "intersight_secret_key: \"${DUMMY_RSA_ENVVAR}\\n\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_ENVVAR}\""
     assert_line "intersight_fqdn: \"envvar.intersight.com\""
     assert_line "intersight_insecure: false"
 }
@@ -60,7 +60,7 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" --keyID flag_key_id --keyFile "${TEMP_FLAG_KEY_FILE}" --server "flag.intersight.com" --insecure show-configuration
     assert_success
     assert_line "intersight_api_key_id: \"flag_key_id\""
-    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\\n\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\""
     assert_line "intersight_fqdn: \"flag.intersight.com\""
     assert_line "intersight_insecure: true"
 }
@@ -75,7 +75,39 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     run ./build/isctl --config "${TEMP_CONFIG_FILE}" --intersight-api-key-id flag_key_id --intersight-secret-key "${TEMP_FLAG_KEY_FILE}" --intersight-fqdn "flag.intersight.com" --insecure show-configuration
     assert_success
     assert_line "intersight_api_key_id: \"flag_key_id\""
-    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\\n\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\""
+    assert_line "intersight_fqdn: \"flag.intersight.com\""
+    assert_line "intersight_insecure: true"
+}
+
+@test "${TEST_SECTION}: supply key data in config file" {
+    echo config file:
+    cat "${TEMP_CONFIG_FILE_WITH_SECRET}"
+    run ./build/isctl --config "${TEMP_CONFIG_FILE_WITH_SECRET}" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"configfile_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\""
+    assert_line "intersight_fqdn: \"configfile.intersight.com\""
+    assert_line "intersight_insecure: false"
+}
+
+@test "${TEST_SECTION}: supply key data as environment variable" {
+    export intersight_api_key_id="envvar_key_id"
+    export intersight_secret_key=$(cat "${TEMP_ENV_KEY_FILE}")
+    export intersight_fqdn="envvar.intersight.com"
+    run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"envvar_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_ENVVAR}\""
+    assert_line "intersight_fqdn: \"envvar.intersight.com\""
+    assert_line "intersight_insecure: false"
+}
+
+@test "${TEST_SECTION}: supply key data as command line flags" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE}" --intersight-api-key-id flag_key_id --intersight-secret-key "$(cat "${TEMP_FLAG_KEY_FILE}")" --intersight-fqdn "flag.intersight.com" --insecure show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"flag_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\""
     assert_line "intersight_fqdn: \"flag.intersight.com\""
     assert_line "intersight_insecure: true"
 }
@@ -87,25 +119,29 @@ setup() {
     export TEMP_DIR=$(mktemp -d)
 
     export TEMP_FLAG_KEY_FILE="${TEMP_DIR}/flagkey.pem"
-    echo -e "${DUMMY_RSA_FLAG}" > $TEMP_FLAG_KEY_FILE
+    echo -e -n "${DUMMY_RSA_FLAG}" > $TEMP_FLAG_KEY_FILE
     
     export TEMP_ENV_KEY_FILE="${TEMP_DIR}/envkey.pem"
-    echo -e "${DUMMY_RSA_ENVVAR}" > $TEMP_ENV_KEY_FILE
+    echo -e -n "${DUMMY_RSA_ENVVAR}" > $TEMP_ENV_KEY_FILE
 
     export TEMP_KEY_FILE="${TEMP_DIR}/key.pem"
-    echo -e "${DUMMY_RSA_CONFIGFILE}" > $TEMP_KEY_FILE
+    echo -e -n "${DUMMY_RSA_CONFIGFILE}" > $TEMP_KEY_FILE
 
     export TEMP_CONFIG_FILE="${TEMP_DIR}/.isctl.yaml"
     echo -e "keyfile: ${TEMP_KEY_FILE}\nkeyid: configfile_key_id\noutput: default\nserver: configfile.intersight.com" > $TEMP_CONFIG_FILE
 
     export TEMP_CONFIG_FILE_NEW="${TEMP_DIR}/new.isctl.yaml"
     echo -e "intersight_secret_key: ${TEMP_KEY_FILE}\nintersight_api_key_id: configfile_key_id\noutput: default\nintersight_fqdn: configfile.intersight.com" > $TEMP_CONFIG_FILE_NEW
+
+    export TEMP_CONFIG_FILE_WITH_SECRET="${TEMP_DIR}/secret.isctl.yaml"
+    echo -e "intersight_secret_key: |-\n$(cat ${TEMP_KEY_FILE}|sed -e 's/^/  /')\nintersight_api_key_id: configfile_key_id\noutput: default\nintersight_fqdn: configfile.intersight.com" > $TEMP_CONFIG_FILE_WITH_SECRET
 }
 
 teardown() {
     echo "removing temp files ${TEMP_KEY_FILE} ${TEMP_CONFIG_FILE}"
     rm "${TEMP_CONFIG_FILE}"
     rm "${TEMP_CONFIG_FILE_NEW}"
+    rm "${TEMP_CONFIG_FILE_WITH_SECRET}"
     rm "${TEMP_KEY_FILE}"
     rm "${TEMP_ENV_KEY_FILE}"
     rm "${TEMP_FLAG_KEY_FILE}"

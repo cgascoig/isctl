@@ -155,9 +155,22 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	if keyFile == "" {
 		return fmt.Errorf("%s is not set", CKIntersightSecretKey)
 	}
-	// try doing ~ expansion on the keyFile path
-	if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {
-		keyFile = expandedKeyFile
+
+	var keyData string
+
+	if isKeyData(keyFile) {
+		keyData = keyFile
+	} else {
+		// try doing ~ expansion on the keyFile path
+		if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {
+			keyFile = expandedKeyFile
+		}
+
+		keyDataBytes, err := os.ReadFile(keyFile)
+		if err != nil {
+			return fmt.Errorf("Unable to key file: %v", err)
+		}
+		keyData = string(keyDataBytes)
 	}
 
 	if gK.Bool(CKIntersightInsecure) {
@@ -165,14 +178,9 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	}
 
-	keyData, err := os.ReadFile(keyFile)
-	if err != nil {
-		return fmt.Errorf("Unable to key file: %v", err)
-	}
-
 	client.IntersightConfig = intersight.Config{
 		KeyID:         keyID,
-		KeyData:       string(keyData),
+		KeyData:       keyData,
 		BaseTransport: httpTransport,
 		Host:          gK.String(CKIntersightFqdn),
 	}

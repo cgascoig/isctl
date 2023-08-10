@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/knadh/koanf/maps"
@@ -13,7 +14,6 @@ import (
 	"github.com/knadh/koanf/v2"
 	homedir "github.com/mitchellh/go-homedir"
 	log "github.com/sirupsen/logrus"
-	"github.com/spf13/pflag"
 	flag "github.com/spf13/pflag"
 )
 
@@ -135,7 +135,7 @@ func envMapper(s string) string {
 	return ""
 }
 
-func loadFlags(flags *pflag.FlagSet) {
+func loadFlags(flags *flag.FlagSet) {
 	aliases := map[string]string{
 		CKKeyID:                 CKIntersightApiKeyId,
 		CKKeyFile:               CKIntersightSecretKey,
@@ -146,7 +146,7 @@ func loadFlags(flags *pflag.FlagSet) {
 		FlagIntersightFqdn:      CKIntersightFqdn,
 	}
 
-	err := gK.Load(posflag.ProviderWithFlag(flags, ".", gK, func(f *pflag.Flag) (string, any) {
+	err := gK.Load(posflag.ProviderWithFlag(flags, ".", gK, func(f *flag.Flag) (string, any) {
 		if new, ok := aliases[f.Name]; ok {
 			return new, posflag.FlagVal(flags, f)
 		}
@@ -155,4 +155,9 @@ func loadFlags(flags *pflag.FlagSet) {
 	if err != nil {
 		log.Fatalf("error loading config: %v", err)
 	}
+}
+
+func isKeyData(s string) bool {
+	re := regexp.MustCompile(`(?s)^\s*-----BEGIN[A-Z ]*KEY-----.*-----END[A-Z ]*KEY-----\s*$`)
+	return re.MatchString(s)
 }
