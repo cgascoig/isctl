@@ -135,6 +135,12 @@ TEST_SECTION="NTP Policy CRUD"
     assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +tag1: value1, tag2: value2 *$"
 }
 
+@test "${TEST_SECTION}: auto pagination works" {
+    NORMAL_LINES=$(./build/isctl ${ISCTL_OPTIONS} get ntp policy | wc -l)
+    BATCH_LINES=$(./build/isctl ${ISCTL_OPTIONS} get ntp policy --auto-paginate --auto-paginate-batch-size 2 | wc -l)
+    assert_equal "${NORMAL_LINES}" "${BATCH_LINES}"
+}
+
 @test "${TEST_SECTION}: delete NTP policy" {
     ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid')
 

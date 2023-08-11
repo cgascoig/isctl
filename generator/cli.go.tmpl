@@ -80,7 +80,15 @@ func () *cobra.Command {
                 {{ end }}
             {{ end }}
 
-            res, err = operation.Execute(client, args, queryParams)
+            if autoPaginate, err2 := cmd.Flags().GetBool("auto-paginate"); err2 == nil && autoPaginate {
+                var batchSize = 100
+                if _batchSize, err3 := cmd.Flags().GetInt("auto-paginate-batch-size"); err3 == nil {
+                    batchSize = _batchSize
+                }
+                res, err = ExecuteWithPagination(&operation, batchSize, client, args, queryParams)
+            } else {
+                res, err = operation.Execute(client, args, queryParams)
+            }
             resultHandler(res, err, util.ResultOpt{SingleResult: &singleResult})
         }, 
         {{ end }}
@@ -143,6 +151,8 @@ Provide resource body as JSON on standard input{{ end }}`,
                 cmd.Flags().String("top", "", "Maximum number of results to return. Use with --skip for pagination of results")
                 cmd.Flags().String("skip", "", "Number of objects to skip and not include in results. Use with --top for pagination of results")
                 cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
+                cmd.Flags().Bool("auto-paginate", false, "Automatically execute batch requests to retrieve all results")
+                cmd.Flags().Int("auto-paginate-batch-size", 100, "Number of results to request per batch when using auto-paginate")
             {{ end }}
         {{ end }}
     {{ end }}
