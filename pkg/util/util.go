@@ -19,6 +19,7 @@ type ResultOpt struct {
 
 type IsctlClient struct {
 	IntersightClient *intersight.Client
+	IntersightConfig intersight.Config
 }
 
 func ReadBody(bodyFormat string, bodyParamMap interface{}) error {
