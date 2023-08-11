@@ -123,3 +123,56 @@ func EncodeQueryParams(queryParams map[string]string) string {
 
 	return vals.Encode()
 }
+
+func ExecuteWithPagination(op Operation, batchSize int, client *util.IsctlClient, args []string, queryParams map[string]string) (any, error) {
+	log.Trace("Starting ExecuteWithPagination")
+
+	skip := 0
+	var ret any
+
+	for {
+		log.Infof("Auto pagination requesting batch, skip=%d, top=%d", skip, batchSize)
+		queryParams["top"] = fmt.Sprint(batchSize)
+		queryParams["skip"] = fmt.Sprint(skip)
+		res, err := op.Execute(client, args, queryParams)
+		if err != nil {
+			return nil, fmt.Errorf("error while executing query for batch skip=%d, top=%d: %v", skip, batchSize, err)
+		}
+		var newCount int
+		ret, newCount, err = appendResults(ret, res)
+		if err != nil {
+			return nil, fmt.Errorf("error while executing query for batch skip=%d, top=%d: %v", skip, batchSize, err)
+		}
+
+		log.Tracef("ExecuteWithPagination finished batch, added %d results", newCount)
+
+		if newCount == 0 {
+			log.Infof("Auto pagination finished: no more results")
+			return ret, nil
+		}
+
+		skip += batchSize
+	}
+}
+
+// returns cur+new along with the count of new items or error
+func appendResults(cur, new any) (any, int, error) {
+	newS, err := dyno.GetSlice(new, "Results")
+	if err != nil {
+		return nil, 0, fmt.Errorf("no Results to append: %v", err)
+	}
+
+	count := len(newS)
+
+	if cur == nil {
+		return new, count, nil
+	}
+
+	curS, err := dyno.GetSlice(cur, "Results")
+	if err != nil {
+		return nil, 0, fmt.Errorf("no Results to append to: %v", err)
+	}
+
+	dyno.Set(cur, append(curS, newS...), "Results")
+	return cur, count, nil
+}
