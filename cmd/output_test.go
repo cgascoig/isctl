@@ -377,3 +377,28 @@ func optionalStr(s string) *string {
 func optionalBool(b bool) *bool {
 	return &b
 }
+
+func TestSortHeaders(t *testing.T) {
+	tests := []struct {
+		in            []string
+		priorityNames []string
+		out           []string
+	}{
+		{
+			in:            []string{"Test", "ATest", "Name", "Moid", "Compute_Serial"},
+			priorityNames: []string{"Compute_Serial", "Name", "Moid"},
+			out:           []string{"Compute_Serial", "Name", "Moid", "ATest", "Test"},
+		},
+		{
+			in:            []string{"Test", "ATest", "Name", "Moid"},
+			priorityNames: []string{"Compute_Serial", "Name", "Moid"},
+			out:           []string{"Name", "Moid", "ATest", "Test"},
+		},
+	}
+
+	for _, test := range tests {
+		in := test.in[0:]
+		SortHeaders(in, test.priorityNames)
+		assert.Equal(t, test.out, in)
+	}
+}

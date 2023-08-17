@@ -81,6 +81,13 @@ func main() {
 	}
 	log.Trace("Finished auxCommandGenerators")
 
+	log.Trace("Loading extensions")
+	for _, cmd := range loadExtensions(client) {
+		log.Tracef("Loaded extension command %s", cmd.Use)
+		rootCmd.AddCommand(cmd)
+	}
+	log.Trace("Finished loading extensions")
+
 	rootCmd.PersistentPreRunE = validateFlags
 
 	log.Trace("CLI building complete")
