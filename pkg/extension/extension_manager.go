@@ -22,8 +22,8 @@ func (em *ExtensionManager) AddFS(fileSystem fs.FS, eoFn ExecuteOperationFunctio
 		return
 	}
 
-	fs.WalkDir(fileSystem, ".", func(path string, d fs.DirEntry, _ error) error {
-		if !d.Type().IsRegular() {
+	fs.WalkDir(fileSystem, ".", func(path string, d fs.DirEntry, err error) error {
+		if err != nil || !d.Type().IsRegular() {
 			return nil
 		}
 		log.Debugf("Loading extension in %s\n", path)
