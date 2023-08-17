@@ -175,7 +175,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 		keyDataBytes, err := os.ReadFile(keyFile)
 		if err != nil {
-			return fmt.Errorf("Unable to key file: %v", err)
+			return fmt.Errorf("unable to read key file: %v", err)
 		}
 		keyData = string(keyDataBytes)
 	}
@@ -194,7 +194,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 	client.IntersightClient, err = intersight.NewClient(client.IntersightConfig)
 	if err != nil {
-		return fmt.Errorf("Unable to setup Intersight API client: %v", err)
+		return fmt.Errorf("unable to setup Intersight API client: %v", err)
 	}
 
 	log.Trace("Finished validateFlags")

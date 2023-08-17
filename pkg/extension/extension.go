@@ -31,7 +31,7 @@ func (e *Extension) SetCode(code []byte) error {
 	ctx := py.NewContext(py.DefaultContextOpts())
 	compiledCode, err := py.Compile(string(code), "extension", py.ExecMode, 0, false)
 	if err != nil {
-		return fmt.Errorf("Error compiling extension code: %v", err)
+		return fmt.Errorf("error compiling extension code: %v", err)
 	}
 
 	_, err = ctx.ModuleInit(&py.ModuleImpl{
@@ -41,12 +41,12 @@ func (e *Extension) SetCode(code []byte) error {
 		Methods: e.getMethods(),
 	})
 	if err != nil {
-		return fmt.Errorf("Error setting up Python interpreter with utility functions: %v", err)
+		return fmt.Errorf("error setting up Python interpreter with utility functions: %v", err)
 	}
 
 	m, err := py.RunCode(ctx, compiledCode, "extension", nil)
 	if err != nil {
-		return fmt.Errorf("Error loading extension code: %v", err)
+		return fmt.Errorf("error loading extension code: %v", err)
 	}
 	e.module = m
 
@@ -57,7 +57,7 @@ func (e *Extension) GetCommand() (*cobra.Command, error) {
 	res, err := e.module.Call("cmd", py.Tuple{}, nil)
 	if err != nil {
 		log.Tracef("Error running extension entrypoint: %v", err)
-		return nil, fmt.Errorf("Error running extension entrypoint: %v", err)
+		return nil, fmt.Errorf("error running extension entrypoint: %v", err)
 	}
 
 	resGo := pyToGo(res)
@@ -66,7 +66,7 @@ func (e *Extension) GetCommand() (*cobra.Command, error) {
 		return objectToCommand(e, resMap)
 	}
 
-	return nil, fmt.Errorf("Returned extension configuration invalid (not map[string]interface{})")
+	return nil, fmt.Errorf("returned extension configuration invalid (not map[string]interface{})")
 }
 
 func pyToGo(o py.Object) interface{} {
@@ -165,11 +165,6 @@ func getOutputFn(of OutputFunction) func(_ py.Object, args py.Tuple) (py.Object,
 			return nil, fmt.Errorf("output: unable to unpack arguments from extension")
 		}
 
-		data, ok := argsFromPy[0].(any)
-		if !ok {
-			return nil, fmt.Errorf("output: unable to unpack arguments from extension - data should be interface{}")
-		}
-
 		var multiPartResult = false
 		if len(argsFromPy) >= 2 {
 			if mpr, ok := argsFromPy[1].(bool); ok {
@@ -177,7 +172,7 @@ func getOutputFn(of OutputFunction) func(_ py.Object, args py.Tuple) (py.Object,
 			}
 		}
 
-		of(data, multiPartResult)
+		of(argsFromPy[0], multiPartResult)
 		return nil, nil
 	}
 }
@@ -374,7 +369,7 @@ func objectToCommand(e *Extension, o map[string]interface{}) (*cobra.Command, er
 	cmd.Short = getString(o, "short")
 
 	if cmd.Use == "" {
-		return nil, fmt.Errorf("Command without \"use\" set")
+		return nil, fmt.Errorf("command without \"use\" set")
 	}
 
 	run := getString(o, "run")

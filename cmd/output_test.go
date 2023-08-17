@@ -370,14 +370,6 @@ func TestRelaxedJSONPathExpression(t *testing.T) {
 	assert.Equal(t, "$[*].Tags", relaxedJSONPathExpression("[*].Tags"))
 }
 
-func optionalStr(s string) *string {
-	return &s
-}
-
-func optionalBool(b bool) *bool {
-	return &b
-}
-
 func TestSortHeaders(t *testing.T) {
 	tests := []struct {
 		in            []string

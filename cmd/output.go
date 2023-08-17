@@ -183,9 +183,7 @@ func removeWrappers(result interface{}, singleResult bool) interface{} {
 }
 
 func filterAttributes(result interface{}) interface{} {
-	var ret interface{}
-
-	ret = result
+	var ret = result
 
 	// remove uninteresting attributes from individual mo
 	if m, ok := ret.(map[string]interface{}); ok {
