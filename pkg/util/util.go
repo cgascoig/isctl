@@ -28,7 +28,7 @@ func ReadBody(bodyFormat string, bodyParamMap interface{}) error {
 		fmt.Println("Waiting for JSON body: ")
 		err := json.NewDecoder(os.Stdin).Decode(bodyParamMap)
 		if err != nil {
-			return fmt.Errorf("Decoding JSON: %v", err)
+			return fmt.Errorf("error decoding JSON: %v", err)
 		}
 
 		log.Tracef("After JSON parse, bodyParamMap: %v", bodyParamMap)
@@ -37,12 +37,12 @@ func ReadBody(bodyFormat string, bodyParamMap interface{}) error {
 		fmt.Println("Waiting for YAML body: ")
 		err := yaml.NewDecoder(os.Stdin).Decode(bodyParamMap)
 		if err != nil {
-			return fmt.Errorf("Decoding YAML: %v", err)
+			return fmt.Errorf("error decoding YAML: %v", err)
 		}
 
 		log.Tracef("After YAML parse, bodyParamMap: %v", bodyParamMap)
 	} else {
-		return fmt.Errorf("Unknown request body format: %s", bodyFormat)
+		return fmt.Errorf("unknown request body format: %s", bodyFormat)
 	}
 
 	return nil

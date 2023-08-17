@@ -12,6 +12,7 @@ import (
 	"github.com/PaesslerAG/jsonpath"
 	"github.com/bndr/gotabulate"
 	log "github.com/sirupsen/logrus"
+	"github.com/xuri/excelize/v2"
 	yaml "gopkg.in/yaml.v2"
 
 	"github.com/cgascoig/isctl/pkg/util"
@@ -39,26 +40,45 @@ func resultHandler(result interface{}, err error, options ...util.ResultOpt) {
 		log.Fatalf("ERROR applying jsonPath filter: %v", err)
 	}
 
+	structuredOutputHandler(result, false)
+}
+
+func structuredOutputHandler(result any, multiPartResults bool) {
 	outputConfig := gK.String(CKOutputFormat)
 	outputConfigParts := strings.SplitN(outputConfig, "=", 2)
 
 	switch outputConfigParts[0] {
 	case "yaml":
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o yaml")
+		}
 		printResultYAML(result)
 	case "json":
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o json")
+		}
 		printResultJSON(result)
 	case "custom-columns":
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o custom-columns")
+		}
 		if len(outputConfigParts) != 2 {
 			log.Fatalf("custom-columns format specified but no custom columns given")
 		}
 		printResultCustomColumns(result, outputConfigParts[1])
 	case "csv":
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o csv")
+		}
 		if len(outputConfigParts) == 2 {
 			printResultCSV(result, outputConfigParts[1])
 		} else {
 			printResultCSV(result, "")
 		}
 	case "jsonpath":
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o jsonpath")
+		}
 		if jsonPathFilter != "" {
 			log.Warn("Using -o jsonpath and --jsonpath together may produce unpredictable results")
 		}
@@ -67,8 +87,17 @@ func resultHandler(result interface{}, err error, options ...util.ResultOpt) {
 		} else {
 			printResultJSONPath(result, "")
 		}
+	case "xlsx":
+		if len(outputConfigParts) == 2 {
+			outputResultXLSX(result, outputConfigParts[1], multiPartResults)
+		} else {
+			log.Fatalf("xslx output requires a filename, e.g. '-o xslx=inventory.xlsx'")
+		}
 
 	default:
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o default or -o table")
+		}
 		printResultDefault(result)
 	}
 }
@@ -154,9 +183,7 @@ func removeWrappers(result interface{}, singleResult bool) interface{} {
 }
 
 func filterAttributes(result interface{}) interface{} {
-	var ret interface{}
-
-	ret = result
+	var ret = result
 
 	// remove uninteresting attributes from individual mo
 	if m, ok := ret.(map[string]interface{}); ok {
@@ -192,6 +219,11 @@ func stringify(in interface{}) string {
 		if hasKey && hasValue && len(v) == 2 {
 			return fmt.Sprintf("%v: %v", key, value)
 		}
+
+		if b, err := json.Marshal(v); err == nil {
+			return string(b)
+		}
+		// if JSON error fall through to Sprintf at end of func
 	}
 
 	if in, ok := in.([]interface{}); ok {
@@ -231,21 +263,7 @@ func prepareResultTable(in interface{}, sortHeaders bool) ([][]string, []string)
 		}
 
 		if sortHeaders {
-			sort.Slice(outHeaders, func(i, j int) bool {
-				if outHeaders[i] == "Name" {
-					return true
-				}
-				if outHeaders[j] == "Name" {
-					return false
-				}
-				if outHeaders[i] == "Moid" {
-					return true
-				}
-				if outHeaders[j] == "Moid" {
-					return false
-				}
-				return outHeaders[i] < outHeaders[j]
-			})
+			SortHeaders(outHeaders, []string{"<Compute_Serial>", "Name", "Moid"})
 		}
 
 		for _, row := range inList {
@@ -486,6 +504,84 @@ func printResultJSONPath(result interface{}, template string) {
 	}
 }
 
+func setXLSXSheet(f *excelize.File, sheetName string, tableData [][]string, tableHeaders []string) {
+	_, err := f.NewSheet(sheetName)
+	if err != nil {
+		log.Errorf("error adding sheet to xlsx: %v", err)
+	}
+
+	err = f.SetSheetRow(sheetName, "A1", &tableHeaders)
+	if err != nil {
+		log.Errorf("error adding data to xlsx: %v", err)
+	}
+	style, err := f.NewStyle(&excelize.Style{
+		Font: &excelize.Font{
+			Bold: true,
+		},
+	})
+	if err != nil {
+		log.Errorf("xlsx style error: %v", err)
+	}
+	f.SetCellStyle(sheetName, "A1", "EZ1", style)
+
+	for row := range tableData {
+		err = f.SetSheetRow(sheetName, fmt.Sprintf("A%d", row+2), &tableData[row])
+		if err != nil {
+			log.Errorf("error adding data to xlsx: %v", err)
+		}
+	}
+}
+
+func outputResultXLSX(result any, filename string, multiPartResults bool) {
+	const defaultSheetName = "isctl"
+	f := excelize.NewFile()
+	defer func() {
+		if err := f.Close(); err != nil {
+			log.Errorf("error closing xlsx file: %v", err)
+		}
+	}()
+
+	if !multiPartResults {
+		// If the results are not multipart, we create a single sheet in the
+		// workbook using the defaultSheetName
+		// f.SetSheetName("Sheet1", defaultSheetName)
+
+		tableData, tableHeaders := prepareResultTable(result, true)
+
+		setXLSXSheet(f, defaultSheetName, tableData, tableHeaders)
+	} else {
+		// If the results are multipart, we create a sheet per key in the
+		// containing map
+		if resMap, ok := result.(map[string]any); ok {
+			// create a slice of the sheet names so we can sort it
+			sheets := make([]string, len(resMap))
+			i := 0
+			for s := range resMap {
+				sheets[i] = s
+				i++
+			}
+
+			SortHeaders(sheets, []string{"compute.PhysicalSummary"})
+
+			for _, sheetName := range sheets { //sheetName, data := range resMap {
+				tableData, tableHeaders := prepareResultTable(resMap[sheetName], true)
+				setXLSXSheet(f, sheetName, tableData, tableHeaders)
+			}
+		} else {
+			log.Fatalf("error in multipart results")
+		}
+	}
+
+	f.DeleteSheet("Sheet1")
+
+	// Save spreadsheet by the given path.
+	if err := f.SaveAs(filename); err != nil {
+		log.Errorf("error saving xlsx file: %v", err)
+	}
+
+	log.Infof("Output written to xlsx file %s", filename)
+}
+
 type loggingTransport struct{}
 
 func newLoggingTransport() http.RoundTripper {
@@ -511,4 +607,31 @@ func (t *loggingTransport) RoundTrip(req *http.Request) (*http.Response, error) 
 
 	log.Debugf("Received API response:\n%s\n", string(outres))
 	return res, nil
+}
+
+func SortHeaders(headers, priorityNames []string) {
+	priorityMap := map[string]int{}
+	for i, pri := range priorityNames {
+		priorityMap[pri] = i
+	}
+
+	sort.Slice(headers, func(i, j int) bool {
+		// both in pri list
+		iPri, iOk := priorityMap[headers[i]]
+		jPri, jOk := priorityMap[headers[j]]
+
+		if iOk && jOk {
+			return iPri < jPri
+		}
+
+		if iOk {
+			return true
+		}
+
+		if jOk {
+			return false
+		}
+
+		return headers[i] < headers[j]
+	})
 }

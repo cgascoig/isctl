@@ -108,7 +108,7 @@ import (
                         if moref != nil {
                             newList = append(newList, moref)
                         } else {
-                            return fmt.Errorf("Error retreiving relationship: %s", refStr)
+                            return fmt.Errorf("error retreiving relationship: %s", refStr)
                         }
                     }
                 } else {
@@ -134,7 +134,7 @@ import (
                     if moref != nil {
                         dyno.Set(params, moref{{range .Path }}, "{{ . }}"{{ end }})
                     } else {
-                        return fmt.Errorf("Error retreiving relationship: %s", refStr)
+                        return fmt.Errorf("error retreiving relationship: %s", refStr)
                     }
                 }
             }

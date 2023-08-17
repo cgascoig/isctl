@@ -176,3 +176,18 @@ func appendResults(cur, new any) (any, int, error) {
 	dyno.Set(cur, append(curS, newS...), "Results")
 	return cur, count, nil
 }
+
+func GetOperationForClassID(method, classID string) Operation {
+	switch method {
+	case "get":
+		return GetGetOperationForClassID(classID)
+	case "create":
+		return GetCreateOperationForClassID(classID)
+	case "update":
+		return GetUpdateOperationForClassID(classID)
+	case "delete":
+		return GetDeleteOperationForClassID(classID)
+	}
+
+	return nil
+}

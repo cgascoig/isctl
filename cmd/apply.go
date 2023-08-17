@@ -96,7 +96,7 @@ func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 		getOperation := gen.GetGetOperationForClassID(classID)
 		res, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
 		if err != nil {
-			return fmt.Errorf("Error checking if MO already exists: %v", err)
+			return fmt.Errorf("error checking if MO already exists: %v", err)
 		}
 
 		moid, ok := util.GetMoid(res)
@@ -107,7 +107,7 @@ func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 
 			_, err = delOperation.Execute(client, []string{moid}, nil)
 			if err != nil {
-				return fmt.Errorf("Error executing operation: %v", err)
+				return fmt.Errorf("error executing operation: %v", err)
 			}
 		} else {
 			log.Printf("Skipping non-existent MO (Name: %s, ClassId: %s)", name, classID)
@@ -133,7 +133,7 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 		getOperation := gen.GetGetOperationForClassID(classID)
 		res, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
 		if err != nil {
-			return fmt.Errorf("Error checking if MO already exists: %v", err)
+			return fmt.Errorf("error checking if MO already exists: %v", err)
 		}
 
 		var args []string
@@ -152,12 +152,12 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 
 		err = op.SetBodyParams(client, mo)
 		if err != nil {
-			return fmt.Errorf("Error setting up operation body: %v", err)
+			return fmt.Errorf("error setting up operation body: %v", err)
 		}
 
 		_, err = op.Execute(client, args, nil)
 		if err != nil {
-			return fmt.Errorf("Error executing operation: %v", err)
+			return fmt.Errorf("error executing operation: %v", err)
 		}
 	}
 	return nil
@@ -169,7 +169,7 @@ func loadRawMOs(applyFilenames []string) ([]rawMO, error) {
 	for _, filePath := range applyFilenames {
 		fileInfo, err := os.Stat(filePath)
 		if err != nil {
-			return nil, fmt.Errorf("Unable to get file info: %v", err)
+			return nil, fmt.Errorf("unable to get file info: %v", err)
 		}
 
 		switch mode := fileInfo.Mode(); {
@@ -177,13 +177,13 @@ func loadRawMOs(applyFilenames []string) ([]rawMO, error) {
 			filenames1, err1 := filepath.Glob(filepath.Join(filePath, "*.yaml"))
 			filenames2, err2 := filepath.Glob(filepath.Join(filePath, "*.yml"))
 			if err1 != nil || err2 != nil {
-				return nil, fmt.Errorf("Error finding yaml/yml files: %v, %v", err1, err2)
+				return nil, fmt.Errorf("error finding yaml/yml files: %v, %v", err1, err2)
 			}
 			filenames := append(filenames1, filenames2...)
 			for _, filename := range filenames {
 				mos, err := loadFile(filename)
 				if err != nil {
-					return nil, fmt.Errorf("Error reading file: %v", err)
+					return nil, fmt.Errorf("error reading file: %v", err)
 				}
 
 				rawMOs = append(rawMOs, mos...)
@@ -191,12 +191,12 @@ func loadRawMOs(applyFilenames []string) ([]rawMO, error) {
 		case mode.IsRegular():
 			mos, err := loadFile(filePath)
 			if err != nil {
-				return nil, fmt.Errorf("Error reading file: %v", err)
+				return nil, fmt.Errorf("error reading file: %v", err)
 			}
 
 			rawMOs = append(rawMOs, mos...)
 		default:
-			return nil, fmt.Errorf("Invalid file type")
+			return nil, fmt.Errorf("invalid file type")
 		}
 	}
 
@@ -246,12 +246,12 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 
 		op := gen.GetUpdateOperationForClassID(classID)
 		if op == nil {
-			return nil, fmt.Errorf("Unable to get update operation for ClassID: %v", classID)
+			return nil, fmt.Errorf("unable to get update operation for ClassID: %v", classID)
 		}
 
 		deps, err := op.GetReferencedClasses(mo)
 		if err != nil {
-			return nil, fmt.Errorf("Unable to get referenced classes: %v", err)
+			return nil, fmt.Errorf("unable to get referenced classes: %v", err)
 		}
 		for _, dep := range deps {
 			if dependencies[classID] == nil {
@@ -294,12 +294,12 @@ func getOrderedMOsVisit(classID string, finalised, processing *map[string]bool, 
 		return nil
 	}
 	if (*processing)[classID] {
-		return fmt.Errorf("Cyclic reference detected")
+		return fmt.Errorf("cyclic reference detected")
 	}
 
 	(*processing)[classID] = true
 
-	for dep, _ := range (*dependencies)[classID] {
+	for dep := range (*dependencies)[classID] {
 		err := getOrderedMOsVisit(dep, finalised, processing, dependencies, result)
 		if err != nil {
 			return err
@@ -317,11 +317,11 @@ func getOrderedMOsVisit(classID string, finalised, processing *map[string]bool, 
 func (mo rawMO) getString(attr string) (string, error) {
 	attrIntf, ok := mo[attr]
 	if !ok {
-		return "", fmt.Errorf("Invalid MO - no %s attribute", attr)
+		return "", fmt.Errorf("invalid MO - no %s attribute", attr)
 	}
 	attrVal, ok := attrIntf.(string)
 	if !ok {
-		return "", fmt.Errorf("Invalid MO - %s attribute is not string", attr)
+		return "", fmt.Errorf("invalid MO - %s attribute is not string", attr)
 	}
 
 	return attrVal, nil
