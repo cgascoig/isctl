@@ -16,6 +16,10 @@ import (
     "github.com/cgascoig/isctl/pkg/util"
 )
 
+const (
+    autoPaginateBatchSizeDefault = 1000
+)
+
 
 {{ define "cliitem" }}
 func () *cobra.Command {
@@ -82,7 +86,7 @@ func () *cobra.Command {
             {{ end }}
 
             if autoPaginate, err2 := cmd.Flags().GetBool("auto-paginate"); err2 == nil && autoPaginate {
-                var batchSize = 100
+                var batchSize = autoPaginateBatchSizeDefault
                 if _batchSize, err3 := cmd.Flags().GetInt("auto-paginate-batch-size"); err3 == nil {
                     batchSize = _batchSize
                 }
@@ -153,7 +157,7 @@ Provide resource body as JSON on standard input{{ end }}`,
                 cmd.Flags().String("skip", "", "Number of objects to skip and not include in results. Use with --top for pagination of results")
                 cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
                 cmd.Flags().Bool("auto-paginate", false, "Automatically execute batch requests to retrieve all results")
-                cmd.Flags().Int("auto-paginate-batch-size", 100, "Number of results to request per batch when using auto-paginate")
+                cmd.Flags().Int("auto-paginate-batch-size", autoPaginateBatchSizeDefault, "Number of results to request per batch when using auto-paginate")
             {{ end }}
         {{ end }}
     {{ end }}
