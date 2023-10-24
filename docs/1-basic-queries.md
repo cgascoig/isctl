@@ -184,3 +184,9 @@ A common way to use this with the default spreadsheet application is:
 isctl get ntp policy --output csv=NAME:.Name,ENABLED:.Enabled  > /tmp/ntp.csv && open /tmp/ntp.csv
 ```
 
+### XLSX
+The output can be saved as a .xlsx file for easy opening in spreadsheet applications. For example, this command will save the table of NTP policies in `out.xlsx`:
+
+```
+isctl get ntp policy -o xlsx=out.xlsx
+```
