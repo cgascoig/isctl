@@ -30,7 +30,7 @@ clean:
 .PHONY: clean
 
 # Go unit tests
-test: pkg/gen/cli.go $(shell find cmd pkg -name \*.go -type f) go.mod
+test: pkg/gen/cli.go $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod
 > $(GO_CMD) test -v $(GO_MODULE)/...
 .PHONY: test
 
@@ -55,10 +55,10 @@ pkg/gen/cli.go: build/generator $(shell find generator -name \*.go.tmpl -type f)
 > go fmt $(shell find pkg/gen -name \*.go -type f)
 > $(GO_PATH)/bin/goimports -l -w pkg/gen
 
-build/isctl: pkg/gen/cli.go $(shell find cmd pkg -name \*.go -type f) go.mod
+build/isctl: pkg/gen/cli.go $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod
 > $(GO_BUILD_CMD) -o "$@" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 
-crossarch: pkg/gen/cli.go $(shell find cmd pkg -name \*.go -type f) go.mod
+crossarch: pkg/gen/cli.go $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod
 > GOOS=linux GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-linux_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 > GOOS=windows GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-windows_amd64.exe" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 > GOOS=darwin GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-darwin_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd

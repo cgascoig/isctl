@@ -26,6 +26,14 @@ def cmd_inventory_compute(_args, _flags):
         "storage.Controller",
         "storage.PhysicalDisk",
         "pci.Device",
+        "network.Element",
+        "equipment.Chassis",
+        "equipment.Psu",
+        "pci.Node",
+        "graphics.Card",
+        "equipment.Fex",
+        "equipment.IoCard",
+        "equipment.Transceiver",
     ]
 
     for class_id in class_ids:
