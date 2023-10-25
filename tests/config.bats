@@ -26,6 +26,16 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     assert_line "intersight_insecure: false"
 }
 
+@test "${TEST_SECTION}: config file specified in environment variable works" {
+    export ISCONFIG="${TEMP_CONFIG_FILE_NEW}"
+    run ./build/isctl show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"configfile_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\""
+    assert_line "intersight_fqdn: \"configfile.intersight.com\""
+    assert_line "intersight_insecure: false"
+}
+
 @test "${TEST_SECTION}: uppercase environment variable overrides" {
     export INTERSIGHT_API_KEY_ID="envvar_key_id"
     export INTERSIGHT_SECRET_KEY="${TEMP_ENV_KEY_FILE}"

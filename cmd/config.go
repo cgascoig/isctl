@@ -75,6 +75,8 @@ func getConfigFilePath(flags *flag.FlagSet) string {
 
 	if c, err := flags.GetString("config"); err == nil && c != "" {
 		configFile = c
+	} else if c := os.Getenv("ISCONFIG"); c != "" {
+		configFile = c
 	} else {
 		configFile = "~/.isctl.yaml"
 	}
