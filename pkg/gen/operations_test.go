@@ -63,4 +63,17 @@ func TestGetReferencedClasses(t *testing.T) {
 
 	assert.Nil(t, err)
 	assert.ElementsMatch(t, []string{"ippool.Pool"}, refClasses)
+
+	op = GetUpdateOperationForClassID("server.ProfileTemplate")
+
+	refClasses, err = op.GetReferencedClasses(map[string]interface{}{
+		"PolicyBucket": []any{
+			"MoRef:BiosPolicyRelationship[cgascoig-bios-policy]",
+			"MoRef:IamLdapPolicyRelationship[cgascoig-ldap-policy]",
+		},
+		"Organization": "default",
+	})
+
+	assert.Nil(t, err)
+	assert.ElementsMatch(t, []string{"organization.Organization", "bios.Policy", "iam.LdapPolicy"}, refClasses)
 }
