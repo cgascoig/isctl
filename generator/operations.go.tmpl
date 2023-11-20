@@ -47,7 +47,10 @@ import (
             for _, item := range refList {
                 if refStr, ok := item.(string); ok {
                     classId := RelationshipToIntersightClassId("{{ .DataType }}")
-                    _, _, isMoFilter := util.ParseMoRef(refStr) // TODO - should hande datatype from here too
+                    _, relDataType, isMoFilter := util.ParseMoRef(refStr) 
+                    if relDataType != "" {
+                        classId = RelationshipToIntersightClassId(relDataType)
+                    }
                     if isMoFilter && classId != "" {
                         ret = append(ret, classId)
                     }
@@ -60,7 +63,10 @@ import (
         if refAny, err := dyno.Get(params{{range .Path }}, "{{ . }}"{{ end }}); err == nil {
             if refStr, ok := refAny.(string); ok {
                 classId := RelationshipToIntersightClassId("{{ .DataType }}")
-                _, _, isMoFilter := util.ParseMoRef(refStr)  // TODO - should hande datatype from here too
+                _, relDataType, isMoFilter := util.ParseMoRef(refStr)  
+                if relDataType != "" {
+                    classId = RelationshipToIntersightClassId(relDataType)
+                }
                 if isMoFilter && classId != "" {
                     ret = append(ret, classId)
                 }
