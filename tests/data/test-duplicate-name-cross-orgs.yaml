@@ -1,0 +1,11 @@
+ClassId: organization.Organization
+ObjectType: organization.Organization
+Name: isctl-bats-dup-test
+---
+ClassId: ntp.Policy
+ObjectType: ntp.Policy
+Name: isctl-bats-test
+Enabled: true
+NtpServers:
+  - 2.2.2.2
+Organization: isctl-bats-dup-test

@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	yaml "gopkg.in/yaml.v3"
@@ -130,8 +131,35 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 			return err
 		}
 
+		// Here we lookup the Moid of the organisation referenced in the mo
+		// so that when we check if the object already exists we can do so including the organisation
+		// since Names are only unique within an org
+		var filter string
+		if classID != "organization.Organization" {
+			orgString, err := mo.getString("Organization")
+			if err != nil {
+				orgString = "default"
+			}
+
+			orgMoRef, err := gen.GetMoMoRefByFilter(client, orgString, "OrganizationOrganizationRelationship")
+			if err != nil {
+				return fmt.Errorf("error finding organisation: %v", err)
+			}
+
+			orgMoid, err := dyno.GetString(orgMoRef, "Moid")
+			if err != nil {
+				return fmt.Errorf("error finding organisation: %v", err)
+			}
+
+			filter = fmt.Sprintf("Name eq '%s' and Organization/Moid eq '%s'", name, orgMoid)
+		} else {
+			filter = fmt.Sprintf("Name eq '%s'", name)
+		}
+
+		log.Tracef("applyMOs: Checking for existing object with filter %s", filter)
+
 		getOperation := gen.GetGetOperationForClassID(classID)
-		res, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
+		res, err := getOperation.Execute(client, nil, map[string]string{"filter": filter})
 		if err != nil {
 			return fmt.Errorf("error checking if MO already exists: %v", err)
 		}

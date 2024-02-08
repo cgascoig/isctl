@@ -27,9 +27,36 @@ func RelationshipToIntersightClassId(relationship string) string {
 	return ""
 }
 
+func GetMoMoRefByFilter(client *util.IsctlClient, moref string, defaultRelationshipType string) (map[string]any, error) {
+	filter, datatype, isMoFilter := util.ParseMoRef(moref)
+	if isMoFilter {
+		var moref map[string]any
+		if datatype != "" {
+			moref = setMoMoRefByFilter(client, datatype, filter)
+		} else {
+			moref = setMoMoRefByFilter(client, defaultRelationshipType, filter)
+		}
+
+		if moref != nil {
+			return moref, nil
+		}
+	}
+
+	return nil, fmt.Errorf("error retreiving relationship: %s", moref)
+}
+
+var momorefCache = map[string]map[string]any{}
+
 func setMoMoRefByFilter(client *util.IsctlClient, relationship string, filter string) map[string]any {
 
 	log.Debugf("Looking up MoMoRef %s with filter %s", relationship, filter)
+
+	cacheKey := fmt.Sprintf("%s:%s", relationship, filter)
+
+	if momoref, ok := momorefCache[cacheKey]; ok {
+		log.Trace("Returning MoMoRef from cache")
+		return momoref
+	}
 
 	moref := map[string]any{
 		"ClassId": "mo.MoRef",
@@ -57,6 +84,8 @@ func setMoMoRefByFilter(client *util.IsctlClient, relationship string, filter st
 
 	moref["Moid"] = moid
 	moref["ObjectType"] = classId
+
+	momorefCache[cacheKey] = moref
 
 	return moref
 }
