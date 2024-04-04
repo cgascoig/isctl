@@ -2,12 +2,11 @@ package oapi
 
 import (
 	"fmt"
-	"log/slog"
 	"regexp"
 	"strings"
 
 	"github.com/icza/dyno"
-	"github.com/sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 )
 
 func getObjectProperty(propName string, obj any) map[string]any {
@@ -180,7 +179,7 @@ func canonicaliseMoRefs(o *map[string]any, s map[string]any) {
 							}
 						}
 					} else {
-						logrus.Trace("canonicaliseMoRefs: unsupported array")
+						log.Trace("canonicaliseMoRefs: unsupported array")
 					}
 				}
 			}
@@ -212,7 +211,7 @@ func getSchema(schemaName string) map[string]any {
 
 	s, err := dyno.Get(lazyLoadSpec(), "components", "schemas", schemaName)
 	if err != nil {
-		slog.Debug("schema not found", "schema_name", schemaName)
+		log.Debug("schema not found", "schema_name", schemaName)
 		return nil
 	}
 

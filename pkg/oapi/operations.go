@@ -2,7 +2,6 @@ package oapi
 
 import (
 	"fmt"
-	"log/slog"
 	"regexp"
 	"strings"
 
@@ -14,7 +13,7 @@ import (
 func getOperation(path, method string, operation map[string]any) *Operation {
 	operationId, err := dyno.GetString(operation, "operationId")
 	if err != nil {
-		slog.Error("operation with no operationId")
+		log.Error("operation with no operationId")
 		return nil
 	}
 
@@ -33,7 +32,11 @@ func getOperation(path, method string, operation map[string]any) *Operation {
 		Params:         GetParams(operation),
 	}
 
-	slog.Debug("processing operation", "path", path, "method", method, "operationId", operationId)
+	log.WithFields(log.Fields{
+		"path":        path,
+		"method":      method,
+		"operationId": operationId,
+	}).Debug("processing operation")
 
 	return &newOp
 }
@@ -85,7 +88,7 @@ func getParam(paramName string) *Param {
 
 	p, err := dyno.GetMapS(lazyLoadSpec(), "components", "parameters", paramName)
 	if err != nil {
-		slog.Debug("parameter not found", "param_name", paramName)
+		log.WithField("param_name", paramName).Debug("parameter not found")
 		return nil
 	}
 
@@ -118,14 +121,13 @@ func GetParams(op map[string]any) []Param {
 	ret := []Param{}
 	params, err := dyno.GetSlice(op, "parameters")
 	if err != nil {
-		// slog.Info("no parameters for operation")
 		return ret
 	}
 	for _, p := range params {
 		if ref, err := dyno.GetString(p, "$ref"); err == nil {
 			p := getParam(ref)
 			if p == nil {
-				slog.Error("param was nil")
+				log.Error("param was nil")
 				continue
 			}
 			ret = append(ret, *p)
@@ -153,7 +155,7 @@ func getOperations() []Operation {
 	operations := []Operation{}
 	paths, err := dyno.GetMapS(lazyLoadSpec(), "paths")
 	if err != nil {
-		slog.Error("error getting paths from spec")
+		log.Error("error getting paths from spec")
 	}
 
 	for path, pathSpec := range paths {
@@ -513,7 +515,7 @@ func schemaToVars(s map[string]any) []*Var {
 				} else if arrayTypeRef, err := dyno.GetString(prop, "items", "$ref"); err == nil {
 					dt = fmt.Sprintf("[]%s", SchemaNameToClassId(arrayTypeRef))
 				} else {
-					slog.Info("malformed array type", "prop", prop)
+					log.WithField("prop", prop).Info("malformed array type")
 				}
 			}
 			nullable, _ := dyno.GetBoolean(prop, "nullable")
@@ -553,7 +555,7 @@ func getBodyParamVars(dataType string) []*Var {
 
 	s := getSchema(dataType)
 	if s == nil {
-		slog.Error("getBodyParamVars: schema not found", "schema_name", dataType)
+		log.WithField("schema_name", dataType).Error("getBodyParamVars: schema not found")
 	}
 
 	// is the schema an "object" itself
