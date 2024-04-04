@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"regexp"
 
 	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
@@ -88,64 +87,4 @@ func GetMoid(res interface{}) (string, bool) {
 	}
 
 	return moid, true
-}
-
-// Parse the MoRef string and return:
-// (filter string, relationshipDataType string, ok bool)
-func ParseMoRef(moref string) (string, string, bool) {
-	log.Tracef("Parsing moRef %s", moref)
-	var r *regexp.Regexp
-	var m []string
-
-	r = regexp.MustCompile(`^[[:xdigit:]]{24}$`)
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return "", "", false
-	}
-
-	r = regexp.MustCompile(`MoRef\[\$filter:(.+)\]`)
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return m[1], "", true
-	}
-
-	r = regexp.MustCompile(`MoRef:(\w+)\[\$filter:(.+)\]`)
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return m[2], m[1], true
-	}
-
-	r = regexp.MustCompile(`MoRef:(\w+)\[(\w+):([0-9A-Za-z_\-\.]+)\]`)
-
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return fmt.Sprintf("%s eq '%s'", m[2], m[3]), m[1], true
-	}
-
-	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_\-\.]+)\]`)
-
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return fmt.Sprintf("%s eq '%s'", m[1], m[2]), "", true
-	}
-
-	r = regexp.MustCompile(`^MoRef:(\w+)\[([0-9A-Za-z_\-\.]+)\]`)
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return fmt.Sprintf("Name eq '%s'", m[2]), m[1], true
-	}
-
-	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.]+)\]`)
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return fmt.Sprintf("Name eq '%s'", m[1]), "", true
-	}
-
-	r = regexp.MustCompile(`^\s*([0-9A-Za-z_\-\.]+)\s*$`)
-	m = r.FindStringSubmatch(moref)
-	if m != nil {
-		return fmt.Sprintf("Name eq '%s'", m[1]), "", true
-	}
-
-	return "", "", false
 }
