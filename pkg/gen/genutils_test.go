@@ -45,3 +45,56 @@ func TestAppendResults(t *testing.T) {
 	assert.Equal(t, expected, out)
 	assert.Equal(t, 1, count)
 }
+
+// func TestExpandTemplate(t *testing.T) {
+// 	tests := []struct {
+// 		in       map[string]any
+// 		expected map[string]any
+// 	}{
+// 		{
+// 			in: map[string]any{
+// 				"Organization": "{{ MoRef }}",
+// 			},
+// 			expected: map[string]any{
+// 				"Organization": map[string]any{
+// 					"ClassId":    "mo.MoRef",
+// 					"Moid":       "NewMoRef",
+// 					"ObjectType": "organization.Organization",
+// 				},
+// 			},
+// 		},
+// 		{
+// 			in: map[string]any{
+// 				"Ancestors": []string{
+// 					"{{ MoRef}}",
+// 					"{{MoRef }}",
+// 					"{{MoRef}}",
+// 				},
+// 			},
+// 			expected: map[string]any{
+// 				"Ancestors": []any{
+// 					map[string]any{
+// 						"ClassId":    "mo.MoRef",
+// 						"Moid":       "NewMoRef",
+// 						"ObjectType": "organization.Organization",
+// 					},
+// 					map[string]any{
+// 						"ClassId":    "mo.MoRef",
+// 						"Moid":       "NewMoRef",
+// 						"ObjectType": "organization.Organization",
+// 					},
+// 					map[string]any{
+// 						"ClassId":    "mo.MoRef",
+// 						"Moid":       "NewMoRef",
+// 						"ObjectType": "organization.Organization",
+// 					},
+// 				},
+// 			},
+// 		},
+// 	}
+
+// 	for _, test := range tests {
+// 		ExpandTemplate(nil, &test.in)
+// 		assert.Equal(t, test.expected, test.in)
+// 	}
+// }

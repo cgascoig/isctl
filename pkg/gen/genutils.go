@@ -8,6 +8,7 @@ import (
 	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
 
+	"github.com/cgascoig/isctl/pkg/oapi"
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
@@ -27,68 +28,111 @@ func RelationshipToIntersightClassId(relationship string) string {
 	return ""
 }
 
-func GetMoMoRefByFilter(client *util.IsctlClient, moref string, defaultRelationshipType string) (map[string]any, error) {
-	filter, datatype, isMoFilter := util.ParseMoRef(moref)
-	if isMoFilter {
-		var moref map[string]any
-		if datatype != "" {
-			moref = setMoMoRefByFilter(client, datatype, filter)
-		} else {
-			moref = setMoMoRefByFilter(client, defaultRelationshipType, filter)
-		}
+var momorefCache = map[oapi.MoRef]map[string]any{}
 
-		if moref != nil {
-			return moref, nil
-		}
-	}
+func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, error) {
+	log.Debugf("Looking up Mo by MoRef %v", *moref)
 
-	return nil, fmt.Errorf("error retreiving relationship: %s", moref)
-}
-
-var momorefCache = map[string]map[string]any{}
-
-func setMoMoRefByFilter(client *util.IsctlClient, relationship string, filter string) map[string]any {
-
-	log.Debugf("Looking up MoMoRef %s with filter %s", relationship, filter)
-
-	cacheKey := fmt.Sprintf("%s:%s", relationship, filter)
-
-	if momoref, ok := momorefCache[cacheKey]; ok {
+	if mo, ok := momorefCache[*moref]; ok {
 		log.Trace("Returning MoMoRef from cache")
-		return momoref
+		return mo, nil
 	}
 
-	moref := map[string]any{
-		"ClassId": "mo.MoRef",
-	}
-	op := GetOperationForRelationship(relationship)
+	op := GetOperationForRelationship(moref.RelationshipType)
 	if op == nil {
-		log.Fatalf("FATAL: No operation for relationship: %s", relationship)
+		return nil, fmt.Errorf("no operation for relationship %s", moref.RelationshipType)
 	}
-	res, err := op.Execute(client, nil, map[string]string{"filter": filter})
+
+	res, err := op.Execute(client, nil, map[string]string{"filter": moref.Filter})
 	if err != nil {
-		log.Errorf("Error executing lookup query: %v", err)
-		return nil
+		return nil, fmt.Errorf("error executing lookup query: %v", err)
 	}
 
 	moid, ok := util.GetMoid(res)
 	if !ok {
-		return nil
+		return nil, fmt.Errorf("GetMoMoRef: unable to get moid")
 	}
+
 	classId, ok := getClassId(res)
 	if !ok {
-		return nil
+		return nil, fmt.Errorf("GetMoMoRef: ubable to get classID")
 	}
 
 	log.Debugf("Got Moid and ClassId: %s, %s", moid, classId)
 
-	moref["Moid"] = moid
-	moref["ObjectType"] = classId
+	ret := map[string]any{
+		"ClassId":    "mo.MoRef",
+		"Moid":       moid,
+		"ObjectType": classId,
+	}
 
-	momorefCache[cacheKey] = moref
+	momorefCache[*moref] = ret
 
-	return moref
+	return ret, nil
 }
+
+// func GetMoMoRefByFilter(client *util.IsctlClient, moref string, defaultRelationshipType string) (map[string]any, error) {
+// 	filter, datatype, isMoFilter := util.ParseMoRef(moref)
+// 	if isMoFilter {
+// 		var moref map[string]any
+// 		if datatype != "" {
+// 			moref = setMoMoRefByFilter(client, datatype, filter)
+// 		} else {
+// 			moref = setMoMoRefByFilter(client, defaultRelationshipType, filter)
+// 		}
+
+// 		if moref != nil {
+// 			return moref, nil
+// 		}
+// 	}
+
+// 	return nil, fmt.Errorf("error retreiving relationship: %s", moref)
+// }
+
+// var momorefCache = map[string]map[string]any{}
+
+// func setMoMoRefByFilter(client *util.IsctlClient, relationship string, filter string) map[string]any {
+
+// 	log.Debugf("Looking up MoMoRef %s with filter %s", relationship, filter)
+
+// 	cacheKey := fmt.Sprintf("%s:%s", relationship, filter)
+
+// 	if momoref, ok := momorefCache[cacheKey]; ok {
+// 		log.Trace("Returning MoMoRef from cache")
+// 		return momoref
+// 	}
+
+// 	moref := map[string]any{
+// 		"ClassId": "mo.MoRef",
+// 	}
+// 	op := GetOperationForRelationship(relationship)
+// 	if op == nil {
+// 		log.Fatalf("FATAL: No operation for relationship: %s", relationship)
+// 	}
+// 	res, err := op.Execute(client, nil, map[string]string{"filter": filter})
+// 	if err != nil {
+// 		log.Errorf("Error executing lookup query: %v", err)
+// 		return nil
+// 	}
+
+// 	moid, ok := util.GetMoid(res)
+// 	if !ok {
+// 		return nil
+// 	}
+// 	classId, ok := getClassId(res)
+// 	if !ok {
+// 		return nil
+// 	}
+
+// 	log.Debugf("Got Moid and ClassId: %s, %s", moid, classId)
+
+// 	moref["Moid"] = moid
+// 	moref["ObjectType"] = classId
+
+// 	momorefCache[cacheKey] = moref
+
+// 	return moref
+// }
 
 // TODO: Refactor this to remove duplicate code in getMoid
 // getClassId takes a "<objecttype>.List" structure, checks there was exactly 1 match and returns the ClassId of that match
@@ -153,7 +197,7 @@ func EncodeQueryParams(queryParams map[string]string) string {
 	return vals.Encode()
 }
 
-func ExecuteWithPagination(op Operation, batchSize int, client *util.IsctlClient, args []string, queryParams map[string]string) (any, error) {
+func ExecuteWithPagination(op *Operation, batchSize int, client *util.IsctlClient, args []string, queryParams map[string]string) (any, error) {
 	log.Trace("Starting ExecuteWithPagination")
 
 	skip := 0
@@ -206,17 +250,47 @@ func appendResults(cur, new any) (any, int, error) {
 	return cur, count, nil
 }
 
-func GetOperationForClassID(method, classID string) Operation {
-	switch method {
-	case "get":
-		return GetGetOperationForClassID(classID)
-	case "create":
-		return GetCreateOperationForClassID(classID)
-	case "update":
-		return GetUpdateOperationForClassID(classID)
-	case "delete":
-		return GetDeleteOperationForClassID(classID)
-	}
+// func GetOperationForClassID(method, classID string) Operation {
+// 	switch method {
+// 	case "get":
+// 		return GetGetOperationForClassID(classID)
+// 	case "create":
+// 		return GetCreateOperationForClassID(classID)
+// 	case "update":
+// 		return GetUpdateOperationForClassID(classID)
+// 	case "delete":
+// 		return GetDeleteOperationForClassID(classID)
+// 	}
 
-	return nil
-}
+// 	return nil
+// }
+
+// func expandTemplateString(client *util.IsctlClient, s string) any {
+// 	r := regexp.MustCompile(`^\s*{{\s*MoRef\s*}}\s*$`)
+// 	if r.MatchString(s) {
+// 		return map[string]any{
+// 			"ClassId":    "mo.MoRef",
+// 			"Moid":       "NewMoRef",
+// 			"ObjectType": "organization.Organization",
+// 		}
+// 	}
+
+// 	return s
+// }
+
+// func ExpandTemplate(client *util.IsctlClient, params *map[string]any) {
+// 	for k, v := range *params {
+// 		switch val := v.(type) {
+// 		case string:
+// 			(*params)[k] = expandTemplateString(client, val)
+// 		case map[string]any:
+// 			ExpandTemplate(client, &val)
+// 		case []string:
+// 			newList := make([]any, len(val))
+// 			for i, valStr := range val {
+// 				newList[i] = expandTemplateString(client, valStr)
+// 			}
+// 			(*params)[k] = newList
+// 		}
+// 	}
+// }

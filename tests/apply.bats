@@ -59,6 +59,15 @@ TEST_SECTION="Apply"
     ! ./build/isctl ${ISCTL_OPTIONS} get organization organization | grep "${TEST_NAME}"
 }
 
+@test "${TEST_SECTION}: bulk.MoCloners" {
+    ./build/isctl ${ISCTL_OPTIONS} create server profiletemplate --Name "${TEST_NAME}" --Organization default
+
+    ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-bulk-mo-cloner.yaml
+
+    run ./build/isctl ${ISCTL_OPTIONS} delete server profile name "${TEST_NAME}-1"
+    run ./build/isctl ${ISCTL_OPTIONS} delete server profiletemplate name "${TEST_NAME}" 
+}
+
 
 setup_file() {
     # delete the test objects if they already exist. Don't check the exit code. 

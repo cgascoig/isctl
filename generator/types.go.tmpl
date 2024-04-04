@@ -3,6 +3,6 @@
 package gen
 
 var goTypeNameToIntersightClassID = map[string]string{
-    {{ range $typeName, $classID := .GetTypeToIntersightClassIDMapping }}"{{ $typeName }}": "{{ $classID }}",
-    {{ end }} 
+    {{/* {{ range $typeName, $classID := .GetTypeToIntersightClassIDMapping }}"{{ $typeName }}": "{{ $classID }}",
+    {{ end }}  */}}
 }

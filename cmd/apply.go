@@ -11,6 +11,7 @@ import (
 	yaml "gopkg.in/yaml.v3"
 
 	"github.com/cgascoig/isctl/pkg/gen"
+	"github.com/cgascoig/isctl/pkg/oapi"
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
@@ -126,58 +127,77 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 			return err
 		}
 
-		name, err := mo.getString("Name")
-		if err != nil {
-			return err
-		}
-
-		// Here we lookup the Moid of the organisation referenced in the mo
-		// so that when we check if the object already exists we can do so including the organisation
-		// since Names are only unique within an org
-		var filter string
-		if classID != "organization.Organization" {
-			orgString, err := mo.getString("Organization")
-			if err != nil {
-				orgString = "default"
-			}
-
-			orgMoRef, err := gen.GetMoMoRefByFilter(client, orgString, "OrganizationOrganizationRelationship")
-			if err != nil {
-				return fmt.Errorf("error finding organisation: %v", err)
-			}
-
-			orgMoid, err := dyno.GetString(orgMoRef, "Moid")
-			if err != nil {
-				return fmt.Errorf("error finding organisation: %v", err)
-			}
-
-			filter = fmt.Sprintf("Name eq '%s' and Organization/Moid eq '%s'", name, orgMoid)
-		} else {
-			filter = fmt.Sprintf("Name eq '%s'", name)
-		}
-
-		log.Tracef("applyMOs: Checking for existing object with filter %s", filter)
+		var args []string
+		var op *gen.Operation
 
 		getOperation := gen.GetGetOperationForClassID(classID)
-		res, err := getOperation.Execute(client, nil, map[string]string{"filter": filter})
-		if err != nil {
-			return fmt.Errorf("error checking if MO already exists: %v", err)
-		}
-
-		var args []string
-		var op gen.Operation
-
-		moid, ok := util.GetMoid(res)
-		if ok {
-			log.Printf("Performing update operation on existing MO (Name: %s, Moid: %s, ClassId: %s)", name, moid, classID)
-			op = gen.GetUpdateOperationForClassID(classID)
-			args = []string{moid}
-		} else {
-			log.Printf("Performing create operation on new MO (Name: %s, ClassId: %s)", name, classID)
+		if getOperation == nil {
 			op = gen.GetCreateOperationForClassID(classID)
+			if op == nil {
+				return fmt.Errorf("no create operation for ClassId %s", classID)
+			}
+			log.Printf("Performing create operation on new MO (ClassId: %s)", classID)
+
 			args = []string{}
+
+		} else {
+			name, err := mo.getString("Name")
+			if err != nil {
+				return err
+			}
+
+			// Here we lookup the Moid of the organisation referenced in the mo
+			// so that when we check if the object already exists we can do so including the organisation
+			// since Names are only unique within an org
+			var filter string
+			if classID != "organization.Organization" {
+				orgString, err := mo.getString("Organization")
+				if err != nil {
+					orgString = "default"
+				}
+
+				// orgMoRef, err := gen.GetMoMoRefByFilter(client, orgString, "OrganizationOrganizationRelationship")
+				cMoRef := oapi.CanonicaliseMoRef(orgString, "organization.Organization.Relationship")
+				if cMoRef == nil {
+					return fmt.Errorf("error canonicalising organisation MoRef")
+				}
+				orgMoRef, err := gen.GetMoMoRef(client, cMoRef)
+				if err != nil {
+					return fmt.Errorf("error finding organisation: %v", err)
+				}
+
+				orgMoid, err := dyno.GetString(orgMoRef, "Moid")
+				if err != nil {
+					return fmt.Errorf("error finding organisation: %v", err)
+				}
+
+				filter = fmt.Sprintf("Name eq '%s' and Organization/Moid eq '%s'", name, orgMoid)
+			} else {
+				filter = fmt.Sprintf("Name eq '%s'", name)
+			}
+
+			log.Tracef("applyMOs: Checking for existing object with filter %s", filter)
+
+			res, err := getOperation.Execute(client, nil, map[string]string{"filter": filter})
+			if err != nil {
+				return fmt.Errorf("error checking if MO already exists: %v", err)
+			}
+
+			moid, ok := util.GetMoid(res)
+			if ok {
+				log.Printf("Performing update operation on existing MO (Name: %s, Moid: %s, ClassId: %s)", name, moid, classID)
+				op = gen.GetUpdateOperationForClassID(classID)
+				args = []string{moid}
+			} else {
+				log.Printf("Performing create operation on new MO (Name: %s, ClassId: %s)", name, classID)
+				op = gen.GetCreateOperationForClassID(classID)
+				args = []string{}
+			}
 		}
 
+		if op == nil {
+			panic("AAAAA")
+		}
 		err = op.SetBodyParams(client, mo)
 		if err != nil {
 			return fmt.Errorf("error setting up operation body: %v", err)
@@ -272,15 +292,15 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 		finalised[classID] = false
 		processing[classID] = false
 
+		var deps = []string{}
 		op := gen.GetUpdateOperationForClassID(classID)
-		if op == nil {
-			return nil, fmt.Errorf("unable to get update operation for ClassID: %v", classID)
+		if op != nil {
+			deps, err = op.GetReferencedClasses(mo)
+			if err != nil {
+				return nil, fmt.Errorf("unable to get referenced classes: %v", err)
+			}
 		}
 
-		deps, err := op.GetReferencedClasses(mo)
-		if err != nil {
-			return nil, fmt.Errorf("unable to get referenced classes: %v", err)
-		}
 		for _, dep := range deps {
 			if dependencies[classID] == nil {
 				dependencies[classID] = map[string]bool{}

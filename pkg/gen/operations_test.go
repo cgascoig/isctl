@@ -8,26 +8,26 @@ import (
 
 func TestGetUpdateOperationForClassID(t *testing.T) {
 	op := GetUpdateOperationForClassID("ntp.Policy")
-	_, ok := op.(*UpdateNtpPolicy)
-	assert.True(t, ok)
+	assert.NotNil(t, op)
+	assert.Equal(t, "UpdateNtpPolicy", op.operation.OperationID)
 }
 
 func TestGetCreateOperationForClassID(t *testing.T) {
 	op := GetCreateOperationForClassID("ntp.Policy")
-	_, ok := op.(*CreateNtpPolicy)
-	assert.True(t, ok)
+	assert.NotNil(t, op)
+	assert.Equal(t, "CreateNtpPolicy", op.operation.OperationID)
 }
 
 func TestGetGetOperationForClassID(t *testing.T) {
 	op := GetGetOperationForClassID("ntp.Policy")
-	_, ok := op.(*GetNtpPolicyList)
-	assert.True(t, ok)
+	assert.NotNil(t, op)
+	assert.Equal(t, "GetNtpPolicyList", op.operation.OperationID)
 }
 
 func TestGetDeleteOperationForClassID(t *testing.T) {
 	op := GetDeleteOperationForClassID("ntp.Policy")
-	_, ok := op.(*DeleteNtpPolicy)
-	assert.True(t, ok)
+	assert.NotNil(t, op)
+	assert.Equal(t, "DeleteNtpPolicy", op.operation.OperationID)
 }
 
 func TestGetReferencedClasses(t *testing.T) {
@@ -76,4 +76,17 @@ func TestGetReferencedClasses(t *testing.T) {
 
 	assert.Nil(t, err)
 	assert.ElementsMatch(t, []string{"organization.Organization", "bios.Policy", "iam.LdapPolicy"}, refClasses)
+
+	op = GetUpdateOperationForClassID("bulk.MoCloner")
+	refClasses, err = op.GetReferencedClasses(map[string]any{
+		"ClassId":      "bulk.MoCloner",
+		"Organization": "default",
+		"Sources":      []any{"MoRef:ServerProfileTemplateRelationship[OCP-BM]"},
+	})
+
+	assert.Nil(t, err)
+	assert.ElementsMatch(t, []string{
+		"organization.Organization",
+		"server.ProfileTemplate",
+	}, refClasses)
 }

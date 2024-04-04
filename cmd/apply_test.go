@@ -3,6 +3,7 @@ package main
 import (
 	"testing"
 
+	"github.com/cgascoig/isctl/pkg/oapi"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -23,8 +24,11 @@ func TestGetOrderedMOs(t *testing.T) {
 			"ClassId": "organization.Organization",
 		},
 		{
-			"ClassId":      "ntp.Policy",
-			"Organization": "MoRef[Name:default]",
+			"ClassId": "ntp.Policy",
+			"Organization": &oapi.MoRef{
+				RelationshipType: "organization.Organization.Relationship",
+				Filter:           "Name eq 'default'",
+			},
 		},
 	}, res)
 
@@ -60,10 +64,19 @@ func TestGetOrderedMOs(t *testing.T) {
 			"ClassId": "server.ProfileTemplate",
 			"Name":    "test",
 			"PolicyBucket": []any{
-				"MoRef:BiosPolicyRelationship[cgascoig-bios-policy]",
-				"MoRef:IamLdapPolicyRelationship[cgascoig-ldap-policy]",
+				&oapi.MoRef{
+					RelationshipType: "bios.Policy.Relationship",
+					Filter:           "Name eq 'cgascoig-bios-policy'",
+				},
+				&oapi.MoRef{
+					RelationshipType: "iam.LdapPolicy.Relationship",
+					Filter:           "Name eq 'cgascoig-ldap-policy'",
+				},
 			},
-			"Organization": "default",
+			"Organization": &oapi.MoRef{
+				RelationshipType: "organization.Organization.Relationship",
+				Filter:           "Name eq 'default'",
+			},
 		},
 	}, res)
 	isOrder2 := assert.ObjectsAreEqual([]rawMO{
@@ -77,11 +90,42 @@ func TestGetOrderedMOs(t *testing.T) {
 			"ClassId": "server.ProfileTemplate",
 			"Name":    "test",
 			"PolicyBucket": []any{
-				"MoRef:BiosPolicyRelationship[cgascoig-bios-policy]",
-				"MoRef:IamLdapPolicyRelationship[cgascoig-ldap-policy]",
+				&oapi.MoRef{
+					RelationshipType: "bios.Policy.Relationship",
+					Filter:           "Name eq 'cgascoig-bios-policy'",
+				},
+				&oapi.MoRef{
+					RelationshipType: "iam.LdapPolicy.Relationship",
+					Filter:           "Name eq 'cgascoig-ldap-policy'",
+				},
 			},
-			"Organization": "default",
+			"Organization": &oapi.MoRef{
+				RelationshipType: "organization.Organization.Relationship",
+				Filter:           "Name eq 'default'",
+			},
 		},
 	}, res)
 	assert.True(t, isOrder1 || isOrder2)
+
+	res, err = getOrderedMOs([]rawMO{
+		{
+			"ClassId":      "bulk.MoCloner",
+			"Organization": "default",
+			"Sources":      []any{"MoRef:ServerProfileTemplateRelationship[OCP-BM]"},
+		},
+	})
+	assert.NoError(t, err)
+	assert.Equal(t, []rawMO{
+		{
+			"ClassId": "bulk.MoCloner",
+			"Organization": &oapi.MoRef{
+				RelationshipType: "organization.Organization.Relationship",
+				Filter:           "Name eq 'default'",
+			},
+			"Sources": []any{&oapi.MoRef{
+				RelationshipType: "server.ProfileTemplate.Relationship",
+				Filter:           "Name eq 'OCP-BM'",
+			}},
+		},
+	}, res)
 }

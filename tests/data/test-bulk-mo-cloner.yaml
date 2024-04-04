@@ -1,0 +1,10 @@
+ClassId: bulk.MoCloner
+Organization: default
+Sources:
+  - MoRef:ServerProfileTemplateRelationship[isctl-bats-test]
+Targets:
+  - Name: isctl-bats-test-1
+    ObjectType: server.Profile
+    # Organization: MoRef[default]
+    Description: ""
+    Tags: []
