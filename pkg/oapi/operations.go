@@ -197,8 +197,6 @@ func FindOperation(method, classID string) *Operation {
 	operations := getOperations()
 
 	for _, operation := range operations {
-		// log.Infof("FindOperation: checking %s/%s against operation %s/%s (%s)", method, classID, operation.HTTPMethod, refToType(operation.OperationClassID()), operation.OperationID)
-		// if strings.EqualFold(operation.HTTPMethod, method) && refToType(operation.OperationClassID()) == classID {
 		if operationID == operation.OperationID {
 			return &operation
 		}
@@ -230,8 +228,6 @@ type Operation struct {
 	Summary        string  `yaml:"summary"`
 	BaseName       string  `yaml:"baseName"`
 	Params         []Param `yaml:"params"`
-
-	MoRefs []MoRef
 }
 
 func (o *Operation) IsListOperation() bool {
@@ -484,24 +480,6 @@ func getOrCreateChildCliItem(cliItem *CliItem, token string, parameter bool) *Cl
 	return cliItem.Children[token]
 }
 
-// func getRequiredBodyParamVars(opData *OperationsFile, dataType string) []*Var {
-// 	ret := []*Var{}
-// 	validTypeRegExp := regexp.MustCompile(`^[a-zA-Z0-9]+$`)
-
-// 	if model, ok := opData.Models[dataType]; ok {
-// 		for i := range model.Vars {
-// 			dt := model.Vars[i].DataType
-// 			if !validTypeRegExp.MatchString(dt) || dt == "int64" || dt == "float32" || dt == "int32" {
-// 				model.Vars[i].Ignore = true
-// 			}
-
-// 			ret = append(ret, &model.Vars[i])
-// 		}
-// 	}
-
-// 	return ret
-// }
-
 func schemaToVars(s map[string]any) []*Var {
 	ret := []*Var{}
 
@@ -551,7 +529,6 @@ func schemaToVars(s map[string]any) []*Var {
 
 func getBodyParamVars(dataType string) []*Var {
 	ret := []*Var{}
-	// validTypeRegExp := regexp.MustCompile(`^[a-zA-Z0-9]+$`)
 
 	s := getSchema(dataType)
 	if s == nil {
@@ -578,29 +555,11 @@ func getBodyParamVars(dataType string) []*Var {
 			ref, err := dyno.GetString(v, "$ref")
 			if err == nil {
 				ret = append(ret, getBodyParamVars(ref)...)
-				// refSchema := getSchema(ref)
-				// ret = append(ret, schemaToVars(refSchema)...)
 			}
 		}
 	}
 
 	return ret
-
-	// if model, ok := opData.Models[dataType]; ok {
-	// 	for _, p := range model.Parents {
-	// 		ret = append(ret, getBodyParamVars(opData, p)...)
-	// 	}
-	// 	for i := range model.Vars {
-	// 		dt := model.Vars[i].DataType
-	// 		if !validTypeRegExp.MatchString(dt) || dt == "int64" || dt == "float32" || dt == "int32" {
-	// 			model.Vars[i].Ignore = true
-	// 		}
-
-	// 		ret = append(ret, &model.Vars[i])
-	// 	}
-	// }
-
-	// return ret
 }
 
 func removeDuplicateBodyParamVars(vars []*Var) []*Var {
@@ -665,12 +624,6 @@ func GenerateCliTree() *CliItem {
 				cliItem.BodyParamType = param.DataType
 				cliItem.BodyParamVars = vars
 				cliItem.RequiredBodyParamVars = vars
-
-				morefs := []MoRef{}
-				// for _, v := range vars {
-				// 	morefs = append(morefs, getMoRefs([]string{}, v, opData)...)
-				// }
-				op.MoRefs = morefs
 			}
 		}
 
@@ -684,9 +637,8 @@ func GenerateCliTree() *CliItem {
 			for _, param := range op.Params {
 				if param.IsBodyParam {
 					cliItem.BodyParamType = param.DataType
-					cliItem.BodyParamVars = vars //removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
-					// cliItem.RequiredBodyParamVars = getRequiredBodyParamVars(opData, param.DataType)
-					cliItem.RequiredBodyParamVars = vars //removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
+					cliItem.BodyParamVars = vars
+					cliItem.RequiredBodyParamVars = vars
 				}
 			}
 
@@ -697,22 +649,3 @@ func GenerateCliTree() *CliItem {
 
 	return &cliTree
 }
-
-// Recursively get the MoRefs for a Var
-// func getMoRefs(path []string, v *Var, opData *OperationsFile) []MoRef {
-// 	morefs := []MoRef{}
-// 	relationshipRegEx := regexp.MustCompile(`Relationship$`)
-// 	if relationshipRegEx.MatchString(v.DataType) {
-// 		morefs = append(morefs, MoRef{
-// 			DataType: v.DataType,
-// 			Path:     append(path, v.Name),
-// 		})
-// 	}
-
-// 	childVars := removeDuplicateBodyParamVars(getBodyParamVars(opData, v.DataType))
-// 	for _, v := range childVars {
-// 		morefs = append(morefs, getMoRefs(append(path, v.Name), v, opData)...)
-// 	}
-
-// 	return morefs
-// }

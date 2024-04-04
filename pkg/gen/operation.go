@@ -99,12 +99,6 @@ func (o *Operation) SetBodyParams(client *util.IsctlClient, params map[string]an
 	return nil
 }
 
-// func (o *Operation) GetReferencedClasses(params map[string]any) ([]string, error) {
-// 	oapi.CanonicaliseMoRefs(&params, o.classID)
-
-// 	return GetReferencedClasses(params), nil
-// }
-
 func (o *Operation) Execute(client *util.IsctlClient, args []string, queryParams map[string]string) (any, error) {
 	if o.operation == nil {
 		return nil, fmt.Errorf("cannot execute operation - operation not prepared yet")

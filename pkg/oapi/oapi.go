@@ -161,19 +161,17 @@ func canonicaliseMoRefs(o *map[string]any, s map[string]any) {
 			if m := relationshipRegExp.FindStringSubmatch(ref); len(m) == 2 {
 				// if val is a string we will attempt to annotate it, otherwise leave untouched
 				if val, ok := val.(string); ok {
-					(*o)[propName] = CanonicaliseMoRef(val, m[1]) //fmt.Sprintf("MoRef:%s[%s]", m[1], val)
+					(*o)[propName] = CanonicaliseMoRef(val, m[1])
 				}
 			}
 
 		} else {
-			// TODO: handle other cases such as list/array, etc
 			if typ, err := dyno.GetString(prop, "type"); err == nil {
 				if typ == "array" {
 					if ref, err := dyno.GetString(prop, "items", "$ref"); err == nil {
 						if val, ok := val.([]any); ok {
 							for i, v := range val {
 								if v, ok := v.(string); ok {
-									// canonicaliseMoRef(&v, getSchema(ref))
 									val[i] = CanonicaliseMoRef(v, SchemaNameToClassId(ref))
 								}
 							}

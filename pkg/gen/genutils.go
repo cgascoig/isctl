@@ -12,22 +12,6 @@ import (
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
-func RelationshipToIntersightClassId(relationship string) string {
-	// Strip "Relationship" at the end if needed
-	r := regexp.MustCompile(`Relationship$`)
-	relationship = r.ReplaceAllString(relationship, "")
-
-	// Strip "[]" at the start if needed
-	r2 := regexp.MustCompile(`^\[\]`)
-	relationship = r2.ReplaceAllString(relationship, "")
-
-	if cls, ok := goTypeNameToIntersightClassID[relationship]; ok {
-		return cls
-	}
-
-	return ""
-}
-
 var momorefCache = map[oapi.MoRef]map[string]any{}
 
 func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, error) {
@@ -70,69 +54,6 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 
 	return ret, nil
 }
-
-// func GetMoMoRefByFilter(client *util.IsctlClient, moref string, defaultRelationshipType string) (map[string]any, error) {
-// 	filter, datatype, isMoFilter := util.ParseMoRef(moref)
-// 	if isMoFilter {
-// 		var moref map[string]any
-// 		if datatype != "" {
-// 			moref = setMoMoRefByFilter(client, datatype, filter)
-// 		} else {
-// 			moref = setMoMoRefByFilter(client, defaultRelationshipType, filter)
-// 		}
-
-// 		if moref != nil {
-// 			return moref, nil
-// 		}
-// 	}
-
-// 	return nil, fmt.Errorf("error retreiving relationship: %s", moref)
-// }
-
-// var momorefCache = map[string]map[string]any{}
-
-// func setMoMoRefByFilter(client *util.IsctlClient, relationship string, filter string) map[string]any {
-
-// 	log.Debugf("Looking up MoMoRef %s with filter %s", relationship, filter)
-
-// 	cacheKey := fmt.Sprintf("%s:%s", relationship, filter)
-
-// 	if momoref, ok := momorefCache[cacheKey]; ok {
-// 		log.Trace("Returning MoMoRef from cache")
-// 		return momoref
-// 	}
-
-// 	moref := map[string]any{
-// 		"ClassId": "mo.MoRef",
-// 	}
-// 	op := GetOperationForRelationship(relationship)
-// 	if op == nil {
-// 		log.Fatalf("FATAL: No operation for relationship: %s", relationship)
-// 	}
-// 	res, err := op.Execute(client, nil, map[string]string{"filter": filter})
-// 	if err != nil {
-// 		log.Errorf("Error executing lookup query: %v", err)
-// 		return nil
-// 	}
-
-// 	moid, ok := util.GetMoid(res)
-// 	if !ok {
-// 		return nil
-// 	}
-// 	classId, ok := getClassId(res)
-// 	if !ok {
-// 		return nil
-// 	}
-
-// 	log.Debugf("Got Moid and ClassId: %s, %s", moid, classId)
-
-// 	moref["Moid"] = moid
-// 	moref["ObjectType"] = classId
-
-// 	momorefCache[cacheKey] = moref
-
-// 	return moref
-// }
 
 // TODO: Refactor this to remove duplicate code in getMoid
 // getClassId takes a "<objecttype>.List" structure, checks there was exactly 1 match and returns the ClassId of that match
@@ -249,48 +170,3 @@ func appendResults(cur, new any) (any, int, error) {
 	dyno.Set(cur, append(curS, newS...), "Results")
 	return cur, count, nil
 }
-
-// func GetOperationForClassID(method, classID string) Operation {
-// 	switch method {
-// 	case "get":
-// 		return GetGetOperationForClassID(classID)
-// 	case "create":
-// 		return GetCreateOperationForClassID(classID)
-// 	case "update":
-// 		return GetUpdateOperationForClassID(classID)
-// 	case "delete":
-// 		return GetDeleteOperationForClassID(classID)
-// 	}
-
-// 	return nil
-// }
-
-// func expandTemplateString(client *util.IsctlClient, s string) any {
-// 	r := regexp.MustCompile(`^\s*{{\s*MoRef\s*}}\s*$`)
-// 	if r.MatchString(s) {
-// 		return map[string]any{
-// 			"ClassId":    "mo.MoRef",
-// 			"Moid":       "NewMoRef",
-// 			"ObjectType": "organization.Organization",
-// 		}
-// 	}
-
-// 	return s
-// }
-
-// func ExpandTemplate(client *util.IsctlClient, params *map[string]any) {
-// 	for k, v := range *params {
-// 		switch val := v.(type) {
-// 		case string:
-// 			(*params)[k] = expandTemplateString(client, val)
-// 		case map[string]any:
-// 			ExpandTemplate(client, &val)
-// 		case []string:
-// 			newList := make([]any, len(val))
-// 			for i, valStr := range val {
-// 				newList[i] = expandTemplateString(client, valStr)
-// 			}
-// 			(*params)[k] = newList
-// 		}
-// 	}
-// }
