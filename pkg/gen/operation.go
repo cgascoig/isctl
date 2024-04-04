@@ -99,11 +99,11 @@ func (o *Operation) SetBodyParams(client *util.IsctlClient, params map[string]an
 	return nil
 }
 
-func (o *Operation) GetReferencedClasses(params map[string]any) ([]string, error) {
-	oapi.CanonicaliseMoRefs(&params, o.classID)
+// func (o *Operation) GetReferencedClasses(params map[string]any) ([]string, error) {
+// 	oapi.CanonicaliseMoRefs(&params, o.classID)
 
-	return getReferencedClasses(params), nil
-}
+// 	return GetReferencedClasses(params), nil
+// }
 
 func (o *Operation) Execute(client *util.IsctlClient, args []string, queryParams map[string]string) (any, error) {
 	if o.operation == nil {
@@ -163,18 +163,18 @@ func getClassIDFromRelationship(relationship string) string {
 	return r.ReplaceAllString(relationship, "")
 }
 
-func getReferencedClasses(params any) []string {
+func GetReferencedClasses(params any) []string {
 	switch params := params.(type) {
 	case map[string]any:
 		ret := []string{}
 		for _, v := range params {
-			ret = append(ret, getReferencedClasses(v)...)
+			ret = append(ret, GetReferencedClasses(v)...)
 		}
 		return ret
 	case []any:
 		ret := []string{}
 		for _, v := range params {
-			ret = append(ret, getReferencedClasses(v)...)
+			ret = append(ret, GetReferencedClasses(v)...)
 		}
 		return ret
 	case *oapi.MoRef:

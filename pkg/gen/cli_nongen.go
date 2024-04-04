@@ -112,8 +112,11 @@ type ResultHandler = func(result interface{}, err error, opts ...util.ResultOpt)
 func getCommand(cliItem *oapi.CliItem, client *util.IsctlClient, resultHandler ResultHandler) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cliItem.Token,
-		Run:   getRunCmd(cliItem, client, resultHandler),
 		Short: cliItem.Help,
+	}
+
+	if cliItem.Operation != nil {
+		cmd.Run = getRunCmd(cliItem, client, resultHandler)
 	}
 
 	if cliItem.Parameter != "" {

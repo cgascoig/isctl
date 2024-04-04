@@ -7,7 +7,17 @@ import (
 )
 
 func TestGetBodyParamVars(t *testing.T) {
-	assert.Equal(t, []*Var{}, getBodyParamVars("ntp.Policy"))
+	vars := getBodyParamVars("ntp.Policy")
+	names := []string{}
+	for _, v := range vars {
+		names = append(names, v.Name)
+	}
+	expected := []string{
+		"SharedScope", "Ancestors", "DomainGroupMoid", "Owners", "Tags", "DisplayNames", "ObjectType",
+		"ModTime", "Moid", "VersionContext", "Parent", "PermissionResources", "ClassId", "AccountMoid",
+		"CreateTime", "ClassId", "ObjectType", "Description", "Name", "ApplianceAccount", "Organization",
+		"Profiles", "ClassId", "ObjectType", "Timezone", "AuthenticatedNtpServers", "Enabled", "NtpServers"}
+	assert.ElementsMatch(t, names, expected)
 }
 
 func TestFindOperation(t *testing.T) {
@@ -19,7 +29,7 @@ func TestFindOperation(t *testing.T) {
 	assert.NotNil(t, op)
 	assert.Equal(t, "CreateNtpPolicy", op.OperationID)
 
-	op = FindOperation("put", "ntp.Policy")
+	op = FindOperation("patch", "ntp.Policy")
 	assert.NotNil(t, op)
 	assert.Equal(t, "UpdateNtpPolicy", op.OperationID)
 

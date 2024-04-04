@@ -3,6 +3,7 @@ package gen
 import (
 	"testing"
 
+	"github.com/cgascoig/isctl/pkg/oapi"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -31,60 +32,54 @@ func TestGetDeleteOperationForClassID(t *testing.T) {
 }
 
 func TestGetReferencedClasses(t *testing.T) {
-	op := GetUpdateOperationForClassID("ntp.Policy")
-
-	refClasses, err := op.GetReferencedClasses(map[string]interface{}{
-		"Organization": "MoRef[Name:default]",
+	refClasses := GetReferencedClasses(map[string]interface{}{
+		"Organization": &oapi.MoRef{
+			Filter:           "Name eq 'default",
+			RelationshipType: "organization.Organization",
+		},
 	})
 
-	assert.Nil(t, err)
 	assert.ElementsMatch(t, []string{"organization.Organization"}, refClasses)
 
-	refClasses, err = op.GetReferencedClasses(map[string]interface{}{
+	mo := map[string]interface{}{
 		"Organization":     "MoRef[Name:default]",
 		"ApplianceAccount": "MoRef[Name:default]",
-	})
+	}
+	oapi.CanonicaliseMoRefs(&mo, "ntp.Policy")
+	refClasses = GetReferencedClasses(mo)
 
-	assert.Nil(t, err)
 	assert.ElementsMatch(t, []string{"organization.Organization", "iam.Account"}, refClasses)
 
-	refClasses, err = op.GetReferencedClasses(map[string]interface{}{
-		"Organization": "MoRef[default]",
-	})
-
-	assert.Nil(t, err)
-	assert.ElementsMatch(t, []string{"organization.Organization"}, refClasses)
-
-	op = GetUpdateOperationForClassID("kubernetes.ClusterProfile")
-
-	refClasses, err = op.GetReferencedClasses(map[string]interface{}{
+	mo = map[string]interface{}{
 		"ClusterIpPools": []interface{}{"MoRef[ip-pool-1]"},
-	})
+	}
+	oapi.CanonicaliseMoRefs(&mo, "kubernetes.ClusterProfile")
 
-	assert.Nil(t, err)
+	refClasses = GetReferencedClasses(mo)
+
 	assert.ElementsMatch(t, []string{"ippool.Pool"}, refClasses)
 
-	op = GetUpdateOperationForClassID("server.ProfileTemplate")
-
-	refClasses, err = op.GetReferencedClasses(map[string]interface{}{
+	mo = map[string]interface{}{
 		"PolicyBucket": []any{
 			"MoRef:BiosPolicyRelationship[cgascoig-bios-policy]",
 			"MoRef:IamLdapPolicyRelationship[cgascoig-ldap-policy]",
 		},
 		"Organization": "default",
-	})
+	}
+	oapi.CanonicaliseMoRefs(&mo, "server.ProfileTemplate")
 
-	assert.Nil(t, err)
+	refClasses = GetReferencedClasses(mo)
+
 	assert.ElementsMatch(t, []string{"organization.Organization", "bios.Policy", "iam.LdapPolicy"}, refClasses)
 
-	op = GetUpdateOperationForClassID("bulk.MoCloner")
-	refClasses, err = op.GetReferencedClasses(map[string]any{
+	mo = map[string]any{
 		"ClassId":      "bulk.MoCloner",
 		"Organization": "default",
 		"Sources":      []any{"MoRef:ServerProfileTemplateRelationship[OCP-BM]"},
-	})
+	}
+	oapi.CanonicaliseMoRefs(&mo, "bulk.MoCloner")
+	refClasses = GetReferencedClasses(mo)
 
-	assert.Nil(t, err)
 	assert.ElementsMatch(t, []string{
 		"organization.Organization",
 		"server.ProfileTemplate",

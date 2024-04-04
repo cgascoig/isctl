@@ -654,14 +654,15 @@ func GenerateCliTree() *CliItem {
 			}
 		}
 
+		var vars []*Var
+
 		// Check if there is a body param
 		for _, param := range op.Params {
 			if param.IsBodyParam {
-				vars := removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
+				vars = removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
 				cliItem.BodyParamType = param.DataType
 				cliItem.BodyParamVars = vars
-				// cliItem.RequiredBodyParamVars = getRequiredBodyParamVars(opData, param.DataType)
-				cliItem.RequiredBodyParamVars = vars //removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
+				cliItem.RequiredBodyParamVars = vars
 
 				morefs := []MoRef{}
 				// for _, v := range vars {
@@ -681,9 +682,9 @@ func GenerateCliTree() *CliItem {
 			for _, param := range op.Params {
 				if param.IsBodyParam {
 					cliItem.BodyParamType = param.DataType
-					cliItem.BodyParamVars = removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
+					cliItem.BodyParamVars = vars //removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
 					// cliItem.RequiredBodyParamVars = getRequiredBodyParamVars(opData, param.DataType)
-					cliItem.RequiredBodyParamVars = removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
+					cliItem.RequiredBodyParamVars = vars //removeDuplicateBodyParamVars(getBodyParamVars(param.DataType))
 				}
 			}
 

@@ -20,7 +20,7 @@ var (
 	applyDelete    bool
 )
 
-type rawMO map[string]interface{}
+type rawMO map[string]any
 
 type applyConfig struct {
 	client *util.IsctlClient
@@ -293,13 +293,9 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 		processing[classID] = false
 
 		var deps = []string{}
-		op := gen.GetUpdateOperationForClassID(classID)
-		if op != nil {
-			deps, err = op.GetReferencedClasses(mo)
-			if err != nil {
-				return nil, fmt.Errorf("unable to get referenced classes: %v", err)
-			}
-		}
+		mo := map[string]any(mo)
+		oapi.CanonicaliseMoRefs(&mo, classID)
+		deps = gen.GetReferencedClasses(mo)
 
 		for _, dep := range deps {
 			if dependencies[classID] == nil {
