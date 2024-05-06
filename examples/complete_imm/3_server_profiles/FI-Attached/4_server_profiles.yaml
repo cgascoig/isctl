@@ -1,0 +1,45 @@
+ClassId: bulk.MoCloner
+Sources: 
+  - MoRef:server.ProfileTemplate[LAB-RESOURCES\IMM-RHEL]
+Targets:
+  - Name: IMM-RHEL-01
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-02
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-03
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-04
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-05
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-06
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-07
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-08
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[IMM-Troubleshooting]
+    ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+

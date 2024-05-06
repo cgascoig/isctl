@@ -1,0 +1,33 @@
+ClassId: access.Policy
+Name: IMM-IMC-INBAND
+Organization: LAB-RESOURCES
+#settings
+AddressType:
+  ClassId: access.AddressType
+  EnableIpV4: true
+  EnableIpV6: false
+ConfigurationType:
+  ClassId: access.ConfigurationType
+  ConfigureInband: true
+  ConfigureOutOfBand: false
+InbandVlan: 70
+InbandIpPool: MoRef[LAB-RESOURCES\IMM-IMC-POOL]
+---
+ClassId: power.Policy
+Name: IMM-Power
+Organization: LAB-RESOURCES
+#settings
+AllocatedBudget: 0
+DynamicRebalancing: Enabled
+ExtendedPowerCapacity: Enabled
+PowerPriority: Low
+PowerProfiling: Enabled
+PowerRestoreState: AlwaysOff
+PowerSaveMode: Enabled
+RedundancyMode: Grid
+---
+ClassId: thermal.Policy
+Name: IMM-Thermal
+Organization: LAB-RESOURCES
+#settings
+FanControlMode: Balanced

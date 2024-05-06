@@ -1,0 +1,14 @@
+ClassId: ippool.Pool
+Name: IMM-IMC-POOL
+Organization: LAB-RESOURCES
+#settings
+IpV4Config:
+  ClassId: ippool.IpV4Config
+  Gateway: 172.20.70.1
+  Netmask: 255.255.255.0
+  PrimaryDns: 172.20.70.60
+  SecondaryDns: 172.20.70.59
+IpV4Blocks:
+- ClassId: ippool.IpV4Block
+  From: 172.20.70.100
+  To: 172.20.70.109

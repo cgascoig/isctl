@@ -1,0 +1,45 @@
+ClassId: macpool.Pool
+Name: IMM-MAC
+Organization: LAB-RESOURCES
+#settings
+MacBlocks:
+- ClassId: macpool.Block
+  From: 00:25:B5:AA:10:00
+  Size: 256
+---
+ClassId: uuidpool.Pool
+Name: IMM-UUID
+Organization: LAB-RESOURCES
+Prefix: 00000000-0010-0000
+UuidSuffixBlocks:
+- ClassId: uuidpool.UuidBlock
+  From: 0000-000000100001
+  Size: 256
+---
+ClassId: resourcepool.Pool
+Name: IMM-ServerPool
+Organization: IMM-Troubleshooting
+#settings
+ResourcePoolParameters:
+  ClassId: resourcepool.ServerPoolParameters
+  ManagementMode: Intersight
+  ObjectType: resourcepool.ServerPoolParameters
+ResourceType: Server
+Selectors:
+- ClassId: resource.Selector
+  Selector: /api/v1/compute/Blades?$filter=(Serial in ('XXXXXXX','XXXXXXX','XXXXXXX','XXXXXXX'))
+# Not creating the IP Pool here because it was already created with the chassis
+#---
+# ClassId: ippool.Pool
+# Name: IMM-IMC-POOL
+# Organization: LAB-RESOURCES
+# IpV4Config:
+#   ClassId: ippool.IpV4Config
+#   Gateway: 172.20.70.1
+#   Netmask: 255.255.255.0
+#   PrimaryDns: 172.20.70.60
+#   SecondaryDns: 172.20.70.59
+# IpV4Blocks:
+# - ClassId: ippool.IpV4Block
+#   From: 172.20.70.100
+#   To: 172.20.70.109AccountMoid: 6617e5fc756461330125d40f

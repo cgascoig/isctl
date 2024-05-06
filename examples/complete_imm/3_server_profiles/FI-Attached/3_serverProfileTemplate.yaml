@@ -1,0 +1,23 @@
+ClassId: server.ProfileTemplate
+Name: IMM-RHEL
+Organization: LAB-RESOURCES
+#settings
+TargetPlatform: FIAttached
+UuidAddressType: POOL
+UuidPool: MoRef[LAB-RESOURCES\IMM-UUID]
+Type: instance
+PolicyBucket:
+  - MoRef:bios.Policy[LAB-RESOURCES\IMM-BIOS]
+  - MoRef:boot.PrecisionPolicy[LAB-RESOURCES\IMM-Boot]
+  - MoRef:ipmioverlan.Policy[LAB-RESOURCES\IMM-IPMI-off]
+  - MoRef:kvm.Policy[LAB-RESOURCES\IMM-TunneledKVM]
+  - MoRef:sol.Policy[LAB-RESOURCES\IMM-SOL]
+  - MoRef:storage.StoragePolicy[LAB-RESOURCES\IMM-M.2]
+  - MoRef:vnic.LanConnectivityPolicy[LAB-RESOURCES\IMM-LAN]
+  - MoRef:access.Policy[LAB-RESOURCES\IMM-IMC-INBAND]
+  - MoRef:power.Policy[LAB-RESOURCES\IMM-Power]
+  - MoRef:firmware.Policy[LAB-RESOURCES\IMM-Firmware]
+  - MoRef:thermal.Policy[LAB-RESOURCES\IMM-Thermal]
+  - MoRef:vmedia.Policy[LAB-RESOURCES\IMM-vMedia-Empty]
+  - MoRef:iam.EndPointUserPolicy[LAB-RESOURCES\IMM-LocalAdmin]
+  - MoRef:snmp.Policy[LAB-RESOURCES\IMM-SNMP]

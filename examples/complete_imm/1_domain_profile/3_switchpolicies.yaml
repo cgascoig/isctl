@@ -1,0 +1,55 @@
+---
+ClassId: ntp.Policy
+Name: IMM-NTP
+Organization: LAB-RESOURCES
+#settings
+Enabled: true
+NtpServers:
+- 172.20.10.10
+Timezone: America/New_York
+---
+ClassId: networkconfig.Policy
+Name: IMM-DNS
+Organization: LAB-RESOURCES
+#settings
+PreferredIpv4dnsServer: 172.20.10.60
+AlternateIpv4dnsServer: 172.20.10.59
+---
+ClassId: fabric.SwitchControlPolicy
+Name: IMM-SwitchControl
+Organization: LAB-RESOURCES
+#settings
+EthernetSwitchingMode: end-host
+FabricPcVhbaReset: Enabled
+FcSwitchingMode: end-host
+MacAgingSettings:
+  ClassId: fabric.MacAgingSettings
+  MacAgingOption: Default
+  MacAgingTime: 14500
+ReservedVlanStartId: 3915
+UdldSettings:
+  ClassId: fabric.UdldGlobalSettings
+  MessageInterval: 15
+  RecoveryAction: none
+VlanPortOptimizationEnabled: false
+---
+ClassId: snmp.Policy
+Name: IMM-SNMP
+Organization: LAB-RESOURCES
+#settings
+CommunityAccess: Disabled
+AccessCommunityString: ""
+Enabled: true
+EngineId: ""
+SnmpPort: 161
+SnmpTraps: []
+SnmpUsers: []
+SysContact: ""
+SysLocation: ""
+TrapCommunity: ""
+V2Enabled: true
+V3Enabled: true
+---
+ClassId: fabric.SystemQosPolicy
+Name: IMM-QoS
+Organization: LAB-RESOURCES

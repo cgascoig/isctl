@@ -1,0 +1,9 @@
+ClassId: chassis.Profile
+Name: IMM-Domain-01-Chassis-01
+Organization: IMM-Troubleshooting
+#TargetPlatform: FIAttached
+PolicyBucket:
+  - MoRef:access.Policy[LAB-RESOURCES\IMM-IMC-INBAND]
+  - MoRef:power.Policy[LAB-RESOURCES\IMM-Power]
+  - MoRef:snmp.Policy[LAB-RESOURCES\IMM-SNMP]
+  - MoRef:thermal.Policy[LAB-RESOURCES\IMM-Thermal]

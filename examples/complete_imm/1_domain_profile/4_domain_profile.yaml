@@ -1,0 +1,27 @@
+ClassId: fabric.SwitchClusterProfile
+Name: IMM-Domain-01
+Organization: IMM-Troubleshooting
+---
+ClassId: fabric.SwitchProfile
+Name: IMM-Domain-01-A
+SwitchClusterProfile: MoRef[IMM-Troubleshooting\IMM-Domain-01]
+PolicyBucket:
+  - MoRef:fabric.EthNetworkPolicy[LAB-RESOURCES\IMM-VLANS-A]
+  - MoRef:fabric.PortPolicy[LAB-RESOURCES\IMM-6465-ports]
+  - MoRef:fabric.SystemQosPolicy[LAB-RESOURCES\IMM-QoS]
+  - MoRef:networkconfig.Policy[LAB-RESOURCES\IMM-DNS]
+  - MoRef:ntp.Policy[LAB-RESOURCES\IMM-NTP]
+  - MoRef:fabric.SwitchControlPolicy[LAB-RESOURCES\IMM-SwitchControl]
+  - MoRef:snmp.Policy[LAB-RESOURCES\IMM-SNMP]
+---
+ClassId: fabric.SwitchProfile
+Name: IMM-Domain-01-B
+SwitchClusterProfile: MoRef[IMM-Troubleshooting\IMM-Domain-01]
+PolicyBucket:
+  - MoRef:fabric.EthNetworkPolicy[LAB-RESOURCES\IMM-VLANS-B]
+  - MoRef:fabric.PortPolicy[LAB-RESOURCES\IMM-6465-ports]
+  - MoRef:fabric.SystemQosPolicy[LAB-RESOURCES\IMM-QoS]
+  - MoRef:networkconfig.Policy[LAB-RESOURCES\IMM-DNS]
+  - MoRef:ntp.Policy[LAB-RESOURCES\IMM-NTP]
+  - MoRef:fabric.SwitchControlPolicy[LAB-RESOURCES\IMM-SwitchControl]
+  - MoRef:snmp.Policy[LAB-RESOURCES\IMM-SNMP]

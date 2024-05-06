@@ -1,0 +1,222 @@
+---
+ClassId: storage.StoragePolicy
+Name: IMM-M.2
+Organization: LAB-RESOURCES
+#settings
+M2VirtualDrive:
+  ClassId: storage.M2VirtualDriveConfig
+  ObjectType: storage.M2VirtualDriveConfig
+  Enable: true
+  ControllerSlot: MSTOR-RAID-1
+UnusedDisksState: Jbod
+---
+ClassId: vnic.EthNetworkPolicy
+Name: IMM-Trunk
+Organization: LAB-RESOURCES
+#settings
+VlanSettings:
+  ClassId: vnic.VlanSettings
+  ObjectType: vnic.VlanSettings
+  AllowedVlans: "70"
+  DefaultVlan: 0
+  Mode: TRUNK
+---
+ClassId: vnic.EthIf
+Name: mgmt
+#settings
+FailoverEnabled: true
+EthAdapterPolicy: MoRef[LAB-RESOURCES\IMM-Linux]
+EthNetworkPolicy: MoRef[LAB-RESOURCES\IMM-Trunk]
+EthQosPolicy: MoRef[LAB-RESOURCES\IMM-QOS]
+FabricEthNetworkControlPolicy: MoRef[LAB-RESOURCES\IMM-LLDP]
+FabricEthNetworkGroupPolicy: 
+  - MoRef[LAB-RESOURCES\IMM-MGMT]
+LanConnectivityPolicy: MoRef[LAB-RESOURCES\IMM-LAN]
+MacPool: MoRef[LAB-RESOURCES\IMM-MAC]
+MacAddressType: "POOL"
+Order: 0
+Placement:
+  ClassId: vnic.PlacementSettings
+  AutoSlotId: true
+  SwitchId: A
+---
+ClassId: boot.PrecisionPolicy
+Name: IMM-Boot
+Organization: LAB-RESOURCES
+#settings
+BootDevices:
+- Bootloader:
+  ObjectType: boot.LocalDisk
+  Enabled: true
+  Name: M2
+  Slot: MSTOR-RAID
+- ObjectType: boot.VirtualMedia
+  Enabled: false
+  Name: CIMC-DVD
+  Subtype: cimc-mapped-dvd
+---
+ClassId: ipmioverlan.Policy
+Name: IMM-IPMI-off
+Organization: LAB-RESOURCES
+#settings
+Enabled: false
+---
+ClassId: kvm.Policy
+Name: IMM-TunneledKVM
+Organization: LAB-RESOURCES
+#settings
+TunneledKvmEnabled: true
+---
+ClassId: bios.Policy
+Name: IMM-BIOS
+Organization: LAB-RESOURCES
+#settings are empty because the defaults suffice.
+---
+ClassId: vnic.LanConnectivityPolicy
+Name: IMM-LAN
+Organization: LAB-RESOURCES
+#settings
+TargetPlatform: FIAttached
+---
+ClassId: fabric.EthNetworkGroupPolicy
+Name: IMM-MGMT
+Organization: LAB-RESOURCES
+VlanSettings:
+  ClassId: fabric.VlanSettings
+  AllowedVlans: "70"
+  QinqEnabled: false
+  NativeVlan: 1
+---
+ClassId: fabric.EthNetworkControlPolicy
+Name: IMM-LLDP
+Organization: LAB-RESOURCES 
+#settings
+CdpEnabled: true
+ForgeMac: allow
+LldpSettings:
+  ClassId: fabric.LldpSettings
+  ReceiveEnabled: true
+  TransmitEnabled: true
+MacRegistrationMode: allVlans
+UplinkFailAction: linkDown
+---
+ClassId: iam.EndPointUserPolicy
+Organization: LAB-RESOURCES
+Name: IMM-LocalAdmin
+#settings
+PasswordProperties:
+  ClassId: iam.EndPointPasswordProperties
+  EnablePasswordExpiry: false
+  EnforceStrongPassword: true
+  ForceSendPassword: false
+  GracePeriod: 0
+  NotificationPeriod: 15
+  PasswordExpiryDuration: 90
+  PasswordHistory: 0
+---
+ClassId: iam.EndPointUser
+Organization: LAB-RESOURCES
+Name: admin
+---
+ClassId: iam.EndPointUserRole
+#settings
+Enabled: true
+EndPointRole: 
+  - MoRef:iam.EndPointRole[$filter:Type eq 'IMC' and Name eq 'admin']
+EndPointUser: MoRef[LAB-RESOURCES\admin]
+EndPointUserPolicy: MoRef[LAB-RESOURCES\IMM-LocalAdmin]
+Password: Cisco123
+---
+ClassId: firmware.Policy
+Name: IMM-Firmware
+Organization: LAB-RESOURCES
+#settings
+ModelBundleCombo:
+- BundleVersion: 5.2(0.230092)
+  ClassId: firmware.ModelBundleVersion
+  ModelFamily: UCSX-210C-M6
+  ObjectType: firmware.ModelBundleVersion
+TargetPlatform: FIAttached
+---
+ClassId: vmedia.Policy
+Name: IMM-vMedia-Empty
+Organization: LAB-RESOURCES
+#settings
+Enabled: true
+Encryption: true
+LowPowerUsb: true
+Mappings: []
+---
+ClassId: vnic.EthQosPolicy
+Name: IMM-QOS
+Organization: LAB-RESOURCES
+#settings are empty because the defaults suffice.
+---
+ClassId: sol.Policy
+Name: IMM-SOL
+Organization: LAB-RESOURCES
+#settings are empty because the defaults suffice.
+---
+ClassId: vnic.EthAdapterPolicy
+Name: IMM-Linux
+Organization: LAB-RESOURCES
+#settings
+AdvancedFilter: false
+ArfsSettings:
+  ClassId: vnic.ArfsSettings
+  Enabled: false
+CompletionQueueSettings:
+  ClassId: vnic.CompletionQueueSettings
+  Count: 2
+  RingSize: 1
+GeneveEnabled: false
+InterruptScaling: false
+InterruptSettings:
+  ClassId: vnic.EthInterruptSettings
+  CoalescingTime: 125
+  CoalescingType: MIN
+  Count: 4
+  Mode: MSIx
+NvgreSettings:
+  ClassId: vnic.NvgreSettings
+  Enabled: false
+PtpSettings:
+  ClassId: vnic.PtpSettings
+  Enabled: false
+RoceSettings:
+  ClassId: vnic.RoceSettings
+  ClassOfService: 5
+  Enabled: false
+  MemoryRegions: 0
+  QueuePairs: 0
+  ResourceGroups: 0
+  Version: 1
+RssHashSettings:
+  ClassId: vnic.RssHashSettings
+  Ipv4Hash: false
+  Ipv6ExtHash: false
+  Ipv6Hash: false
+  TcpIpv4Hash: false
+  TcpIpv6ExtHash: false
+  TcpIpv6Hash: false
+  UdpIpv4Hash: false
+  UdpIpv6Hash: false
+RssSettings: false
+RxQueueSettings:
+  ClassId: vnic.EthRxQueueSettings
+  Count: 1
+  RingSize: 512
+TcpOffloadSettings:
+  ClassId: vnic.TcpOffloadSettings
+  LargeReceive: true
+  LargeSend: true
+  RxChecksum: true
+  TxChecksum: true
+TxQueueSettings:
+  ClassId: vnic.EthTxQueueSettings
+  Count: 1
+  RingSize: 256
+UplinkFailbackTimeout: 5
+VxlanSettings:
+  ClassId: vnic.VxlanSettings
+  Enabled: false
