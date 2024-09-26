@@ -246,6 +246,14 @@ func TestCanonicaliseMoRef(t *testing.T) {
 				Organization:     "default",
 			},
 		},
+		{
+			moref:                   "MoRef:hcl.OperatingSystem[Red Hat Enterprise Linux 7.6]",
+			defaultRelationshipType: "hcl.OperatingSystem.Relationship",
+			res: &MoRef{
+				Filter:           "Name eq 'Red Hat Enterprise Linux 7.6'",
+				RelationshipType: "hcl.OperatingSystem",
+			},
+		},
 	}
 
 	for _, test := range tests {

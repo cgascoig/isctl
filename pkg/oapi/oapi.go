@@ -101,7 +101,7 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 		}
 	}
 
-	r = regexp.MustCompile(`MoRef:([\w\.]+)\[(\w+):([0-9A-Za-z_\-\.]+)\]`)
+	r = regexp.MustCompile(`MoRef:([\w\.]+)\[(\w+):([0-9A-Za-z_\-\.\s]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
@@ -111,7 +111,7 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 		}
 	}
 
-	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_\-\.]+)\]`)
+	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_\-\.\s]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
 	if m != nil && defaultRelationshipType != "" {
@@ -121,7 +121,7 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 		}
 	}
 
-	r = regexp.MustCompile(`^MoRef:([\w\.]+)\[([0-9A-Za-z_\-\.]+)\]`)
+	r = regexp.MustCompile(`^MoRef:([\w\.]+)\[([0-9A-Za-z_\-\.\s]+)\]`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
 		return &MoRef{
@@ -130,7 +130,7 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 		}
 	}
 
-	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.]+)\]`)
+	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.\s]+)\]`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil && defaultRelationshipType != "" {
 		return &MoRef{
@@ -140,7 +140,7 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 	}
 
 	// MoRef:ntp.Policy[default\test]
-	r = regexp.MustCompile(`^MoRef:([\w\.]+)\[([0-9A-Za-z_\-\.]+)\\([0-9A-Za-z_\-\.]+)\]`)
+	r = regexp.MustCompile(`^MoRef:([\w\.]+)\[([0-9A-Za-z_\-\.]+)\\([0-9A-Za-z_\-\.\s]+)\]`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
 		return &MoRef{
@@ -151,7 +151,7 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 	}
 
 	// MoRef[default\test]
-	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.]+)\\([0-9A-Za-z_\-\.]+)\]`)
+	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.]+)\\([0-9A-Za-z_\-\.\s]+)\]`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil && defaultRelationshipType != "" {
 		return &MoRef{
@@ -161,7 +161,7 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 		}
 	}
 
-	r = regexp.MustCompile(`^\s*([0-9A-Za-z_\-\.]+)\s*$`)
+	r = regexp.MustCompile(`^\s*([0-9A-Za-z_\-\.\s]+)\s*$`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil && defaultRelationshipType != "" {
 		return &MoRef{
