@@ -11,6 +11,7 @@ import (
 
 	"github.com/PaesslerAG/jsonpath"
 	"github.com/bndr/gotabulate"
+	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
 	"github.com/xuri/excelize/v2"
 	yaml "gopkg.in/yaml.v2"
@@ -20,16 +21,26 @@ import (
 
 func resultHandler(result interface{}, err error, options ...util.ResultOpt) {
 	var singleResult bool
+	var count bool
 
 	for _, opt := range options {
 		if opt.SingleResult != nil {
 			singleResult = *opt.SingleResult
+		}
+		if opt.Count != nil {
+			count = *opt.Count
 		}
 	}
 
 	// if there is an error try to display something helpful
 	if err != nil {
 		log.Fatalf("ERROR: %v", err)
+	}
+
+	if count {
+		log.Debug("Using outputCount")
+		outputCount(result)
+		return
 	}
 
 	if jsonPathFilter != "" {
@@ -100,6 +111,14 @@ func structuredOutputHandler(result any, multiPartResults bool) {
 		}
 		printResultDefault(result)
 	}
+}
+
+func outputCount(result any) {
+	count, err := dyno.GetInteger(result, "Count")
+	if err != nil {
+		log.Fatalf("Invalid API response for count request: %v", err)
+	}
+	fmt.Printf("%d\n", count)
 }
 
 var uninterestingAttributes = []string{

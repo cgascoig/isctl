@@ -169,6 +169,11 @@ TEST_SECTION="NTP Policy CRUD"
     assert_line --partial "400 Bad Request: Cannot set property 'policy.AbstractPolicy.Name'. This property is required."
 }
 
+@test "${TEST_SECTION}: test --count output" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --count
+    assert_line --regexp "^[0-9]+$"
+}
+
 setup_file() {
     # delete the test policy if it already exists. Don't check the exit code. 
     run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid')
