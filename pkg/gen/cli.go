@@ -48,6 +48,10 @@ func getQueryParams(flagset *pflag.FlagSet) map[string]string {
 		queryParams["filter"] = fmt.Sprintf("Name eq '%s'", name)
 	}
 
+	if count, err := flagset.GetBool("count"); err == nil && count {
+		queryParams["count"] = "true"
+	}
+
 	return queryParams
 }
 
@@ -174,6 +178,7 @@ func getCommand(cliItem *oapi.CliItem, client *util.IsctlClient, resultHandler R
 		cmd.Flags().String("top", "", "Maximum number of results to return. Use with --skip for pagination of results")
 		cmd.Flags().String("skip", "", "Number of objects to skip and not include in results. Use with --top for pagination of results")
 		cmd.Flags().String("name", "", "Filter by exact name (note: if both --filter and --name are supplied, --name takes precedence")
+		cmd.Flags().Bool("count", false, "Get the count of results only")
 		cmd.Flags().Bool("auto-paginate", false, "Automatically execute batch requests to retrieve all results")
 		cmd.Flags().Int("auto-paginate-batch-size", autoPaginateBatchSizeDefault, "Number of results to request per batch when using auto-paginate")
 	}
@@ -231,6 +236,11 @@ func getRunCmd(cliItem *oapi.CliItem, client *util.IsctlClient, resultHandler Re
 			}
 		}
 
+		count, err := cmd.Flags().GetBool("count")
+		if err != nil {
+			count = false
+		}
+
 		operation := newOperationFromOperation(cliItem.Operation) //newOperation(cliItem.Operation.HTTPMethod, cliItem.Operation.OperationClassID())
 
 		flagSetToMap(cmd.Flags(), &bodyParamMap)
@@ -256,6 +266,6 @@ func getRunCmd(cliItem *oapi.CliItem, client *util.IsctlClient, resultHandler Re
 		} else {
 			res, err = operation.Execute(client, args, queryParams)
 		}
-		resultHandler(res, err, util.ResultOpt{SingleResult: &singleResult})
+		resultHandler(res, err, util.ResultOpt{SingleResult: &singleResult, Count: &count})
 	}
 }

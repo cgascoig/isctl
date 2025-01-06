@@ -14,6 +14,7 @@ import (
 
 type ResultOpt struct {
 	SingleResult *bool
+	Count        *bool
 }
 
 type IsctlClient struct {
