@@ -1,6 +1,8 @@
 module github.com/cgascoig/isctl
 
-go 1.18
+go 1.23.0
+
+toolchain go1.23.5
 
 require (
 	github.com/PaesslerAG/jsonpath v0.1.1
