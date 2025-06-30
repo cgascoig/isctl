@@ -29,11 +29,13 @@ const (
 	CKIntersightFqdn      = "intersight_fqdn"
 	CKOutputFormat        = "output"
 	CKIntersightInsecure  = "intersight_insecure"
+	CKIntersightProxy     = "intersight_proxy"
 
 	// New cmd flags
 	FlagIntersightApiKeyId  = "intersight-api-key-id"
 	FlagIntersightSecretKey = "intersight-secret-key"
 	FlagIntersightFqdn      = "intersight-fqdn"
+	FlagIntersightProxy     = "intersight-proxy"
 
 	// Legacy / deprecated config keys
 	CKKeyID    = "keyID"
@@ -129,6 +131,8 @@ func envMapper(s string) string {
 		"intersight_secret_key": CKIntersightSecretKey,
 		"INTERSIGHT_FQDN":       CKIntersightFqdn,
 		"intersight_fqdn":       CKIntersightFqdn,
+		"INTERSIGHT_PROXY":      CKIntersightProxy,
+		"intersight_proxy":      CKIntersightProxy,
 	}
 
 	if key, ok := aliases[s]; ok {
@@ -146,6 +150,7 @@ func loadFlags(flags *flag.FlagSet) {
 		FlagIntersightApiKeyId:  CKIntersightApiKeyId,
 		FlagIntersightSecretKey: CKIntersightSecretKey,
 		FlagIntersightFqdn:      CKIntersightFqdn,
+		FlagIntersightProxy:     CKIntersightProxy,
 	}
 
 	err := gK.Load(posflag.ProviderWithFlag(flags, ".", gK, func(f *flag.Flag) (string, any) {

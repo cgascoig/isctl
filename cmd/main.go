@@ -5,6 +5,7 @@ import (
 	"crypto/tls"
 	"fmt"
 	"net/http"
+	"net/url"
 	"os"
 	"runtime/pprof"
 
@@ -61,6 +62,7 @@ func main() {
 	rootCmd.PersistentFlags().String(FlagIntersightApiKeyId, "", "Intersight API Key ID")
 	rootCmd.PersistentFlags().String(FlagIntersightSecretKey, "", "Intersight Secret Key (filename)")
 	rootCmd.PersistentFlags().String(FlagIntersightFqdn, "", "Intersight API FQDN (default intersight.com)")
+	rootCmd.PersistentFlags().String(FlagIntersightProxy, "", "HTTP Proxy for Intersight API requests")
 
 	rootCmd.PersistentFlags().String(CKKeyID, "", "API Key ID [deprecated]")
 	rootCmd.PersistentFlags().String(CKKeyFile, "", "API Private Key Filename [deprecated]")
@@ -197,6 +199,15 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	if gK.Bool(CKIntersightInsecure) {
 		log.Trace("Disabled server certificate verification")
 		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	}
+
+	if gK.String(CKIntersightProxy) != "" {
+		u, err := url.Parse(gK.String(CKIntersightProxy))
+		if err != nil {
+			log.Error("unable to parse proxy URL: %v", err)
+		} else {
+			http.DefaultTransport.(*http.Transport).Proxy = http.ProxyURL(u)
+		}
 	}
 
 	client.IntersightConfig = intersight.Config{
