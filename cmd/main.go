@@ -204,7 +204,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	if gK.String(CKIntersightProxy) != "" {
 		u, err := url.Parse(gK.String(CKIntersightProxy))
 		if err != nil {
-			log.Error("unable to parse proxy URL: %v", err)
+			log.Errorf("unable to parse proxy URL: %v", err)
 		} else {
 			http.DefaultTransport.(*http.Transport).Proxy = http.ProxyURL(u)
 		}
