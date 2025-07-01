@@ -56,13 +56,22 @@ func ToCamelCase(in string) string {
 	return ret
 }
 
+func OpenAPI3TypesToName(t *openapi3.Types) string {
+	s := t.Slice()
+	if len(s) != 1 {
+		log.Fatalf("typesToName: slice len is not exactly 1: %d", len(s))
+	}
+	return s[0]
+}
+
 func SchemaRefToType(sr *openapi3.SchemaRef) string {
 	if sr == nil {
 		return ""
 	}
 
 	if sr.Ref == "" && sr.Value != nil {
-		return sr.Value.Type
+
+		return OpenAPI3TypesToName(sr.Value.Type)
 	}
 
 	return SchemaNameToType(sr.Ref)
