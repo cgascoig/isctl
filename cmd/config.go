@@ -91,8 +91,12 @@ func getConfigFilePath(flags *flag.FlagSet) string {
 
 func loadDefaults() {
 	gK.Load(confmap.Provider(map[string]any{
-		CKIntersightFqdn: "intersight.com",
-		CKOutputFormat:   "default",
+		CKIntersightFqdn:      "intersight.com",
+		CKOutputFormat:        "default",
+		CKIntersightApiKeyId:  "",
+		CKIntersightSecretKey: "",
+		CKIntersightInsecure:  false,
+		CKIntersightProxy:     "",
 	}, "."), nil)
 }
 
