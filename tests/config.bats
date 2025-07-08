@@ -132,6 +132,15 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     assert_line "intersight_insecure: true"
 }
 
+@test "${TEST_SECTION}: supply key data as command line flags when config file absent" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE}".DOES_NOT_EXIST --intersight-api-key-id flag_key_id --intersight-secret-key "$(cat "${TEMP_FLAG_KEY_FILE}")" --intersight-fqdn "flag.intersight.com" --insecure show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"flag_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\""
+    assert_line "intersight_fqdn: \"flag.intersight.com\""
+    assert_line "intersight_insecure: true"
+}
+
 setup() {
     load 'test_helper/bats-support/load' # this is required by bats-assert!
     load 'test_helper/bats-assert/load'
