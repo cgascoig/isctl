@@ -235,7 +235,7 @@ func stringify(in interface{}) string {
 	case map[string]interface{}:
 		key, hasKey := v["Key"]
 		value, hasValue := v["Value"]
-		if hasKey && hasValue && len(v) == 2 {
+		if hasKey && hasValue {
 			return fmt.Sprintf("%v: %v", key, value)
 		}
 
