@@ -192,7 +192,12 @@ func FindOperation(method, classID string) *Operation {
 		opType = "get"
 		suffix = "List"
 	} else if strings.EqualFold(method, "post") {
-		opType = "create"
+		// The telemetry API is a special case
+		if strings.HasPrefix(classID, "telemetry.") {
+			opType = "query"
+		} else {
+			opType = "create"
+		}
 	} else if strings.EqualFold(method, "patch") {
 		opType = "update"
 	} else if strings.EqualFold(method, "delete") {
@@ -594,12 +599,12 @@ func removeDuplicateBodyParamVars(vars []*Var) []*Var {
 var ignoredOperations map[string]bool = map[string]bool{
 	"QueryTelemetryTimeSeries":         true,
 	"QueryTelemetryDatasourceMetadata": true,
-	"QueryTelemetryGroupBy":            true,
-	"QueryTelemetryScan":               true,
-	"QueryTelemetrySearch":             true,
-	"QueryTelemetrySegmentMetadata":    true,
-	"QueryTelemetryTimeBoundary":       true,
-	"QueryTelemetryTopN":               true,
+	// "QueryTelemetryGroupBy":            true,
+	"QueryTelemetryScan":            true,
+	"QueryTelemetrySearch":          true,
+	"QueryTelemetrySegmentMetadata": true,
+	"QueryTelemetryTimeBoundary":    true,
+	"QueryTelemetryTopN":            true,
 }
 
 func GenerateCliTree() *CliItem {
