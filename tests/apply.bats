@@ -69,6 +69,9 @@ TEST_SECTION="Apply"
 }
 
 @test "${TEST_SECTION}: apply MOs with identity constraints" {
+    # delete the objects first to ensure a clean state
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints.yaml -d
+
     run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints.yaml
     assert_success
     assert_line --partial "Performing create operation on new MO (Name: cg-isctl-test-1, ClassId: fabric.EthNetworkPolicy)"
