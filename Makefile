@@ -24,7 +24,7 @@ clean:
 .PHONY: clean
 
 # Go unit tests
-test: $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod pkg/oapi/intersight-openapi.json
+test: $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod pkg/oapi/intersight-openapi.json pkg/oapi/meta.json Makefile
 > $(GO_CMD) test -v $(GO_MODULE)/...
 .PHONY: test
 
@@ -33,17 +33,20 @@ functional-test: build/isctl
 > bats tests
 .PHONY: functional-test
 
-pkg/oapi/intersight-openapi.json: intersight-sdk-version
+pkg/oapi/intersight-openapi.json: intersight-sdk-version Makefile
 > VERSION=`cat intersight-sdk-version | sed -r -e 's/^"v([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)"$$/\1.\2.\3-\4/'`
 > echo "Using API version $${VERSION}"
-> curl -o "$@" --location "https://cdn.intersight.com/components/an-apidocs/$${VERSION}/model/intersight-openapi-v3-$${VERSION}.json"
+> curl --location "https://cdn.intersight.com/components/an-apidocs/$${VERSION}/model/intersight-openapi-v3-$${VERSION}.json" | jq -c . > "$@"
 
 
-build/isctl: $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod pkg/oapi/intersight-openapi.json
+build/isctl: $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod pkg/oapi/intersight-openapi.json pkg/oapi/meta.json Makefile
 > $(GO_BUILD_CMD) -o "$@" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 
-crossarch: $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod pkg/oapi/intersight-openapi.json
+crossarch: $(shell find cmd pkg -name \*.go -type f) $(shell find cmd/extensions -name \*.py -type f) go.mod pkg/oapi/intersight-openapi.json pkg/oapi/meta.json Makefile
 > GOOS=linux GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-linux_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 > GOOS=windows GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-windows_amd64.exe" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 > GOOS=darwin GOARCH=amd64 $(GO_BUILD_CMD) -o "build/isctl-darwin_amd64" $(GO_BUILD_FLAGS) $(GO_MODULE)/cmd
 .PHONY: crossarch
+
+pkg/oapi/meta.json: Makefile
+> isctl get meta definition --auto-paginate -o json | jq -c . > "$@"

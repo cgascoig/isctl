@@ -1,0 +1,18 @@
+ClassId: fabric.Vlan
+Name: VLAN_70_A
+#settings
+EthNetworkPolicy: MoRef[cg-isctl-test-1]
+MulticastPolicy: MoRef[cg-isctl-test-1]
+VlanId: 70
+AutoAllowOnUplinks: true
+IsNative: false
+PrimaryVlanId: 0
+SharingType: None
+---
+ClassId: fabric.EthNetworkPolicy
+Name: cg-isctl-test-1
+Organization: default
+---
+ClassId: fabric.MulticastPolicy
+Organization: default
+Name: cg-isctl-test-1

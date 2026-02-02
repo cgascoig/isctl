@@ -10,6 +10,8 @@ import (
 	"github.com/spf13/cobra"
 	yaml "gopkg.in/yaml.v3"
 
+	"strings"
+
 	"github.com/cgascoig/isctl/pkg/gen"
 	"github.com/cgascoig/isctl/pkg/oapi"
 	"github.com/cgascoig/isctl/pkg/util"
@@ -90,14 +92,21 @@ func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 			return err
 		}
 
-		name, err := getString(mo, "Name")
+		name, _ := getString(mo, "Name")
+
+		meta, err := oapi.GetMeta()
 		if err != nil {
-			log.Warnf("Skipping MO with no Name attribute")
-			continue
+			return err
 		}
 
 		getOperation := gen.GetGetOperationForClassID(classID)
-		res, err := getOperation.Execute(client, nil, map[string]string{"filter": fmt.Sprintf("Name eq '%s'", name)})
+
+		filter, err := buildIdentityFilter(client, mo, meta)
+		if err != nil {
+			return err
+		}
+
+		res, err := getOperation.Execute(client, nil, map[string]string{"filter": filter})
 		if err != nil {
 			return fmt.Errorf("error checking if MO already exists: %v", err)
 		}
@@ -132,57 +141,40 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 		var op *gen.Operation
 
 		getOperation := gen.GetGetOperationForClassID(classID)
-		_, moHasName := mo["Name"]
-		if getOperation == nil || !moHasName {
-			op = gen.GetCreateOperationForClassID(classID)
-			if op == nil {
-				return fmt.Errorf("no create operation for ClassId %s", classID)
+		meta, err := oapi.GetMeta()
+		if err != nil {
+			return err
+		}
+
+		// Check if we can identify the object
+		constraints := meta.GetIdentityConstraints(classID)
+		canIdentify := false
+		if len(constraints) > 0 {
+			allPresent := true
+			for _, f := range constraints {
+				if _, ok := mo[f]; !ok {
+					if f == "Organization" || f == "Account" {
+						continue
+					}
+					allPresent = false
+				}
 			}
-			log.Printf("Performing create operation on new MO (ClassId: %s)", classID)
-
-			args = []string{}
-
+			canIdentify = allPresent
 		} else {
-			name, err := getString(mo, "Name")
+			_, canIdentify = mo["Name"]
+		}
+
+		if getOperation == nil || !canIdentify {
+			log.Printf("Performing create operation on new MO (ClassId: %s)", classID)
+			op = gen.GetCreateOperationForClassID(classID)
+			args = []string{}
+		} else {
+			filter, err := buildIdentityFilter(client, mo, meta)
 			if err != nil {
 				return err
 			}
 
-			// Here we lookup the Moid of the organisation referenced in the mo
-			// so that when we check if the object already exists we can do so including the organisation
-			// since Names are only unique within an org
-			var filter string
-			if classID != "organization.Organization" {
-				var cMoRef *oapi.MoRef
-				orgAttr, err := dyno.Get(mo, "Organization")
-				if err != nil {
-					cMoRef = oapi.CanonicaliseMoRef("default", "organization.Organization.Relationship")
-				} else {
-					switch orgAttr := orgAttr.(type) {
-					case string:
-						cMoRef = oapi.CanonicaliseMoRef(orgAttr, "organization.Organization.Relationship")
-					case *oapi.MoRef:
-						cMoRef = orgAttr
-					default:
-						return fmt.Errorf("error: unable to determine Organization reference")
-					}
-				}
-
-				orgMoRef, err := gen.GetMoMoRef(client, cMoRef)
-				if err != nil {
-					return fmt.Errorf("error finding organisation: %v", err)
-				}
-
-				orgMoid, err := dyno.GetString(orgMoRef, "Moid")
-				if err != nil {
-					return fmt.Errorf("error finding organisation: %v", err)
-				}
-
-				filter = fmt.Sprintf("Name eq '%s' and Organization/Moid eq '%s'", name, orgMoid)
-			} else {
-				filter = fmt.Sprintf("Name eq '%s'", name)
-			}
-
+			name, _ := getString(mo, "Name")
 			log.Tracef("applyMOs: Checking for existing object with filter %s", filter)
 
 			res, err := getOperation.Execute(client, nil, map[string]string{"filter": filter})
@@ -376,4 +368,107 @@ func getString(mo rawMO, attr string) (string, error) {
 	}
 
 	return attrVal, nil
+}
+
+func buildIdentityFilter(client *util.IsctlClient, mo rawMO, meta *oapi.Meta) (string, error) {
+	classID, err := getString(mo, "ClassId")
+	if err != nil {
+		return "", err
+	}
+
+	constraints := meta.GetIdentityConstraints(classID)
+	if len(constraints) == 0 {
+		// Fallback logic
+		name, err := getString(mo, "Name")
+		if err != nil {
+			return "", fmt.Errorf("cannot identify object: no identity constraints and no Name attribute")
+		}
+
+		if oapi.ClassIdHasProperty(classID, "Organization") {
+			var cMoRef *oapi.MoRef
+			orgAttr, err := dyno.Get(mo, "Organization")
+			if err != nil {
+				cMoRef = oapi.CanonicaliseMoRef("default", "organization.Organization.Relationship")
+			} else {
+				switch orgAttr := orgAttr.(type) {
+				case string:
+					cMoRef = oapi.CanonicaliseMoRef(orgAttr, "organization.Organization.Relationship")
+				case *oapi.MoRef:
+					cMoRef = orgAttr
+				default:
+					return "", fmt.Errorf("error: unable to determine Organization reference")
+				}
+			}
+
+			orgMoRef, err := gen.GetMoMoRef(client, cMoRef)
+			if err != nil {
+				return "", fmt.Errorf("error finding organisation: %v", err)
+			}
+
+			orgMoid, err := dyno.GetString(orgMoRef, "Moid")
+			if err != nil {
+				return "", fmt.Errorf("error finding organisation: %v", err)
+			}
+			return fmt.Sprintf("Name eq '%s' and Organization/Moid eq '%s'", name, orgMoid), nil
+		}
+		return fmt.Sprintf("Name eq '%s'", name), nil
+	}
+
+	// Constraints logic
+	parts := []string{}
+	for _, field := range constraints {
+		refType, isRef := meta.GetRefType(classID, field)
+		if isRef {
+			var cMoRef *oapi.MoRef
+			attr, err := dyno.Get(mo, field)
+			if err != nil {
+				if field == "Account" {
+					continue
+				}
+				if field == "Organization" {
+					cMoRef = oapi.CanonicaliseMoRef("default", refType)
+				} else {
+					return "", fmt.Errorf("missing required identity field: %s", field)
+				}
+			} else {
+				switch attr := attr.(type) {
+				case string:
+					cMoRef = oapi.CanonicaliseMoRef(attr, refType)
+				case *oapi.MoRef:
+					cMoRef = attr
+				default:
+					return "", fmt.Errorf("error: unable to determine reference for field %s", field)
+				}
+			}
+
+			if cMoRef == nil {
+				return "", fmt.Errorf("error: unable to canonicalise reference for field %s", field)
+			}
+
+			resolvedMoRef, err := gen.GetMoMoRef(client, cMoRef)
+			if err != nil {
+				return "", fmt.Errorf("error finding reference for %s: %v", field, err)
+			}
+
+			moid, err := dyno.GetString(resolvedMoRef, "Moid")
+			if err != nil {
+				return "", fmt.Errorf("error finding moid for %s: %v", field, err)
+			}
+			parts = append(parts, fmt.Sprintf("%s/Moid eq '%s'", field, moid))
+
+		} else {
+			val, err := dyno.Get(mo, field)
+			if err != nil {
+				return "", fmt.Errorf("missing required identity field: %s", field)
+			}
+			switch val.(type) {
+			case string:
+				parts = append(parts, fmt.Sprintf("%s eq '%v'", field, val))
+			default:
+				parts = append(parts, fmt.Sprintf("%s eq %v", field, val))
+			}
+		}
+	}
+
+	return strings.Join(parts, " and "), nil
 }

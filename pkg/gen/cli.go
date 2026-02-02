@@ -77,6 +77,8 @@ func flagSetToMap(flagset *pflag.FlagSet, ret *map[string]interface{}) {
 			(*ret)[f.Name], _ = flagset.GetInt64Slice(f.Name)
 		case "int32":
 			(*ret)[f.Name], _ = flagset.GetInt(f.Name)
+		case "int":
+			(*ret)[f.Name], _ = flagset.GetInt(f.Name)
 		case "float64":
 			(*ret)[f.Name], _ = flagset.GetFloat64(f.Name)
 		case "float32":

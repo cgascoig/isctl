@@ -273,3 +273,12 @@ func getSchema(schemaName string) map[string]any {
 
 	return nil
 }
+
+func ClassIdHasProperty(classId, propertyName string) bool {
+	schema := getSchema(classId)
+	if schema == nil {
+		return false
+	}
+
+	return getSchemaProperty(propertyName, schema) != nil
+}
