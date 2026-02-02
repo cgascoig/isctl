@@ -92,6 +92,14 @@ TEST_SECTION="Apply"
     
 }
 
+@test "${TEST_SECTION}: apply and delete test-correct-ordering-with-nameless-mos.yaml" {
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-correct-ordering-with-nameless-mos.yaml
+    assert_success
+
+    run ./build/isctl ${ISCTL_OPTIONS} apply -d -f tests/data/test-correct-ordering-with-nameless-mos.yaml
+    assert_success
+}
+
 setup() {
     load 'test_helper/bats-support/load' # this is required by bats-assert!
     load 'test_helper/bats-assert/load'

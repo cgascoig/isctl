@@ -1,0 +1,20 @@
+ClassId: resource.Group
+Name: Troubleshooting
+#settings
+Selectors:
+- ClassId: resource.Selector
+#  Selector: /api/v1/asset/DeviceRegistrations?$filter=Moid in('662687566f72613901ac122e')
+# Use this line to assign all gear to your org
+  Selector: /api/v1/asset/DeviceRegistrations?$filter=Moid in('662687566f72613901ac122e','6765852f6f726139017c726c','661929a26f72613901c58d5a','6630dacd6f726139014caace')
+---
+ClassId: organization.Organization
+Name: cg-isctl-test-A
+ResourceGroups:
+- MoRef[Troubleshooting]
+---
+ClassId: organization.Organization
+Name: cg-isctl-test-B
+---
+ClassId: iam.SharingRule
+SharedResource: MoRef:organization.Organization[cg-isctl-test-B]
+SharedWithResource: MoRef:organization.Organization[cg-isctl-test-A]
