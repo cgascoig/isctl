@@ -68,6 +68,30 @@ TEST_SECTION="Apply"
     assert_failure
 }
 
+@test "${TEST_SECTION}: apply MOs with identity constraints" {
+    # delete the objects first to ensure a clean state
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints.yaml -d
+
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints.yaml
+    assert_success
+    assert_line --partial "Performing create operation on new MO (Name: cg-isctl-test-1, ClassId: fabric.EthNetworkPolicy)"
+    assert_line --partial "Performing create operation on new MO (Name: cg-isctl-test-1, ClassId: fabric.MulticastPolicy)"
+    assert_line --partial --index 2 "Performing create operation on new MO (Name: VLAN_70_A, ClassId: fabric.Vlan)"
+
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints.yaml
+    assert_success
+    assert_line --regexp "Performing update operation on existing MO \(Name: cg-isctl-test-1, Moid: [0-9a-f]{24}, ClassId: fabric.EthNetworkPolicy\)"
+    assert_line --regexp "Performing update operation on existing MO \(Name: cg-isctl-test-1, Moid: [0-9a-f]{24}, ClassId: fabric.MulticastPolicy\)"
+    assert_line --index 2 --regexp "Performing update operation on existing MO \(Name: VLAN_70_A, Moid: [0-9a-f]{24}, ClassId: fabric.Vlan\)"
+
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints.yaml -d
+    assert_success
+    assert_line --index 0 --regexp "Performing delete operation on existing MO \(Name: VLAN_70_A, Moid: [0-9a-f]{24}, ClassId: fabric.Vlan\)"
+    assert_line --regexp "Performing delete operation on existing MO \(Name: cg-isctl-test-1, Moid: [0-9a-f]{24}, ClassId: fabric.EthNetworkPolicy\)"
+    assert_line --regexp "Performing delete operation on existing MO \(Name: cg-isctl-test-1, Moid: [0-9a-f]{24}, ClassId: fabric.MulticastPolicy\)"
+    
+}
+
 setup() {
     load 'test_helper/bats-support/load' # this is required by bats-assert!
     load 'test_helper/bats-assert/load'

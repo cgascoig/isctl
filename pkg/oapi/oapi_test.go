@@ -268,3 +268,10 @@ func TestCanonicaliseRelationshipType(t *testing.T) {
 
 	assert.Equal(t, "organization.Organization.Relationship", canonicaliseRelationshipType("organization.Organization.Relationship"))
 }
+
+func TestClassIdHasProperty(t *testing.T) {
+	assert.True(t, ClassIdHasProperty("ntp.Policy", "Organization"))
+	assert.False(t, ClassIdHasProperty("vnic.EthIf", "Organization"))
+	assert.False(t, ClassIdHasProperty("organization.Organization", "Organization"))
+	assert.True(t, ClassIdHasProperty("fabric.Vlan", "VlanId"))
+}
