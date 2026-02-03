@@ -4,6 +4,7 @@
 /build/
 gon.hcl
 /dist/
+/.agent/
 
 # Created by https://www.gitignore.io/api/go,macos,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=go,macos,visualstudiocode

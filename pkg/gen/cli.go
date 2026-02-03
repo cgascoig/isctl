@@ -142,32 +142,32 @@ func getCommand(cliItem *oapi.CliItem, client *util.IsctlClient, resultHandler R
 		}
 		switch bodyParam.DataType {
 		case "string":
-			cmd.Flags().String(bodyParam.Name, "", bodyParam.Name)
+			cmd.Flags().String(bodyParam.Name, "", bodyParam.Usage)
 		case "boolean":
-			cmd.Flags().Bool(bodyParam.Name, false, bodyParam.Name)
+			cmd.Flags().Bool(bodyParam.Name, false, bodyParam.Usage)
 		case "[]string":
-			cmd.Flags().StringSlice(bodyParam.Name, []string{}, bodyParam.Name)
+			cmd.Flags().StringSlice(bodyParam.Name, []string{}, bodyParam.Usage)
 		case "int64":
-			cmd.Flags().Int64(bodyParam.Name, 0, bodyParam.Name)
+			cmd.Flags().Int64(bodyParam.Name, 0, bodyParam.Usage)
 		case "[]int64":
-			cmd.Flags().Int64Slice(bodyParam.Name, []int64{}, bodyParam.Name)
+			cmd.Flags().Int64Slice(bodyParam.Name, []int64{}, bodyParam.Usage)
 		case "int32":
-			cmd.Flags().Int(bodyParam.Name, 0, bodyParam.Name)
+			cmd.Flags().Int(bodyParam.Name, 0, bodyParam.Usage)
 		case "integer":
-			cmd.Flags().Int(bodyParam.Name, 0, bodyParam.Name)
+			cmd.Flags().Int(bodyParam.Name, 0, bodyParam.Usage)
 		case "float64":
-			cmd.Flags().Float64(bodyParam.Name, 0, bodyParam.Name)
+			cmd.Flags().Float64(bodyParam.Name, 0, bodyParam.Usage)
 		case "float32":
-			cmd.Flags().Float32(bodyParam.Name, 0, bodyParam.Name)
+			cmd.Flags().Float32(bodyParam.Name, 0, bodyParam.Usage)
 		case "number":
-			cmd.Flags().Float32(bodyParam.Name, 0, bodyParam.Name)
+			cmd.Flags().Float32(bodyParam.Name, 0, bodyParam.Usage)
 		case "[]float32":
-			cmd.Flags().Float32Slice(bodyParam.Name, []float32{}, bodyParam.Name)
+			cmd.Flags().Float32Slice(bodyParam.Name, []float32{}, bodyParam.Usage)
 		case "":
-			cmd.Flags().Var(&util.ComplexValue{}, bodyParam.Name, fmt.Sprintf("%s as JSON", bodyParam.Name))
+			cmd.Flags().Var(&util.ComplexValue{}, bodyParam.Name, bodyParam.Usage)
 		default:
 			log.Tracef("Falling back to JSON for param %s with type %s", bodyParam.Name, bodyParam.DataType)
-			cmd.Flags().Var(&util.ComplexValue{}, bodyParam.Name, fmt.Sprintf("%s as JSON", bodyParam.Name))
+			cmd.Flags().Var(&util.ComplexValue{}, bodyParam.Name, bodyParam.Usage)
 
 		}
 	}

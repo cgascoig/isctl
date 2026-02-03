@@ -1,7 +1,10 @@
 package oapi
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
+
 	"regexp"
 	"strings"
 
@@ -281,4 +284,132 @@ func ClassIdHasProperty(classId, propertyName string) bool {
 	}
 
 	return getSchemaProperty(propertyName, schema) != nil
+}
+
+// GetSchemaExample returns a JSON example/template for the given schema property.
+func GetSchemaExample(propSchema map[string]any) (string, error) {
+	var refSchemaName string
+	isArray := false
+
+	if ref, err := dyno.GetString(propSchema, "$ref"); err == nil {
+		refSchemaName = ref
+	} else if dtStr, err := dyno.GetString(propSchema, "type"); err == nil && dtStr == "array" {
+		if arrayTypeRef, err := dyno.GetString(propSchema, "items", "$ref"); err == nil {
+			refSchemaName = arrayTypeRef
+			isArray = true
+		}
+	}
+
+	if refSchemaName == "" {
+		return "", fmt.Errorf("property is not a complex type or array of complex type")
+	}
+
+	if strings.HasSuffix(refSchemaName, ".Relationship") {
+		return "", nil
+	}
+
+	schema := getSchema(refSchemaName)
+	if schema == nil {
+		return "", fmt.Errorf("schema not found: %s", refSchemaName)
+	}
+
+	example, err := generateExample(schema)
+	if err != nil {
+		return "", err
+	}
+
+	if len(example) == 0 {
+		return "", nil
+	}
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if isArray {
+		if err := encoder.Encode([]any{example}); err != nil {
+			return "", err
+		}
+	} else {
+		if err := encoder.Encode(example); err != nil {
+			return "", err
+		}
+	}
+	return buf.String(), nil
+}
+
+func generateExample(schema map[string]any) (map[string]any, error) {
+	example := make(map[string]any)
+	properties := getAllProperties(schema)
+
+	for name, prop := range properties {
+		if name == "ClassId" || name == "ObjectType" {
+			continue
+		}
+
+		// Check for specific type or ref
+		if ref, err := dyno.GetString(prop, "$ref"); err == nil {
+			// It's a reference to another schema
+			subSchemaName := ref
+			subSchema := getSchema(subSchemaName)
+			if subSchema != nil {
+				subExample, err := generateExample(subSchema)
+				if err == nil {
+					example[name] = subExample
+					continue
+				}
+			}
+		}
+
+		if desc, err := dyno.GetString(prop, "description"); err == nil {
+			example[name] = fmt.Sprintf("<%s>", desc)
+		} else {
+			example[name] = "<No description>"
+		}
+	}
+	return example, nil
+}
+
+func getAllProperties(schema map[string]any) map[string]any {
+	props := make(map[string]any)
+
+	// Check for "properties" directly in the schema
+	if p, err := dyno.GetMapS(schema, "properties"); err == nil {
+		for k, v := range p {
+			props[k] = v
+		}
+	}
+
+	// Check "allOf" for inherited properties
+	if allOf, err := dyno.GetSlice(schema, "allOf"); err == nil {
+		for _, v := range allOf {
+			var subSchema map[string]any
+
+			if s, ok := v.(map[string]any); ok {
+				// Check if it's a ref
+				if ref, err := dyno.GetString(s, "$ref"); err == nil {
+					subSchema = getSchema(ref)
+				} else {
+					subSchema = s
+				}
+			}
+
+			if subSchema != nil {
+				subProps := getAllProperties(subSchema)
+				for k, v := range subProps {
+					// We prioritize properties from the base schema, but if they are already present
+					// (from the child schema, or a previous allOf), we keep the existing one.
+					// This assumes that the child properties are processed before allOf,
+					// or that we want to keep the first occurrence.
+					// In JSON Schema, if properties are defined in both, they are both validated.
+					// Here we just want a map of all possible properties.
+					if _, exists := props[k]; !exists {
+						props[k] = v
+					}
+				}
+			}
+		}
+	}
+	return props
 }
