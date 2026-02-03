@@ -522,6 +522,16 @@ func schemaToVars(s map[string]any) []*Var {
 				description = strings.Join(lines[:4], "\n") + "\n..."
 			}
 
+			// Generate example for complex types (if any)
+			if propMap, ok := prop.(map[string]any); ok {
+				if example, err := GetSchemaExample(propMap); err == nil && example != "" {
+					if description != "" {
+						description += "\n"
+					}
+					description += "Example: \n" + example
+				}
+			}
+
 			newVar := Var{
 				Name:     propName,
 				DataType: dt,
