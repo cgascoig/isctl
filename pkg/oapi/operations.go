@@ -335,6 +335,7 @@ type Var struct {
 	ReadOnly bool   `yaml:"readOnly"`
 	Nullable bool   `yaml:"nullable"`
 	Default  string `yaml:"default"`
+	Usage    string `yaml:"usage"`
 	Ignore   bool   // Used in cli.gotmpl to skip vars
 }
 
@@ -515,6 +516,11 @@ func schemaToVars(s map[string]any) []*Var {
 			nullable, _ := dyno.GetBoolean(prop, "nullable")
 			readonly, _ := dyno.GetBoolean(prop, "readonly")
 			def, _ := dyno.Get(prop, "default")
+			description, _ := dyno.GetString(prop, "description")
+			lines := strings.Split(description, "\n")
+			if len(lines) > 4 {
+				description = strings.Join(lines[:4], "\n") + "\n..."
+			}
 
 			newVar := Var{
 				Name:     propName,
@@ -522,6 +528,7 @@ func schemaToVars(s map[string]any) []*Var {
 				ReadOnly: readonly,
 				Nullable: nullable,
 				Default:  fmt.Sprintf("%v", def),
+				Usage:    description,
 			}
 
 			req, err := dyno.GetSlice(s, "required")
