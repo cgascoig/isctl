@@ -150,16 +150,9 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 		constraints := meta.GetIdentityConstraints(classID)
 		canIdentify := false
 		if len(constraints) > 0 {
-			allPresent := true
-			for _, f := range constraints {
-				if _, ok := mo[f]; !ok {
-					if f == "Organization" || f == "Account" {
-						continue
-					}
-					allPresent = false
-				}
-			}
-			canIdentify = allPresent
+			// If there are identity constraints, we assume we can identify the object
+			// Missing fields will simply be omitted from the filter
+			canIdentify = true
 		} else {
 			_, canIdentify = mo["Name"]
 		}
@@ -428,7 +421,7 @@ func buildIdentityFilter(client *util.IsctlClient, mo rawMO, meta *oapi.Meta) (s
 				if field == "Organization" {
 					cMoRef = oapi.CanonicaliseMoRef("default", refType)
 				} else {
-					return "", fmt.Errorf("missing required identity field: %s", field)
+					continue
 				}
 			} else {
 				switch attr := attr.(type) {
@@ -459,7 +452,7 @@ func buildIdentityFilter(client *util.IsctlClient, mo rawMO, meta *oapi.Meta) (s
 		} else {
 			val, err := dyno.Get(mo, field)
 			if err != nil {
-				return "", fmt.Errorf("missing required identity field: %s", field)
+				continue
 			}
 			switch val.(type) {
 			case string:

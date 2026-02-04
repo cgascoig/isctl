@@ -92,6 +92,21 @@ TEST_SECTION="Apply"
     
 }
 
+@test "${TEST_SECTION}: apply MOs with identity constraints and missing attributes" {
+    # delete the objects first to ensure a clean state
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints-missing-attr.yaml -d
+
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints-missing-attr.yaml
+    assert_success
+
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints-missing-attr.yaml
+    assert_success
+
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-identity-constraints-missing-attr.yaml -d
+    assert_success
+    
+}
+
 @test "${TEST_SECTION}: apply and delete test-correct-ordering-with-nameless-mos.yaml" {
     run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-correct-ordering-with-nameless-mos.yaml
     assert_success
