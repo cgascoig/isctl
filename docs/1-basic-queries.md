@@ -60,7 +60,7 @@ isctl get ntp policy --filter "startsWith(Name, 'cg-')"
 
 ## Output customisation
 
-By default, `isctl` will try to produce human readable output. Typically, this will be a table format with boilerplate attributes (e.g. `ClassId`, `Organization`, etc.) hidden for brevity. If the output table would have too many columns, `isctl` will fall back to a "vertical" output (essentially YAML). If you want to disable this behaviour and force the table format (even though it will be very wide), use `--output table`. 
+By default, `isctl` will try to produce human readable output. Typically, this will be a table format with boilerplate attributes (e.g. `ClassId`, `Organization`, etc.) hidden for brevity. If the output table would have too many columns, `isctl` will fall back to a "vertical" output (essentially YAML). If you want to disable this behavior and force the table format (even though it will be very wide), use `--output table`. 
 
 There are a number of other options to customise the output described below.
 

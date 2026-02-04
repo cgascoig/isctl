@@ -467,7 +467,7 @@ func getTokenListForOperation(op *Operation) ([]string, []string) {
 	methodVerb := methodVerbs[strings.ToLower(op.HTTPMethod)]
 
 	helpList := []string{
-		methodVerb + " resouce(s)",
+		methodVerb + " resource(s)",
 		fmt.Sprintf("%s %s resource(s)", methodVerb, op.BaseName),
 		op.Summary,
 	}
