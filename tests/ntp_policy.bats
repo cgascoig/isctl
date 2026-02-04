@@ -94,7 +94,7 @@ TEST_SECTION="NTP Policy CRUD"
     assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +[0-9a-f]{24} +true *$"
 }
 
-@test "${TEST_SECTION}: expand organisation name" {
+@test "${TEST_SECTION}: expand organization name" {
   ORG=$(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o json --expand 'Organization($select=Name)' | jq -r .Organization.Name)
   assert_equal "${ORG}" "default"
 }

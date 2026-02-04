@@ -20,7 +20,7 @@ If you use [Homebrew](https://brew.sh), the easiest way to install `isctl` is:
 brew install cgascoig/isctl/isctl
 ```
 
-If you don't use Homebew:
+If you don't use Homebrew:
 
 * Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
 * Unzip and move the `isctl` binary somewhere that is on your path (e.g. `/usr/local/bin`). 
