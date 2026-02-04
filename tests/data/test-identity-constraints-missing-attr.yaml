@@ -1,0 +1,12 @@
+ClassId: fabric.PortPolicy
+Name: cg-isctl-test-1
+DeviceModel: UCS-FI-6454
+Organization: default
+---
+ClassId: fabric.ServerRole
+#settings
+PortPolicy: MoRef[cg-isctl-test-1]
+AutoNegotiationDisabled: false
+Fec: Auto
+PortId: 9
+SlotId: 1
