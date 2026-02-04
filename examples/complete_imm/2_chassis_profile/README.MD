@@ -2,7 +2,7 @@
 Make sure you have [isctl](https://github.com/cgascoig/isctl) installed and configured.
 
 ## Steps
-1. Update the yaml files to match your environmnet
+1. Update the yaml files to match your environment
 
 2. Apply all the config
 ```
@@ -23,7 +23,7 @@ isctl update chassis profile name IMM-Domain-01-Chassis-01 --Action Unassign
 ```
 
 2. remove the config
-To clean up just rust the `isctl apply` commands but add a `-d` at the end.
+To clean up just run the `isctl apply` commands but add a `-d` at the end.
 ```
 isctl apply -f . -d  
 ```

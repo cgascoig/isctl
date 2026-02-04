@@ -46,7 +46,7 @@ isctl delete server profile name IMM-RHEL-08
 ```
 
 2. remove the config
-To clean up just rust the `isctl apply` commands but add a `-d` at the end.
+To clean up just run the `isctl apply` commands but add a `-d` at the end.
 ```
 isctl apply -f . -d
 ```
