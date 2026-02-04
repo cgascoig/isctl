@@ -1,6 +1,6 @@
 [![User Guide](https://img.shields.io/badge/User%20Guide-Netlify-success)](https://isctl.netlify.app/) [![Build status](https://dev.azure.com/cgascoig/isctl/_apis/build/status/Full%20test?branchName=devel)](https://dev.azure.com/cgascoig/isctl/_build/latest?definitionId=2) [![Go Report](https://goreportcard.com/badge/github.com/cgascoig/isctl)](https://goreportcard.com/report/github.com/cgascoig/isctl)
 # isctl - CLI for Cisco Intersight
-`isctl` is a `kubectl`-insipired CLI for the Cisco Intersight service. 
+`isctl` is a `kubectl`-inspired CLI for the Cisco Intersight service. 
 
 ## Features
 
