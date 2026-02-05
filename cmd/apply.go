@@ -395,12 +395,12 @@ func buildIdentityFilter(client *util.IsctlClient, mo rawMO, meta *oapi.Meta) (s
 
 			orgMoRef, err := gen.GetMoMoRef(client, cMoRef)
 			if err != nil {
-				return "", fmt.Errorf("error finding organisation: %v", err)
+				return "", fmt.Errorf("error finding organization: %v", err)
 			}
 
 			orgMoid, err := dyno.GetString(orgMoRef, "Moid")
 			if err != nil {
-				return "", fmt.Errorf("error finding organisation: %v", err)
+				return "", fmt.Errorf("error finding organization: %v", err)
 			}
 			return fmt.Sprintf("Name eq '%s' and Organization/Moid eq '%s'", name, orgMoid), nil
 		}

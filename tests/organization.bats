@@ -23,13 +23,13 @@ TEST_SECTION="Organization"
         --EndPointUserPolicy "MoRef[${TEST_NAME}\\${TEST_NAME}]" \
         --Password hahahahaha
 
-    echo "Deleteing test IAM endpointuserrole in test org"
+    echo "Deleting test IAM endpointuserrole in test org"
     ORG_MOID=$(./build/isctl ${ISCTL_OPTIONS} get organization organization --name "${TEST_NAME}" -o jsonpath='$.Moid'|| echo "")
 
     # Don't need to delete endpointuserrole - it is automatically deleted when the policy is deleted
     # ./build/isctl ${ISCTL_OPTIONS} delete iam endpointuserrole moid $(./build/isctl ${ISCTL_OPTIONS} get iam endpointuserrole --filter "Name eq '${TEST_NAME}' and Organization/Moid eq '${ORG_MOID}'" -o 'jsonpath=$[*].Moid'|| echo "")
 
-    echo "Deleteing test IAM endpointuserpolicy in test org"
+    echo "Deleting test IAM endpointuserpolicy in test org"
     ./build/isctl ${ISCTL_OPTIONS} delete iam endpointuserpolicy moid $(./build/isctl ${ISCTL_OPTIONS} get iam endpointuserpolicy --filter "Name eq '${TEST_NAME}' and Organization/Moid eq '${ORG_MOID}'" -o 'jsonpath=$[*].Moid'|| echo "")
 }
 

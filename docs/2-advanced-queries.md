@@ -63,7 +63,7 @@ Organization:
   DomainGroupMoid: 5b25418d7a7662743465cf72
   ModTime: "2019-12-09T23:25:48.256Z"
   Moid: 5deed7fc6972652d33bc48d0
-  Name: Example Organisation
+  Name: Example Organization
   ObjectType: organization.Organization
   Owners:
   - 123456789012345678901234

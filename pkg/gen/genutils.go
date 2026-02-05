@@ -29,12 +29,12 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 		orgMoRef := oapi.CanonicaliseMoRef(moref.Organization, "organization.Organization.Relationship")
 		resolvedOrgMoRef, err := GetMoMoRef(client, orgMoRef)
 		if err != nil {
-			return nil, fmt.Errorf("error finding organisation: %v", err)
+			return nil, fmt.Errorf("error finding organization: %v", err)
 		}
 
 		orgMoid, err := dyno.GetString(resolvedOrgMoRef, "Moid")
 		if err != nil {
-			return nil, fmt.Errorf("error finding organisation: %v", err)
+			return nil, fmt.Errorf("error finding organization: %v", err)
 		}
 
 		filter = fmt.Sprintf("%s and Organization/Moid eq '%s'", filter, orgMoid)
@@ -57,7 +57,7 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 
 	classId, ok := getClassId(res)
 	if !ok {
-		return nil, fmt.Errorf("GetMoMoRef: ubable to get classID")
+		return nil, fmt.Errorf("GetMoMoRef: unable to get classID")
 	}
 
 	log.Debugf("Got Moid and ClassId: %s, %s", moid, classId)

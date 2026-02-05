@@ -19,7 +19,7 @@ TEST_SECTION="Apply"
     [ "${NTPSERVERS}" == "[\"1.1.1.1\"]" ]
 }
 
-@test "${TEST_SECTION}: apply directoy of YAML files" {
+@test "${TEST_SECTION}: apply directory of YAML files" {
     ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/apply-yaml
 }
 

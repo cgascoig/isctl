@@ -9,15 +9,15 @@ There are 3 directories in this repository
 
 ### 1_domain_profile
 This holds all the domain required policies and the Domain profile.
-There is a seperate README in this directory with more information
+There is a separate README in this directory with more information
 
 ### 2_chassis_profile
 This holds all the chassis required policies and the Chassis profile.
-There is a seperate README in this directory with more information
+There is a separate README in this directory with more information
 
 ### 3_server_profiles
-This holds all the server profile required policies, the Server Profile Template and it will derivef 8 Server Profiles that will be assigned through a Server Resource Pool.
-There is a seperate README in this directory with more information
+This holds all the server profile required policies, the Server Profile Template and it will derive 8 Server Profiles that will be assigned through a Server Resource Pool.
+There is a separate README in this directory with more information
 
 All configuration is stored in yaml files and need to be updated to match your environment.
 
@@ -59,4 +59,4 @@ isctl apply -f 3_server_profiles/FI-Attached/.
 
 ## Clean up
 
-there are more details cleanup steps writting in each directory, please clean up in the right order.
+there are more details cleanup steps written in each directory, please clean up in the right order.
