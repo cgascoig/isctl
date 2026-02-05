@@ -17,6 +17,13 @@ There are multiple ways for these to be provided to `isctl` such as environment 
  - **Intersight Client Secret** - The Client Secret for your OAuth app.
  - **Intersight Token URL** - The URL to obtain the OAuth token. Defaults to `https://<Intersight FQDN>/iam/token` if not specified. Generally you will not need to set this.
 
+### Token Caching (OAuth Only)
+
+When using OAuth authentication, `isctl` caches the access token to disk to avoid fetching a new token on every invocation. This significantly improves performance when running many sequential commands.
+
+ - **Token Cache Path** - Path to the token cache file. Defaults to `$XDG_CONFIG_HOME/isctl/token-cache.json` or `~/.config/isctl/token-cache.json` if `XDG_CONFIG_HOME` is not set.
+ - **Disable Token Cache** - Set to `true` to disable token caching. Useful for CI environments where you don't want tokens persisted to disk.
+
 ### General Configuration
 
  - **Intersight FQDN** - Fully Qualified Domain Name of the Intersight service. For SaaS this will be `intersight.com` (and this is the default if not specified) but for Private Virtual Appliance (PVA) or Connected Virtual Appliance (CVA) installations you will need to set this. 
@@ -32,5 +39,11 @@ Source                | API Key ID                | Secret Key                | 
 Command Line Flags    | `--intersight-api-key-id` | `--intersight-secret-key` | `--intersight-client-id` | `--intersight-client-secret` | `--intersight-token-url` | `--intersight-fqdn`     | `--insecure`
 Environment Variables | `INTERSIGHT_API_KEY_ID`   | `INTERSIGHT_SECRET_KEY`   | `INTERSIGHT_CLIENT_ID` | `INTERSIGHT_CLIENT_SECRET` | `INTERSIGHT_TOKEN_URL` | `INTERSIGHT_FQDN`       | &lt;not supported&gt;
 Configuration file    | `intersight_api_key_id`   | `intersight_secret_key`   | `intersight_client_id` | `intersight_client_secret` | `intersight_token_url` | `intersight_fqdn`       | `intersight_insecure`
+
+Source                | Token Cache Path                   | Disable Token Cache
+----------------------|------------------------------------|------------------------------------
+Command Line Flags    | `--intersight-token-cache-path`    | `--intersight-disable-token-cache`
+Environment Variables | `INTERSIGHT_TOKEN_CACHE_PATH`      | `INTERSIGHT_DISABLE_TOKEN_CACHE`
+Configuration file    | `intersight_token_cache_path`      | `intersight_disable_token_cache`
 
 > Note: Environment variables are case-insensitive.
