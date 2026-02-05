@@ -66,6 +66,8 @@ func main() {
 	rootCmd.PersistentFlags().String(FlagIntersightClientId, "", "Intersight Client ID")
 	rootCmd.PersistentFlags().String(FlagIntersightClientSecret, "", "Intersight Client Secret")
 	rootCmd.PersistentFlags().String(FlagIntersightTokenUrl, "", "Intersight Token URL")
+	rootCmd.PersistentFlags().String(FlagIntersightTokenCachePath, "", "Path to cache OAuth tokens (default: $XDG_CONFIG_HOME/isctl/token-cache.json)")
+	rootCmd.PersistentFlags().Bool(FlagIntersightDisableTokenCache, false, "Disable OAuth token caching")
 
 	rootCmd.PersistentFlags().String(CKKeyID, "", "API Key ID [deprecated]")
 	rootCmd.PersistentFlags().String(CKKeyFile, "", "API Private Key Filename [deprecated]")
@@ -245,14 +247,22 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		}
 	}
 
+	// Determine token cache path
+	tokenCachePath := gK.String(CKIntersightTokenCachePath)
+	if tokenCachePath == "" && !gK.Bool(CKIntersightDisableTokenCache) {
+		tokenCachePath = getDefaultTokenCachePath()
+	}
+
 	client.IntersightConfig = intersight.Config{
-		KeyID:         keyID,
-		KeyData:       keyData,
-		ClientID:      clientID,
-		ClientSecret:  clientSecret,
-		TokenURL:      tokenUrl,
-		BaseTransport: httpTransport,
-		Host:          gK.String(CKIntersightFqdn),
+		KeyID:             keyID,
+		KeyData:           keyData,
+		ClientID:          clientID,
+		ClientSecret:      clientSecret,
+		TokenURL:          tokenUrl,
+		BaseTransport:     httpTransport,
+		Host:              gK.String(CKIntersightFqdn),
+		TokenCachePath:    tokenCachePath,
+		DisableTokenCache: gK.Bool(CKIntersightDisableTokenCache),
 	}
 
 	client.IntersightClient, err = intersight.NewClient(client.IntersightConfig)

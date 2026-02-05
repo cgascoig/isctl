@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -24,24 +25,28 @@ var (
 
 const (
 	// New config keys
-	CKIntersightApiKeyId     = "intersight_api_key_id"
-	CKIntersightSecretKey    = "intersight_secret_key"
-	CKIntersightFqdn         = "intersight_fqdn"
-	CKOutputFormat           = "output"
-	CKIntersightInsecure     = "intersight_insecure"
-	CKIntersightProxy        = "intersight_proxy"
-	CKIntersightClientId     = "intersight_client_id"
-	CKIntersightClientSecret = "intersight_client_secret"
-	CKIntersightTokenUrl     = "intersight_token_url"
+	CKIntersightApiKeyId          = "intersight_api_key_id"
+	CKIntersightSecretKey         = "intersight_secret_key"
+	CKIntersightFqdn              = "intersight_fqdn"
+	CKOutputFormat                = "output"
+	CKIntersightInsecure          = "intersight_insecure"
+	CKIntersightProxy             = "intersight_proxy"
+	CKIntersightClientId          = "intersight_client_id"
+	CKIntersightClientSecret      = "intersight_client_secret"
+	CKIntersightTokenUrl          = "intersight_token_url"
+	CKIntersightTokenCachePath    = "intersight_token_cache_path"
+	CKIntersightDisableTokenCache = "intersight_disable_token_cache"
 
 	// New cmd flags
-	FlagIntersightApiKeyId     = "intersight-api-key-id"
-	FlagIntersightSecretKey    = "intersight-secret-key"
-	FlagIntersightFqdn         = "intersight-fqdn"
-	FlagIntersightProxy        = "intersight-proxy"
-	FlagIntersightClientId     = "intersight-client-id"
-	FlagIntersightClientSecret = "intersight-client-secret"
-	FlagIntersightTokenUrl     = "intersight-token-url"
+	FlagIntersightApiKeyId          = "intersight-api-key-id"
+	FlagIntersightSecretKey         = "intersight-secret-key"
+	FlagIntersightFqdn              = "intersight-fqdn"
+	FlagIntersightProxy             = "intersight-proxy"
+	FlagIntersightClientId          = "intersight-client-id"
+	FlagIntersightClientSecret      = "intersight-client-secret"
+	FlagIntersightTokenUrl          = "intersight-token-url"
+	FlagIntersightTokenCachePath    = "intersight-token-cache-path"
+	FlagIntersightDisableTokenCache = "intersight-disable-token-cache"
 
 	// Legacy / deprecated config keys
 	CKKeyID    = "keyID"
@@ -97,15 +102,17 @@ func getConfigFilePath(flags *flag.FlagSet) string {
 
 func loadDefaults() {
 	gK.Load(confmap.Provider(map[string]any{
-		CKIntersightFqdn:         "intersight.com",
-		CKOutputFormat:           "default",
-		CKIntersightApiKeyId:     "",
-		CKIntersightSecretKey:    "",
-		CKIntersightInsecure:     false,
-		CKIntersightProxy:        "",
-		CKIntersightClientId:     "",
-		CKIntersightClientSecret: "",
-		CKIntersightTokenUrl:     "",
+		CKIntersightFqdn:              "intersight.com",
+		CKOutputFormat:                "default",
+		CKIntersightApiKeyId:          "",
+		CKIntersightSecretKey:         "",
+		CKIntersightInsecure:          false,
+		CKIntersightProxy:             "",
+		CKIntersightClientId:          "",
+		CKIntersightClientSecret:      "",
+		CKIntersightTokenUrl:          "",
+		CKIntersightTokenCachePath:    "",
+		CKIntersightDisableTokenCache: false,
 	}, "."), nil)
 }
 
@@ -138,20 +145,24 @@ func aliasReplacingMerge(src, dest map[string]any) error {
 
 func envMapper(s string) string {
 	aliases := map[string]string{
-		"INTERSIGHT_API_KEY_ID":    CKIntersightApiKeyId,
-		"intersight_api_key_id":    CKIntersightApiKeyId,
-		"INTERSIGHT_SECRET_KEY":    CKIntersightSecretKey,
-		"intersight_secret_key":    CKIntersightSecretKey,
-		"INTERSIGHT_FQDN":          CKIntersightFqdn,
-		"intersight_fqdn":          CKIntersightFqdn,
-		"INTERSIGHT_PROXY":         CKIntersightProxy,
-		"intersight_proxy":         CKIntersightProxy,
-		"INTERSIGHT_CLIENT_ID":     CKIntersightClientId,
-		"intersight_client_id":     CKIntersightClientId,
-		"INTERSIGHT_CLIENT_SECRET": CKIntersightClientSecret,
-		"intersight_client_secret": CKIntersightClientSecret,
-		"INTERSIGHT_TOKEN_URL":     CKIntersightTokenUrl,
-		"intersight_token_url":     CKIntersightTokenUrl,
+		"INTERSIGHT_API_KEY_ID":          CKIntersightApiKeyId,
+		"intersight_api_key_id":          CKIntersightApiKeyId,
+		"INTERSIGHT_SECRET_KEY":          CKIntersightSecretKey,
+		"intersight_secret_key":          CKIntersightSecretKey,
+		"INTERSIGHT_FQDN":                CKIntersightFqdn,
+		"intersight_fqdn":                CKIntersightFqdn,
+		"INTERSIGHT_PROXY":               CKIntersightProxy,
+		"intersight_proxy":               CKIntersightProxy,
+		"INTERSIGHT_CLIENT_ID":           CKIntersightClientId,
+		"intersight_client_id":           CKIntersightClientId,
+		"INTERSIGHT_CLIENT_SECRET":       CKIntersightClientSecret,
+		"intersight_client_secret":       CKIntersightClientSecret,
+		"INTERSIGHT_TOKEN_URL":           CKIntersightTokenUrl,
+		"intersight_token_url":           CKIntersightTokenUrl,
+		"INTERSIGHT_TOKEN_CACHE_PATH":    CKIntersightTokenCachePath,
+		"intersight_token_cache_path":    CKIntersightTokenCachePath,
+		"INTERSIGHT_DISABLE_TOKEN_CACHE": CKIntersightDisableTokenCache,
+		"intersight_disable_token_cache": CKIntersightDisableTokenCache,
 	}
 
 	if key, ok := aliases[s]; ok {
@@ -162,17 +173,19 @@ func envMapper(s string) string {
 
 func loadFlags(flags *flag.FlagSet) {
 	aliases := map[string]string{
-		CKKeyID:                    CKIntersightApiKeyId,
-		CKKeyFile:                  CKIntersightSecretKey,
-		CKServer:                   CKIntersightFqdn,
-		CKInsecure:                 CKIntersightInsecure,
-		FlagIntersightApiKeyId:     CKIntersightApiKeyId,
-		FlagIntersightSecretKey:    CKIntersightSecretKey,
-		FlagIntersightFqdn:         CKIntersightFqdn,
-		FlagIntersightProxy:        CKIntersightProxy,
-		FlagIntersightClientId:     CKIntersightClientId,
-		FlagIntersightClientSecret: CKIntersightClientSecret,
-		FlagIntersightTokenUrl:     CKIntersightTokenUrl,
+		CKKeyID:                         CKIntersightApiKeyId,
+		CKKeyFile:                       CKIntersightSecretKey,
+		CKServer:                        CKIntersightFqdn,
+		CKInsecure:                      CKIntersightInsecure,
+		FlagIntersightApiKeyId:          CKIntersightApiKeyId,
+		FlagIntersightSecretKey:         CKIntersightSecretKey,
+		FlagIntersightFqdn:              CKIntersightFqdn,
+		FlagIntersightProxy:             CKIntersightProxy,
+		FlagIntersightClientId:          CKIntersightClientId,
+		FlagIntersightClientSecret:      CKIntersightClientSecret,
+		FlagIntersightTokenUrl:          CKIntersightTokenUrl,
+		FlagIntersightTokenCachePath:    CKIntersightTokenCachePath,
+		FlagIntersightDisableTokenCache: CKIntersightDisableTokenCache,
 	}
 
 	err := gK.Load(posflag.ProviderWithFlag(flags, ".", gK, func(f *flag.Flag) (string, any) {
@@ -189,4 +202,14 @@ func loadFlags(flags *flag.FlagSet) {
 func isKeyData(s string) bool {
 	re := regexp.MustCompile(`(?s)^\s*-----BEGIN[A-Z ]*KEY-----.*-----END[A-Z ]*KEY-----\s*$`)
 	return re.MatchString(s)
+}
+
+// getDefaultTokenCachePath returns the default token cache path following XDG Base Directory spec.
+func getDefaultTokenCachePath() string {
+	configHome := os.Getenv("XDG_CONFIG_HOME")
+	if configHome == "" {
+		home, _ := homedir.Dir()
+		configHome = filepath.Join(home, ".config")
+	}
+	return filepath.Join(configHome, "isctl", "token-cache.json")
 }

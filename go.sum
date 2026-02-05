@@ -5,8 +5,8 @@ github.com/PaesslerAG/jsonpath v0.1.1 h1:c1/AToHQMVsduPAa4Vh6xp2U0evy4t8SWp8imEs
 github.com/PaesslerAG/jsonpath v0.1.1/go.mod h1:lVboNxFGal/VwW6d9JzIy56bUsYAP6tH/x80vjnCseY=
 github.com/bndr/gotabulate v1.1.3-0.20210209140143-7b841ac46153 h1:yd3h59rWwKMCnXNDtPZk6DOLBnu3uliqFwXH55Hfz4M=
 github.com/bndr/gotabulate v1.1.3-0.20210209140143-7b841ac46153/go.mod h1:0+8yUgaPTtLRTjf49E8oju7ojpU11YmXyvq1LbPAb3U=
-github.com/cgascoig/intersight-simple-go v0.6.0 h1:E7mUO8F5oh87EAu6hDhHWmic5iw4CK0llznr3nQjcDs=
-github.com/cgascoig/intersight-simple-go v0.6.0/go.mod h1:tcPyVngdZ8cOFM+myfvG7LVKVyeVEpcZ+NhD7hQHKUs=
+github.com/cgascoig/intersight-simple-go v0.6.1 h1:5boppsehcfcga+lyNZshxZbYgmHZZtIoz9zkG/bncQg=
+github.com/cgascoig/intersight-simple-go v0.6.1/go.mod h1:tcPyVngdZ8cOFM+myfvG7LVKVyeVEpcZ+NhD7hQHKUs=
 github.com/cpuguy83/go-md2man/v2 v2.0.1/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
