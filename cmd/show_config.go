@@ -27,6 +27,9 @@ func runCmdShowConfig(client *util.IsctlClient, cmd *cobra.Command, args []strin
 	fmt.Printf("%s: %#v\n", CKIntersightFqdn, client.IntersightConfig.Host)
 	fmt.Printf("%s: %#v\n", CKIntersightInsecure, gK.Bool(CKIntersightInsecure))
 	fmt.Printf("%s: %#v\n", CKIntersightProxy, gK.String(CKIntersightProxy))
+	fmt.Printf("%s: %#v\n", CKIntersightClientId, client.IntersightConfig.ClientID)
+	fmt.Printf("%s: %#v\n", CKIntersightClientSecret, client.IntersightConfig.ClientSecret)
+	fmt.Printf("%s: %#v\n", CKIntersightTokenUrl, client.IntersightConfig.TokenURL)
 }
 
 func init() {

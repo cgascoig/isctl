@@ -140,7 +140,31 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     assert_line "intersight_fqdn: \"flag.intersight.com\""
     assert_line "intersight_insecure: true"
 }
+@test "${TEST_SECTION}: supply oauth vars as environment variable" {
+    export intersight_client_id="envvar_client_id"
+    export intersight_client_secret="envvar_client_secret"
+    export intersight_token_url="https://envvar.intersight.com/iam/token"
+    
+    echo "output: default" > "${TEMP_DIR}/clean.yaml"
+    run ./build/isctl --config "${TEMP_DIR}/clean.yaml" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"\""
+    assert_line "intersight_secret_key: \"\""
+    assert_line "intersight_client_id: \"envvar_client_id\""
+    assert_line "intersight_client_secret: \"envvar_client_secret\""
+    assert_line "intersight_token_url: \"https://envvar.intersight.com/iam/token\""
+}
 
+@test "${TEST_SECTION}: supply oauth vars as command line flags" {
+    echo "output: default" > "${TEMP_DIR}/clean.yaml"
+    run ./build/isctl --config "${TEMP_DIR}/clean.yaml" --intersight-client-id flag_client_id --intersight-client-secret flag_client_secret --intersight-token-url "https://flag.intersight.com/iam/token" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"\""
+    assert_line "intersight_secret_key: \"\""
+    assert_line "intersight_client_id: \"flag_client_id\""
+    assert_line "intersight_client_secret: \"flag_client_secret\""
+    assert_line "intersight_token_url: \"https://flag.intersight.com/iam/token\""
+}
 setup() {
     load 'test_helper/bats-support/load' # this is required by bats-assert!
     load 'test_helper/bats-assert/load'
@@ -174,5 +198,6 @@ teardown() {
     rm "${TEMP_KEY_FILE}"
     rm "${TEMP_ENV_KEY_FILE}"
     rm "${TEMP_FLAG_KEY_FILE}"
+    if [ -f "${TEMP_DIR}/clean.yaml" ]; then rm "${TEMP_DIR}/clean.yaml"; fi
     rmdir "${TEMP_DIR}"
 }
