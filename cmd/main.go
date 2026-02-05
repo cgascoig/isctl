@@ -63,6 +63,9 @@ func main() {
 	rootCmd.PersistentFlags().String(FlagIntersightSecretKey, "", "Intersight Secret Key (filename)")
 	rootCmd.PersistentFlags().String(FlagIntersightFqdn, "", "Intersight API FQDN (default intersight.com)")
 	rootCmd.PersistentFlags().String(FlagIntersightProxy, "", "HTTP Proxy for Intersight API requests")
+	rootCmd.PersistentFlags().String(FlagIntersightClientId, "", "Intersight Client ID")
+	rootCmd.PersistentFlags().String(FlagIntersightClientSecret, "", "Intersight Client Secret")
+	rootCmd.PersistentFlags().String(FlagIntersightTokenUrl, "", "Intersight Token URL")
 
 	rootCmd.PersistentFlags().String(CKKeyID, "", "API Key ID [deprecated]")
 	rootCmd.PersistentFlags().String(CKKeyFile, "", "API Private Key Filename [deprecated]")
@@ -116,6 +119,8 @@ func configure(cmd *cobra.Command, args []string) {
 	log.Trace("Starting configure")
 	scanner := bufio.NewScanner(os.Stdin)
 
+	fmt.Printf("Let's setup authentication. You can either configure %s and %s (for API Key authentication), or you can configure %s and %s (for OAuth authentication).\n", CKIntersightApiKeyId, CKIntersightSecretKey, CKIntersightClientId, CKIntersightClientSecret)
+
 	// configure keyID
 	fmt.Printf("%s is currently '%s'\n", CKIntersightApiKeyId, gK.String(CKIntersightApiKeyId))
 	fmt.Printf("Enter new %s or press Enter to keep existing: ", CKIntersightApiKeyId)
@@ -130,6 +135,22 @@ func configure(cmd *cobra.Command, args []string) {
 	scanner.Scan()
 	if input := scanner.Text(); input != "" {
 		gK.Set(CKIntersightSecretKey, input)
+	}
+
+	// configure client ID
+	fmt.Printf("%s is currently '%s'\n", CKIntersightClientId, gK.String(CKIntersightClientId))
+	fmt.Printf("Enter new OAuth client ID or press Enter to keep existing: ")
+	scanner.Scan()
+	if input := scanner.Text(); input != "" {
+		gK.Set(CKIntersightClientId, input)
+	}
+
+	// configure client secret
+	fmt.Printf("%s is currently '%s'\n", CKIntersightClientSecret, gK.String(CKIntersightClientSecret))
+	fmt.Printf("Enter new OAuth client secret or press Enter to keep existing: ")
+	scanner.Scan()
+	if input := scanner.Text(); input != "" {
+		gK.Set(CKIntersightClientSecret, input)
 	}
 
 	// configure server
@@ -169,31 +190,45 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 	var err error
 
+	// Determine Authentication Method
 	keyID := gK.String(CKIntersightApiKeyId)
-	if keyID == "" {
-		return fmt.Errorf("%s is not set", CKIntersightApiKeyId)
-	}
-
 	keyFile := gK.String(CKIntersightSecretKey)
-	if keyFile == "" {
-		return fmt.Errorf("%s is not set", CKIntersightSecretKey)
-	}
+	clientID := gK.String(CKIntersightClientId)
+	clientSecret := gK.String(CKIntersightClientSecret)
+	tokenUrl := gK.String(CKIntersightTokenUrl)
 
 	var keyData string
+	var useApiKey bool
 
-	if isKeyData(keyFile) {
-		keyData = keyFile
+	if keyID != "" {
+		if keyFile == "" {
+			return fmt.Errorf("%s is set but %s is missing", CKIntersightApiKeyId, CKIntersightSecretKey)
+		}
+		useApiKey = true
+	} else if clientID != "" {
+		if clientSecret == "" {
+			return fmt.Errorf("%s is set but %s is missing", CKIntersightClientId, CKIntersightClientSecret)
+		}
+		useApiKey = false
 	} else {
-		// try doing ~ expansion on the keyFile path
-		if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {
-			keyFile = expandedKeyFile
-		}
+		return fmt.Errorf("either %s and %s OR %s and %s must be set", CKIntersightApiKeyId, CKIntersightSecretKey, CKIntersightClientId, CKIntersightClientSecret)
+	}
 
-		keyDataBytes, err := os.ReadFile(keyFile)
-		if err != nil {
-			return fmt.Errorf("unable to read key file: %v", err)
+	if useApiKey {
+		if isKeyData(keyFile) {
+			keyData = keyFile
+		} else {
+			// try doing ~ expansion on the keyFile path
+			if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {
+				keyFile = expandedKeyFile
+			}
+
+			keyDataBytes, err := os.ReadFile(keyFile)
+			if err != nil {
+				return fmt.Errorf("unable to read key file: %v", err)
+			}
+			keyData = string(keyDataBytes)
 		}
-		keyData = string(keyDataBytes)
 	}
 
 	if gK.Bool(CKIntersightInsecure) {
@@ -213,6 +248,9 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 	client.IntersightConfig = intersight.Config{
 		KeyID:         keyID,
 		KeyData:       keyData,
+		ClientID:      clientID,
+		ClientSecret:  clientSecret,
+		TokenURL:      tokenUrl,
 		BaseTransport: httpTransport,
 		Host:          gK.String(CKIntersightFqdn),
 	}

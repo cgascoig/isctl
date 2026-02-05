@@ -52,24 +52,31 @@ The [Quick Start](#quick-start) below covers the basics but you should review th
 
 ## Initial configuration
 
-### Obtain your API Key
+### Credentials
 
-`isctl` interacts with the Cisco Intersight REST API, so it needs an API key. 
+`isctl` interacts with the Cisco Intersight REST API, so it needs **either** an API key or an OAuth application credentials. 
+
+#### API Key
 
 1. Login to the Intersight GUI. 
 2. Generate a new API Key (under Settings -> API Keys). Choose "API key for OpenAPI schema version 2" as the API Key Purpose. 
 3. Save the key somewhere on your desktop and make a note of the key ID. 
 
+#### OAuth
+
+1. Login to the Intersight GUI.
+2. Generate a new OAuth application (under Settings -> OAuth).
+3. Make a note of the Client ID and Client Secret.
+
 ### Configure `isctl`
 
-Run `isctl configure` to configure it to use your API key. Follow the prompts for your key ID and path to the key file. (Note: the path to the key file should be an absolute path and doesn't support shell metacharacters such as "`~`")
+Run `isctl configure` to configure it. Follow the prompts for your preferred authentication method.
 
 ```
-keyID is currently ''
-Enter new keyID or press Enter to keep existing: 123456789012345678901234/123456789012345678901234/123456789012345678901234
-key filename is currently ''
-Enter new key file name or press Enter to keep existing: /Users/chris/intersight-key.pem
-2020/06/25 17:28:22 Writing config file
+Let's setup authentication. You can either configure intersight_api_key_id and intersight_secret_key (for API Key authentication), or you can configure intersight_client_id and intersight_client_secret (for OAuth authentication).
+intersight_api_key_id is currently ''
+Enter new intersight_api_key_id or press Enter to keep existing: 
+...
 ```
 
 ## Querying Intersight

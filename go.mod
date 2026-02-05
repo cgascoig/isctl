@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	github.com/PaesslerAG/jsonpath v0.1.1
 	github.com/bndr/gotabulate v1.1.3-0.20210209140143-7b841ac46153
-	github.com/cgascoig/intersight-simple-go v0.5.0
+	github.com/cgascoig/intersight-simple-go v0.6.0
 	github.com/getkin/kin-openapi v0.131.0
 	github.com/go-python/gpython v0.2.0
 	github.com/icza/dyno v0.0.0-20230330125955-09f820a8d9c0
@@ -34,7 +34,7 @@ require (
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
 	github.com/go-openapi/swag v0.23.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
-	github.com/google/go-cmp v0.5.9 // indirect
+	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
@@ -53,6 +53,9 @@ require (
 	github.com/xuri/nfp v0.0.0-20220409054826-5e722a1d9e22 // indirect
 	golang.org/x/crypto v0.45.0 // indirect
 	golang.org/x/net v0.47.0 // indirect
+	golang.org/x/oauth2 v0.12.0 // indirect
 	golang.org/x/sys v0.38.0 // indirect
 	golang.org/x/text v0.31.0 // indirect
+	google.golang.org/appengine v1.6.7 // indirect
+	google.golang.org/protobuf v1.31.0 // indirect
 )
