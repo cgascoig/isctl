@@ -135,6 +135,35 @@ TEST_SECTION="NTP Policy CRUD"
     assert_line --index 3 --regexp "^ +${TEST_NTP_POLICY_NAME} +tag1: value1, tag2: value2 *$"
 }
 
+@test "${TEST_SECTION}: go-template basic" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy name "${TEST_NTP_POLICY_NAME}" -o go-template='{{.Name}}'
+    assert_success
+    assert_output "${TEST_NTP_POLICY_NAME}"
+}
+
+@test "${TEST_SECTION}: go-template with sprig" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy name "${TEST_NTP_POLICY_NAME}" -o go-template='{{.Name | upper}}'
+    assert_success
+    UPPER_NAME=$(echo "${TEST_NTP_POLICY_NAME}" | tr '[:lower:]' '[:upper:]')
+    assert_output "${UPPER_NAME}"
+}
+
+@test "${TEST_SECTION}: go-template conditional" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy name "${TEST_NTP_POLICY_NAME}" -o go-template='{{if .Enabled}}ENABLED{{else}}DISABLED{{end}}'
+    assert_success
+    # Could be either ENABLED or DISABLED depending on policy state
+    [[ "$output" == "ENABLED" ]] || [[ "$output" == "DISABLED" ]]
+}
+
+@test "${TEST_SECTION}: go-template list iteration" {
+    # Use filter to get both test policies and iterate with range
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "startswith(Name, '${TEST_NTP_POLICY_NAME_BASE}')" -o go-template='{{range .}}{{.Name}}
+{{end}}'
+    assert_success
+    assert_line "${TEST_NTP_POLICY_NAME}"
+    assert_line "${TEST_NTP_POLICY_NAME_2}"
+}
+
 @test "${TEST_SECTION}: auto pagination works" {
     NORMAL_LINES=$(./build/isctl ${ISCTL_OPTIONS} get ntp policy | wc -l)
     BATCH_LINES=$(./build/isctl ${ISCTL_OPTIONS} get ntp policy --auto-paginate --auto-paginate-batch-size 2 | wc -l)

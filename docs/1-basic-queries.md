@@ -190,3 +190,50 @@ The output can be saved as a .xlsx file for easy opening in spreadsheet applicat
 ```
 isctl get ntp policy -o xlsx=out.xlsx
 ```
+
+### Go Template
+
+The `go-template` output format allows you to use Go's [text/template](https://pkg.go.dev/text/template) syntax for flexible output formatting, similar to kubectl. This output format also includes [sprig](http://masterminds.github.io/sprig/) template functions for additional utility.
+
+**Basic usage** - access a single field:
+```
+isctl get ntp policy --name "test-policy" -o go-template='{{.Name}}'
+```
+Output:
+```
+test-policy
+```
+
+**Multiple fields:**
+```
+isctl get ntp policy --name "test-policy" -o go-template='Name: {{.Name}}, Enabled: {{.Enabled}}'
+```
+Output:
+```
+Name: test-policy, Enabled: true
+```
+
+**Iterate over a list:**
+```
+isctl get ntp policy -o go-template='{{range .}}{{.Name}}
+{{end}}'
+```
+Output:
+```
+test-ntp-policy
+cg-tf-ntp-test-1
+```
+
+**Conditional output:**
+```
+isctl get ntp policy --name "test-policy" -o go-template='{{if .Enabled}}Policy is enabled{{else}}Policy is disabled{{end}}'
+```
+
+**Using sprig functions** (e.g., `upper`, `lower`, `trim`, `join`):
+```
+isctl get ntp policy --name "test-policy" -o go-template='{{.Name | upper}}'
+```
+Output:
+```
+TEST-POLICY
+```
