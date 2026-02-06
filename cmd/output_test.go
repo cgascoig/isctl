@@ -1,7 +1,10 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
+	"os"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -393,4 +396,113 @@ func TestSortHeaders(t *testing.T) {
 		SortHeaders(in, test.priorityNames)
 		assert.Equal(t, test.out, in)
 	}
+}
+
+func TestPrintResultGoTemplate(t *testing.T) {
+	// Helper to capture stdout
+	captureOutput := func(f func()) string {
+		// Save original stdout
+		oldStdout := os.Stdout
+		r, w, _ := os.Pipe()
+		os.Stdout = w
+
+		f()
+
+		w.Close()
+		os.Stdout = oldStdout
+
+		var buf bytes.Buffer
+		buf.ReadFrom(r)
+		return buf.String()
+	}
+
+	tests := []struct {
+		name     string
+		result   interface{}
+		template string
+		expected string
+	}{
+		{
+			name: "simple field access",
+			result: map[string]interface{}{
+				"Name":    "TestPolicy",
+				"Enabled": true,
+				"Moid":    "1234567",
+			},
+			template: "{{.Name}}",
+			expected: "TestPolicy\n",
+		},
+		{
+			name: "multiple fields",
+			result: map[string]interface{}{
+				"Name":    "TestPolicy",
+				"Enabled": true,
+			},
+			template: "Name: {{.Name}}, Enabled: {{.Enabled}}",
+			expected: "Name: TestPolicy, Enabled: true\n",
+		},
+		{
+			name: "range over slice",
+			result: []interface{}{
+				map[string]interface{}{"Name": "Policy1"},
+				map[string]interface{}{"Name": "Policy2"},
+			},
+			template: "{{range .}}{{.Name}}\n{{end}}",
+			expected: "Policy1\nPolicy2\n\n",
+		},
+		{
+			name: "sprig upper function",
+			result: map[string]interface{}{
+				"Name": "TestPolicy",
+			},
+			template: "{{.Name | upper}}",
+			expected: "TESTPOLICY\n",
+		},
+		{
+			name: "sprig trim function",
+			result: map[string]interface{}{
+				"Name": "  TestPolicy  ",
+			},
+			template: "{{.Name | trim}}",
+			expected: "TestPolicy\n",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			output := captureOutput(func() {
+				printResultGoTemplate(tt.result, tt.template)
+			})
+			assert.Equal(t, tt.expected, output)
+		})
+	}
+}
+
+func TestPrintResultGoTemplateWithConditions(t *testing.T) {
+	result := map[string]interface{}{
+		"Name":    "TestPolicy",
+		"Enabled": true,
+	}
+
+	// Helper to capture stdout
+	captureOutput := func(f func()) string {
+		oldStdout := os.Stdout
+		r, w, _ := os.Pipe()
+		os.Stdout = w
+
+		f()
+
+		w.Close()
+		os.Stdout = oldStdout
+
+		var buf bytes.Buffer
+		buf.ReadFrom(r)
+		return buf.String()
+	}
+
+	output := captureOutput(func() {
+		printResultGoTemplate(result, "{{if .Enabled}}ENABLED{{else}}DISABLED{{end}}")
+	})
+
+	assert.True(t, strings.Contains(output, "ENABLED"))
 }

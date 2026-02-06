@@ -5,10 +5,13 @@ import (
 	"fmt"
 	"net/http"
 	"net/http/httputil"
+	"os"
 	"regexp"
 	"sort"
 	"strings"
+	"text/template"
 
+	"github.com/Masterminds/sprig/v3"
 	"github.com/PaesslerAG/jsonpath"
 	"github.com/bndr/gotabulate"
 	"github.com/icza/dyno"
@@ -103,6 +106,15 @@ func structuredOutputHandler(result any, multiPartResults bool) {
 			outputResultXLSX(result, outputConfigParts[1], multiPartResults)
 		} else {
 			log.Fatalf("xslx output requires a filename, e.g. '-o xslx=inventory.xlsx'")
+		}
+	case "go-template":
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o go-template")
+		}
+		if len(outputConfigParts) == 2 {
+			printResultGoTemplate(result, outputConfigParts[1])
+		} else {
+			log.Fatalf("go-template output requires a template, e.g. '-o go-template={{.Name}}'")
 		}
 
 	default:
@@ -521,6 +533,21 @@ func printResultJSONPath(result interface{}, template string) {
 	default:
 		fmt.Printf("%v\n", res)
 	}
+}
+
+func printResultGoTemplate(result interface{}, templateStr string) {
+	// Create template with sprig functions
+	tmpl, err := template.New("output").Funcs(sprig.TxtFuncMap()).Parse(templateStr)
+	if err != nil {
+		log.Fatalf("Error parsing go-template: %v", err)
+	}
+
+	err = tmpl.Execute(os.Stdout, result)
+	if err != nil {
+		log.Fatalf("Error executing go-template: %v", err)
+	}
+	// Add a newline if the template output doesn't end with one
+	fmt.Println()
 }
 
 func setXLSXSheet(f *excelize.File, sheetName string, tableData [][]string, tableHeaders []string) {
