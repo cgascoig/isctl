@@ -297,6 +297,41 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 		}
 	}
 
+	// Resolve abstract class dependencies to concrete classes present in the MO set.
+	// When a MoRef uses an abstract relationship type (e.g. resource.AbstractResourceQualificationPolicy),
+	// the extracted dependency won't match any classID in the MO set. We replace such abstract deps
+	// with their concrete implementations that are actually in the set.
+	meta, err := oapi.GetMeta()
+	if err != nil {
+		log.Warnf("Failed to load metadata for abstract class resolution: %v", err)
+	} else {
+		for classID, deps := range dependencies {
+			var toAdd []string
+			var toRemove []string
+			for dep := range deps {
+				if _, inSet := mosForClassID[dep]; inSet {
+					continue
+				}
+				if !meta.IsConcreteClass(dep) {
+					impls := meta.GetConcreteImplementations(dep)
+					for _, impl := range impls {
+						if _, inSet := mosForClassID[impl]; inSet {
+							toAdd = append(toAdd, impl)
+						}
+					}
+					toRemove = append(toRemove, dep)
+				}
+			}
+			for _, dep := range toRemove {
+				delete(deps, dep)
+			}
+			for _, dep := range toAdd {
+				deps[dep] = true
+			}
+			dependencies[classID] = deps
+		}
+	}
+
 	// while there are still unfinalised classIds, pick one and perform the recursive search for dependencies
 	for classID := getOrderedMOsGetUnfinalisedClassID(&finalised); classID != ""; classID = getOrderedMOsGetUnfinalisedClassID(&finalised) {
 		err := getOrderedMOsVisit(classID, &finalised, &processing, &dependencies, &orderedClasses)

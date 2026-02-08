@@ -14,6 +14,16 @@ func TestReplaceArgs(t *testing.T) {
 	assert.Equal(t, "api/12345", s)
 }
 
+func TestGetOperationForRelationshipAbstractClass(t *testing.T) {
+	// Abstract classes should have no direct GET operation, which triggers the fallback path
+	op := GetOperationForRelationship("resource.AbstractResourceQualificationPolicy.Relationship")
+	assert.Nil(t, op, "abstract class should not have a direct GET operation")
+
+	// Concrete classes should have a GET operation
+	op = GetOperationForRelationship("ntp.Policy.Relationship")
+	assert.NotNil(t, op, "concrete class ntp.Policy should have a GET operation")
+}
+
 func TestAppendResults(t *testing.T) {
 	in := map[string]any{
 		"Results": []any{

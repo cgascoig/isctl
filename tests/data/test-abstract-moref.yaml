@@ -1,0 +1,19 @@
+ClassId: resourcepool.QualificationPolicy
+Name: isctl-bats-test
+Organization: default
+Qualifiers:
+- ObjectType: resource.BladeQualifier
+  Pids:
+  - UCSX-210C-M6
+- ObjectType: resource.GpuQualifier
+  GpuEvaluationType: Unspecified
+---
+ClassId: resourcepool.Pool
+Name: isctl-bats-test
+Organization: default
+ResourcePoolParameters:
+  ManagementMode: Intersight
+  ObjectType: resourcepool.ServerPoolParameters
+ResourceType: Server
+QualificationPolicies:
+- MoRef[isctl-bats-test]

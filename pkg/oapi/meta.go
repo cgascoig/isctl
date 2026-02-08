@@ -120,6 +120,36 @@ func (m *Meta) GetIdentityConstraints(classId string) []string {
 	return []string{}
 }
 
+// IsConcreteClass returns whether the given classId corresponds to a concrete class.
+// Returns false if the class is abstract or not found in the metadata.
+func (m *Meta) IsConcreteClass(classId string) bool {
+	for _, cm := range *m {
+		if cm.Name == classId {
+			return cm.IsConcrete
+		}
+	}
+	return false
+}
+
+// GetConcreteImplementations returns the names of concrete classes that have
+// abstractClassId in their AncestorClasses slice. This traverses the full
+// inheritance tree, not just direct children.
+func (m *Meta) GetConcreteImplementations(abstractClassId string) []string {
+	var result []string
+	for _, cm := range *m {
+		if !cm.IsConcrete {
+			continue
+		}
+		for _, ancestor := range cm.AncestorClasses {
+			if ancestor == abstractClassId {
+				result = append(result, cm.Name)
+				break
+			}
+		}
+	}
+	return result
+}
+
 // GetRefType returns the type of the relationship if the property is a reference, and true.
 // Otherwise returns empty string and false.
 func (m *Meta) GetRefType(classId, propName string) (string, bool) {

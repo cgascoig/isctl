@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/url"
 	"regexp"
+	"strings"
 
 	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
@@ -42,7 +43,13 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 
 	op := GetOperationForRelationship(moref.RelationshipType)
 	if op == nil {
-		return nil, fmt.Errorf("no operation for relationship %s", moref.RelationshipType)
+		// The relationship type has no direct GET operation - check if it's an abstract class
+		ret, err := resolveAbstractMoRef(client, moref, filter)
+		if err != nil {
+			return nil, err
+		}
+		momorefCache[*moref] = ret
+		return ret, nil
 	}
 
 	res, err := op.Execute(client, nil, map[string]string{"filter": filter})
@@ -102,6 +109,87 @@ func getClassId(res interface{}) (string, bool) {
 	}
 
 	return classId, true
+}
+
+// resolveAbstractMoRef attempts to resolve a MoRef for an abstract class by
+// trying all concrete implementations. Returns an error if zero or multiple
+// matches are found across different concrete classes.
+func resolveAbstractMoRef(client *util.IsctlClient, moref *oapi.MoRef, filter string) (map[string]any, error) {
+	classID := getClassIDFromRelationship(moref.RelationshipType)
+	log.Debugf("No direct operation for %s, checking if it's an abstract class", classID)
+
+	m, err := oapi.GetMeta()
+	if err != nil {
+		return nil, fmt.Errorf("no operation for relationship %s (failed to load metadata: %v)", moref.RelationshipType, err)
+	}
+
+	if m.IsConcreteClass(classID) {
+		return nil, fmt.Errorf("no operation for relationship %s", moref.RelationshipType)
+	}
+
+	implementations := m.GetConcreteImplementations(classID)
+	if len(implementations) == 0 {
+		return nil, fmt.Errorf("no operation for relationship %s (no concrete implementations found for %s)", moref.RelationshipType, classID)
+	}
+
+	log.Debugf("Found %d concrete implementations of %s: %v", len(implementations), classID, implementations)
+
+	type candidate struct {
+		moid    string
+		classId string
+	}
+
+	var candidates []candidate
+	var triedClasses []string
+
+	for _, implClass := range implementations {
+		op := GetGetOperationForClassID(implClass)
+		if op == nil {
+			log.Debugf("No GET operation for concrete class %s, skipping", implClass)
+			continue
+		}
+
+		triedClasses = append(triedClasses, implClass)
+
+		res, err := op.Execute(client, nil, map[string]string{"filter": filter})
+		if err != nil {
+			log.Debugf("Error querying concrete class %s: %v, skipping", implClass, err)
+			continue
+		}
+
+		moid, ok := util.GetMoid(res)
+		if !ok {
+			// Zero or multiple results for this class - skip
+			log.Debugf("No unique match in concrete class %s, skipping", implClass)
+			continue
+		}
+
+		cid, ok := getClassId(res)
+		if !ok {
+			log.Debugf("Could not get ClassId from result for %s, skipping", implClass)
+			continue
+		}
+
+		candidates = append(candidates, candidate{moid: moid, classId: cid})
+	}
+
+	switch len(candidates) {
+	case 0:
+		return nil, fmt.Errorf("no matching object found for any concrete implementation of %s (tried: %s)", classID, strings.Join(triedClasses, ", "))
+	case 1:
+		log.Debugf("Resolved abstract MoRef to %s (Moid: %s)", candidates[0].classId, candidates[0].moid)
+		return map[string]any{
+			"ClassId":    "mo.MoRef",
+			"Moid":       candidates[0].moid,
+			"ObjectType": candidates[0].classId,
+		}, nil
+	default:
+		matchedClasses := make([]string, len(candidates))
+		for i, c := range candidates {
+			matchedClasses[i] = c.classId
+		}
+		return nil, fmt.Errorf("ambiguous MoRef: matched objects in multiple concrete classes: %s — use MoRef:ClassName[NAME] to specify the concrete type", strings.Join(matchedClasses, ", "))
+	}
 }
 
 func ReplaceArgs(s string, args []string) (string, error) {
