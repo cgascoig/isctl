@@ -128,4 +128,35 @@ func TestGetOrderedMOs(t *testing.T) {
 			}},
 		},
 	}, res)
+
+	// Test that abstract class MoRef dependencies are resolved to concrete classes.
+	// resourcepool.Pool has QualificationPolicies which references
+	// resource.AbstractResourceQualificationPolicy (an abstract class).
+	// The ordering should ensure resourcepool.QualificationPolicy comes before resourcepool.Pool.
+	res, err = getOrderedMOs([]rawMO{
+		{
+			"ClassId":               "resourcepool.Pool",
+			"Name":                  "test-pool",
+			"QualificationPolicies": []any{"MoRef[isctl-bats-test]"},
+		},
+		{
+			"ClassId": "resourcepool.QualificationPolicy",
+			"Name":    "isctl-bats-test",
+		},
+	})
+	assert.NoError(t, err)
+	assert.Equal(t, []rawMO{
+		{
+			"ClassId": "resourcepool.QualificationPolicy",
+			"Name":    "isctl-bats-test",
+		},
+		{
+			"ClassId": "resourcepool.Pool",
+			"Name":    "test-pool",
+			"QualificationPolicies": []any{&oapi.MoRef{
+				RelationshipType: "resource.AbstractResourceQualificationPolicy.Relationship",
+				Filter:           "Name eq 'isctl-bats-test'",
+			}},
+		},
+	}, res)
 }

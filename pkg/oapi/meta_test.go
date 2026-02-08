@@ -125,3 +125,35 @@ func TestGetIdentityConstraints(t *testing.T) {
 	assert.Equal(t, []string{"VlanId",
 		"EthNetworkPolicy"}, m.GetIdentityConstraints("fabric.Vlan"))
 }
+
+func TestIsConcreteClass(t *testing.T) {
+	m, err := GetMeta()
+	assert.NoError(t, err)
+
+	// ntp.Policy is a concrete class
+	assert.True(t, m.IsConcreteClass("ntp.Policy"))
+
+	// resource.AbstractResourceQualificationPolicy is abstract
+	assert.False(t, m.IsConcreteClass("resource.AbstractResourceQualificationPolicy"))
+
+	// Non-existent class returns false
+	assert.False(t, m.IsConcreteClass("nonexistent.Class"))
+}
+
+func TestGetConcreteImplementations(t *testing.T) {
+	m, err := GetMeta()
+	assert.NoError(t, err)
+
+	// Abstract class should have concrete implementations
+	impls := m.GetConcreteImplementations("resource.AbstractResourceQualificationPolicy")
+	assert.Contains(t, impls, "resourcepool.QualificationPolicy")
+	assert.Contains(t, impls, "resourcepool.ChassisQualificationPolicy")
+
+	// Concrete class should have no implementations (nothing lists it as ancestor)
+	impls = m.GetConcreteImplementations("ntp.Policy")
+	assert.Empty(t, impls)
+
+	// Non-existent class should have no implementations
+	impls = m.GetConcreteImplementations("nonexistent.Class")
+	assert.Empty(t, impls)
+}

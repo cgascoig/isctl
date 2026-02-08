@@ -115,6 +115,41 @@ TEST_SECTION="Apply"
     assert_success
 }
 
+#bats test_tags=abstractmoref
+@test "${TEST_SECTION}: apply MOs with abstract class MoRef resolution" {
+    # Clean up any previous test objects
+    run ./build/isctl ${ISCTL_OPTIONS} delete resourcepool pool name "${TEST_NAME}"
+    run ./build/isctl ${ISCTL_OPTIONS} delete resourcepool qualificationpolicy name "${TEST_NAME}"
+
+    # Apply creates the QualificationPolicy first, then the Pool with MoRef[name]
+    # which must resolve through the abstract resource.AbstractResourceQualificationPolicy
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f tests/data/test-abstract-moref.yaml
+    assert_success
+    assert_line --partial --index 0 "Performing create operation on new MO (Name: ${TEST_NAME}, ClassId: resourcepool.QualificationPolicy)"
+    assert_line --partial --index 1 "Performing create operation on new MO (Name: ${TEST_NAME}, ClassId: resourcepool.Pool)"
+}
+
+#bats test_tags=abstractmoref
+@test "${TEST_SECTION}: verify abstract MoRef was resolved in resourcepool.Pool" {
+    QUAL_POLICIES=$(./build/isctl ${ISCTL_OPTIONS} get resourcepool pool --name "${TEST_NAME}" -o json | jq -r '.QualificationPolicies | length')
+    [ "${QUAL_POLICIES}" -ge 1 ]
+}
+
+#bats test_tags=abstractmoref
+@test "${TEST_SECTION}: delete MOs with abstract class MoRef resolution" {
+    run ./build/isctl ${ISCTL_OPTIONS} apply -d -f tests/data/test-abstract-moref.yaml
+    assert_success
+
+    sleep 5
+
+    # Verify objects are deleted
+    # ! ./build/isctl ${ISCTL_OPTIONS} get resourcepool pool | grep "${TEST_NAME}"
+    # ! ./build/isctl ${ISCTL_OPTIONS} get resourcepool qualificationpolicy | grep "${TEST_NAME}"
+    ! ./build/isctl ${ISCTL_OPTIONS} get resourcepool pool name "${TEST_NAME}"
+    ! ./build/isctl ${ISCTL_OPTIONS} get resourcepool qualificationpolicy name "${TEST_NAME}"
+
+}
+
 setup() {
     load 'test_helper/bats-support/load' # this is required by bats-assert!
     load 'test_helper/bats-assert/load'
