@@ -19,6 +19,7 @@ import (
 	"github.com/xuri/excelize/v2"
 	yaml "gopkg.in/yaml.v2"
 
+	"github.com/cgascoig/isctl/pkg/oapi"
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
@@ -116,6 +117,11 @@ func structuredOutputHandler(result any, multiPartResults bool) {
 		} else {
 			log.Fatalf("go-template output requires a template, e.g. '-o go-template={{.Name}}'")
 		}
+	case "yaml-editable":
+		if multiPartResults {
+			log.Fatal("this command generated multi-part results which is not supported with -o yaml-editable")
+		}
+		printResultYAMLEditable(result)
 
 	default:
 		if multiPartResults {
@@ -387,6 +393,51 @@ func printResultYAML(result interface{}) {
 	}
 
 	fmt.Println(string(out))
+}
+
+func printResultYAMLEditable(result interface{}) {
+	// Handle list results - process each item
+	if resultList, ok := result.([]interface{}); ok {
+		for i, item := range resultList {
+			if i > 0 {
+				fmt.Println("---")
+			}
+			printSingleMOEditable(item)
+		}
+		return
+	}
+
+	// Handle single result
+	printSingleMOEditable(result)
+}
+
+func printSingleMOEditable(result interface{}) {
+	mo, ok := result.(map[string]interface{})
+	if !ok {
+		log.Errorf("unexpected result type for yaml-editable output: %T", result)
+		return
+	}
+
+	// Get the ObjectType to determine the class ID
+	objectType, err := dyno.GetString(mo, "ObjectType")
+	if err != nil {
+		log.Errorf("could not determine ObjectType for yaml-editable output: %v", err)
+		return
+	}
+
+	// Convert to map[string]any for FormatEditableYAML
+	moAny := make(map[string]any)
+	for k, v := range mo {
+		moAny[k] = v
+	}
+
+	out, err := oapi.FormatEditableYAML(moAny, objectType)
+	if err != nil {
+		log.Errorf("error formatting editable YAML: %v", err)
+		return
+	}
+
+	fmt.Print(string(out))
 }
 
 func printResultJSON(result interface{}) {

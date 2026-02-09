@@ -36,11 +36,73 @@ func FilterWritableProperties(mo map[string]any, classId string) (map[string]any
 	filtered := make(map[string]any)
 	for key, value := range mo {
 		if writableSet[key] {
-			filtered[key] = value
+			// Recursively filter nested objects
+			filtered[key] = filterNestedValue(value, meta)
 		}
 	}
 
 	return filtered, nil
+}
+
+// filterNestedValue recursively filters nested objects and slices
+func filterNestedValue(value any, meta *Meta) any {
+	switch v := value.(type) {
+	case map[string]any:
+		return filterNestedMap(v, meta)
+	case []any:
+		return filterNestedSlice(v, meta)
+	default:
+		return value
+	}
+}
+
+// filterNestedMap filters a nested map, recursively filtering its contents
+// based on the ObjectType's class metadata
+func filterNestedMap(m map[string]any, meta *Meta) map[string]any {
+	filtered := make(map[string]any)
+
+	// Check if this nested object has an ObjectType that we can use to filter
+	objectType, hasObjectType := m["ObjectType"].(string)
+
+	var writableSet map[string]bool
+	if hasObjectType {
+		// Try to get writable properties for this nested class
+		writableProps := meta.GetWritablePropertyNames(objectType)
+		writableRels := meta.GetWritableRelationshipNames(objectType)
+
+		if writableProps != nil || writableRels != nil {
+			writableSet = make(map[string]bool)
+			for _, name := range writableProps {
+				writableSet[name] = true
+			}
+			for _, name := range writableRels {
+				writableSet[name] = true
+			}
+		}
+	}
+
+	for key, value := range m {
+		// If we have metadata for this class, filter to writable properties
+		if writableSet != nil {
+			if !writableSet[key] {
+				continue
+			}
+		}
+
+		// Recursively filter nested values
+		filtered[key] = filterNestedValue(value, meta)
+	}
+
+	return filtered
+}
+
+// filterNestedSlice filters each item in a slice
+func filterNestedSlice(s []any, meta *Meta) []any {
+	filtered := make([]any, len(s))
+	for i, item := range s {
+		filtered[i] = filterNestedValue(item, meta)
+	}
+	return filtered
 }
 
 // FormatEditableYAML filters a managed object to only include writable properties
