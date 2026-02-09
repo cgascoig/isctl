@@ -113,6 +113,7 @@ Variables can be provided from three sources, in order of precedence (highest to
 1.  **Command-line flags**: `--var key=value`
 2.  **Variable file**: `--var-file path/to/vars.yaml`
 3.  **Environment variables**: `ISCTL_VAR_variableName`
+4.  **Directory variables**: `isctl.vars.yaml` or `isctl.vars.yml` in directories passed to `-f`
 
 ### Functions
 

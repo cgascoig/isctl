@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 	"text/template"
 
@@ -15,10 +16,49 @@ import (
 // 1. Command line flags (--var)
 // 2. Variable file (--var-file)
 // 3. Environment variables (ISCTL_VAR_*)
-func (config *applyConfig) getVariables() (map[string]interface{}, error) {
+// 4. Directory variables (isctl.vars.yaml/yml in directories passed to -f)
+func (config *applyConfig) getVariables(applyFilenames []string) (map[string]interface{}, error) {
 	vars := make(map[string]interface{})
 
-	// 1. Environment variables starting with ISCTL_VAR_
+	// Directory variables (lowest precedence, so loaded first)
+
+	// We need to track where variables came from to detect collisions
+	dirVarSources := make(map[string]string)
+
+	for _, path := range applyFilenames {
+		info, err := os.Stat(path)
+		if err != nil {
+			continue // Skip invalid paths, they will be handled later
+		}
+		if info.IsDir() {
+			// Check for isctl.vars.yaml or isctl.vars.yml
+			for _, ext := range []string{".yaml", ".yml"} {
+				varFileName := "isctl.vars" + ext
+				varFile := filepath.Join(path, varFileName)
+
+				fileInfo, err := os.Stat(varFile)
+				// Check if file exists and is a regular file
+				if err == nil && fileInfo.Mode().IsRegular() {
+					fileVars, err := loadVarFile(varFile)
+					if err != nil {
+						return nil, fmt.Errorf("failed to load directory variable file %s: %w", varFile, err)
+					}
+
+					for k, v := range fileVars {
+						// Check for collisions with other directory variable files
+						if source, exists := dirVarSources[k]; exists {
+							return nil, fmt.Errorf("variable '%s' is defined in multiple directory variable files: %s and %s", k, source, varFile)
+						}
+
+						vars[k] = v
+						dirVarSources[k] = varFile
+					}
+				}
+			}
+		}
+	}
+
+	// Environment variables starting with ISCTL_VAR_
 	for _, env := range os.Environ() {
 		pair := strings.SplitN(env, "=", 2)
 		if len(pair) == 2 && strings.HasPrefix(pair[0], "ISCTL_VAR_") {
@@ -29,7 +69,7 @@ func (config *applyConfig) getVariables() (map[string]interface{}, error) {
 		}
 	}
 
-	// 2. Variable file
+	// Variable file
 	if config.varFile != "" {
 		fileVars, err := loadVarFile(config.varFile)
 		if err != nil {
@@ -40,7 +80,7 @@ func (config *applyConfig) getVariables() (map[string]interface{}, error) {
 		}
 	}
 
-	// 3. Command line flags
+	// Command line flags
 	for _, v := range config.varFlags {
 		pair := strings.SplitN(v, "=", 2)
 		if len(pair) != 2 {

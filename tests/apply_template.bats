@@ -78,3 +78,51 @@ EOF
     # Template processing succeeds (empty value), but API validation fails because Name is empty/invalid
     assert_output --partial "Cannot set the property 'policy.AbstractPolicy.Name'"
 }
+
+@test "apply loads variables from isctl.vars.yaml in directory" {
+    # cleanup any stale objects
+    run ./build/isctl delete ntp policy name dir-var-test
+
+    # 1. Create a directory structure
+    mkdir -p "$BATS_TEST_TMPDIR/subdir"
+
+    # 2. Create a template file in the directory
+    cat <<EOF > "$BATS_TEST_TMPDIR/subdir/template.yaml"
+ClassId: ntp.Policy
+Name: {{ .Vars.name }}
+Organization: default
+Description: "Loaded from {{ .Vars.source }}"
+NtpServers:
+  - 1.2.3.4
+EOF
+
+    # 3. Create isctl.vars.yaml in the directory
+    cat <<EOF > "$BATS_TEST_TMPDIR/subdir/isctl.vars.yaml"
+name: dir-var-test
+source: dir-file
+EOF
+
+    # 4. Apply the directory
+    run ./build/isctl apply -f "$BATS_TEST_TMPDIR/subdir"
+    assert_success
+    assert_output --partial "Performing create operation on new MO"
+    assert_output --partial "Name: dir-var-test"
+
+    # 5. Verify object
+    run ./build/isctl get ntp policy --name dir-var-test -o yaml
+    assert_success
+    assert_output --partial "Name: dir-var-test"
+    assert_output --partial "Description: Loaded from dir-file"
+
+    # 6. Verify precedence (env > dir)
+    export ISCTL_VAR_source="env-override"
+    run ./build/isctl apply -f "$BATS_TEST_TMPDIR/subdir"
+    assert_success
+    
+    run ./build/isctl get ntp policy --name dir-var-test -o yaml
+    assert_success
+    assert_output --partial "Description: Loaded from env-override"
+    
+    unset ISCTL_VAR_source
+    rm -rf "$BATS_TEST_TMPDIR/subdir"
+}

@@ -58,7 +58,7 @@ func init() {
 func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
 	// config.client.GetConfig().Debug = verbose
 
-	vars, err := config.getVariables()
+	vars, err := config.getVariables(applyFilenames)
 	if err != nil {
 		log.Fatalf("Error loading variables: %v", err)
 	}
@@ -231,6 +231,9 @@ func loadRawMOs(applyFilenames []string, vars map[string]interface{}) ([]rawMO, 
 			}
 			filenames := append(filenames1, filenames2...)
 			for _, filename := range filenames {
+				if filepath.Base(filename) == "isctl.vars.yaml" || filepath.Base(filename) == "isctl.vars.yml" {
+					continue
+				}
 				mos, err := loadFile(filename, vars)
 				if err != nil {
 					return nil, fmt.Errorf("error reading file: %v", err)
