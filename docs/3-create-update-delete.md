@@ -74,3 +74,32 @@ Or by Name:
 isctl update ntp policy name isctl-test-1 --Enabled=False
 ```
 
+## Editing resources interactively
+
+For more complex edits, or when you want to review the current state before making changes, use the `isctl edit` command. This opens the resource in your preferred text editor, similar to `kubectl edit`.
+
+```
+isctl edit ntp policy name isctl-test-1
+```
+
+This will:
+1. Fetch the current resource from Intersight
+2. Filter to show only editable properties (read-only fields like Moid and CreateTime are hidden)
+3. Open it in your editor as YAML
+4. After you save and close, apply any changes via an update operation
+
+If you close the editor without making changes, no update is performed.
+
+### Editor selection
+
+The editor is determined by (in order of precedence):
+1. `$EDITOR` environment variable
+2. `$VISUAL` environment variable
+3. Platform default (`vi` on Unix, `notepad` on Windows)
+
+To use a specific editor:
+
+```
+EDITOR=nano isctl edit ntp policy name isctl-test-1
+```
+

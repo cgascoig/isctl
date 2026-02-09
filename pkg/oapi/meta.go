@@ -165,3 +165,43 @@ func (m *Meta) GetRefType(classId, propName string) (string, bool) {
 	}
 	return "", false
 }
+
+// GetClassMeta returns the ClassMeta for a given class ID, or nil if not found.
+func (m *Meta) GetClassMeta(classId string) *ClassMeta {
+	for i := range *m {
+		if (*m)[i].Name == classId {
+			return &(*m)[i]
+		}
+	}
+	return nil
+}
+
+// GetWritablePropertyNames returns the names of properties with ApiAccess == "ReadWrite".
+func (m *Meta) GetWritablePropertyNames(classId string) []string {
+	cm := m.GetClassMeta(classId)
+	if cm == nil {
+		return nil
+	}
+	var names []string
+	for _, prop := range cm.Properties {
+		if prop.ApiAccess == "ReadWrite" {
+			names = append(names, prop.Name)
+		}
+	}
+	return names
+}
+
+// GetWritableRelationshipNames returns the names of relationships with ApiAccess == "ReadWrite".
+func (m *Meta) GetWritableRelationshipNames(classId string) []string {
+	cm := m.GetClassMeta(classId)
+	if cm == nil {
+		return nil
+	}
+	var names []string
+	for _, rel := range cm.Relationships {
+		if rel.ApiAccess == "ReadWrite" {
+			names = append(names, rel.Name)
+		}
+	}
+	return names
+}
