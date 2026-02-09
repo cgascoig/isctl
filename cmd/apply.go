@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -25,7 +26,9 @@ var (
 type rawMO = map[string]any
 
 type applyConfig struct {
-	client *util.IsctlClient
+	client   *util.IsctlClient
+	varFlags []string
+	varFile  string
 }
 
 func newCmdApply(client *util.IsctlClient) *cobra.Command {
@@ -42,6 +45,8 @@ func newCmdApply(client *util.IsctlClient) *cobra.Command {
 
 	cmd.Flags().StringSliceVarP(&applyFilenames, "filename", "f", []string{}, "Filename(s) that contains the configuration to apply (comma-separated list)")
 	cmd.Flags().BoolVarP(&applyDelete, "delete", "d", false, "Destroy the configuration instead of creating it")
+	cmd.Flags().StringArrayVar(&config.varFlags, "var", []string{}, "Set variable values (key=value)")
+	cmd.Flags().StringVar(&config.varFile, "var-file", "", "Load variable values from a YAML file")
 
 	return cmd
 }
@@ -53,7 +58,12 @@ func init() {
 func (config *applyConfig) runCmdApply(cmd *cobra.Command, args []string) {
 	// config.client.GetConfig().Debug = verbose
 
-	rawMOs, err := loadRawMOs(applyFilenames)
+	vars, err := config.getVariables()
+	if err != nil {
+		log.Fatalf("Error loading variables: %v", err)
+	}
+
+	rawMOs, err := loadRawMOs(applyFilenames, vars)
 	if err != nil {
 		log.Fatalf("Unable to load MOs: %v", err)
 	}
@@ -203,7 +213,7 @@ func applyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 	return nil
 }
 
-func loadRawMOs(applyFilenames []string) ([]rawMO, error) {
+func loadRawMOs(applyFilenames []string, vars map[string]interface{}) ([]rawMO, error) {
 	rawMOs := []rawMO{}
 
 	for _, filePath := range applyFilenames {
@@ -221,7 +231,7 @@ func loadRawMOs(applyFilenames []string) ([]rawMO, error) {
 			}
 			filenames := append(filenames1, filenames2...)
 			for _, filename := range filenames {
-				mos, err := loadFile(filename)
+				mos, err := loadFile(filename, vars)
 				if err != nil {
 					return nil, fmt.Errorf("error reading file: %v", err)
 				}
@@ -229,7 +239,7 @@ func loadRawMOs(applyFilenames []string) ([]rawMO, error) {
 				rawMOs = append(rawMOs, mos...)
 			}
 		case mode.IsRegular():
-			mos, err := loadFile(filePath)
+			mos, err := loadFile(filePath, vars)
 			if err != nil {
 				return nil, fmt.Errorf("error reading file: %v", err)
 			}
@@ -243,15 +253,20 @@ func loadRawMOs(applyFilenames []string) ([]rawMO, error) {
 	return rawMOs, nil
 }
 
-func loadFile(filename string) ([]rawMO, error) {
-	in, err := os.Open(filename)
+func loadFile(filename string, vars map[string]interface{}) ([]rawMO, error) {
+	content, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}
 
+	processedContent, err := processTemplate(content, vars)
+	if err != nil {
+		return nil, fmt.Errorf("error processing template in %s: %w", filename, err)
+	}
+
 	ret := []rawMO{}
 
-	dec := yaml.NewDecoder(in)
+	dec := yaml.NewDecoder(bytes.NewReader(processedContent))
 
 	for {
 		var mo rawMO
