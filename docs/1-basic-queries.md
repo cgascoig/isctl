@@ -237,3 +237,24 @@ Output:
 ```
 TEST-POLICY
 ```
+
+### YAML Editable
+
+The `yaml-editable` output format shows only writable properties, filtering out read-only system fields like `Moid`, `ClassId`, `ObjectType`, `CreateTime`, etc. This is useful for exporting a resource in a format suitable for modification and re-import.
+
+```
+isctl get ntp policy --name "test-policy" -o yaml-editable
+```
+Output:
+```yaml
+AuthenticatedNtpServers: []
+Description: ""
+Enabled: true
+Name: test-policy
+NtpServers:
+- 10.10.10.10
+- 10.10.10.12
+Timezone: Pacific/Niue
+```
+
+Compare this to `-o yaml` which includes all properties, including read-only ones.

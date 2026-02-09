@@ -98,6 +98,65 @@ func TestFilterWritableProperties(t *testing.T) {
 		assert.NotContains(t, filtered, "CreateTime")
 	})
 
+	t.Run("filters to only writable properties recursively", func(t *testing.T) {
+		mo := map[string]any{
+			"AccountMoid":     "59c84e4a16267c0001c23428",
+			"Ancestors":       []any{},
+			"ClassId":         "fabric.EthNetworkGroupPolicy",
+			"CreateTime":      "2023-03-27T04:19:27.936Z",
+			"Description":     "",
+			"DomainGroupMoid": "5b25418d7a7662743465cf72",
+			"ModTime":         "2023-03-27T04:19:27.937Z",
+			"Moid":            "6421194f6f62692d31f53ec5",
+			"Name":            "COMMON-NET-GRP",
+			"ObjectType":      "fabric.EthNetworkGroupPolicy",
+			"Organization": map[string]any{
+				"ClassId":    "mo.MoRef",
+				"Moid":       "5ddec4226972652d33548943",
+				"ObjectType": "organization.Organization",
+				"link":       "https://intersight.com/api/v1/organization/Organizations/5ddec4226972652d33548943",
+			},
+			"Owners": []any{
+				"59c84e4a16267c0001c23428",
+			},
+			"PermissionResources": []any{
+				map[string]any{
+					"ClassId":    "mo.MoRef",
+					"Moid":       "5ddec4226972652d33548943",
+					"ObjectType": "organization.Organization",
+					"link":       "https://intersight.com/api/v1/organization/Organizations/5ddec4226972652d33548943",
+				},
+			},
+			"SharedScope": "",
+			"Tags":        []any{},
+			"VlanSettings": map[string]any{
+				"AllowedVlans": "1-4093",
+				"ClassId":      "fabric.VlanSettings",
+				"NativeVlan":   1,
+				"ObjectType":   "fabric.VlanSettings",
+				"QinqEnabled":  false,
+				"QinqVlan":     2,
+			},
+		}
+
+		filtered, err := FilterWritableProperties(mo, "fabric.EthNetworkGroupPolicy")
+		require.NoError(t, err)
+		require.NotNil(t, filtered)
+
+		assert.Equal(t, map[string]any{
+			"Description": "",
+			"Name":        "COMMON-NET-GRP",
+			"Tags":        []any{},
+			"VlanSettings": map[string]any{
+				"AllowedVlans": "1-4093",
+				"NativeVlan":   1,
+				"QinqEnabled":  false,
+				"QinqVlan":     2,
+				"ObjectType":   "fabric.VlanSettings",
+			},
+		}, filtered)
+	})
+
 	t.Run("returns error for invalid classId", func(t *testing.T) {
 		mo := map[string]any{"Name": "test"}
 		filtered, err := FilterWritableProperties(mo, "nonexistent.Class")

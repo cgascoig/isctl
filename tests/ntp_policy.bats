@@ -170,6 +170,35 @@ TEST_SECTION="NTP Policy CRUD"
     assert_equal "${NORMAL_LINES}" "${BATCH_LINES}"
 }
 
+@test "${TEST_SECTION}: -o yaml-editable contains only writable properties" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o yaml-editable
+    assert_success
+    
+    # Should contain editable properties
+    assert_line --partial "Name:"
+    assert_line --partial "NtpServers:"
+    assert_line --partial "Enabled:"
+    
+    # Should NOT contain read-only system properties
+    refute_line --partial "Moid:"
+    refute_line --partial "ClassId:"
+    refute_line --partial "ObjectType:"
+    refute_line --partial "CreateTime:"
+    refute_line --partial "ModTime:"
+    refute_line --partial "AccountMoid:"
+}
+
+@test "${TEST_SECTION}: -o yaml-editable with filter returns valid YAML" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o yaml-editable
+    assert_success
+    
+    # Should contain the policy name value
+    assert_line --partial "${TEST_NTP_POLICY_NAME}"
+    
+    # Should NOT contain read-only properties
+    refute_line --partial "Moid:"
+}
+
 @test "${TEST_SECTION}: delete NTP policy" {
     ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o jsonpath='$.Moid')
 
