@@ -99,3 +99,47 @@ PolicyBucket:
 
 ## Renaming
 For each object in your YAML file, the Name attribute is used to check if the object already exists and determine whether to apply an update or create operation for that object. For this reason, you cannot rename an existing object - isctl will not know about the original name for the object and will simply create a new object and leave the original untouched. 
+
+## Templating and Variables
+
+YAML files processed by `isctl apply` are treated as [Go templates](https://pkg.go.dev/text/template). This allows you to parameterize your manifests and inject values at runtime.
+
+### Variables
+
+You can access variables in your templates using the `{{ .Vars.VariableName }}` syntax.
+
+Variables can be provided from three sources, in order of precedence (highest to lowest):
+
+1.  **Command-line flags**: `--var key=value`
+2.  **Variable file**: `--var-file path/to/vars.yaml`
+3.  **Environment variables**: `ISCTL_VAR_variableName`
+4.  **Directory variables**: `isctl.vars.yaml` or `isctl.vars.yml` in directories passed to `-f`
+
+### Functions
+
+[Sprig](http://masterminds.github.io/sprig/) functions are available for use in your templates. This includes functions for string manipulation, math, dates, and more.
+
+### Example
+
+**template.yaml**:
+```yaml
+ClassId: ntp.Policy
+Name: {{ .Vars.policyName }}
+Organization: default
+# Use Sprig's default function for optional variables
+Description: "Managed by {{ .Vars.owner | default "admin" | upper }}"
+NtpServers:
+  - {{ .Vars.ntpServer }}
+```
+
+**Apply with variables**:
+```bash
+# Set owner via environment variable
+export ISCTL_VAR_owner="devops"
+
+# Apply with var-file and flags
+isctl apply -f template.yaml \
+  --var-file common-vars.yaml \
+  --var policyName="my-dynamic-policy" \
+  --var ntpServer="10.0.0.1"
+```
