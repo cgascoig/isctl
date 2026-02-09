@@ -10,12 +10,12 @@ setup() {
 
 teardown() {
     # Clean up the test object if it exists
-    ./build/isctl apply -d -f "$BATS_TEST_TMPDIR/template.yaml" --var myname="template-test" || true
+    ./build/isctl ${ISCTL_OPTIONS} apply -d -f "$BATS_TEST_TMPDIR/template.yaml" --var myname="template-test" || true
 }
 
 @test "apply creates object using templates and variable precedence" {
     # cleanup any stale objects
-    run ./build/isctl delete ntp policy name template-test
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy name template-test
 
     # 1. Create a template file
     cat <<EOF > "$BATS_TEST_TMPDIR/template.yaml"
@@ -43,7 +43,7 @@ EOF
     export ISCTL_VAR_source="env-source"
     export ISCTL_VAR_envtest="env-test"
     
-    run ./build/isctl apply -f "$BATS_TEST_TMPDIR/template.yaml" \
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f "$BATS_TEST_TMPDIR/template.yaml" \
         --var-file "$BATS_TEST_TMPDIR/vars.yaml" \
         --var myname="template-test"
 
@@ -57,7 +57,7 @@ EOF
     #   owner: "file-owner" (file overrides env)
     #   source: "file-source" (file overrides env) -> upper -> "FILE-SOURCE"
     
-    run ./build/isctl get ntp policy --name template-test -o yaml
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name template-test -o yaml
     assert_success
     assert_output --partial "Name: template-test"
     assert_output --partial "Description: 'Created by file-owner from FILE-SOURCE Env Test: env-test'"
@@ -73,7 +73,7 @@ ClassId: ntp.Policy
 Name: {{ .Vars.missing }}
 EOF
 
-    run ./build/isctl apply -f "$BATS_TEST_TMPDIR/invalid_template.yaml"
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f "$BATS_TEST_TMPDIR/invalid_template.yaml"
     assert_failure
     # Template processing succeeds (empty value), but API validation fails because Name is empty/invalid
     assert_output --partial "Cannot set the property 'policy.AbstractPolicy.Name'"
@@ -81,7 +81,7 @@ EOF
 
 @test "apply loads variables from isctl.vars.yaml in directory" {
     # cleanup any stale objects
-    run ./build/isctl delete ntp policy name dir-var-test
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy name dir-var-test
 
     # 1. Create a directory structure
     mkdir -p "$BATS_TEST_TMPDIR/subdir"
@@ -103,23 +103,23 @@ source: dir-file
 EOF
 
     # 4. Apply the directory
-    run ./build/isctl apply -f "$BATS_TEST_TMPDIR/subdir"
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f "$BATS_TEST_TMPDIR/subdir"
     assert_success
     assert_output --partial "Performing create operation on new MO"
     assert_output --partial "Name: dir-var-test"
 
     # 5. Verify object
-    run ./build/isctl get ntp policy --name dir-var-test -o yaml
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name dir-var-test -o yaml
     assert_success
     assert_output --partial "Name: dir-var-test"
     assert_output --partial "Description: Loaded from dir-file"
 
     # 6. Verify precedence (env > dir)
     export ISCTL_VAR_source="env-override"
-    run ./build/isctl apply -f "$BATS_TEST_TMPDIR/subdir"
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f "$BATS_TEST_TMPDIR/subdir"
     assert_success
     
-    run ./build/isctl get ntp policy --name dir-var-test -o yaml
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name dir-var-test -o yaml
     assert_success
     assert_output --partial "Description: Loaded from env-override"
     
