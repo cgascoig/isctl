@@ -126,3 +126,43 @@ EOF
     unset ISCTL_VAR_source
     rm -rf "$BATS_TEST_TMPDIR/subdir"
 }
+
+@test "apply creates multiple objects using range loop" {
+    # cleanup any stale objects
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy name isctl-bats-test-5
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy name isctl-bats-test-70
+
+    # 1. Create a template file with a loop
+    cat <<'EOF' > "$BATS_TEST_TMPDIR/loop_template.yaml"
+{{- range $i := list 5 70 }}
+ClassId: ntp.Policy
+ObjectType: ntp.Policy
+Name: isctl-bats-test-{{ $i }}
+Enabled: true
+NtpServers: 
+    - 1.1.1.1
+    - 2.2.2.2
+Organization: default
+---
+{{- end }}
+EOF
+
+    # 2. Apply the template
+    run ./build/isctl ${ISCTL_OPTIONS} apply -f "$BATS_TEST_TMPDIR/loop_template.yaml"
+    assert_success
+    assert_output --partial "Performing create operation on new MO"
+    
+    # 3. Verify the objects were created
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name isctl-bats-test-5 -o json
+    assert_success
+    assert_output --partial '"Name": "isctl-bats-test-5"'
+    
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name isctl-bats-test-70 -o json
+    assert_success
+    assert_output --partial '"Name": "isctl-bats-test-70"'
+
+    # 4. Cleanup
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy name isctl-bats-test-5
+    run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy name isctl-bats-test-70
+    rm "$BATS_TEST_TMPDIR/loop_template.yaml"
+}

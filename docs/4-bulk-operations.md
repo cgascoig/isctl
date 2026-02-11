@@ -143,3 +143,29 @@ isctl apply -f template.yaml \
   --var policyName="my-dynamic-policy" \
   --var ntpServer="10.0.0.1"
 ```
+
+### Loops and Ranges
+
+You can use standard Go template loops to create multiple resources from a single template definition. This is useful for creating a set of similar resources, such as a sequence of policies or profiles.
+
+**Example: Creating multiple NTP Policies**
+
+```yaml
+{{- range $i := list 1 2 3 }}
+ClassId: ntp.Policy
+ObjectType: ntp.Policy
+Name: ntp-policy-{{ $i }}
+Enabled: true
+NtpServers: 
+    - 1.1.1.1
+Organization: default
+---
+{{- end }}
+```
+
+In this example:
+
+*   `range $i := list 1 2 3`: Iterates through the list `[1, 2, 3]`, assigning values to `$i`.
+*   `Name: ntp-policy-{{ $i }}`: Dynamically sets the name for each policy (e.g., `ntp-policy-1`, `ntp-policy-2`).
+*   `---`: Separates each generated YAML document. This is critical when generating multiple resources in a single output stream.
+*   `{{- end }}`: Closes the loop.
