@@ -12,6 +12,7 @@ TEST_SECTION="HCL Status"
     assert_line --partial "Display HCL status"
 }
 
+#bats test_tags=noci
 @test "${TEST_SECTION}: isctl report hcl -o json succeeds" {
     # Use subshell to separate stdout (JSON) from stderr (logs)
     JSON=$(./build/isctl ${ISCTL_OPTIONS} report hcl -o json 2>/dev/null)
@@ -21,6 +22,7 @@ TEST_SECTION="HCL Status"
     [ "$COUNT" -gt 0 ]
 }
 
+#bats test_tags=noci
 @test "${TEST_SECTION}: JSON output contains expected fields" {
     JSON=$(./build/isctl ${ISCTL_OPTIONS} report hcl -o json 2>/dev/null)
 

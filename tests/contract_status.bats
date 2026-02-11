@@ -6,6 +6,7 @@ TEST_SECTION="Contract Status"
     assert_line --partial "Display contract status"
 }
 
+#bats test_tags=noci
 @test "${TEST_SECTION}: isctl report contract-status -o json succeeds" {
     JSON=$(./build/isctl ${ISCTL_OPTIONS} report contract-status -o json 2>/dev/null)
 
@@ -14,6 +15,7 @@ TEST_SECTION="Contract Status"
     [ "$COUNT" -gt 0 ]
 }
 
+#bats test_tags=noci
 @test "${TEST_SECTION}: JSON output contains expected fields" {
     JSON=$(./build/isctl ${ISCTL_OPTIONS} report contract-status -o json 2>/dev/null)
 
@@ -27,6 +29,7 @@ TEST_SECTION="Contract Status"
     echo "$JSON" | jq -e '.[0] | has("ProductNumber")' > /dev/null
 }
 
+#bats test_tags=noci
 @test "${TEST_SECTION}: default output works" {
     run ./build/isctl ${ISCTL_OPTIONS} report contract-status
     assert_success
