@@ -3,14 +3,19 @@ import isctl
 
 def cmd():
     return {
-        "use": "hcl",
-        "short": "Hardware Compatibility List helper commands",
+        "use": "report",
+        "short": "Report commands",
         "children": [
             {
-                "use": "status",
+                "use": "hcl",
                 "short": "Display HCL status for all servers",
-                "run": "cmd_hcl_status",
-            }
+                "run": "cmd_report_hcl",
+            },
+            {
+                "use": "contract-status",
+                "short": "Display contract status for all devices",
+                "run": "cmd_report_contract_status",
+            },
         ],
     }
 
@@ -25,6 +30,21 @@ def get_str(d, key):
     return val
 
 
+def get_nested(d, key1, key2):
+    """Get a nested value from a dict, e.g. d[key1][key2], returning empty string if missing."""
+    if key1 not in d:
+        return ""
+    val = d[key1]
+    if val is None:
+        return ""
+    if key2 not in val:
+        return ""
+    nested = val[key2]
+    if nested is None:
+        return ""
+    return nested
+
+
 def join_parts(parts, sep):
     """Join a list of strings with a separator (gpython doesn't support str.join)."""
     result = ""
@@ -35,7 +55,10 @@ def join_parts(parts, sep):
     return result
 
 
-def cmd_hcl_status(_args, _flags):
+# ---- HCL Status Report ----
+
+
+def cmd_report_hcl(_args, _flags):
     isctl.info("Collecting HCL status information")
 
     # Get all cond.HclStatus MOs
@@ -106,7 +129,6 @@ def cmd_hcl_status(_args, _flags):
         details_str = join_parts(detail_parts, "; ")
 
         entry = {}
-        # entry["Moid"] = get_str(status, "Moid")
         entry["Status"] = get_str(status, "Status")
         entry["ServerReason"] = get_str(status, "ServerReason")
         entry["HclFirmwareVersion"] = get_str(status, "HclFirmwareVersion")
@@ -121,4 +143,36 @@ def cmd_hcl_status(_args, _flags):
         result.append(entry)
 
     isctl.info("Built %s result entries" % len(result))
+    isctl.output(result, False)
+
+
+# ---- Contract Status Report ----
+
+
+def cmd_report_contract_status(_args, _flags):
+    isctl.info("Collecting contract status information")
+
+    res = isctl.executeOperation(
+        "get", "asset.DeviceContractInformation", None, None, None, 1000
+    )
+    if res is None or "Results" not in res:
+        isctl.error("Error getting asset.DeviceContractInformation")
+        return
+
+    contracts = res["Results"]
+    isctl.info("Got %s contract entries" % len(contracts))
+
+    result = []
+    for i in range(len(contracts)):
+        contract = contracts[i]
+        entry = {}
+        entry["ContractStatus"] = get_str(contract, "ContractStatus")
+        entry["ContractStatusReason"] = get_str(contract, "ContractStatusReason")
+        entry["DeviceId"] = get_str(contract, "DeviceId")
+        entry["DeviceType"] = get_str(contract, "DeviceType")
+        entry["ItemType"] = get_str(contract, "ItemType")
+        entry["PlatformType"] = get_str(contract, "PlatformType")
+        entry["ProductNumber"] = get_nested(contract, "Product", "Number")
+        result.append(entry)
+
     isctl.output(result, False)

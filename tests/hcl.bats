@@ -1,20 +1,20 @@
 TEST_SECTION="HCL Status"
 
-@test "${TEST_SECTION}: isctl hcl --help works" {
-    run ./build/isctl ${ISCTL_OPTIONS} hcl --help
+@test "${TEST_SECTION}: isctl report --help works" {
+    run ./build/isctl ${ISCTL_OPTIONS} report --help
     assert_success
-    assert_line --partial "Hardware Compatibility List"
+    assert_line --partial "Report commands"
 }
 
-@test "${TEST_SECTION}: isctl hcl status --help works" {
-    run ./build/isctl ${ISCTL_OPTIONS} hcl status --help
+@test "${TEST_SECTION}: isctl report hcl --help works" {
+    run ./build/isctl ${ISCTL_OPTIONS} report hcl --help
     assert_success
     assert_line --partial "Display HCL status"
 }
 
-@test "${TEST_SECTION}: isctl hcl status -o json succeeds" {
+@test "${TEST_SECTION}: isctl report hcl -o json succeeds" {
     # Use subshell to separate stdout (JSON) from stderr (logs)
-    JSON=$(./build/isctl ${ISCTL_OPTIONS} hcl status -o json 2>/dev/null)
+    JSON=$(./build/isctl ${ISCTL_OPTIONS} report hcl -o json 2>/dev/null)
 
     # Output should be a valid JSON array with at least one entry
     COUNT=$(echo "$JSON" | jq 'length')
@@ -22,7 +22,7 @@ TEST_SECTION="HCL Status"
 }
 
 @test "${TEST_SECTION}: JSON output contains expected fields" {
-    JSON=$(./build/isctl ${ISCTL_OPTIONS} hcl status -o json 2>/dev/null)
+    JSON=$(./build/isctl ${ISCTL_OPTIONS} report hcl -o json 2>/dev/null)
 
     # Check the first entry has all expected fields
     echo "$JSON" | jq -e '.[0].Status' > /dev/null
@@ -39,7 +39,7 @@ TEST_SECTION="HCL Status"
 }
 
 @test "${TEST_SECTION}: Status field has valid values" {
-    JSON=$(./build/isctl ${ISCTL_OPTIONS} hcl status -o json 2>/dev/null)
+    JSON=$(./build/isctl ${ISCTL_OPTIONS} report hcl -o json 2>/dev/null)
 
     # Every Status value should be one of the known HCL statuses
     INVALID=$(echo "$JSON" | jq '[.[].Status] | map(select(. != "Validated" and . != "Not-Listed" and . != "Incomplete" and . != "Not-Evaluated" and . != "")) | length')
@@ -47,7 +47,7 @@ TEST_SECTION="HCL Status"
 }
 
 @test "${TEST_SECTION}: default output works" {
-    run ./build/isctl ${ISCTL_OPTIONS} hcl status
+    run ./build/isctl ${ISCTL_OPTIONS} report hcl
     assert_success
     assert_line --partial "Status"
 }
