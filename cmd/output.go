@@ -346,7 +346,7 @@ func applyJSONPathFilter(result interface{}, jsonpathQuery string, singleResult 
 
 }
 
-const defaultOutputMaxColumns int = 10
+const defaultOutputMaxColumns int = 11
 
 func printResultDefault(result interface{}) {
 	result = filterAttributes(result)
