@@ -267,6 +267,8 @@ func loadFile(filename string, vars map[string]interface{}) ([]rawMO, error) {
 		return nil, fmt.Errorf("error processing template in %s: %w", filename, err)
 	}
 
+	log.Debugf("Processed template for %s:\n%s", filename, string(processedContent))
+
 	ret := []rawMO{}
 
 	dec := yaml.NewDecoder(bytes.NewReader(processedContent))
@@ -275,6 +277,11 @@ func loadFile(filename string, vars map[string]interface{}) ([]rawMO, error) {
 		var mo rawMO
 		if dec.Decode(&mo) != nil {
 			return ret, nil // no more documents in YAML file
+		}
+
+		// skip empty documents
+		if len(mo) == 0 {
+			continue
 		}
 		ret = append(ret, mo)
 	}
