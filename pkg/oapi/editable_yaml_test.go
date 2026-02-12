@@ -90,11 +90,13 @@ func TestFilterWritableProperties(t *testing.T) {
 		assert.Contains(t, filtered, "Name")
 		assert.Contains(t, filtered, "Enabled")
 		assert.Contains(t, filtered, "NtpServers")
+		assert.Contains(t, filtered, "Moid")
+
+		// Should include ClassId and ObjectType now
+		assert.Contains(t, filtered, "ClassId")
+		assert.Contains(t, filtered, "ObjectType")
 
 		// Should not include read-only system properties
-		assert.NotContains(t, filtered, "Moid")
-		assert.NotContains(t, filtered, "ClassId")
-		assert.NotContains(t, filtered, "ObjectType")
 		assert.NotContains(t, filtered, "CreateTime")
 	})
 
@@ -144,11 +146,20 @@ func TestFilterWritableProperties(t *testing.T) {
 		require.NotNil(t, filtered)
 
 		assert.Equal(t, map[string]any{
+			"Moid":       "6421194f6f62692d31f53ec5",
+			"ClassId":    "fabric.EthNetworkGroupPolicy", // ClassId should be preserved
+			"ObjectType": "fabric.EthNetworkGroupPolicy", // ObjectType should be preserved
+			"Organization": map[string]any{
+				"Moid":       "5ddec4226972652d33548943",
+				"ClassId":    "mo.MoRef",
+				"ObjectType": "organization.Organization",
+			},
 			"Description": "",
 			"Name":        "COMMON-NET-GRP",
 			"Tags":        []any{},
 			"VlanSettings": map[string]any{
 				"AllowedVlans": "1-4093",
+				"ClassId":      "fabric.VlanSettings", // Nested ClassId preserved
 				"NativeVlan":   1,
 				"QinqEnabled":  false,
 				"QinqVlan":     2,
@@ -164,18 +175,22 @@ func TestFilterWritableProperties(t *testing.T) {
 		assert.Nil(t, filtered)
 	})
 
-	t.Run("returns empty map when no writable properties present", func(t *testing.T) {
+	t.Run("returns correct map when some properties present", func(t *testing.T) {
 		mo := map[string]any{
 			"Moid":       "12345",
 			"ClassId":    "ntp.Policy",
 			"ObjectType": "ntp.Policy",
+			"CreateTime": "2023-03-27T04:19:27.936Z",
 		}
 
 		filtered, err := FilterWritableProperties(mo, "ntp.Policy")
 		require.NoError(t, err)
 		require.NotNil(t, filtered)
-		// Should be an empty map since we only passed read-only properties
-		assert.Empty(t, filtered)
+		// Should contain ClassId and ObjectType even if no writable properties
+		assert.Contains(t, filtered, "ClassId")
+		assert.Contains(t, filtered, "ObjectType")
+		assert.Contains(t, filtered, "Moid")
+		assert.Len(t, filtered, 3)
 	})
 }
 
@@ -187,6 +202,7 @@ func TestFormatEditableYAML(t *testing.T) {
 			"NtpServers": []string{"1.1.1.1", "2.2.2.2"},
 			"Moid":       "12345",
 			"ClassId":    "ntp.Policy",
+			"ObjectType": "ntp.Policy",
 		}
 
 		yamlBytes, err := FormatEditableYAML(mo, "ntp.Policy")
@@ -200,9 +216,14 @@ func TestFormatEditableYAML(t *testing.T) {
 		assert.Contains(t, yamlStr, "Enabled")
 		assert.Contains(t, yamlStr, "NtpServers")
 
+		// Should include ClassId
+		assert.Contains(t, yamlStr, "ClassId")
+		assert.Contains(t, yamlStr, "ntp.Policy")
+		assert.Contains(t, yamlStr, "ObjectType")
+		assert.Contains(t, yamlStr, "Moid")
+
 		// Should not include read-only properties
-		assert.NotContains(t, yamlStr, "Moid")
-		assert.NotContains(t, yamlStr, "ClassId")
+		assert.NotContains(t, yamlStr, "CreateTime")
 	})
 
 	t.Run("returns error for invalid classId", func(t *testing.T) {
@@ -211,4 +232,95 @@ func TestFormatEditableYAML(t *testing.T) {
 		assert.Error(t, err)
 		assert.Nil(t, yamlBytes)
 	})
+
+	t.Run("includes identity properties for a class with identity", func(t *testing.T) {
+		mo := map[string]any{
+			"Name":       "test-policy",
+			"Enabled":    true,
+			"Moid":       "12345",
+			"ClassId":    "ntp.Policy",
+			"ObjectType": "ntp.Policy",
+		}
+
+		yamlBytes, err := FormatEditableYAML(mo, "ntp.Policy")
+		require.NoError(t, err)
+		require.NotEmpty(t, yamlBytes)
+
+		yamlStr := string(yamlBytes)
+		assert.Contains(t, yamlStr, "Name: test-policy") // Identity property
+		assert.Contains(t, yamlStr, "Enabled: true")     // Writable property
+		assert.Contains(t, yamlStr, "ClassId: ntp.Policy")
+		assert.Contains(t, yamlStr, "ObjectType: ntp.Policy")
+		assert.Contains(t, yamlStr, "Moid")
+	})
+
+	t.Run("includes identity properties for a class with composite identity", func(t *testing.T) {
+		mo := map[string]any{
+			"Name":       "test-profile",
+			"Type":       "instance",
+			"Moid":       "12345",
+			"ClassId":    "policy.AbstractConfigProfile",
+			"ObjectType": "policy.AbstractConfigProfile",
+		}
+
+		yamlBytes, err := FormatEditableYAML(mo, "policy.AbstractConfigProfile")
+		require.NoError(t, err)
+		require.NotEmpty(t, yamlBytes)
+
+		yamlStr := string(yamlBytes)
+		assert.Contains(t, yamlStr, "Name: test-profile") // Identity property
+		assert.Contains(t, yamlStr, "Type: instance")     // Identity property
+		assert.Contains(t, yamlStr, "ClassId: policy.AbstractConfigProfile")
+		assert.Contains(t, yamlStr, "ObjectType: policy.AbstractConfigProfile")
+		assert.Contains(t, yamlStr, "Moid")
+	})
+
+	t.Run("does not include identity properties if not present in original object", func(t *testing.T) {
+		mo := map[string]any{
+			"Enabled":    true,
+			"Moid":       "12345",
+			"ClassId":    "ntp.Policy",
+			"ObjectType": "ntp.Policy",
+		}
+
+		yamlBytes, err := FormatEditableYAML(mo, "ntp.Policy")
+		require.NoError(t, err)
+		require.NotEmpty(t, yamlBytes)
+
+		yamlStr := string(yamlBytes)
+		assert.NotContains(t, yamlStr, "Name:") // "Name" is identity but not in 'mo'
+		assert.Contains(t, yamlStr, "Enabled: true")
+		assert.Contains(t, yamlStr, "ClassId: ntp.Policy")
+		assert.Contains(t, yamlStr, "ObjectType: ntp.Policy")
+	})
+}
+
+func TestFilterWritablePropertiesIncludesIdentity(t *testing.T) {
+	// fabric.Vlan has "VlanId" and "EthNetworkPolicy" as identity constraints.
+	input := map[string]any{
+		"ClassId": "fabric.Vlan",
+		"VlanId":  100,
+		"EthNetworkPolicy": map[string]any{
+			"Moid": "some-moid",
+		},
+		"Name":       "test-vlan",            // Writable
+		"CreateTime": "2023-01-01T00:00:00Z", // ReadOnly
+	}
+
+	filtered, err := FilterWritableProperties(input, "fabric.Vlan")
+	assert.NoError(t, err)
+
+	// ClassId must be present
+	assert.Contains(t, filtered, "ClassId")
+	assert.Equal(t, "fabric.Vlan", filtered["ClassId"])
+
+	// Identity fields must be present
+	assert.Contains(t, filtered, "VlanId")
+	assert.Contains(t, filtered, "EthNetworkPolicy")
+
+	// Writable fields must be present
+	assert.Contains(t, filtered, "Name")
+
+	// ReadOnly fields (non-identity) must be absent
+	assert.NotContains(t, filtered, "CreateTime")
 }

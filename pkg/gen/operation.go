@@ -161,6 +161,11 @@ func GetReferencedClasses(params any) []string {
 	switch params := params.(type) {
 	case map[string]any:
 		ret := []string{}
+		if classId, ok := params["ClassId"].(string); ok && classId == "mo.MoRef" {
+			if objectType, ok := params["ObjectType"].(string); ok {
+				return []string{objectType}
+			}
+		}
 		for _, v := range params {
 			ret = append(ret, GetReferencedClasses(v)...)
 		}

@@ -160,3 +160,42 @@ func TestGetOrderedMOs(t *testing.T) {
 		},
 	}, res)
 }
+
+func TestGetOrderedMOsWithExplicitMoRef(t *testing.T) {
+	// Test that explicity configure mo.MoRef works for references
+	res, err := getOrderedMOs([]rawMO{
+		{
+			"ClassId": "resourcepool.Pool",
+			"Name":    "test-pool",
+			"QualificationPolicies": []any{
+				map[string]any{
+					"ClassId":    "mo.MoRef",
+					"Moid":       "6421194f6f62692d31f53ec5",
+					"ObjectType": "resourcepool.QualificationPolicy",
+				},
+			},
+		},
+		{
+			"ClassId": "resourcepool.QualificationPolicy",
+			"Name":    "isctl-bats-test",
+		},
+	})
+	assert.NoError(t, err)
+	assert.Equal(t, []rawMO{
+		{
+			"ClassId": "resourcepool.QualificationPolicy",
+			"Name":    "isctl-bats-test",
+		},
+		{
+			"ClassId": "resourcepool.Pool",
+			"Name":    "test-pool",
+			"QualificationPolicies": []any{
+				map[string]any{
+					"ClassId":    "mo.MoRef",
+					"Moid":       "6421194f6f62692d31f53ec5",
+					"ObjectType": "resourcepool.QualificationPolicy",
+				},
+			},
+		},
+	}, res)
+}
