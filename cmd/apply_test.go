@@ -159,9 +159,11 @@ func TestGetOrderedMOs(t *testing.T) {
 			}},
 		},
 	}, res)
+}
 
+func TestGetOrderedMOsWithExplicitMoRef(t *testing.T) {
 	// Test that explicity configure mo.MoRef works for references
-	res, err = getOrderedMOs([]rawMO{
+	res, err := getOrderedMOs([]rawMO{
 		{
 			"ClassId": "resourcepool.Pool",
 			"Name":    "test-pool",
