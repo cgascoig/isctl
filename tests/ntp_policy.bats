@@ -178,11 +178,11 @@ TEST_SECTION="NTP Policy CRUD"
     assert_line --partial "Name:"
     assert_line --partial "NtpServers:"
     assert_line --partial "Enabled:"
+    assert_line --partial "Moid:"
+    assert_line --partial "ClassId:"
+    assert_line --partial "ObjectType:"
     
     # Should NOT contain read-only system properties
-    refute_line --partial "Moid:"
-    refute_line --partial "ClassId:"
-    refute_line --partial "ObjectType:"
     refute_line --partial "CreateTime:"
     refute_line --partial "ModTime:"
     refute_line --partial "AccountMoid:"
@@ -196,7 +196,7 @@ TEST_SECTION="NTP Policy CRUD"
     assert_line --partial "${TEST_NTP_POLICY_NAME}"
     
     # Should NOT contain read-only properties
-    refute_line --partial "Moid:"
+    refute_line --partial "ModTime:"
 }
 
 @test "${TEST_SECTION}: delete NTP policy" {

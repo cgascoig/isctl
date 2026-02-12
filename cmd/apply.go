@@ -473,6 +473,8 @@ func buildIdentityFilter(client *util.IsctlClient, mo rawMO, meta *oapi.Meta) (s
 		refType, isRef := meta.GetRefType(classID, field)
 		if isRef {
 			var cMoRef *oapi.MoRef
+			var resolvedMoRef map[string]any
+
 			attr, err := dyno.Get(mo, field)
 			if err != nil {
 				if field == "Account" {
@@ -489,18 +491,25 @@ func buildIdentityFilter(client *util.IsctlClient, mo rawMO, meta *oapi.Meta) (s
 					cMoRef = oapi.CanonicaliseMoRef(attr, refType)
 				case *oapi.MoRef:
 					cMoRef = attr
-				default:
-					return "", fmt.Errorf("error: unable to determine reference for field %s", field)
+				case map[string]any:
+					classID, ok1 := attr["ClassId"].(string)
+					_, ok2 := attr["Moid"].(string)
+					_, ok3 := attr["ObjectType"].(string)
+					if ok1 && classID == "mo.MoRef" && ok2 && ok3 {
+						resolvedMoRef = attr
+					}
 				}
 			}
 
-			if cMoRef == nil {
-				return "", fmt.Errorf("error: unable to canonicalise reference for field %s", field)
+			if cMoRef != nil {
+				resolvedMoRef, err = gen.GetMoMoRef(client, cMoRef)
+				if err != nil {
+					return "", fmt.Errorf("error finding reference for %s: %v", field, err)
+				}
 			}
 
-			resolvedMoRef, err := gen.GetMoMoRef(client, cMoRef)
-			if err != nil {
-				return "", fmt.Errorf("error finding reference for %s: %v", field, err)
+			if resolvedMoRef == nil {
+				return "", fmt.Errorf("error: unable to canonicalise reference for field %s", field)
 			}
 
 			moid, err := dyno.GetString(resolvedMoRef, "Moid")

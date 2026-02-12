@@ -25,10 +25,21 @@ func FilterWritableProperties(mo map[string]any, classId string) (map[string]any
 
 	// Create a set for O(1) lookup
 	writableSet := make(map[string]bool)
+	// Always include ClassId
+	writableSet["ClassId"] = true
+	writableSet["ObjectType"] = true
+	writableSet["Moid"] = true
+
 	for _, name := range writableProps {
 		writableSet[name] = true
 	}
 	for _, name := range writableRels {
+		writableSet[name] = true
+	}
+
+	// Always include identity constraints
+	identityConstraints := meta.GetIdentityConstraints(classId)
+	for _, name := range identityConstraints {
 		writableSet[name] = true
 	}
 
@@ -72,10 +83,21 @@ func filterNestedMap(m map[string]any, meta *Meta) map[string]any {
 
 		if writableProps != nil || writableRels != nil {
 			writableSet = make(map[string]bool)
+			// Always include ObjectType and ClassId for nested objects
+			writableSet["ObjectType"] = true
+			writableSet["ClassId"] = true
+			writableSet["Moid"] = true
+
 			for _, name := range writableProps {
 				writableSet[name] = true
 			}
 			for _, name := range writableRels {
+				writableSet[name] = true
+			}
+
+			// Always include identity constraints for nested objects
+			identityConstraints := meta.GetIdentityConstraints(objectType)
+			for _, name := range identityConstraints {
 				writableSet[name] = true
 			}
 		}
