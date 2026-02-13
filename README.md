@@ -1,18 +1,21 @@
 [![User Guide](https://img.shields.io/badge/User%20Guide-Netlify-success)](https://isctl.netlify.app/) [![Build status](https://dev.azure.com/cgascoig/isctl/_apis/build/status/Full%20test?branchName=devel)](https://dev.azure.com/cgascoig/isctl/_build/latest?definitionId=2) [![Go Report](https://goreportcard.com/badge/github.com/cgascoig/isctl)](https://goreportcard.com/report/github.com/cgascoig/isctl)
 # isctl - CLI for Cisco Intersight
-`isctl` is a `kubectl`-inspired CLI for the Cisco Intersight service. 
+
+The ultimate command-line companion for Cisco Intersight. Designed for DevOps professionals, bringing `kubectl`-style semantics to your infrastructure management, `isctl` allows you to manage your Intersight resources with ease and precision. 
 
 ## Features
 
-* Generated automatically from the Intersight OpenAPI v3 spec - it should be easy to keep up with new Intersight features. 
-* Written in Go and distributed as MacOS, Linux and Windows binaries - should work anywhere
-* Human, JSON or YAML output
-* [JSONpath](https://goessner.net/articles/JsonPath/) support for extraction and transformation of the data returned from the API
+* **OpenAPI-Driven:** Automatically generated from the Intersight OpenAPI v3 spec, ensuring capability with the latest features.
+* **Cross-Platform:** Native binaries for macOS, Linux, and Windows.
+* **Flexible Authentication:** Supports both API Key and OAuth 2.0 authentication with automatic [token caching](https://isctl.netlify.app/6-configuration/).
+* **Developer Friendly:** Human, JSON, or YAML output with [JSONpath](https://goessner.net/articles/JsonPath/) and [Go Template](https://pkg.go.dev/text/template) support for powerful data extraction.
+* **Shell Autocompletion:** Native support for [Bash, Zsh, Fish, and PowerShell](https://isctl.netlify.app/7-shell-autocompletion/).
+* **Operational Reports:** Built-in reports for [HCL compliance, Contract status](https://isctl.netlify.app/8-reports/), and more.
 
 
-# Installation
+## Installation
 
-## MacOS
+### MacOS
 
 If you use [Homebrew](https://brew.sh), the easiest way to install `isctl` is:
 
@@ -26,7 +29,7 @@ If you don't use Homebrew:
 * Unzip and move the `isctl` binary somewhere that is on your path (e.g. `/usr/local/bin`). 
 
 
-## Windows
+### Windows
 
 The easiest way is using the [scoop.sh](https://scoop.sh/) installer:
 
@@ -39,36 +42,47 @@ Otherwise:
 * Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
 * Unzip and move the `isctl.exe` binary somewhere that is on your path. 
 
-## Linux
+### Linux
 
 * Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
 * Extract the `.tar.gz` and move the `isctl` binary somewhere that is on your path (e.g. `/usr/local/bin`). 
 
-# Documentation
+## Documentation
 
 The [Quick Start](#quick-start) below covers the basics but you should review the [Users Guide](https://isctl.netlify.app/) for complete documentation.
 
-# Quick Start
+### Guides
 
-## Initial configuration
+* [Basic Queries](https://isctl.netlify.app/1-basic-queries/)
+* [Advanced Queries](https://isctl.netlify.app/2-advanced-queries/)
+* [Create, Update, Delete](https://isctl.netlify.app/3-create-update-delete/)
+* [Bulk Operations](https://isctl.netlify.app/4-bulk-operations/)
+* [Example Use Cases](https://isctl.netlify.app/5-example-use-cases/)
+* [Configuration](https://isctl.netlify.app/6-configuration/)
+* [Shell Autocompletion](https://isctl.netlify.app/7-shell-autocompletion/)
+* [Reports](https://isctl.netlify.app/8-reports/)
 
-### Credentials
+## Quick Start
 
-`isctl` interacts with the Cisco Intersight REST API, so it needs **either** an API key or an OAuth application credentials. 
+### Initial configuration
 
-#### API Key
+#### Credentials
+
+`isctl` interacts with the Cisco Intersight REST API, so it needs **either** an API key or OAuth application credentials. 
+
+##### API Key
 
 1. Login to the Intersight GUI. 
 2. Generate a new API Key (under Settings -> API Keys). Choose "API key for OpenAPI schema version 2" as the API Key Purpose. 
 3. Save the key somewhere on your desktop and make a note of the key ID. 
 
-#### OAuth
+##### OAuth
 
 1. Login to the Intersight GUI.
 2. Generate a new OAuth application (under Settings -> OAuth).
 3. Make a note of the Client ID and Client Secret.
 
-### Configure `isctl`
+#### Configure `isctl`
 
 Run `isctl configure` to configure it. Follow the prompts for your preferred authentication method.
 
@@ -79,7 +93,7 @@ Enter new intersight_api_key_id or press Enter to keep existing:
 ...
 ```
 
-## Querying Intersight
+### Querying Intersight
 
 To retrieve resources from Intersight, use the `isctl get ...` commands. 
 
@@ -101,24 +115,29 @@ Output:
 
 For detailed documentation, see the [isctl Users Guide](https://isctl.netlify.app/). 
 
-# Development
+### Other Commands
 
-## How is this built?
+#### Reports
 
-There are a number of steps in the build process as the majority of the code is generated automatically:
-
-1. [OpenAPITools OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) is used to generate the Go models and API client from the Intersight OpenAPI v3 spec. The OpenAPI Generator Go templates are customised to also generate an `operations.yaml` file. 
-2. The Go program in `generator-postprocess` is used to parse the `operations.yaml` file and generate the command line structure in `cmd/cli.go`. This postprocess step also cleans up the command naming and creates the help text. 
-3. Finally, the `isctl` command is built from the generated `cmd/cli.go` along with some supporting code. 
-
-## Creating a release
-The `Makefile` is used for most of the post processing and building `isctl` for the local system but [GoReleaser](https://goreleaser.com) is used for creating releases on GitHub. 
+Run operational reports directly from the CLI:
 
 ```
-# Create tag and push to GitHub
-git tag vX.Y.Z
-git push origin --tags
+# Check Hardware Compatibility List (HCL) status
+isctl report hcl
 
-# Create the release
-goreleaser --rm-dist
+# Check device contract status
+isctl report contract-status
 ```
+
+#### Shell Autocompletion
+
+Generate autocompletion scripts for your shell:
+
+```
+# Load bash completion
+source <(isctl completion bash)
+
+# For other shells (zsh, fish, powershell), see the documentation
+isctl completion --help
+``` 
+
