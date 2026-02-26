@@ -3,6 +3,7 @@ package extension
 import (
 	"testing"
 
+	"github.com/go-python/gpython/py"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -35,6 +36,21 @@ func TestInvalidCode(t *testing.T) {
 
 	err = e.SetCode(code)
 	assert.NotNil(t, err)
+}
+
+func TestTupleToFormatNoArgs(t *testing.T) {
+	// Must not panic when called with an empty tuple
+	f, a := tupleToFormat(py.Tuple{})
+	assert.Equal(t, "", f)
+	assert.Nil(t, a)
+}
+
+func TestGetOutputFnNoArgs(t *testing.T) {
+	called := false
+	fn := getOutputFn(func(res any, multi bool) { called = true })
+	_, err := fn(nil, py.Tuple{})
+	assert.Error(t, err)
+	assert.False(t, called)
 }
 
 func TestGetCommand(t *testing.T) {

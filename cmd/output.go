@@ -480,6 +480,9 @@ func prepareResultTableCustomColumns(result interface{}, template string) ([][]s
 		// If there is no template, get all the column spec from the first object returned
 
 		if inList, ok := result.([]interface{}); ok {
+			if len(inList) < 1 {
+				return tableData, tableHeaders
+			}
 			// Get the headers from the first element
 			firstRow := inList[0]
 			if rowMap, ok := firstRow.(map[string]interface{}); ok {
