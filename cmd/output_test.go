@@ -364,6 +364,11 @@ func TestPrepareResultTableCustomColums(t *testing.T) {
 	for i := range expectedData {
 		assert.Equal(t, expectedData[i], outData[i])
 	}
+
+	// Test empty list with no template — must not panic
+	outData, outHeaders = prepareResultTableCustomColumns([]interface{}{}, "")
+	assert.Empty(t, outHeaders)
+	assert.Empty(t, outData)
 }
 
 func TestRelaxedJSONPathExpression(t *testing.T) {

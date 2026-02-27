@@ -38,6 +38,14 @@ func TestFindOperation(t *testing.T) {
 	assert.Equal(t, "DeleteNtpPolicy", op.OperationID)
 }
 
+func TestToCamelCase(t *testing.T) {
+	assert.Equal(t, "Ntp", ToCamelCase("ntp"))
+	assert.Equal(t, "NtpServer", ToCamelCase("ntp-server"))
+	assert.Equal(t, "Ntp", ToCamelCase("-ntp"))
+	assert.Equal(t, "Ntp", ToCamelCase("ntp-"))
+	assert.Equal(t, "Ntp", ToCamelCase("--ntp"))
+}
+
 func TestRedundantPrefixes(t *testing.T) {
 	f := removeRedundantPrefixes()
 	assert.Equal(t, []string{"get", "ntp", "Policy"}, f([]string{"get", "ntp", "GetNtpPolicy"}))

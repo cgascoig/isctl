@@ -50,6 +50,9 @@ func ToCamelCase(in string) string {
 	ret := ""
 
 	for _, word := range words {
+		if word == "" {
+			continue
+		}
 		ret = ret + strings.ToUpper(string(word[0])) + word[1:]
 	}
 

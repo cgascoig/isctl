@@ -151,10 +151,17 @@ func goToPy(o interface{}) py.Object {
 }
 
 func tupleToFormat(args py.Tuple) (string, []interface{}) {
-	values := pyToGo(args).([]interface{})
-	format := values[0].(string)
-	values = values[1:]
-	return format, values
+	valuesIntf, ok := pyToGo(args).([]interface{})
+	if !ok || len(valuesIntf) == 0 {
+		log.Warn("extension log function called with no arguments")
+		return "", nil
+	}
+	format, ok := valuesIntf[0].(string)
+	if !ok {
+		log.Warn("extension log function: first argument must be a string")
+		return "", nil
+	}
+	return format, valuesIntf[1:]
 }
 
 func getOutputFn(of OutputFunction) func(_ py.Object, args py.Tuple) (py.Object, error) {
@@ -172,6 +179,9 @@ func getOutputFn(of OutputFunction) func(_ py.Object, args py.Tuple) (py.Object,
 			}
 		}
 
+		if len(argsFromPy) < 1 {
+			return nil, fmt.Errorf("output: requires at least one argument")
+		}
 		of(argsFromPy[0], multiPartResult)
 		return nil, nil
 	}
