@@ -25,7 +25,7 @@ type IsctlClient struct {
 func ReadBody(bodyFormat string, bodyParamMap interface{}) error {
 	if bodyFormat == "json" {
 		// Gather body from JSON on stdin.
-		fmt.Println("Waiting for JSON body: ")
+		fmt.Fprintln(os.Stderr, "Waiting for JSON body: ")
 		err := json.NewDecoder(os.Stdin).Decode(bodyParamMap)
 		if err != nil {
 			return fmt.Errorf("error decoding JSON: %v", err)
@@ -34,7 +34,7 @@ func ReadBody(bodyFormat string, bodyParamMap interface{}) error {
 		log.Tracef("After JSON parse, bodyParamMap: %v", bodyParamMap)
 	} else if bodyFormat == "yaml" {
 		// Gather body from YAML on stdin.
-		fmt.Println("Waiting for YAML body: ")
+		fmt.Fprintln(os.Stderr, "Waiting for YAML body: ")
 		err := yaml.NewDecoder(os.Stdin).Decode(bodyParamMap)
 		if err != nil {
 			return fmt.Errorf("error decoding YAML: %v", err)

@@ -622,7 +622,9 @@ func setXLSXSheet(f *excelize.File, sheetName string, tableData [][]string, tabl
 	if err != nil {
 		log.Errorf("xlsx style error: %v", err)
 	}
-	f.SetCellStyle(sheetName, "A1", "EZ1", style)
+	if err := f.SetCellStyle(sheetName, "A1", "EZ1", style); err != nil {
+		log.Errorf("xlsx set cell style error: %v", err)
+	}
 
 	for row := range tableData {
 		err = f.SetSheetRow(sheetName, fmt.Sprintf("A%d", row+2), &tableData[row])
@@ -672,7 +674,9 @@ func outputResultXLSX(result any, filename string, multiPartResults bool) {
 		}
 	}
 
-	f.DeleteSheet("Sheet1")
+	if err := f.DeleteSheet("Sheet1"); err != nil {
+		log.Errorf("error deleting default sheet from xlsx: %v", err)
+	}
 
 	// Save spreadsheet by the given path.
 	if err := f.SaveAs(filename); err != nil {
@@ -702,6 +706,7 @@ func (t *loggingTransport) RoundTrip(req *http.Request) (*http.Response, error) 
 
 	outres, err := httputil.DumpResponse(res, true)
 	if err != nil {
+		res.Body.Close()
 		return nil, err
 	}
 

@@ -84,7 +84,7 @@ func SchemaNameToType(sn string) string {
 	regex := regexp.MustCompile(`^#/components/schemas/([^/]+)$`)
 	m := regex.FindStringSubmatch(sn)
 	if m == nil || len(m) != 2 {
-		fmt.Printf("WARN: SchemaNameToType returning unknown for '%s'", sn)
+		log.Warnf("SchemaNameToType returning unknown for '%s'", sn)
 		return ""
 	}
 
@@ -101,8 +101,7 @@ func getParam(paramName string) *Param {
 
 	p, err := dyno.GetMapS(lazyLoadSpec(), "components", "parameters", paramName)
 	if err != nil {
-		log.WithField("param_name", paramName).Debug("parameter not found")
-		return nil
+		log.Fatalf("error getting parameter %s from spec: %v", paramName, err)
 	}
 
 	name, _ := dyno.GetString(p, "name")
@@ -168,7 +167,7 @@ func getOperations() []Operation {
 	operations := []Operation{}
 	paths, err := dyno.GetMapS(lazyLoadSpec(), "paths")
 	if err != nil {
-		log.Error("error getting paths from spec")
+		log.Fatalf("error getting paths from spec: %v", err)
 	}
 
 	for path, pathSpec := range paths {

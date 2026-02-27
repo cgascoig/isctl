@@ -3,6 +3,7 @@ package oapi
 import (
 	_ "embed"
 	"encoding/json"
+	"sync"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -10,21 +11,18 @@ import (
 //go:embed "intersight-openapi.json"
 var specData []byte
 
-var spec any
+var (
+	spec     map[string]any
+	specOnce sync.Once
+)
 
 func lazyLoadSpec() map[string]any {
-	if spec == nil {
+	specOnce.Do(func() {
 		log.Trace("begin unmarshalling JSON spec")
-		err := json.Unmarshal(specData, &spec)
-		if err != nil {
-			log.Errorf("error unmarshaling spec: %v", err)
+		if err := json.Unmarshal(specData, &spec); err != nil {
+			log.Fatalf("Error loading spec: %v", err)
 		}
 		log.Trace("finished JSON unmarshal")
-	}
-
-	if spec, ok := spec.(map[string]any); ok {
-		return spec
-	}
-
-	return nil
+	})
+	return spec
 }

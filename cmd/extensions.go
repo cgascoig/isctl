@@ -40,7 +40,9 @@ func getExecuteOperationFunction(client *util.IsctlClient) extension.ExecuteOper
 		}
 
 		if body != nil {
-			op.SetBodyParams(client, body)
+			if err := op.SetBodyParams(client, body); err != nil {
+				return nil, fmt.Errorf("error setting operation body: %w", err)
+			}
 		}
 
 		var res any

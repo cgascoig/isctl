@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 
@@ -275,8 +276,11 @@ func loadFile(filename string, vars map[string]interface{}) ([]rawMO, error) {
 
 	for {
 		var mo rawMO
-		if dec.Decode(&mo) != nil {
-			return ret, nil // no more documents in YAML file
+		if err := dec.Decode(&mo); err != nil {
+			if err == io.EOF {
+				return ret, nil
+			}
+			return nil, fmt.Errorf("error decoding YAML document in %s: %w", filename, err)
 		}
 
 		// skip empty documents

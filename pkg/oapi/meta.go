@@ -73,24 +73,21 @@ var metaData []byte
 
 var (
 	meta      *Meta
+	metaErr   error
 	metaMutex sync.Once
 )
 
 // GetMeta lazily loads and returns the metadata.
 func GetMeta() (*Meta, error) {
-	if meta != nil {
-		return meta, nil
-	}
-
-	var err error
 	metaMutex.Do(func() {
 		var m Meta
-		err = json.Unmarshal(metaData, &m)
-		if err == nil {
-			meta = &m
+		if err := json.Unmarshal(metaData, &m); err != nil {
+			metaErr = err
+			return
 		}
+		meta = &m
 	})
-	return meta, err
+	return meta, metaErr
 }
 
 // GetIdentityConstraints returns the identity constraint fields for a given class ID.
