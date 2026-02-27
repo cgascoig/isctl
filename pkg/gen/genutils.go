@@ -5,6 +5,7 @@ import (
 	"net/url"
 	"regexp"
 	"strings"
+	"sync"
 
 	"github.com/icza/dyno"
 	log "github.com/sirupsen/logrus"
@@ -13,12 +14,18 @@ import (
 	"github.com/cgascoig/isctl/pkg/util"
 )
 
-var momorefCache = map[oapi.MoRef]map[string]any{}
+var (
+	momorefCache      = map[oapi.MoRef]map[string]any{}
+	momorefCacheMutex sync.RWMutex
+)
 
 func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, error) {
 	log.Debugf("Looking up Mo by MoRef %v", *moref)
 
-	if mo, ok := momorefCache[*moref]; ok {
+	momorefCacheMutex.RLock()
+	mo, ok := momorefCache[*moref]
+	momorefCacheMutex.RUnlock()
+	if ok {
 		log.Trace("Returning MoMoRef from cache")
 		return mo, nil
 	}
@@ -48,7 +55,9 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 		if err != nil {
 			return nil, err
 		}
+		momorefCacheMutex.Lock()
 		momorefCache[*moref] = ret
+		momorefCacheMutex.Unlock()
 		return ret, nil
 	}
 
@@ -75,7 +84,9 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 		"ObjectType": classId,
 	}
 
+	momorefCacheMutex.Lock()
 	momorefCache[*moref] = ret
+	momorefCacheMutex.Unlock()
 
 	return ret, nil
 }

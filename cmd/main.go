@@ -45,8 +45,9 @@ func main() {
 		if err != nil {
 			log.Fatalf("creating cpu profile file: %v", err)
 		}
+		defer f.Close()              // deferred first → runs LAST
 		pprof.StartCPUProfile(f)
-		defer pprof.StopCPUProfile()
+		defer pprof.StopCPUProfile() // deferred second → runs FIRST
 	}
 
 	rootCmd := gen.GetCommands(client, resultHandler)
