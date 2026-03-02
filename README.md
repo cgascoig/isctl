@@ -13,6 +13,8 @@ The ultimate command-line companion for Cisco Intersight. Designed for DevOps pr
 * **Operational Reports:** Built-in reports for [HCL compliance, Contract status](https://isctl.netlify.app/8-reports/), and more.
 
 
+![isctl demo](examples/demo.gif)
+
 ## Installation
 
 ### MacOS
