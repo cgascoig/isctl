@@ -47,29 +47,39 @@ func FilterWritableProperties(mo map[string]any, classId string) (map[string]any
 	filtered := make(map[string]any)
 	for key, value := range mo {
 		if writableSet[key] {
-			// Recursively filter nested objects
-			filtered[key] = filterNestedValue(value, meta)
+			// Recursively filter nested objects, passing classId and key for context
+			filtered[key] = filterNestedValue(value, meta, classId, key)
 		}
 	}
 
 	return filtered, nil
 }
 
-// filterNestedValue recursively filters nested objects and slices
-func filterNestedValue(value any, meta *Meta) any {
+// filterNestedValue recursively filters nested objects and slices.
+// parentClassId and propName provide context about where this value appears,
+// used to look up declared types for ClassId/ObjectType omission.
+func filterNestedValue(value any, meta *Meta, parentClassId string, propName string) any {
 	switch v := value.(type) {
 	case map[string]any:
-		return filterNestedMap(v, meta)
+		// Collapse MoRef objects to shorthand syntax
+		if classId, ok := v["ClassId"].(string); ok && classId == "mo.MoRef" {
+			if moid, ok := v["Moid"].(string); ok {
+				return fmt.Sprintf("MoRef[Moid:%s]", moid)
+			}
+		}
+		return filterNestedMap(v, meta, parentClassId, propName)
 	case []any:
-		return filterNestedSlice(v, meta)
+		return filterNestedSlice(v, meta, parentClassId, propName)
 	default:
 		return value
 	}
 }
 
 // filterNestedMap filters a nested map, recursively filtering its contents
-// based on the ObjectType's class metadata
-func filterNestedMap(m map[string]any, meta *Meta) map[string]any {
+// based on the ObjectType's class metadata.
+// parentClassId and propName are the caller's context, used to look up the
+// declared type of this object for ClassId/ObjectType omission.
+func filterNestedMap(m map[string]any, meta *Meta, parentClassId string, propName string) map[string]any {
 	filtered := make(map[string]any)
 
 	// Check if this nested object has an ObjectType that we can use to filter
@@ -111,18 +121,27 @@ func filterNestedMap(m map[string]any, meta *Meta) map[string]any {
 			}
 		}
 
-		// Recursively filter nested values
-		filtered[key] = filterNestedValue(value, meta)
+		// Recursively filter nested values using current object's type for child context
+		filtered[key] = filterNestedValue(value, meta, objectType, key)
+	}
+
+	// Omit ClassId/ObjectType if the nested object's ClassId matches the declared type
+	expectedType := meta.GetPropertyOrRelationshipType(parentClassId, propName)
+	if expectedType != "" {
+		if classId, ok := filtered["ClassId"].(string); ok && classId == expectedType {
+			delete(filtered, "ClassId")
+			delete(filtered, "ObjectType")
+		}
 	}
 
 	return filtered
 }
 
 // filterNestedSlice filters each item in a slice
-func filterNestedSlice(s []any, meta *Meta) []any {
+func filterNestedSlice(s []any, meta *Meta, parentClassId string, propName string) []any {
 	filtered := make([]any, len(s))
 	for i, item := range s {
-		filtered[i] = filterNestedValue(item, meta)
+		filtered[i] = filterNestedValue(item, meta, parentClassId, propName)
 	}
 	return filtered
 }

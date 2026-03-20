@@ -146,26 +146,97 @@ func TestFilterWritableProperties(t *testing.T) {
 		require.NotNil(t, filtered)
 
 		assert.Equal(t, map[string]any{
-			"Moid":       "6421194f6f62692d31f53ec5",
-			"ClassId":    "fabric.EthNetworkGroupPolicy", // ClassId should be preserved
-			"ObjectType": "fabric.EthNetworkGroupPolicy", // ObjectType should be preserved
-			"Organization": map[string]any{
-				"Moid":       "5ddec4226972652d33548943",
-				"ClassId":    "mo.MoRef",
-				"ObjectType": "organization.Organization",
-			},
-			"Description": "",
-			"Name":        "COMMON-NET-GRP",
-			"Tags":        []any{},
+			"Moid":         "6421194f6f62692d31f53ec5",
+			"ClassId":      "fabric.EthNetworkGroupPolicy", // Top-level ClassId preserved
+			"ObjectType":   "fabric.EthNetworkGroupPolicy", // Top-level ObjectType preserved
+			"Organization": "MoRef[Moid:5ddec4226972652d33548943]", // MoRef collapsed to shorthand
+			"Description":  "",
+			"Name":         "COMMON-NET-GRP",
+			"Tags":         []any{},
 			"VlanSettings": map[string]any{
+				// ClassId/ObjectType omitted because fabric.VlanSettings matches declared type
 				"AllowedVlans": "1-4093",
-				"ClassId":      "fabric.VlanSettings", // Nested ClassId preserved
 				"NativeVlan":   1,
 				"QinqEnabled":  false,
 				"QinqVlan":     2,
-				"ObjectType":   "fabric.VlanSettings",
 			},
 		}, filtered)
+	})
+
+	t.Run("access.Policy MoRef collapsing and ClassId omission", func(t *testing.T) {
+		mo := map[string]any{
+			"ClassId":    "access.Policy",
+			"ObjectType": "access.Policy",
+			"Moid":       "aabbccdd11223344",
+			"Name":       "test-access-policy",
+			"AddressType": map[string]any{
+				"ClassId":    "access.AddressType",
+				"ObjectType": "access.AddressType",
+				"EnableIpV4": true,
+				"EnableIpV6": false,
+			},
+			"ConfigurationType": map[string]any{
+				"ClassId":            "access.ConfigurationType",
+				"ObjectType":         "access.ConfigurationType",
+				"ConfigureInband":    true,
+				"ConfigureOutOfBand": false,
+			},
+			"InbandIpPool": map[string]any{
+				"ClassId":    "mo.MoRef",
+				"ObjectType": "ippool.Pool",
+				"Moid":       "deadbeef12345678",
+			},
+			"Organization": map[string]any{
+				"ClassId":    "mo.MoRef",
+				"ObjectType": "organization.Organization",
+				"Moid":       "5ddec4226972652d33548943",
+			},
+			"Profiles": []any{
+				map[string]any{
+					"ClassId":    "mo.MoRef",
+					"ObjectType": "server.Profile",
+					"Moid":       "profile001moid",
+				},
+			},
+			"CreateTime": "2024-01-01T00:00:00Z", // Read-only, should be filtered
+		}
+
+		filtered, err := FilterWritableProperties(mo, "access.Policy")
+		require.NoError(t, err)
+		require.NotNil(t, filtered)
+
+		// Top-level ClassId/ObjectType preserved
+		assert.Equal(t, "access.Policy", filtered["ClassId"])
+		assert.Equal(t, "access.Policy", filtered["ObjectType"])
+		assert.Equal(t, "aabbccdd11223344", filtered["Moid"])
+		assert.Equal(t, "test-access-policy", filtered["Name"])
+		assert.NotContains(t, filtered, "CreateTime")
+
+		// MoRefs should be collapsed to shorthand
+		assert.Equal(t, "MoRef[Moid:deadbeef12345678]", filtered["InbandIpPool"])
+		assert.Equal(t, "MoRef[Moid:5ddec4226972652d33548943]", filtered["Organization"])
+
+		// Profiles array items should be collapsed
+		profiles, ok := filtered["Profiles"].([]any)
+		require.True(t, ok)
+		require.Len(t, profiles, 1)
+		assert.Equal(t, "MoRef[Moid:profile001moid]", profiles[0])
+
+		// AddressType should not have ClassId/ObjectType (declared type matches)
+		addressType, ok := filtered["AddressType"].(map[string]any)
+		require.True(t, ok)
+		assert.NotContains(t, addressType, "ClassId")
+		assert.NotContains(t, addressType, "ObjectType")
+		assert.Equal(t, true, addressType["EnableIpV4"])
+		assert.Equal(t, false, addressType["EnableIpV6"])
+
+		// ConfigurationType should not have ClassId/ObjectType (declared type matches)
+		configType, ok := filtered["ConfigurationType"].(map[string]any)
+		require.True(t, ok)
+		assert.NotContains(t, configType, "ClassId")
+		assert.NotContains(t, configType, "ObjectType")
+		assert.Equal(t, true, configType["ConfigureInband"])
+		assert.Equal(t, false, configType["ConfigureOutOfBand"])
 	})
 
 	t.Run("returns error for invalid classId", func(t *testing.T) {
