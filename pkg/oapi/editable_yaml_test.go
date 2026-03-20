@@ -149,7 +149,7 @@ func TestFilterWritableProperties(t *testing.T) {
 			"Moid":         "6421194f6f62692d31f53ec5",
 			"ClassId":      "fabric.EthNetworkGroupPolicy", // Top-level ClassId preserved
 			"ObjectType":   "fabric.EthNetworkGroupPolicy", // Top-level ObjectType preserved
-			"Organization": "MoRef[Moid:5ddec4226972652d33548943]", // MoRef collapsed to shorthand
+			"Organization": "MoRef:organization.Organization[Moid:5ddec4226972652d33548943]", // MoRef collapsed to shorthand
 			"Description":  "",
 			"Name":         "COMMON-NET-GRP",
 			"Tags":         []any{},
@@ -212,15 +212,15 @@ func TestFilterWritableProperties(t *testing.T) {
 		assert.Equal(t, "test-access-policy", filtered["Name"])
 		assert.NotContains(t, filtered, "CreateTime")
 
-		// MoRefs should be collapsed to shorthand
-		assert.Equal(t, "MoRef[Moid:deadbeef12345678]", filtered["InbandIpPool"])
-		assert.Equal(t, "MoRef[Moid:5ddec4226972652d33548943]", filtered["Organization"])
+		// MoRefs should be collapsed to shorthand with ObjectType
+		assert.Equal(t, "MoRef:ippool.Pool[Moid:deadbeef12345678]", filtered["InbandIpPool"])
+		assert.Equal(t, "MoRef:organization.Organization[Moid:5ddec4226972652d33548943]", filtered["Organization"])
 
-		// Profiles array items should be collapsed
+		// Profiles array items should be collapsed with ObjectType
 		profiles, ok := filtered["Profiles"].([]any)
 		require.True(t, ok)
 		require.Len(t, profiles, 1)
-		assert.Equal(t, "MoRef[Moid:profile001moid]", profiles[0])
+		assert.Equal(t, "MoRef:server.Profile[Moid:profile001moid]", profiles[0])
 
 		// AddressType should not have ClassId/ObjectType (declared type matches)
 		addressType, ok := filtered["AddressType"].(map[string]any)

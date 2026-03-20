@@ -4,7 +4,32 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+
+	"github.com/cgascoig/isctl/pkg/oapi"
 )
+
+func TestGetMoMoRefDirectMoid(t *testing.T) {
+	moref := &oapi.MoRef{Moid: "59c84e4a16267c0001c23428"}
+	result, err := GetMoMoRef(nil, moref)
+	assert.NoError(t, err)
+	assert.Equal(t, map[string]any{
+		"ClassId": "mo.MoRef",
+		"Moid":    "59c84e4a16267c0001c23428",
+	}, result)
+	_, hasObjectType := result["ObjectType"]
+	assert.False(t, hasObjectType)
+}
+
+func TestGetMoMoRefDirectMoidWithType(t *testing.T) {
+	moref := &oapi.MoRef{Moid: "59c84e4a16267c0001c23428", RelationshipType: "server.Profile"}
+	result, err := GetMoMoRef(nil, moref)
+	assert.NoError(t, err)
+	assert.Equal(t, map[string]any{
+		"ClassId":    "mo.MoRef",
+		"Moid":       "59c84e4a16267c0001c23428",
+		"ObjectType": "server.Profile",
+	}, result)
+}
 
 func TestReplaceArgs(t *testing.T) {
 	var s string

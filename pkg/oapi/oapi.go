@@ -62,6 +62,7 @@ func getSchemaProperty(propName string, schema map[string]any) map[string]any {
 }
 
 type MoRef struct {
+	Moid             string // When set, this is a direct Moid reference (no API lookup needed)
 	Filter           string
 	RelationshipType string
 	Organization     string
@@ -83,6 +84,9 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 	r = regexp.MustCompile(`^[[:xdigit:]]{24}$`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
+		if defaultRelationshipType != "" {
+			return &MoRef{Moid: moref}
+		}
 		return nil
 	}
 
@@ -108,6 +112,13 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
+		// Direct Moid reference with explicit type — no API lookup needed
+		if m[2] == "Moid" && regexp.MustCompile(`^[[:xdigit:]]{24}$`).MatchString(m[3]) {
+			return &MoRef{
+				Moid:             m[3],
+				RelationshipType: canonicaliseRelationshipType(m[1]),
+			}
+		}
 		return &MoRef{
 			Filter:           fmt.Sprintf("%s eq '%s'", m[2], m[3]),
 			RelationshipType: canonicaliseRelationshipType(m[1]),
@@ -117,10 +128,16 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_\-\.\s]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
-	if m != nil && defaultRelationshipType != "" {
-		return &MoRef{
-			Filter:           fmt.Sprintf("%s eq '%s'", m[1], m[2]),
-			RelationshipType: defaultRelationshipType,
+	if m != nil {
+		// Direct Moid reference without explicit type — no API lookup needed
+		if m[1] == "Moid" && regexp.MustCompile(`^[[:xdigit:]]{24}$`).MatchString(m[2]) {
+			return &MoRef{Moid: m[2]}
+		}
+		if defaultRelationshipType != "" {
+			return &MoRef{
+				Filter:           fmt.Sprintf("%s eq '%s'", m[1], m[2]),
+				RelationshipType: defaultRelationshipType,
+			}
 		}
 	}
 
@@ -131,6 +148,12 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 			Filter:           fmt.Sprintf("Name eq '%s'", m[2]),
 			RelationshipType: canonicaliseRelationshipType(m[1]),
 		}
+	}
+
+	r = regexp.MustCompile(`^MoRef\[([[:xdigit:]]{24})\]$`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return &MoRef{Moid: m[1]}
 	}
 
 	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.\s]+)\]`)

@@ -22,6 +22,17 @@ var (
 func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, error) {
 	log.Debugf("Looking up Mo by MoRef %v", *moref)
 
+	if moref.Moid != "" {
+		ret := map[string]any{
+			"ClassId": "mo.MoRef",
+			"Moid":    moref.Moid,
+		}
+		if moref.RelationshipType != "" {
+			ret["ObjectType"] = getClassIDFromRelationship(moref.RelationshipType)
+		}
+		return ret, nil
+	}
+
 	momorefCacheMutex.RLock()
 	mo, ok := momorefCache[*moref]
 	momorefCacheMutex.RUnlock()

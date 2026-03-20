@@ -64,6 +64,9 @@ func filterNestedValue(value any, meta *Meta, parentClassId string, propName str
 		// Collapse MoRef objects to shorthand syntax
 		if classId, ok := v["ClassId"].(string); ok && classId == "mo.MoRef" {
 			if moid, ok := v["Moid"].(string); ok {
+				if objectType, ok := v["ObjectType"].(string); ok && objectType != "" {
+					return fmt.Sprintf("MoRef:%s[Moid:%s]", objectType, moid)
+				}
 				return fmt.Sprintf("MoRef[Moid:%s]", moid)
 			}
 		}

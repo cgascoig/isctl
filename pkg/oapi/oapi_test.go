@@ -220,7 +220,32 @@ func TestCanonicaliseMoRef(t *testing.T) {
 		{
 			moref:                   "59c84e4a16267c0001c23428",
 			defaultRelationshipType: "organisation.Organisation.Relationship",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428"},
+		},
+		{
+			moref:                   "59c84e4a16267c0001c23428",
+			defaultRelationshipType: "",
 			res:                     nil,
+		},
+		{
+			moref:                   "MoRef[59c84e4a16267c0001c23428]",
+			defaultRelationshipType: "organisation.Organisation.Relationship",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428"},
+		},
+		{
+			moref:                   "MoRef[59c84e4a16267c0001c23428]",
+			defaultRelationshipType: "",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428"},
+		},
+		{
+			moref:                   "MoRef[Moid:59c84e4a16267c0001c23428]",
+			defaultRelationshipType: "organisation.Organisation.Relationship",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428"},
+		},
+		{
+			moref:                   "MoRef[Moid:59c84e4a16267c0001c23428]",
+			defaultRelationshipType: "",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428"},
 		},
 		{
 			moref:                   "MoRef:organization.Organization[default]",
@@ -255,6 +280,21 @@ func TestCanonicaliseMoRef(t *testing.T) {
 				Filter:           "Name eq 'Red Hat Enterprise Linux 7.6'",
 				RelationshipType: "hcl.OperatingSystem",
 			},
+		},
+		{
+			moref:                   "MoRef:server.Profile[Moid:59c84e4a16267c0001c23428]",
+			defaultRelationshipType: "",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428", RelationshipType: "server.Profile"},
+		},
+		{
+			moref:                   "MoRef:OrganizationOrganizationRelationship[Moid:59c84e4a16267c0001c23428]",
+			defaultRelationshipType: "",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428", RelationshipType: "organization.Organization.Relationship"},
+		},
+		{
+			moref:                   "MoRef:organization.Organization[Moid:59c84e4a16267c0001c23428]",
+			defaultRelationshipType: "",
+			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428", RelationshipType: "organization.Organization"},
 		},
 	}
 
