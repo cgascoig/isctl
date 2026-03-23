@@ -55,14 +55,14 @@ func TestCanonicaliseMoRefs(t *testing.T) {
 		},
 		{
 			in: map[string]any{
-				"ClusterIpPools": []any{"MoRef[ip-pool-1]"},
+				"ExtEthIfs": []any{"MoRef[if-1]"},
 			},
-			baseSchema: "kubernetes.ClusterProfile",
+			baseSchema: "adapter.Unit",
 			expected: map[string]any{
-				"ClusterIpPools": []any{
+				"ExtEthIfs": []any{
 					&MoRef{
-						Filter:           "Name eq 'ip-pool-1'",
-						RelationshipType: "ippool.Pool.Relationship",
+						Filter:           "Name eq 'if-1'",
+						RelationshipType: "adapter.ExtEthInterface.Relationship",
 					},
 				},
 			},

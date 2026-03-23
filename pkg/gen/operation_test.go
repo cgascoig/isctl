@@ -51,13 +51,13 @@ func TestGetReferencedClasses(t *testing.T) {
 	assert.ElementsMatch(t, []string{"organization.Organization", "iam.Account"}, refClasses)
 
 	mo = map[string]interface{}{
-		"ClusterIpPools": []interface{}{"MoRef[ip-pool-1]"},
+		"ExtEthIfs": []interface{}{"MoRef[if-1]"},
 	}
-	oapi.CanonicaliseMoRefs(&mo, "kubernetes.ClusterProfile")
+	oapi.CanonicaliseMoRefs(&mo, "adapter.Unit")
 
 	refClasses = GetReferencedClasses(mo)
 
-	assert.ElementsMatch(t, []string{"ippool.Pool"}, refClasses)
+	assert.ElementsMatch(t, []string{"adapter.ExtEthInterface"}, refClasses)
 
 	mo = map[string]interface{}{
 		"PolicyBucket": []any{
