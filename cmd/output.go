@@ -55,6 +55,15 @@ func resultHandler(result interface{}, err error, options ...util.ResultOpt) {
 		log.Fatalf("ERROR applying jsonPath filter: %v", err)
 	}
 
+	if gK.Bool(CKReadableMoRefs) {
+		resolver, resolverErr := NewMoRefResolver(client)
+		if resolverErr == nil {
+			result = resolver.ResolveResult(result)
+		} else {
+			log.Debugf("readable-morefs: failed to create resolver: %v", resolverErr)
+		}
+	}
+
 	structuredOutputHandler(result, false)
 }
 
@@ -175,7 +184,11 @@ func collapseReferences(mo *map[string]interface{}) {
 	for k, v := range *mo {
 		if in, ok := v.(map[string]interface{}); ok {
 			if classID, ok := in["ClassId"]; ok && classID == "mo.MoRef" {
-				(*mo)[k] = fmt.Sprintf("MoRef[%v/%v]", in["ObjectType"], in["Moid"])
+				if identity, ok := in["_ResolvedIdentity"].(string); ok {
+					(*mo)[k] = fmt.Sprintf("MoRef[%v/%v]", in["ObjectType"], identity)
+				} else {
+					(*mo)[k] = fmt.Sprintf("MoRef[%v/%v]", in["ObjectType"], in["Moid"])
+				}
 			}
 		}
 	}

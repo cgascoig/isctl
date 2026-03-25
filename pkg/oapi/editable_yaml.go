@@ -63,6 +63,13 @@ func filterNestedValue(value any, meta *Meta, parentClassId string, propName str
 	case map[string]any:
 		// Collapse MoRef objects to shorthand syntax
 		if classId, ok := v["ClassId"].(string); ok && classId == "mo.MoRef" {
+			// Use pre-resolved identity string if available (from --readable-morefs)
+			if identity, ok := v["_ResolvedIdentity"].(string); ok {
+				if objectType, ok := v["ObjectType"].(string); ok && objectType != "" {
+					return fmt.Sprintf("MoRef:%s[%s]", objectType, identity)
+				}
+				return fmt.Sprintf("MoRef[%s]", identity)
+			}
 			if moid, ok := v["Moid"].(string); ok {
 				if objectType, ok := v["ObjectType"].(string); ok && objectType != "" {
 					return fmt.Sprintf("MoRef:%s[Moid:%s]", objectType, moid)

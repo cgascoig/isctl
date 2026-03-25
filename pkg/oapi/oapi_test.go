@@ -296,6 +296,32 @@ func TestCanonicaliseMoRef(t *testing.T) {
 			defaultRelationshipType: "",
 			res:                     &MoRef{Moid: "59c84e4a16267c0001c23428", RelationshipType: "organization.Organization"},
 		},
+		// Multi-field identity MoRefs
+		{
+			moref:                   "MoRef:organization.Organization[Name:default,Account:acc1]",
+			defaultRelationshipType: "",
+			res: &MoRef{
+				RelationshipType: "organization.Organization",
+				IdentityFields: []IdentityField{
+					{Name: "Name", Value: "default"},
+					{Name: "Account", Value: "acc1"},
+				},
+			},
+		},
+		{
+			moref:                   "MoRef:fabric.Vlan[VlanId:100,EthNetworkPolicy:MoRef:fabric.EthNetworkPolicy[Name:my-policy]]",
+			defaultRelationshipType: "",
+			res: &MoRef{
+				RelationshipType: "fabric.Vlan",
+				IdentityFields: []IdentityField{
+					{Name: "VlanId", Value: "100"},
+					{Name: "EthNetworkPolicy", Ref: &MoRef{
+						Filter:           "Name eq 'my-policy'",
+						RelationshipType: "fabric.EthNetworkPolicy",
+					}},
+				},
+			},
+		},
 	}
 
 	for _, test := range tests {

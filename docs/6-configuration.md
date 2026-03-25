@@ -26,9 +26,10 @@ When using OAuth authentication, `isctl` caches the access token to disk to avoi
 
 ### General Configuration
 
- - **Intersight FQDN** - Fully Qualified Domain Name of the Intersight service. For SaaS this will be `intersight.com` (and this is the default if not specified) but for Private Virtual Appliance (PVA) or Connected Virtual Appliance (CVA) installations you will need to set this. 
- - **Intersight Insecure** - if set to **true**, `isctl` will not verify the certificate of the Intersight API service. If set to **false** (the default), the Intersight API service certificate will be verified. 
+ - **Intersight FQDN** - Fully Qualified Domain Name of the Intersight service. For SaaS this will be `intersight.com` (and this is the default if not specified) but for Private Virtual Appliance (PVA) or Connected Virtual Appliance (CVA) installations you will need to set this.
+ - **Intersight Insecure** - if set to **true**, `isctl` will not verify the certificate of the Intersight API service. If set to **false** (the default), the Intersight API service certificate will be verified.
  - **Intersight Proxy** - The URL of an HTTP proxy to use for API requests (e.g. `http://proxy.example.com:8080`).
+ - **Readable MoRefs** - if set to **true**, MoRef values in output will use human-readable identity fields (e.g., `MoRef:organization.Organization[Name:default]`) instead of opaque Moid hex strings. The identity fields used depend on each class's identity constraints. Falls back to Moid for classes with no identity constraints. See [Readable MoRefs](../1-basic-queries/#readable-morefs) for details.
 
 ## Configuration Sources
 
@@ -45,5 +46,10 @@ Source                | Token Cache Path                   | Disable Token Cache
 Command Line Flags    | `--intersight-token-cache-path`    | `--intersight-disable-token-cache`
 Environment Variables | `INTERSIGHT_TOKEN_CACHE_PATH`      | `INTERSIGHT_DISABLE_TOKEN_CACHE`
 Configuration file    | `intersight_token_cache_path`      | `intersight_disable_token_cache`
+
+Source                | Readable MoRefs
+----------------------|----------------
+Command Line Flags    | `--readable-morefs`
+Configuration file    | `readable_morefs`
 
 > Note: Environment variables are case-insensitive.

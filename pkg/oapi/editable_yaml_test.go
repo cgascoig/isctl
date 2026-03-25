@@ -395,3 +395,54 @@ func TestFilterWritablePropertiesIncludesIdentity(t *testing.T) {
 	// ReadOnly fields (non-identity) must be absent
 	assert.NotContains(t, filtered, "CreateTime")
 }
+
+func TestFilterNestedValueResolvedIdentity(t *testing.T) {
+	meta, err := GetMeta()
+	require.NoError(t, err)
+
+	t.Run("uses _ResolvedIdentity when present", func(t *testing.T) {
+		mo := map[string]any{
+			"ClassId":    "ntp.Policy",
+			"ObjectType": "ntp.Policy",
+			"Moid":       "aabbccddee1122334455aabb",
+			"Name":       "test",
+			"Organization": map[string]any{
+				"ClassId":            "mo.MoRef",
+				"Moid":               "5ddec4226972652d33548943",
+				"ObjectType":         "organization.Organization",
+				"_ResolvedIdentity":  "Name:default",
+			},
+		}
+		filtered, err := FilterWritableProperties(mo, "ntp.Policy")
+		require.NoError(t, err)
+		assert.Equal(t, "MoRef:organization.Organization[Name:default]", filtered["Organization"])
+	})
+
+	t.Run("falls back to Moid when _ResolvedIdentity absent", func(t *testing.T) {
+		mo := map[string]any{
+			"ClassId":    "ntp.Policy",
+			"ObjectType": "ntp.Policy",
+			"Moid":       "aabbccddee1122334455aabb",
+			"Name":       "test",
+			"Organization": map[string]any{
+				"ClassId":    "mo.MoRef",
+				"Moid":       "5ddec4226972652d33548943",
+				"ObjectType": "organization.Organization",
+			},
+		}
+		filtered, err := FilterWritableProperties(mo, "ntp.Policy")
+		require.NoError(t, err)
+		assert.Equal(t, "MoRef:organization.Organization[Moid:5ddec4226972652d33548943]", filtered["Organization"])
+	})
+
+	t.Run("splitBalancedCommas handles nested brackets", func(t *testing.T) {
+		_ = meta // avoid unused var
+		parts := splitBalancedCommas("VlanId:100,EthNetworkPolicy:MoRef:fabric.EthNetworkPolicy[Name:my-policy]")
+		assert.Equal(t, []string{"VlanId:100", "EthNetworkPolicy:MoRef:fabric.EthNetworkPolicy[Name:my-policy]"}, parts)
+	})
+
+	t.Run("splitBalancedCommas handles simple string", func(t *testing.T) {
+		parts := splitBalancedCommas("Name:default,Account:acc1")
+		assert.Equal(t, []string{"Name:default", "Account:acc1"}, parts)
+	})
+}

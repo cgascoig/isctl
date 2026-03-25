@@ -191,12 +191,35 @@ TEST_SECTION="NTP Policy CRUD"
 @test "${TEST_SECTION}: -o yaml-editable with filter returns valid YAML" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o yaml-editable
     assert_success
-    
+
     # Should contain the policy name value
     assert_line --partial "${TEST_NTP_POLICY_NAME}"
-    
+
     # Should NOT contain read-only properties
     refute_line --partial "ModTime:"
+}
+
+@test "${TEST_SECTION}: --readable-morefs uses identity-based MoRef in yaml-editable" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --readable-morefs -o yaml-editable
+    assert_success
+
+    # Organization should be emitted as a Name-based MoRef, not Moid-based
+    assert_line --partial "Organization: MoRef:organization.Organization[Name:"
+    refute_line --partial "Organization: MoRef:organization.Organization[Moid:"
+}
+
+@test "${TEST_SECTION}: without --readable-morefs yaml-editable uses Moid-based MoRef" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o yaml-editable
+    assert_success
+
+    # Organization should use the Moid-based form by default
+    assert_line --partial "Organization: MoRef:organization.Organization[Moid:"
+    refute_line --partial "Organization: MoRef:organization.Organization[Name:"
+}
+
+@test "${TEST_SECTION}: --readable-morefs does not crash in default output" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --readable-morefs
+    assert_success
 }
 
 @test "${TEST_SECTION}: delete NTP policy" {
