@@ -204,8 +204,8 @@ TEST_SECTION="NTP Policy CRUD"
     assert_success
 
     # Organization should be emitted as a Name-based MoRef, not Moid-based
-    assert_line --partial "Organization: MoRef:organization.Organization[Name:"
-    refute_line --partial "Organization: MoRef:organization.Organization[Moid:"
+    assert_line --partial "Organization: MoRef[Name:"
+    refute_line --partial "Organization: MoRef[Moid:"
 }
 
 @test "${TEST_SECTION}: without --readable-morefs yaml-editable uses Moid-based MoRef" {
@@ -213,8 +213,8 @@ TEST_SECTION="NTP Policy CRUD"
     assert_success
 
     # Organization should use the Moid-based form by default
-    assert_line --partial "Organization: MoRef:organization.Organization[Moid:"
-    refute_line --partial "Organization: MoRef:organization.Organization[Name:"
+    assert_line --partial "Organization: MoRef[Moid:"
+    refute_line --partial "Organization: MoRef[Name:"
 }
 
 @test "${TEST_SECTION}: --readable-morefs does not crash in default output" {

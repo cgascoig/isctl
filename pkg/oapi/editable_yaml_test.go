@@ -147,9 +147,9 @@ func TestFilterWritableProperties(t *testing.T) {
 
 		assert.Equal(t, map[string]any{
 			"Moid":         "6421194f6f62692d31f53ec5",
-			"ClassId":      "fabric.EthNetworkGroupPolicy", // Top-level ClassId preserved
-			"ObjectType":   "fabric.EthNetworkGroupPolicy", // Top-level ObjectType preserved
-			"Organization": "MoRef:organization.Organization[Moid:5ddec4226972652d33548943]", // MoRef collapsed to shorthand
+			"ClassId":      "fabric.EthNetworkGroupPolicy",         // Top-level ClassId preserved
+			"ObjectType":   "fabric.EthNetworkGroupPolicy",         // Top-level ObjectType preserved
+			"Organization": "MoRef[Moid:5ddec4226972652d33548943]", // MoRef collapsed to shorthand
 			"Description":  "",
 			"Name":         "COMMON-NET-GRP",
 			"Tags":         []any{},
@@ -212,11 +212,11 @@ func TestFilterWritableProperties(t *testing.T) {
 		assert.Equal(t, "test-access-policy", filtered["Name"])
 		assert.NotContains(t, filtered, "CreateTime")
 
-		// MoRefs should be collapsed to shorthand with ObjectType
-		assert.Equal(t, "MoRef:ippool.Pool[Moid:deadbeef12345678]", filtered["InbandIpPool"])
-		assert.Equal(t, "MoRef:organization.Organization[Moid:5ddec4226972652d33548943]", filtered["Organization"])
+		// MoRefs should be collapsed to shorthand, omitting ObjectType when it matches declared type
+		assert.Equal(t, "MoRef[Moid:deadbeef12345678]", filtered["InbandIpPool"])
+		assert.Equal(t, "MoRef[Moid:5ddec4226972652d33548943]", filtered["Organization"])
 
-		// Profiles array items should be collapsed with ObjectType
+		// Profiles array items: server.Profile differs from declared policy.AbstractConfigProfile, so type is included
 		profiles, ok := filtered["Profiles"].([]any)
 		require.True(t, ok)
 		require.Len(t, profiles, 1)
@@ -407,15 +407,15 @@ func TestFilterNestedValueResolvedIdentity(t *testing.T) {
 			"Moid":       "aabbccddee1122334455aabb",
 			"Name":       "test",
 			"Organization": map[string]any{
-				"ClassId":            "mo.MoRef",
-				"Moid":               "5ddec4226972652d33548943",
-				"ObjectType":         "organization.Organization",
-				"_ResolvedIdentity":  "Name:default",
+				"ClassId":           "mo.MoRef",
+				"Moid":              "5ddec4226972652d33548943",
+				"ObjectType":        "organization.Organization",
+				"_ResolvedIdentity": "Name:default",
 			},
 		}
 		filtered, err := FilterWritableProperties(mo, "ntp.Policy")
 		require.NoError(t, err)
-		assert.Equal(t, "MoRef:organization.Organization[Name:default]", filtered["Organization"])
+		assert.Equal(t, "MoRef[Name:default]", filtered["Organization"])
 	})
 
 	t.Run("falls back to Moid when _ResolvedIdentity absent", func(t *testing.T) {
@@ -432,7 +432,7 @@ func TestFilterNestedValueResolvedIdentity(t *testing.T) {
 		}
 		filtered, err := FilterWritableProperties(mo, "ntp.Policy")
 		require.NoError(t, err)
-		assert.Equal(t, "MoRef:organization.Organization[Moid:5ddec4226972652d33548943]", filtered["Organization"])
+		assert.Equal(t, "MoRef[Moid:5ddec4226972652d33548943]", filtered["Organization"])
 	})
 
 	t.Run("splitBalancedCommas handles nested brackets", func(t *testing.T) {
