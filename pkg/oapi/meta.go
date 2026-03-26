@@ -202,3 +202,24 @@ func (m *Meta) GetWritableRelationshipNames(classId string) []string {
 	}
 	return names
 }
+
+// GetPropertyOrRelationshipType returns the declared type of a property or relationship
+// for a given class. Checks properties first, then relationships.
+// Returns empty string if the class or property/relationship is not found.
+func (m *Meta) GetPropertyOrRelationshipType(classId, propName string) string {
+	cm := m.GetClassMeta(classId)
+	if cm == nil {
+		return ""
+	}
+	for _, prop := range cm.Properties {
+		if prop.Name == propName {
+			return prop.Type
+		}
+	}
+	for _, rel := range cm.Relationships {
+		if rel.Name == propName {
+			return rel.Type
+		}
+	}
+	return ""
+}

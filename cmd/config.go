@@ -36,6 +36,8 @@ const (
 	CKIntersightTokenUrl          = "intersight_token_url"
 	CKIntersightTokenCachePath    = "intersight_token_cache_path"
 	CKIntersightDisableTokenCache = "intersight_disable_token_cache"
+	CKReadableMoRefs              = "readable_morefs"
+	CKIncludeEmptyFields          = "include_empty_fields"
 
 	// New cmd flags
 	FlagIntersightApiKeyId          = "intersight-api-key-id"
@@ -47,6 +49,8 @@ const (
 	FlagIntersightTokenUrl          = "intersight-token-url"
 	FlagIntersightTokenCachePath    = "intersight-token-cache-path"
 	FlagIntersightDisableTokenCache = "intersight-disable-token-cache"
+	FlagReadableMoRefs              = "readable-morefs"
+	FlagIncludeEmptyFields          = "include-empty-fields"
 
 	// Legacy / deprecated config keys
 	CKKeyID    = "keyID"
@@ -113,6 +117,8 @@ func loadDefaults() {
 		CKIntersightTokenUrl:          "",
 		CKIntersightTokenCachePath:    "",
 		CKIntersightDisableTokenCache: false,
+		CKReadableMoRefs:              false,
+		CKIncludeEmptyFields:          false,
 	}, "."), nil)
 }
 
@@ -186,6 +192,8 @@ func loadFlags(flags *flag.FlagSet) {
 		FlagIntersightTokenUrl:          CKIntersightTokenUrl,
 		FlagIntersightTokenCachePath:    CKIntersightTokenCachePath,
 		FlagIntersightDisableTokenCache: CKIntersightDisableTokenCache,
+		FlagReadableMoRefs:              CKReadableMoRefs,
+		FlagIncludeEmptyFields:          CKIncludeEmptyFields,
 	}
 
 	err := gK.Load(posflag.ProviderWithFlag(flags, ".", gK, func(f *flag.Flag) (string, any) {

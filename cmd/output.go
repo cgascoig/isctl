@@ -55,6 +55,15 @@ func resultHandler(result interface{}, err error, options ...util.ResultOpt) {
 		log.Fatalf("ERROR applying jsonPath filter: %v", err)
 	}
 
+	if gK.Bool(CKReadableMoRefs) {
+		resolver, resolverErr := NewMoRefResolver(client)
+		if resolverErr == nil {
+			result = resolver.ResolveResult(result)
+		} else {
+			log.Debugf("readable-morefs: failed to create resolver: %v", resolverErr)
+		}
+	}
+
 	structuredOutputHandler(result, false)
 }
 
@@ -175,7 +184,11 @@ func collapseReferences(mo *map[string]interface{}) {
 	for k, v := range *mo {
 		if in, ok := v.(map[string]interface{}); ok {
 			if classID, ok := in["ClassId"]; ok && classID == "mo.MoRef" {
-				(*mo)[k] = fmt.Sprintf("MoRef[%v/%v]", in["ObjectType"], in["Moid"])
+				if identity, ok := in["_ResolvedIdentity"].(string); ok {
+					(*mo)[k] = fmt.Sprintf("MoRef[%v/%v]", in["ObjectType"], identity)
+				} else {
+					(*mo)[k] = fmt.Sprintf("MoRef[%v/%v]", in["ObjectType"], in["Moid"])
+				}
 			}
 		}
 	}
@@ -348,10 +361,33 @@ func applyJSONPathFilter(result interface{}, jsonpathQuery string, singleResult 
 
 const defaultOutputMaxColumns int = 11
 
-func printResultDefault(result interface{}) {
-	result = filterAttributes(result)
+// deepCopyResult returns a deep copy of a result value so that in-place mutations
+// (e.g. by filterAttributes) do not affect the original.
+func deepCopyResult(v interface{}) interface{} {
+	switch val := v.(type) {
+	case map[string]interface{}:
+		cp := make(map[string]interface{}, len(val))
+		for k, item := range val {
+			cp[k] = deepCopyResult(item)
+		}
+		return cp
+	case []interface{}:
+		cp := make([]interface{}, len(val))
+		for i, item := range val {
+			cp[i] = deepCopyResult(item)
+		}
+		return cp
+	default:
+		return v
+	}
+}
 
-	tableData, tableHeaders := prepareResultTable(result, true)
+func printResultDefault(result interface{}) {
+	// filterAttributes mutates maps in-place, so keep a copy for yaml-editable fallback
+	original := deepCopyResult(result)
+	filtered := filterAttributes(result)
+
+	tableData, tableHeaders := prepareResultTable(filtered, true)
 
 	if len(tableHeaders) == 0 {
 		for _, row := range tableData {
@@ -363,18 +399,18 @@ func printResultDefault(result interface{}) {
 		return
 	}
 
-	// Pretty rough but if the output will be very wide fall back to YAML formatting the output unless the output format is explicitly set to "table"
+	// Pretty rough but if the output will be very wide fall back to yaml-editable unless the output format is explicitly set to "table"
 	outputFormat := strings.ToLower(gK.String(CKOutputFormat))
 	if (len(tableHeaders) > defaultOutputMaxColumns) && outputFormat != "table" {
-		log.Println("Too many columns for table format, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.")
-		printResultYAML(result)
+		log.Println("Too many columns for table format, falling back to yaml-editable output.")
+		printResultYAMLEditable(original)
 		return
 	}
 
-	// If the result is just 1 item also fall back to YAML unless table is explicitly specified
+	// If the result is just 1 item also fall back to yaml-editable unless table is explicitly specified
 	if len(tableData) == 1 && outputFormat != "table" {
-		log.Println("Single result, falling back to vertical output. NOTE: this is not valid YAML; use --output yaml to get valid YAML.")
-		printResultYAML(result)
+		log.Println("Single result, falling back to yaml-editable output.")
+		printResultYAMLEditable(original)
 		return
 	}
 
@@ -431,7 +467,7 @@ func printSingleMOEditable(result interface{}) {
 		moAny[k] = v
 	}
 
-	out, err := oapi.FormatEditableYAML(moAny, objectType)
+	out, err := oapi.FormatEditableYAML(moAny, objectType, gK.Bool(CKIncludeEmptyFields))
 	if err != nil {
 		log.Errorf("error formatting editable YAML: %v", err)
 		return

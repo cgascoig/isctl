@@ -169,7 +169,7 @@ func (config *editConfig) runEdit(classID, paramType, paramValue string) error {
 	}
 
 	// Step 2: Filter to writable properties and convert to YAML
-	originalYAML, err := oapi.FormatEditableYAML(mo, classID)
+	originalYAML, err := oapi.FormatEditableYAML(mo, classID, gK.Bool(CKIncludeEmptyFields))
 	if err != nil {
 		return fmt.Errorf("error formatting YAML: %w", err)
 	}

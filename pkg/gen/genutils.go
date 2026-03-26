@@ -15,15 +15,51 @@ import (
 )
 
 var (
-	momorefCache      = map[oapi.MoRef]map[string]any{}
+	momorefCache      = map[string]map[string]any{}
 	momorefCacheMutex sync.RWMutex
 )
 
 func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, error) {
 	log.Debugf("Looking up Mo by MoRef %v", *moref)
 
+	if moref.Moid != "" {
+		ret := map[string]any{
+			"ClassId": "mo.MoRef",
+			"Moid":    moref.Moid,
+		}
+		if moref.RelationshipType != "" {
+			ret["ObjectType"] = getClassIDFromRelationship(moref.RelationshipType)
+		}
+		return ret, nil
+	}
+
+	// Handle multi-field identity MoRefs by building a compound filter
+	if len(moref.IdentityFields) > 0 {
+		parts := []string{}
+		for _, field := range moref.IdentityFields {
+			if field.Ref != nil {
+				resolved, err := GetMoMoRef(client, field.Ref)
+				if err != nil {
+					return nil, fmt.Errorf("error resolving identity field %s: %v", field.Name, err)
+				}
+				moid, err := dyno.GetString(resolved, "Moid")
+				if err != nil {
+					return nil, fmt.Errorf("error getting Moid for identity field %s: %v", field.Name, err)
+				}
+				parts = append(parts, fmt.Sprintf("%s/Moid eq '%s'", field.Name, moid))
+			} else {
+				parts = append(parts, fmt.Sprintf("%s eq '%s'", field.Name, field.Value))
+			}
+		}
+		// Build a modified moref with the compound filter and fall through to filter-based resolution
+		moref = &oapi.MoRef{
+			Filter:           strings.Join(parts, " and "),
+			RelationshipType: moref.RelationshipType,
+		}
+	}
+
 	momorefCacheMutex.RLock()
-	mo, ok := momorefCache[*moref]
+	mo, ok := momorefCache[fmt.Sprintf("%v", *moref)]
 	momorefCacheMutex.RUnlock()
 	if ok {
 		log.Trace("Returning MoMoRef from cache")
@@ -56,7 +92,7 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 			return nil, err
 		}
 		momorefCacheMutex.Lock()
-		momorefCache[*moref] = ret
+		momorefCache[fmt.Sprintf("%v", *moref)] = ret
 		momorefCacheMutex.Unlock()
 		return ret, nil
 	}
@@ -85,7 +121,7 @@ func GetMoMoRef(client *util.IsctlClient, moref *oapi.MoRef) (map[string]any, er
 	}
 
 	momorefCacheMutex.Lock()
-	momorefCache[*moref] = ret
+	momorefCache[fmt.Sprintf("%v", *moref)] = ret
 	momorefCacheMutex.Unlock()
 
 	return ret, nil

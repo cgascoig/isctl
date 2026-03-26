@@ -191,12 +191,74 @@ TEST_SECTION="NTP Policy CRUD"
 @test "${TEST_SECTION}: -o yaml-editable with filter returns valid YAML" {
     run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NTP_POLICY_NAME}'" -o yaml-editable
     assert_success
-    
+
     # Should contain the policy name value
     assert_line --partial "${TEST_NTP_POLICY_NAME}"
-    
+
     # Should NOT contain read-only properties
     refute_line --partial "ModTime:"
+}
+
+@test "${TEST_SECTION}: --readable-morefs uses identity-based MoRef in yaml-editable" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --readable-morefs -o yaml-editable
+    assert_success
+
+    # Organization should be emitted as a Name-based MoRef, not Moid-based
+    assert_line --partial "Organization: MoRef[Name:"
+    refute_line --partial "Organization: MoRef[Moid:"
+}
+
+@test "${TEST_SECTION}: without --readable-morefs yaml-editable uses Moid-based MoRef" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o yaml-editable
+    assert_success
+
+    # Organization should use the Moid-based form by default
+    assert_line --partial "Organization: MoRef[Moid:"
+    refute_line --partial "Organization: MoRef[Name:"
+}
+
+@test "${TEST_SECTION}: --readable-morefs does not crash in default output" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" --readable-morefs
+    assert_success
+}
+
+@test "${TEST_SECTION}: default output for single result uses yaml-editable format" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}"
+    assert_success
+
+    # Should contain yaml-editable style fields
+    assert_line --partial "ClassId:"
+    assert_line --partial "ObjectType:"
+    assert_line --partial "Moid:"
+    assert_line --partial "Name:"
+
+    # Should NOT contain read-only system fields
+    refute_line --partial "CreateTime:"
+    refute_line --partial "AccountMoid:"
+}
+
+@test "${TEST_SECTION}: default output for single result omits empty fields" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}"
+    assert_success
+
+    # Description is empty by default - should not appear
+    refute_line --partial "Description:"
+}
+
+@test "${TEST_SECTION}: -o yaml-editable omits empty fields by default" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o yaml-editable
+    assert_success
+
+    # Description is empty by default - should not appear in output
+    refute_line --partial "Description:"
+}
+
+@test "${TEST_SECTION}: -o yaml-editable --include-empty-fields includes empty fields" {
+    run ./build/isctl ${ISCTL_OPTIONS} get ntp policy --name "${TEST_NTP_POLICY_NAME}" -o yaml-editable --include-empty-fields
+    assert_success
+
+    # Description should appear when --include-empty-fields is set
+    assert_line --partial "Description:"
 }
 
 @test "${TEST_SECTION}: delete NTP policy" {

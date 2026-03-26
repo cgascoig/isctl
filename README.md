@@ -8,7 +8,7 @@ The ultimate command-line companion for Cisco Intersight. Designed for DevOps pr
 * **OpenAPI-Driven:** Automatically generated from the Intersight OpenAPI v3 spec, ensuring capability with the latest features.
 * **Cross-Platform:** Native binaries for macOS, Linux, and Windows.
 * **Flexible Authentication:** Supports both API Key and OAuth 2.0 authentication with automatic [token caching](https://isctl.netlify.app/6-configuration/).
-* **Developer Friendly:** Human, JSON, or YAML output with [JSONpath](https://goessner.net/articles/JsonPath/) and [Go Template](https://pkg.go.dev/text/template) support for powerful data extraction.
+* **Developer Friendly:** Human, JSON, or YAML output with [JSONpath](https://goessner.net/articles/JsonPath/) and [Go Template](https://pkg.go.dev/text/template) support for powerful data extraction. MoRefs can be emitted with human-readable identity values using `--readable-morefs`.
 * **Shell Autocompletion:** Native support for [Bash, Zsh, Fish, and PowerShell](https://isctl.netlify.app/7-shell-autocompletion/).
 * **Operational Reports:** Built-in reports for [HCL compliance, Contract status](https://isctl.netlify.app/8-reports/), and more.
 

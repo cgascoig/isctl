@@ -69,6 +69,8 @@ func main() {
 	rootCmd.PersistentFlags().String(FlagIntersightTokenUrl, "", "Intersight Token URL")
 	rootCmd.PersistentFlags().String(FlagIntersightTokenCachePath, "", "Path to cache OAuth tokens (default: $XDG_CONFIG_HOME/isctl/token-cache.json)")
 	rootCmd.PersistentFlags().Bool(FlagIntersightDisableTokenCache, false, "Disable OAuth token caching")
+	rootCmd.PersistentFlags().Bool(FlagReadableMoRefs, false, "Display MoRefs using identity constraints instead of Moid where possible")
+	rootCmd.PersistentFlags().Bool(FlagIncludeEmptyFields, false, "Include empty/null fields in yaml-editable output (default: omit empty fields)")
 
 	rootCmd.PersistentFlags().String(CKKeyID, "", "API Key ID [deprecated]")
 	rootCmd.PersistentFlags().String(CKKeyFile, "", "API Private Key Filename [deprecated]")
@@ -76,13 +78,14 @@ func main() {
 	rootCmd.PersistentFlags().String(CKServer, "intersight.com", "Intersight API Server Address (e.g.\"intersight.com\") [deprecated]")
 	rootCmd.PersistentFlags().BoolP(CKInsecure, "k", false, "Allow insecure server connections (disable SSL certificate validation)")
 
-	rootCmd.PersistentFlags().StringP(CKOutputFormat, "o", "default", `Output format. One of default|yaml|json|table|jsonpath|custom-columns|csv|xlsx|go-template. Examples:
+	rootCmd.PersistentFlags().StringP(CKOutputFormat, "o", "default", `Output format. One of default|yaml|json|table|jsonpath|custom-columns|csv|xlsx|go-template|yaml-editable. Examples:
 	Get Name attribute from all NTP policies: isctl get ntp policy -o jsonpath="[*].Name"
 	Table with just Name and Enabled attributes: isctl get ntp policy -o custom-columns=NAME:.Name,ENABLED:.Enabled
 	Output to CSV with default columns: isctl get ntp policy -o csv > out.csv
 	Output to CSV with custom columns: isctl get ntp policy -o csv=NAME:.Name,ENABLED:.Enabled > out.csv
 	Output to XLSX: isctl get ntp policy -o xlsx=out.xlsx
 	Go template output: isctl get ntp policy --name test -o go-template='{{.Name}}'
+	Editable YAML (writable properties only, MoRefs as typed shorthand): isctl get ntp policy --name test -o yaml-editable
 	See [https://isctl.netlify.app/1-basic-queries/#output-customisation]`)
 	rootCmd.PersistentFlags().StringVar(&jsonPathFilter, "jsonpath", "", "JSONPath filter to apply to the result (e.g. \"$.Name\")")
 

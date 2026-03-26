@@ -1,0 +1,6 @@
+ClassId: ntp.Policy
+Name: isctl-bats-test-direct-moid-policy
+Organization: "MoRef[Moid:PLACEHOLDER_ORG_MOID]"
+NtpServers:
+  - 1.1.1.1
+  - 2.2.2.2

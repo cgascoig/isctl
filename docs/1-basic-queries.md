@@ -248,13 +248,58 @@ isctl get ntp policy --name "test-policy" -o yaml-editable
 Output:
 ```yaml
 AuthenticatedNtpServers: []
+ClassId: ntp.Policy
 Description: ""
 Enabled: true
+Moid: 5ee1aa076275722d3122a944
 Name: test-policy
 NtpServers:
 - 10.10.10.10
 - 10.10.10.12
+ObjectType: ntp.Policy
+Organization: MoRef:organization.Organization[Moid:59c84e4a16267c0001c23428]
+Profiles: []
+Tags: []
 Timezone: Pacific/Niue
 ```
 
 Compare this to `-o yaml` which includes all properties, including read-only ones.
+
+### Readable MoRefs
+
+By default, MoRef values in output use opaque Moid hex strings (e.g., `MoRef:organization.Organization[Moid:59c84e4a16267c0001c23428]`). The `--readable-morefs` flag replaces these with human-readable identity-based values determined by the class's identity constraints in the Intersight schema:
+
+```
+isctl get ntp policy --name "test-policy" --readable-morefs -o yaml-editable
+```
+Output:
+```yaml
+AuthenticatedNtpServers: []
+ClassId: ntp.Policy
+Description: ""
+Enabled: true
+Moid: 5ee1aa076275722d3122a944
+Name: test-policy
+NtpServers:
+- 10.10.10.10
+- 10.10.10.12
+ObjectType: ntp.Policy
+Organization: MoRef:organization.Organization[Name:default]
+Profiles: []
+Tags: []
+Timezone: Pacific/Niue
+```
+
+The identity fields used depend on the class — for example, `organization.Organization` uses `Name`, while `fabric.Vlan` uses `VlanId` and `EthNetworkPolicy`. Classes with no identity constraints fall back to the Moid format.
+
+For classes with multi-field identity, the MoRef includes all identity fields:
+```yaml
+EthNetworkPolicy: MoRef:fabric.Vlan[VlanId:100,EthNetworkPolicy:MoRef:fabric.EthNetworkPolicy[Name:my-policy]]
+```
+
+The `--readable-morefs` flag applies to all output formats (default/table and `yaml-editable`). The resulting `yaml-editable` output is round-trippable — it can be passed back to `isctl apply` without modification.
+
+This option can also be set persistently in the config file:
+```yaml
+readable_morefs: true
+```

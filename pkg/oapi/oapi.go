@@ -61,10 +61,118 @@ func getSchemaProperty(propName string, schema map[string]any) map[string]any {
 	return nil
 }
 
+// IdentityField represents a single field in a multi-field identity-based MoRef.
+type IdentityField struct {
+	Name  string
+	Value string // scalar value, or empty if Ref is set
+	Ref   *MoRef // nested MoRef reference (for relationship fields)
+}
+
 type MoRef struct {
+	Moid             string // When set, this is a direct Moid reference (no API lookup needed)
 	Filter           string
 	RelationshipType string
 	Organization     string
+	IdentityFields   []IdentityField // for multi-field identity-based MoRefs
+}
+
+// splitBalancedCommas splits s at commas that are not inside square brackets.
+func splitBalancedCommas(s string) []string {
+	var parts []string
+	depth := 0
+	start := 0
+	for i, ch := range s {
+		switch ch {
+		case '[':
+			depth++
+		case ']':
+			depth--
+		case ',':
+			if depth == 0 {
+				parts = append(parts, s[start:i])
+				start = i + 1
+			}
+		}
+	}
+	parts = append(parts, s[start:])
+	return parts
+}
+
+// extractBracketedContent extracts the content between the first '[' and its matching ']' in s.
+// Returns content and whether it was found.
+func extractBracketedContent(s string) (string, bool) {
+	start := strings.Index(s, "[")
+	if start == -1 {
+		return "", false
+	}
+	depth := 0
+	for i := start; i < len(s); i++ {
+		switch s[i] {
+		case '[':
+			depth++
+		case ']':
+			depth--
+			if depth == 0 {
+				return s[start+1 : i], true
+			}
+		}
+	}
+	return "", false
+}
+
+// parseMultiFieldMoRef attempts to parse a multi-field identity MoRef of the form
+// MoRef:type[K1:V1,K2:V2,...] where values may themselves be MoRef strings.
+// Returns nil if the string does not match this format.
+func parseMultiFieldMoRef(moref string) *MoRef {
+	// Must start with MoRef: followed by a type
+	r := regexp.MustCompile(`^MoRef:([\w\.]+)\[`)
+	m := r.FindStringSubmatch(moref)
+	if m == nil {
+		return nil
+	}
+	relType := canonicaliseRelationshipType(m[1])
+
+	content, ok := extractBracketedContent(moref)
+	if !ok {
+		return nil
+	}
+
+	// Split content at top-level commas
+	parts := splitBalancedCommas(content)
+
+	// Must have at least 2 parts to be a multi-field MoRef
+	// (single-field cases are handled by the existing regex patterns)
+	if len(parts) < 2 {
+		return nil
+	}
+
+	var fields []IdentityField
+	for _, part := range parts {
+		// Split at first colon to get key:value
+		idx := strings.Index(part, ":")
+		if idx == -1 {
+			return nil // malformed
+		}
+		key := part[:idx]
+		val := part[idx+1:]
+
+		field := IdentityField{Name: key}
+		if strings.HasPrefix(val, "MoRef") {
+			nested := CanonicaliseMoRef(val, "")
+			if nested == nil {
+				return nil
+			}
+			field.Ref = nested
+		} else {
+			field.Value = val
+		}
+		fields = append(fields, field)
+	}
+
+	return &MoRef{
+		RelationshipType: relType,
+		IdentityFields:   fields,
+	}
 }
 
 func canonicaliseRelationshipType(rt string) string {
@@ -83,6 +191,9 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 	r = regexp.MustCompile(`^[[:xdigit:]]{24}$`)
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
+		if defaultRelationshipType != "" {
+			return &MoRef{Moid: moref}
+		}
 		return nil
 	}
 
@@ -104,10 +215,22 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 		}
 	}
 
+	// Multi-field identity MoRef: MoRef:type[K1:V1,K2:V2,...] — must be checked before single-field
+	if mf := parseMultiFieldMoRef(moref); mf != nil {
+		return mf
+	}
+
 	r = regexp.MustCompile(`MoRef:([\w\.]+)\[(\w+):([0-9A-Za-z_\-\.\s]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
 	if m != nil {
+		// Direct Moid reference with explicit type — no API lookup needed
+		if m[2] == "Moid" && regexp.MustCompile(`^[[:xdigit:]]{24}$`).MatchString(m[3]) {
+			return &MoRef{
+				Moid:             m[3],
+				RelationshipType: canonicaliseRelationshipType(m[1]),
+			}
+		}
 		return &MoRef{
 			Filter:           fmt.Sprintf("%s eq '%s'", m[2], m[3]),
 			RelationshipType: canonicaliseRelationshipType(m[1]),
@@ -117,10 +240,16 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 	r = regexp.MustCompile(`MoRef\[(\w+):([0-9A-Za-z_\-\.\s]+)\]`)
 
 	m = r.FindStringSubmatch(moref)
-	if m != nil && defaultRelationshipType != "" {
-		return &MoRef{
-			Filter:           fmt.Sprintf("%s eq '%s'", m[1], m[2]),
-			RelationshipType: defaultRelationshipType,
+	if m != nil {
+		// Direct Moid reference without explicit type — no API lookup needed
+		if m[1] == "Moid" && regexp.MustCompile(`^[[:xdigit:]]{24}$`).MatchString(m[2]) {
+			return &MoRef{Moid: m[2]}
+		}
+		if defaultRelationshipType != "" {
+			return &MoRef{
+				Filter:           fmt.Sprintf("%s eq '%s'", m[1], m[2]),
+				RelationshipType: defaultRelationshipType,
+			}
 		}
 	}
 
@@ -131,6 +260,12 @@ func CanonicaliseMoRef(moref string, defaultRelationshipType string) *MoRef {
 			Filter:           fmt.Sprintf("Name eq '%s'", m[2]),
 			RelationshipType: canonicaliseRelationshipType(m[1]),
 		}
+	}
+
+	r = regexp.MustCompile(`^MoRef\[([[:xdigit:]]{24})\]$`)
+	m = r.FindStringSubmatch(moref)
+	if m != nil {
+		return &MoRef{Moid: m[1]}
 	}
 
 	r = regexp.MustCompile(`^MoRef\[([0-9A-Za-z_\-\.\s]+)\]`)
