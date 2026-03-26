@@ -159,12 +159,69 @@ func filterNestedSlice(s []any, meta *Meta, parentClassId string, propName strin
 	return filtered
 }
 
+// StripEmptyFields recursively removes entries from a map where the value is
+// nil, an empty string, an empty slice, or an empty map (after recursive stripping).
+// Values like false and 0 are preserved as they are meaningful.
+func StripEmptyFields(m map[string]any) map[string]any {
+	result := make(map[string]any)
+	for k, v := range m {
+		stripped := stripEmptyValue(v)
+		if stripped != nil {
+			result[k] = stripped
+		}
+	}
+	return result
+}
+
+// stripEmptyValue returns nil if the value should be considered empty, otherwise
+// returns the value (recursively stripped if it is a map or slice).
+func stripEmptyValue(v any) any {
+	if v == nil {
+		return nil
+	}
+	switch val := v.(type) {
+	case string:
+		if val == "" {
+			return nil
+		}
+		return val
+	case map[string]any:
+		stripped := StripEmptyFields(val)
+		if len(stripped) == 0 {
+			return nil
+		}
+		return stripped
+	case []any:
+		if len(val) == 0 {
+			return nil
+		}
+		result := make([]any, 0, len(val))
+		for _, item := range val {
+			stripped := stripEmptyValue(item)
+			if stripped != nil {
+				result = append(result, stripped)
+			}
+		}
+		if len(result) == 0 {
+			return nil
+		}
+		return result
+	default:
+		return v
+	}
+}
+
 // FormatEditableYAML filters a managed object to only include writable properties
 // and marshals it to YAML format. This produces YAML suitable for editing by users.
-func FormatEditableYAML(mo map[string]any, classId string) ([]byte, error) {
+// When includeEmptyFields is false (the default), empty/null fields are omitted.
+func FormatEditableYAML(mo map[string]any, classId string, includeEmptyFields bool) ([]byte, error) {
 	filtered, err := FilterWritableProperties(mo, classId)
 	if err != nil {
 		return nil, err
+	}
+
+	if !includeEmptyFields {
+		filtered = StripEmptyFields(filtered)
 	}
 
 	yamlBytes, err := yaml.Marshal(filtered)

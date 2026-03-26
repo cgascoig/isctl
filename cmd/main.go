@@ -70,6 +70,7 @@ func main() {
 	rootCmd.PersistentFlags().String(FlagIntersightTokenCachePath, "", "Path to cache OAuth tokens (default: $XDG_CONFIG_HOME/isctl/token-cache.json)")
 	rootCmd.PersistentFlags().Bool(FlagIntersightDisableTokenCache, false, "Disable OAuth token caching")
 	rootCmd.PersistentFlags().Bool(FlagReadableMoRefs, false, "Display MoRefs using identity constraints instead of Moid where possible")
+	rootCmd.PersistentFlags().Bool(FlagIncludeEmptyFields, false, "Include empty/null fields in yaml-editable output (default: omit empty fields)")
 
 	rootCmd.PersistentFlags().String(CKKeyID, "", "API Key ID [deprecated]")
 	rootCmd.PersistentFlags().String(CKKeyFile, "", "API Private Key Filename [deprecated]")
