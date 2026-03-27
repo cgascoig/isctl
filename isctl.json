@@ -1,8 +1,8 @@
 {
-    "version": "0.2.15",
-    "url": "https://github.com/cgascoig/isctl/releases/download/v0.2.15/isctl_0.2.15_Windows_x86_64.zip",
+    "version": "0.2.16",
+    "url": "https://github.com/cgascoig/isctl/releases/download/v0.2.16/isctl_0.2.16_Windows_x86_64.zip",
     "bin": "isctl.exe",
     "description": "The Cisco Intersight CLI",
     "homepage": "https://github.com/cgascoig/isctl",
-    "hash": "b1cad9a6c9c0e00df1400453fc81e39dec7aef4337d404de93db64adf635dac5"
+    "hash": "c92ff01cf6e06350c0c4ed4a8ba6562b8552ed80707024997f03fb85f84ef636"
 }
