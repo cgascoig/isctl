@@ -320,7 +320,6 @@ func getOrderedMOs(mos []rawMO) ([]rawMO, error) {
 		processing[classID] = false
 
 		var deps = []string{}
-		mo := map[string]any(mo)
 		oapi.CanonicaliseMoRefs(&mo, classID)
 		deps = gen.GetReferencedClasses(mo)
 
