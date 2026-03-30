@@ -717,6 +717,7 @@ func outputResultXLSX(result any, filename string, multiPartResults bool) {
 	// Save spreadsheet by the given path.
 	if err := f.SaveAs(filename); err != nil {
 		log.Errorf("error saving xlsx file: %v", err)
+		return
 	}
 
 	log.Infof("Output written to xlsx file %s", filename)
