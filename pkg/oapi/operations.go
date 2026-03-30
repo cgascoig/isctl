@@ -349,6 +349,9 @@ func (v *Var) IsList() bool {
 func (v *Var) ListElementType() string {
 	validTypeRegExp := regexp.MustCompile(`^\[\]([a-zA-Z0-9]+)$`)
 	m := validTypeRegExp.FindStringSubmatch(v.DataType)
+	if m == nil {
+		return ""
+	}
 	return m[1]
 }
 

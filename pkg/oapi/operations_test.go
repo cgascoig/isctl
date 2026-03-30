@@ -51,3 +51,17 @@ func TestRedundantPrefixes(t *testing.T) {
 	assert.Equal(t, []string{"get", "ntp", "Policy"}, f([]string{"get", "ntp", "GetNtpPolicy"}))
 
 }
+
+func TestListElementType(t *testing.T) {
+	v := Var{DataType: "[]string"}
+	assert.Equal(t, "string", v.ListElementType())
+
+	v = Var{DataType: "[]NtpPolicy"}
+	assert.Equal(t, "NtpPolicy", v.ListElementType())
+
+	v = Var{DataType: "string"}
+	assert.Equal(t, "", v.ListElementType())
+
+	v = Var{DataType: ""}
+	assert.Equal(t, "", v.ListElementType())
+}
