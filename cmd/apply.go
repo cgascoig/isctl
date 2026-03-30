@@ -111,6 +111,9 @@ func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 		}
 
 		getOperation := gen.GetGetOperationForClassID(classID)
+		if getOperation == nil {
+			return fmt.Errorf("no get operation found for class ID %s", classID)
+		}
 
 		filter, err := buildIdentityFilter(client, mo, meta)
 		if err != nil {
@@ -127,6 +130,9 @@ func destroyMOs(client *util.IsctlClient, rawMOs []rawMO) error {
 			log.Printf("Performing delete operation on existing MO (Name: %s, Moid: %s, ClassId: %s)", name, moid, classID)
 
 			delOperation := gen.GetDeleteOperationForClassID(classID)
+			if delOperation == nil {
+				return fmt.Errorf("no delete operation found for class ID %s", classID)
+			}
 
 			_, err = delOperation.Execute(client, []string{moid}, nil)
 			if err != nil {
