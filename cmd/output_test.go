@@ -511,3 +511,33 @@ func TestPrintResultGoTemplateWithConditions(t *testing.T) {
 
 	assert.True(t, strings.Contains(output, "ENABLED"))
 }
+
+func TestPrintCSVLine(t *testing.T) {
+	captureOutput := func(f func()) string {
+		var buf bytes.Buffer
+		old := os.Stdout
+		r, w, _ := os.Pipe()
+		os.Stdout = w
+
+		f()
+
+		w.Close()
+		os.Stdout = old
+		buf.ReadFrom(r)
+		return buf.String()
+	}
+
+	t.Run("plain values", func(t *testing.T) {
+		output := captureOutput(func() {
+			printCSVLine([]string{"hello", "world"})
+		})
+		assert.Equal(t, "\"hello\",\"world\"\n", output)
+	})
+
+	t.Run("escapes embedded double quotes", func(t *testing.T) {
+		output := captureOutput(func() {
+			printCSVLine([]string{`say "hello"`})
+		})
+		assert.Equal(t, `"say ""hello"""`+"\n", output)
+	})
+}

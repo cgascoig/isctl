@@ -595,7 +595,7 @@ func printResultCustomColumns(result interface{}, template string) {
 func printCSVLine(fields []string) {
 	qfields := []string{}
 	for _, f := range fields {
-		qfields = append(qfields, fmt.Sprintf("\"%s\"", f))
+		qfields = append(qfields, fmt.Sprintf("\"%s\"", strings.ReplaceAll(f, "\"", "\"\"")))
 	}
 	fmt.Println(strings.Join(qfields, ","))
 }
