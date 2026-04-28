@@ -21,7 +21,7 @@ TEST_SECTION="Organization"
         --EndPointRole "[\"MoRef[\$filter:Name eq 'admin' and Type eq 'IMC']\"]" \
         --EndPointUser "MoRef[${TEST_NAME}\\${TEST_NAME}]" \
         --EndPointUserPolicy "MoRef[${TEST_NAME}\\${TEST_NAME}]" \
-        --Password hahahahaha
+        --Password "P@ssw0rd!!!"
 
     echo "Deleting test IAM endpointuserrole in test org"
     ORG_MOID=$(./build/isctl ${ISCTL_OPTIONS} get organization organization --name "${TEST_NAME}" -o jsonpath='$.Moid'|| echo "")
@@ -80,6 +80,7 @@ teardown_file() {
     ORG_MOID=$(./build/isctl ${ISCTL_OPTIONS} get organization organization --name "${TEST_NAME}" -o jsonpath='$.Moid'|| echo "")
     run ./build/isctl ${ISCTL_OPTIONS} delete ntp policy moid $(./build/isctl ${ISCTL_OPTIONS} get ntp policy --filter "Name eq '${TEST_NAME}' and Organization/Moid eq '${ORG_MOID}'" -o 'jsonpath=$[*].Moid'|| echo "")
     run ./build/isctl ${ISCTL_OPTIONS} delete iam endpointuser moid $(./build/isctl ${ISCTL_OPTIONS} get iam endpointuser --filter "Name eq '${TEST_NAME}' and Organization/Moid eq '${ORG_MOID}'" -o 'jsonpath=$[*].Moid'|| echo "")
+    run ./build/isctl ${ISCTL_OPTIONS} delete iam endpointuserpolicy moid $(./build/isctl ${ISCTL_OPTIONS} get iam endpointuserpolicy --filter "Name eq '${TEST_NAME}' and Organization/Moid eq '${ORG_MOID}'" -o 'jsonpath=$[*].Moid'|| echo "")
 
     # Delete org
     if ! [ -z "${ORG_MOID}" ] 

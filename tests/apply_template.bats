@@ -71,6 +71,7 @@ EOF
     cat <<EOF > "$BATS_TEST_TMPDIR/invalid_template.yaml"
 ClassId: ntp.Policy
 Name: {{ .Vars.missing }}
+Organization: default
 EOF
 
     run ./build/isctl ${ISCTL_OPTIONS} apply -f "$BATS_TEST_TMPDIR/invalid_template.yaml"

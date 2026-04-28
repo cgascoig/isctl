@@ -285,7 +285,7 @@ TEST_SECTION="NTP Policy CRUD"
 }
 
 @test "${TEST_SECTION}: test API error messages shown" {
-    run ./build/isctl ${ISCTL_OPTIONS} create ntp policy
+    run ./build/isctl ${ISCTL_OPTIONS} create ntp policy --Organization default
     assert_line --partial "400 Bad Request: Cannot set property 'policy.AbstractPolicy.Name'. This property is required."
 }
 
