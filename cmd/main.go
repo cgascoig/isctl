@@ -45,7 +45,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("creating cpu profile file: %v", err)
 		}
-		defer f.Close()              // deferred first → runs LAST
+		defer f.Close() // deferred first → runs LAST
 		pprof.StartCPUProfile(f)
 		defer pprof.StopCPUProfile() // deferred second → runs FIRST
 	}
@@ -173,7 +173,7 @@ func configure(cmd *cobra.Command, args []string) {
 	if err != nil {
 		log.Fatalf("Error occurred writing config file: %v", err)
 	}
-	err = os.WriteFile(getConfigFilePath(cmd.PersistentFlags()), b, 0666)
+	err = os.WriteFile(getConfigFilePath(cmd.PersistentFlags()), b, 0600)
 	if err != nil {
 		log.Fatalf("Error occurred writing config file: %v", err)
 	}

@@ -595,7 +595,7 @@ func printResultCustomColumns(result interface{}, template string) {
 func printCSVLine(fields []string) {
 	qfields := []string{}
 	for _, f := range fields {
-		qfields = append(qfields, fmt.Sprintf("\"%s\"", f))
+		qfields = append(qfields, fmt.Sprintf("\"%s\"", strings.ReplaceAll(f, "\"", "\"\"")))
 	}
 	fmt.Println(strings.Join(qfields, ","))
 }
@@ -717,6 +717,7 @@ func outputResultXLSX(result any, filename string, multiPartResults bool) {
 	// Save spreadsheet by the given path.
 	if err := f.SaveAs(filename); err != nil {
 		log.Errorf("error saving xlsx file: %v", err)
+		return
 	}
 
 	log.Infof("Output written to xlsx file %s", filename)
