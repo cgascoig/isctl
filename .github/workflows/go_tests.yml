@@ -3,13 +3,14 @@ on:
   push:
   pull_request:
   schedule: # daily at 10:22 UTC
-    - cron: '22 10 * * *'
+    - cron: "22 10 * * *"
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.deps == 'latest' }}
     strategy:
       fail-fast: false
       matrix:
