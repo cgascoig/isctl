@@ -29,9 +29,13 @@ jobs:
           go-version-file: ${{ matrix.go.go-version-file }}
       - uses: geomys/sandboxed-step@v1.2.1
         if: matrix.deps == 'latest'
+        continue-on-error: true
         with:
-          run: go get -u -t ./...
+          run: |
+            go get -u -t ./...
+            go test -v ./...
       - uses: geomys/sandboxed-step@v1.2.1
-        continue-on-error: ${{ matrix.deps == 'latest' }}
+        if: matrix.deps != 'latest'
+        continue-on-error: false
         with:
           run: go test -v ./...
