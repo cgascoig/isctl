@@ -10,7 +10,6 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.deps == 'latest' }}
     strategy:
       fail-fast: false
       matrix:
@@ -29,9 +28,10 @@ jobs:
           go-version: ${{ matrix.go.go-version }}
           go-version-file: ${{ matrix.go.go-version-file }}
       - uses: geomys/sandboxed-step@v1.2.1
+        if: matrix.deps == 'latest'
         with:
-          run: |
-            if [ "${{ matrix.deps }}" = "latest" ]; then
-              go get -u -t ./...
-            fi
-            go test -v ./...
+          run: go get -u -t ./...
+      - uses: geomys/sandboxed-step@v1.2.1
+        continue-on-error: ${{ matrix.deps == 'latest' }}
+        with:
+          run: go test -v ./...
