@@ -31,9 +31,6 @@ jobs:
           cache-dependency-path: |
               go.mod
               env.txt
-      # Download/upgrade deps over the native runner network. Doing this outside the
-      # sandbox avoids intermittent "zip: checksum error" failures caused by module
-      # downloads being truncated by the sandbox's network stack.
       - name: Upgrade deps
         if: matrix.deps == 'latest'
         run: |
@@ -42,13 +39,11 @@ jobs:
       - name: Download deps
         if: matrix.deps != 'latest'
         run: go mod download
-      - uses: geomys/sandboxed-step@v1.2.1
+      - name: Run tests
         if: matrix.deps == 'latest'
         continue-on-error: true
-        with:
-          run: go test -v ./...
-      - uses: geomys/sandboxed-step@v1.2.1
+        run: go test -v ./...
+      - name: Run tests
         if: matrix.deps != 'latest'
         continue-on-error: false
-        with:
-          run: go test -v ./...
+        run: go test -v ./...
