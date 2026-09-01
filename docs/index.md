@@ -1,5 +1,66 @@
 # Getting Started
 
+## Installation
+
+### MacOS
+
+If you use [Homebrew](https://brew.sh), the easiest way to install `isctl` is:
+
+```
+brew install cgascoig/isctl/isctl
+```
+
+> Newer versions of Homebrew (6.0+) require third-party taps and formulae to be explicitly trusted before use. The fully-qualified install command above automatically trusts just the `isctl` formula, so no further action is needed. If you `brew tap cgascoig/isctl` and prefer to install by the short name, trust the formula first:
+>
+> ```
+> brew tap cgascoig/isctl
+> brew trust --formula cgascoig/isctl/isctl
+> brew install isctl
+> ```
+>
+> Alternatively, `brew trust cgascoig/isctl` trusts the whole tap (all current and future formulae in it).
+
+If you don't use Homebrew:
+
+* Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
+* Unzip and move the `isctl` binary somewhere that is on your path (e.g. `/usr/local/bin`). 
+
+### Linux
+
+If you use [Homebrew](https://brew.sh), the easiest way to install `isctl` is:
+
+```
+brew install cgascoig/isctl/isctl
+```
+
+> Newer versions of Homebrew (6.0+) require third-party taps and formulae to be explicitly trusted before use. The fully-qualified install command above automatically trusts just the `isctl` formula, so no further action is needed. If you `brew tap cgascoig/isctl` and prefer to install by the short name, trust the formula first:
+>
+> ```
+> brew tap cgascoig/isctl
+> brew trust --formula cgascoig/isctl/isctl
+> brew install isctl
+> ```
+>
+> Alternatively, `brew trust cgascoig/isctl` trusts the whole tap (all current and future formulae in it).
+
+If you don't use Homebrew:
+
+* Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
+* Extract the `.tar.gz` and move the `isctl` binary somewhere that is on your path (e.g. `/usr/local/bin`). 
+
+### Windows
+
+The easiest way is using the [scoop.sh](https://scoop.sh/) installer:
+
+```
+scoop install https://github.com/cgascoig/isctl/raw/devel/isctl.json
+```
+
+Otherwise:
+
+* Download the latest release from the [Releases](https://github.com/cgascoig/isctl/releases/latest) page. 
+* Unzip and move the `isctl.exe` binary somewhere that is on your path. 
+
 ## Obtain your API Key
 
 `isctl` interacts with the Cisco Intersight REST API, so it needs an API key and key ID. 
