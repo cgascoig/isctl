@@ -10,15 +10,28 @@ If you use [Homebrew](https://brew.sh), the easiest way to install `isctl` is:
 brew install cgascoig/isctl/isctl
 ```
 
-> Newer versions of Homebrew (6.0+) require third-party taps and formulae to be explicitly trusted before use. The fully-qualified install command above automatically trusts just the `isctl` formula, so no further action is needed. If you `brew tap cgascoig/isctl` and prefer to install by the short name, trust the formula first:
+> Newer versions of Homebrew (6.0+) require third-party taps and formulae to be explicitly trusted before use. Installing with the fully-qualified name above automatically trusts just the `isctl` formula, so a fresh install needs no further action.
+>
+> **Upgrading:** If you already have `isctl` installed from this tap, upgrading with `brew upgrade isctl` (or `brew install isctl`) may fail with:
+>
+> ```
+> Error: Refusing to load formula cgascoig/isctl/isctl from untrusted tap cgascoig/isctl.
+> ```
+>
+> Fix this by trusting the formula (or the whole tap) once, then upgrade as usual:
+>
+> ```
+> brew trust --formula cgascoig/isctl/isctl
+> brew upgrade isctl
+> ```
+>
+> Alternatively, `brew trust cgascoig/isctl` trusts the whole tap (all current and future formulae in it). If you prefer to install by the short name, trust the formula first:
 >
 > ```
 > brew tap cgascoig/isctl
 > brew trust --formula cgascoig/isctl/isctl
 > brew install isctl
 > ```
->
-> Alternatively, `brew trust cgascoig/isctl` trusts the whole tap (all current and future formulae in it).
 
 If you don't use Homebrew:
 
@@ -33,15 +46,28 @@ If you use [Homebrew](https://brew.sh), the easiest way to install `isctl` is:
 brew install cgascoig/isctl/isctl
 ```
 
-> Newer versions of Homebrew (6.0+) require third-party taps and formulae to be explicitly trusted before use. The fully-qualified install command above automatically trusts just the `isctl` formula, so no further action is needed. If you `brew tap cgascoig/isctl` and prefer to install by the short name, trust the formula first:
+> Newer versions of Homebrew (6.0+) require third-party taps and formulae to be explicitly trusted before use. Installing with the fully-qualified name above automatically trusts just the `isctl` formula, so a fresh install needs no further action.
+>
+> **Upgrading:** If you already have `isctl` installed from this tap, upgrading with `brew upgrade isctl` (or `brew install isctl`) may fail with:
+>
+> ```
+> Error: Refusing to load formula cgascoig/isctl/isctl from untrusted tap cgascoig/isctl.
+> ```
+>
+> Fix this by trusting the formula (or the whole tap) once, then upgrade as usual:
+>
+> ```
+> brew trust --formula cgascoig/isctl/isctl
+> brew upgrade isctl
+> ```
+>
+> Alternatively, `brew trust cgascoig/isctl` trusts the whole tap (all current and future formulae in it). If you prefer to install by the short name, trust the formula first:
 >
 > ```
 > brew tap cgascoig/isctl
 > brew trust --formula cgascoig/isctl/isctl
 > brew install isctl
 > ```
->
-> Alternatively, `brew trust cgascoig/isctl` trusts the whole tap (all current and future formulae in it).
 
 If you don't use Homebrew:
 
