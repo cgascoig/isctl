@@ -212,6 +212,20 @@ func isKeyData(s string) bool {
 	return re.MatchString(s)
 }
 
+// normalizeKeyData restores the line breaks in PEM key data that has been collapsed onto a single line
+// (e.g. newlines converted to spaces when stored in a single-line password manager field)
+func normalizeKeyData(s string) string {
+	re := regexp.MustCompile(`^\s*(-----BEGIN[A-Z ]*KEY-----)(.*?)(-----END[A-Z ]*KEY-----)\s*$`)
+	m := re.FindStringSubmatch(s)
+	if m == nil {
+		// either not key data or already multi-line
+		return s
+	}
+	lines := append([]string{m[1]}, strings.Fields(m[2])...)
+	lines = append(lines, m[3])
+	return strings.Join(lines, "\n")
+}
+
 // getDefaultTokenCachePath returns the default token cache path following XDG Base Directory spec.
 func getDefaultTokenCachePath() string {
 	configHome := os.Getenv("XDG_CONFIG_HOME")

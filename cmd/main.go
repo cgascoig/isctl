@@ -61,7 +61,7 @@ func main() {
 
 	// New config keys
 	rootCmd.PersistentFlags().String(FlagIntersightApiKeyId, "", "Intersight API Key ID")
-	rootCmd.PersistentFlags().String(FlagIntersightSecretKey, "", "Intersight Secret Key (filename)")
+	rootCmd.PersistentFlags().String(FlagIntersightSecretKey, "", "Intersight Secret Key (filename, key data or 1Password op:// reference)")
 	rootCmd.PersistentFlags().String(FlagIntersightFqdn, "", "Intersight API FQDN (default intersight.com)")
 	rootCmd.PersistentFlags().String(FlagIntersightProxy, "", "HTTP Proxy for Intersight API requests")
 	rootCmd.PersistentFlags().String(FlagIntersightClientId, "", "Intersight Client ID")
@@ -197,6 +197,11 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 	var err error
 
+	// Resolve any 1Password secret references
+	if err := resolveSecretRefs(); err != nil {
+		return err
+	}
+
 	// Determine Authentication Method
 	keyID := gK.String(CKIntersightApiKeyId)
 	keyFile := gK.String(CKIntersightSecretKey)
@@ -223,7 +228,7 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 
 	if useApiKey {
 		if isKeyData(keyFile) {
-			keyData = keyFile
+			keyData = normalizeKeyData(keyFile)
 		} else {
 			// try doing ~ expansion on the keyFile path
 			if expandedKeyFile, err := homedir.Expand(keyFile); err == nil {

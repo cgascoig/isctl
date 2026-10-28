@@ -165,6 +165,60 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     assert_line "intersight_client_secret: \"flag_client_secret\""
     assert_line "intersight_token_url: \"https://flag.intersight.com/iam/token\""
 }
+@test "${TEST_SECTION}: resolve 1Password references in config file" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE_OP}" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"op_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\""
+    assert_line "intersight_fqdn: \"configfile.intersight.com\""
+    # both references resolved with a single op invocation
+    assert_equal "$(wc -l < "${TEMP_DIR}/op_invocations" | tr -d ' ')" "1"
+}
+
+@test "${TEST_SECTION}: resolve 1Password reference to single-line secret key" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE}" --intersight-api-key-id flag_key_id --intersight-secret-key "op://isctl/intersight/secret_key_single_line" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"flag_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\""
+}
+
+@test "${TEST_SECTION}: supply single-line key data as command line flag" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE}" --intersight-api-key-id flag_key_id --intersight-secret-key "$(tr '\n' ' ' < "${TEMP_FLAG_KEY_FILE}")" show-configuration
+    assert_success
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_FLAG}\""
+}
+
+@test "${TEST_SECTION}: resolve 1Password references in environment variables" {
+    export INTERSIGHT_API_KEY_ID="op://isctl/intersight/key_id"
+    export INTERSIGHT_SECRET_KEY="op://isctl/intersight/secret_key"
+    echo "output: default" > "${TEMP_DIR}/clean.yaml"
+    run ./build/isctl --config "${TEMP_DIR}/clean.yaml" show-configuration
+    assert_success
+    assert_line "intersight_api_key_id: \"op_key_id\""
+    assert_line "intersight_secret_key: \"${DUMMY_RSA_CONFIGFILE}\""
+}
+
+@test "${TEST_SECTION}: resolve 1Password references in oauth command line flags" {
+    echo "output: default" > "${TEMP_DIR}/clean.yaml"
+    run ./build/isctl --config "${TEMP_DIR}/clean.yaml" --intersight-client-id "op://isctl/intersight/client_id" --intersight-client-secret "op://isctl/intersight/client_secret" show-configuration
+    assert_success
+    assert_line "intersight_client_id: \"op_client_id\""
+    assert_line "intersight_client_secret: \"op_client_secret\""
+}
+
+@test "${TEST_SECTION}: unknown 1Password reference fails" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE}" --intersight-api-key-id flag_key_id --intersight-secret-key "op://isctl/intersight/missing" show-configuration
+    assert_failure
+    assert_output --partial "unable to resolve 1Password reference(s) for intersight_secret_key"
+}
+
+@test "${TEST_SECTION}: missing 1Password CLI fails" {
+    export ISCTL_OP_PATH="${TEMP_DIR}/does-not-exist"
+    run ./build/isctl --config "${TEMP_CONFIG_FILE_OP}" show-configuration
+    assert_failure
+    assert_output --partial "1Password CLI"
+    assert_output --partial "not found"
+}
 setup() {
     load 'test_helper/bats-support/load' # this is required by bats-assert!
     load 'test_helper/bats-assert/load'
@@ -188,6 +242,26 @@ setup() {
 
     export TEMP_CONFIG_FILE_WITH_SECRET="${TEMP_DIR}/secret.isctl.yaml"
     echo -e "intersight_secret_key: |-\n$(cat ${TEMP_KEY_FILE}|sed -e 's/^/  /')\nintersight_api_key_id: configfile_key_id\noutput: default\nintersight_fqdn: configfile.intersight.com" > $TEMP_CONFIG_FILE_WITH_SECRET
+    export TEMP_CONFIG_FILE_OP="${TEMP_DIR}/op.isctl.yaml"
+    echo -e "intersight_secret_key: op://isctl/intersight/secret_key\nintersight_api_key_id: op://isctl/intersight/key_id\noutput: default\nintersight_fqdn: configfile.intersight.com" > $TEMP_CONFIG_FILE_OP
+
+    # fake 1Password CLI, supports "op inject -i <file>" and logs each invocation
+    export ISCTL_OP_PATH="${TEMP_DIR}/op"
+    cat > "${ISCTL_OP_PATH}" <<OPEOF
+#!/usr/bin/env bash
+[ "\$1" = "inject" ] && [ "\$2" = "-i" ] || { echo "unsupported: \$*" >&2; exit 1; }
+echo "\$*" >> "${TEMP_DIR}/op_invocations"
+tpl=\$(cat "\$3")
+sub() { local p="{{ \$1 }}"; tpl=\${tpl//"\$p"/"\$2"}; }
+sub op://isctl/intersight/key_id op_key_id
+sub op://isctl/intersight/secret_key "\$(cat "${TEMP_KEY_FILE}")"
+sub op://isctl/intersight/secret_key_single_line "\$(tr '\\n' ' ' < "${TEMP_KEY_FILE}")"
+sub op://isctl/intersight/client_id op_client_id
+sub op://isctl/intersight/client_secret op_client_secret
+if [[ "\$tpl" == *"{{"* ]]; then echo "item not found" >&2; exit 1; fi
+printf '%s\\n' "\$tpl"
+OPEOF
+    chmod +x "${ISCTL_OP_PATH}"
 }
 
 teardown() {
@@ -195,6 +269,9 @@ teardown() {
     rm "${TEMP_CONFIG_FILE}"
     rm "${TEMP_CONFIG_FILE_NEW}"
     rm "${TEMP_CONFIG_FILE_WITH_SECRET}"
+    rm "${TEMP_CONFIG_FILE_OP}"
+    rm "${TEMP_DIR}/op"
+    rm -f "${TEMP_DIR}/op_invocations"
     rm "${TEMP_KEY_FILE}"
     rm "${TEMP_ENV_KEY_FILE}"
     rm "${TEMP_FLAG_KEY_FILE}"

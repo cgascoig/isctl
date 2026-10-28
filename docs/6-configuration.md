@@ -17,6 +17,23 @@ There are multiple ways for these to be provided to `isctl` such as environment 
  - **Intersight Client Secret** - The Client Secret for your OAuth app.
  - **Intersight Token URL** - The URL to obtain the OAuth token. Defaults to `https://<Intersight FQDN>/iam/token` if not specified. Generally you will not need to set this.
 
+### 1Password Integration
+
+Instead of storing credentials in plain text, any of the credential configuration items (API Key ID, Secret Key, Client ID and Client Secret) can be set to a 1Password [secret reference](https://developer.1password.com/docs/cli/secret-reference-syntax/) of the form `op://<vault>/<item>/<field>`. `isctl` will resolve these references using the [1Password CLI](https://developer.1password.com/docs/cli/) (`op inject`, with all references resolved in a single call), so `op` must be installed and signed in (or integrated with the 1Password desktop app).
+
+For example, in `~/.isctl.yaml`:
+
+```yaml
+intersight_api_key_id: op://Private/Intersight/key_id
+intersight_secret_key: op://Private/Intersight/secret_key
+```
+
+Secret references work in the configuration file, environment variables and command line flags. If `op` is not in your `PATH`, set the `ISCTL_OP_PATH` environment variable to the path of the `op` binary.
+
+> Note: For the Secret Key, the 1Password field should contain the private key data itself (not a filename). It can be stored as a multi-line field or as a single-line field (where the newlines have been converted to spaces).
+
+Alternatively, you can use `op run` to inject secrets into environment variables, e.g. `INTERSIGHT_SECRET_KEY=op://Private/Intersight/secret_key op run -- isctl get ntp policy`.
+
 ### Token Caching (OAuth Only)
 
 When using OAuth authentication, `isctl` caches the access token to disk to avoid fetching a new token on every invocation. This significantly improves performance when running many sequential commands.
