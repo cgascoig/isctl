@@ -1,10 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
+	"time"
 
 	"github.com/knadh/koanf/maps"
 	"github.com/knadh/koanf/parsers/yaml"
@@ -25,19 +28,20 @@ var (
 
 const (
 	// New config keys
-	CKIntersightApiKeyId          = "intersight_api_key_id"
-	CKIntersightSecretKey         = "intersight_secret_key"
-	CKIntersightFqdn              = "intersight_fqdn"
-	CKOutputFormat                = "output"
-	CKIntersightInsecure          = "intersight_insecure"
-	CKIntersightProxy             = "intersight_proxy"
-	CKIntersightClientId          = "intersight_client_id"
-	CKIntersightClientSecret      = "intersight_client_secret"
-	CKIntersightTokenUrl          = "intersight_token_url"
-	CKIntersightTokenCachePath    = "intersight_token_cache_path"
-	CKIntersightDisableTokenCache = "intersight_disable_token_cache"
-	CKReadableMoRefs              = "readable_morefs"
-	CKIncludeEmptyFields          = "include_empty_fields"
+	CKIntersightApiKeyId            = "intersight_api_key_id"
+	CKIntersightSecretKey           = "intersight_secret_key"
+	CKIntersightFqdn                = "intersight_fqdn"
+	CKOutputFormat                  = "output"
+	CKIntersightInsecure            = "intersight_insecure"
+	CKIntersightProxy               = "intersight_proxy"
+	CKIntersightClientId            = "intersight_client_id"
+	CKIntersightClientSecret        = "intersight_client_secret"
+	CKIntersightTokenUrl            = "intersight_token_url"
+	CKIntersightTokenCachePath      = "intersight_token_cache_path"
+	CKIntersightDisableTokenCache   = "intersight_disable_token_cache"
+	CKIntersightTlsHandshakeTimeout = "intersight_tls_handshake_timeout"
+	CKReadableMoRefs                = "readable_morefs"
+	CKIncludeEmptyFields            = "include_empty_fields"
 
 	// New cmd flags
 	FlagIntersightApiKeyId          = "intersight-api-key-id"
@@ -106,19 +110,20 @@ func getConfigFilePath(flags *flag.FlagSet) string {
 
 func loadDefaults() {
 	gK.Load(confmap.Provider(map[string]any{
-		CKIntersightFqdn:              "intersight.com",
-		CKOutputFormat:                "default",
-		CKIntersightApiKeyId:          "",
-		CKIntersightSecretKey:         "",
-		CKIntersightInsecure:          false,
-		CKIntersightProxy:             "",
-		CKIntersightClientId:          "",
-		CKIntersightClientSecret:      "",
-		CKIntersightTokenUrl:          "",
-		CKIntersightTokenCachePath:    "",
-		CKIntersightDisableTokenCache: false,
-		CKReadableMoRefs:              false,
-		CKIncludeEmptyFields:          false,
+		CKIntersightFqdn:                "intersight.com",
+		CKOutputFormat:                  "default",
+		CKIntersightApiKeyId:            "",
+		CKIntersightSecretKey:           "",
+		CKIntersightInsecure:            false,
+		CKIntersightProxy:               "",
+		CKIntersightClientId:            "",
+		CKIntersightClientSecret:        "",
+		CKIntersightTokenUrl:            "",
+		CKIntersightTokenCachePath:      "",
+		CKIntersightDisableTokenCache:   false,
+		CKIntersightTlsHandshakeTimeout: "",
+		CKReadableMoRefs:                false,
+		CKIncludeEmptyFields:            false,
 	}, "."), nil)
 }
 
@@ -151,24 +156,26 @@ func aliasReplacingMerge(src, dest map[string]any) error {
 
 func envMapper(s string) string {
 	aliases := map[string]string{
-		"INTERSIGHT_API_KEY_ID":          CKIntersightApiKeyId,
-		"intersight_api_key_id":          CKIntersightApiKeyId,
-		"INTERSIGHT_SECRET_KEY":          CKIntersightSecretKey,
-		"intersight_secret_key":          CKIntersightSecretKey,
-		"INTERSIGHT_FQDN":                CKIntersightFqdn,
-		"intersight_fqdn":                CKIntersightFqdn,
-		"INTERSIGHT_PROXY":               CKIntersightProxy,
-		"intersight_proxy":               CKIntersightProxy,
-		"INTERSIGHT_CLIENT_ID":           CKIntersightClientId,
-		"intersight_client_id":           CKIntersightClientId,
-		"INTERSIGHT_CLIENT_SECRET":       CKIntersightClientSecret,
-		"intersight_client_secret":       CKIntersightClientSecret,
-		"INTERSIGHT_TOKEN_URL":           CKIntersightTokenUrl,
-		"intersight_token_url":           CKIntersightTokenUrl,
-		"INTERSIGHT_TOKEN_CACHE_PATH":    CKIntersightTokenCachePath,
-		"intersight_token_cache_path":    CKIntersightTokenCachePath,
-		"INTERSIGHT_DISABLE_TOKEN_CACHE": CKIntersightDisableTokenCache,
-		"intersight_disable_token_cache": CKIntersightDisableTokenCache,
+		"INTERSIGHT_API_KEY_ID":            CKIntersightApiKeyId,
+		"intersight_api_key_id":            CKIntersightApiKeyId,
+		"INTERSIGHT_SECRET_KEY":            CKIntersightSecretKey,
+		"intersight_secret_key":            CKIntersightSecretKey,
+		"INTERSIGHT_FQDN":                  CKIntersightFqdn,
+		"intersight_fqdn":                  CKIntersightFqdn,
+		"INTERSIGHT_PROXY":                 CKIntersightProxy,
+		"intersight_proxy":                 CKIntersightProxy,
+		"INTERSIGHT_CLIENT_ID":             CKIntersightClientId,
+		"intersight_client_id":             CKIntersightClientId,
+		"INTERSIGHT_CLIENT_SECRET":         CKIntersightClientSecret,
+		"intersight_client_secret":         CKIntersightClientSecret,
+		"INTERSIGHT_TOKEN_URL":             CKIntersightTokenUrl,
+		"intersight_token_url":             CKIntersightTokenUrl,
+		"INTERSIGHT_TOKEN_CACHE_PATH":      CKIntersightTokenCachePath,
+		"intersight_token_cache_path":      CKIntersightTokenCachePath,
+		"INTERSIGHT_DISABLE_TOKEN_CACHE":   CKIntersightDisableTokenCache,
+		"intersight_disable_token_cache":   CKIntersightDisableTokenCache,
+		"INTERSIGHT_TLS_HANDSHAKE_TIMEOUT": CKIntersightTlsHandshakeTimeout,
+		"intersight_tls_handshake_timeout": CKIntersightTlsHandshakeTimeout,
 	}
 
 	if key, ok := aliases[s]; ok {
@@ -234,4 +241,23 @@ func getDefaultTokenCachePath() string {
 		configHome = filepath.Join(home, ".config")
 	}
 	return filepath.Join(configHome, "isctl", "token-cache.json")
+}
+
+// parseTimeout parses a timeout value. A bare integer is interpreted as seconds, otherwise
+// a Go duration string (e.g. "30s", "1m") is expected. The result must be positive.
+func parseTimeout(s string) (time.Duration, error) {
+	s = strings.TrimSpace(s)
+	var d time.Duration
+	if n, err := strconv.Atoi(s); err == nil {
+		d = time.Duration(n) * time.Second
+	} else {
+		d, err = time.ParseDuration(s)
+		if err != nil {
+			return 0, fmt.Errorf("expected seconds or a duration such as 30s or 1m")
+		}
+	}
+	if d <= 0 {
+		return 0, fmt.Errorf("timeout must be positive")
+	}
+	return d, nil
 }

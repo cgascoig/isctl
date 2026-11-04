@@ -219,6 +219,34 @@ DUMMY_RSA_FLAG="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA4r/PkgZCT5lMeu2
     assert_output --partial "1Password CLI"
     assert_output --partial "not found"
 }
+@test "${TEST_SECTION}: tls handshake timeout defaults to empty" {
+    run ./build/isctl --config "${TEMP_CONFIG_FILE}" show-configuration
+    assert_success
+    assert_line "intersight_tls_handshake_timeout: \"\""
+}
+
+@test "${TEST_SECTION}: tls handshake timeout from config file" {
+    echo "intersight_tls_handshake_timeout: 30s" >> "${TEMP_CONFIG_FILE_NEW}"
+    run ./build/isctl --config "${TEMP_CONFIG_FILE_NEW}" show-configuration
+    assert_success
+    assert_line "intersight_tls_handshake_timeout: \"30s\""
+}
+
+@test "${TEST_SECTION}: tls handshake timeout environment variable overrides config file" {
+    echo "intersight_tls_handshake_timeout: 30s" >> "${TEMP_CONFIG_FILE_NEW}"
+    export INTERSIGHT_TLS_HANDSHAKE_TIMEOUT=45
+    run ./build/isctl --config "${TEMP_CONFIG_FILE_NEW}" show-configuration
+    assert_success
+    assert_line "intersight_tls_handshake_timeout: \"45\""
+}
+
+@test "${TEST_SECTION}: invalid tls handshake timeout fails" {
+    export INTERSIGHT_TLS_HANDSHAKE_TIMEOUT=abc
+    run ./build/isctl --config "${TEMP_CONFIG_FILE_NEW}" show-configuration
+    assert_failure
+    assert_output --partial "invalid intersight_tls_handshake_timeout"
+}
+
 setup() {
     load 'test_helper/bats-support/load' # this is required by bats-assert!
     load 'test_helper/bats-assert/load'

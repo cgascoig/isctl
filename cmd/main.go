@@ -248,6 +248,15 @@ func validateFlags(cmd *cobra.Command, args []string) error {
 		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	}
 
+	if s := gK.String(CKIntersightTlsHandshakeTimeout); s != "" {
+		d, err := parseTimeout(s)
+		if err != nil {
+			return fmt.Errorf("invalid %s %q: %v", CKIntersightTlsHandshakeTimeout, s, err)
+		}
+		http.DefaultTransport.(*http.Transport).TLSHandshakeTimeout = d
+		log.Tracef("TLS handshake timeout set to %s", d)
+	}
+
 	if gK.String(CKIntersightProxy) != "" {
 		u, err := url.Parse(gK.String(CKIntersightProxy))
 		if err != nil {

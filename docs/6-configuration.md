@@ -46,6 +46,7 @@ When using OAuth authentication, `isctl` caches the access token to disk to avoi
  - **Intersight FQDN** - Fully Qualified Domain Name of the Intersight service. For SaaS this will be `intersight.com` (and this is the default if not specified) but for Private Virtual Appliance (PVA) or Connected Virtual Appliance (CVA) installations you will need to set this.
  - **Intersight Insecure** - if set to **true**, `isctl` will not verify the certificate of the Intersight API service. If set to **false** (the default), the Intersight API service certificate will be verified.
  - **Intersight Proxy** - The URL of an HTTP proxy to use for API requests (e.g. `http://proxy.example.com:8080`).
+ - **Intersight TLS Handshake Timeout** - Maximum time to wait for the TLS handshake with the Intersight API service (or proxy). Accepts a number of seconds (e.g. `30`) or a duration (e.g. `30s`, `1m`). Defaults to 10 seconds. Increase this if you see `net/http: TLS handshake timeout` errors.
  - **Readable MoRefs** - if set to **true**, MoRef values in output will use human-readable identity fields (e.g., `MoRef:organization.Organization[Name:default]`) instead of opaque Moid hex strings. The identity fields used depend on each class's identity constraints. Falls back to Moid for classes with no identity constraints. See [Readable MoRefs](../1-basic-queries/#readable-morefs) for details.
 
 ## Configuration Sources
@@ -68,5 +69,11 @@ Source                | Readable MoRefs
 ----------------------|----------------
 Command Line Flags    | `--readable-morefs`
 Configuration file    | `readable_morefs`
+
+Source                | TLS Handshake Timeout
+----------------------|------------------------------------
+Command Line Flags    | &lt;not supported&gt;
+Environment Variables | `INTERSIGHT_TLS_HANDSHAKE_TIMEOUT`
+Configuration file    | `intersight_tls_handshake_timeout`
 
 > Note: Environment variables are case-insensitive.
