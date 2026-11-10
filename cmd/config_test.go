@@ -7,6 +7,7 @@ import (
 	"encoding/pem"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -80,4 +81,24 @@ func TestNormalizeKeyData(t *testing.T) {
 
 	assert.Equal(t, multiLine, normalizeKeyData(strings.ReplaceAll(multiLine, "\n", " ")))
 	assert.Equal(t, "~/intersight.pem", normalizeKeyData("~/intersight.pem"))
+}
+
+func TestParseTimeout(t *testing.T) {
+	valid := map[string]time.Duration{
+		"30":    30 * time.Second,
+		" 45 ":  45 * time.Second,
+		"30s":   30 * time.Second,
+		"1m":    time.Minute,
+		"500ms": 500 * time.Millisecond,
+	}
+	for in, want := range valid {
+		got, err := parseTimeout(in)
+		assert.NoError(t, err, in)
+		assert.Equal(t, want, got, in)
+	}
+
+	for _, in := range []string{"abc", "0", "-5", "-5s", "0s", "10x"} {
+		_, err := parseTimeout(in)
+		assert.Error(t, err, in)
+	}
 }
